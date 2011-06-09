@@ -1,1 +1,1 @@
-SITE = YAML.load_file("#{RAILS.root}/config/site.yml")[Rails.env]
+SITE = YAML.load_file("#{Rails.root}/config/site.yml")[Rails.env]
