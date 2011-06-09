@@ -1,11 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc3'
-
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3'
+# gem 'rails', '3.1.0.rc3'
+gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 # Asset template engines
 gem 'sass-rails', "~> 3.1.0.rc"
@@ -14,16 +10,26 @@ gem 'uglifier'
 
 gem 'jquery-rails'
 
-# Use unicorn as the web server
-# gem 'unicorn'
+gem 'aws-s3', :require => 'aws/s3'
+gem 'newrelic_rpm'
 
-# Deploy with Capistrano
-# gem 'capistrano'
+group :development, :test do
+  gem 'heroku'
+  gem 'unicorn'
+  gem 'sqlite3'
+  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem "edgecase-git-pair"
 
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+  gem "rspec-rails", "~> 2.6"
+  gem 'factory_girl_rails'
+  gem "shoulda-matchers"
 
-group :test do
-  # Pretty printed test output
-  gem 'turn', :require => false
+  gem 'jasmine'
+
+  gem "autotest"
+  gem "capybara"
+end
+
+group :production do
+  gem 'pg'
 end
