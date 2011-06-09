@@ -4,6 +4,8 @@
   <title>MeuRio</title>
   <%= stylesheet_link_tag "reset", "960", "application" -%>
 
+  <link rel="shortcut icon" href="/assets/logo.png">
+
   <%= csrf_meta_tags %>
 </head>
 <body class="container_12">
@@ -14,10 +16,10 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))</script>
 
   <%= javascript_include_tag "libs/json2.js",
-                           "libs/underscore-1.1.6.min.js",
-                           "libs/modernizr-2.0.js",
-                           "libs/backbone-0.3.3.min.js",
-                           "application" -%>
+                             "libs/underscore-1.1.6.min.js",
+                             "libs/modernizr-2.0.js",
+                             "libs/backbone-0.3.3.min.js",
+                             "application" -%>
 
   <!--[if lt IE 7 ]>
   <script src="assets/libs/dd_belatedpng.js"></script>
