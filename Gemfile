@@ -1,12 +1,14 @@
 source 'http://rubygems.org'
 
 # gem 'rails', '3.1.0.rc3'
-gem 'rails',     :git => 'git://github.com/rails/rails.git'
+gem 'rails',  :git => 'git://github.com/rails/rails.git'
 
 # Asset template engines
 gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'
 gem 'uglifier'
+
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 
 gem 'jquery-rails'
 
@@ -26,8 +28,13 @@ group :development, :test do
 
   gem 'jasmine'
 
-  gem "autotest"
+  gem "autotest-rails"
+  gem "autotest-growl"
+  gem "autotest-fsevent"
+
   gem "capybara"
+
+  gem "awesome_print"
 end
 
 group :production do
