@@ -4,6 +4,7 @@ source 'http://rubygems.org'
 gem 'rails',  :git => 'git://github.com/rails/rails.git'
 
 # Asset template engines
+gem 'haml'
 gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'
 gem 'uglifier'
