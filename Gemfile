@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0.rc3'
 #gem 'rails',  :git => 'git://github.com/rails/rails.git'
+gem 'inherited_resources'
+gem 'has_scope'
 
 # Asset template engines
 gem 'haml'
