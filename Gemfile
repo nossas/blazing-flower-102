@@ -16,6 +16,10 @@ gem 'jquery-rails'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'newrelic_rpm'
 
+# Database related gems
+gem 'foreigner'
+#gem 'geokit-rails3'
+
 group :development, :test do
   gem 'heroku'
   gem 'unicorn'
