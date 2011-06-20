@@ -11,6 +11,7 @@ GEM
   remote: http://rubygems.org/
   specs:
     ZenTest (4.5.0)
+    aasm (2.2.0)
     actionmailer (3.1.0.rc3)
       actionpack (= 3.1.0.rc3)
       mail (~> 2.3.0)
@@ -214,6 +215,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   autotest-fsevent
   autotest-growl
   autotest-rails
