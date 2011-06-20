@@ -10,6 +10,7 @@ gem 'coffee-script'
 gem 'uglifier'
 
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+gem 'cancan'
 
 gem 'jquery-rails'
 
@@ -33,7 +34,10 @@ group :development, :test do
   gem "autotest-growl"
   gem "autotest-fsevent"
 
+  gem "cucumber-rails"
   gem "capybara"
+
+  gem "database_cleaner"
 
   gem "awesome_print"
 end

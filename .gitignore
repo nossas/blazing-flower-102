@@ -3,3 +3,8 @@ db/*.sqlite3
 log/*.log
 tmp/
 .sass-cache/
+.*.swp
+.DS_Store
+app/.DS_Store
+app/assets/.DS_Store
+
