@@ -14,6 +14,9 @@ gem 'cancan'
 
 gem 'jquery-rails'
 
+gem 'dynamic_form'
+gem 'inherited_resources'
+
 gem 'aws-s3', :require => 'aws/s3'
 gem 'newrelic_rpm'
 

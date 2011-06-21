@@ -1,0 +1,6 @@
+#new_user
+  =link_to "Create a new user", new_admin_user_path
+#users_list
+  - @users.each do |user|
+    = user.first_name
+    = user.last_name

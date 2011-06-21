@@ -13,15 +13,32 @@ Feature: Authentication
       When I go to the admin dashboard page
       And I fill in the admin login form 
       And I press "Sign in"
-      Then show me the page
       Then I should see "Signed in successfully."
 
-    @focus
     Scenario: Users index
       Given I am logged in to the admin section 
-      Then show me the page
       When I follow "Users"
       Then I should see a list of administrative users
 
-    # Scenario: Add a new user account
-    #   Given I am logged in as an administrator
+    Scenario: Add a new user account
+      Given I am logged in to the admin section
+      When I follow "Users"
+      And I follow "Create a new user"
+      Then I should see a new User form
+
+    Scenario: Create a new user account
+      Given I am logged in to the admin section
+      When I follow "Users"
+      And I follow "Create a new user"
+      And I fill out the new User form
+      And I press "Create User"
+      Then I should see "User was successfully created."
+      And I should see "Nicolas"
+
+    Scenario: Create a new user account with not all fields filled in
+      Given I am logged in to the admin section
+      When I follow "Users"
+      And I follow "Create a new user"
+      And I fill in "First name" with "Dumbo"
+      And I press "Create User"
+      Then I should not see "New user created."
