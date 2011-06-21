@@ -3,47 +3,33 @@
 <head>
   <title>MeuRio</title>
   <%= stylesheet_link_tag "reset", "960", "admin/admin" -%>
-
   <link rel="shortcut icon" href="/assets/logo.png">
-
   <%= csrf_meta_tags %>
 </head>
-<body class="container_12">
-  <header> 
-    <%= link_to image_tag("/images/admin/logo.png"), admin_path -%>
-
-    <nav>
-      <%= link_to_unless_current "Users", admin_users_path -%> 
-    </nav>
-    <nav class="devise">
-      <% if user_signed_in? %>
-        <li>
-        <%= link_to('Logout', destroy_user_session_path) %>        
-        </li>
-      <% else %>
-        <li>
-        <%= link_to('Login', new_user_session_path)  %>  
-        </li>
-      <% end %>
-      <% if user_signed_in? %>
-        <li>
-        <%= link_to('Edit registration', edit_user_registration_path) %>
-        </li>
-      <% else %>
-        <li>
-        <%= link_to('Register', new_user_registration_path)  %>
-        </li>
-      <% end %>
-    </nav>
-
-    
+<body class="admin">
+  <div class="container_12">
+  <header class="grid_12"> 
+    <div id="logo" class="grid_3 alpha">
+      <%= link_to image_tag("/images/admin/logo.png"), admin_path -%>
+    </div>
+    <div class="grid_9 omega">
+      <nav class="devise">
+        <%= render :partial => "/devise/shared/user" -%>
+      </nav>
+      <div class="clearfix"></div>  
+      <nav>
+        <%= link_to_unless_current "Users", admin_users_path -%> 
+      </nav>
+    </div>
   </header>
   
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  </div>
+  <div class="container_12">
+    <%= yield %>
 
-  <%= yield %>
-
+  </div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))</script>
 
