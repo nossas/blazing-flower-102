@@ -6,7 +6,7 @@ describe Admin::PetitionsController do
   describe 'GET new' do
     before{ get :new }
     it{ should be_successful }
-    it{ assings(:petition).should be_new_record }
+    it{ assigns(:petition).should be_new_record }
   end
 
   describe 'GET index' do
