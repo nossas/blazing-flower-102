@@ -1,4 +1,5 @@
 class Admin::PetitionsController < ApplicationController
+  load_and_authorize_resource
   inherit_resources
   actions :index, :new
   respond_to :json, :only => [:index]
