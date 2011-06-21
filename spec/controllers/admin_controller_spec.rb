@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe AdminController do
+describe Admin::AdminController do
 
 end
