@@ -13,19 +13,24 @@
 ActiveRecord::Schema.define(:version => 20110620200727) do
 
   create_table "petitions", :force => true do |t|
-    t.text     "title",                                  :null => false
-    t.text     "path",                                   :null => false
-    t.text     "headline",                               :null => false
+    t.text     "title",                                       :null => false
+    t.text     "custom_path",                                 :null => false
+    t.text     "headline"
     t.text     "description"
-    t.text     "call_to_action",                         :null => false
+    t.text     "call_to_action",        :default => "Assine", :null => false
     t.text     "short_description"
-    t.boolean  "display_counter",   :default => true,    :null => false
-    t.integer  "counter_threshold", :default => 0,       :null => false
+    t.boolean  "display_counter",       :default => true,     :null => false
+    t.integer  "counter_threshold",     :default => 0,        :null => false
     t.integer  "counter_goal"
-    t.text     "current_state",     :default => "draft", :null => false
+    t.boolean  "display_comment_field", :default => false,    :null => false
+    t.text     "comment_question"
+    t.boolean  "surface_comments",      :default => false,    :null => false
+    t.text     "state",                 :default => "draft",  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "petitions", ["custom_path"], :name => "index_petitions_on_custom_path", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
