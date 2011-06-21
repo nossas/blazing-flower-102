@@ -55,6 +55,7 @@ GEM
       xml-simple
     bcrypt-ruby (2.1.4)
     builder (3.0.0)
+    cancan (1.6.5)
     capybara (0.4.1.2)
       celerity (>= 0.7.9)
       culerity (>= 0.2.4)
@@ -73,8 +74,20 @@ GEM
     coffee-script-source (1.1.1)
     columnize (0.3.2)
     configuration (1.2.0)
+    cucumber (0.10.7)
+      builder (>= 2.1.2)
+      diff-lcs (>= 1.1.2)
+      gherkin (~> 2.4.0)
+      json (>= 1.4.6)
+      term-ansicolor (>= 1.0.5)
+    cucumber-rails (0.4.1)
+      cucumber (>= 0.10.1)
+      nokogiri (>= 1.4.4)
+      rack-test (>= 0.5.7)
     culerity (0.2.15)
+    database_cleaner (0.6.7)
     diff-lcs (1.1.2)
+    dynamic_form (1.1.4)
     edgecase-git-pair (0.2.2)
     erubis (2.7.0)
     execjs (1.1.2)
@@ -86,6 +99,8 @@ GEM
     ffi (1.0.9)
     foreigner (1.0.3)
       activerecord (>= 3.0.0)
+    gherkin (2.4.1)
+      json (>= 1.4.6)
     haml (3.1.2)
     has_scope (0.5.0)
     heroku (2.2.8)
@@ -105,6 +120,7 @@ GEM
     jquery-rails (1.0.9)
       railties (~> 3.0)
       thor (~> 0.14)
+    json (1.5.3)
     json_pure (1.5.1)
     kgio (2.4.1)
     launchy (0.4.0)
@@ -220,9 +236,13 @@ DEPENDENCIES
   autotest-rails
   awesome_print
   aws-s3
+  cancan
   capybara
   coffee-script
+  cucumber-rails
+  database_cleaner
   devise!
+  dynamic_form
   edgecase-git-pair
   factory_girl_rails
   foreigner

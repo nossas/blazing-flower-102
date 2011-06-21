@@ -9,5 +9,6 @@ MeuRio::Application.routes.draw do
   namespace :admin do
     get "/" => "dashboard#index"
     resources :petitions
+    resources :users
   end
 end
