@@ -1,0 +1,16 @@
+= form_for [:admin, @user] do |f|
+  = f.error_messages
+
+  .first_name
+    = f.label :first_name
+    = f.text_field :first_name
+  .last_name
+    = f.label :last_name
+    = f.text_field :last_name
+  .email
+    = f.label :email
+    = f.text_field :email
+  .password
+    = f.label :password
+    = f.password_field :password
+  = f.submit

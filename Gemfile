@@ -14,8 +14,12 @@ gem 'coffee-script'
 gem 'uglifier'
 
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+gem 'cancan'
 
 gem 'jquery-rails'
+
+gem 'dynamic_form'
+gem 'inherited_resources'
 
 gem 'aws-s3', :require => 'aws/s3'
 gem 'newrelic_rpm'
@@ -41,7 +45,10 @@ group :development, :test do
   gem "autotest-growl"
   gem "autotest-fsevent"
 
+  gem "cucumber-rails"
   gem "capybara"
+
+  gem "database_cleaner"
 
   gem "awesome_print"
 end
