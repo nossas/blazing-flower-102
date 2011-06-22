@@ -14,7 +14,6 @@ Feature: Managing Users
     And I follow "Create a new user"
     Then I should see a new User form
 
-  @focus
   Scenario: Create a new user account
     Given I am logged in to the admin section
     When I follow "Users"
@@ -94,3 +93,10 @@ Feature: Managing Users
     And I press "Update User"
     Then I should see "User was successfully updated."
     And I should see "This user's account has been deactivated"
+
+  Scenario: Remove an user account
+    Given I am logged in to the admin section
+    And there are 2 admin users
+    And I am on the admin users page
+    When I follow "Delete"
+    Then I should see "User was successfully destroyed."
