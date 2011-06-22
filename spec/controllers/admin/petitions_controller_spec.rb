@@ -7,7 +7,12 @@ describe Admin::PetitionsController do
 
   describe 'GET new' do
     context 'as a guest' do
-      it { expect { get :new }.to raise_error(CanCan::AccessDenied) }
+      before do
+        get :new
+      end
+
+      it { should redirect_to(new_user_session_path) }
+      its(:code){should eq("302")}
     end
 
     context 'as a logged in user' do
@@ -27,7 +32,12 @@ describe Admin::PetitionsController do
     end
 
     context 'as a guest' do
-      it { expect { get :index }.to raise_error(CanCan::AccessDenied) }
+      before do
+        get :index
+      end
+
+      it { should redirect_to(new_user_session_path) }
+      its(:code){should eq("302")}
     end
 
     context 'as a logged in user' do

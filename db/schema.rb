@@ -14,10 +14,10 @@ ActiveRecord::Schema.define(:version => 20110622181329) do
 
   create_table "petitions", :force => true do |t|
     t.text     "title",                                       :null => false
-    t.text     "custom_path",                                 :null => false
+    t.text     "custom_path"
     t.text     "headline"
     t.text     "description"
-    t.text     "call_to_action",        :default => "Assine", :null => false
+    t.text     "call_to_action",        :default => "Assine"
     t.text     "short_description"
     t.boolean  "display_counter",       :default => true,     :null => false
     t.integer  "counter_threshold",     :default => 0,        :null => false
