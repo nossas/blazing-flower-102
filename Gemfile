@@ -5,7 +5,7 @@ gem 'rails', '3.1.0.rc3'
 gem 'inherited_resources'
 gem 'has_scope'
 
-gem 'aasm'
+gem 'state_machine'
 
 # Asset template engines
 gem 'haml'

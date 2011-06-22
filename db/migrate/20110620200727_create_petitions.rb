@@ -1,17 +1,22 @@
 class CreatePetitions < ActiveRecord::Migration
   def change
     create_table :petitions do |t|
-      t.text  :title, :null => false
-      t.text  :path, :null => false
-      t.text  :headline, :null => false
+      t.text  :title,                 :null => false
+      t.text  :custom_path,           :null => false
+      t.text  :headline
       t.text  :description
-      t.text  :call_to_action, :null => false
+      t.text  :call_to_action,        :null => false, :default => 'Assine'
       t.text  :short_description
-      t.boolean :display_counter, :null => false, :default => true
-      t.integer :counter_threshold, :null => false, :default => 0
+      t.boolean :display_counter,     :null => false, :default => true
+      t.integer :counter_threshold,   :null => false, :default => 0
       t.integer :counter_goal
-      t.text  :current_state, :null => false, :default => 'draft'
+      t.boolean :display_comment_field, :null => false, :default => false
+      t.text    :comment_question
+      t.boolean :surface_comments,    :null => false, :default => false
+      t.text  :state,                 :null => false, :default => 'draft'
       t.timestamps
     end
+
+    add_index :petitions, :custom_path, :unique => true
   end
 end

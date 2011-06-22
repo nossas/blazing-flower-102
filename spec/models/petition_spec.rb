@@ -1,5 +1,19 @@
 require 'spec_helper'
 
 describe Petition do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#valid?" do
+    it { should validate_presence_of :title }
+    it { should validate_presence_of :custom_path }
+    it { should validate_presence_of :call_to_action }
+    it { should validate_presence_of :state }
+
+    context "with an already exisiting" do
+      before do
+        Factory(:petition, :custom_path => 'fixed_path')
+      end
+
+      it { should validate_uniqueness_of :custom_path }
+    end
+  end
+
 end
