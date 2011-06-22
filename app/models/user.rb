@@ -5,12 +5,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :active, :email, :first_name, :last_name, :admin, :password, :password_confirmation, :remember_me
+  attr_accessible :active, :email, :first_name, :last_name, :admin, :password, :password_confirmation, :remember_me, :avatar
 
   validates_presence_of :email, :first_name, :last_name
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
   before_create {|u| false if u.password.blank?}
+
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "50x50>" }
 
   def update_with_password(params={}) 
     logger.debug "*****************#{params.inspect}*************}"

@@ -24,6 +24,7 @@ Feature: Managing Users
     Then I should see "User was successfully created."
     And I should see "Nicolas"
     And I should not see "This user's account has been deactivated"
+    And I should see user avatar
 
   Scenario: Create a new user account with not all fields filled in
     Given I am logged in to the admin section
@@ -92,5 +93,4 @@ Feature: Managing Users
     And I uncheck "Active" 
     And I press "Update User"
     Then I should see "User was successfully updated."
-    Then show me the page
-    Then I should see "This user's account has been deactivated"
+    And I should see "This user's account has been deactivated"

@@ -16,6 +16,9 @@
   .password-confirm
     = f.label :password_confirmation
     = f.password_field :password_confirmation
+  .avatar
+    = f.label :avatar
+    = f.file_field :avatar
   .active
     = f.label :active
     = check_box("user", "active", {}, "true", "false")
