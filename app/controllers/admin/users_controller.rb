@@ -3,6 +3,13 @@ class Admin::UsersController < Admin::AdminController
   defaults :route_prefix => 'admin'
   
 
+   def update(options={}, &block)
+      if resource.update_with_password(params[:user])
+          options[:location] ||= smart_resource_url
+      end
+      respond_with_dual_blocks(resource, options, &block)
+   end
+  
   # def index
   #   @users = User.all
   # end
