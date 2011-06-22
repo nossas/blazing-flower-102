@@ -5,6 +5,10 @@
   %p.data= @user.last_name
   %p.label Email
   %p.data= @user.email
+  %h1= @user.account_active?
+  %h2= @user.inspect
+  - unless @user.account_active?
+    %p.data This user's account has been deactivated
 
   =link_to "Edit", edit_admin_user_path(@user)
   =link_to "Index", admin_users_path

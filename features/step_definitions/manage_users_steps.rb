@@ -41,3 +41,10 @@ Then /^I should see an edit User form$/ do
   page.has_content? "form#edit_user"
 end
 
+Given /^there is one activated user$/ do
+  Factory.create(:user)
+end
+
+When /^I follow the first activated user$/ do
+  click_link "edit_user_#{User.where(:active => true).last.id}"
+end

@@ -15,4 +15,9 @@ Feature: Authentication
       And I press "Sign in"
       Then I should see "Signed in successfully."
 
-
+    Scenario: Deactivated user trying to log in
+      Given there is one deactivated user
+      When I go to the admin dashboard page
+      And I fill in the admin login form 
+      And I press "Sign in"
+      Then I should not see "Signed in successfully."

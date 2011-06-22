@@ -14,6 +14,7 @@ Feature: Managing Users
     And I follow "Create a new user"
     Then I should see a new User form
 
+  @focus
   Scenario: Create a new user account
     Given I am logged in to the admin section
     When I follow "Users"
@@ -22,6 +23,7 @@ Feature: Managing Users
     And I press "Create User"
     Then I should see "User was successfully created."
     And I should see "Nicolas"
+    And I should not see "This user's account has been deactivated"
 
   Scenario: Create a new user account with not all fields filled in
     Given I am logged in to the admin section
@@ -81,3 +83,14 @@ Feature: Managing Users
     When I fill in the edit user form
     And I press "Update"
     Then I should see "You updated your account successfully."
+
+  Scenario: Deactivating an user
+    Given I am logged in to the admin section
+    And there is one activated user
+    And I am on the admin users page
+    When I follow the first activated user
+    And I uncheck "Active" 
+    And I press "Update User"
+    Then I should see "User was successfully updated."
+    Then show me the page
+    Then I should see "This user's account has been deactivated"

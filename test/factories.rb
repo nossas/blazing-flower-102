@@ -9,6 +9,10 @@ Factory.define :admin, :parent => :user do |a|
   a.admin true
 end
 
+Factory.define :deactivated, :parent => :admin do |a|
+  a.active false
+end
+
 Factory.define :petition do |p|
   p.sequence(:title) {|n| "Test Petition #{n}" }
   p.sequence(:custom_path) {|n| "test-petition-#{n}" }
