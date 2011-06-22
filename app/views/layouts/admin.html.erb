@@ -17,9 +17,11 @@
         <%= render :partial => "/devise/shared/user" -%>
       </nav>
       <div class="clearfix"></div>  
-      <nav>
+      <% if can? :index, User %>
+        <nav>
         <%= link_to_unless_current "Users", admin_users_path -%> 
-      </nav>
+        </nav>
+      <% end %>
     </div>
   </header>
   
