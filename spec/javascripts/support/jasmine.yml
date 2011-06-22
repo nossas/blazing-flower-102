@@ -15,6 +15,7 @@ src_files:
   - app/assets/javascripts/libs/jquery-1.6.1.min.js
   - app/assets/javascripts/libs/underscore-1.1.6.min.js
   - app/assets/javascripts/libs/backbone.js
+  - app/assets/javascripts/admin/models/*.js
   - app/assets/javascripts/**/*.js
 
 # stylesheets

@@ -1,8 +1,9 @@
-= form_for [:admin, @petition] do |f|
+= form_for [:admin, @petition], :html => {:id => 'petition_form'} do |f|
   = f.error_messages
 
   .title
     = f.label :title
     = f.text_field :title
+    = f.label :title, :id => "petition_title_errors"
   = f.submit
 
