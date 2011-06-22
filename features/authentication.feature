@@ -21,3 +21,8 @@ Feature: Authentication
       And I fill in the admin login form 
       And I press "Sign in"
       Then I should not see "Signed in successfully."
+
+    Scenario: Logging out
+      Given I am logged in to the admin section 
+      When I follow "Logout"
+      Then I should see "Signed out successfully."
