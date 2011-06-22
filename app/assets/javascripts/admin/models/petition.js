@@ -7,7 +7,7 @@ window.Petition = Backbone.Model.extend({
 
   validate : function(attrs){
     if (!attrs.title) {
-      return "Por favor preencha o título";
+      return {title: ["Por favor preencha o título"]};
     }
     // Don't return anything if validation passes
   }

@@ -7,7 +7,7 @@ describe("Petition", function(){
 
   it("should validate the title is present", function(){
     model.set({title: ''});
-    expect(model.validate(model.attributes)).toEqual("Por favor preencha o título");
+    expect(model.validate(model.attributes)).toEqual({title: ["Por favor preencha o título"]});
     model.set({title: 'this is a test title'});
     expect(model.validate(model.attributes)).toEqual(undefined);
   });
