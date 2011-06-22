@@ -2,10 +2,10 @@ class CreatePetitions < ActiveRecord::Migration
   def change
     create_table :petitions do |t|
       t.text  :title,                 :null => false
-      t.text  :custom_path,           :null => false
+      t.text  :custom_path
       t.text  :headline
       t.text  :description
-      t.text  :call_to_action,        :null => false, :default => 'Assine'
+      t.text  :call_to_action,        :default => 'Assine'
       t.text  :short_description
       t.boolean :display_counter,     :null => false, :default => true
       t.integer :counter_threshold,   :null => false, :default => 0
