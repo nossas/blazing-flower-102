@@ -26,3 +26,12 @@ Feature: Authentication
       Given I am logged in to the admin section 
       When I follow "Logout"
       Then I should see "Signed out successfully."
+
+    Scenario: Login with changed password
+      Given I am logged in to the admin section 
+      And I change my password
+      When I follow "Logout"
+      And I go to the admin dashboard page
+      And I fill in the admin login form with my new password
+      And I press "Sign in"
+      Then I should see "Signed in successfully."
