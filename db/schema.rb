@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110621190542) do
+ActiveRecord::Schema.define(:version => 20110623162601) do
+
+  create_table "autofire_emails", :force => true do |t|
+    t.text     "from",       :default => "Dev <dev@meurio.org.br>", :null => false
+    t.text     "subject",    :default => "Obrigado por participar", :null => false
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "petitions", :force => true do |t|
     t.text     "title",                                       :null => false

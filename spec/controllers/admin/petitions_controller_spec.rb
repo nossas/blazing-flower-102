@@ -43,11 +43,10 @@ describe Admin::PetitionsController do
     context 'as a logged in user' do
       before do
         sign_in @admin
-        get :index, :format => 'json'
+        get :index
       end
 
       it{ should be_successful }
-      its(:body){ should == Petition.all.to_json }
       it{ assigns(:petitions).should == Petition.all }
     end
   end
