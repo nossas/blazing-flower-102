@@ -1,0 +1,8 @@
+#new_petiton
+  =link_to "Create a new petition", new_admin_petition_path
+
+%ul#petitions_list
+  - @petitions.each do |p|
+    = p.title
+    = link_to "Edit", edit_admin_petition_path(p)
+
