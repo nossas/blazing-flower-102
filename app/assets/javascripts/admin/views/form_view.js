@@ -1,13 +1,26 @@
 console.log('Loading admin/views/form_view.js');
 
 var FormView = Backbone.View.extend({
+  events: {
+    'click [type="submit"]' : 'save'
+  },
+
   initialize: function(){
     _.bindAll(this, 'handleErrors');
     this.model.bind('error', this.handleErrors);
   },
 
-  handleErrors: function(model, errors){
+  save: function(){
+    this.persist();
+    this.model.save();
+    return false;
+  },
+
+  handleErrors: function(model, errors, third){
     var that = this;
+    if(errors.responseText){
+      errors = JSON.parse(errors.responseText);
+    }
     $.each(errors, function(key, val){
       var selector = '#' + that.getModelName() + '_' + key + '_errors';
       that.$(selector).html(val.join(', '));

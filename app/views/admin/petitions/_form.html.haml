@@ -4,6 +4,62 @@
   .title
     = f.label :title
     = f.text_field :title
-    = f.label :title, :id => "petition_title_errors"
+    %label{:for => :title, :id => "petition_title_errors"}
+
+  .custom_path
+    = f.label :custom_path
+    = f.text_field :custom_path
+    %label{:for => :custom_path, :id => "petition_custom_path_errors"}
+
+  .headline
+    = f.label :headline
+    = f.text_field :headline
+    %label{:for => :headline, :id => "petition_headline_errors"}
+
+  .description
+    = f.label :description
+    = f.text_area :description
+    %label{:for => :description, :id => "petition_description_errors"}
+
+  .call_to_action
+    = f.label :call_to_action
+    = f.text_field :call_to_action
+    %label{:for => :call_to_action, :id => "petition_call_to_action_errors"}
+
+  .short_description
+    = f.label :short_description
+    = f.text_field :short_description
+    %label{:for => :short_description, :id => "petition_short_description_errors"}
+
+  .display_counter
+    = f.label :display_counter
+    = f.check_box :display_counter
+    %label{:for => :display_counter, :id => "petition_display_counter_errors"}
+
+  .counter_threshold
+    = f.label :counter_threshold
+    = f.text_field :counter_threshold
+    %label{:for => :counter_threshold, :id => "petition_counter_threshold_errors"}
+
+  .counter_goal
+    = f.label :counter_goal
+    = f.text_field :counter_goal
+    %label{:for => :counter_goal, :id => "petition_counter_goal_errors"}
+
+  .display_comment_field
+    = f.label :display_comment_field
+    = f.check_box :display_comment_field
+    %label{:for => :display_comment_field, :id => "petition_display_comment_field_errors"}
+
+  .comment_question
+    = f.label :comment_question
+    = f.text_field :comment_question
+    %label{:for => :comment_question, :id => "petition_comment_question_errors"}
+
+  .surface_comments
+    = f.label :surface_comments
+    = f.text_field :surface_comments
+    %label{:for => :surface_comments, :id => "petition_surface_comments_errors"}
+
   = f.submit
 
