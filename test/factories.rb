@@ -16,3 +16,13 @@ Factory.define :petition do |p|
   p.state 'draft'
 end
 
+
+Factory.define :autofire_email do |a|
+  a.from SITE['default_from_email_address']
+  a.sequence(:subject) {|n| "test-autofire-email-#{n}" }
+  a.message "This is a test email"
+end
+
+Factory.define :petition_with_email, :parent => :petition do |p|
+  p.association :autofire_email
+end

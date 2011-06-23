@@ -10,14 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110623162601) do
+ActiveRecord::Schema.define(:version => 20110623165624) do
 
   create_table "autofire_emails", :force => true do |t|
-    t.text     "from",       :default => "Dev <dev@meurio.org.br>", :null => false
-    t.text     "subject",    :default => "Obrigado por participar", :null => false
+    t.text     "from",        :default => "Dev <dev@meurio.org.br>", :null => false
+    t.text     "subject",     :default => "Obrigado por participar", :null => false
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "petition_id",                                        :null => false
   end
 
   create_table "petitions", :force => true do |t|
@@ -60,5 +61,7 @@ ActiveRecord::Schema.define(:version => 20110623162601) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  add_foreign_key "autofire_emails", "petitions", :name => "autofire_emails_petition_id_fk"
 
 end

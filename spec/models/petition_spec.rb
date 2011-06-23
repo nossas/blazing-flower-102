@@ -16,4 +16,7 @@ describe Petition do
     end
   end
 
+  describe "#autofire_email" do
+    it { should have_one :autofire_email }
+  end
 end
