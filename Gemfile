@@ -1,6 +1,6 @@
-source 'http://rubygems.org'
+source :rubyforge
 
-gem 'rails', '3.1.0.rc3'
+gem 'rails', '3.1.0.rc4'
 # gem 'rails',  :git => 'git://github.com/rails/rails.git'
 
 # gem 'state_machine'
@@ -9,6 +9,7 @@ gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git',:branc
 
 # Fix for activeadmin / rails 3.1
 gem "meta_search",    '>= 1.1.0.pre'
+gem "fastercsv"
 
 gem 'jquery-rails'
 
