@@ -11,5 +11,6 @@ MeuRio::Application.routes.draw do
     get "/" => "dashboard#index"
     resources :petitions
     resources :users
+    resources :emails
   end
 end

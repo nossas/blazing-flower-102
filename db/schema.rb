@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20110623165624) do
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "petition_id",                                        :null => false
+    t.integer  "petition_id"
   end
 
   create_table "petitions", :force => true do |t|
@@ -61,7 +61,5 @@ ActiveRecord::Schema.define(:version => 20110623165624) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  add_foreign_key "autofire_emails", "petitions", :name => "autofire_emails_petition_id_fk"
 
 end
