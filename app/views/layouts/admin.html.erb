@@ -14,14 +14,17 @@
     </div>
     <div class="grid_9 omega">
       <nav class="devise">
+        <% if current_user %>
+          <%= "Hello, #{current_user.first_name}!" -%>
+        <% end %>
         <%= render :partial => "/devise/shared/user" -%>
       </nav>
       <div class="clearfix"></div>  
-      <% if can? :index, User %>
-        <nav>
-        <%= link_to_unless_current "Users", admin_users_path -%> 
-        </nav>
-      <% end %>
+      <nav class="main">
+        <% if can? :index, User %>
+          <div><%= link_to_unless_current "Users", admin_users_path -%></div>
+        <% end %>
+      </nav>
     </div>
   </header>
   
