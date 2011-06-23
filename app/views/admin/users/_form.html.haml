@@ -22,4 +22,7 @@
   .active
     = f.label :active
     = check_box("user", "active", {}, "true", "false")
+  .admin_user
+    = f.label :admin
+    = check_box("user", "admin", {}, "true", "false")
   = f.submit

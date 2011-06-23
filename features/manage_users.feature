@@ -22,8 +22,19 @@ Feature: Managing Users
     And I press "Create User"
     Then I should see "User was successfully created."
     And I should see "Nicolas"
-    And I should not see "This user's account has been deactivated"
     And I should see user avatar
+    And I should not see "This user's account has been deactivated"
+    And I should not see "This user has all administrative privileges"
+
+  Scenario: Create a new admin user account
+    Given I am logged in to the admin section
+    When I follow "Users"
+    And follow "Create a new user"
+    And I fill out the new User form
+    And I check "Admin"
+    And I press "Create User"
+    Then I should see "User was successfully created"
+    And I should see "This user has all administrative privileges"
 
   Scenario: Create a new user account with not all fields filled in
     Given I am logged in to the admin section
