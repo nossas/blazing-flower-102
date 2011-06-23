@@ -1,4 +1,5 @@
-= image_tag @user.avatar.url(:thumb), :id => "user_avatar"
+-if @user.avatar.url.blank?
+  = image_tag @user.avatar.url(:thumb), :id => "user_avatar"
 %p.label First Name
 %p.data= @user.first_name
 %p.label Last Name
