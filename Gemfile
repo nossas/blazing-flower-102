@@ -1,31 +1,35 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0.rc3'
-#gem 'rails',  :git => 'git://github.com/rails/rails.git'
-gem 'inherited_resources'
-gem 'has_scope'
+# gem 'rails',  :git => 'git://github.com/rails/rails.git'
 
-gem 'state_machine'
+# gem 'state_machine'
+
+gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git',:branch => "rails-3-1"
+
+# Fix for activeadmin / rails 3.1
+gem "meta_search",    '>= 1.1.0.pre'
+
+gem 'jquery-rails'
+
 
 # Asset template engines
-gem 'haml'
+# gem 'haml'
 gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'
 gem 'uglifier'
 
-gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
-gem 'cancan'
+# gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+# gem 'cancan'
 
-gem 'jquery-rails'
 
-gem 'dynamic_form'
-gem 'inherited_resources'
+# gem 'dynamic_form'
 
-gem 'aws-s3', :require => 'aws/s3'
+# gem 'aws-s3', :require => 'aws/s3'
 gem 'newrelic_rpm'
 
 # Database related gems
-gem 'foreigner'
+# gem 'foreigner'
 #gem 'geokit-rails3'
 
 group :development, :test do
