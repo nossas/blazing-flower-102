@@ -13,7 +13,7 @@ module NavigationHelpers
     when /the admin dashboard page/
       '/admin'
     when /the admin users page/
-      '/admin/users'
+      '/admin/admin_users'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

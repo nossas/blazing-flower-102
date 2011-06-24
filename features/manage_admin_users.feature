@@ -5,22 +5,24 @@ Feature: Managing Users
 
   Scenario: Users index
     Given I am logged in to the admin section 
-    When I follow "Users"
+    When I follow "Admin Users"
     Then I should see a list of administrative users
 
   Scenario: Add a new user account
     Given I am logged in to the admin section
-    When I follow "Users"
-    And I follow "Create a new user"
+    When I follow "Admin Users"
+    And I follow "New Admin User"
     Then I should see a new User form
 
-  Scenario: Create a new user account
+  @focus
+  Scenario: New Admin User account
     Given I am logged in to the admin section
-    When I follow "Users"
-    And I follow "Create a new user"
+    When I follow "Admin Users"
+    And I follow "New Admin User"
     And I fill out the new User form
-    And I press "Create User"
-    Then I should see "User was successfully created."
+    And I press "Create Admin user"
+    Then show me the page
+    Then I should see "Admin user was successfully created."
     And I should see "Nicolas"
     And I should see user avatar
     And I should not see "This user's account has been deactivated"
@@ -29,29 +31,29 @@ Feature: Managing Users
   Scenario: Create a new admin user account
     Given I am logged in to the admin section
     When I follow "Users"
-    And follow "Create a new user"
+    And follow "New Admin User"
     And I fill out the new User form
     And I check "Admin"
-    And I press "Create User"
-    Then I should see "User was successfully created"
+    And I press "Create Admin user"
+    Then I should see "Admin user was successfully created"
     And I should see "This user has all administrative privileges"
 
-  Scenario: Create a new user account with not all fields filled in
+  Scenario: New Admin User account with not all fields filled in
     Given I am logged in to the admin section
     When I follow "Users"
-    And I follow "Create a new user"
+    And I follow "New Admin User"
     And I fill in "First name" with "Dumbo"
-    And I press "Create User"
+    And I press "Create Admin user"
     Then I should not see "New user created."
 
-  Scenario: Create a new user without filling in the password
+  Scenario: New Admin User without filling in the password
     Given I am logged in to the admin section
     When I follow "Users"
-    And I follow "Create a new user"
+    And I follow "New Admin User"
     And I fill in "First name" with "Dumbo"
     And I fill in "Last name" with "the Elephant"
     And I fill in "Email" with "dumbo253@gmail.com"
-    And I press "Create User"
+    And I press "Create Admin user"
     Then I should not see "New user created."
     And I should see "1 error prohibited this user from being saved"
 
@@ -67,8 +69,8 @@ Feature: Managing Users
     When I follow "Users"
     And I follow "Edit"
     And I fill in the edit user form
-    And I press "Update User"
-    Then I should see "User was successfully updated."
+    And I press "Update Admin user"
+    Then I should see "Admin user was successfully updated."
 
   Scenario: Editing a user's account details without updating password
     Given I am logged in to the admin section
@@ -76,8 +78,8 @@ Feature: Managing Users
     When I follow "Users"
     And I follow "Edit"
     And I fill in the edit user form without the password field
-    And I press "Update User"
-    Then I should see "User was successfully updated."
+    And I press "Update Admin user"
+    Then I should see "Admin user was successfully updated."
 
   Scenario: Editing a user's account details (incorrectly filled-out fields)
     Given I am logged in to the admin section
@@ -85,8 +87,8 @@ Feature: Managing Users
     When I follow "Users"
     And I follow "Edit"
     And I fill in "Email" with "Not An Email Address"
-    And I press "Update User"
-    Then I should not see "User was successfully updated."
+    And I press "Update Admin user"
+    Then I should not see "Admin user was successfully updated."
 
   Scenario: Editing logged-in user's account details
     Given I am logged in to the admin section
@@ -101,8 +103,8 @@ Feature: Managing Users
     And I am on the admin users page
     When I follow the first activated user
     And I uncheck "Active" 
-    And I press "Update User"
-    Then I should see "User was successfully updated."
+    And I press "Update Admin user"
+    Then I should see "Admin user was successfully updated."
     And I should see "This user's account has been deactivated"
 
   Scenario: Remove an user account
@@ -110,4 +112,4 @@ Feature: Managing Users
     And there are 2 admin users
     And I am on the admin users page
     When I follow "Delete"
-    Then I should see "User was successfully destroyed."
+    Then I should see "Admin user was successfully destroyed."

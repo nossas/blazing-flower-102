@@ -22,12 +22,22 @@ ActiveAdmin.register AdminUser do
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :avatar, :as => :file
     end
     f.inputs "User Roles" do
       f.input :is_admin, :label => 'Admin?'
       f.input :is_campaigner, :label => 'Campaigner?'
     end
     f.buttons
+  end
+
+  show do
+    h3 admin_user.name
+    img({ :src => admin_user.avatar.url(:thumb), :id => "admin_user_avatar" })
+    div do
+      h4 "Email"
+      simple_format admin_user.email
+    end
   end
 
 end
