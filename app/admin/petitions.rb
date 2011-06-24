@@ -14,8 +14,8 @@ ActiveAdmin.register Petition do
       end
     end
     column "Options" do |e| 
-      span link_to 'Show', admin_autofire_email_path(e)
-      span link_to 'Edit', edit_admin_autofire_email_path(e)
+      span link_to 'Show', admin_petition_path(e)
+      span link_to 'Edit', edit_admin_petition_path(e)
     end
     column :created_at
   end
