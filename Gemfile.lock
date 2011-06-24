@@ -71,6 +71,7 @@ GEM
     awesome_print (0.3.2)
     bcrypt-ruby (2.1.4)
     builder (3.0.0)
+    cancan (1.6.5)
     capybara (0.4.1.2)
       celerity (>= 0.7.9)
       culerity (>= 0.2.4)
@@ -257,6 +258,7 @@ DEPENDENCIES
   autotest-growl
   autotest-rails
   awesome_print
+  cancan
   capybara
   coffee-script
   cucumber-rails

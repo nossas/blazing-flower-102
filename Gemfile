@@ -23,7 +23,7 @@ gem 'coffee-script'
 gem 'uglifier'
 
 # gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
-# gem 'cancan'
+gem 'cancan'
 
 
 # gem 'dynamic_form'

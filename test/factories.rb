@@ -1,15 +1,15 @@
-Factory.define :user do |m|
+Factory.define :admin_user do |m|
   m.first_name 'Admin'
   m.last_name  'Test'
   m.password   '123-test'
   m.sequence(:email) {|n| "test-admin#{n}@meurio.org.br" }
 end
 
-Factory.define :admin, :parent => :user do |a|
-  a.admin true
+Factory.define :admin, :parent => :admin_user do |a|
+  a.is_admin true
 end
 
-Factory.define :deactivated, :parent => :admin do |a|
+Factory.define :deactivated, :parent => :admin_user do |a|
   a.active false
 end
 

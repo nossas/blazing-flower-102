@@ -12,20 +12,20 @@ Feature: Authentication
       Given there is one administrative user
       When I go to the admin dashboard page
       And I fill in the admin login form 
-      And I press "Sign in"
+      And I press "Login"
       Then I should see "Signed in successfully."
 
     Scenario: Deactivated user trying to log in
       Given there is one deactivated user
       When I go to the admin dashboard page
       And I fill in the admin login form 
-      And I press "Sign in"
+      And I press "Login"
       Then I should not see "Signed in successfully."
 
     Scenario: Logging out
       Given I am logged in to the admin section 
       When I follow "Logout"
-      Then I should see "Signed out successfully."
+      Then I should see "You need to sign in or sign up before continuing."
 
     Scenario: Login with changed password
       Given I am logged in to the admin section 
@@ -33,5 +33,5 @@ Feature: Authentication
       When I follow "Logout"
       And I go to the admin dashboard page
       And I fill in the admin login form with my new password
-      And I press "Sign in"
+      And I press "Login"
       Then I should see "Signed in successfully."

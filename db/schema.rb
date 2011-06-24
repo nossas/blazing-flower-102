@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110622181329) do
+ActiveRecord::Schema.define(:version => 20110624204229) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20110622181329) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.boolean  "active",                                :default => true
   end
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
