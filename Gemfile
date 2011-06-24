@@ -35,6 +35,8 @@ gem 'newrelic_rpm'
 # gem 'foreigner'
 #gem 'geokit-rails3'
 
+gem 'paperclip'
+
 group :development, :test do
   gem 'heroku'
   gem 'unicorn'

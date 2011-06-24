@@ -1,5 +1,5 @@
 Given /^there is one administrative user$/ do
-  Factory.create(:user)
+  Factory.create(:admin)
 end
 
 Given /^I am logged in to the admin section$/ do

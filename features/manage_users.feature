@@ -22,6 +22,19 @@ Feature: Managing Users
     And I press "Create User"
     Then I should see "User was successfully created."
     And I should see "Nicolas"
+    And I should see user avatar
+    And I should not see "This user's account has been deactivated"
+    And I should not see "This user has all administrative privileges"
+
+  Scenario: Create a new admin user account
+    Given I am logged in to the admin section
+    When I follow "Users"
+    And follow "Create a new user"
+    And I fill out the new User form
+    And I check "Admin"
+    And I press "Create User"
+    Then I should see "User was successfully created"
+    And I should see "This user has all administrative privileges"
 
   Scenario: Create a new user account with not all fields filled in
     Given I am logged in to the admin section
@@ -81,3 +94,20 @@ Feature: Managing Users
     When I fill in the edit user form
     And I press "Update"
     Then I should see "You updated your account successfully."
+
+  Scenario: Deactivating an user
+    Given I am logged in to the admin section
+    And there is one activated user
+    And I am on the admin users page
+    When I follow the first activated user
+    And I uncheck "Active" 
+    And I press "Update User"
+    Then I should see "User was successfully updated."
+    And I should see "This user's account has been deactivated"
+
+  Scenario: Remove an user account
+    Given I am logged in to the admin section
+    And there are 2 admin users
+    And I am on the admin users page
+    When I follow "Delete"
+    Then I should see "User was successfully destroyed."

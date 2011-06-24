@@ -1,0 +1,42 @@
+!!!
+%html
+  %head
+    %title MeuRio
+    = stylesheet_link_tag "reset", "960", "admin/admin"
+    %link{:href => "/assets/logo.png", :rel => "shortcut icon"}/
+    = csrf_meta_tags
+  %body.admin
+    .container_12
+      %header.grid_12
+      #logo.grid_3.alpha
+        = link_to image_tag("/images/admin/logo.png"), admin_path
+      .grid_9.omega
+        %nav.devise
+        - if current_user
+          = "Hello, #{current_user.first_name}!"
+        = render :partial => "/devise/shared/user"
+        .clearfix
+        %nav.main
+        - if can? :index, User
+          %div= link_to_unless_current "Users", admin_users_path
+      %p.notice= notice
+      %p.alert= alert
+    .container_12
+      = yield
+    %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"}
+    :javascript
+      !window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))    = javascript_include_tag "libs/json2.js", |
+      "libs/underscore-1.1.6.min.js",         |
+      "libs/modernizr-2.0.js",                |
+      "libs/backbone-0.3.3.min.js",           |
+      "admin",                                |
+      "application.js"                        |
+    /[if lt IE 7 ]
+      <script src="assets/libs/dd_belatedpng.js"></script>
+      <script> DD_belatedPNG.fix('img, .png_bg');</script>
+    :javascript
+      var _gaq=[['_setAccount','#{SITE['ga_tracking_code']}'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+  
