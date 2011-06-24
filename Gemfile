@@ -14,6 +14,7 @@ gem "kaminari"
 
 gem 'jquery-rails'
 
+gem 'paperclip'
 
 # Asset template engines
 # gem 'haml'
