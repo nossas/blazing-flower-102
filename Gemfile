@@ -1,11 +1,12 @@
 source :rubyforge
 
-# gem 'rails', '3.1.0.rc4'
-gem 'rails',  :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
+gem 'rails', '3.1.0.rc4'
+# gem 'rails',  :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
 
 # gem 'state_machine'
 
-gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git',:branch => "rails-3-1"
+gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git', :branch => "rails-3-1"
+# gem 'activeadmin'
 
 # Fix for activeadmin / rails 3.1
 gem "meta_search",    '>= 1.1.0.pre'
