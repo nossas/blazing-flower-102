@@ -12,7 +12,7 @@ gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git', :bran
 gem "meta_search",    '>= 1.1.0.pre'
 
 # Fix for Heroku
-gem "rake", "0.9.2"
+gem "rake", "0.8.7"
 
 gem "fastercsv"
 gem "kaminari"
