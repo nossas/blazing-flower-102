@@ -12,5 +12,5 @@ Feature: Managing Petitions
   Scenario: New Petition form
     Given I am logged in to the admin section
     And I am on the admin petitions page
-    When I follow "Create a new petition"
+    When I follow "New Petition"
     Then I should see new petition form
