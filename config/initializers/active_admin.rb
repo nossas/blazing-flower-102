@@ -53,7 +53,7 @@ ActiveAdmin.setup do |config|
   # namespace only. You can turn them on in a namesapce
   # by adding them to the comments array.
   #
-  # config.allow_comments_in = [:admin]
+  config.allow_comments_in = [:admin]
 
 
   # == Controller Filters
