@@ -114,6 +114,7 @@ GEM
       i18n (~> 0.4)
     gherkin (2.4.1)
       json (>= 1.4.6)
+    haml (3.1.2)
     has_scope (0.5.0)
     heroku (2.2.8)
       launchy (>= 0.3.2)
@@ -271,6 +272,7 @@ DEPENDENCIES
   factory_girl_rails
   fastercsv
   foreman
+  haml
   heroku
   jasmine
   jquery-rails

@@ -25,7 +25,7 @@ class Ability
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
-    user ||= User.new
+    user ||= AdminUser.new
     if user.admin?
       can :manage, :all
     # elsif user.campaigner?

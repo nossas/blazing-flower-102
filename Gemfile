@@ -5,7 +5,7 @@ gem 'rails', '3.1.0.rc4'
 gem 'jquery-rails'
 
 # Asset template engines
-# gem 'haml'
+gem 'haml'
 gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'
 gem 'uglifier'
