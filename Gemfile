@@ -41,6 +41,7 @@ group :development, :test do
   gem 'heroku'
   gem 'unicorn'
   gem 'sqlite3'
+  gem 'foreman'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem "edgecase-git-pair"
 
@@ -63,6 +64,9 @@ group :development, :test do
 end
 
 group :production do
+  # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
+  gem 'thin'
+
   # The below is a fix until Rails 3.1rc5 arrives
   gem 'therubyracer-heroku', '0.8.1.pre3'
 end
