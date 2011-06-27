@@ -10,6 +10,10 @@ gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git', :bran
 
 # Fix for activeadmin / rails 3.1
 gem "meta_search",    '>= 1.1.0.pre'
+
+# Fix for Heroku
+gem "rake", "0.9.2"
+
 gem "fastercsv"
 gem "kaminari"
 
