@@ -18,7 +18,7 @@ gem "meta_search",    '>= 1.1.0.pre'
 gem "fastercsv"
 gem "kaminari"
 
-# Fix for Heroku
+# Fix for Heroku, try upgrading with Rails 3.1
 gem "rake", "0.8.7"
 
 # gem 'state_machine'
