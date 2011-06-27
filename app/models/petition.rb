@@ -1,5 +1,6 @@
 class Petition < ActiveRecord::Base
   has_one :autofire_email
+  has_one :taf
 
   validates_presence_of :title
   validates_presence_of :custom_path

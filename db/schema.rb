@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110624204229) do
+ActiveRecord::Schema.define(:version => 20110627181000) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -82,5 +82,28 @@ ActiveRecord::Schema.define(:version => 20110624204229) do
   end
 
   add_index "petitions", ["custom_path"], :name => "index_petitions_on_custom_path", :unique => true
+
+  create_table "tafs", :force => true do |t|
+    t.text     "thank_you_headline", :default => "Obrigado por participar"
+    t.text     "thank_you_text"
+    t.boolean  "display_orkut",      :default => false,                     :null => false
+    t.text     "orkut_title"
+    t.text     "orkut_link"
+    t.text     "orkut_message"
+    t.boolean  "display_facebook",   :default => false,                     :null => false
+    t.text     "facebook_title"
+    t.text     "facebook_link"
+    t.text     "facebook_message"
+    t.boolean  "display_twitter",    :default => false,                     :null => false
+    t.text     "tweet"
+    t.text     "twitter_url"
+    t.boolean  "display_email",      :default => false,                     :null => false
+    t.text     "email_subject"
+    t.text     "email_message"
+    t.boolean  "display_copy_url",   :default => false,                     :null => false
+    t.integer  "petition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

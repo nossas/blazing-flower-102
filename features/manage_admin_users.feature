@@ -14,14 +14,12 @@ Feature: Managing Users
     And I follow "New Admin User"
     Then I should see a new User form
 
-  @focus
   Scenario: New Admin User account
     Given I am logged in to the admin section
     When I follow "Admin Users"
     And I follow "New Admin User"
     And I fill out the new User form
     And I press "Create Admin user"
-    Then show me the page
     Then I should see "Admin user was successfully created."
     And I should see "Nicolas"
     And I should see user avatar
