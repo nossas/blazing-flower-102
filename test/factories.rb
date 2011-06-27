@@ -30,3 +30,9 @@ end
 Factory.define :petition_with_email, :parent => :petition do |p|
   p.association :autofire_email
 end
+
+Factory.define :taf do |t|
+  t.association :petition
+  t.thank_you_headline 'Obrigado'
+  t.thank_you_text "This is a test TAF"
+end
