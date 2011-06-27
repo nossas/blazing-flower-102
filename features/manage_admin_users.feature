@@ -14,14 +14,12 @@ Feature: Managing Users
     And I follow "New Admin User"
     Then I should see a new User form
 
-  @focus
   Scenario: New Admin User account
     Given I am logged in to the admin section
     When I follow "Admin Users"
     And I follow "New Admin User"
     And I fill out the new User form
     And I press "Create Admin user"
-    Then show me the page
     Then I should see "Admin user was successfully created."
     And I should see "Nicolas"
     And I should see user avatar
@@ -36,7 +34,6 @@ Feature: Managing Users
     And I check "Admin"
     And I press "Create Admin user"
     Then I should see "Admin user was successfully created"
-    And I should see "This user has all administrative privileges"
 
   Scenario: New Admin User account with not all fields filled in
     Given I am logged in to the admin section
@@ -55,7 +52,7 @@ Feature: Managing Users
     And I fill in "Email" with "dumbo253@gmail.com"
     And I press "Create Admin user"
     Then I should not see "New user created."
-    And I should see "1 error prohibited this user from being saved"
+    And I should see "can't be blank"
 
   Scenario: Edit a user's account details
     Given I am logged in to the admin section
@@ -72,6 +69,7 @@ Feature: Managing Users
     And I press "Update Admin user"
     Then I should see "Admin user was successfully updated."
 
+  @focus
   Scenario: Editing a user's account details without updating password
     Given I am logged in to the admin section
     And there are 2 admin users

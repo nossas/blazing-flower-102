@@ -13,7 +13,6 @@ class AdminUser < ActiveRecord::Base
 
   before_create {|u| false if u.password.blank?}
 
-
   def active_for_authentication?
     # Comment out the below debug statement to view the properties of the returned self model values.
     # logger.debug self.to_yaml
