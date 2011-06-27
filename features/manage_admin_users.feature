@@ -14,7 +14,6 @@ Feature: Managing Users
     And I follow "New Admin User"
     Then I should see a new User form
 
-  @focus
   Scenario: New Admin User account
     Given I am logged in to the admin section
     When I follow "Admin Users"
