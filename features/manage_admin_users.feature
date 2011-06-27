@@ -21,7 +21,6 @@ Feature: Managing Users
     And I follow "New Admin User"
     And I fill out the new User form
     And I press "Create Admin user"
-    Then show me the page
     Then I should see "Admin user was successfully created."
     And I should see "Nicolas"
     And I should see user avatar
