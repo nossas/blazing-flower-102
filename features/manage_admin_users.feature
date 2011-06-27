@@ -69,7 +69,6 @@ Feature: Managing Users
     And I press "Update Admin user"
     Then I should see "Admin user was successfully updated."
 
-  @focus
   Scenario: Editing a user's account details without updating password
     Given I am logged in to the admin section
     And there are 2 admin users
