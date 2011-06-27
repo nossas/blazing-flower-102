@@ -14,6 +14,14 @@ describe Petition do
 
       it { should validate_uniqueness_of :custom_path }
     end
+
+    describe "#autofire_email" do
+      it { should have_one :autofire_email }
+    end
+
+    describe "#taf" do
+      it { should have_one :taf }
+    end
   end
 
   describe "#autofire_email" do
