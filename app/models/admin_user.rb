@@ -11,7 +11,7 @@ class AdminUser < ActiveRecord::Base
   validates_presence_of :email, :first_name, :last_name
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
-  # before_create {|u| false if u.password.blank?}
+  before_create {|u| false if u.password.blank?}
 
   def active_for_authentication?
     # Comment out the below debug statement to view the properties of the returned self model values.
@@ -19,6 +19,15 @@ class AdminUser < ActiveRecord::Base
     super && account_active?
   end
 
+ def update_with_password(params={}) 
+    if params[:password].blank? 
+      params.delete(:password) 
+      params.delete(:password_confirmation) if 
+      params[:password_confirmation].blank? 
+    end 
+    update_attributes(params) 
+  end 
+  
   def name
     "#{self.first_name} #{self.last_name}"
   end

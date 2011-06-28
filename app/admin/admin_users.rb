@@ -3,6 +3,15 @@ ActiveAdmin.register AdminUser do
   filter :first_name
   filter :last_name
 
+  controller do
+   def update(options={}, &block)
+      if resource.update_with_password(params[:admin_user])
+          options[:location] ||= smart_resource_url
+      end
+      respond_with_dual_blocks(resource, options, &block)
+   end
+  end
+
   index do
     column :first_name
     column :last_name

@@ -60,7 +60,7 @@ Feature: Managing Users
     And I follow "Edit"
     Then I should see an edit User form
 
-  Scenario: Editing a user's account details
+  Scenario: Editing a user's account details with updated password
     Given I am logged in to the admin section
     And there are 2 admin users
     When I follow "Users"
@@ -69,15 +69,14 @@ Feature: Managing Users
     And I press "Update Admin user"
     Then I should see "Admin user was successfully updated."
 
-  #   @focus
-  # Scenario: Editing a user's account details without updating password
-  #   Given I am logged in to the admin section
-  #   And there are 2 admin users
-  #   When I follow "Admin Users"
-  #   And I follow "Edit"
-  #   And I fill in the edit user form without the password field
-  #   And I press "Update Admin user"
-  #   Then I should see "Admin user was successfully updated."
+  Scenario: Editing a user's account details without updating password
+    Given I am logged in to the admin section
+    And there are 2 admin users
+    When I follow "Admin Users"
+    And I follow "Edit"
+    And I fill in the edit user form without the password field
+    And I press "Update Admin user"
+    Then I should see "Admin user was successfully updated."
 
   Scenario: Editing a user's account details (incorrectly filled-out fields)
     Given I am logged in to the admin section
