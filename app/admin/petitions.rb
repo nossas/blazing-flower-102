@@ -35,6 +35,9 @@ ActiveAdmin.register Petition do
     end
 
     f.inputs "Petition Information" do
+      if f.object.complete?
+        f.input :state, :as => :select, :collection => (f.object.state_transitions.map{ |t| t.to_name } << f.object.state)
+      end
       f.input :headline, :as => :string
       f.input :description
       f.input :call_to_action, :as => :string
