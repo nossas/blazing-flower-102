@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'spec_helper'
 
 describe Petition do
@@ -15,16 +16,38 @@ describe Petition do
       it { should validate_uniqueness_of :custom_path }
     end
 
-    describe "#autofire_email" do
-      it { should have_one :autofire_email }
+    context "invalid #custom_path" do
+      it "should return false" do
+        p = Factory.build(:petition, :custom_path => 'fixed_path')
+
+        p.custom_path = 'fixed path'
+        p.valid?.should == false
+
+        p.custom_path = 'fixédpath'
+        p.valid?.should == false
+
+        p.custom_path = 'fixçdpath'
+        p.valid?.should == false
+
+        p.custom_path = 'fixed/path'
+        p.valid?.should == false
+      end
     end
 
-    describe "#taf" do
-      it { should have_one :taf }
+    context "valid #custom_path" do
+      p = Factory.build(:petition, :custom_path => 'fixed_path')
+      p.valid?.should == true
+
+      p.custom_path = 'fixed-path'
+      p.valid?.should == true
     end
   end
 
   describe "#autofire_email" do
     it { should have_one :autofire_email }
+  end
+
+  describe "#taf" do
+    it { should have_one :taf }
   end
 end
