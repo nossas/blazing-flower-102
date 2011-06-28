@@ -9,4 +9,12 @@ class Petition < ActiveRecord::Base
   validates_presence_of :state
 
   validates_format_of :custom_path, :with => /^[a-zA-Z0-9_-]+$/
+
+  validates_inclusion_of :display_counter, :in => [true,false]
+  validates_presence_of :counter_threshold
+
+  validates_inclusion_of :display_comment_field, :in => [true,false]
+  validates_inclusion_of :surface_comments, :in => [true,false]
+  validates_presence_of :comment_question, :if => Proc.new { |t| t.display_comment_field }
+
 end

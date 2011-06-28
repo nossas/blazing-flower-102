@@ -43,6 +43,24 @@ describe Petition do
     end
   end
 
+  describe "Display Comment Field" do
+    it "should not validate comment field properties by default" do
+      @petition = Factory.build(:petition)
+      @petition.valid?.should be_true
+    end
+
+    context "#display_comment_field => true" do
+      before do
+        @petition = Factory.build(:petition, :display_comment_field => true)
+      end
+
+      it "should validate comment field properties" do
+        @petition.valid?.should be_false
+        @petition.errors.messages[:comment_question][0].should == "can't be blank"
+      end
+    end
+  end
+
   describe "#autofire_email" do
     it { should have_one :autofire_email }
   end

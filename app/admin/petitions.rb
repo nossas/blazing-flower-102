@@ -29,12 +29,12 @@ ActiveAdmin.register Petition do
 
   form do |f|
     f.inputs "Campaign Information" do
+      f.input :title, :as => :string
+      f.input :custom_path, :as => :string
     end
 
     f.inputs "Petition Information" do
-      f.input :title, :as => :string
       f.input :headline, :as => :string
-      f.input :custom_path, :as => :string
       f.input :description
       f.input :call_to_action, :as => :string
     end
