@@ -36,3 +36,8 @@ Factory.define :taf do |t|
   t.thank_you_headline 'Obrigado'
   t.thank_you_text "This is a test TAF"
 end
+
+Factory.define :complete_petition, :parent => :petition do |p|
+  p.association :autofire_email
+  p.association :taf
+end
