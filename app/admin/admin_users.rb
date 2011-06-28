@@ -27,6 +27,7 @@ ActiveAdmin.register AdminUser do
     f.inputs "User Roles" do
       f.input :is_admin, :label => 'Admin?'
       f.input :is_campaigner, :label => 'Campaigner?'
+      f.input :active, :label => 'Active?'
     end
     f.buttons
   end

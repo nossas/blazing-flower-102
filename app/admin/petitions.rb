@@ -5,19 +5,26 @@ ActiveAdmin.register Petition do
 
   index do
     column :title
+    column :headline
     column :custom_path
     column 'Autofire Email' do |p|
       if p.autofire_email
         link_to p.autofire_email.subject, admin_autofire_email_path(p.autofire_email)
       else
-        'None'
+        link_to "Create Email", new_admin_autofire_email_path
+      end
+    end
+    column 'TAF' do |p|
+      if p.taf
+        link_to p.taf.thank_you_headline, admin_taf_path(p.taf)
+      else
+        link_to "Create TAF", new_admin_taf_path
       end
     end
     column "Options" do |e| 
       span link_to 'Show', admin_petition_path(e)
       span link_to 'Edit', edit_admin_petition_path(e)
     end
-    column :created_at
   end
 
   form do |f|

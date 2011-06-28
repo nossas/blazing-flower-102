@@ -24,4 +24,6 @@ MeuRio::Application.configure do
 
   # Do not compress assets
   config.assets.compress = false
+
+  default_url_options[:host] = "http://localhost:3000"
 end
