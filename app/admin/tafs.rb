@@ -1,6 +1,5 @@
 ActiveAdmin.register Taf do
-  menu :label => "TAFs"
-  menu :parent => "Petitions"
+  menu false
 
   filter :petition
 
