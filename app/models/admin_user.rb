@@ -32,9 +32,8 @@ class AdminUser < ActiveRecord::Base
     "#{self.first_name} #{self.last_name}"
   end
 
-  private
-    def account_active?
-      self.active
-    end
+  def account_active?
+    self.active
+  end
 
 end

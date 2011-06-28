@@ -21,8 +21,9 @@ ActiveAdmin.register AdminUser do
     column :last_sign_in_at
     column :created_at
     column "Options" do |user| 
-      span link_to 'Show', admin_admin_user_path(user)
-      span link_to 'Edit', edit_admin_admin_user_path(user)
+      span link_to 'Show', admin_admin_user_path(user), :id => "show_user_#{user.id}"
+      span link_to 'Edit', edit_admin_admin_user_path(user), :id => "edit_user_#{user.id}"
+      span link_to "Delete", admin_admin_user_path(user), :method => :delete, :confirm => "Are you sure?", :id => "delete_user_#{user.id}"
     end
   end
 
@@ -49,6 +50,9 @@ ActiveAdmin.register AdminUser do
     div do
       h4 "Email"
       simple_format admin_user.email
+    end
+    unless admin_user.account_active?
+      p "This user's account has been deactivated."
     end
   end
 

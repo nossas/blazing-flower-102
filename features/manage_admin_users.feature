@@ -5,18 +5,18 @@ Feature: Managing Users
 
   Scenario: Users index
     Given I am logged in to the admin section 
-    When I follow "Admin Users"
+    When I follow "Users"
     Then I should see a list of administrative users
 
   Scenario: Add a new user account
     Given I am logged in to the admin section
-    When I follow "Admin Users"
+    When I follow "Users"
     And I follow "New Admin User"
     Then I should see a new User form
 
   Scenario: New Admin User account
     Given I am logged in to the admin section
-    When I follow "Admin Users"
+    When I follow "Users"
     And I follow "New Admin User"
     And I fill out the new User form
     And I press "Create Admin user"
@@ -72,7 +72,7 @@ Feature: Managing Users
   Scenario: Editing a user's account details without updating password
     Given I am logged in to the admin section
     And there are 2 admin users
-    When I follow "Admin Users"
+    When I follow "Users"
     And I follow "Edit"
     And I fill in the edit user form without the password field
     And I press "Update Admin user"
@@ -94,26 +94,19 @@ Feature: Managing Users
   #   And I press "Update"
   #   Then I should see "You updated your account successfully."
 
+  Scenario: Deactivating an user
+    Given I am logged in to the admin section
+    And there is one activated user
+    And I am on the admin users page
+    When I follow the first activated user
+    And I uncheck "Active"
+    And I press "Update Admin user"
+    Then I should see "Admin user was successfully updated."
+    And I should see "This user's account has been deactivated"
 
-
-  # Lets change the below to:
-  # Given a inactive user exists
-  # When I try and login as an inactive user
-  # Then I should see ...
-
-  # Scenario: Deactivating an user
-  #   Given I am logged in to the admin section
-  #   And there is one activated user
-  #   And I am on the admin users page
-  #   When I follow the first activated user
-  #   And I uncheck "Active"
-  #   And I press "Update Admin user"
-  #   Then I should see "Admin user was successfully updated."
-  #   And I should see "This user's account has been deactivated"
-
-  # Scenario: Remove an user account
-  #   Given I am logged in to the admin section
-  #   And there are 2 admin users
-  #   And I am on the admin users page
-  #   When I follow "Delete"
-  #   Then I should see "Admin user was successfully destroyed."
+  Scenario: Remove an user account
+    Given I am logged in to the admin section
+    And there are 2 admin users
+    And I am on the admin users page
+    When I follow "Delete"
+    Then I should see "Admin user was successfully destroyed."

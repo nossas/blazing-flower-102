@@ -6,7 +6,7 @@ Feature: Managing Tell a Friend pages
   Scenario: TAF index
     Given I am logged in to the admin section
     And 2 Tell a Friend pages exist
-    When I follow "TAFs"
+    When I am on the admin tafs page
     Then I should see a list of tafs
 
   Scenario: New TAF form
