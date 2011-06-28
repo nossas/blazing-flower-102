@@ -3,7 +3,6 @@ Factory.define :admin_user do |m|
   m.last_name  'Test'
   m.password   '123-test'
   m.sequence(:email) {|n| "test-admin#{n}@meurio.org.br" }
-  m.confirmed_at Time.now
 end
 
 Factory.define :admin, :parent => :admin_user do |a|
