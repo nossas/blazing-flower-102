@@ -10,14 +10,14 @@ ActiveAdmin.register Petition do
     column :custom_path
     column 'Autofire Email' do |p|
       if p.autofire_email
-        link_to "Edit TAF", admin_autofire_email_path(p.autofire_email)
+        link_to "Edit TAF", edit_admin_autofire_email_path(p.autofire_email)
       else
         link_to "Create Email", new_admin_autofire_email_path
       end
     end
     column 'TAF' do |p|
       if p.taf
-        link_to "Edit TAF", admin_taf_path(p.taf)
+        link_to "Edit TAF", edit_admin_taf_path(p.taf)
       else
         link_to "Create TAF", new_admin_taf_path
       end
