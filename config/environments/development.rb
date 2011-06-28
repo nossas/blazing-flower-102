@@ -26,4 +26,7 @@ MeuRio::Application.configure do
   config.assets.compress = false
 
   default_url_options[:host] = "http://localhost:3000"
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :host => "localhost", :port => 1025 }
+  
 end

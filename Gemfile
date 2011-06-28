@@ -49,6 +49,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem "shoulda-matchers"
 
+  gem "mailcatcher"
+
   gem 'jasmine'
 
   gem "autotest-rails"
