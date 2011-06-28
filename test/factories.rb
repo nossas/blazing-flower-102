@@ -16,6 +16,9 @@ end
 Factory.define :petition do |p|
   p.sequence(:title) {|n| "Test Petition #{n}" }
   p.sequence(:custom_path) {|n| "test-petition-#{n}" }
+  p.sequence(:call_to_action_text) {|n| "This test-petition-#{n} is really important." }
+  p.sequence(:call_to_action_headline) {|n| "Sign this test-petition-#{n}!" }
+  p.media "<img src='not/a/real/image.jpg'>"
   p.call_to_action 'Assine'
   p.state 'draft'
 end

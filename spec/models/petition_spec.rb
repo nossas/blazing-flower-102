@@ -6,6 +6,9 @@ describe Petition do
     it { should validate_presence_of :title }
     it { should validate_presence_of :custom_path }
     it { should validate_presence_of :call_to_action }
+    it { should validate_presence_of :call_to_action_text }
+    it { should validate_presence_of :call_to_action_headline }
+    it { should validate_presence_of :media }
     it { should validate_presence_of :state }
 
     context "with an already exisiting" do

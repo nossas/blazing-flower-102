@@ -1,0 +1,26 @@
+%h1.grid_12= @petition.headline
+.grid_6
+  .media= raw @petition.media
+  -if @petition.display_counter == true
+    .counter
+      counter goes here
+  .description= raw @petition.description
+.grid_6
+  -# =form_for @member_action do |f|
+  -#   =f.label :name
+  -#   =f.text_field :name
+
+  -#   =f.label :email
+  -#   =f.text_field :email
+
+  -#   =f.label :zona
+  -#   =f.select :zona
+
+  -#   =f.label :celuar
+  -#   =f.text_field :celular
+
+  -#   =f.label :commentario
+  -#   =f.text_area :commentario
+
+  -#   =f.submit
+
