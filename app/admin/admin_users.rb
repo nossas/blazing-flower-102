@@ -1,4 +1,6 @@
 ActiveAdmin.register AdminUser do
+  menu :label => "Users"
+
   filter :email
   filter :first_name
   filter :last_name
