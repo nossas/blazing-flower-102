@@ -1,0 +1,2 @@
+module PetitionSignaturesHelper
+end
