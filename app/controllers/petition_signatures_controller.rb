@@ -8,20 +8,17 @@ class PetitionSignaturesController < ApplicationController
 
     if @member.new_record?
       @member.attributes = params[:member] 
-      if @member.save
-        PetitionSignature.create({:member_id => @member.id, :petition_id => petition.id})
-        redirect_to custom_taf_path(petition.custom_path)
-      else 
-        render :action => 'petition/show'
-      end
-    else
-      @signature = PetitionSignature.find_or_initialize_by_member_id_and_petition_id(@member.id, petition.id)
-      if @signature.new_record?
-        @signature.save
-        redirect_to custom_taf_path(petition.custom_path)
-      else
-        redirect_to custom_taf_path(petition.custom_path), :notice => "You've already signed this petition."
+      if not @member.save
+        return render :action => 'petition/show'
       end
     end
+    @signature = PetitionSignature.find_or_initialize_by_member_id_and_petition_id(@member.id, petition.id)
+    if @signature.new_record?
+      @signature.attributes = params[:petition_signature] 
+      @signature.save
+    else
+      flash[:notice] = "You've already signed this petition."
+    end
+    redirect_to custom_taf_path(petition.custom_path)
   end
 end
