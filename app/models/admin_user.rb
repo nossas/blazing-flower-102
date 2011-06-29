@@ -4,9 +4,19 @@ class AdminUser < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email,  :first_name, :last_name, :confirmed_at, :password, :password_confirmation, :remember_me, :is_admin, :is_campaigner, :active
+  attr_accessible :email,  :first_name, :last_name, :avatar, 
+                  :password, :password_confirmation, :remember_me, 
+                  :is_admin, :is_campaigner, :active
 
-  has_attached_file :avatar, :styles => { :medium => "200x200>", :thumb => "60x60" }
+  has_attached_file :avatar,
+                    :styles => { :medium => "200x200>", :thumb => "60x60" },
+                    :path => ':attachment/:id/:style/:filename',
+                    :storage => :s3,
+                    :bucket => SITE['s3_bucket'],
+                    :s3_credentials => {
+                      :access_key_id => SITE['s3_access_key_id'],
+                      :secret_access_key => SITE['s3_secret_access_key']
+                    }
 
   validates_presence_of :email, :first_name, :last_name
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
@@ -22,12 +32,11 @@ class AdminUser < ActiveRecord::Base
  def update_with_password(params={}) 
     if params[:password].blank? 
       params.delete(:password) 
-      params.delete(:password_confirmation) if 
-      params[:password_confirmation].blank? 
-    end 
+      params.delete(:password_confirmation) if params[:password_confirmation].blank?
+    end
     update_attributes(params) 
-  end 
-  
+  end
+
   def name
     "#{self.first_name} #{self.last_name}"
   end
