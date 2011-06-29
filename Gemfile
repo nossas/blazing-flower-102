@@ -21,7 +21,7 @@ gem "kaminari"
 # Fix for Heroku, try upgrading with Rails 3.1
 gem "rake", "0.8.7"
 
-# gem 'state_machine'
+gem 'state_machine'
 gem 'paperclip'
 
 gem 'cancan'

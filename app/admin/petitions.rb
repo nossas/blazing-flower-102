@@ -1,22 +1,23 @@
 ActiveAdmin.register Petition do
+  filter :state, :as => :select, :collection => ['draft', 'published', 'archived', 'deactivated']
   filter :title
   filter :custom_path
   filter :headline
 
   index do
     column :title
-    column :headline
+    column :state
     column :custom_path
     column 'Autofire Email' do |p|
       if p.autofire_email
-        link_to p.autofire_email.subject, admin_autofire_email_path(p.autofire_email)
+        link_to "Edit TAF", edit_admin_autofire_email_path(p.autofire_email)
       else
         link_to "Create Email", new_admin_autofire_email_path
       end
     end
     column 'TAF' do |p|
       if p.taf
-        link_to p.taf.thank_you_headline, admin_taf_path(p.taf)
+        link_to "Edit TAF", edit_admin_taf_path(p.taf)
       else
         link_to "Create TAF", new_admin_taf_path
       end
@@ -34,6 +35,9 @@ ActiveAdmin.register Petition do
     end
 
     f.inputs "Petition Information" do
+      if f.object.complete?
+        f.input :state, :as => :select, :collection => (f.object.state_transitions.map{ |t| t.to_name } << f.object.state)
+      end
       f.input :headline, :as => :string
       f.input :description
       f.input :media

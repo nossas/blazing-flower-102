@@ -20,4 +20,51 @@ class Petition < ActiveRecord::Base
   validates_inclusion_of :surface_comments, :in => [true,false]
   validates_presence_of :comment_question, :if => Proc.new { |t| t.display_comment_field }
 
+  validate :has_valid_state_attributes
+
+  def complete?
+    (self.taf && self.autofire_email && self.taf.valid? && self.autofire_email.valid?)
+  end
+
+  state_machine :state, :initial => :draft do
+
+    #Events
+    event :publish do
+      transition [:draft, :archived, :deactivated] => :published, :if => :complete?
+    end
+
+    event :archive do
+      transition [:published, :deactivated] => :archived, :if => :complete?
+    end
+
+    event :deactivate do
+      transition [:published, :archived] => :deactivated, :if => :complete?
+    end
+
+    # States
+    state :draft do
+      def has_valid_state_attributes
+        true
+      end
+    end
+
+    state :published do
+      def has_valid_state_attributes
+        errors.add(:state, "Cannot transition to published state") unless self.complete?
+      end
+    end
+
+    state :archived do
+      def has_valid_state_attributes
+        errors.add(:state, "Cannot transition to archived state") unless self.complete?
+      end
+    end
+
+    state :deactivated do
+      def has_valid_state_attributes
+        errors.add(:state, "Cannot transition to archived state") unless self.complete?
+      end
+    end
+  end
+
 end

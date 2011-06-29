@@ -3,11 +3,15 @@ Feature: Managing Autofire Emails
   As a admin
   I want to be able to create and manage autofire emails
 
-  Scenario: Email index
-    Given I am logged in to the admin section
-    And 2 autofire emails exist
-    When I follow "Emails"
-    Then I should see a list of emails
+  # Leaving test, but for now we're not displaying 
+  # the email index... I have a feeling it is not 
+  # the last we've seen of it thought
+  #
+  # Scenario: Email index
+  #   Given I am logged in to the admin section
+  #   And 2 autofire emails exist
+  #   When I follow "Emails"
+  #   Then I should see a list of emails
 
   Scenario: New Email form
     Given I am logged in to the admin section

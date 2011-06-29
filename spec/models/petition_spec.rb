@@ -38,13 +38,40 @@ describe Petition do
     end
 
     context "valid #custom_path" do
-      p = Factory.build(:petition, :custom_path => 'fixed_path')
-      p.valid?.should == true
+      it "should return true" do
+        p = Factory.build(:petition, :custom_path => 'fixed_path')
+        p.valid?.should == true
 
-      p.custom_path = 'fixed-path'
-      p.valid?.should == true
+        p.custom_path = 'fixed-path'
+        p.valid?.should == true
+      end
     end
   end
+
+  describe "in draft state" do
+    subject { Factory(:complete_petition) }
+    its(:can_publish?){ should be_true }
+    its(:can_archive?){ should be_false }
+  end
+
+  describe "in published state" do
+    subject { Factory(:complete_petition).tap{|p| p.publish} }
+    its(:can_archive?){ should be_true }
+    its(:can_deactivate?){ should be_true }
+  end
+
+  describe "in archived state" do
+    subject { Factory(:complete_petition).tap{|p| p.publish && p.archive} }
+    its(:can_publish?){ should be_true }
+    its(:can_deactivate?){ should be_true }
+  end
+
+  describe "in deactivated state" do
+    subject { Factory(:complete_petition).tap{|p| p.publish && p.deactivate} }
+    its(:can_archive?){ should be_true }
+    its(:can_publish?){ should be_true }
+  end
+
 
   describe "Display Comment Field" do
     it "should not validate comment field properties by default" do

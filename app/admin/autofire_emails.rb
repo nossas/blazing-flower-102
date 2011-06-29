@@ -1,5 +1,5 @@
 ActiveAdmin.register AutofireEmail do
-  menu :parent => "Petitions"
+  menu false
 
   filter :petition
   filter :from
