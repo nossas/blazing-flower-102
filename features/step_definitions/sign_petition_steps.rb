@@ -1,6 +1,6 @@
 Given /^(\d+) complete petitions exist$/ do |count|
   count.to_i.times do
-
+    Factory.create(:complete_petition)
   end
 end
 
