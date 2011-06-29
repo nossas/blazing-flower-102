@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110629152902) do
+ActiveRecord::Schema.define(:version => 20110629210409) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -82,10 +82,10 @@ ActiveRecord::Schema.define(:version => 20110629152902) do
 
   create_table "petitions", :force => true do |t|
     t.text     "title",                                         :null => false
-    t.text     "custom_path"
+    t.text     "custom_path",                                   :null => false
     t.text     "headline"
     t.text     "description"
-    t.text     "call_to_action",          :default => "Assine"
+    t.text     "call_to_action",          :default => "Assine", :null => false
     t.text     "short_description"
     t.boolean  "display_counter",         :default => true,     :null => false
     t.integer  "counter_threshold",       :default => 0,        :null => false
@@ -96,9 +96,9 @@ ActiveRecord::Schema.define(:version => 20110629152902) do
     t.text     "state",                   :default => "draft",  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "media"
-    t.text     "call_to_action_headline"
-    t.text     "call_to_action_text"
+    t.text     "media",                                         :null => false
+    t.text     "call_to_action_headline",                       :null => false
+    t.text     "call_to_action_text",                           :null => false
   end
 
   add_index "petitions", ["custom_path"], :name => "index_petitions_on_custom_path", :unique => true
