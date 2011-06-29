@@ -1,10 +1,10 @@
 class CreateMembers < ActiveRecord::Migration
   def change
     create_table :members do |t|
-      t.string :name
-      t.string :zona
-      t.string :email
-      t.string :celular
+      t.text :name
+      t.text :zona
+      t.text :email
+      t.text :celular
 
       t.timestamps
     end
