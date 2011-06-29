@@ -13,6 +13,12 @@ Factory.define :deactivated, :parent => :admin_user do |a|
   a.active false
 end
 
+Factory.define :member do |m|
+  m.sequence(:email) {|n| "test-email-#{n}@example.com" }
+  m.name "Cukey Cucumber"
+  m.zona "Centro"
+end
+
 Factory.define :petition do |p|
   p.sequence(:title) {|n| "Test Petition #{n}" }
   p.sequence(:custom_path) {|n| "test-petition-#{n}" }
