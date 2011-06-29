@@ -1,26 +1,29 @@
 %h1.grid_12= @petition.headline
-.grid_6
+.grid_6.alpha
   .media= raw @petition.media
   -if @petition.display_counter == true
     .counter
       counter goes here
   .description= raw @petition.description
-.grid_6
-  -# =form_for @member_action do |f|
-  -#   =f.label :name
-  -#   =f.text_field :name
+.grid_6.omega
+  =form_for @petition_signature do |f|
+    =fields_for @member do |m|
+      =m.label :name
+      =m.text_field :name
 
-  -#   =f.label :email
-  -#   =f.text_field :email
+      =m.label :email
+      =m.text_field :email
 
-  -#   =f.label :zona
-  -#   =f.select :zona
+      =m.label :zona
+      =m.select :zona, %w['Centro' "Zona Norte" "Zona Oeste" "Zona Sul" ]
 
-  -#   =f.label :celuar
-  -#   =f.text_field :celular
+      =m.label :celuar
+      =m.text_field :celular
 
-  -#   =f.label :commentario
-  -#   =f.text_area :commentario
+    =f.label :comment
+    =f.text_area :comment
 
-  -#   =f.submit
+    %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
+
+    =f.submit(@petition.call_to_action)
 
