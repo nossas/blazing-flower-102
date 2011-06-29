@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(:version => 20110629152902) do
   end
 
   create_table "members", :force => true do |t|
-    t.string   "name"
-    t.string   "zona"
-    t.string   "email"
-    t.string   "celular"
+    t.text     "name"
+    t.text     "zona"
+    t.text     "email"
+    t.text     "celular"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
