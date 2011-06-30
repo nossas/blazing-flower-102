@@ -82,12 +82,12 @@ a:hover { color: #036; }
  */
 
 body {
-  background: #edecea;
+  background: #e1e1d9;
   height: 100%;
   width: 100%;
 }
 
-header {
+header, #main {
   background-color: #efeeec;
   margin-bottom: 10px;
 }
@@ -96,9 +96,6 @@ header {
   background-color: transparent;
 }
 
-#main {
-
-}
 
 
 

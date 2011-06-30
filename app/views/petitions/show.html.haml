@@ -4,26 +4,38 @@
   -if @petition.display_counter == true
     .counter
       counter goes here
+      %span.petition_count=@petition.petition_signatures.count
   .description= raw @petition.description
 .grid_6.omega
-  =form_for @petition_signature do |f|
-    =fields_for @member do |m|
-      =m.label :name
-      =m.text_field :name
+  .take_action
+    %h2= @petition.call_to_action_headline
+    .call_to_action_text
+      %p= @petition.call_to_action_text
+    =form_for @petition_signature do |f|
+      =fields_for @member do |m|
+        .member.field
+          =m.label :name
+          =m.text_field :name
 
-      =m.label :email
-      =m.text_field :email
+        .email.field
+          =m.label :email
+          =m.text_field :email
 
-      =m.label :zona
-      =m.select :zona, %w[Centro Norte Oeste Sul]
+        .zona.field
+          =m.label :zona
+          =m.select :zona, %w[Centro Norte Oeste Sul]
 
-      =m.label :celuar
-      =m.text_field :celular
+        .celuar.field
+          =m.label :celuar
+          =m.text_field :celular
 
-    =f.label :comment
-    =f.text_area :comment
+      .comment
+        =f.label :comment
+        =f.text_area :comment
 
-    %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
+      %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
 
-    =f.submit(@petition.call_to_action)
-
+      .submit
+        =f.submit(@petition.call_to_action)
+  -if @petition.surface_comments == true
+    %p Here are some comments
