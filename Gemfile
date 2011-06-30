@@ -33,8 +33,8 @@ gem 'newrelic_rpm'
 
 # Database related gems
 gem 'pg'
+gem 'foreigner'
 
-# gem 'foreigner'
 # gem 'geokit-rails3'
 
 group :development, :test do
