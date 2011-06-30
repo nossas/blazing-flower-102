@@ -198,4 +198,10 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
+  #
+  # External Providers
+  config.omniauth :facebook, "177910022269006", "d647cab8b3b6e9aef9a5a60461453e31"
+      # For heroku we need to configure it separatly for production env
+      #{:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
+
 end
