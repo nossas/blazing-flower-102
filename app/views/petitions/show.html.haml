@@ -1,3 +1,8 @@
+=content_for :meta_tags do
+  %meta{ :property => "og:image", :content => "<img src='#{@taf.facebook_image.url(:medium)}'>" } 
+  %meta{ :property => "og:description", :content => "#{@taf.facebook_message}" } 
+  %meta{ :property => "og:url", :content => "#{@taf.facebook_link}" } 
+
 %h1.grid_12= @petition.headline
 .grid_6.alpha
   .media= raw @petition.media

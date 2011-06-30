@@ -24,4 +24,14 @@ class Taf < ActiveRecord::Base
   validates_presence_of :email_message, :if => Proc.new { |t| t.display_email }
 
   validates_inclusion_of :display_copy_url, :in => [true,false]
+
+  has_attached_file :facebook_image,
+                    :styles => { :medium => "200x200>", :thumb => "60x60" },
+                    :path => ':attachment/:id/:style/:filename',
+                    :storage => :s3,
+                    :bucket => SITE['s3_bucket'],
+                    :s3_credentials => {
+                      :access_key_id => SITE['s3_access_key_id'],
+                      :secret_access_key => SITE['s3_secret_access_key']
+                    }
 end

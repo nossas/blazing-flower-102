@@ -5,7 +5,8 @@
     = stylesheet_link_tag "960", "application"
     %link{:href => "/assets/logo.png", :rel => "shortcut icon"}
     = csrf_meta_tags
-  %body{:class=> [controller.controller_name] }
+    = yield :meta_tags
+  %body{:class=> controller.controller_name }
     .container_12
       %header.grid_12
         .logo.alpha.grid_2= link_to image_tag("/images/logo.png"), root_path
