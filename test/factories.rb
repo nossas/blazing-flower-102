@@ -29,15 +29,10 @@ Factory.define :petition do |p|
   p.state 'draft'
 end
 
-
 Factory.define :autofire_email do |a|
   a.from SITE['default_from_email_address']
   a.sequence(:subject) {|n| "test-autofire-email-#{n}" }
   a.message "This is a test email"
-end
-
-Factory.define :petition_with_email, :parent => :petition do |p|
-  p.association :autofire_email
 end
 
 Factory.define :taf do |t|
@@ -46,7 +41,11 @@ Factory.define :taf do |t|
   t.thank_you_text "This is a test TAF"
 end
 
+Factory.define :petition_with_email, :parent => :petition do |p|
+  p.after_create { |p| Factory.create(:autofire_email, :petition => p) }
+end
+
 Factory.define :complete_petition, :parent => :petition do |p|
-  p.association :autofire_email
-  p.association :taf
+  p.after_create { |p| Factory.create(:taf, :petition => p) }
+  p.after_create { |p| Factory.create(:autofire_email, :petition => p) }
 end
