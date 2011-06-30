@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110630141753) do
+ActiveRecord::Schema.define(:version => 20110630145958) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(:version => 20110630141753) do
     t.datetime "updated_at"
     t.integer  "petition_id"
   end
+
+  add_index "autofire_emails", ["petition_id"], :name => "index_autofire_emails_on_petition_id"
 
   create_table "members", :force => true do |t|
     t.text     "name",       :null => false
@@ -132,6 +134,8 @@ ActiveRecord::Schema.define(:version => 20110630141753) do
   end
 
   add_index "tafs", ["petition_id"], :name => "index_tafs_on_petition_id", :unique => true
+
+  add_foreign_key "autofire_emails", "petitions", :name => "autofire_emails_petition_id_fk"
 
   add_foreign_key "petition_signatures", "members", :name => "petition_signatures_member_id_fk"
   add_foreign_key "petition_signatures", "petitions", :name => "petition_signatures_petition_id_fk"

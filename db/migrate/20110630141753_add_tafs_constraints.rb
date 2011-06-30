@@ -8,5 +8,6 @@ class AddTafsConstraints < ActiveRecord::Migration
   def down
     change_column :tafs, :petition_id, :integer, :null => true
     remove_foreign_key :tafs, :petitions
+    remove_index :tafs, :petition_id
   end
 end
