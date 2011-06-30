@@ -1,10 +1,12 @@
 %h1.grid_12= @petition.headline
 .grid_6.alpha
   .media= raw @petition.media
-  -if @petition.display_counter == true
+  -if @ok_to_display_counter
     .counter
-      counter goes here
-      %span.petition_count=@petition.petition_signatures.count
+      .counter_progress{:style => @goal_progress_percentage}
+      %span.goal= "Golo @petition.counter_goal"
+
+    %span.petition_count=@petition.petition_signatures.count
   .description= raw @petition.description
 .grid_6.omega
   .take_action

@@ -9,7 +9,7 @@ class CreatePetitions < ActiveRecord::Migration
       t.text  :short_description
       t.boolean :display_counter,     :null => false, :default => true
       t.integer :counter_threshold,   :null => false, :default => 0
-      t.integer :counter_goal
+      t.integer :counter_goal,        :null => false, :default => 0
       t.boolean :display_comment_field, :null => false, :default => false
       t.text    :comment_question
       t.boolean :surface_comments,    :null => false, :default => false

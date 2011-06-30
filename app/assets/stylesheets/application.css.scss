@@ -5,5 +5,43 @@
  *= require_self
  *= require_tree . 
 */
+
 @import "vars.css.scss";
 
+body > .container_12 > header {
+  padding:10px 0 0 0;
+  background: #f2f0ed;
+  border-radius: 0 0 8px 8px;
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+
+  box-shadow:0 0 20px 1px #dedbd5;
+  -moz-box-shadow:0 0 20px 1px #dedbd5;
+  -webkit-box-shadow:0 0 20px 1px #dedbd5;
+}
+
+body > .container_12 > header nav{
+  margin-top:70px;
+  text-align:right;
+  font-size:11px;
+  font-weight:bold;
+}
+
+body > .container_12 > header nav a {
+  color: $dark_gray;
+  display:inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding:0 10px;
+}
+
+body > .container_12 > #main {
+  background: #f2f0ed;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+
+  box-shadow:0 0 20px 1px #dedbd5;
+  -moz-box-shadow:0 0 20px 1px #dedbd5;
+  -webkit-box-shadow:0 0 20px 1px #dedbd5;
+}

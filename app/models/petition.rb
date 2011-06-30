@@ -15,6 +15,7 @@ class Petition < ActiveRecord::Base
 
   validates_inclusion_of :display_counter, :in => [true,false]
   validates_presence_of :counter_threshold
+  validates_presence_of :counter_goal, :if => Proc.new { |t| t.display_counter }
 
   validates_inclusion_of :display_comment_field, :in => [true,false]
   validates_inclusion_of :surface_comments, :in => [true,false]

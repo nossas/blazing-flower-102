@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(:version => 20110630145958) do
     t.text     "short_description"
     t.boolean  "display_counter",         :default => true,     :null => false
     t.integer  "counter_threshold",       :default => 0,        :null => false
-    t.integer  "counter_goal"
+    t.integer  "counter_goal",            :default => 0,        :null => false
     t.boolean  "display_comment_field",   :default => false,    :null => false
     t.text     "comment_question"
     t.boolean  "surface_comments",        :default => false,    :null => false
