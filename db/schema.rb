@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110629210409) do
+ActiveRecord::Schema.define(:version => 20110630133510) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -73,12 +73,15 @@ ActiveRecord::Schema.define(:version => 20110629210409) do
   end
 
   create_table "petition_signatures", :force => true do |t|
-    t.integer  "member_id"
-    t.integer  "petition_id"
+    t.integer  "member_id",   :null => false
+    t.integer  "petition_id", :null => false
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "petition_signatures", ["member_id"], :name => "index_petition_signatures_on_member_id"
+  add_index "petition_signatures", ["petition_id", "member_id"], :name => "index_petition_signatures_on_petition_id_and_member_id", :unique => true
 
   create_table "petitions", :force => true do |t|
     t.text     "title",                                         :null => false
@@ -125,5 +128,8 @@ ActiveRecord::Schema.define(:version => 20110629210409) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_foreign_key "petition_signatures", "members", :name => "petition_signatures_member_id_fk"
+  add_foreign_key "petition_signatures", "petitions", :name => "petition_signatures_petition_id_fk"
 
 end
