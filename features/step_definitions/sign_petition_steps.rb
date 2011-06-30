@@ -1,6 +1,6 @@
-Given /^(\d+) complete petitions exist$/ do |count|
+Given /^(\d+) published petitions exist$/ do |count|
   count.to_i.times do
-    f = Factory.create(:complete_petition)
+    f = Factory.create(:complete_petition).tap{|p| p.publish }
     f.save
   end
 end
