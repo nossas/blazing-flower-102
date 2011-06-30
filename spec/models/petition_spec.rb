@@ -90,6 +90,63 @@ describe Petition do
     end
   end
 
+  describe "#ok_to_display_counter?" do
+    before do
+      @p = Factory.build(:complete_petition)
+    end
+
+    it "should be true by default" do
+      @p.ok_to_display_counter?.should eq(true)
+    end
+
+    it "should be false when #display_counter == false" do
+      @p.update_attributes(:display_counter => false)
+      @p.ok_to_display_counter?.should eq(false)
+    end
+
+    it "should be false when signature count is below #counter_threshold" do
+      @p.update_attributes(:counter_threshold => 100)
+      @p.ok_to_display_counter?.should eq(false)
+    end
+  end
+
+  describe "#percentage_complete" do
+    before do
+      @p = Factory.build(:complete_petition)
+
+      @signatures = {} # Used in stubs
+      @p.stub(:petition_signatures) {@signatures}
+    end
+
+    it "should be 0% with by default" do
+      @signatures.stub(:count) { 0 }
+      @p.counter_goal = 0 #just being explicit
+
+      @p.percentage_complete.should eq(0)
+    end
+
+    it "should be 10% with 10 signatures and a goal of 100" do
+      @signatures.stub(:count) { 10 }
+
+      @p.counter_goal = 100
+      @p.percentage_complete.should eq(10)
+    end
+
+    it "should be 100% with 100 signatures and a goal of 100" do
+      @signatures.stub(:count) { 100 }
+
+      @p.counter_goal = 100
+      @p.percentage_complete.should eq(100)
+    end
+
+    it "should not be more than 100%" do
+      @signatures.stub(:count) { 200 }
+      @p.counter_goal = 10
+
+      @p.percentage_complete.should eq(100)
+    end
+  end
+
   describe "#autofire_email" do
     it { should have_one :autofire_email }
   end

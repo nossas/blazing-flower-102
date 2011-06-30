@@ -27,6 +27,24 @@ class Petition < ActiveRecord::Base
     (self.taf && self.autofire_email && self.taf.valid? && self.autofire_email.valid?)
   end
 
+  def ok_to_display_counter?
+    self.display_counter && (self.petition_signatures.count >= self.counter_threshold)
+  end
+
+  def percentage_complete
+    percent = 0
+
+    if ((self.counter_goal != 0) && (self.petition_signatures.count < self.counter_goal))
+      percent = (self.petition_signatures.count * 100) / self.counter_goal
+    elsif (self.counter_goal != 0) && (self.petition_signatures.count >= self.counter_goal)
+      percent = 100
+    else
+      percent = 0
+    end
+
+    return percent
+  end
+
   state_machine :state, :initial => :draft do
 
     #Events
