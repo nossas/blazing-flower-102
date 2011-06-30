@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110630135047) do
+ActiveRecord::Schema.define(:version => 20110630141753) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -126,12 +126,16 @@ ActiveRecord::Schema.define(:version => 20110630135047) do
     t.text     "email_subject"
     t.text     "email_message"
     t.boolean  "display_copy_url",   :default => false,                     :null => false
-    t.integer  "petition_id"
+    t.integer  "petition_id",                                               :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "tafs", ["petition_id"], :name => "index_tafs_on_petition_id", :unique => true
+
   add_foreign_key "petition_signatures", "members", :name => "petition_signatures_member_id_fk"
   add_foreign_key "petition_signatures", "petitions", :name => "petition_signatures_petition_id_fk"
+
+  add_foreign_key "tafs", "petitions", :name => "tafs_petition_id_fk"
 
 end
