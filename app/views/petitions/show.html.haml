@@ -1,0 +1,29 @@
+%h1.grid_12= @petition.headline
+.grid_6.alpha
+  .media= raw @petition.media
+  -if @petition.display_counter == true
+    .counter
+      counter goes here
+  .description= raw @petition.description
+.grid_6.omega
+  =form_for @petition_signature do |f|
+    =fields_for @member do |m|
+      =m.label :name
+      =m.text_field :name
+
+      =m.label :email
+      =m.text_field :email
+
+      =m.label :zona
+      =m.select :zona, %w[Centro Norte Oeste Sul]
+
+      =m.label :celuar
+      =m.text_field :celular
+
+    =f.label :comment
+    =f.text_area :comment
+
+    %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
+
+    =f.submit(@petition.call_to_action)
+

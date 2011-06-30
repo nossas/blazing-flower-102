@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110627181000) do
+ActiveRecord::Schema.define(:version => 20110630135047) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -63,22 +63,47 @@ ActiveRecord::Schema.define(:version => 20110627181000) do
     t.integer  "petition_id"
   end
 
-  create_table "petitions", :force => true do |t|
-    t.text     "title",                                       :null => false
-    t.text     "custom_path"
-    t.text     "headline"
-    t.text     "description"
-    t.text     "call_to_action",        :default => "Assine"
-    t.text     "short_description"
-    t.boolean  "display_counter",       :default => true,     :null => false
-    t.integer  "counter_threshold",     :default => 0,        :null => false
-    t.integer  "counter_goal"
-    t.boolean  "display_comment_field", :default => false,    :null => false
-    t.text     "comment_question"
-    t.boolean  "surface_comments",      :default => false,    :null => false
-    t.text     "state",                 :default => "draft",  :null => false
+  create_table "members", :force => true do |t|
+    t.text     "name",       :null => false
+    t.text     "zona",       :null => false
+    t.text     "email",      :null => false
+    t.text     "celular"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  add_index "members", ["email"], :name => "index_members_on_email", :unique => true
+
+  create_table "petition_signatures", :force => true do |t|
+    t.integer  "member_id",   :null => false
+    t.integer  "petition_id", :null => false
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "petition_signatures", ["member_id"], :name => "index_petition_signatures_on_member_id"
+  add_index "petition_signatures", ["petition_id", "member_id"], :name => "index_petition_signatures_on_petition_id_and_member_id", :unique => true
+
+  create_table "petitions", :force => true do |t|
+    t.text     "title",                                         :null => false
+    t.text     "custom_path",                                   :null => false
+    t.text     "headline"
+    t.text     "description"
+    t.text     "call_to_action",          :default => "Assine", :null => false
+    t.text     "short_description"
+    t.boolean  "display_counter",         :default => true,     :null => false
+    t.integer  "counter_threshold",       :default => 0,        :null => false
+    t.integer  "counter_goal"
+    t.boolean  "display_comment_field",   :default => false,    :null => false
+    t.text     "comment_question"
+    t.boolean  "surface_comments",        :default => false,    :null => false
+    t.text     "state",                   :default => "draft",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "media",                                         :null => false
+    t.text     "call_to_action_headline",                       :null => false
+    t.text     "call_to_action_text",                           :null => false
   end
 
   add_index "petitions", ["custom_path"], :name => "index_petitions_on_custom_path", :unique => true
@@ -105,5 +130,8 @@ ActiveRecord::Schema.define(:version => 20110627181000) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_foreign_key "petition_signatures", "members", :name => "petition_signatures_member_id_fk"
+  add_foreign_key "petition_signatures", "petitions", :name => "petition_signatures_petition_id_fk"
 
 end

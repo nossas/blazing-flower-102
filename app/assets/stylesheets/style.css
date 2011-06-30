@@ -81,13 +81,24 @@ a:hover { color: #036; }
  * Author: 
  */
 
+body {
+  background: #edecea;
+  height: 100%;
+  width: 100%;
+}
 
+header {
+  background-color: #efeeec;
+  margin-bottom: 10px;
+}
 
+.logo {
+  background-color: transparent;
+}
 
+#main {
 
-
-
-
+}
 
 
 

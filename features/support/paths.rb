@@ -14,6 +14,8 @@ module NavigationHelpers
       '/admin'
     when /the admin users page/
       '/admin/admin_users'
+    when /the first petition page/
+      custom_petition_path(Petition.first.custom_path)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
