@@ -10,7 +10,7 @@ When /^I fill out the new User form$/ do
   fill_in "admin_user_email", :with => "johnson@denmark.de"
   fill_in "admin_user_password", :with => "no_one_will_guess_this"
   fill_in "admin_user_password_confirmation", :with => "no_one_will_guess_this"
-  attach_file("admin_user_avatar", "#{Rails.root}/features/fixtures/avatar.png")
+  # attach_file("admin_user_avatar", "#{Rails.root}/features/fixtures/avatar.png")
 end
 
 When /^I fill in the edit user form$/ do
@@ -19,14 +19,14 @@ When /^I fill in the edit user form$/ do
   fill_in "admin_user_email", :with => "projectmanager@kerzner.com"
   fill_in "admin_user_password", :with => "no_one_will_guess_this"
   fill_in "admin_user_password_confirmation", :with => "no_one_will_guess_this"
-  attach_file("admin_user_avatar", "#{Rails.root}/features/fixtures/avatar.png")
+  # attach_file("admin_user_avatar", "#{Rails.root}/features/fixtures/avatar.png")
 end
 
 When /^I fill in the edit user form without the password field$/ do
   fill_in "admin_user_first_name", :with => "Harold"
   fill_in "admin_user_last_name", :with => "Kerzner"
   fill_in "admin_user_email", :with => "projectmanager@kerzner.com"
-  attach_file("admin_user_avatar", "#{Rails.root}/features/fixtures/avatar.png")
+  # attach_file("admin_user_avatar", "#{Rails.root}/features/fixtures/avatar.png")
 end
 
 Then /^I should see a list of administrative users$/ do

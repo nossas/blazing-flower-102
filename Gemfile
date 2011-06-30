@@ -28,7 +28,7 @@ gem 'cancan'
 
 # gem 'dynamic_form'
 
-# gem 'aws-s3', :require => 'aws/s3'
+gem 'aws-s3'
 gem 'newrelic_rpm'
 
 # Database related gems
