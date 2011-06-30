@@ -9,6 +9,10 @@ Given /^I am an existing member$/ do
   Factory.create(:member)
 end
 
+Given /^I have signed the first petition$/ do
+  PetitionSignature.create! :member => Member.first, :petition => Petition.first
+end
+
 When /^I enter my information in the petition signature form$/ do
   fill_in "member_name", :with => "Diogo"
   fill_in "member_email", :with => "diogo@biazus.me"
@@ -25,16 +29,15 @@ When /^I press the submit button$/ do
 end
 
 Then /^I should see a thank\-you message$/ do
-  page.has_content? "#{Petition.first.taf.thank_you_headline}"
-  page.has_content? "#{Petition.first.taf.thank_you_text}"
+  assert(page.has_content?("#{Petition.first.taf.thank_you_headline}"))
+  assert(page.has_content?("#{Petition.first.taf.thank_you_text}"))
 end
 
 Then /^I should see the petition title$/ do
-  page.has_content? "#{Petition.first.headline}"
+  assert(page.has_content?("#{Petition.first.headline}"))
 end
 
 Then /^I should see a petition signature form$/ do
-  page.has_content? "form#new_petition_signature"
+  assert(page.has_css?("form#new_petition_signature"))
 end
-
 
