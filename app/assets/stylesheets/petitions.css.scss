@@ -5,16 +5,40 @@
 @import "vars.css.scss";
 
 body.petitions {
-  // Place scoped styles here
 
   .petition_count {
     color: $pink;
   }
 
+  .counter {
+    position:relative;
+    margin-left:20px;
+    width:300px;
+    height:30px;
+    background-color:$light_gray;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    .goal {
+      position:absolute;
+      top:7px;
+      right:20px;
+    }
+  }
+
+  .counter_progress {
+    width:50%;
+    height:30px;
+    background-color:$pink;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+  }
+
   .take_action {
     background: #e7e7e7;
     padding: 25px;
-   
+
     h2 {
       text-transform: uppercase;
       color: $orange;
@@ -24,7 +48,7 @@ body.petitions {
       width: 185px;
       float: left;
     }
-    
+
     .comment {
       clear: both;
 
@@ -38,6 +62,7 @@ body.petitions {
     }
 
     .submit input {
+      padding: 6px 13px 10px 13px;
       background: #c63929;
       background: -moz-linear-gradient(top, #ed894b 0%, #dc6837 100%);
       background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #ed894b), color-stop(1, #dc6837));
@@ -52,7 +77,6 @@ body.petitions {
       font-weight: bold;
       line-height: 1;
       text-transform: uppercase;
-      padding: 6px 13px 10px 13px;
       text-align: center;
       text-shadow: 0px 1px 1px rgba(0, 0, 0, .8);
     }
@@ -72,7 +96,6 @@ body.petitions {
       -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
       box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
     }
-        
   }
 }
 
