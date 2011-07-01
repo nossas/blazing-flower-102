@@ -2,6 +2,7 @@ MeuRio::Application.routes.draw do
   resources :petition_signatures, :only => [:create]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :members
   ActiveAdmin.routes(self)
 
   match 'admin_user_root' => 'admin/dashboard#index'

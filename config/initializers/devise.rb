@@ -200,7 +200,7 @@ Devise.setup do |config|
   # end
   #
   # External Providers
-  config.omniauth :facebook, "177910022269006", "d647cab8b3b6e9aef9a5a60461453e31"
+  config.omniauth :facebook, "177910022269006", "d647cab8b3b6e9aef9a5a60461453e31", {:client_options => {:ssl => {:ca_path => '/etc/ssl/certs', :ca_file => '/opt/local/share/curl/curl-ca-bundle.crt'}}}
       # For heroku we need to configure it separatly for production env
       #{:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
 
