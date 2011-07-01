@@ -39,3 +39,10 @@ Feature: Signing a Petition
     And I am on the first petition page
     When I press the submit button
     Then I should see inline errors
+
+  Scenario: Signing a Petition without required fields and without Javascript
+    Given 2 published petitions exist
+    And I am on the first petition page
+    When I press the submit button
+    Then I should see a petition signature form
+    And I should see "Email can't be blank. Name can't be blank."

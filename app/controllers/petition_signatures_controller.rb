@@ -9,7 +9,10 @@ class PetitionSignaturesController < ApplicationController
     if @member.new_record?
       @member.attributes = params[:member] 
       if not @member.save
-        return redirect_to custom_petition_path(petition.custom_path)
+        @errors = @member.errors.messages.map do |key, message|
+          key.to_s.capitalize + ' ' + message.join(' ') 
+        end.join('. ')
+        return redirect_to custom_petition_path(petition.custom_path), :notice => @errors + '.'
       end
     end
     @signature = PetitionSignature.find_or_initialize_by_member_id_and_petition_id(@member.id, petition.id)
