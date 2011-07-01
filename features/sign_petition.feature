@@ -34,3 +34,8 @@ Feature: Signing a Petition
     And I press the submit button
     Then I should see "You've already signed this petition."
 
+  Scenario: Signing a Petition without required fields
+    Given 2 published petitions exist
+    And I am on the first petition page
+    When I press the submit button
+    Then I should see inline errors

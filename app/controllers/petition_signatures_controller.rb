@@ -9,7 +9,7 @@ class PetitionSignaturesController < ApplicationController
     if @member.new_record?
       @member.attributes = params[:member] 
       if not @member.save
-        return render :action => 'petition/show'
+        return redirect_to custom_petition_path(petition.custom_path)
       end
     end
     @signature = PetitionSignature.find_or_initialize_by_member_id_and_petition_id(@member.id, petition.id)
