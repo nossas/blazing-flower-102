@@ -1,7 +1,8 @@
-=content_for :meta_tags do
-  %meta{ :property => "og:image", :content => "<img src='#{@taf.facebook_image.url(:medium)}'>" } 
-  %meta{ :property => "og:description", :content => "#{@taf.facebook_message}" } 
-  %meta{ :property => "og:url", :content => "#{@taf.facebook_link}" } 
+-if @petition.complete?
+  =content_for :meta_tags do
+    %meta{ :property => "og:image", :content => "<img src='#{@taf.facebook_image.url(:medium)}'>" } 
+    %meta{ :property => "og:description", :content => "#{@taf.facebook_message}" } 
+    %meta{ :property => "og:url", :content => "#{@taf.facebook_link}" } 
 
 =content_for :javascripts do
   =javascript_include_tag("http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js")

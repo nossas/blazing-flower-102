@@ -4,6 +4,22 @@ ActiveAdmin.register Petition do
   filter :custom_path
   filter :headline
 
+  controller do
+    def preview
+      @petition = Petition.where(:id => params[:id]).first
+      @taf = @petition.taf
+      @petition_signature = PetitionSignature.new
+      @member = Member.new
+
+      if @petition.published?
+        redirect_to custom_petition_path(@petition.custom_path)
+      else
+        flash[:notice] = "You're currently viewing the preview of this petition. To publish it, please go back to the Edit page and change its state to Published."
+        render "petitions/show", :layout => 'application'
+      end
+    end
+  end
+
   index do
     column :title
     column :state
@@ -25,6 +41,9 @@ ActiveAdmin.register Petition do
     column "Options" do |e| 
       span link_to 'Show', admin_petition_path(e)
       span link_to 'Edit', edit_admin_petition_path(e)
+      if e.draft?
+        span link_to 'Preview', admin_preview_petition_path(e)
+      end
     end
   end
 
