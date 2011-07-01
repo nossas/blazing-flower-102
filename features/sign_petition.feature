@@ -7,7 +7,6 @@ Feature: Signing a Petition
     Given 2 published petitions exist
     When I go to the first petition page
     Then I should see the petition title
-    Then show me the page
     And I should see a petition signature form
 
   Scenario: Signing a Petition (new member, new petition signature)
@@ -34,6 +33,7 @@ Feature: Signing a Petition
     And I press the submit button
     Then I should see "You've already signed this petition."
 
+  @javascript
   Scenario: Signing a Petition without required fields
     Given 2 published petitions exist
     And I am on the first petition page

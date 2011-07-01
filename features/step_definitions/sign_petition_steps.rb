@@ -41,3 +41,7 @@ Then /^I should see a petition signature form$/ do
   assert(page.has_css?("form#new_petition_signature"))
 end
 
+Then /^I should see inline errors$/ do
+  assert(page.has_content?("This field is required."))
+end
+

@@ -3,6 +3,16 @@
   %meta{ :property => "og:description", :content => "#{@taf.facebook_message}" } 
   %meta{ :property => "og:url", :content => "#{@taf.facebook_link}" } 
 
+=content_for :javascripts do
+  =javascript_include_tag("http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js")
+  :javascript
+    $("form#new_petition_signature").validate({
+      submitHandler: function(){
+        return true;
+      }
+    });
+
+
 %h1.grid_12= @petition.headline
 .grid_6.alpha
   .media= raw @petition.media
@@ -22,15 +32,15 @@
       =fields_for @member do |m|
         .member.field
           =m.label :name
-          =m.text_field :name
+          =m.text_field :name, :class => "required"
 
         .email.field
           =m.label :email
-          =m.text_field :email
+          =m.text_field :email, :class => "required email"
 
         .zona.field
           =m.label :zona
-          =m.select :zona, %w[Centro Norte Oeste Sul]
+          =m.select :zona, %w[Centro Norte Oeste Sul], :class => "required"
 
         .celuar.field
           =m.label :celuar

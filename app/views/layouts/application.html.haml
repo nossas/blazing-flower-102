@@ -29,7 +29,8 @@
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"}
     :javascript
       !window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))    
-    =javascript_include_tag "libs/json2.js", "libs/underscore-1.1.6.min.js", "libs/modernizr-2.0.js", "libs/backbone-0.3.3.min.js",      "application"                         
+    =javascript_include_tag "libs/json2.js", "libs/underscore-1.1.6.min.js", "libs/modernizr-2.0.js", "libs/backbone.js", "application"          
+    = yield :javascripts
     /[if lt IE 7 ]
       <script src="assets/libs/dd_belatedpng.js"></script>
       <script> DD_belatedPNG.fix('img, .png_bg');</script>
