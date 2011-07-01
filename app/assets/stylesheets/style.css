@@ -81,10 +81,17 @@ a:hover { color: #036; }
  * Author: 
  */
 
+@font-face {font-family: 'Akagi-Book';src: url('../fonts/eot/style_174436.eot');src: url('../fonts/eot/style_174436.eot?#iefix') format('embedded-opentype'),url('../fonts/woff/style_174436.woff') format('woff'),url('../fonts/ttf/style_174436.ttf') format('truetype'),url('../fonts/svg/style_174436.svg#Akagi-Book') format('svg');}
+@font-face {font-family: 'Akagi-Light';src: url('../fonts/eot/style_174446.eot');src: url('../fonts/eot/style_174446.eot?#iefix') format('embedded-opentype'),url('../fonts/woff/style_174446.woff') format('woff'),url('../fonts/ttf/style_174446.ttf') format('truetype'),url('../fonts/svg/style_174446.svg#Akagi-Light') format('svg');}
+
+.Akagi-Book { font-family: Akagi-Book; }
+.Akagi-Light { font-family: Akagi-Light; }
+
 body {
   background: #e1e1d9;
   height: 100%;
   width: 100%;
+  font-family: 'Akagi-Book', Helvetica, Ariel, sans-serif;
 }
 
 header, #main {
