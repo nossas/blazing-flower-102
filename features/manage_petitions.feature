@@ -22,7 +22,6 @@ Feature: Managing Petitions
     When I follow "Preview"
     Then I should see a petition preview page
 
-  @focus
   Scenario: Trying to view a preview of a published petition
     Given I am logged in to the admin section
     And 1 published petitions exist
