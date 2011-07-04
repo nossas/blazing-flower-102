@@ -6,6 +6,7 @@
 
 =content_for :javascripts do
   =javascript_include_tag("http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js")
+  =javascript_include_tag("ZeroClipboard.js")
   :javascript
     $("form#new_petition_signature").validate({
       submitHandler: function(){
@@ -13,6 +14,13 @@
       }
     });
 
+    var clip = new ZeroClipboard.Client();
+    ZeroClipboard.setMoviePath( 'http://#{request.host}:#{request.port}/assets/ZeroClipboard.swf' );
+    clip.setText( $("#d_clip_field").attr("value") );
+    clip.glue( 'd_clip_button' );
+    clip.addEventListener( 'complete', function(client, text) {
+      $("#clipboard").html("Copied text to clipboard: " + text)
+    } );
 
 %h1.grid_12= @petition.headline
 .grid_6.alpha
@@ -25,6 +33,10 @@
     %span.petition_count=@petition.petition_signatures.count
   .description= raw @petition.description
 .grid_6.omega
+  =text_field_tag "d_clip_text", custom_petition_url(@petition.custom_path), :id => "d_clip_field"
+  - if @petition.ok_to_display_copy_url?
+    #clipboard
+      %a{:id => "d_clip_button", :href => "#"} Copy
   .take_action
     %h2= @petition.call_to_action_headline
     .call_to_action_text

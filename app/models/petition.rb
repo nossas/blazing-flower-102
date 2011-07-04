@@ -30,6 +30,11 @@ class Petition < ActiveRecord::Base
   def ok_to_display_counter?
     self.display_counter && (self.petition_signatures.count >= self.counter_threshold)
   end
+  
+  def ok_to_display_copy_url?
+    return false if self.taf.nil?
+    self.taf.display_copy_url
+  end
 
   def percentage_complete
     percent = 0

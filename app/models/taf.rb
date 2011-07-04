@@ -34,4 +34,5 @@ class Taf < ActiveRecord::Base
                       :access_key_id => SITE['s3_access_key_id'],
                       :secret_access_key => SITE['s3_secret_access_key']
                     }
+
 end
