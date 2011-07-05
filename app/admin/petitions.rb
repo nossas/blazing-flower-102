@@ -26,7 +26,7 @@ ActiveAdmin.register Petition do
     column :custom_path
     column 'Autofire Email' do |p|
       if p.autofire_email
-        link_to "Edit TAF", edit_admin_autofire_email_path(p.autofire_email)
+        link_to "Edit Email", edit_admin_autofire_email_path(p.autofire_email)
       else
         link_to "Create Email", new_admin_autofire_email_path
       end
@@ -60,6 +60,7 @@ ActiveAdmin.register Petition do
       f.input :headline, :as => :string
       f.input :description
       f.input :media
+      f.input :media_caption, :as => :string
       f.input :call_to_action_headline, :as => :string
       f.input :call_to_action_text
       f.input :call_to_action, :as => :string
