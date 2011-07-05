@@ -7,12 +7,17 @@
 body.petitions {
 
   .petition_count {
+    font-weight: bold;
+    font-size: 110%;
+  }
+
+  .petition_count_number {
     color: $pink;
   }
 
   .counter {
     position:relative;
-    margin-left:20px;
+    margin:10px 0 15px 10px;
     width:300px;
     height:30px;
     background-color:$light_gray;
@@ -23,6 +28,12 @@ body.petitions {
       position:absolute;
       top:7px;
       right:20px;
+    }
+  }
+
+  .description {
+    p{
+      margin-top: 15px;
     }
   }
 
@@ -45,8 +56,23 @@ body.petitions {
     }
 
     .field {
-      width: 185px;
+      width: 190px;
+      padding-right: 15px;
+      margin-top: 10px;
       float: left;
+
+      input[type="text"]{
+        width: 174px;
+      }
+    }
+
+    select {
+      width: 174px;
+      display: block;
+    }
+
+    textarea {
+      width: 325px;
     }
 
     .comment {
@@ -79,6 +105,8 @@ body.petitions {
       text-transform: uppercase;
       text-align: center;
       text-shadow: 0px 1px 1px rgba(0, 0, 0, .8);
+      margin: 15px 0 0;
+      float: right;
     }
 
     .submit input:hover {
