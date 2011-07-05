@@ -23,7 +23,7 @@
     } );
 
 %h1.grid_12= @petition.headline
-.grid_6.alpha
+.grid_6
   .media= raw @petition.media
   -if @petition.ok_to_display_counter?
     .counter
@@ -32,7 +32,7 @@
 
     %span.petition_count=@petition.petition_signatures.count
   .description= raw @petition.description
-.grid_6.omega
+.grid_6
   - if @petition.ok_to_display_copy_url?
     =text_field_tag "d_clip_text", custom_petition_url(@petition.custom_path), :id => "d_clip_field"
     #clipboard
@@ -68,4 +68,5 @@
       .submit
         =f.submit(@petition.call_to_action)
   -if @petition.surface_comments == true
-    %p Here are some comments
+    .comments
+      %h3 Comentarios Recentes
