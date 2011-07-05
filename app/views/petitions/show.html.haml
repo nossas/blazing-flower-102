@@ -33,10 +33,6 @@
     %span.petition_count=@petition.petition_signatures.count
   .description= raw @petition.description
 .grid_6.omega
-  - if @petition.ok_to_display_copy_url?
-    =text_field_tag "d_clip_text", custom_petition_url(@petition.custom_path), :id => "d_clip_field"
-    #clipboard
-      %a{:id => "d_clip_button", :href => "#"} Copy
   .take_action
     %h2= @petition.call_to_action_headline
     .call_to_action_text
