@@ -1,29 +1,42 @@
+-if @petition.complete?
+  =content_for :meta_tags do
+    %meta{ :property => "og:image", :content => "<img src='#{@taf.facebook_image.url(:medium)}'>" } 
+    %meta{ :property => "og:description", :content => "#{@taf.facebook_message}" } 
+    %meta{ :property => "og:url", :content => "#{@taf.facebook_link}" } 
+
+=content_for :javascripts do
+  =javascript_include_tag("http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js")
+  :javascript
+    $("form#new_petition_signature").validate();
+
 %h1.grid_12= @petition.headline
-.grid_6.alpha
+.grid_6
   .media= raw @petition.media
-  -if @petition.display_counter == true
+  -if @petition.ok_to_display_counter?
     .counter
-      counter goes here
-      %span.petition_count=@petition.petition_signatures.count
+      .counter_progress{:style => "width: #{@petition.percentage_complete}%;"}
+      %span.goal= "Golo #{@petition.counter_goal}"
+
+    %span.petition_count= raw "<span class='petition_count_number'>#{@petition.petition_signatures.count}</span> membros assinaram esta petiçao"
   .description= raw @petition.description
 .grid_6.omega
   .take_action
     %h2= @petition.call_to_action_headline
     .call_to_action_text
-      %p= @petition.call_to_action_text
+      %p= raw @petition.call_to_action_text
     =form_for @petition_signature do |f|
       =fields_for @member do |m|
         .member.field
           =m.label :name
-          =m.text_field :name
+          =m.text_field :name, :class => "required"
 
         .email.field
           =m.label :email
-          =m.text_field :email
+          =m.text_field :email, :class => "required email"
 
         .zona.field
           =m.label :zona
-          =m.select :zona, %w[Centro Norte Oeste Sul]
+          =m.select :zona, %w[Centro Norte Oeste Sul], :class => "required"
 
         .celuar.field
           =m.label :celuar
@@ -31,11 +44,13 @@
 
       .comment
         =f.label :comment
-        =f.text_area :comment
+        =f.text_area :comment, :rows => 5
 
       %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
 
       .submit
         =f.submit(@petition.call_to_action)
+        .clearfix
   -if @petition.surface_comments == true
-    %p Here are some comments
+    .comments
+      %h3 Comentarios Recentes

@@ -1,5 +1,8 @@
 class TafsController < ApplicationController
   def show
-    @taf = Petition.where(:custom_path => params[:custom_path]).first.taf
+    petition = Petition.where(:custom_path => params[:custom_path]).first
+    return render_404 unless petition and petition.state == 'published'
+
+    @taf = petition.taf
   end
 end

@@ -16,3 +16,9 @@ Then /^I should see new petition form$/ do
   And %(I should see "Call to action")
 end
 
+Then /^I should see a petition preview page$/ do
+  assert(page.has_content?("form#new_petition_signature"))
+  assert(page.has_content?("#{Petition.first.headline}"))
+  assert(page.has_content?("You're currently viewing the preview of this petition. To publish it, please go back to the Edit page and change its state to Published."))
+end
+

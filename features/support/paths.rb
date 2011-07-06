@@ -16,6 +16,8 @@ module NavigationHelpers
       '/admin/admin_users'
     when /the first petition page/
       custom_petition_path(Petition.first.custom_path)
+    when /the first petition TAF page/
+      custom_taf_path(Petition.first.custom_path)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

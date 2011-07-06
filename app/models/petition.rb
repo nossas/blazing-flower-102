@@ -15,6 +15,7 @@ class Petition < ActiveRecord::Base
 
   validates_inclusion_of :display_counter, :in => [true,false]
   validates_presence_of :counter_threshold
+  validates_presence_of :counter_goal, :if => Proc.new { |t| t.display_counter }
 
   validates_inclusion_of :display_comment_field, :in => [true,false]
   validates_inclusion_of :surface_comments, :in => [true,false]
@@ -24,6 +25,24 @@ class Petition < ActiveRecord::Base
 
   def complete?
     (self.taf && self.autofire_email && self.taf.valid? && self.autofire_email.valid?)
+  end
+
+  def ok_to_display_counter?
+    self.display_counter && (self.petition_signatures.count >= self.counter_threshold)
+  end
+  
+  def percentage_complete
+    percent = 0
+
+    if ((self.counter_goal != 0) && (self.petition_signatures.count < self.counter_goal))
+      percent = (self.petition_signatures.count * 100) / self.counter_goal
+    elsif (self.counter_goal != 0) && (self.petition_signatures.count >= self.counter_goal)
+      percent = 100
+    else
+      percent = 0
+    end
+
+    return percent
   end
 
   state_machine :state, :initial => :draft do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110701173520) do
+ActiveRecord::Schema.define(:version => 20110705193754) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(:version => 20110701173520) do
 
   create_table "members", :force => true do |t|
     t.text     "name",       :null => false
-    t.text     "zona"
+    t.text     "zona",       :null => false
     t.text     "email",      :null => false
     t.text     "celular"
     t.datetime "created_at"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(:version => 20110701173520) do
     t.text     "short_description"
     t.boolean  "display_counter",         :default => true,     :null => false
     t.integer  "counter_threshold",       :default => 0,        :null => false
-    t.integer  "counter_goal"
+    t.integer  "counter_goal",            :default => 0,        :null => false
     t.boolean  "display_comment_field",   :default => false,    :null => false
     t.text     "comment_question"
     t.boolean  "surface_comments",        :default => false,    :null => false
@@ -106,31 +106,36 @@ ActiveRecord::Schema.define(:version => 20110701173520) do
     t.text     "media",                                         :null => false
     t.text     "call_to_action_headline",                       :null => false
     t.text     "call_to_action_text",                           :null => false
+    t.text     "media_caption"
   end
 
   add_index "petitions", ["custom_path"], :name => "index_petitions_on_custom_path", :unique => true
 
   create_table "tafs", :force => true do |t|
-    t.text     "thank_you_headline", :default => "Obrigado por participar"
+    t.text     "thank_you_headline",          :default => "Obrigado por participar"
     t.text     "thank_you_text"
-    t.boolean  "display_orkut",      :default => false,                     :null => false
+    t.boolean  "display_orkut",               :default => false,                     :null => false
     t.text     "orkut_title"
     t.text     "orkut_link"
     t.text     "orkut_message"
-    t.boolean  "display_facebook",   :default => false,                     :null => false
+    t.boolean  "display_facebook",            :default => false,                     :null => false
     t.text     "facebook_title"
     t.text     "facebook_link"
     t.text     "facebook_message"
-    t.boolean  "display_twitter",    :default => false,                     :null => false
+    t.boolean  "display_twitter",             :default => false,                     :null => false
     t.text     "tweet"
     t.text     "twitter_url"
-    t.boolean  "display_email",      :default => false,                     :null => false
+    t.boolean  "display_email",               :default => false,                     :null => false
     t.text     "email_subject"
     t.text     "email_message"
-    t.boolean  "display_copy_url",   :default => false,                     :null => false
-    t.integer  "petition_id",                                               :null => false
+    t.boolean  "display_copy_url",            :default => false,                     :null => false
+    t.integer  "petition_id",                                                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "facebook_image_file_name"
+    t.string   "facebook_image_content_type"
+    t.integer  "facebook_image_file_size"
+    t.datetime "facebook_image_updated_at"
   end
 
   add_index "tafs", ["petition_id"], :name => "index_tafs_on_petition_id", :unique => true
