@@ -60,6 +60,7 @@ ActiveAdmin.register Petition do
       f.input :headline, :as => :string
       f.input :description
       f.input :media
+      f.input :media_caption, :as => :string
       f.input :call_to_action_headline, :as => :string
       f.input :call_to_action_text
       f.input :call_to_action, :as => :string

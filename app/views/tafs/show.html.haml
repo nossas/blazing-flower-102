@@ -1,2 +1,17 @@
+=content_for :javascripts do
+  =javascript_include_tag("ZeroClipboard.js")
+  :javascript
+    var clip = new ZeroClipboard.Client();
+    ZeroClipboard.setMoviePath( 'http://#{request.host}:#{request.port}/assets/ZeroClipboard.swf' );
+    clip.setText( $("#d_clip_field").attr("value") );
+    clip.glue( 'd_clip_button' );
+    clip.addEventListener( 'complete', function(client, text) {
+      $("#clipboard").html("Copied text to clipboard: " + text)
+    } );
+
+- if @taf.ok_to_display_copy_url?
+  =text_field_tag "d_clip_text", custom_petition_url(@taf.petition.custom_path), :id => "d_clip_field"
+  #clipboard
+    %a{:id => "d_clip_button", :href => "#"} Copy
 %h1= @taf.thank_you_headline
 %h3= @taf.thank_you_text
