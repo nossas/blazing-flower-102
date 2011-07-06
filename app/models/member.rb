@@ -2,6 +2,7 @@ class Member < ActiveRecord::Base
   has_many :petition_signatures
 
   validates_presence_of :email
+  validates_uniqueness_of :email
   validates_presence_of :name
 
   devise :omniauthable
@@ -10,7 +11,7 @@ class Member < ActiveRecord::Base
     data = access_token['extra']['user_hash']
     if member = find_by_email(data["email"])
       member
-    else # Create a user with a stub password. 
+    else
       self.create(:email => data["email"], :name => data["name"])
     end
   end

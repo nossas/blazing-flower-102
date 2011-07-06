@@ -3,6 +3,11 @@ require 'spec_helper'
 describe Member do
   it { should validate_presence_of :email }
   it { should validate_presence_of :name }
+  it { 
+    Factory(:member)
+    should validate_uniqueness_of :email
+  }
+  #should_validate_uniqueness_of 
 
   describe ".find_for_facebook_oauth" do
     it "should find the member by email when he's already in the database" do
