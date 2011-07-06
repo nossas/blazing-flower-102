@@ -3,7 +3,6 @@ class Member < ActiveRecord::Base
 
   validates_presence_of :email
   validates_presence_of :name
-  validates_presence_of :zona
 
   devise :omniauthable
 
@@ -12,8 +11,7 @@ class Member < ActiveRecord::Base
     if member = find_by_email(data["email"])
       member
     else # Create a user with a stub password. 
-      m = new(:email => data["email"], :name => data["name"]) 
-      m.save(:validate => false)
+      self.create(:email => data["email"], :name => data["name"])
     end
   end
 end
