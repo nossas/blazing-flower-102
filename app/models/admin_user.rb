@@ -20,7 +20,7 @@ class AdminUser < ActiveRecord::Base
                     }
 
   validates_presence_of :email, :first_name, :last_name
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  validates_format_of :email, :with => EMAIL_REGEX
 
   before_create {|u| false if u.password.blank?}
 
