@@ -6,21 +6,8 @@
 
 =content_for :javascripts do
   =javascript_include_tag("http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js")
-  =javascript_include_tag("ZeroClipboard.js")
   :javascript
-    $("form#new_petition_signature").validate({
-      submitHandler: function(){
-        return true;
-      }
-    });
-
-    var clip = new ZeroClipboard.Client();
-    ZeroClipboard.setMoviePath( 'http://#{request.host}:#{request.port}/assets/ZeroClipboard.swf' );
-    clip.setText( $("#d_clip_field").attr("value") );
-    clip.glue( 'd_clip_button' );
-    clip.addEventListener( 'complete', function(client, text) {
-      $("#clipboard").html("Copied text to clipboard: " + text)
-    } );
+    $("form#new_petition_signature").validate();
 
 %h1.grid_12= @petition.headline
 .grid_6
