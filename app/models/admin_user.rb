@@ -9,6 +9,7 @@ class AdminUser < ActiveRecord::Base
                   :is_admin, :is_campaigner, :active
 
   has_attached_file :avatar,
+                    :default_url => '/assets/avatar_blank.png',
                     :styles => { :medium => "200x200>", :thumb => "60x60" },
                     :path => ':attachment/:id/:style/:filename',
                     :storage => :s3,
