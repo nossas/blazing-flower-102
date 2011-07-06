@@ -3,6 +3,7 @@ class Member < ActiveRecord::Base
 
   validates_presence_of :email
   validates_uniqueness_of :email
+  validates_format_of :email, :with => EMAIL_REGEX
   validates_presence_of :name
 
   devise :omniauthable
