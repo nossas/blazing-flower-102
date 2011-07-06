@@ -7,7 +7,6 @@ describe Member do
     Factory(:member)
     should validate_uniqueness_of :email
   }
-  #should_validate_uniqueness_of 
 
   describe ".find_for_facebook_oauth" do
     it "should find the member by email when he's already in the database" do
