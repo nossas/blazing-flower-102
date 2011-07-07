@@ -37,6 +37,8 @@ gem 'foreigner'
 
 # gem 'geokit-rails3'
 
+gem "faker"
+
 group :development, :test do
   gem 'heroku'
   gem 'unicorn'

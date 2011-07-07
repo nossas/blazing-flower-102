@@ -6,6 +6,12 @@
 
 body.petitions {
 
+  .media{
+    iframe{
+      width: 100% !important
+    }
+  }
+
   .petition_count {
     font-weight: bold;
     font-size: 110%;
@@ -13,13 +19,13 @@ body.petitions {
 
   .petition_count_number {
     color: $pink;
+    font-size: 200%;
   }
 
   .counter {
     position:relative;
-    margin:10px 0 15px 10px;
-    width:300px;
-    height:30px;
+    margin:10px 0;
+    width:100%;
     background-color:$light_gray;
     border-radius: 4px;
     -moz-border-radius: 4px;
@@ -39,11 +45,11 @@ body.petitions {
 
   .counter_progress {
     width:50%;
-    height:30px;
+    height:25px;
     background-color:$pink;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
+    border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
   }
 
   .take_action {
@@ -57,7 +63,6 @@ body.petitions {
 
     .field {
       width: 190px;
-      padding-right: 15px;
       margin-top: 10px;
       float: left;
 
@@ -88,7 +93,6 @@ body.petitions {
     }
 
     .submit input {
-      padding: 6px 13px 10px 13px;
       background: #c63929;
       background: -moz-linear-gradient(top, #ed894b 0%, #dc6837 100%);
       background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #ed894b), color-stop(1, #dc6837));

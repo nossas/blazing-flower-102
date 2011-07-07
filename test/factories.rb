@@ -24,7 +24,8 @@ Factory.define :petition do |p|
   p.sequence(:custom_path) {|n| "test-petition-#{n}" }
   p.sequence(:call_to_action_text) {|n| "This test-petition-#{n} is really important." }
   p.sequence(:call_to_action_headline) {|n| "Sign this test-petition-#{n}!" }
-  p.media "<img src='not/a/real/image.jpg'>"
+  p.media '<iframe width="560" height="349" src="http://www.youtube.com/embed/Z00jjc-WtZI" frameborder="0" allowfullscreen></iframe>'
+  p.description Faker::Lorem.paragraphs
   p.call_to_action 'Assine'
   p.state 'draft'
 end
@@ -48,4 +49,9 @@ end
 Factory.define :complete_petition, :parent => :petition do |p|
   p.after_create { |p| Factory.create(:taf, :petition => p) }
   p.after_create { |p| Factory.create(:autofire_email, :petition => p) }
+end
+
+Factory.define :petition_signature do |p|
+  p.association :petition
+  p.association :member
 end
