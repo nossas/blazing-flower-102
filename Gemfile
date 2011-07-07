@@ -6,6 +6,7 @@ gem 'jquery-rails'
 
 # External authentication
 gem "oa-oauth", :require => "omniauth/oauth"
+gem 'oa-openid', :require => 'omniauth/openid'
 
 # Asset template engines
 gem 'haml'

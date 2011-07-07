@@ -15,4 +15,13 @@ class ProviderAuthorization < ActiveRecord::Base
       self.create(:member => m, :provider => 'facebook', :uid => access_token['uid'])
     end
   end
+
+  def self.find_for_google_apps_oauth(access_token, signed_in_resource=nil)
+    if authorization = ProviderAuthorization.where(:provider => 'google_apps', :uid => access_token['uid']).first
+      authorization
+    else
+      m = Member.find_for_google_apps_oauth(access_token, signed_in_resource)
+      self.create(:member => m, :provider => 'google_apps', :uid => access_token['uid'])
+    end
+  end
 end

@@ -16,4 +16,12 @@ class Member < ActiveRecord::Base
       self.create(:email => data["email"], :name => data["name"])
     end
   end
+
+  def self.find_for_google_apps_oauth(access_token, signed_in_resource=nil)
+    if member = find_by_email(access_token["user_info"]["email"])
+      member
+    else
+      self.create(:email => access_token["user_info"]["email"], :name => access_token["name"])
+    end
+  end
 end

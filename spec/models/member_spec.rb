@@ -20,4 +20,15 @@ describe Member do
       Member.find_for_facebook_oauth(facebook_hash).email.should == 'foo@bar.com'
     end
   end
+
+  describe ".find_for_google_apps_oauth" do
+    it "should find the member by email when he's already in the database" do
+      m = Factory(:member, :email => GOOGLE_APP_VALID_AUTH_DATA["user_info"]["email"])
+      Member.find_for_google_apps_oauth(GOOGLE_APP_VALID_AUTH_DATA).should == m
+    end
+
+    it "should create the member using his name and email when he's not in the database" do
+      Member.find_for_google_apps_oauth(GOOGLE_APP_VALID_AUTH_DATA).email.should == 'ren.provey@gmail.com'
+    end
+  end
 end
