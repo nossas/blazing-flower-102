@@ -45,6 +45,11 @@ Factory.define :petition_with_email, :parent => :petition do |p|
   p.after_create { |p| Factory.create(:autofire_email, :petition => p) }
 end
 
+Factory.define :complete_petition, :parent => :petition do |p|
+  p.after_create { |p| Factory.create(:taf, :petition => p) }
+  p.after_create { |p| Factory.create(:autofire_email, :petition => p) }
+end
+
 Factory.define :provider_authorization do |p|
   p.association :member
   p.provider "provider"
