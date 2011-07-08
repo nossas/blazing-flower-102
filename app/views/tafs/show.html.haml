@@ -9,9 +9,22 @@
       $("#clipboard").html("Copied text to clipboard: " + text)
     } );
 
+%h1= @taf.thank_you_headline
+%h3= @taf.thank_you_text
+
 - if @taf.ok_to_display_copy_url?
   =text_field_tag "d_clip_text", custom_petition_url(@taf.petition.custom_path), :id => "d_clip_field"
   #clipboard
     %a{:id => "d_clip_button", :href => "#"} Copy
-%h1= @taf.thank_you_headline
-%h3= @taf.thank_you_text
+
+- if @taf.ok_to_display_facebook?
+  =link_to "Share on Facebook", "http://www.facebook.com/sharer.php?&u=#{custom_petition_url(@taf.petition.custom_path)}"
+
+- if @taf.ok_to_display_orkut?
+  =link_to "Share on Orkut", "http://promote.orkut.com/preview?nt=#{custom_petition_url(@taf.petition.custom_path)}"
+
+- if @taf.ok_to_display_twitter?
+  =link_to "Share on Twitter", "http://twitter.com/share?url=#{custom_petition_url(@taf.petition.custom_path)}"
+
+- if @taf.ok_to_display_email?
+  =link_to "Share via e-mail", "mailto:"
