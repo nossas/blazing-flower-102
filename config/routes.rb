@@ -2,6 +2,7 @@ MeuRio::Application.routes.draw do
   resources :petition_signatures, :only => [:create]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :members, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   ActiveAdmin.routes(self)
   namespace :admin do
     get 'preview/petition/:id' => "petitions#preview", :as => "preview_petition"

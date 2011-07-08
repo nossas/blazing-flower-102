@@ -2,7 +2,26 @@ class Member < ActiveRecord::Base
   has_many :petition_signatures
 
   validates_presence_of :email
+  validates_uniqueness_of :email
+  validates_format_of :email, :with => EMAIL_REGEX
   validates_presence_of :name
-  validates_presence_of :zona
 
+  devise :omniauthable
+
+  def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
+    data = access_token['extra']['user_hash']
+    if member = find_by_email(data["email"])
+      member
+    else
+      self.create(:email => data["email"], :name => data["name"])
+    end
+  end
+
+  def self.find_for_google_apps_oauth(access_token, signed_in_resource=nil)
+    if member = find_by_email(access_token["user_info"]["email"])
+      member
+    else
+      self.create(:email => access_token["user_info"]["email"], :name => access_token["name"])
+    end
+  end
 end

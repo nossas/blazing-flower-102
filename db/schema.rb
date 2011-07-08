@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110705193754) do
+ActiveRecord::Schema.define(:version => 20110706202234) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(:version => 20110705193754) do
 
   create_table "members", :force => true do |t|
     t.text     "name",       :null => false
-    t.text     "zona",       :null => false
+    t.text     "zona"
     t.text     "email",      :null => false
     t.text     "celular"
     t.datetime "created_at"
@@ -111,6 +111,18 @@ ActiveRecord::Schema.define(:version => 20110705193754) do
 
   add_index "petitions", ["custom_path"], :name => "index_petitions_on_custom_path", :unique => true
 
+  create_table "provider_authorizations", :force => true do |t|
+    t.integer  "member_id",  :null => false
+    t.text     "provider",   :null => false
+    t.text     "uid",        :null => false
+    t.text     "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "provider_authorizations", ["member_id", "provider"], :name => "index_provider_authorizations_on_member_id_and_provider", :unique => true
+  add_index "provider_authorizations", ["provider", "uid"], :name => "index_provider_authorizations_on_provider_and_uid", :unique => true
+
   create_table "tafs", :force => true do |t|
     t.text     "thank_you_headline",          :default => "Obrigado por participar"
     t.text     "thank_you_text"
@@ -144,6 +156,8 @@ ActiveRecord::Schema.define(:version => 20110705193754) do
 
   add_foreign_key "petition_signatures", "members", :name => "petition_signatures_member_id_fk"
   add_foreign_key "petition_signatures", "petitions", :name => "petition_signatures_petition_id_fk"
+
+  add_foreign_key "provider_authorizations", "members", :name => "provider_authorizations_member_id_fk"
 
   add_foreign_key "tafs", "petitions", :name => "tafs_petition_id_fk"
 

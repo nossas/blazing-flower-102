@@ -25,3 +25,77 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 end
+
+# fake data for omniauth test cases
+GOOGLE_APP_VALID_AUTH_DATA = {
+  "provider" => "google_apps",
+  "uid" => "https://www.google.com/accounts/o8/id?id=AItOawmEH3kd6WVTpQc2YhDiGGkcobh0_GY5fxE",
+  "user_info" => {
+    "email" => "ren.provey@gmail.com"
+  },
+  "first_name" => "Ren",
+  "last_name" => "Provey",
+  "name" => "Ren Provey"
+}
+
+GOOGLE_APP_INVALID_AUTH_DATA = {
+  "provider" => "google_apps",
+  "uid" => "https://www.google.com/accounts/o8/id?id=AItOawmEH3kd6WVTpQc2YhDiGGkcobh0_GY5fxE",
+  "user_info" => {
+    "email" => "bad_email"
+  },
+  "first_name" => "Ren",
+  "last_name" => "Provey",
+  "name" => "Ren Provey"
+}
+
+FACEBOOK_INVALID_AUTH_DATA = {
+      "provider"=>"facebook",
+      "uid"=>"547955110",
+      "credentials"=>{"token"=>"fake_token"},
+      "user_info"=>{"nickname"=>nil,
+                    "email"=>"diogob@gmail.com",
+                    "first_name"=>"Diogo",
+                    "last_name"=>"Biazus",
+                    "name"=>"Diogo Biazus",
+                    "image"=>"http://graph.facebook.com/547955110/picture?type=square",
+                    "urls"=>{"Facebook"=>"http://www.facebook.com/profile.php?id=547955110",
+                             "Website"=>nil}},
+      "extra"=>{"user_hash"=>{"id"=>"547955110",
+                             "name"=>"Diogo Biazus",
+                             "first_name"=>"Diogo",
+                             "last_name"=>"Biazus",
+                             "link"=>"http://www.facebook.com/profile.php?id=547955110",
+                             "bio"=>"I simply am not there",
+                             "work"=> [],
+                             "gender"=>"male",
+                             "email"=>"diogo",
+                             "timezone"=>-3,
+                             "locale"=>"pt_BR",
+                             "verified"=>true,
+                             "updated_time"=>"2011-05-20T16:11:58+0000"}}}
+FACEBOOK_VALID_AUTH_DATA = {
+      "provider"=>"facebook",
+      "uid"=>"547955110",
+      "credentials"=>{"token"=>"fake_token"},
+      "user_info"=>{"nickname"=>nil,
+                    "email"=>"diogob@gmail.com",
+                    "first_name"=>"Diogo",
+                    "last_name"=>"Biazus",
+                    "name"=>"Diogo Biazus",
+                    "image"=>"http://graph.facebook.com/547955110/picture?type=square",
+                    "urls"=>{"Facebook"=>"http://www.facebook.com/profile.php?id=547955110",
+                             "Website"=>nil}},
+      "extra"=>{"user_hash"=>{"id"=>"547955110",
+                             "name"=>"Diogo Biazus",
+                             "first_name"=>"Diogo",
+                             "last_name"=>"Biazus",
+                             "link"=>"http://www.facebook.com/profile.php?id=547955110",
+                             "bio"=>"I simply am not there",
+                             "work"=> [],
+                             "gender"=>"male",
+                             "email"=>"diogob@gmail.com",
+                             "timezone"=>-3,
+                             "locale"=>"pt_BR",
+                             "verified"=>true,
+                             "updated_time"=>"2011-05-20T16:11:58+0000"}}}
