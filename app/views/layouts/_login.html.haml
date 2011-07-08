@@ -1,0 +1,3 @@
+#login{:style => "display:none"}
+  = link_to 'login via facebook', member_omniauth_authorize_path(:facebook)
+  = link_to "sign in with google", member_omniauth_authorize_path(:google_apps)
