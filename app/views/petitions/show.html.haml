@@ -19,10 +19,9 @@
   -if @petition.ok_to_display_counter?
     .counter
       .counter_progress{:style => "width: #{@petition.percentage_complete}%;"}
-      %span.goal= "Golo: #{@petition.counter_goal}"
-
-    %span.petition_count= raw "<span class='petition_count_number'>#{@petition.petition_signatures.count}</span> membros assinaram esta petiçao"
-  .description= raw @petition.description.gsub("\n", "<br />")
+      %span.goal= t("petition_show.goal", :goal => @petition.counter_goal)
+    %span.petition_count= raw t("petition_show.signatures", :count => @petition.petition_signatures.count)
+  .description= raw @petition.description.gsub("\n", "<br /><br />")
 .grid_6.omega
   .take_action
     %h2= @petition.call_to_action_headline
@@ -50,7 +49,7 @@
         =f.label :comment
         =f.text_area :comment, :rows => 5
         %br
-        %small 140 caracteres
+        %small= t("petition_show.comment_tip")
 
       %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
 
@@ -59,4 +58,4 @@
         .clearfix
   -if @petition.surface_comments == true
     .comments
-      %h3 Comentarios Recentes
+      %h3= t("petition_show.recent_comments")

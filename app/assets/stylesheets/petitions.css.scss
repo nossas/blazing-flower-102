@@ -129,5 +129,13 @@ body.petitions {
       box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
     }
   }
+  
+  .comments{
+    margin: 20px 0;
+    h3{
+      border-bottom: 2px solid $blue
+    }
+  }
+
 }
 
