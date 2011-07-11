@@ -46,6 +46,32 @@ Factory.define :taf do |t|
   t.thank_you_text "This is a test TAF"
 end
 
+Factory.define :facebook_taf, :parent => :taf do |t|
+  t.facebook_title "Sharing on Facebook"
+  t.facebook_link "test.com"
+  t.facebook_message "Just testing..."
+  t.display_facebook true
+end
+
+Factory.define :orkut_taf, :parent => :taf do |t|
+  t.orkut_title "Sharing on Orkut"
+  t.orkut_link "test.com"
+  t.orkut_message "Just testing..."
+  t.display_orkut true
+end
+
+Factory.define :twitter_taf, :parent => :taf do |t|
+  t.twitter_url "test.com"
+  t.tweet "Just testing..."
+  t.display_twitter true
+end
+
+Factory.define :email_taf, :parent => :taf do |t|
+  t.email_subject "Sharing via email"
+  t.email_message "Testing...."
+  t.display_email true
+end
+
 Factory.define :petition_with_email, :parent => :petition do |p|
   p.after_create { |p| Factory.create(:autofire_email, :petition => p) }
 end
@@ -58,4 +84,10 @@ end
 Factory.define :petition_signature do |p|
   p.association :petition
   p.association :member
+end
+
+Factory.define :provider_authorization do |p|
+  p.association :member
+  p.provider "provider"
+  p.sequence(:uid){|n| n.to_s }
 end

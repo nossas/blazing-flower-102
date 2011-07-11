@@ -4,6 +4,10 @@ source :rubyforge
 gem 'rails', '3.1.0.rc4'
 gem 'jquery-rails'
 
+# External authentication
+gem "oa-oauth", :require => "omniauth/oauth"
+gem 'oa-openid', :require => 'omniauth/openid'
+
 # Asset template engines
 gem 'haml'
 gem 'sass-rails', "~> 3.1.0.rc"

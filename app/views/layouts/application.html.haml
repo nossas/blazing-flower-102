@@ -10,6 +10,8 @@
     %header.container_12
       .logo.alpha.grid_2= link_to image_tag("/images/logo.png"), root_path
       %nav.omega.prefix_2.grid_8
+        %a{:href => "#login", :rel => "facebox"} Login
+      %nav.omega.prefix_2.grid_8
         =link_to 'Lorem Ipsum'
         |
         =link_to 'Lorem Ipsum'
@@ -28,7 +30,7 @@
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"}
     :javascript
       !window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))    
-    =javascript_include_tag "libs/json2.js", "libs/underscore-1.1.6.min.js", "libs/modernizr-2.0.js", "libs/backbone.js", "application"          
+    =javascript_include_tag "libs/underscore-1.1.6.min.js", "libs/modernizr-2.0.js", "libs/facebox", "application"
     = yield :javascripts
     /[if lt IE 7 ]
       <script src="assets/libs/dd_belatedpng.js"></script>
@@ -39,3 +41,4 @@
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
   
+  = render :partial => "layouts/login"
