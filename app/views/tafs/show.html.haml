@@ -1,8 +1,7 @@
 =content_for :javascripts do
-  =javascript_include_tag("ZeroClipboard.js")
   :javascript
     var clip = new ZeroClipboard.Client();
-    ZeroClipboard.setMoviePath( 'http://#{request.host}:#{request.port}/assets/ZeroClipboard.swf' );
+    ZeroClipboard.setMoviePath( 'http://#{request.host}:#{request.port}/assets/frontend/ZeroClipboard.swf' );
     clip.setText( $("#d_clip_field").attr("value") );
     clip.glue( 'd_clip_button' );
     clip.addEventListener( 'complete', function(client, text) {
