@@ -8,7 +8,7 @@ describe PetitionSignaturesController do
     
     context "New member" do
       before do
-        post 'create', {:petition => {:custom_path => @petition.custom_path}, :member => {:email => "test-user@example.org", :name => "Mickey Mouse", :zona => "Centro" }, :petition_signature => {:comment => "test comment"}}
+        post 'create', {:petition => {:custom_path => @petition.custom_path}, :member => {:email => "test-user@example.org", :first_name => "Mickey", :last_name => "Mouse", :zona => "Centro" }, :petition_signature => {:comment => "test comment"}}
       end
       it "should create a new Member and new Petition Signature" do
         response.should redirect_to custom_taf_path(@petition.custom_path)
@@ -24,7 +24,7 @@ describe PetitionSignaturesController do
     context "Existing member, new petition" do
       before do
         @member = Factory.create(:member)
-        post 'create', {:petition => {:custom_path => @petition.custom_path}, :member => {:email => @member.email, :name => @member.name, :zona => @member.zona }, :petition_signature => {:comment => "test comment"}}
+        post 'create', {:petition => {:custom_path => @petition.custom_path}, :member => {:email => @member.email, :first_name => @member.first_name, :last_name => @member.last_name, :zona => @member.zona }, :petition_signature => {:comment => "test comment"}}
       end
 
       it "should create a new Petition Signature" do
@@ -45,7 +45,7 @@ describe PetitionSignaturesController do
       end
 
       it "should redirect the user to the TAF page without creating any database records" do
-        post 'create', {:petition => {:custom_path => @petition.custom_path}, :member => {:email => @member.email, :name => @member.name, :zona => @member.zona }, :petition_signature => {:comment => ""}}
+        post 'create', {:petition => {:custom_path => @petition.custom_path}, :member => {:email => @member.email, :first_name => @member.first_name, :last_name => @member.last_name, :zona => @member.zona }, :petition_signature => {:comment => ""}}
         response.should redirect_to custom_taf_path(@petition.custom_path)
         Member.count.should == 1
         PetitionSignature.count.should == 1

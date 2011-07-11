@@ -20,7 +20,7 @@
     .counter
       .counter_progress{:style => "width: #{@petition.percentage_complete}%;"}
       %span.goal= t("petition_show.goal", :goal => @petition.counter_goal)
-    %span.petition_count= raw t("petition_show.signatures", :count => @petition.petition_signatures.count)
+    .petition_count= raw t("petition_show.signatures", :count => @petition.petition_signatures.count)
   .description= raw @petition.description.gsub("\n", "<br /><br />")
 .grid_6.omega
   .take_action
@@ -30,20 +30,20 @@
     =form_for @petition_signature do |f|
       =fields_for @member do |m|
         .member.field.left
-          =m.label :name
-          =m.text_field :name, :class => "required"
+          =m.label :first_name
+          =m.text_field :first_name, :class => "required"
 
-        .email.field.right
+        .member.field.right
+          =m.label :last_name
+          =m.text_field :last_name, :class => "required"
+        
+        .email.field.left
           =m.label :email
           =m.text_field :email, :class => "required email"
 
-        .zona.field.left
+        .zona.field.right
           =m.label :zona
           =m.select :zona, %w[Centro Norte Oeste Sul], :class => "required"
-
-        .celuar.field.right
-          =m.label :celuar
-          =m.text_field :celular
 
       .comment
         =f.label :comment

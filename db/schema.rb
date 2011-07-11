@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110705193754) do
+ActiveRecord::Schema.define(:version => 20110711180617) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -66,12 +66,13 @@ ActiveRecord::Schema.define(:version => 20110705193754) do
   add_index "autofire_emails", ["petition_id"], :name => "index_autofire_emails_on_petition_id"
 
   create_table "members", :force => true do |t|
-    t.text     "name",       :null => false
     t.text     "zona",       :null => false
     t.text     "email",      :null => false
     t.text     "celular"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name", :null => false
+    t.string   "last_name",  :null => false
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true

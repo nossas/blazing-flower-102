@@ -237,6 +237,15 @@
 
       full_messages:
         format: "%{attribute} %{message}"
+    
+    attributes:
+      member:
+        first_name: "Nome"
+        last_name: "Sobrenome"
+        email: "Endereço de Email"
+        zona: "Zona"
+      petition_signature:
+        comment: "Comentário"
 
   petition_show:
     goal: "Meta: %{goal}"

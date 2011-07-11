@@ -1,3 +1,5 @@
+#coding: utf-8
+#
 Factory.define :admin_user do |m|
   m.first_name 'Admin'
   m.last_name  'Test'
@@ -15,17 +17,19 @@ end
 
 Factory.define :member do |m|
   m.sequence(:email) {|n| "test-email-#{n}@example.com" }
-  m.name "Cukey Cucumber"
+  m.first_name Faker::Name.first_name
+  m.last_name Faker::Name.last_name
   m.zona "Centro"
 end
 
 Factory.define :petition do |p|
-  p.sequence(:title) {|n| "Test Petition #{n}" }
   p.sequence(:custom_path) {|n| "test-petition-#{n}" }
-  p.sequence(:call_to_action_text) {|n| "This test-petition-#{n} is really important." }
-  p.sequence(:call_to_action_headline) {|n| "Sign this test-petition-#{n}!" }
   p.media '<iframe width="560" height="349" src="http://www.youtube.com/embed/Z00jjc-WtZI" frameborder="0" allowfullscreen></iframe>'
-  p.description Faker::Lorem.paragraphs
+  p.call_to_action_text "A sua participação é muito importante, contamos com a sua colaboração!"
+  p.call_to_action_headline "Assine esta petição!"
+  p.title Faker::Company.name
+  p.description Faker::Lorem.paragraphs.join("\n")
+  p.surface_comments true
   p.call_to_action 'Assine'
   p.state 'draft'
 end

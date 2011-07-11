@@ -15,6 +15,7 @@ body.petitions {
   .petition_count {
     font-weight: bold;
     font-size: 110%;
+    margin: 10px 0;
   }
 
   .petition_count_number {
@@ -25,7 +26,7 @@ body.petitions {
   .counter {
     position:relative;
     margin:10px 0;
-    width:100%;
+    width:300px;
     background-color:$light_gray;
     border-radius: 4px;
     -moz-border-radius: 4px;
@@ -38,6 +39,7 @@ body.petitions {
   }
 
   .description {
+    margin: 10px 0;
     p{
       margin-top: 15px;
     }
