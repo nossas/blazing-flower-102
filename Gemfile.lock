@@ -15,7 +15,6 @@ GIT
 
 GEM
   remote: http://rubygems.org/
-  remote: http://rubygems.org/
   specs:
     ZenTest (4.5.0)
     actionmailer (3.1.0.rc4)
@@ -95,7 +94,7 @@ GEM
     culerity (0.2.15)
     daemons (1.1.4)
     database_cleaner (0.6.7)
-    devise (1.4.0)
+    devise (1.4.2)
       bcrypt-ruby (~> 2.1.2)
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
@@ -324,6 +323,7 @@ DEPENDENCIES
   coffee-script
   cucumber-rails
   database_cleaner
+  devise (= 1.4.2)
   edgecase-git-pair
   factory_girl_rails
   faker

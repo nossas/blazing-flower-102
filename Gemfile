@@ -1,5 +1,6 @@
 source :rubyforge
-source :gemcutter
+
+gem "devise", "1.4.2"
 
 # gem 'rails',  :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
 gem 'rails', '3.1.0.rc4'
