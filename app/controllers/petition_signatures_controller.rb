@@ -3,7 +3,7 @@ class PetitionSignaturesController < ApplicationController
     #do we want to allow members to sign the same petition multiple times? 
     #right now we're assuming that we don't
 
-    @member = Member.find_or_initialize_by_email(params[:member][:email])
+    @member = current_member || Member.find_or_initialize_by_email(params[:member][:email])
     petition = Petition.where(:custom_path => params[:petition][:custom_path]).first
 
     if @member.new_record?

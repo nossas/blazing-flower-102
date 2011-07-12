@@ -1,0 +1,45 @@
+%h2= @petition.call_to_action_headline
+.call_to_action_text
+  %p= raw @petition.call_to_action_text
+
+- if current_member.nil?
+  =form_for @petition_signature do |f|
+    =fields_for @member do |m|
+      .member.field.left
+        =m.label :first_name
+        =m.text_field :first_name, :class => "required"
+      .member.field.right
+        =m.label :last_name
+        =m.text_field :last_name, :class => "required"
+      .email.field.left
+        =m.label :email
+        =m.text_field :email, :class => "required email"
+      .zona.field.right
+        =m.label :zona
+        =m.select :zona, %w[Centro Norte Oeste Sul], :class => "required"
+    .comment.left
+      =f.label :comment
+      =f.text_area :comment, :rows => 5
+      %br
+      %small= t("petition_show.comment_tip")
+    %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
+    .submit
+      =f.submit(@petition.call_to_action)
+      .clearfix
+
+- else
+  %p
+    =image_tag current_member.image_url, :id => "member_thumbnail"
+    =current_member.name
+    %br
+    =current_member.email
+  =form_for @petition_signature do |f|
+    .comment.left
+      =f.label :comment
+      =f.text_area :comment, :rows => 5
+      %br
+      %small= t("petition_show.comment_tip")
+    %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
+    .submit
+      =f.submit(@petition.call_to_action)
+      .clearfix
