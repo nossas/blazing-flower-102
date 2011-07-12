@@ -16,9 +16,18 @@ describe Member do
       Member.find_for_facebook_oauth(facebook_hash).should == m
     end
 
-    it "should create the member using his name and email when he's not in the database" do
-      Member.find_for_facebook_oauth(FACEBOOK_VALID_AUTH_DATA).email.should == FACEBOOK_VALID_AUTH_DATA["user_info"]["email"]
+    context "when he's not in the database" do
+
+      it "should create using his email" do
+        Member.find_for_facebook_oauth(FACEBOOK_VALID_AUTH_DATA).email.should == FACEBOOK_VALID_AUTH_DATA["user_info"]["email"]
+      end
+
+      it "should create using his thumbnail" do
+        Member.find_for_facebook_oauth(FACEBOOK_VALID_AUTH_DATA).image_url.should == FACEBOOK_VALID_AUTH_DATA["user_info"]["image"]
+      end
+
     end
+
   end
 
   describe ".find_for_google_apps_oauth" do
@@ -27,8 +36,16 @@ describe Member do
       Member.find_for_google_apps_oauth(GOOGLE_APP_VALID_AUTH_DATA).should == m
     end
 
-    it "should create the member using his name and email when he's not in the database" do
-      Member.find_for_google_apps_oauth(GOOGLE_APP_VALID_AUTH_DATA).email.should == 'ren.provey@gmail.com'
+    context "when he's not in the database" do
+
+      it "should create the member using his name and email" do
+        Member.find_for_google_apps_oauth(GOOGLE_APP_VALID_AUTH_DATA).email.should == 'ren.provey@gmail.com'
+      end
+
+      it "should create using his gravatar" do
+        Member.find_for_google_apps_oauth(GOOGLE_APP_VALID_AUTH_DATA).image_url.should == 'http://www.gravatar.com/avatar/e9d7835fee9dabb3745b3bae39d8a1ff.jpg?s=60&d=identicon'
+      end
+
     end
   end
 end

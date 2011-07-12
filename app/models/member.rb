@@ -17,7 +17,8 @@ class Member < ActiveRecord::Base
       self.create(
         :email => data["email"], 
         :first_name => data["first_name"], 
-        :last_name => data["last_name"])
+        :last_name => data["last_name"],
+        :image_url => access_token["user_info"]["image"])
     end
   end
 
@@ -28,7 +29,8 @@ class Member < ActiveRecord::Base
       self.create(
         :email => access_token["user_info"]["email"], 
         :first_name => access_token["first_name"], 
-        :last_name => access_token["last_name"])
+        :last_name => access_token["last_name"],
+        :image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(access_token['user_info']['email'])}.jpg?s=60&d=identicon")
     end
   end
 
