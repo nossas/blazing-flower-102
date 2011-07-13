@@ -15,7 +15,6 @@ Feature: Managing Petitions
     When I follow "New Petition"
     Then I should see new petition form
 
-  @focus
   Scenario: Previewing a petition
     Given I am logged in to the admin section
     And 1 petitions exist
