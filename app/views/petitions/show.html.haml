@@ -7,7 +7,16 @@
 =content_for :javascripts do
   =javascript_include_tag("http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js")
   :javascript
-    $("form#new_petition_signature").validate();
+    $("form#new_petition_signature").validate({messages: {
+      "member[first_name]": "Campo obrigatório",
+      "member[last_name]": "Campo obrigatório",
+      "petition_signature[comment]": "Não insira mais que 140 caracteres",
+      "member[email]": {"required": "Campo obrigatório", "email": "E-mail inválido"}
+    }});
+
+    $("#petition_signature_comment").keyup(function(){
+      $("#comment_tip").html((140 - $("#petition_signature_comment").val().length) + " caracteres");
+    });
 
 %h1.grid_12= @petition.title
 .grid_6

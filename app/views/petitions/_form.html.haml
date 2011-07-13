@@ -16,12 +16,12 @@
         =m.text_field :email, :class => "required email"
       .zona.field.right
         =m.label :zona
-        =m.select :zona, %w[Centro Norte Oeste Sul], :class => "required"
+        =m.select :zona, %w[Centro Norte Oeste Sul], :class => "required", :include_blank => true
     .comment.left
       =f.label :comment
-      =f.text_area :comment, :rows => 5
+      =f.text_area :comment, :rows => 5, :maxlength => "140"
       %br
-      %small= t("petition_show.comment_tip")
+      %small#comment_tip= t("petition_show.comment_tip")
     %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
     .submit
       =f.submit(@petition.call_to_action)
