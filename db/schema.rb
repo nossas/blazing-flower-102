@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110712130133) do
+ActiveRecord::Schema.define(:version => 20110713234856) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -79,11 +79,12 @@ ActiveRecord::Schema.define(:version => 20110712130133) do
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
 
   create_table "petition_signatures", :force => true do |t|
-    t.integer  "member_id",   :null => false
-    t.integer  "petition_id", :null => false
+    t.integer  "member_id",        :null => false
+    t.integer  "petition_id",      :null => false
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "comment_accepted"
   end
 
   add_index "petition_signatures", ["member_id"], :name => "index_petition_signatures_on_member_id"
