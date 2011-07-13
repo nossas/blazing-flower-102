@@ -16,7 +16,7 @@
         =m.text_field :email, :class => "required email"
       .zona.field.right
         =m.label :zona
-        =m.select :zona, %w[Centro Norte Oeste Sul], :class => "required", :include_blank => true
+        =m.select :zona, ['Centro', 'Norte', 'Oeste', 'Sul', 'Eu não sou do Rio'], :class => "required"
     .comment.left
       =f.label :comment
       =f.text_area :comment, :rows => 5, :maxlength => "140"
