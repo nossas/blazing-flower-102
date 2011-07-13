@@ -76,7 +76,7 @@ ActiveAdmin.register Petition do
             end
             tr do
               th do
-                'Call to Action'
+                'Call to Action Headline'
               end
               td do
                 petition.call_to_action_headline
@@ -84,7 +84,7 @@ ActiveAdmin.register Petition do
             end
             tr do
               th do
-                'Call to Action'
+                'Call to Action Button'
               end
               td do
                 petition.call_to_action
@@ -137,7 +137,7 @@ ActiveAdmin.register Petition do
       end
 
       div({:class => 'panel' }) do
-        h3 'Counter'
+        h3 'Comments'
         div({:class => 'panel_contents' }) do
           div({:class => 'attributes_table petition' }) do
             table do
