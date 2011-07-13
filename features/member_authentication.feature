@@ -6,7 +6,6 @@ Feature: 3rd party sign-in
   Scenario: 
     Given I am not logged in
     When go to the home page
-    Then show me the page
     Then I should see the login link
   
   @omniauth_test
