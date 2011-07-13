@@ -3,7 +3,7 @@
   %p= raw @petition.call_to_action_text
 
 - if current_member.nil?
-  =form_for @petition_signature do |f|
+  =form_for @petition_signature, :remote => true, :update => { :success => ".take_action" } do |f|
     =fields_for @member do |m|
       .member.field.left
         =m.label :first_name

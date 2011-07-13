@@ -11,7 +11,7 @@ describe PetitionSignaturesController do
         post 'create', {:petition => {:custom_path => @petition.custom_path}, :member => {:email => "test-user@example.org", :first_name => "Mickey", :last_name => "Mouse", :zona => "Centro" }, :petition_signature => {:comment => "test comment"}}
       end
       it "should create a new Member and new Petition Signature" do
-        response.should redirect_to custom_taf_path(@petition.custom_path)
+        response.should render_template("taf")
         Member.last.email.should == "test-user@example.org"
         PetitionSignature.last.member.should == Member.last
       end
@@ -28,7 +28,7 @@ describe PetitionSignaturesController do
       end
 
       it "should create a new Petition Signature" do
-        response.should redirect_to custom_taf_path(@petition.custom_path)
+        response.should render_template("taf")
         Member.count.should == 1
         PetitionSignature.last.member.should == @member
       end
@@ -46,7 +46,7 @@ describe PetitionSignaturesController do
 
       it "should redirect the user to the TAF page without creating any database records" do
         post 'create', {:petition => {:custom_path => @petition.custom_path}, :member => {:email => @member.email, :first_name => @member.first_name, :last_name => @member.last_name, :zona => @member.zona }, :petition_signature => {:comment => ""}}
-        response.should redirect_to custom_taf_path(@petition.custom_path)
+        response.should render_template("taf")
         Member.count.should == 1
         PetitionSignature.count.should == 1
       end

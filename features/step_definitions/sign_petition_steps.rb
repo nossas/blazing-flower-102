@@ -1,3 +1,4 @@
+# coding: utf-8
 Given /^(\d+) published petitions exist$/ do |count|
   count.to_i.times do
     f = Factory.create(:complete_petition).tap{|p| p.publish }
@@ -44,6 +45,6 @@ Then /^I should see a petition signature form$/ do
 end
 
 Then /^I should see inline errors$/ do
-  assert(page.has_content?("This field is required."))
+  assert(page.has_content?("Campo obrigatório"))
 end
 
