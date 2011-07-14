@@ -9,6 +9,10 @@ class PetitionMailer < ActionMailer::Base
       :from => @email.from,
       :to => @member.email,
       :subject => @email.subject
-    })
+    }) do |format|
+      format.html
+      format.text
+    end
+    
   end
 end
