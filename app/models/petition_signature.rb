@@ -5,7 +5,7 @@ class PetitionSignature < ActiveRecord::Base
   after_create :send_confirmation
 
   def send_confirmation
-    PetitionMailer.petition_signature_confirmation(self)
+    PetitionMailer.petition_signature_confirmation(self).deliver
   end
 
 end
