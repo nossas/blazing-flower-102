@@ -22,7 +22,8 @@ ActiveAdmin.register Petition do
     def export
       @petition = Petition.where(:id => params[:id]).first
       @petition.export_to_csv
-      head :ok
+      flash[:notice] = "The list of signatures for the petition has been exported to Amazon Web Services."
+      render :action => :index
     end
   end
 
@@ -203,7 +204,7 @@ ActiveAdmin.register Petition do
         span link_to 'Preview', admin_preview_petition_path(e)
       end
       unless e.draft?
-        span link_to 'Export Signatures', admin_export_petition_path(e), :remote => true, :class => "export_signatures"
+        span link_to 'Export Signatures', admin_export_petition_path(e), :class => "export_signatures"
       end
     end
   end
