@@ -22,6 +22,12 @@ Factory.define :member do |m|
   m.zona "Centro"
 end
 
+Factory.define :issue do |i|
+  i.sequence(:name) { |n| "test-issue-#{n}" }
+  i.description {Faker::Lorem.paragraphs.join("\n")}
+  i.excerpt { Faker::Lorem.sentences }
+end
+
 Factory.define :petition do |p|
   p.sequence(:custom_path) {|n| "test-petition-#{n}" }
   p.media '<iframe width="560" height="349" src="http://www.youtube.com/embed/Z00jjc-WtZI" frameborder="0" allowfullscreen></iframe>'
