@@ -17,8 +17,8 @@ end
 
 Factory.define :member do |m|
   m.sequence(:email) {|n| "test-email-#{n}@example.com" }
-  m.first_name Faker::Name.first_name
-  m.last_name Faker::Name.last_name
+  m.first_name {Faker::Name.first_name}
+  m.last_name {Faker::Name.last_name}
   m.zona "Centro"
 end
 
@@ -27,8 +27,8 @@ Factory.define :petition do |p|
   p.media '<iframe width="560" height="349" src="http://www.youtube.com/embed/Z00jjc-WtZI" frameborder="0" allowfullscreen></iframe>'
   p.call_to_action_text "A sua participação é muito importante, contamos com a sua colaboração!"
   p.call_to_action_headline "Assine esta petição!"
-  p.title Faker::Company.name
-  p.description Faker::Lorem.paragraphs.join("\n")
+  p.title {Faker::Company.name}
+  p.description {Faker::Lorem.paragraphs.join("\n")}
   p.surface_comments true
   p.call_to_action 'Assine'
   p.state 'draft'
@@ -90,4 +90,9 @@ Factory.define :provider_authorization do |p|
   p.association :member
   p.provider "provider"
   p.sequence(:uid){|n| n.to_s }
+end
+
+Factory.define :petition_signature_with_comment, :parent => :petition_signature do |p|
+  p.comment {Faker::Lorem.paragraph}
+  p.comment_accepted true
 end
