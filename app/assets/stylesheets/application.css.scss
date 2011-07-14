@@ -9,19 +9,14 @@
 @import "vars.css.scss";
 
 @font-face {
-  font-family: Folk;
-  src: url(/fonts/ttf/folk_solid_regular.ttf);
-}
-
-@font-face {
-  font-family: FolkOutline;
-  src: url(/fonts/otf/Folkoutline.otf);
-}
-
-@font-face {
   font-family: 'Akagi-Book'; 
   font-style: italic; 
-  src: url(/fonts/ttf/Akagi-BookItalic.ttf);
+  src: url(/webfonts/ttf/Akagi-BookItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Akagi-Book-Bold'; 
+  src: url(/webfonts/ttf/Akagi-Ex.ttf);
 }
 
 body > header {

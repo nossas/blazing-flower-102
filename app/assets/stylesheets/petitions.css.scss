@@ -40,6 +40,9 @@ body.petitions {
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
+    box-shadow: inset 0 0 1px 1px gray;
+    -moz-box-shadow: inset 0 0 1px 1px gray;
+    -webkit-box-shadow: inset 0 0 1px 1px gray;
   }
   .goal {
     display:block;
@@ -59,8 +62,8 @@ body.petitions {
     width:50%;
     height:25px;
     background-color:$pink;
-    background-image: -moz-linear-gradient(100% 100% 90deg, $pink, lighten($pink, 10%));
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(lighten($pink, 10%)), to($pink));
+    background-image: -moz-linear-gradient(100% 100% 90deg, $pink, lighten($pink, 20%));
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(lighten($pink, 20%)), to($pink));
     border-right: 1px solid $pink;
     border-radius: 4px 0 0 4px;
     -moz-border-radius: 4px 0 0 4px;
@@ -168,18 +171,18 @@ body.petitions {
     }
     p{
       background:url("/images/comment_icon.png") no-repeat;
-      padding-left:44px;
+      padding-left:42px;
     }
   }
 
   h1{
-    font-family: Folk;
+    font-family: Folk-solid;
     font-size: 56px;
     color: $green;
     position: relative;
     font-weight: normal;
     .outline{
-      font-family: FolkOutline;
+      font-family: Folk-outline;
       color: #666;
       position: absolute;
       top: 0px;
