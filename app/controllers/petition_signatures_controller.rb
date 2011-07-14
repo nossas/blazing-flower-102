@@ -3,8 +3,8 @@ class PetitionSignaturesController < ApplicationController
     #do we want to allow members to sign the same petition multiple times? 
     #right now we're assuming that we don't
 
-    @member = Member.find_or_initialize_by_email(params[:member][:email])
-    petition = Petition.where(:custom_path => params[:petition][:custom_path]).first
+    @member = current_member || Member.find_or_initialize_by_email(params[:member][:email])
+    @petition = Petition.where(:custom_path => params[:petition][:custom_path]).first
 
     if @member.new_record?
       @member.attributes = params[:member] 
@@ -12,16 +12,18 @@ class PetitionSignaturesController < ApplicationController
         @errors = @member.errors.messages.map do |key, message|
           key.to_s.capitalize + ' ' + message.join(' ') 
         end.join('. ')
-        return redirect_to custom_petition_path(petition.custom_path), :notice => @errors + '.'
+        return redirect_to custom_petition_path(@petition.custom_path), :notice => @errors + '.'
       end
     end
-    @signature = PetitionSignature.find_or_initialize_by_member_id_and_petition_id(@member.id, petition.id)
+    @signature = PetitionSignature.find_or_initialize_by_member_id_and_petition_id(@member.id, @petition.id)
     if @signature.new_record?
       @signature.attributes = params[:petition_signature] 
       @signature.save
     else
-      flash[:notice] = "You've already signed this petition."
+      @existing_signature = true
     end
-    redirect_to custom_taf_path(petition.custom_path)
+
+    render :partial => "petitions/taf", :layout => false, :content_type => "text/html"
+
   end
 end

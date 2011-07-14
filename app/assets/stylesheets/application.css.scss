@@ -8,6 +8,11 @@
 
 @import "vars.css.scss";
 
+@font-face {
+  font-family: Folk;
+  src: url(/fonts/ttf/folk_solid_regular.ttf);
+}
+
 body > header {
   padding:10px 0 0 0;
   background: #f2f0ed;
@@ -44,4 +49,15 @@ body  > #main {
   box-shadow:0 0 20px 1px #dedbd5;
   -moz-box-shadow:0 0 20px 1px #dedbd5;
   -webkit-box-shadow:0 0 20px 1px #dedbd5;
+}
+
+.left{float: left}
+.right{float: right}
+
+textarea.error, input.error, select.error{
+  border-color: red !important;
+}
+
+label.error{
+  font-size: 10px;
 }

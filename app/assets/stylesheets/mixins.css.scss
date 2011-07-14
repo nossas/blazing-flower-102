@@ -1,0 +1,14 @@
+@mixin scale($factor, $duration){
+  -moz-transition-property: all;
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: $duration;
+  -webkit-transition-duration: $duration;
+  -o-transition-duration: $duration;
+  transition-duration: $duration;
+  -webkit-transform:scale($factor);
+  -moz-transform:scale($factor);
+  -o-transform:scale($factor);
+}
+

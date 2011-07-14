@@ -35,4 +35,24 @@ class Taf < ActiveRecord::Base
                       :secret_access_key => SITE['s3_secret_access_key']
                     }
 
+  def ok_to_display_copy_url?
+    self.display_copy_url
+  end
+  
+  def ok_to_display_facebook?
+    self.display_facebook
+  end
+
+  def ok_to_display_twitter?
+    self.display_twitter
+  end
+  
+  def ok_to_display_orkut?
+    self.display_orkut
+  end
+  
+  def ok_to_display_email?
+    self.display_email
+  end
+
 end

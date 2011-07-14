@@ -2,4 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  petition_show:
+    goal: "Goal: %{goal}"
+    signatures:
+      zero: "No member signed this petition"
+      one: "<span class='petition_count_number'>1</span> member signed this petition"
+      other: "<span class='petition_count_number'>%{count}</span> members signed this petition"
+    comment_tip: "140 characters"
+    recent_comments: "RECENT COMMENTS"
+    already_signed: "You've already signed this petition."

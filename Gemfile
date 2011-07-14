@@ -1,8 +1,14 @@
 source :rubyforge
 
+gem "devise", "1.4.2"
+
 # gem 'rails',  :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
 gem 'rails', '3.1.0.rc4'
 gem 'jquery-rails'
+
+# External authentication
+gem "oa-oauth", :require => "omniauth/oauth"
+gem 'oa-openid', :require => 'omniauth/openid'
 
 # Asset template engines
 gem 'haml'
@@ -36,6 +42,8 @@ gem 'pg'
 gem 'foreigner'
 
 # gem 'geokit-rails3'
+
+gem "faker"
 
 group :development, :test do
   gem 'heroku'

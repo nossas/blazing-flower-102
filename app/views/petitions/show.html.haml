@@ -4,70 +4,18 @@
     %meta{ :property => "og:description", :content => "#{@taf.facebook_message}" } 
     %meta{ :property => "og:url", :content => "#{@taf.facebook_link}" } 
 
-=content_for :javascripts do
-  =javascript_include_tag("http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js")
-  =javascript_include_tag("ZeroClipboard.js")
-  :javascript
-    $("form#new_petition_signature").validate({
-      submitHandler: function(){
-        return true;
-      }
-    });
-
-    var clip = new ZeroClipboard.Client();
-    ZeroClipboard.setMoviePath( 'http://#{request.host}:#{request.port}/assets/ZeroClipboard.swf' );
-    clip.setText( $("#d_clip_field").attr("value") );
-    clip.glue( 'd_clip_button' );
-    clip.addEventListener( 'complete', function(client, text) {
-      $("#clipboard").html("Copied text to clipboard: " + text)
-    } );
-
-%h1.grid_12= @petition.headline
+%h1.grid_12= @petition.title
 .grid_6
   .media= raw @petition.media
   -if @petition.ok_to_display_counter?
     .counter
       .counter_progress{:style => "width: #{@petition.percentage_complete}%;"}
-      %span.goal= "Golo #{@petition.counter_goal}"
-
-    %span.petition_count= raw "<span class='petition_count_number'>#{@petition.petition_signatures.count}</span> membros assinaram esta petiçao"
-  .description= raw @petition.description
-.grid_6
-  - if @petition.ok_to_display_copy_url?
-    =text_field_tag "d_clip_text", custom_petition_url(@petition.custom_path), :id => "d_clip_field"
-    #clipboard
-      %a{:id => "d_clip_button", :href => "#"} Copy
+      %span.goal= t("petition_show.goal", :goal => @petition.counter_goal)
+    .petition_count= raw t("petition_show.signatures", :count => @petition.petition_signatures.count)
+  .description= raw @petition.description.gsub("\n", "<br /><br />")
+.grid_6.omega
   .take_action
-    %h2= @petition.call_to_action_headline
-    .call_to_action_text
-      %p= raw @petition.call_to_action_text
-    =form_for @petition_signature do |f|
-      =fields_for @member do |m|
-        .member.field
-          =m.label :name
-          =m.text_field :name, :class => "required"
-
-        .email.field
-          =m.label :email
-          =m.text_field :email, :class => "required email"
-
-        .zona.field
-          =m.label :zona
-          =m.select :zona, %w[Centro Norte Oeste Sul], :class => "required"
-
-        .celuar.field
-          =m.label :celuar
-          =m.text_field :celular
-
-      .comment
-        =f.label :comment
-        =f.text_area :comment, :rows => 5
-
-      %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
-
-      .submit
-        =f.submit(@petition.call_to_action)
-        .clearfix
+    = render :partial => "petitions/form"
   -if @petition.surface_comments == true
     .comments
-      %h3 Comentarios Recentes
+      %h3= t("petition_show.recent_comments")

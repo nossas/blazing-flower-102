@@ -19,3 +19,7 @@ When /^I fill in the admin login form with my new password$/ do
   fill_in 'admin_user_email', :with => AdminUser.first.email
   fill_in 'admin_user_password', :with => 'very_safe'
 end
+
+Given /^I am logged in via Facebook$/ do
+  visit "/members/auth/facebook"
+end

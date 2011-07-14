@@ -20,6 +20,158 @@ ActiveAdmin.register Petition do
     end
   end
 
+  show do
+    div({:class => 'panel' }) do
+      h3 'Petition Details'
+      div({:class => 'panel_contents' }) do
+        div({:class => 'attributes_table petition' }) do
+          table do
+            tr do
+              th do
+                'Title'
+              end
+              td do
+                petition.title
+              end
+            end
+            tr do
+              th do
+                'Custom Path'
+              end
+              td do
+                petition.custom_path
+              end
+            end
+            tr do
+              th do
+                'Headline'
+              end
+              td do
+                petition.headline
+              end
+            end
+            tr do
+              th do
+                'Description'
+              end
+              td do
+                petition.description
+              end
+            end
+            tr do
+              th do
+                'Short Description'
+              end
+              td do
+                petition.short_description
+              end
+            end
+            tr do
+              th do
+                'Media'
+              end
+              td do
+                raw petition.media
+              end
+            end
+            tr do
+              th do
+                'Call to Action Headline'
+              end
+              td do
+                petition.call_to_action_headline
+              end
+            end
+            tr do
+              th do
+                'Call to Action Button'
+              end
+              td do
+                petition.call_to_action
+              end
+            end
+            tr do
+              th do
+                'Call to Action Text'
+              end
+              td do
+                petition.call_to_action_text
+              end
+            end
+          end
+        end
+      end
+    end
+
+    div({:class => 'panel' }) do
+      h3 'Counter'
+      div({:class => 'panel_contents' }) do
+        div({:class => 'attributes_table petition' }) do
+          table do
+            tr do
+              th do
+                'Display Counter?'
+              end
+              td do
+                petition.display_counter == true ? "Yes" : "No"
+              end
+            end
+            tr do
+              th do
+                'Counter Threshold'
+              end
+              td do
+                petition.counter_threshold.to_s
+              end
+            end
+            tr do
+              th do
+                'Counter Goal'
+              end
+              td do
+                petition.counter_goal.to_s
+              end
+            end
+          end
+        end
+      end
+
+      div({:class => 'panel' }) do
+        h3 'Comments'
+        div({:class => 'panel_contents' }) do
+          div({:class => 'attributes_table petition' }) do
+            table do
+              tr do
+                th do
+                  'Display Comments?'
+                end
+                td do
+                  petition.display_comment_field == true ? "Yes" : "No"
+                end
+              end
+              tr do
+                th do
+                  'Comment Question'
+                end
+                td do
+                  petition.comment_question
+                end
+              end
+              tr do
+                th do
+                  'Surface Comments?'
+                end
+                td do
+                  petition.surface_comments == true ? "Yes" : "No"
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+
   index do
     column :title
     column :state
