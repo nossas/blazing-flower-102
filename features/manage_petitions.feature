@@ -27,3 +27,10 @@ Feature: Managing Petitions
     And 1 published petitions exist
     When I am on the admin petitions page
     Then I should not see "Preview"
+
+  Scenario: Exporting a list of people who have a petition
+    Given I am logged in to the admin section
+    And 1 published petitions exist
+    When I am on the admin petitions page
+    And I click "Export Signatures"
+    Then I should see "The list of signatures for the petition has been exported to Amazon Web Services."
