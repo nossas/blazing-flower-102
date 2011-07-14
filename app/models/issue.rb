@@ -1,6 +1,8 @@
 class Issue < ActiveRecord::Base
   validates_presence_of :name
 
+  has_many :petitions
+
   has_attached_file :image,
                     :path => ':attachment/:id/:style/:filename',
                     :storage => :s3,

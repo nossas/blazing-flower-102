@@ -52,6 +52,14 @@ ActiveAdmin.register Petition do
             end
             tr do
               th do
+                'Issue'
+              end
+              td do
+                petition.issue.name
+              end
+            end
+            tr do
+              th do
                 'Headline'
               end
               td do
@@ -214,6 +222,7 @@ ActiveAdmin.register Petition do
     f.inputs "Campaign Information" do
       f.input :title, :as => :string
       f.input :custom_path, :as => :string
+      f.input :issue
     end
 
     f.inputs "Petition Information" do
