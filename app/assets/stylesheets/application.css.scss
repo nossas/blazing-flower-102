@@ -8,17 +8,6 @@
 
 @import "vars.css.scss";
 
-@font-face {
-  font-family: 'Akagi-Book'; 
-  font-style: italic; 
-  src: url(/webfonts/ttf/Akagi-BookItalic.ttf);
-}
-
-@font-face {
-  font-family: 'Akagi-Book-Bold'; 
-  src: url(/webfonts/ttf/Akagi-Ex.ttf);
-}
-
 body > header {
   padding:10px 0 0 0;
   background: #f2f0ed;
