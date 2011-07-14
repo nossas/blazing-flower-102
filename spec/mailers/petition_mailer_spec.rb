@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe PetitionMailer do
   describe "#petition_signature_confirmation" do
-    let(:petition_signature){ Factory(:petition_signature, :petition => Factory(:complete_petition)) }
+    let(:petition_signature){ Factory(:petition_signature) }
     let(:message){ petition_signature.petition.autofire_email }
     subject{ PetitionMailer.petition_signature_confirmation(petition_signature) }
 

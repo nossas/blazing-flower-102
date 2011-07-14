@@ -99,7 +99,7 @@ Factory.define :complete_petition, :parent => :petition do |p|
 end
 
 Factory.define :petition_signature do |p|
-  p.association :petition
+  p.petition { Factory(:complete_petition).tap{|p| p.publish } }
   p.association :member
 end
 

@@ -4,6 +4,7 @@ describe PetitionSignaturesController do
   describe "post to Create" do
     before do
       @petition = Factory.create(:complete_petition)
+      @petition.publish
     end
     
     context "New member" do
