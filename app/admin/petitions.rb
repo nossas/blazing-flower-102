@@ -10,6 +10,7 @@ ActiveAdmin.register Petition do
       @taf = @petition.taf
       @petition_signature = PetitionSignature.new
       @member = Member.new
+      @comments = []
 
       if @petition.published?
         redirect_to custom_petition_path(@petition.custom_path)
