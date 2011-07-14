@@ -4,7 +4,9 @@
     %meta{ :property => "og:description", :content => "#{@taf.facebook_message}" } 
     %meta{ :property => "og:url", :content => "#{@taf.facebook_link}" } 
 
-%h1.grid_12= @petition.title
+%h1.grid_12
+  = @petition.title.upcase
+  .outline= @petition.title.upcase
 .grid_6
   .media= raw @petition.media
   -if @petition.ok_to_display_counter?

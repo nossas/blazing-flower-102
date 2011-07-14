@@ -165,8 +165,17 @@ body.petitions {
 
   h1{
     font-family: Folk;
-    font-size: 48px;
+    font-size: 56px;
     color: $green;
+    position: relative;
+    font-weight: normal;
+    .outline{
+      font-family: FolkOutline;
+      color: #666;
+      position: absolute;
+      top: 0px;
+      left: -2px;
+    }
   }
 
   .call_to_action_text{
