@@ -154,4 +154,25 @@ describe Petition do
   describe "#taf" do
     it { should have_one :taf }
   end
+
+  describe "export petition signature list" do
+    before do
+      @p = Factory.create(:complete_petition) 
+      4.times do 
+        m = Factory.create(:member)
+        PetitionSignature.create({:petition => @p, :member => m})
+      end
+    end
+
+    after do
+      f = Rails.root.to_s + "/tmp/signatures-#{@p.title}.csv"
+      'rm #{f}' if File.exists?(f)
+    end
+
+    it "should export a list of members who have signed the petition" do
+      @p.export_to_csv
+      File.exists?(Rails.root.to_s + "/tmp/signatures-#{@p.title}.csv").should be_true
+    end
+  end
+
 end
