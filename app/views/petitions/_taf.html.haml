@@ -3,3 +3,11 @@
   = t("petition_show.already_signed")
 =@petition.taf.thank_you_headline
 =@petition.taf.thank_you_text
+
+%h3= t("petition_show.share_on_facebook_or_orkut")
+
+- if @petition.taf.display_facebook
+  = link_to "Facebook", "http://www.facebook.com/sharer.php?u=#{request.url}", :target => "_blank"
+
+- if @petition.taf.display_orkut
+  = link_to "Orkut", "http://promote.orkut.com/preview?nt=orkut.com&du=#{request.url}&tt=#{@petition.taf.orkut_title}&cn=#{@petition.taf.orkut_message}", :target => "_blank"

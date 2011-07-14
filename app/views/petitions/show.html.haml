@@ -15,7 +15,10 @@
   .description= raw @petition.description.gsub("\n", "<br /><br />")
 .grid_6.omega
   .take_action
-    = render :partial => "petitions/form"
+    - if current_member && PetitionSignature.find_by_member_id_and_petition_id(current_member.id, @petition.id).nil?
+      = render :partial => "petitions/form"
+    - else
+      = render :partial => "petitions/taf"
   -if @petition.surface_comments == true && !@comments.empty?
     .comments
       %h3= t("petition_show.recent_comments")
