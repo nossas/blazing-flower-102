@@ -2,8 +2,8 @@
 .call_to_action_text
   %p= raw @petition.call_to_action_text
 
-- if current_member.nil?
-  =form_for @petition_signature, :remote => true, :update => { :success => ".take_action" } do |f|
+=form_for @petition_signature, :remote => true, :update => { :success => ".take_action" } do |f|
+  - if current_member.nil?
     =fields_for @member do |m|
       .member.field.left
         =m.label :first_name
@@ -21,32 +21,21 @@
         =m.label :zona
         %span.required_mark *
         =m.select :zona, ['Centro', 'Norte', 'Oeste', 'Sul', 'Eu não sou do Rio'], :class => "required"
-    .comment.left
-      =f.label :comment
-      =f.text_area :comment, :rows => 5, :maxlength => "140"
+  - else
+    %p
+      =image_tag current_member.image_url, :id => "member_thumbnail"
+      =current_member.name
       %br
-      %small#comment_tip= t("petition_show.comment_tip")
-    %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
-    .clear
-    .submit
-      Meu rio protege a
-      =link_to "sua privacidade"
-      =f.submit(@petition.call_to_action)
-      .clearfix
-
-- else
-  %p
-    =image_tag current_member.image_url, :id => "member_thumbnail"
-    =current_member.name
+      =current_member.email
+  .comment.left
+    =f.label :comment
+    =f.text_area :comment, :rows => 5, :maxlength => "140"
     %br
-    =current_member.email
-  =form_for @petition_signature do |f|
-    .comment.left
-      =f.label :comment
-      =f.text_area :comment, :rows => 5
-      %br
-      %small= t("petition_show.comment_tip")
-    %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
-    .submit
-      =f.submit(@petition.call_to_action)
-      .clearfix
+    %small#comment_tip= t("petition_show.comment_tip")
+  %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
+  .clear
+  .submit
+    Meu rio protege a
+    =link_to "sua privacidade"
+    =f.submit(@petition.call_to_action)
+    .clearfix
