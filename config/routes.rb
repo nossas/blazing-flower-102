@@ -9,6 +9,7 @@ MeuRio::Application.routes.draw do
   ActiveAdmin.routes(self)
   namespace :admin do
     get 'preview/petition/:id' => "petitions#preview", :as => "preview_petition"
+    get 'petition/:id/export' => "petitions#export", :as => "export_petition"
   end
 
   match 'admin_user_root' => 'admin/dashboard#index'
