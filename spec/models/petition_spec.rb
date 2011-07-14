@@ -2,6 +2,11 @@
 require 'spec_helper'
 
 describe Petition do
+
+  describe "#issue" do
+    it { should belong_to :issue }
+  end
+
   describe "#valid?" do
     it { should validate_presence_of :title }
     it { should validate_presence_of :custom_path }

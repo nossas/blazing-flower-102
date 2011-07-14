@@ -8,6 +8,8 @@ class Petition < ActiveRecord::Base
 
   has_many :members, :through => :petition_signatures
 
+  belongs_to :issue
+
   validates_presence_of :title
   validates_presence_of :custom_path
   validates_uniqueness_of :custom_path
