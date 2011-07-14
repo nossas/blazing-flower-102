@@ -18,6 +18,12 @@ ActiveAdmin.register Petition do
         render "petitions/show", :layout => 'application'
       end
     end
+
+    def export
+      @petition = Petition.where(:id => params[:id]).first
+      @petition.export_to_csv
+      head :ok
+    end
   end
 
   show do
@@ -195,6 +201,9 @@ ActiveAdmin.register Petition do
       span link_to 'Edit', edit_admin_petition_path(e)
       if e.draft?
         span link_to 'Preview', admin_preview_petition_path(e)
+      end
+      unless e.draft?
+        span link_to 'Export Signatures', admin_export_petition_path(e), :remote => true, :class => "export_signatures"
       end
     end
   end
