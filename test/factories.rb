@@ -72,12 +72,29 @@ Factory.define :email_taf, :parent => :taf do |t|
   t.display_email true
 end
 
+Factory.define :complete_taf, :parent => :taf do |t|
+  t.facebook_title "Sharing on Facebook"
+  t.facebook_link "test.com"
+  t.facebook_message "Just testing..."
+  t.display_facebook true
+  t.orkut_title "Sharing on Orkut"
+  t.orkut_link "test.com"
+  t.orkut_message "Just testing..."
+  t.display_orkut true
+  t.twitter_url "test.com"
+  t.tweet "Just testing..."
+  t.display_twitter true
+  t.email_subject "Sharing via email"
+  t.email_message "Testing...."
+  t.display_email true
+end
+
 Factory.define :petition_with_email, :parent => :petition do |p|
   p.after_create { |p| Factory.create(:autofire_email, :petition => p) }
 end
 
 Factory.define :complete_petition, :parent => :petition do |p|
-  p.after_create { |p| Factory.create(:taf, :petition => p) }
+  p.after_create { |p| Factory.create(:complete_taf, :petition => p) }
   p.after_create { |p| Factory.create(:autofire_email, :petition => p) }
 end
 
