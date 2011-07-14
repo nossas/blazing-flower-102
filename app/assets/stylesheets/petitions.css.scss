@@ -33,17 +33,19 @@ body.petitions {
 
   .counter {
     position:relative;
-    margin:10px 0;
-    width:300px;
+    margin-bottom:10px;
+    width:100%;
     background-color:$light_gray;
+    border: 1px solid gray;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
-    .goal {
-      position:absolute;
-      top:7px;
-      right:20px;
-    }
+  }
+  .goal {
+    display:block;
+    width:100%;
+    text-align: right;
+    margin-top: 10px;
   }
 
   .description {
@@ -57,6 +59,9 @@ body.petitions {
     width:50%;
     height:25px;
     background-color:$pink;
+    background-image: -moz-linear-gradient(100% 100% 90deg, $pink, lighten($pink, 10%));
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(lighten($pink, 10%)), to($pink));
+    border-right: 1px solid $pink;
     border-radius: 4px 0 0 4px;
     -moz-border-radius: 4px 0 0 4px;
     -webkit-border-radius: 4px 0 0 4px;
@@ -65,11 +70,17 @@ body.petitions {
   .take_action {
     background: #e7e7e7;
     padding: 25px;
+    box-shadow: 3px 3px 3px gray;
+    -moz-box-shadow: 3px 3px 3px gray;
+    -webkit-box-shadow: 3px 3px 3px gray;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 
     h2 {
       text-transform: uppercase;
       color: $orange;
       font-family: Folk-solid;
+      margin: 0;
     }
 
     .field {
@@ -109,6 +120,10 @@ body.petitions {
       }
     }
 
+    .submit{
+      margin: 15px 0 0;
+    }
+
     .submit input {
       background: #c63929;
       background: -moz-linear-gradient(top, #ed894b 0%, #dc6837 100%);
@@ -126,7 +141,6 @@ body.petitions {
       text-transform: uppercase;
       text-align: center;
       text-shadow: 0px 1px 1px rgba(0, 0, 0, .8);
-      margin: 15px 0 0;
       float: right;
     }
 
@@ -152,12 +166,33 @@ body.petitions {
     h3{
       border-bottom: 2px solid $blue
     }
+    p{
+      background:url("/images/comment_icon.png") no-repeat;
+      padding-left:44px;
+    }
   }
 
   h1{
     font-family: Folk;
-    font-size: 48px;
+    font-size: 56px;
     color: $green;
+    position: relative;
+    font-weight: normal;
+    .outline{
+      font-family: FolkOutline;
+      color: #666;
+      position: absolute;
+      top: 0px;
+      left: -2px;
+    }
+  }
+
+  .call_to_action_text{
+    margin: 10px 0;
+  }
+
+  .required_mark{
+    color:$blue;
   }
 
 }
