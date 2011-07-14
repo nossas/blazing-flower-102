@@ -4,18 +4,25 @@
     %meta{ :property => "og:description", :content => "#{@taf.facebook_message}" } 
     %meta{ :property => "og:url", :content => "#{@taf.facebook_link}" } 
 
-%h1.grid_12= @petition.title
+%h1.grid_12
+  = @petition.title.upcase
+  .outline= @petition.title.upcase
 .grid_6
   .media= raw @petition.media
   -if @petition.ok_to_display_counter?
+    %span.goal= t("petition_show.goal", :goal => @petition.counter_goal)
     .counter
       .counter_progress{:style => "width: #{@petition.percentage_complete}%;"}
-      %span.goal= t("petition_show.goal", :goal => @petition.counter_goal)
     .petition_count= raw t("petition_show.signatures", :count => @petition.petition_signatures.count)
   .description= raw @petition.description.gsub("\n", "<br /><br />")
 .grid_6.omega
   .take_action
     = render :partial => "petitions/form"
-  -if @petition.surface_comments == true
+  -if @petition.surface_comments == true && !@comments.empty?
     .comments
       %h3= t("petition_show.recent_comments")
+      - @comments.each do |petition_signature|
+        %p
+          = petition_signature.comment
+          %br
+          %strong= "#{petition_signature.member.name}, #{petition_signature.member.zona}"

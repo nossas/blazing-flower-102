@@ -84,8 +84,15 @@ a:hover { color: #036; }
 @font-face {font-family: 'Akagi-Book';src: url('../fonts/eot/style_174436.eot');src: url('../fonts/eot/style_174436.eot?#iefix') format('embedded-opentype'),url('../fonts/woff/style_174436.woff') format('woff'),url('../fonts/ttf/style_174436.ttf') format('truetype'),url('../fonts/svg/style_174436.svg#Akagi-Book') format('svg');}
 @font-face {font-family: 'Akagi-Light';src: url('../fonts/eot/style_174446.eot');src: url('../fonts/eot/style_174446.eot?#iefix') format('embedded-opentype'),url('../fonts/woff/style_174446.woff') format('woff'),url('../fonts/ttf/style_174446.ttf') format('truetype'),url('../fonts/svg/style_174446.svg#Akagi-Light') format('svg');}
 
+ @font-face {font-family: 'Folk-outline';src: url('../webfonts/eot/style_192109.eot');src: url('../webfonts/eot/style_192109.eot?#iefix') format('embedded-opentype'),url('../webfonts/woff/style_192109.woff') format('woff'),url('../webfonts/ttf/style_192109.ttf') format('truetype'),url('../webfonts/svg/style_192109.svg#Folk-outline') format('svg');}
+ @font-face {font-family: 'Folk-solid';src: url('../webfonts/eot/style_192110.eot');src: url('../webfonts/eot/style_192110.eot?#iefix') format('embedded-opentype'),url('../webfonts/woff/style_192110.woff') format('woff'),url('../webfonts/ttf/style_192110.ttf') format('truetype'),url('../webfonts/svg/style_192110.svg#Folk-solid') format('svg');}
+ @font-face {font-family: 'Folk-sketches';src: url('../webfonts/eot/style_192111.eot');src: url('../webfonts/eot/style_192111.eot?#iefix') format('embedded-opentype'),url('../webfonts/woff/style_192111.woff') format('woff'),url('../webfonts/ttf/style_192111.ttf') format('truetype'),url('../webfonts/svg/style_192111.svg#Folk-sketches') format('svg');}
+ @font-face {font-family: 'Folk-shadow';src: url('../webfonts/eot/style_192112.eot');src: url('../webfonts/eot/style_192112.eot?#iefix') format('embedded-opentype'),url('../webfonts/woff/style_192112.woff') format('woff'),url('../webfonts/ttf/style_192112.ttf') format('truetype'),url('../webfonts/svg/style_192112.svg#Folk-shadow') format('svg');}
+
 .Akagi-Book { font-family: Akagi-Book; }
 .Akagi-Light { font-family: Akagi-Light; }
+
+.Folk-solid { font-family: Folk-solid; }
 
 body {
   background: #e1e1d9;

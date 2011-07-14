@@ -13,6 +13,17 @@
   src: url(/fonts/ttf/folk_solid_regular.ttf);
 }
 
+@font-face {
+  font-family: FolkOutline;
+  src: url(/fonts/otf/Folkoutline.otf);
+}
+
+@font-face {
+  font-family: 'Akagi-Book'; 
+  font-style: italic; 
+  src: url(/fonts/ttf/Akagi-BookItalic.ttf);
+}
+
 body > header {
   padding:10px 0 0 0;
   background: #f2f0ed;
@@ -53,6 +64,7 @@ body  > #main {
 
 .left{float: left}
 .right{float: right}
+.clear{clear: both}
 
 textarea.error, input.error, select.error{
   border-color: red !important;
