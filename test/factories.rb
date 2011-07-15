@@ -107,6 +107,7 @@ end
 Factory.define :petition_signature do |p|
   p.petition { Factory(:complete_petition).tap{|p| p.publish } }
   p.association :member
+  p.comment "Great success!!"
 end
 
 Factory.define :provider_authorization do |p|

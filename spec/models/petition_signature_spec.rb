@@ -2,12 +2,23 @@
 require 'spec_helper'
 
 describe PetitionSignature do
+  let(:petition_signature){ Factory.build(:petition_signature) }
   describe "#petition" do
     it { should belong_to :petition }
   end
 
   describe "#member" do
     it { should belong_to :member }
+  end
+
+  describe '#accept_comment' do
+    subject{ petition_signature.accept_comment }
+    its(:comment_accepted){ should be_true }
+  end
+
+  describe '#reject_comment' do
+    subject{ petition_signature.reject_comment }
+    its(:comment_accepted){ should be_false }
   end
 
   describe '#valid?' do
@@ -21,7 +32,6 @@ describe PetitionSignature do
     end
 
     context "when the petition is published" do
-      let(:petition_signature){ Factory.build(:petition_signature) }
       it{ should be_true }
     end
   end

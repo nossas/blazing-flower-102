@@ -12,4 +12,14 @@ class PetitionSignature < ActiveRecord::Base
   def belongs_to_published_petition
     errors.add(:petition, "Petition must be published in order to be signed") unless petition.published?
   end
+
+  def reject_comment
+    self.update_attribute :comment_accepted, false
+    self
+  end
+
+  def accept_comment
+    self.update_attribute :comment_accepted, true
+    self
+  end
 end
