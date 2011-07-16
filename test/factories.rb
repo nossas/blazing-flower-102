@@ -50,6 +50,14 @@ Factory.define :taf do |t|
   t.association :petition
   t.thank_you_headline 'Obrigado'
   t.thank_you_text "This is a test TAF"
+  t.display_facebook true
+  t.display_orkut true
+  t.facebook_title "Facebook title"
+  t.facebook_message "Facebook message"
+  t.facebook_link "Facebook link"
+  t.orkut_title "Orkut title"
+  t.orkut_message "Orkut message"
+  t.orkut_link "Orkut link"
 end
 
 Factory.define :facebook_taf, :parent => :taf do |t|

@@ -255,4 +255,6 @@
       other: "<span class='petition_count_number'>%{count}</span> membros assinaram esta petição"
     comment_tip: "140 caracteres"
     recent_comments: "COMENTÁRIOS RECENTES"
-    already_signed: "Você já assinou esta petição."
+    already_signed: "Você já havia assinado esta petição."
+    thank_you: "Obrigado %{name} pela sua participação!"
+    share_on_facebook_or_orkut: "Compartilhe em seu mural"
