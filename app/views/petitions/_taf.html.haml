@@ -21,6 +21,5 @@
 - if @petition.taf && @petition.taf.display_copy_url 
   .canvas.clear_float
     %h3= t("petition_show.click_to_copy")
-    =text_field_tag "d_clip_text", custom_petition_url(@petition.taf.petition.custom_path), :id => "d_clip_field", :class => "left"
-    #clipboard
-      %a.btn.right{:id => "d_clip_button"}= t("petition_show.copy_url")
+    =text_field_tag "clippy_input", custom_petition_url(@petition.taf.petition.custom_path), :id => "clippy_input", :class => "left"
+    =raw clippy(custom_petition_url(@petition.taf.petition.custom_path), "#e7e7e7")

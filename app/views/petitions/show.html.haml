@@ -4,19 +4,6 @@
     %meta{ :property => "og:description", :content => "#{@taf.facebook_message}" } 
     %meta{ :property => "og:url", :content => "#{@taf.facebook_link}" } 
   
-=content_for :javascripts do
-  :javascript
-    function loadZeroclipboard(){
-      var clip = new ZeroClipboard.Client();
-      ZeroClipboard.setMoviePath( 'http://#{request.host}:#{request.port}/assets/frontend/ZeroClipboard.swf' );
-      clip.setText( $("#d_clip_field").attr("value") );
-      clip.glue( 'd_clip_button' );
-      clip.addEventListener( 'complete', function(client, text) {
-        $("#clipboard").html("Copied text to clipboard: " + text)
-      } );
-    }
-    loadZeroclipboard();
-
 %h1.grid_12
   = @petition.title.upcase
   .outline= @petition.title.upcase

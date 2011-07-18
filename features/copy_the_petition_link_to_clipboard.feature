@@ -10,9 +10,7 @@ Feature: Copy the petition link to clipboard
     And I am on the first petition page
     When I fill in "Comment" with "Save your city!"
     And I press "Assine"
-    And I follow "d_clip_button"
-    Then show me the page
-    Then I should see "Copied text to clipboard"
+    Then I should not see "clippy"
 
   @omniauth_test
   Scenario: Petition's display copy link is disabled
@@ -21,4 +19,4 @@ Feature: Copy the petition link to clipboard
     And I am on the first petition page
     When I fill in "Comment" with "Save your city!"
     And I press "Assine"
-    Then I should not see "d_clip_button"
+    Then I should not see "clippy"
