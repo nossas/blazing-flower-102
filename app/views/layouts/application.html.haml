@@ -9,7 +9,7 @@
   %body{:class=> controller.controller_name }
     %header.container_12
       .logo.alpha.grid_2= link_to image_tag("/images/logo.png"), root_path
-      .user_panel.prefix_9.grid_3
+      .user_panel.prefix_7.grid_3
         - if current_member
           =image_tag current_member.image_url, :id => "member_thumbnail"
           =current_member.name
