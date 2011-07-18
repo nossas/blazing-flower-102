@@ -48,6 +48,7 @@ body  > #main {
 
 .left{float: left}
 .right{float: right}
+.clear_float{overflow:auto}
 .clear{clear: both}
 
 textarea.error, input.error, select.error{
@@ -56,4 +57,40 @@ textarea.error, input.error, select.error{
 
 label.error{
   font-size: 10px;
+}
+
+.btn{
+  background: #c63929;
+  background: -moz-linear-gradient(top, #ed894b 0%, #dc6837 100%);
+  background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #ed894b), color-stop(1, #dc6837));
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333;
+  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333;
+  box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333;
+  color: #fff !important;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  text-align: center;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, .8);
+  padding: 10px;
+  display: block;
+  &:hover {
+    background: #cb0500;
+    background: -moz-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
+    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #f37873), color-stop(0.5, #db504d), color-stop(0.5, #cb0500), color-stop(1, #a20601));
+    cursor: pointer;
+  }
+  &:active{
+    background: #b30300;
+    background: -moz-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
+    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #d43c28), color-stop(0.5, #ad3224), color-stop(0.5, #9c1500), color-stop(1, #700d00));
+    -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
+    -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
+    box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
+  }
 }

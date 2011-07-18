@@ -35,6 +35,7 @@ Factory.define :petition do |p|
   p.call_to_action_headline "Assine esta petição!"
   p.title {Faker::Company.name}
   p.description {Faker::Lorem.paragraphs.join("\n")}
+  p.short_description {Faker::Lorem.paragraph}
   p.surface_comments true
   p.call_to_action 'Assine'
   p.state 'draft'
@@ -50,14 +51,6 @@ Factory.define :taf do |t|
   t.association :petition
   t.thank_you_headline 'Obrigado'
   t.thank_you_text "This is a test TAF"
-  t.display_facebook true
-  t.display_orkut true
-  t.facebook_title "Facebook title"
-  t.facebook_message "Facebook message"
-  t.facebook_link "Facebook link"
-  t.orkut_title "Orkut title"
-  t.orkut_message "Orkut message"
-  t.orkut_link "Orkut link"
 end
 
 Factory.define :facebook_taf, :parent => :taf do |t|
@@ -86,6 +79,10 @@ Factory.define :email_taf, :parent => :taf do |t|
   t.display_email true
 end
 
+Factory.define :copy_url_taf, :parent => :taf do |t|
+  t.display_copy_url true
+end
+
 Factory.define :complete_taf, :parent => :taf do |t|
   t.facebook_title "Sharing on Facebook"
   t.facebook_link "test.com"
@@ -101,6 +98,7 @@ Factory.define :complete_taf, :parent => :taf do |t|
   t.email_subject "Sharing via email"
   t.email_message "Testing...."
   t.display_email true
+  t.display_copy_url true
 end
 
 Factory.define :petition_with_email, :parent => :petition do |p|

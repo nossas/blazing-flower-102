@@ -1,42 +1,43 @@
-%h2= @petition.call_to_action_headline
-.call_to_action_text
-  %p= raw @petition.call_to_action_text
-
-=form_for @petition_signature, :remote => true, :update => { :success => ".take_action" } do |f|
-  - if current_member.nil?
-    =fields_for @member do |m|
-      .member.field.left
-        =m.label :first_name
-        %span.required_mark *
-        =m.text_field :first_name, :class => "required"
-      .member.field.right
-        =m.label :last_name
-        %span.required_mark *
-        =m.text_field :last_name, :class => "required"
-      .email.field.left
-        =m.label :email
-        %span.required_mark *
-        =m.text_field :email, :class => "required email"
-      .zona.field.right
-        =m.label :zona
-        %span.required_mark *
-        =m.select :zona, ['Centro', 'Norte', 'Oeste', 'Sul', 'Eu não sou do Rio'], :class => "required"
-  - else
-    %p
-      =image_tag current_member.image_url, :id => "member_thumbnail"
-      =current_member.name
+.canvas
+  %h2= @petition.call_to_action_headline
+  .call_to_action_text
+    %p= raw @petition.call_to_action_text
+  
+  =form_for @petition_signature, :remote => true, :update => { :success => ".take_action" } do |f|
+    - if current_member.nil?
+      =fields_for @member do |m|
+        .member.field.left
+          =m.label :first_name
+          %span.required_mark *
+          =m.text_field :first_name, :class => "required"
+        .member.field.right
+          =m.label :last_name
+          %span.required_mark *
+          =m.text_field :last_name, :class => "required"
+        .email.field.left
+          =m.label :email
+          %span.required_mark *
+          =m.text_field :email, :class => "required email"
+        .zona.field.right
+          =m.label :zona
+          %span.required_mark *
+          =m.select :zona, ['Centro', 'Norte', 'Oeste', 'Sul', 'Eu não sou do Rio'], :class => "required"
+    - else
+      %p
+        =image_tag current_member.image_url, :id => "member_thumbnail"
+        =current_member.name
+        %br
+        =current_member.email
+    .comment.left
+      =f.label :comment
+      =f.text_area :comment, :rows => 5, :maxlength => "140"
       %br
-      =current_member.email
-  .comment.left
-    =f.label :comment
-    =f.text_area :comment, :rows => 5, :maxlength => "140"
-    %br
-    %small#comment_tip= t("petition_show.comment_tip")
-  %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
-  .clear
-  .submit
-    Meu rio protege a
-    =link_to "sua privacidade", "/pages/privacy_policy", :target => "_blank"
-    =f.submit(@petition.call_to_action)
-    =image_tag "/images/ajax-loader.gif", :id => "loader", :style => "display:none"
-    .clearfix
+      %small#comment_tip= t("petition_show.comment_tip")
+    %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
+    .clear
+    .submit
+      Meu rio protege a
+      =link_to "sua privacidade", "/pages/privacy_policy", :target => "_blank"
+      =f.submit(@petition.call_to_action)
+      =image_tag "/images/ajax-loader.gif", :id => "loader", :style => "display:none"
+      .clearfix

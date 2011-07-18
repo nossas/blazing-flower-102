@@ -1,13 +1,26 @@
 %h2= t("petition_show.thank_you", :name => @member.first_name)
 - if @existing_signature
   = t("petition_show.already_signed")
-=@petition.taf.thank_you_headline
-=@petition.taf.thank_you_text
 
-%h3= t("petition_show.share_on_facebook_or_orkut")
+- if @petition.taf && (@petition.taf.display_facebook || @petition.taf.display_orkut || @petition.taf.display_twitter || @petition.taf.display_email)
+  .canvas.clear_float
+    %h3= t("petition_show.share_with_your_friends")
+    %strong= @petition.title
+    %br
+    = @petition.short_description
+    .share_links
+      - if @petition.taf.display_facebook
+        = link_to image_tag("/assets/auth/facebook_128.png"), "http://www.facebook.com/sharer.php?u=#{request.url}", :target => "_blank", :title => t("petition_show.share_on_facebook")
+      - if @petition.taf.display_orkut
+        = link_to image_tag("/assets/auth/orkut_128.png"), "http://promote.orkut.com/preview?nt=orkut.com&du=#{request.url}&tt=#{@petition.taf.orkut_title}&cn=#{@petition.taf.orkut_message}", :target => "_blank", :title => t("petition_show.share_on_orkut")
+      - if @petition.taf.display_twitter
+        = link_to image_tag("/assets/auth/twitter_128.png"), "https://twitter.com/share?url=#{request.url}&text=#{@petition.taf.tweet}", :target => "_blank", :title => t("petition_show.share_on_twitter")
+      - if @petition.taf && @petition.taf.display_email
+        = link_to image_tag("/assets/auth/email.png"), "mailto:?subject=#{@petition.taf.email_subject}&body=#{@petition.taf.email_message}", :title => t("petition_show.share_via_email")
 
-- if @petition.taf.display_facebook
-  = link_to "Facebook", "http://www.facebook.com/sharer.php?u=#{request.url}", :target => "_blank"
-
-- if @petition.taf.display_orkut
-  = link_to "Orkut", "http://promote.orkut.com/preview?nt=orkut.com&du=#{request.url}&tt=#{@petition.taf.orkut_title}&cn=#{@petition.taf.orkut_message}", :target => "_blank"
+- if @petition.taf && @petition.taf.display_copy_url 
+  .canvas.clear_float
+    %h3= t("petition_show.click_to_copy")
+    =text_field_tag "d_clip_text", custom_petition_url(@petition.taf.petition.custom_path), :id => "d_clip_field", :class => "left"
+    #clipboard
+      %a.btn.right{:id => "d_clip_button"}= t("petition_show.copy_url")
