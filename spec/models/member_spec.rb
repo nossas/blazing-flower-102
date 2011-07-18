@@ -11,9 +11,8 @@ describe Member do
 
   describe ".find_for_facebook_oauth" do
     it "should find the member by email when he's already in the database" do
-      m = Factory(:member)
-      facebook_hash = {'extra' => {'user_hash' => {'email' => m.email}}}
-      Member.find_for_facebook_oauth(facebook_hash).should == m
+      m = Factory(:member, :email => FACEBOOK_VALID_AUTH_DATA["extra"]["user_hash"]["email"] )
+      Member.find_for_facebook_oauth(FACEBOOK_VALID_AUTH_DATA).should == m
     end
 
     context "when he's not in the database" do
