@@ -6,6 +6,6 @@ class PetitionsController < ApplicationController
     @comments = @petition.petition_signatures.where(:comment_accepted => true).limit(3)
     @taf = @petition.taf
     @petition_signature = PetitionSignature.new
-    @member = Member.new
+    @member = current_member || Member.new
   end
 end

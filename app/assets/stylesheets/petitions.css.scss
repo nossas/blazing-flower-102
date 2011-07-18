@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "vars.css.scss";
-@import "mixins.css.scss";
 
 body.petitions {
 
@@ -75,13 +74,13 @@ body.petitions {
     
     .canvas{
       background: #e7e7e7;
-      padding: 25px;
+      padding: 10px;
       box-shadow: 3px 3px 3px #ccc;
       -moz-box-shadow: 3px 3px 3px #ccc;
       -webkit-box-shadow: 3px 3px 3px #ccc;
       -moz-border-radius: 5px;
       border-radius: 5px;
-      margin-bottom: 10px;
+      margin: 10px 0;
     }
 
     h2 {
@@ -215,17 +214,13 @@ body.petitions {
 }
 
 #clippy{
-  float:right;
+  float:left;
   padding-top:3px;
 }
 
-.share_links{
-  text-align:center;
-  margin-top:20px;
+.facebook_btn, .orkut_btn, .twitter_btn, .email_btn{
   img{
-    width:64px;
-    &:hover{
-      @include scale(1.3, 0.3s);
-    }
+    float:left;
+    margin-right:10px;
   }
 }

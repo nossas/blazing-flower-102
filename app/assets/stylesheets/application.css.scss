@@ -7,6 +7,7 @@
 */
 
 @import "vars.css.scss";
+@import "mixins.css.scss";
 
 body > header {
   padding:10px 0 0 0;
@@ -50,6 +51,16 @@ body  > #main {
 .right{float: right}
 .clear_float{overflow:auto}
 .clear{clear: both}
+
+.facebook_btn, .orkut_btn, .twitter_btn, .email_btn{
+  img{
+    width:64px;
+    &:hover{
+      @include scale(1.3, 0.3s);
+    }
+  }
+}
+
 
 textarea.error, input.error, select.error{
   border-color: red !important;

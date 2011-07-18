@@ -19,8 +19,7 @@ class PetitionSignaturesController < ApplicationController
     if @signature.new_record?
       @signature.attributes = params[:petition_signature] 
       @signature.save
-    else
-      @existing_signature = true
+      @new_signature = true
     end
 
     render :partial => "petitions/taf", :layout => false, :content_type => "text/html"
