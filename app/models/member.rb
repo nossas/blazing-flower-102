@@ -23,13 +23,15 @@ class Member < ActiveRecord::Base
   end
 
   def self.find_for_google_apps_oauth(access_token, signed_in_resource=nil)
+    return false unless access_token["user_info"]["email"]
     if member = find_by_email(access_token["user_info"]["email"])
       member
     else
+      # the || tackles the google custom domain issue
       self.create(
         :email => access_token["user_info"]["email"], 
-        :first_name => access_token["first_name"], 
-        :last_name => access_token["last_name"],
+        :first_name => access_token["first_name"] || access_token["user_info"]["first_name"], 
+        :last_name => access_token["last_name"] || access_token["user_info"]["last_name"],
         :image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(access_token['user_info']['email'])}.jpg?s=60&d=identicon")
     end
   end

@@ -28,6 +28,16 @@ RSpec.configure do |config|
 end
 
 # fake data for omniauth test cases
+GOOGLE_CUSTOM_DOMAIN_VALID_AUTH_DATA = {
+  "provider" => "google_apps",
+  "uid" => "https://www.google.com/accounts/o8/id?id=AItOawmEH3kd6WVTpQc2YhDiGGkcobh0_GY5fxE1",
+  "user_info" => {
+    "first_name" => "Ren",
+    "last_name" => "Provey",
+    "name" => "Ren Provey"
+  },
+}
+
 GOOGLE_APP_VALID_AUTH_DATA = {
   "provider" => "google_apps",
   "uid" => "https://www.google.com/accounts/o8/id?id=AItOawmEH3kd6WVTpQc2YhDiGGkcobh0_GY5fxE",

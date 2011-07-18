@@ -36,8 +36,18 @@ describe Member do
       Member.find_for_google_apps_oauth(GOOGLE_APP_VALID_AUTH_DATA).should == m
     end
 
-    context "when he's not in the database" do
+    context "when he's not in the database and using a google custom domain" do
+      let(:auth_data) do 
+        GOOGLE_CUSTOM_DOMAIN_VALID_AUTH_DATA['user_info'].merge!({'email' => 'foo@bar.com'})
+        GOOGLE_CUSTOM_DOMAIN_VALID_AUTH_DATA
+      end
+      subject{ Member.find_for_google_apps_oauth(auth_data) }
+      its(:email){ should == auth_data['user_info']['email'] }
+      its(:first_name){ should == auth_data['user_info']['first_name'] }
+      its(:last_name){ should == auth_data['user_info']['last_name'] }
+    end
 
+    context "when he's not in the database" do
       it "should create the member using his name and email" do
         Member.find_for_google_apps_oauth(GOOGLE_APP_VALID_AUTH_DATA).email.should == 'ren.provey@gmail.com'
       end
