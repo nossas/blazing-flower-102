@@ -5,6 +5,14 @@ class PetitionSignature < ActiveRecord::Base
   after_create :send_confirmation
   validate :belongs_to_published_petition
 
+  def self.unmoderated
+    where('comment_accepted IS NULL')
+  end
+
+  def self.moderated
+    where('comment_accepted IS NOT NULL')
+  end
+
   def send_confirmation
     PetitionMailer.petition_signature_confirmation(self).deliver
   end
