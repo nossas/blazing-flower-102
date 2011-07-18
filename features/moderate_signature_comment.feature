@@ -14,6 +14,7 @@ Feature: Moderate a signature comment
     And 1 petition signatures exist
     And the first comment is accepted
     When I follow "Moderate Petition Comments"
+    And I follow "Moderated"
     Then I should see the first signature having "Comment Accepted" as "Yes"
 
   Scenario: See comment rejected
@@ -21,6 +22,7 @@ Feature: Moderate a signature comment
     And 1 petition signatures exist
     And the first comment is rejected
     When I follow "Moderate Petition Comments"
+    And I follow "Moderated"
     Then I should see the first signature having "Comment Accepted" as "No"
 
   Scenario: Accept comment

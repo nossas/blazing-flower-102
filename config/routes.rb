@@ -11,8 +11,6 @@ MeuRio::Application.routes.draw do
     get 'preview/petition/:id' => "petitions#preview", :as => "preview_petition"
     get 'petition/:id/export' => "petitions#export", :as => "export_petition"
     get 'petition/:id/export' => "petitions#export", :as => "export_petition"
-    get 'petition_signatures/:id/accept_comment' => "petition_signatures#accept_comment", :as => "accept_comment"
-    get 'petition_signatures/:id/reject_comment' => "petition_signatures#reject_comment", :as => "reject_comment"
   end
 
   match 'admin_user_root' => 'admin/dashboard#index'
