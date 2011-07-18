@@ -52,6 +52,13 @@ body  > #main {
 .clear_float{overflow:auto}
 .clear{clear: both}
 
+.member_panel{
+  img{
+    float:right;
+  }
+  text-align:right;
+}
+
 .facebook_btn, .orkut_btn, .twitter_btn, .email_btn{
   img{
     width:64px;
