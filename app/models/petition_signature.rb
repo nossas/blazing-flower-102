@@ -5,11 +5,29 @@ class PetitionSignature < ActiveRecord::Base
   after_create :send_confirmation
   validate :belongs_to_published_petition
 
+  def self.unmoderated
+    where('comment_accepted IS NULL')
+  end
+
+  def self.moderated
+    where('comment_accepted IS NOT NULL')
+  end
+
   def send_confirmation
     PetitionMailer.petition_signature_confirmation(self).deliver
   end
 
   def belongs_to_published_petition
     errors.add(:petition, "Petition must be published in order to be signed") unless petition.published?
+  end
+
+  def reject_comment
+    self.update_attribute :comment_accepted, false
+    self
+  end
+
+  def accept_comment
+    self.update_attribute :comment_accepted, true
+    self
   end
 end

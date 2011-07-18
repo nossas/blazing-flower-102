@@ -4,11 +4,13 @@ MeuRio::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :members, :controllers => { :omniauth_callbacks => "omniauth_callbacks" } do
     get 'logout' => 'devise/sessions#destroy', :as => :destroy_member_session
+    post 'google_custom_domain_complete' => 'omniauth_callbacks#google_custom_domain_complete', :as => :google_custom_domain_complete
   end
 
   ActiveAdmin.routes(self)
   namespace :admin do
     get 'preview/petition/:id' => "petitions#preview", :as => "preview_petition"
+    get 'petition/:id/export' => "petitions#export", :as => "export_petition"
     get 'petition/:id/export' => "petitions#export", :as => "export_petition"
   end
 

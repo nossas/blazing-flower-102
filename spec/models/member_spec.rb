@@ -11,9 +11,8 @@ describe Member do
 
   describe ".find_for_facebook_oauth" do
     it "should find the member by email when he's already in the database" do
-      m = Factory(:member)
-      facebook_hash = {'extra' => {'user_hash' => {'email' => m.email}}}
-      Member.find_for_facebook_oauth(facebook_hash).should == m
+      m = Factory(:member, :email => FACEBOOK_VALID_AUTH_DATA["extra"]["user_hash"]["email"] )
+      Member.find_for_facebook_oauth(FACEBOOK_VALID_AUTH_DATA).should == m
     end
 
     context "when he's not in the database" do
@@ -36,8 +35,18 @@ describe Member do
       Member.find_for_google_apps_oauth(GOOGLE_APP_VALID_AUTH_DATA).should == m
     end
 
-    context "when he's not in the database" do
+    context "when he's not in the database and using a google custom domain" do
+      let(:auth_data) do 
+        GOOGLE_CUSTOM_DOMAIN_VALID_AUTH_DATA['user_info'].merge!({'email' => 'foo@bar.com'})
+        GOOGLE_CUSTOM_DOMAIN_VALID_AUTH_DATA
+      end
+      subject{ Member.find_for_google_apps_oauth(auth_data) }
+      its(:email){ should == auth_data['user_info']['email'] }
+      its(:first_name){ should == auth_data['user_info']['first_name'] }
+      its(:last_name){ should == auth_data['user_info']['last_name'] }
+    end
 
+    context "when he's not in the database" do
       it "should create the member using his name and email" do
         Member.find_for_google_apps_oauth(GOOGLE_APP_VALID_AUTH_DATA).email.should == 'ren.provey@gmail.com'
       end

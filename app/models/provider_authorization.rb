@@ -21,6 +21,8 @@ class ProviderAuthorization < ActiveRecord::Base
       authorization
     else
       m = Member.find_for_google_apps_oauth(access_token, signed_in_resource)
+      # For cases where google does not give us the email address
+      return false unless m
       self.create(:member => m, :provider => 'google_apps', :uid => access_token['uid'])
     end
   end
