@@ -120,3 +120,9 @@ Factory.define :petition_signature_with_comment, :parent => :petition_signature 
   p.comment {Faker::Lorem.paragraph}
   p.comment_accepted true
 end
+
+Factory.define :debate do |d|
+  d.question "What question is this?"
+  d.author_1 { Factory(:member) }
+  d.author_2 { Factory(:member) }
+end
