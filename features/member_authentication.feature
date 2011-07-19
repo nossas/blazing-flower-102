@@ -6,11 +6,10 @@ Feature: 3rd party sign-in
   Scenario: 
     Given I am not logged in
     When go to the home page
-    Then I should see the login link
+    Then I should see "Login"
   
   @omniauth_test
   Scenario: 
     Given I am logged in via Facebook
     When go to the home page
-    Then I should see the logout link
-
+    Then I should see "Logout"

@@ -3,13 +3,20 @@ Feature: Copy the petition link to clipboard
   As an user
   I want to copy the link to my clipboard
 
+  @omniauth_test
   Scenario: Petition's display copy link is enabled
     Given there is a petition with display copy link enabled
-    And I go to the first petition TAF page
-    When I follow "Copy"
-    Then I should see "Copied text to clipboard"
+    And I am logged in via Facebook
+    And I am on the first petition page
+    When I fill in "Comment" with "Save your city!"
+    And I press "Assine"
+    Then I should not see "clippy"
 
+  @omniauth_test
   Scenario: Petition's display copy link is disabled
     Given there is a petition with display copy link disabled
-    When I go to the first petition TAF page
-    Then I should not see "Copy"
+    And I am logged in via Facebook
+    And I am on the first petition page
+    When I fill in "Comment" with "Save your city!"
+    And I press "Assine"
+    Then I should not see "clippy"

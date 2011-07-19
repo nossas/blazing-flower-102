@@ -7,7 +7,6 @@ ActiveAdmin.register Petition do
   controller do
     def preview
       @petition = Petition.where(:id => params[:id]).first
-      @taf = @petition.taf
       @petition_signature = PetitionSignature.new
       @member = Member.new
       @comments = []

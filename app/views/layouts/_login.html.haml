@@ -1,5 +1,5 @@
 #login{:style => "display:none"}
   #message
     Entre através de sua rede social favorita
-  = link_to(image_tag('auth/facebook_128.png'), member_omniauth_authorize_path(:facebook))
-  = link_to(image_tag('auth/orkut_128.png'), member_omniauth_authorize_path(:google_apps))
+  = link_to(image_tag('auth/facebook_128.png'), member_omniauth_authorize_path(:facebook), :class => "facebook_btn")
+  = link_to(image_tag('auth/orkut_128.png'), member_omniauth_authorize_path(:google_apps), :class => "orkut_btn")

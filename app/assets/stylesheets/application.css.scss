@@ -7,53 +7,126 @@
 */
 
 @import "vars.css.scss";
+@import "mixins.css.scss";
+
+.left { float: left }
+.right { float: right }
 
 body > header {
-  padding:10px 0 0 0;
+  position: relative;
+  padding: 10px 0;
   background: #f2f0ed;
   border-radius: 0 0 8px 8px;
   -moz-border-radius: 0 0 8px 8px;
   -webkit-border-radius: 0 0 8px 8px;
-
-  box-shadow:0 0 20px 1px #dedbd5;
-  -moz-box-shadow:0 0 20px 1px #dedbd5;
-  -webkit-box-shadow:0 0 20px 1px #dedbd5;
+  .member_panel{
+    text-align:right;
+    p { margin: 0; }
+    img { margin-left: 10px; }
+  }
 }
 
-body > header nav{
-  margin-top:70px;
-  text-align:right;
-  font-size:11px;
-  font-weight:bold;
-}
-
-body > header nav a {
+body > header > nav {
+  text-align: right;
+  font-size: 125%;
   color: $dark_gray;
-  display:inline-block;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding:0 10px;
+  position: absolute;
+  padding: 10px;
+  right: 0;
+  bottom: 0;
+  a {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    margin: 0px 15px;
+    font-weight: bold;
+    color: $dark_gray !important;
+  }
+  a.last { margin-right: 0; }
+  a.selected, a:hover { border-bottom: solid 2px $blue }
 }
 
-body  > #main {
+body > #main {
   background: #f2f0ed;
   border-radius: 8px;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
-
-  box-shadow:0 0 20px 1px #dedbd5;
-  -moz-box-shadow:0 0 20px 1px #dedbd5;
-  -webkit-box-shadow:0 0 20px 1px #dedbd5;
 }
 
-.left{float: left}
-.right{float: right}
-.clear{clear: both}
-
-textarea.error, input.error, select.error{
-  border-color: red !important;
+#facebox .popup .content {
+  text-align: center;
+  display: block;
 }
 
-label.error{
-  font-size: 10px;
+.facebook_btn, .orkut_btn, .twitter_btn, .email_btn {
+  img {
+    width: 48px;
+    &:hover {
+      @include scale(1.1, 0);
+    }
+  }
+}
+
+.btn{
+  // Almost all properties are !important because activeadmin's CSS is trying overriding this class
+  background: #c63929 !important;
+  background: -moz-linear-gradient(top, #ed894b 0%, #dc6837 100%) !important;
+  background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #ed894b), color-stop(1, #dc6837)) !important;
+  -moz-border-radius: 5px !important;
+  -webkit-border-radius: 5px !important;
+  border-radius: 5px !important;
+  -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333 !important;
+  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333 !important;
+  box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333 !important;
+  color: #fff !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, .8) !important;
+  padding: 10px !important;
+  margin: 0 !important;
+  display: inline-block !important;
+  &:hover {
+    background: #cb0500 !important;
+    background: -moz-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%) !important;
+    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #f37873), color-stop(0.5, #db504d), color-stop(0.5, #cb0500), color-stop(1, #a20601)) !important;
+    cursor: pointer !important;
+  }
+  &:active{
+    background: #b30300 !important;
+    background: -moz-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%) !important;
+    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #d43c28), color-stop(0.5, #ad3224), color-stop(0.5, #9c1500), color-stop(1, #700d00)) !important;
+    -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4) !important;
+    -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4) !important;
+    box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4) !important;
+  }
+}
+
+input[type="text"], textarea {
+  border: 2px solid $light_gray;
+  &:focus{
+    border-color: $orange;
+  }
+}
+
+textarea.error, input.error, select.error { border-color: $pink !important; }
+label.error{ font-size: 90%; }
+
+h1 {
+  font-family: Folk-solid !important;
+  text-transform: uppercase;
+  color: $green !important;
+  letter-spacing: 1.5px !important;
+  font-size: 300% !important;
+  position: relative;
+  font-weight: normal !important;
+  .outline{
+    font-family: Folk-outline;
+    color: #666;
+    position: absolute;
+    top: 0px;
+    left: -2px;
+  }
 }
