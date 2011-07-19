@@ -6,36 +6,20 @@
 
 body.petitions {
 
-  h1 {
-    font-family: Folk-solid;
-    text-transform: uppercase;
-    color: $green;
-    letter-spacing: 1.5px;
-    font-size: 250%;
-  }
-
-  .media{
-    iframe{
+  .media {
+    iframe, img {
       width: 100% !important
     }
   }
 
-  .petition_count {
-    font-weight: bold;
-    font-size: 110%;
-    margin: 10px 0;
+  .goal {
+    text-align: right;
+    margin-top: 10px;
   }
 
-  .petition_count_number {
-    color: $pink;
-    font-size: 200%;
-  }
-
-  .counter {
-    position:relative;
-    margin-bottom:10px;
-    width:100%;
-    background-color:$light_gray;
+  .graph {
+    margin-bottom: 10px;
+    background-color: $light_gray;
     border: 1px solid gray;
     border-radius: 4px;
     -moz-border-radius: 4px;
@@ -43,179 +27,80 @@ body.petitions {
     box-shadow: inset 0 0 1px 1px gray;
     -moz-box-shadow: inset 0 0 1px 1px gray;
     -webkit-box-shadow: inset 0 0 1px 1px gray;
+    .progress {
+      height: 30px;
+      background-color: $pink;
+      background-image: -moz-linear-gradient(100% 100% 90deg, $pink, lighten($pink, 20%));
+      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(lighten($pink, 20%)), to($pink));
+      border-right: 1px solid $pink;
+      border-radius: 4px 0 0 4px;
+      -moz-border-radius: 4px 0 0 4px;
+      -webkit-border-radius: 4px 0 0 4px;
+    }
   }
-  .goal {
-    display:block;
-    width:100%;
-    text-align: right;
+
+  .counter {
+    color: $pink;
+    font-size: 250%;
+  }
+
+  .description { margin-top: 10px }
+
+  .canvas{
+    background: #e7e7e7;
+    box-shadow: 3px 3px 3px #ccc;
+    -moz-box-shadow: 3px 3px 3px #ccc;
+    -webkit-box-shadow: 3px 3px 3px #ccc;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    img { float: left; }
+    .share_text { 
+      float: right; 
+      width: 380px;
+    }
+    h3 { 
+      margin-bottom: 5px;
+      font-size: 125%;
+    }
+  }
+
+  h2 {
+    color: $orange;
+    margin-bottom: 10px;
+  }
+
+  .row {
     margin-top: 10px;
-  }
-
-  .description {
-    margin: 10px 0;
-    p{
-      margin-top: 15px;
-    }
-  }
-
-  .counter_progress {
-    width:50%;
-    height:25px;
-    background-color:$pink;
-    background-image: -moz-linear-gradient(100% 100% 90deg, $pink, lighten($pink, 20%));
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(lighten($pink, 20%)), to($pink));
-    border-right: 1px solid $pink;
-    border-radius: 4px 0 0 4px;
-    -moz-border-radius: 4px 0 0 4px;
-    -webkit-border-radius: 4px 0 0 4px;
-  }
-
-  .take_action {
-    
-    .canvas{
-      background: #e7e7e7;
-      padding: 10px;
-      box-shadow: 3px 3px 3px #ccc;
-      -moz-box-shadow: 3px 3px 3px #ccc;
-      -webkit-box-shadow: 3px 3px 3px #ccc;
-      -moz-border-radius: 5px;
-      border-radius: 5px;
-      margin: 10px 0;
-    }
-
-    h2 {
-      color: $orange;
-      margin: 0;
-    }
-
     .field {
-      width: 190px;
-      margin-top: 10px;
+      width: 45%;
       float: left;
-
-      input[type="text"]{
-        width: 174px;
-      }
     }
-
-    select {
-      width: 174px;
-      display: block;
-    }
-
-    textarea {
-      width: 325px;
-    }
-
-    .comment {
-      clear: both;
-      margin-top: 10px;
-      label {
-        display: block;
-      }
-      textarea{
-        width: 393px
-      }
-    }
-
-    input[type="text"], textarea {
-      border: 2px solid $light_gray;
-      &:focus{
-        border-color: $orange;
-      }
-    }
-
-    .submit{
-      margin: 15px 0 0;
-    }
-
-    .submit input {
-      background: #c63929;
-      background: -moz-linear-gradient(top, #ed894b 0%, #dc6837 100%);
-      background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #ed894b), color-stop(1, #dc6837));
-      -moz-border-radius: 5px;
-      -webkit-border-radius: 5px;
-      border-radius: 5px;
-      -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333;
-      -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333;
-      box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333;
-      color: #fff;
-      font-size: 18px;
-      font-weight: bold;
-      line-height: 1;
-      text-transform: uppercase;
-      text-align: center;
-      text-shadow: 0px 1px 1px rgba(0, 0, 0, .8);
-      float: right;
-    }
-
-    #loader{float:right;}
-
-    .submit input:hover {
-      background: #cb0500;
-      background: -moz-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
-      background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #f37873), color-stop(0.5, #db504d), color-stop(0.5, #cb0500), color-stop(1, #a20601));
-      cursor: pointer;
-    }
-
-    .submit input:active {
-      background: #b30300;
-      background: -moz-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
-      background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #d43c28), color-stop(0.5, #ad3224), color-stop(0.5, #9c1500), color-stop(1, #700d00));
-      -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
-      -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
-      box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
-    }
+    .required_mark { color: $blue; }
+    input[type="text"], select { width: 178px; }
+    textarea { width: 420px }
+    input[type="text"], textarea, select { display: block; }
   }
+
+  .policy { padding-top: 15px; float: left; }
+  .submit { float: right }
   
-  .comments{
-    margin: 20px 0;
-    h3{
-      border-bottom: 2px solid $blue
-    }
-    p{
+  .comments {
+    margin-top: 20px;
+    h3 { border-bottom: 2px solid $blue }
+    p {
       background:url("/images/comment_icon.png") no-repeat;
       padding-left:42px;
     }
   }
 
-  h1{
-    font-family: Folk-solid;
-    font-size: 56px;
-    color: $green;
-    position: relative;
-    font-weight: normal;
-    .outline{
-      font-family: Folk-outline;
-      color: #666;
-      position: absolute;
-      top: 0px;
-      left: -2px;
-    }
+  #clippy_input{
+    width:280px;
   }
 
-  .call_to_action_text{
-    margin: 10px 0;
-  }
-
-  .required_mark{
-    color:$blue;
-  }
-
-}
-
-#clippy_input{
-  width:280px;
-}
-
-#clippy{
-  float:left;
-  padding-top:3px;
-}
-
-.facebook_btn, .orkut_btn, .twitter_btn, .email_btn{
-  img{
+  #clippy{
     float:left;
-    margin-right:10px;
+    padding-top:3px;
   }
 }

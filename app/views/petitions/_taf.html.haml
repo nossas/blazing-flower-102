@@ -1,40 +1,47 @@
 - if @new_signature
   %h2= @petition.taf.thank_you_headline
-  %strong= @petition.taf.thank_you_text
+  %p
+    %strong= @petition.taf.thank_you_text
 - else
   %h2= t("petition_show.already_signed", :name => @member.first_name)
 
 - if @petition.taf && @petition.taf.display_facebook
-  .canvas.clear_float
-    %h3 Share on Facebook
+  .canvas.clearfix
+    %h3= t("petition_show.share_on_facebook")
     = link_to image_tag("/assets/auth/facebook_128.png"), "http://www.facebook.com/sharer.php?u=#{request.url}", :target => "_blank", :title => t("petition_show.share_on_facebook"), :class => "facebook_btn"
-    %strong Facebook share title
-    %br
-    Facebook share text, this will appear in the description of your sharing.
+    .share_text
+      %strong= @petition.taf.facebook_title
+      %br
+      = @petition.taf.facebook_message
   
 - if @petition.taf && @petition.taf.display_orkut
-  .canvas.clear_float
-    %h3 Share on Orkut
+  .canvas.clearfix
+    %h3= t("petition_show.share_on_orkut")
     = link_to image_tag("/assets/auth/orkut_128.png"), "http://promote.orkut.com/preview?nt=orkut.com&du=#{request.url}&tt=#{@petition.taf.orkut_title}&cn=#{@petition.taf.orkut_message}", :target => "_blank", :title => t("petition_show.share_on_orkut"), :class => "orkut_btn"
-    %strong Orkut share title
-    %br
-    Orkut share text, this will appear in the description of your sharing.
+    .share_text
+      %strong= @petition.taf.orkut_title
+      %br
+      = @petition.taf.orkut_message
   
 - if @petition.taf && @petition.taf.display_twitter
-  .canvas.clear_float
-    %h3 Share on Twitter
+  .canvas.clearfix
+    %h3= t("petition_show.share_on_twitter")
     = link_to image_tag("/assets/auth/twitter_128.png"), "https://twitter.com/share?url=#{request.url}&text=#{@petition.taf.tweet}", :target => "_blank", :title => t("petition_show.share_on_twitter"), :class => "twitter_btn"
-    Twitter share text, this will appear in the description of your sharing.
+    .share_text
+      %strong= t("petition_show.your_tweet")
+      %br
+      = @petition.taf.tweet
  
 - if @petition.taf && @petition.taf.display_email
-  .canvas.clear_float
-    %h3 Share via e-mail
+  .canvas.clearfix
+    %h3= t("petition_show.share_via_email")
     = link_to image_tag("/assets/auth/email.png"), "mailto:?subject=#{@petition.taf.email_subject}&body=#{@petition.taf.email_message}", :title => t("petition_show.share_via_email"), :class => "email_btn"
-    %strong E-mail share subject
-    %br
-    E-mail share subject, this will appear in the e-mail body.
+    .share_text
+      %strong= @petition.taf.email_subject
+      %br
+      = @petition.taf.email_message
   
 - if @petition.taf && @petition.taf.display_copy_url 
-  .canvas.clear_float
+  .canvas.clearfix
     =raw clippy(custom_petition_url(@petition.taf.petition.custom_path), "#e7e7e7")
     =text_field_tag "clippy_input", custom_petition_url(@petition.taf.petition.custom_path), :id => "clippy_input", :class => "right"

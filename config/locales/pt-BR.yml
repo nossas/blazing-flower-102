@@ -251,8 +251,8 @@
     goal: "Meta: %{goal}"
     signatures:
       zero: "Nenhum membro assinou esta petição"
-      one: "<span class='petition_count_number'>1</span> membro assinou esta petição"
-      other: "<span class='petition_count_number'>%{count}</span> membros assinaram esta petição"
+      one: "<span class='counter'>1</span> membro assinou esta petição"
+      other: "<span class='counter'>%{count}</span> membros assinaram esta petição"
     comment_tip: "140 caracteres"
     recent_comments: "COMENTÁRIOS RECENTES"
     already_signed: "%{name}, você já assinou esta petição! Agora conte isso para os seus amigos:"

@@ -10,7 +10,7 @@ Feature: Share a petition
     And I am on the first petition page
     When I fill in "Comment" with "Save your city!"
     And I press "Assine"
-    Then I should see "Share on Facebook"
+    Then I should see "Sharing on Facebook"
 
   @omniauth_test
   Scenario: Share on Facebook when it's disabled
@@ -19,7 +19,7 @@ Feature: Share a petition
     And I am on the first petition page
     When I fill in "Comment" with "Save your city!"
     And I press "Assine"
-    Then I should not see "Share on Facebook"
+    Then I should not see "Sharing on Facebook"
 
   @omniauth_test
   Scenario: Share on Orkut when it's enabled
@@ -28,7 +28,7 @@ Feature: Share a petition
     And I am on the first petition page
     When I fill in "Comment" with "Save your city!"
     And I press "Assine"
-    Then I should see "Share on Orkut"
+    Then I should see "Sharing on Orkut"
 
   @omniauth_test
   Scenario: Share on Orkut when it's disabled
@@ -37,7 +37,7 @@ Feature: Share a petition
     And I am on the first petition page
     When I fill in "Comment" with "Save your city!"
     And I press "Assine"
-    Then I should not see "Share on Orkut"
+    Then I should not see "Sharing on Orkut"
 
   @omniauth_test
   Scenario: Share on Twitter when it's enabled
@@ -46,7 +46,8 @@ Feature: Share a petition
     And I am on the first petition page
     When I fill in "Comment" with "Save your city!"
     And I press "Assine"
-    Then I should see "Share on Twitter"
+    Then show me the page
+    Then I should see "Your Tweet"
 
   @omniauth_test
   Scenario: Share on Twitter when it's disabled
@@ -55,7 +56,7 @@ Feature: Share a petition
     And I am on the first petition page
     When I fill in "Comment" with "Save your city!"
     And I press "Assine"
-    Then I should not see "Share on Twitter"
+    Then I should not see "Your Tweet"
 
   @omniauth_test
   Scenario: Share via e-mail when it's enabled
@@ -64,7 +65,7 @@ Feature: Share a petition
     And I am on the first petition page
     When I fill in "Comment" with "Save your city!"
     And I press "Assine"
-    Then I should see "Share via e-mail"
+    Then I should see "Sharing via email"
 
   @omniauth_test
   Scenario: Share via e-mail when it's disabled
@@ -73,4 +74,4 @@ Feature: Share a petition
     And I am on the first petition page
     When I fill in "Comment" with "Save your city!"
     And I press "Assine"
-    Then I should not see "Share via e-mail"
+    Then I should not see "Sharing via email"
