@@ -45,6 +45,9 @@ gem 'foreigner'
 
 gem "faker"
 
+#including so we can run the complete petition rake task for demos
+gem 'factory_girl_rails'
+
 group :development, :test do
   gem 'heroku'
   gem 'unicorn'
@@ -54,7 +57,6 @@ group :development, :test do
   gem "edgecase-git-pair"
 
   gem "rspec-rails", "~> 2.6"
-  gem 'factory_girl_rails'
   gem "shoulda-matchers"
 
   gem "mailcatcher"
