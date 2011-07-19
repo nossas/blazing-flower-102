@@ -9,72 +9,58 @@
 @import "vars.css.scss";
 @import "mixins.css.scss";
 
+.left { float: left }
+.right { float: right }
+
 body > header {
-  padding:10px 0 0 0;
+  padding: 10px 0;
   background: #f2f0ed;
   border-radius: 0 0 8px 8px;
   -moz-border-radius: 0 0 8px 8px;
   -webkit-border-radius: 0 0 8px 8px;
-
-  box-shadow:0 0 20px 1px #dedbd5;
-  -moz-box-shadow:0 0 20px 1px #dedbd5;
-  -webkit-box-shadow:0 0 20px 1px #dedbd5;
+  .member_panel{
+    text-align:right;
+    p { margin: 0; }
+    img { margin-left: 10px; }
+  }
 }
 
-body > header nav{
-  margin-top:70px;
-  text-align:right;
-  font-size:11px;
-  font-weight:bold;
-}
-
-body > header nav a {
+body > header > nav {
+  text-align: right;
+  margin-top: 36px; // Based on member_panel with a logged in user
+  font-size: $medium_font;
   color: $dark_gray;
-  display:inline-block;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding:0 10px;
+  a {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    margin: 0px 15px;
+    font-weight: bold;
+    color: $dark_gray !important;
+  }
+  a.last { margin-right: 0; }
+  a.selected, a:hover { border-bottom: solid 2px $blue }
 }
 
-body  > #main {
+body > #main {
   background: #f2f0ed;
   border-radius: 8px;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
-
-  box-shadow:0 0 20px 1px #dedbd5;
-  -moz-box-shadow:0 0 20px 1px #dedbd5;
-  -webkit-box-shadow:0 0 20px 1px #dedbd5;
 }
 
-.left{float: left}
-.right{float: right}
-.clear_float{overflow:auto}
-.clear{clear: both}
-
-.member_panel{
-  img{
-    float:right;
-  }
-  text-align:right;
+#facebox .popup .content {
+  text-align: center;
+  display: block;
 }
 
-.facebook_btn, .orkut_btn, .twitter_btn, .email_btn{
-  img{
-    width:64px;
-    &:hover{
+.facebook_btn, .orkut_btn, .twitter_btn, .email_btn {
+  img {
+    width: 64px;
+    &:hover {
       @include scale(1.3, 0.3s);
     }
   }
-}
-
-
-textarea.error, input.error, select.error{
-  border-color: red !important;
-}
-
-label.error{
-  font-size: 10px;
 }
 
 .btn{
@@ -112,3 +98,6 @@ label.error{
     box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
   }
 }
+
+textarea.error, input.error, select.error { border-color: $pink !important; }
+label.error{ font-size: $small_font; }

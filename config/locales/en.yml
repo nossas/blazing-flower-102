@@ -11,3 +11,5 @@ en:
     comment_tip: "140 characters"
     recent_comments: "RECENT COMMENTS"
     already_signed: "You've already signed this petition."
+  login: "Login"
+  logout: "Logout"
