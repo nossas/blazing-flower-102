@@ -1,8 +1,17 @@
+# encoding: utf-8
 %head
   %meta{'http-equiv' => "Content-Type", :content => "text/html; charset=UTF-8"}
     %title= @email.subject
 %body{:style => "margin:0; padding:0; border:0 none; border-spacing:0px 0px; border-collapse:collapse;height:100%;width:100%;"}
-  %img{:src => "/images/MR_autofire_logo.png", :alt => "Meu Rio" }
-  = @email.message
-  %img{:src => "/images/MR_autofire_color_bar.jpg"}
+  %div{:style => "padding: 1em;"}
+    = image_tag("http://#{SITE['site_url']}/assets/autofire_email_logo.png", :host => 'localhost:3000', :alt => "Meu Rio")
+    %br
+    %br
+    Olá, #{@member.first_name}
+    %br
+    %br
+    = @email.message
+    %br
+    %br
+  = image_tag("http://#{SITE['site_url']}/assets/autofire_email_color_bar.jpg")
 
