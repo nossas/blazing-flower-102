@@ -16,7 +16,9 @@
           %p=current_member.email
           %p=link_to t("logout"), destroy_member_session_path
         - else
-          %p=link_to t("login"), "#login", :rel => "facebox"
+          %p
+            =link_to t("join_us"), "#", :id => "join_us_btn"
+            =link_to t("login"), "#login", :rel => "facebox"
       %nav
         =link_to 'Lorem Ipsum'
         |
@@ -26,8 +28,10 @@
         |
         =link_to 'Lorem Ipsum', "#", :class => "last"
     #main.container_12
-      %p.notice= notice
-      %p.alert= alert
+      - if notice
+        %p.notice= notice
+      - if alert
+        %p.alert= alert
       = yield
     %footer.container_12
 
