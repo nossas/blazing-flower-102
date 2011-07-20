@@ -94,17 +94,17 @@ body > #main {
   display: inline-block;
   &:hover {
     background: #cb0500 !important;
-    background: -moz-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%) !important;
-    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #f37873), color-stop(0.5, #db504d), color-stop(0.5, #cb0500), color-stop(1, #a20601)) !important;
+    background: -moz-linear-gradient(top, lighten(#dc6837, 25%) 0%, lighten(#dc6837, 10%) 100%) !important;
+    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten(#dc6837, 25%)), color-stop(1, lighten(#dc6837, 10%))) !important;
     cursor: pointer !important;
   }
   &:active{
     background: #b30300 !important;
-    background: -moz-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%) !important;
-    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #d43c28), color-stop(0.5, #ad3224), color-stop(0.5, #9c1500), color-stop(1, #700d00)) !important;
-    -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4) !important;
-    -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4) !important;
-    box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4) !important;
+    background: -moz-linear-gradient(top, lighten(#dc6837, 15%) 0%, lighten(#dc6837, 5%) 100%) !important;
+    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten(#dc6837, 15%)), color-stop(1, lighten(#dc6837, 5%))) !important;
+    -moz-box-shadow: inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important;
+    -webkit-box-shadow: inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important;
+    box-shadow: inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important;
   }
 }
 
