@@ -1,4 +1,11 @@
 class PetitionSignaturesController < ApplicationController
+  def index
+    @petition_signature = PetitionSignature.joins(:member).where(['members.email = ? AND petition_signatures.petition_id = ?', params[:email], params[:petition_id]]).first
+    respond_to do |format|
+      format.json { render :json => @petition_signature.to_json }
+    end
+  end
+
   def create
     #do we want to allow members to sign the same petition multiple times? 
     #right now we're assuming that we don't
