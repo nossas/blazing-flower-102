@@ -1,7 +1,25 @@
 require 'spec_helper'
 
 describe PetitionSignaturesController do
-  describe "post to Create" do
+  describe "GET index.json" do
+    subject{ response }
+    context "when the signature does not exist" do
+      before do
+        get :index, :petition_id => 0, :email => 'foo@bar.com', :format => 'json'
+      end
+      it{ should be_successful }
+      its(:body){ should == "null" }
+    end
+    context "when the signature already exists" do
+      before do
+        @signature = Factory(:petition_signature)
+        get :index, :petition_id => @signature.petition_id, :email => @signature.member.email, :format => 'json'
+      end
+      it{ should be_successful }
+      its(:body){ should == @signature.to_json }
+    end
+  end
+  describe "POST create" do
     before do
       @petition = Factory.create(:complete_petition)
       @petition.publish

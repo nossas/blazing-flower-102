@@ -46,7 +46,6 @@ Feature: Share a petition
     And I am on the first petition page
     When I fill in "Comment" with "Save your city!"
     And I press "Assine"
-    Then show me the page
     Then I should see "Your Tweet"
 
   @omniauth_test

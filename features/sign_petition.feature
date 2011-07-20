@@ -24,7 +24,7 @@ Feature: Signing a Petition
     And I press the submit button
     Then I should see a thank-you message
 
-  Scenario: Signing a Petition (existing member, existing petition signature)
+  Scenario: Signing a Petition (existing member, existing petition signature) without javascript
     Given 2 published petitions exist
     And I am an existing member
     And I have signed the first petition
