@@ -201,7 +201,13 @@ Devise.setup do |config|
   #
   # External Providers
   require 'openid/store/filesystem'
-  config.omniauth :facebook, "177910022269006", "d647cab8b3b6e9aef9a5a60461453e31", {:client_options => {:ssl => {:ca_path => '/etc/ssl/certs', :ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+
+  if Rails.env.production?
+    config.omniauth :facebook, "177910022269006", "d647cab8b3b6e9aef9a5a60461453e31", {:client_options => {:ssl => {:ca_path => '/etc/ssl/certs', :ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+  else
+    config.omniauth :facebook, "245105508840675", "7079867525c8cdf6a0e57d5dc20d5029", {:client_options => {:ssl => {:ca_path => '/etc/ssl/certs', :ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+  end
+  
   config.omniauth :google_apps, OpenID::Store::Filesystem.new('/tmp'), :domain => 'gmail.com'
       # For heroku we need to configure it separatly for production env
       #{:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
