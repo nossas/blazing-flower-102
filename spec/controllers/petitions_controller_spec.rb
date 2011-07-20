@@ -25,5 +25,14 @@ describe PetitionsController do
       get :show, :custom_path => 'deactivated_petition'
       response.response_code.should == 404
     end
+
+    it "should fetch last 3 comments in created_at order" do
+      @p = Factory(:complete_petition)
+      @p.publish
+      4.times{ Factory(:petition_signature, :petition => @p, :comment_accepted => true) }
+      get :show, :custom_path => @p.custom_path
+      response.should be_success
+      assigns(:comments).should == PetitionSignature.where(:petition_id => @p.id).order('created_at DESC').limit(3).all
+    end
   end
 end
