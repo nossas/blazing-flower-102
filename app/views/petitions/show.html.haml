@@ -3,7 +3,9 @@
     %meta{ :property => "og:image", :content => "<img src='#{@taf.facebook_image.url(:medium)}'>" } 
     %meta{ :property => "og:description", :content => "#{@taf.facebook_message}" } 
     %meta{ :property => "og:url", :content => "#{@taf.facebook_link}" } 
-  
+
+.grid_12 
+  .issue_name= @petition.issue.name
 %h1.grid_12
   = @petition.title.upcase
   .outline= @petition.title.upcase

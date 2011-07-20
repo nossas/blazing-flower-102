@@ -96,7 +96,7 @@ a:hover { color: #036; }
 .Folk-solid { font-family: Folk-solid; }
 
 body {
-  background: #e1e1d9;
+  background: #e1e1d9 url(/assets/background_texture_100px.png) repeat top left;
   height: 100%;
   width: 100%;
   font-family: 'Akagi-Book', Helvetica, Ariel, sans-serif;
@@ -111,7 +111,10 @@ header, #main {
   background-color: transparent;
 }
 
-
+footer {
+  min-height: 220px;
+  background: transparent url(/assets/drawing_placeholder.png) repeat-x top left;
+}
 
 
 

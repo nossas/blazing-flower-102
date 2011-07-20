@@ -32,18 +32,19 @@ body > header > nav {
   color: $dark_gray;
   position: absolute;
   padding: 10px;
-  right: 0;
+  right: 10px;
   bottom: 0;
   a {
     display: inline-block;
     text-transform: uppercase;
     text-decoration: none !important;
-    margin: 0px 15px;
+    padding: 0px 15px 25px;
+    margin: 0px 5px;
     font-weight: bold;
     color: $dark_gray !important;
   }
   a.last { margin-right: 0; }
-  a.selected, a:hover { border-bottom: solid 2px $blue }
+  a.selected, a:hover { background: url(/assets/nav_hover_underline.png) no-repeat top left; }
 }
 
 body > #main {
@@ -119,7 +120,7 @@ h1 {
   text-transform: uppercase;
   color: $green !important;
   letter-spacing: 1.5px !important;
-  font-size: 300% !important;
+  font-size: 34px !important;
   position: relative;
   font-weight: normal !important;
   .outline{
