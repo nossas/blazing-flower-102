@@ -2,7 +2,7 @@
   %h2= @petition.call_to_action_headline
   %p= raw @petition.call_to_action_text
   
-  =form_for @petition_signature, :remote => true, :update => { :success => ".take_action" } do |f|
+  =form_for @petition_signature, :remote => true, :update => { :success => ".take_action" }, :html => {'data-petition_id' => @petition.id} do |f|
     - if current_member.nil?
       =fields_for @member do |m|
         .row.clearfix
