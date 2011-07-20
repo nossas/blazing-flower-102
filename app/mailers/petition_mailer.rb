@@ -1,5 +1,7 @@
 class PetitionMailer < ActionMailer::Base
-  default from: SITE['default_from_email_address']
+  default({
+    :from => SITE['default_from_email_address']
+  })
 
   def petition_signature_confirmation(petition_signature)
     @member = petition_signature.member
@@ -10,8 +12,8 @@ class PetitionMailer < ActionMailer::Base
       :to => @member.email,
       :subject => @email.subject
     }) do |format|
-      format.html
       format.text
+      format.html
     end
     
   end

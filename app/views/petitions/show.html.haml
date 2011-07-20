@@ -30,4 +30,7 @@
       %p
         = petition_signature.comment
         %br
-        %strong= "#{petition_signature.member.name}, #{petition_signature.member.zona}"
+        -if !petition_signature.member.zona.blank?
+          %strong= "#{petition_signature.member.name}, #{petition_signature.member.zona}"
+        -else
+          %strong= "#{petition_signature.member.name}"
