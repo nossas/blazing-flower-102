@@ -23,11 +23,12 @@
             =m.label :zona
             =m.select :zona, ['', 'Centro', 'Norte', 'Oeste', 'Sul', 'Eu não sou do Rio'], :class => "required"
     - else
-      %p
-        =image_tag current_member.image_url, :id => "member_thumbnail"
-        =current_member.name
-        %br
-        =current_member.email
+      .member_info.clearfix
+        %p
+          =image_tag current_member.image_url, :id => "member_thumbnail"
+          %p
+            %strong=current_member.name
+          %p=current_member.email
     .row
       =f.label :comment
       =f.text_area :comment, :rows => 5, :maxlength => "140"
@@ -37,5 +38,5 @@
       Meu rio protege a
       =link_to "sua privacidade", "/pages/privacy_policy", :target => "_blank"
     .submit
-      =f.submit @petition.call_to_action, :class => "btn"
+      =f.submit @petition.call_to_action, :class => "btn", :id => "submit_btn"
       =image_tag "/images/ajax-loader.gif", :id => "loader", :style => "display:none"

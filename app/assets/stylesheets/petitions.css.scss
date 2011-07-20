@@ -6,6 +6,12 @@
 
 body.petitions {
 
+  .issue_name {
+    text-transform: uppercase;
+    color: $blue;
+    font-size: 14px;
+  }
+
   .media {
     iframe, img {
       width: 100% !important
@@ -32,7 +38,6 @@ body.petitions {
       background-color: $pink;
       background-image: -moz-linear-gradient(100% 100% 90deg, $pink, lighten($pink, 20%));
       background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(lighten($pink, 20%)), to($pink));
-      border-right: 1px solid $pink;
       border-radius: 4px 0 0 4px;
       -moz-border-radius: 4px 0 0 4px;
       -webkit-border-radius: 4px 0 0 4px;
@@ -54,7 +59,7 @@ body.petitions {
     -moz-border-radius: 5px;
     border-radius: 5px;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 15px;
     img { float: left; }
     .share_text { 
       float: right; 
@@ -64,6 +69,11 @@ body.petitions {
       margin-bottom: 5px;
       font-size: 125%;
     }
+    form{
+      img { margin-right: 10px }
+    }
+    .member_info { margin-bottom: 20px }
+    h2 { text-transform: uppercase; }
   }
 
   h2 {
@@ -78,9 +88,9 @@ body.petitions {
       float: left;
     }
     .required_mark { color: $blue; }
-    input[type="text"], select { width: 178px; }
-    textarea { width: 420px }
-    input[type="text"], textarea, select { display: block; }
+    input[type="text"], select { width: 173px; }
+    textarea { width: 410px; margin-bottom: 5px; }
+    input[type="text"], textarea, select { display: block; margin-bottom: 5px }
   }
 
   .policy { padding-top: 15px; float: left; }
@@ -88,7 +98,7 @@ body.petitions {
   
   .comments {
     margin-top: 20px;
-    h3 { border-bottom: 2px solid $blue }
+    h3 { border-bottom: 1px solid $light_blue; border-top: 1px solid $light_blue; padding: 10px 0 5px; font-size: 16px; }
     p {
       background:url("/images/comment_icon.png") no-repeat;
       padding-left:42px;
@@ -102,5 +112,11 @@ body.petitions {
   #clippy{
     float:left;
     padding-top:3px;
+  }
+
+  img#thank_you {
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 }

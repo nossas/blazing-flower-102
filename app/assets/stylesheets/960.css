@@ -14,7 +14,7 @@
 */
 
 body {
-  min-width: 960px;
+  min-width: 980px;
 }
 
 /* `Container
@@ -25,6 +25,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 960px;
+  padding: 0 10px;
 }
 
 /* `Grid >> Global

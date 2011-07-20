@@ -4,6 +4,8 @@
     %meta{ :property => "og:description", :content => "#{@taf.facebook_message}" } 
     %meta{ :property => "og:url", :content => "#{@taf.facebook_link}" } 
   
+.grid_12
+  .issue_name= link_to "ISSUE NAME", "#"
 %h1.grid_12
   = @petition.title.upcase
   .outline= @petition.title.upcase
@@ -18,6 +20,7 @@
 .grid_6.take_action
   - if current_member && !PetitionSignature.find_by_member_id_and_petition_id(current_member.id, @petition.id).nil?
     = render :partial => "petitions/taf"
+    = image_tag "/assets/thank_you.png", :id => "thank_you"
   - else
     = render :partial => "petitions/form"
 -if @petition.surface_comments == true && !@comments.empty?

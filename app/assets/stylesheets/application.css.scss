@@ -38,12 +38,13 @@ body > header > nav {
     display: inline-block;
     text-transform: uppercase;
     text-decoration: none !important;
-    margin: 0px 15px;
+    padding: 0px 15px 25px;
+    margin: 0px 5px;
     font-weight: bold;
     color: $dark_gray !important;
   }
   a.last { margin-right: 0; }
-  a.selected, a:hover { border-bottom: solid 2px $blue }
+  a.selected, a:hover { background: url(/assets/nav_hover_underline.png) no-repeat top left; }
 }
 
 body > #main {
@@ -51,6 +52,8 @@ body > #main {
   border-radius: 8px;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
+  padding: 10px 10px;
+  position: relative;
 }
 
 #facebox .popup .content {
@@ -69,12 +72,12 @@ body > #main {
 
 .btn, .btn.disabled{
   // Almost all properties are !important because activeadmin's CSS is trying overriding this class
-  background: #c63929 !important;
-  background: -moz-linear-gradient(top, #ed894b 0%, #dc6837 100%) !important;
-  background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #ed894b), color-stop(1, #dc6837)) !important;
-  -moz-border-radius: 5px !important;
-  -webkit-border-radius: 5px !important;
-  border-radius: 5px !important;
+  background: #dc6837 !important;
+  background: -moz-linear-gradient(top, lighten(#dc6837, 20%) 0%, #dc6837 100%) !important;
+  background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten(#dc6837, 20%)), color-stop(1, #dc6837)) !important;
+  -moz-border-radius: 10px !important;
+  -webkit-border-radius: 10px !important;
+  border-radius: 10px !important;
   -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333 !important;
   -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333 !important;
   box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333 !important;
@@ -84,10 +87,11 @@ body > #main {
   text-transform: uppercase !important;
   text-decoration: none !important;
   text-align: center !important;
-  text-shadow: 0px 1px 1px rgba(0, 0, 0, .8) !important;
+  text-shadow: 0 0 1px black !important;
   padding: 10px !important;
+  line-height: 100%;
   margin: 0 !important;
-  display: inline-block !important;
+  display: inline-block;
   &:hover {
     background: #cb0500 !important;
     background: -moz-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%) !important;
@@ -127,7 +131,7 @@ h1 {
   text-transform: uppercase;
   color: $green !important;
   letter-spacing: 1.5px !important;
-  font-size: 300% !important;
+  font-size: 225% !important;
   position: relative;
   font-weight: normal !important;
   .outline{
@@ -138,3 +142,12 @@ h1 {
     left: -2px;
   }
 }
+
+a {
+  text-decoration: none !important;
+  color: $blue !important;
+  font-weight: bold !important;
+  &:hover{ text-decoration: underline !important; }
+}
+
+#join_us_btn { padding-right: 20px }
