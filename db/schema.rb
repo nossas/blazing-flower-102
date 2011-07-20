@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110719185002) do
+ActiveRecord::Schema.define(:version => 20110720171345) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -82,6 +82,9 @@ ActiveRecord::Schema.define(:version => 20110719185002) do
     t.text     "author_organization_side_2"
     t.text     "title"
   end
+
+  add_index "debates", ["author_email_side_1"], :name => "index_debates_on_author_email_side_1"
+  add_index "debates", ["author_email_side_2"], :name => "index_debates_on_author_email_side_2"
 
   create_table "issues", :force => true do |t|
     t.text     "name"
@@ -187,6 +190,9 @@ ActiveRecord::Schema.define(:version => 20110719185002) do
   add_index "tafs", ["petition_id"], :name => "index_tafs_on_petition_id", :unique => true
 
   add_foreign_key "autofire_emails", "petitions", :name => "autofire_emails_petition_id_fk"
+
+  add_foreign_key "debates", "members", :name => "debates_author_email_side_1_fk", :column => "author_email_side_1", :primary_key => "email"
+  add_foreign_key "debates", "members", :name => "debates_author_email_side_2_fk", :column => "author_email_side_2", :primary_key => "email"
 
   add_foreign_key "petition_signatures", "members", :name => "petition_signatures_member_id_fk"
   add_foreign_key "petition_signatures", "petitions", :name => "petition_signatures_petition_id_fk"
