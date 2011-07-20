@@ -37,5 +37,5 @@
       Meu rio protege a
       =link_to "sua privacidade", "/pages/privacy_policy", :target => "_blank"
     .submit
-      =f.submit @petition.call_to_action, :class => "btn"
+      =f.submit @petition.call_to_action, :class => "btn", :id => "submit_btn"
       =image_tag "/images/ajax-loader.gif", :id => "loader", :style => "display:none"

@@ -87,7 +87,7 @@ body > #main {
   text-shadow: 0px 1px 1px rgba(0, 0, 0, .8) !important;
   padding: 10px !important;
   margin: 0 !important;
-  display: inline-block !important;
+  display: inline-block;
   &:hover {
     background: #cb0500 !important;
     background: -moz-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%) !important;
