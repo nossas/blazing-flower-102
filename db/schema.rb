@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110720171345) do
+ActiveRecord::Schema.define(:version => 20110721160316) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -64,6 +64,25 @@ ActiveRecord::Schema.define(:version => 20110720171345) do
   end
 
   add_index "autofire_emails", ["petition_id"], :name => "index_autofire_emails_on_petition_id"
+
+  create_table "comment_flags", :force => true do |t|
+    t.integer  "member_id",  :null => false
+    t.integer  "comment_id", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comment_flags", ["comment_id", "member_id"], :name => "index_comment_flags_on_comment_id_and_member_id", :unique => true
+
+  create_table "comments", :force => true do |t|
+    t.integer  "member_id",        :null => false
+    t.integer  "commentable_id",   :null => false
+    t.string   "commentable_type", :null => false
+    t.text     "content",          :null => false
+    t.boolean  "comment_accepted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "debates", :force => true do |t|
     t.text     "question",                   :null => false

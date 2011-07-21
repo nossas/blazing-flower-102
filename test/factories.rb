@@ -133,5 +133,16 @@ Factory.define :debate do |d|
   d.author_2 { Factory(:member) }
 end
 
-Factory.define :commented_debate, :parent => :debate do |d|
+Factory.define :comment do |c|
+  c.member { Factory(:member) }
+  c.content { Faker::Lorem.paragraph}
+end
+
+Factory.define :debate_comment, :parent => :comment do |d|
+  d.commentable { Factory(:debate) }
+end
+
+Factory.define :comment_flag do |d|
+  d.comment { Factory(:debate_comment) }
+  d.member { Factory(:member) }
 end
