@@ -132,3 +132,6 @@ Factory.define :debate do |d|
   d.author_1 { Factory(:member) }
   d.author_2 { Factory(:member) }
 end
+
+Factory.define :commented_debate, :parent => :debate do |d|
+end

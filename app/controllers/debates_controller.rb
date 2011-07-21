@@ -1,2 +1,3 @@
-class DebatesController < ApplicationController
+class DebatesController < InheritedResources::Base
+  actions :show
 end

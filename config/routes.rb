@@ -1,5 +1,6 @@
 MeuRio::Application.routes.draw do
   resources :petition_signatures, :only => [:create, :index]
+  resources :debates, :only => [:show]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :members, :controllers => { :omniauth_callbacks => "omniauth_callbacks" } do
