@@ -1,3 +1,3 @@
 Given /^There is a commented dabate$/ do
-  Factory(:commented_debate)
+  Factory(:debate_comment)
 end

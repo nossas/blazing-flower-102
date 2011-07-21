@@ -3,6 +3,7 @@ Feature: View the debate's details
   As a guest
   I want to view the debate's details
 
+  @focus
   @omniauth_test
   Scenario: The one where I am logged in and there is comments
     Given I am logged in via Facebook

@@ -1,3 +1,2 @@
-= "#debate_show"
-Bruno Jurkovski
-new_comment_form
+- @debate.comments.each do |comment|
+  .comment= "#{comment.member.first_name} #{comment.member.last_name}"
