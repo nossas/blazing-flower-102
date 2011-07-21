@@ -29,8 +29,7 @@ describe Comment do
 
     context "with MODERATION_THRESHOLD flags" do
       before do
-        @debate_comment = Factory(:debate_comment)
-        Comment::MODERATION_THRESHOLD.times{ @debate_comment.flags.create :member => Factory(:member) }
+        @debate_comment = Factory(:comment_awaiting_moderation)
         Factory(:debate_comment)
       end
       subject{ Comment.waiting_moderation }
