@@ -10,6 +10,11 @@ body.petitions {
     text-transform: uppercase;
     color: $blue;
     font-size: 14px;
+    padding-top: 10px;
+  }
+
+  h1 {
+    margin-bottom: 36px;
   }
 
   .media {
@@ -49,7 +54,12 @@ body.petitions {
     font-size: 250%;
   }
 
-  .description { margin-top: 10px }
+  .description { margin-top: 26px }
+
+  .take_action, .comments {
+    margin-left: 20px;
+    width: 450px;
+  }
 
   .canvas{
     background: #e7e7e7;
@@ -59,7 +69,7 @@ body.petitions {
     -moz-border-radius: 5px;
     border-radius: 5px;
     margin-bottom: 10px;
-    padding: 15px;
+    padding: 30px 24px;
     img { float: left; }
     .share_text { 
       float: right; 
@@ -88,8 +98,8 @@ body.petitions {
       float: left;
     }
     .required_mark { color: $blue; }
-    input[type="text"], select { width: 173px; }
-    textarea { width: 410px; margin-bottom: 5px; }
+    input[type="text"], select { width: 159px; }
+    textarea { width: 382px; margin-bottom: 5px; }
     input[type="text"], textarea, select { display: block; margin-bottom: 5px }
   }
 
@@ -97,11 +107,12 @@ body.petitions {
   .submit { float: right }
   
   .comments {
-    margin-top: 20px;
-    h3 { border-bottom: 1px solid $light_blue; border-top: 1px solid $light_blue; padding: 10px 0 5px; font-size: 16px; }
+    margin-top: 48px;
+    h3 { border-bottom: 1px solid $light_blue; border-top: 1px solid $light_blue; padding: 10px 0 5px; font-size: 16px; margin-bottom: 30px; }
     p {
       background:url("/images/comment_icon.png") no-repeat;
       padding-left:42px;
+      margin-bottom: 36px;
     }
   }
 
