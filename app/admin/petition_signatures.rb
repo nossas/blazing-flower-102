@@ -1,5 +1,6 @@
 ActiveAdmin.register PetitionSignature do
-  menu :label => "Moderate Petition Comments"
+  menu :label => "Petition Comments"
+  actions :all, :except => :new
   filter :petition
   filter :created_at
 
