@@ -141,3 +141,8 @@ end
 Factory.define :debate_comment, :parent => :comment do |d|
   d.commentable { Factory(:debate) }
 end
+
+Factory.define :comment_flag do |d|
+  d.comment { Factory(:debate_comment) }
+  d.member { Factory(:member) }
+end
