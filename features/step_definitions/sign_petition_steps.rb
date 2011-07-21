@@ -22,9 +22,9 @@ When /^I enter my information in the petition signature form$/ do
 end
 
 When /^I enter my member information in the petition signature form$/ do
+  fill_in "member_email", :with => Member.first.email
   fill_in "member_first_name", :with => "Diogo"
   fill_in "member_last_name", :with => "Biazus"
-  fill_in "member_email", :with => Member.first.email
 end
 
 When /^I press the submit button$/ do
@@ -47,4 +47,3 @@ end
 Then /^I should see inline errors$/ do
   assert(page.has_content?("Campo obrigatório"))
 end
-

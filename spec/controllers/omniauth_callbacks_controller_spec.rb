@@ -57,6 +57,7 @@ describe OmniauthCallbacksController do
       before{ controller.stub(:auth_data).and_return(GOOGLE_CUSTOM_DOMAIN_VALID_AUTH_DATA) }
       it{ @response.should be_successful }
       it "should set auth_data in session" do
+        ProviderAuthorization.stub(:find_for_google_apps_oauth).and_return(nil)
         subject
         session[:auth_data].should == GOOGLE_CUSTOM_DOMAIN_VALID_AUTH_DATA 
       end
