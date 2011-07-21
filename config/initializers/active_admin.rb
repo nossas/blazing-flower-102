@@ -71,8 +71,8 @@ ActiveAdmin.setup do |config|
   # and feel.
   #
   # To load a stylesheet:
-  #   config.register_stylesheet 'my_stylesheet.css'
-  #
+    config.register_stylesheet 'admin/active_admin.css.scss'
+  
   # To load a javascript file:
-  #   config.register_javascript 'my_javascript.js'
+    config.register_javascript 'admin/active_admin.js'
 end
