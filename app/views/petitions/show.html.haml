@@ -8,7 +8,6 @@
   .issue_name= link_to "ISSUE NAME", "#"
 %h1.grid_12
   = @petition.title.upcase
-  .outline= @petition.title.upcase
 .grid_6
   .media= raw @petition.media
   -if @petition.ok_to_display_counter?

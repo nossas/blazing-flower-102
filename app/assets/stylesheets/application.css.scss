@@ -3,7 +3,7 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require 960.css
- *= require style.css
+ *= require style
  *= require_self
  *= require_tree . 
 */
@@ -88,6 +88,7 @@ body > .main {
   -moz-border-radius: 10px !important;
   -webkit-border-radius: 10px !important;
   border-radius: 10px !important;
+  border: none;
   -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333 !important;
   -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333 !important;
   box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333 !important;
@@ -104,14 +105,14 @@ body > .main {
   display: inline-block;
   &:hover {
     background: #cb0500 !important;
-    background: -moz-linear-gradient(top, lighten(#dc6837, 25%) 0%, lighten(#dc6837, 10%) 100%) !important;
-    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten(#dc6837, 25%)), color-stop(1, lighten(#dc6837, 10%))) !important;
+    background: -moz-linear-gradient(top, lighten($pink, 20%) 0%, $pink 100%) !important;
+    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($pink, 20%)), color-stop(1, $pink)) !important;
     cursor: pointer !important;
   }
   &:active{
     background: #b30300 !important;
-    background: -moz-linear-gradient(top, lighten(#dc6837, 15%) 0%, lighten(#dc6837, 5%) 100%) !important;
-    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten(#dc6837, 15%)), color-stop(1, lighten(#dc6837, 5%))) !important;
+    background: -moz-linear-gradient(top, lighten($pink, 15%) 0%, lighten($pink, 5%) 100%) !important;
+    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($pink, 15%)), color-stop(1, lighten($pink, 5%))) !important;
     -moz-box-shadow: inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important;
     -webkit-box-shadow: inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important;
     box-shadow: inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important;
@@ -155,8 +156,8 @@ h1 {
 
 a {
   text-decoration: none !important;
-  color: $blue !important;
-  &:hover{ text-decoration: underline !important; }
+  color: $blue;
+  &:hover{ text-decoration: underline !important; color: $pink; }
 }
 
 #join_us_btn { padding-right: 20px }
