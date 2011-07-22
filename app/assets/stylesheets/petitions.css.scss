@@ -64,7 +64,7 @@ body.petitions {
   }
 
   .canvas{
-    background: #e7e7e7;
+    background: #ebebeb;
     box-shadow: 3px 3px 3px #ccc;
     -moz-box-shadow: 3px 3px 3px #ccc;
     -webkit-box-shadow: 3px 3px 3px #ccc;
@@ -107,17 +107,26 @@ body.petitions {
     input[type="text"], textarea, select { display: block; margin-bottom: 5px }
   }
 
+  .row.comment {
+    margin-bottom: 32px;
+  }
+
   .policy { padding-top: 15px; float: left; }
   .submit { float: right }
   
   .comments {
     margin-top: 48px;
-    h3 { border-bottom: 1px solid $light_blue; border-top: 1px solid $light_blue; padding: 10px 0 5px; font-size: 16px; margin-bottom: 30px; }
+    h3 { border-bottom: 1px solid $light_blue; border-top: 1px solid $light_blue; padding: 10px 0 5px 12px; font-size: 16px; margin-bottom: 24px; }
     p {
       background:url("/images/comment_icon.png") no-repeat;
       padding-left:42px;
-      margin-bottom: 36px;
+      margin-bottom: 30px;
       font-size: 14px;
+      color: #333333;
+      strong {
+        font-weight: normal;
+        color: $dark_gray;
+      }
     }
   }
 

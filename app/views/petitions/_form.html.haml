@@ -29,7 +29,7 @@
           %p
             %strong=current_member.name
           %p=current_member.email
-    .row
+    .row.comment
       =f.label :comment
       =f.text_area :comment, :rows => 5, :maxlength => "140"
       %small#comment_tip= t("petition_show.comment_tip")

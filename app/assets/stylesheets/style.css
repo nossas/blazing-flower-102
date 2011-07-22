@@ -39,7 +39,7 @@ a:hover, a:active { outline: none; }
 ul, ol { margin-left: 2em; }
 ol { list-style-type: decimal; }
 nav ul, nav li { margin: 0; list-style:none; list-style-image: none; }
-small { font-size: 85%; }
+small { font-size: 10.5px; }
 strong, th { font-weight: bold; }
 td { vertical-align: top; }
 sub, sup { font-size: 75%; line-height: 0; position: relative; }
@@ -59,6 +59,9 @@ input:valid, textarea:valid   {  }
 input:invalid, textarea:invalid { border-radius: 1px; -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red; box-shadow: 0px 0px 5px red; }
 .no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
+input:focus, textarea:focus, isindex:focus, keygen:focus, select:focus {
+    outline: none;
+}
 
 ::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
 ::selection { background:#FF5E99; color:#fff; text-shadow: none; }
