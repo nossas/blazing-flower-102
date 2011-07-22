@@ -1,6 +1,6 @@
 -if @petition.complete?
   =content_for :meta_tags do
-    %meta{ :property => "og:image", :content => "<img src='#{@taf.facebook_image.url(:medium)}'>" } 
+    %meta{ :property => "og:image", :content => "#{@taf.facebook_image.url(:medium)}" } 
     %meta{ :property => "og:description", :content => "#{@taf.facebook_message}" } 
     %meta{ :property => "og:url", :content => "#{@taf.facebook_link}" } 
   
@@ -8,7 +8,6 @@
   .issue_name= link_to "ISSUE NAME", "#"
 %h1.grid_12
   = @petition.title.upcase
-  .outline= @petition.title.upcase
 .grid_6
   .media= raw @petition.media
   -if @petition.ok_to_display_counter?
