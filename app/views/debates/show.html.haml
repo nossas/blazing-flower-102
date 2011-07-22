@@ -1,2 +1,7 @@
-- @debate.comments.each do |comment|
-  .comment= "#{comment.member.first_name} #{comment.member.last_name}"
+.comments
+  - @debate.comments.each do |comment|
+    .comment= "#{comment.member.first_name} #{comment.member.last_name}"
+
+  - if @comment
+    = form_for @comment do |form|
+      = form.text_field :content
