@@ -28,8 +28,6 @@
     %h3= t("petition_show.share_on_twitter")
     = link_to image_tag("/assets/auth/twitter_128.png"), "https://twitter.com/share?url=#{request.url}&text=#{@petition.taf.tweet}", :target => "_blank", :title => t("petition_show.share_on_twitter"), :class => "twitter_btn"
     .share_text
-      %strong= t("petition_show.your_tweet")
-      %br
       = @petition.taf.tweet
  
 - if @petition.taf && @petition.taf.display_email
