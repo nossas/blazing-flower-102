@@ -97,13 +97,16 @@ body.petitions {
   .row {
     margin-top: 10px;
     .field {
-      width: 45%;
+      width: 48%;
       float: left;
+    }
+    .right {
+      float: right;
     }
     label { font-size: 12.5px }
     .required_mark { color: $blue; }
-    input[type="text"], select { width: 159px; }
-    textarea { width: 382px; margin-bottom: 5px; }
+    input[type="text"], select { width: 184px; }
+    textarea { width: 394px; margin-bottom: 5px; }
     input[type="text"], textarea, select { display: block; margin-bottom: 5px }
   }
 
