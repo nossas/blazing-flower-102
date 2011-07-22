@@ -39,7 +39,7 @@ a:hover, a:active { outline: none; }
 ul, ol { margin-left: 2em; }
 ol { list-style-type: decimal; }
 nav ul, nav li { margin: 0; list-style:none; list-style-image: none; }
-small { font-size: 10.5px; }
+small { font-size: 75%; }
 strong, th { font-weight: bold; }
 td { vertical-align: top; }
 sub, sup { font-size: 75%; line-height: 0; position: relative; }
