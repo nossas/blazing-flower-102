@@ -146,6 +146,10 @@ Factory.define :comment_awaiting_moderation, :parent => :debate_comment do |c|
   c.after_create { |c| Comment::MODERATION_THRESHOLD.times{ Factory(:comment_flag, :comment => c) } }
 end
 
+Factory.define :moderated_comment, :parent => :comment_awaiting_moderation do |c|
+  c.comment_accepted true
+end
+
 Factory.define :comment_flag do |d|
   d.comment { Factory(:debate_comment) }
   d.member { Factory(:member) }

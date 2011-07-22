@@ -16,15 +16,53 @@ describe Comment do
     end
   end
 
-  describe ".waiting_moderation" do
+  describe "#reject" do
+    subject{ Factory(:comment_awaiting_moderation).tap{|c| c.reject } }
+    its(:comment_accepted){ should be_false }
+  end
+
+  describe "#accept" do
+    subject{ Factory(:comment_awaiting_moderation).tap{|c| c.accept } }
+    its(:comment_accepted){ should be_true }
+  end
+
+  describe ".moderated" do
+    subject{ Comment.moderated }
+    context "with no moderated comments" do
+      before do
+        @debate_comment = Factory(:comment_awaiting_moderation)
+        Factory(:debate_comment)
+      end
+      it{ should be_empty }
+    end
+
+    context "with moderated comments" do
+      before do
+        @debate_comment = Factory(:moderated_comment)
+        Factory(:debate_comment)
+      end
+      it{ should == [ @debate_comment ] }
+    end
+  end
+
+  describe ".awaiting_moderation" do
+    subject{ Comment.awaiting_moderation }
     context "with less flags than MODERATION_THRESHOLD" do
       before do
         @debate_comment = Factory(:debate_comment)
         (Comment::MODERATION_THRESHOLD - 1).times{ @debate_comment.flags.create :member => Factory(:provider_authorization).member }
         Factory(:debate_comment)
       end
-      subject{ Comment.waiting_moderation }
       it{ should be_empty }
+    end
+
+    context "with moderated comments" do
+      before do
+        @debate_comment = Factory(:comment_awaiting_moderation)
+        Factory(:moderated_comment)
+        Factory(:debate_comment)
+      end
+      it{ should == [ @debate_comment ] }
     end
 
     context "with MODERATION_THRESHOLD flags" do
@@ -32,7 +70,6 @@ describe Comment do
         @debate_comment = Factory(:comment_awaiting_moderation)
         Factory(:debate_comment)
       end
-      subject{ Comment.waiting_moderation }
       it{ should == [ @debate_comment ] }
     end
   end

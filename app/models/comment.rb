@@ -12,11 +12,23 @@ class Comment < ActiveRecord::Base
   validates_presence_of :commentable_type
   validate :validate_member_has_profile
 
-  def self.waiting_moderation
-    where(["(SELECT count(*) FROM comment_flags WHERE comment_flags.comment_id = comments.id) >= ?", MODERATION_THRESHOLD])
+  def self.awaiting_moderation
+    self.where(["comment_accepted IS NULL AND (SELECT count(*) FROM comment_flags WHERE comment_flags.comment_id = comments.id) >= ?", MODERATION_THRESHOLD])
+  end
+
+  def self.moderated
+    where("comment_accepted IS NOT NULL")
   end
 
   def validate_member_has_profile
     errors.add(:member, "Member should have a profile to comment.") if member and member.provider_authorizations.empty?
+  end
+
+  def accept
+    update_attribute :comment_accepted, true
+  end
+
+  def reject
+    update_attribute :comment_accepted, false
   end
 end
