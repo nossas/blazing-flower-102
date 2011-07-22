@@ -134,7 +134,7 @@ Factory.define :debate do |d|
 end
 
 Factory.define :comment do |c|
-  c.member { Factory(:member) }
+  c.member { Factory(:provider_authorization).member }
   c.content { Faker::Lorem.paragraph}
 end
 

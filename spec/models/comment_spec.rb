@@ -20,7 +20,7 @@ describe Comment do
     context "with less flags than MODERATION_THRESHOLD" do
       before do
         @debate_comment = Factory(:debate_comment)
-        (Comment::MODERATION_THRESHOLD - 1).times{ @debate_comment.flags.create :member => Factory(:member) }
+        (Comment::MODERATION_THRESHOLD - 1).times{ @debate_comment.flags.create :member => Factory(:provider_authorization).member }
         Factory(:debate_comment)
       end
       subject{ Comment.waiting_moderation }
@@ -34,6 +34,22 @@ describe Comment do
       end
       subject{ Comment.waiting_moderation }
       it{ should == [ @debate_comment ] }
+    end
+  end
+
+  describe "#validate_member_has_profile" do
+    context "when member has a profile" do
+      subject do
+        Comment.new(:commentable => Factory(:debate), :member => Factory(:provider_authorization).member).validate_member_has_profile
+      end
+      it{ should be_nil }
+    end
+
+    context "when member has no profile" do
+      subject do
+        Comment.new(:commentable => Factory(:debate), :member => Factory(:member)).validate_member_has_profile
+      end
+      it{ should include("Member should have a profile to comment.") }
     end
   end
 end
