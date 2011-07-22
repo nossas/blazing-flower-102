@@ -34,6 +34,16 @@ Feature: Signing a Petition
     Then I should see "You've already signed this petition."
 
   @javascript
+  Scenario: Signing a Petition (existing member, existing petition signature) with javascript
+    Given 2 published petitions exist
+    And I am an existing member
+    And I have signed the first petition
+    And I am on the first petition page
+    When I enter my member information in the petition signature form
+    And I press the submit button
+    Then I should see "Você já assinou esta petição."
+
+  @javascript
   Scenario: Signing a Petition without required fields
     Given 2 published petitions exist
     And I am on the first petition page

@@ -2,6 +2,8 @@
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require style.css
+ *= require 960.css
  *= require_self
  *= require_tree . 
 */
@@ -14,14 +16,16 @@
 
 body > header {
   position: relative;
-  padding: 10px 0;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  margin-bottom: 12px;
   background: #f2f0ed;
   border-radius: 0 0 8px 8px;
   -moz-border-radius: 0 0 8px 8px;
   -webkit-border-radius: 0 0 8px 8px;
   .member_panel{
     text-align:right;
-    p { margin: 0; }
+    p { margin: 0; font-size: 14px; }
     img { margin-left: 10px; }
   }
 }
@@ -32,7 +36,7 @@ body > header > nav {
   color: $dark_gray;
   position: absolute;
   padding: 10px;
-  right: 0;
+  right: 10px;
   bottom: 0;
   a {
     display: inline-block;
@@ -40,20 +44,26 @@ body > header > nav {
     text-decoration: none !important;
     padding: 0px 15px 25px;
     margin: 0px 5px;
-    font-weight: bold;
     color: $dark_gray !important;
+    font-weight: bold;
+    font-size: 16px;
   }
   a.last { margin-right: 0; }
-  a.selected, a:hover { background: url(/assets/nav_hover_underline.png) no-repeat top left; }
+  a.selected, a:hover { background: url(/assets/nav_hover_underline.png) no-repeat top left; text-decoration: none !important; }
+  a:hover { color: $pink !important; text-decoration: none; }
 }
 
-body > #main {
+body > .main {
   background: #f2f0ed;
   border-radius: 8px;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
   padding: 10px 10px;
   position: relative;
+
+  p {
+    font-size: 15px;
+  }
 }
 
 #facebox .popup .content {
@@ -131,7 +141,7 @@ h1 {
   text-transform: uppercase;
   color: $green !important;
   letter-spacing: 1.5px !important;
-  font-size: 225% !important;
+  font-size: 180% !important;
   position: relative;
   font-weight: normal !important;
   .outline{
@@ -146,8 +156,11 @@ h1 {
 a {
   text-decoration: none !important;
   color: $blue !important;
-  font-weight: bold !important;
   &:hover{ text-decoration: underline !important; }
 }
 
 #join_us_btn { padding-right: 20px }
+
+.small {
+  font-size: 10.5px;
+}
