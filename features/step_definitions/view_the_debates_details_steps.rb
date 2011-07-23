@@ -1,4 +1,4 @@
-Given /^There is a commented dabate$/ do
+Given /^There is a commented debate$/ do
   @comment = Factory(:debate_comment, :member => Factory(:member, :first_name => "Bruno", :last_name => "Jurkovski"))
 end
 
