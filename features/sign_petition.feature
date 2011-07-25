@@ -40,7 +40,6 @@ Feature: Signing a Petition
     And I have signed the first petition
     And I am on the first petition page
     When I enter my member information in the petition signature form
-    And I press the submit button
     Then I should see "Você já assinou esta petição."
 
   @javascript
