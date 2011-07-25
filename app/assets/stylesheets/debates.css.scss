@@ -2,6 +2,79 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body.Debates {
-  // Place scoped styles here
+@import "vars.css.scss";
+
+body.debates {
+  .comments {
+    background: white;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 30px 24px;
+    h3 {
+      color: $orange;
+      font-size: 18px;
+      border-bottom: 3px solid $blue;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+    img#comments_arrow {
+      position: absolute;
+      top: 46px;
+      left: 15px;
+    }
+    .subtitle {
+      padding: 0 20px 10px 20px;
+      border-bottom: 1px solid $blue;
+      #join_the_coversation {
+        font-size: 18px;
+        font-weight: normal !important;
+      }
+      .comments_tooltip {
+        border: 2px solid $pink;
+        color: $pink;
+        padding: 3px;
+        padding-bottom: 0;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        line-height: 100%;
+        font-weight: bold;
+        float: right;
+      }
+    }
+    .comment {
+      padding: 24px; 
+      border-bottom: 1px solid $light_gray;
+      .right_column {
+        width: 610px;
+        float: left;
+        p {
+          margin: 0;
+        }
+        p.content {
+          margin-bottom: 10px;
+        }
+      }
+      img { 
+        width: 50px;
+        margin-right: 24px;
+        float: left;
+      }
+    }
+    form {
+      padding: 24px;
+      img { 
+        float: left;
+        margin-right: 24px;
+      }
+      textarea {
+        width: 588px;
+        height: 100px;
+      }
+      .btn {
+        float: right !important;
+      }
+    }
+  }
 }

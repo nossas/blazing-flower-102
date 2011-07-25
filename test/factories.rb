@@ -20,6 +20,7 @@ Factory.define :member do |m|
   m.first_name {Faker::Name.first_name}
   m.last_name {Faker::Name.last_name}
   m.zona "Centro"
+  m.after_create { |p| p.update_attributes :image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(p.email)}.jpg?s=60&d=identicon" }
 end
 
 Factory.define :issue do |i|
@@ -39,6 +40,7 @@ Factory.define :petition do |p|
   p.surface_comments true
   p.call_to_action 'Assine'
   p.state 'draft'
+  p.association :issue
 end
 
 Factory.define :autofire_email do |a|
@@ -131,11 +133,13 @@ Factory.define :debate do |d|
   d.question "What question is this?"
   d.author_1 { Factory(:member) }
   d.author_2 { Factory(:member) }
+  d.association :issue
 end
 
 Factory.define :comment do |c|
   c.member { Factory(:provider_authorization).member }
   c.content { Faker::Lorem.paragraph}
+  c.sequence(:created_at) {|n| Time.now - n.hours }
 end
 
 Factory.define :debate_comment, :parent => :comment do |d|
