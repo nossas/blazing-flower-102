@@ -1,6 +1,7 @@
 class Member < ActiveRecord::Base
   has_many :petition_signatures
   has_many :members
+  has_many :provider_authorizations
 
   validates_presence_of :email
   validates_uniqueness_of :email

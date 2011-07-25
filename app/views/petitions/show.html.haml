@@ -1,6 +1,6 @@
 -if @petition.complete?
   =content_for :meta_tags do
-    %meta{ :property => "og:image", :content => "<img src='#{@taf.facebook_image.url(:medium)}'>" } 
+    %meta{ :property => "og:image", :content => "#{@taf.facebook_image.url(:medium)}" } 
     %meta{ :property => "og:description", :content => "#{@taf.facebook_message}" } 
     %meta{ :property => "og:url", :content => "#{@taf.facebook_link}" } 
   
@@ -8,17 +8,18 @@
   .issue_name= link_to "ISSUE NAME", "#"
 %h1.grid_12
   = @petition.title.upcase
-  .outline= @petition.title.upcase
 .grid_6
   .media= raw @petition.media
-  .grid_5.alpha
-    -if @petition.ok_to_display_counter?
-      .goal= t("petition_show.goal", :goal => @petition.counter_goal)
+  -if @petition.ok_to_display_counter?
+    .grid_5.alpha
       .graph
         .progress{:style => "width: #{@petition.percentage_complete}%;"}
-      %strong= raw t("petition_show.signatures", :count => @petition.petition_signatures.count)
+    .grid_1.omega
+      .goal= t("petition_show.goal", :goal => @petition.counter_goal)
+    .grid_6.omega.alpha
+      %strong.counter= raw t("petition_show.signatures", :count => @petition.petition_signatures.count)
   .grid_6.alpha.omega
-    .description= raw @petition.description.gsub("\n", "<br /><br />")
+    %p.description= raw @petition.description.gsub("\n", "<br /><br />")
 .grid_6.take_action
   - if current_member && !PetitionSignature.find_by_member_id_and_petition_id(current_member.id, @petition.id).nil?
     = render :partial => "petitions/taf"

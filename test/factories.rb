@@ -137,13 +137,21 @@ Factory.define :debate do |d|
 end
 
 Factory.define :comment do |c|
-  c.member { Factory(:member) }
+  c.member { Factory(:provider_authorization).member }
   c.content { Faker::Lorem.paragraph}
   c.sequence(:created_at) {|n| Time.now - n.hours }
 end
 
 Factory.define :debate_comment, :parent => :comment do |d|
   d.commentable { Factory(:debate) }
+end
+
+Factory.define :comment_awaiting_moderation, :parent => :debate_comment do |c|
+  c.after_create { |c| Comment::MODERATION_THRESHOLD.times{ Factory(:comment_flag, :comment => c) } }
+end
+
+Factory.define :moderated_comment, :parent => :comment_awaiting_moderation do |c|
+  c.comment_accepted true
 end
 
 Factory.define :comment_flag do |d|
