@@ -14,10 +14,10 @@
         .comments_tooltip= @debate.comments.count
       - @debate.comments.each do |comment|
         = render :partial => "comment", :locals => { :comment => comment }
-    - if @comment
-      #new_comment
-        = form_for @comment, :remote => true, :html => { 'data-type' => :html } do |form|
-          = image_tag current_member.image_url
-          = form.text_area :content, :class => 'required'
-          = hidden_field(:debate, :id)
-          = form.submit "Enviar", :class => "btn"
+      - if @comment
+        #new_comment
+          = form_for @comment, :remote => true, :html => { 'data-type' => :html } do |form|
+            = image_tag current_member.image_url
+            = form.text_area :content, :class => 'required'
+            = hidden_field(:debate, :id)
+            = form.submit "Enviar", :class => "btn"
