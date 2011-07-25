@@ -20,4 +20,5 @@
       = form_for @comment do |form|
         = image_tag current_member.image_url
         = form.text_area :content
+        = hidden_field(:debate, :id)
         = form.submit "Enviar", :class => "btn"
