@@ -4,12 +4,6 @@
   = @debate.title
   .outline= @debate.title
 
-- if @comment
-  = form_for @comment do |form|
-    = image_tag current_member.image_url
-    = form.text_area :content
-    = hidden_field(:debate, :id)
-    = form.submit "Enviar", :class => "btn"
 - if !@debate.comments.empty? || @comment
   .grid_10.push_1
     .comments
@@ -19,13 +13,11 @@
         = link_to t("debate_show.join_the_conversation"), "#new_comment", :id => "join_the_coversation"
         .comments_tooltip= @debate.comments.count
       - @debate.comments.each do |comment|
-        .comment.clearfix
-          = image_tag comment.member.image_url
-          .right_column
-            %p= link_to "#{comment.member.first_name} #{comment.member.last_name}", "#"
-            %p.content= comment.content
-            %p
-              = distance_of_time_in_words comment.created_at, Time.now
-              |
-              = link_to "Flag", "#"
-  
+        = render :partial => "comment", :locals => { :comment => comment }
+    - if @comment
+      #new_comment
+        = form_for @comment, :remote => true, :html => { 'data-type' => :html } do |form|
+          = image_tag current_member.image_url
+          = form.text_area :content, :class => 'required'
+          = hidden_field(:debate, :id)
+          = form.submit "Enviar", :class => "btn"
