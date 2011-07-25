@@ -1,5 +1,5 @@
 Given /^There is a commented debate$/ do
-  @comment = Factory(:debate_comment, :member => Factory(:member, :first_name => "Bruno", :last_name => "Jurkovski"))
+  @comment = Factory(:debate_comment, :member => Factory(:provider_authorization, :member => Factory(:member, :first_name => "Bruno", :last_name => "Jurkovski")).member)
 end
 
 Given /^There is a debate$/ do
