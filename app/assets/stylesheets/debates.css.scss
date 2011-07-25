@@ -56,10 +56,13 @@ body.debates {
           margin-bottom: 10px;
         }
       }
-      img { 
+      img.member_image { 
         width: 50px;
         margin-right: 24px;
         float: left;
+      }
+      img#flag_loading {
+        width: 12px;
       }
     }
     form {

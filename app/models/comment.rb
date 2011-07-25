@@ -5,6 +5,7 @@ class Comment < ActiveRecord::Base
   belongs_to :member
 
   has_many :flags, :class_name => 'CommentFlag'
+  alias_method :comment_flags, :flags # for inherited_resources
 
   validates_presence_of :content
   validates_presence_of :member_id
