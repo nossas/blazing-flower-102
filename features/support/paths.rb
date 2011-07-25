@@ -16,7 +16,7 @@ module NavigationHelpers
       '/admin/admin_users'
     when /the first petition page/
       custom_petition_path(Petition.first.custom_path)
-    when /this dabate page/
+    when /this debate page/
       debate_path(Debate.first)
 
     # Add more mappings here.
