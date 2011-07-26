@@ -26,3 +26,6 @@
             = form.text_area :content, :class => 'required'
             = hidden_field(:debate, :id)
             = form.submit "Enviar", :class => "btn"
+:javascript
+  var flag_label = "#{t("flag")}"
+  var unflag_label = "#{t("unflag")}"

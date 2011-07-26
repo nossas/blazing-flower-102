@@ -269,3 +269,5 @@
   login: "Entrar"
   logout: "Sair"
   join_us: "Junte-se a nós"
+  flag: "Denunciar"
+  unflag: "Desfazer denúncia"

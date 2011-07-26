@@ -5,12 +5,15 @@ class Comment < ActiveRecord::Base
   belongs_to :member
 
   has_many :flags, :class_name => 'CommentFlag'
+  alias_method :comment_flags, :flags # for inherited_resources
 
   validates_presence_of :content
   validates_presence_of :member_id
   validates_presence_of :commentable_id
   validates_presence_of :commentable_type
   validate :validate_member_has_profile
+
+  default_scope order('created_at DESC')
 
   def self.awaiting_moderation
     self.where(["comment_accepted IS NULL AND (SELECT count(*) FROM comment_flags WHERE comment_flags.comment_id = comments.id) >= ?", MODERATION_THRESHOLD])

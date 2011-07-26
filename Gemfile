@@ -49,9 +49,9 @@ gem "faker"
 gem 'factory_girl_rails'
 
 group :development, :test do
+  gem 'sqlite3', '1.3.3'
   gem 'heroku'
   gem 'unicorn'
-  gem 'sqlite3'
   gem 'foreman'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem "edgecase-git-pair"

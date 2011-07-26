@@ -16,6 +16,7 @@ end
 
 When /^I enter my information in the petition signature form$/ do
   fill_in "member_email", :with => "diogo@biazus.me"
+  sleep 2
   fill_in "member_first_name", :with => "Diogo"
   fill_in "member_last_name", :with => "Biazus"
   select "Centro", :from => "member_zona"
