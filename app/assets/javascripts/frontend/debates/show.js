@@ -10,12 +10,14 @@ $(document).ready(function(){
   //show and hide comment box
   $new_comment.hide();
 
-  $('#join_the_conversation').bind('click', function(e){
+  $('.join_the_conversation').bind('click', function(e){
     $new_comment.show(); 
+    $("#bottom_buttons").hide();
   });
 
   $('#close').bind('click', function(){
     $new_comment.hide(); 
+    $("#bottom_buttons").show();
   });
 
   //comment submissision and validation
