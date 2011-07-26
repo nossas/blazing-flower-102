@@ -2,7 +2,11 @@ require 'spec_helper'
 
 describe DebatesController do
   describe "GET show" do
-    before { Debate.stub(:find).with(1).and_return(mock_model(Debate)) }
+    before do
+      debate = mock_model(Debate)
+      debate.stub_chain(:comments, :where).and_return([mock_model(Comment)])
+      Debate.stub_chain(:where, :first).and_return(debate)
+    end
 
     context "user is logged in" do
       before do
