@@ -20,14 +20,14 @@ ActiveAdmin.register Debate do
       f.input :author_email_side_1, :label => "Author Email", :as => :string
       f.input :author_title_side_1, :label => "Author Title", :as => :string
       f.input :author_organization_side_1, :label => "Author Organization", :as => :string
-      f.input :quote_side_1, :label => "Highlighted Quote"
+      f.input :quote_side_1, :label => "Highlighted Quote", :as => :string
       f.input :text_side_1, :label => "Text"
     end
     f.inputs "Side 2" do
       f.input :author_email_side_2, :label => "Author Email", :as => :string
       f.input :author_title_side_2, :label => "Author Title", :as => :string
       f.input :author_organization_side_2, :label => "Author Organization", :as => :string
-      f.input :quote_side_2, :label => "Hightlighted Quote"
+      f.input :quote_side_2, :label => "Hightlighted Quote", :as => :string
       f.input :text_side_2, :label => "Text"
     end
     f.buttons
