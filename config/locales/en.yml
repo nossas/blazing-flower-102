@@ -13,3 +13,5 @@ en:
     already_signed: "You've already signed this petition."
   login: "Login"
   logout: "Logout"
+  flag: "Flag"
+  unflag: "Unflag"
