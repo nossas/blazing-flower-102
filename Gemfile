@@ -49,7 +49,6 @@ gem "faker"
 gem 'factory_girl_rails'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.3'
   gem 'heroku'
   gem 'unicorn'
   gem 'sqlite3', '1.3.3'
