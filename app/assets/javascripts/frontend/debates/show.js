@@ -10,12 +10,14 @@ $(document).ready(function(){
   //show and hide comment box
   $new_comment.hide();
 
-  $('#join_the_conversation').bind('click', function(e){
+  $('.join_the_conversation').bind('click', function(e){
     $new_comment.show(); 
+    $("#bottom_buttons").hide();
   });
 
   $('#close').bind('click', function(){
     $new_comment.hide(); 
+    $("#bottom_buttons").show();
   });
 
   //comment submissision and validation
@@ -70,21 +72,22 @@ $(document).ready(function(){
     });
 
     $('.flag').bind('ajax:success', function(event, data){
-      $(this).show();
-      $("#flag_loading").hide();
-      var link = $(this);
-      if(link.data("method") == "post"){
-        link.html(unflag_label).data("method", "delete").attr("href", link.attr("href") + "/" + data.id);
-      }
-      else{
-        var path_array = link.attr("href").split("/");
-        var path = path_array.slice(0, (path_array.length - 1)).join("/");
-        link.html(flag_label).data("method", "post").attr("href", path);
-      }
+        $(this).show();
+        $("#flag_loading").hide();
+        var link = $(this);
+        if(link.data("method") == "post"){
+          link.html(unflag_label).data("method", "delete").attr("href", link.attr("href") + "/" + data.id);
+        }
+        else{
+          var path_array = link.attr("href").split("/");
+          var path = path_array.slice(0, (path_array.length - 1)).join("/");
+          link.html(flag_label).data("method", "post").attr("href", path);
+        }
     });
 
     $(".flag").bind("click", function(){
-      $(this).hide();
-      $("#flag_loading").show();
-    })
+        $(this).hide();
+        $("#flag_loading").show();
+
+    });
 });

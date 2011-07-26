@@ -23,8 +23,11 @@ body.debates {
       top: 46px;
       left: 15px;
     }
+    .previous_comments {
+      margin-bottom: 15px;
+    }
     .subtitle {
-      padding: 0 20px 10px 20px;
+      padding: 0 20px 10px 0px;
       border-bottom: 1px solid $blue;
       #join_the_coversation {
         font-size: 18px;
@@ -67,10 +70,27 @@ body.debates {
       }
     }
 
+    .join_the_conversation {
+      padding-left: 20px;
+      float: left;
+    }
+
     #close {
       margin-top: 15px;
       float: right;
       cursor: pointer;
+    }
+    #load_more {
+      text-transform: uppercase;
+      font-size: 95%;
+      cursor: pointer;
+      float: right;
+      background: url(/assets/load_more_plus.png) top right no-repeat;
+      padding-right: 25px;
+
+      &:hover {
+        color: $pink;
+      }
     }
     form {
       padding: 24px;

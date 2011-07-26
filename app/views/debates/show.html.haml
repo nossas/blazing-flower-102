@@ -11,12 +11,15 @@
         %h3 Comment prompt
         = image_tag "/assets/comments_arrow.png", :id => "comments_arrow"
         .subtitle
-          = link_to t("debate_show.join_the_conversation"), "#new_comment", :id => "join_the_conversation"
-          .comments_tooltip= @debate.comments.count
-        - @debate.comments.first(10).each do |comment|
+          = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
+          .comments_tooltip= @comments.count
+          .clearfix
+        - @comments.first(5).each do |comment|
           = render :partial => "comments/comment", :locals => { :comment => comment }
-      = link_to t("debate_show.join_the_conversation"), "#new_comment", :id => "join_the_conversation"
-      #load_more= t("debate_show.load_more")
+      -if !@debate.comments.empty?
+        #bottom_buttons
+          = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
+          #load_more= t("debate_show.load_more")
       - if @comment
         #new_comment
           #close
