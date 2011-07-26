@@ -1,39 +1,33 @@
 .grid_12
   .issue_name= link_to "ISSUE NAME", "#"
-%h1.grid_12
+%h1.grid_12{ "data-debate" => @debate.id }
   = @debate.title
   .outline= @debate.title
 
 - if !@debate.comments.empty? || @comment
   .grid_10.push_1
     .comments
-      %h3 Comment prompt
-      = image_tag "/assets/comments_arrow.png", :id => "comments_arrow"
-      .subtitle
-        = link_to t("debate_show.join_the_conversation"), "#new_comment", :id => "join_the_coversation"
-        .comments_tooltip= @debate.comments.count
-      - @debate.comments.each do |comment|
-        .comment.clearfix
-          = image_tag comment.member.image_url, :class => "member_image"
-          .right_column
-            %p= link_to "#{comment.member.first_name} #{comment.member.last_name}", "#"
-            %p.content= comment.content
-            %p
-              = distance_of_time_in_words comment.created_at, Time.now
-              |
-              - if current_member
-                - if(flag = CommentFlag.find_by_member_id_and_comment_id(current_member.id, comment.id))
-                  = link_to t("unflag"), comment_flag_path(comment, flag), :remote => true, :method => "delete", 'data-type' => :json, :class => "flag"
-                - else
-                  = link_to t("flag"), comment_flags_path(comment, flag), :remote => true, :method => "post", 'data-type' => :json, :class => "flag"
-                = image_tag "/assets/loading.gif", :id => "flag_loading", :style => "display:none"
-  
+      .previous_comments
+        %h3 Comment prompt
+        = image_tag "/assets/comments_arrow.png", :id => "comments_arrow"
+        .subtitle
+          = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
+          .comments_tooltip= @debate.comments.count
+          .clearfix
+        - @debate.comments.first(10).each do |comment|
+          = render :partial => "comments/comment", :locals => { :comment => comment }
+      #bottom_buttons
+        = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
+        #load_more= t("debate_show.load_more")
       - if @comment
-        = form_for @comment do |form|
-          = image_tag current_member.image_url
-          = form.text_area :content
-          = form.submit "Enviar", :class => "btn"
-
+        #new_comment
+          #close
+            =image_tag "/assets/close.png"
+          = form_for @comment, :remote => true, :html => { 'data-type' => :html } do |form|
+            = image_tag current_member.image_url
+            = form.text_area :content, :class => 'required'
+            = hidden_field(:debate, :id)
+            = form.submit "Enviar", :class => "btn"
 :javascript
   var flag_label = "#{t("flag")}"
   var unflag_label = "#{t("unflag")}"

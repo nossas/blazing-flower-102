@@ -21,6 +21,7 @@ MeuRio::Application.routes.draw do
   match 'admin_user_root' => 'admin/dashboard#index'
 
   resources :pages, :controller => 'pages', :only => :show
+  match 'debates/:id/load_comments/:page' => "debates#load_comments"
   match "petition/:custom_path" => "petitions#show", :as => "custom_petition"
   match "petition/:custom_path/share" => "tafs#show", :as => "custom_taf"
 
