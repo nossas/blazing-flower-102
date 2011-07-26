@@ -1,7 +1,7 @@
 ActiveAdmin.register Comment, :as => "CommunityComment" do
   menu :label => 'Comments'
   actions :all, :except => :new
-  filter :commentable_type, :as => :select, :collection => Comment.select('DISTINCT(commentable_type) as commentable_type').all.map{|c| c.commentable_type }
+  filter :commentable_type, :as => :select, :collection => ActiveRecord::Base.connection.execute('SELECT DISTINCT(commentable_type) as commentable_type FROM comments').map{|c| c["commentable_type"] }
   filter :created_at
 
   scope :awaiting_moderation, :default => true
