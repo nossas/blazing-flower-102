@@ -21,11 +21,12 @@
             %p
               = distance_of_time_in_words comment.created_at, Time.now
               |
-              - if(flag = CommentFlag.find_by_member_id_and_comment_id(current_member.id, comment.id))
-                = link_to t("unflag"), comment_flag_path(comment, flag), :remote => true, :method => "delete", 'data-type' => :json, :class => "flag"
-              - else
-                = link_to t("flag"), comment_flags_path(comment, flag), :remote => true, :method => "post", 'data-type' => :json, :class => "flag"
-              = image_tag "/assets/loading.gif", :id => "flag_loading", :style => "display:none"
+              - if current_member
+                - if(flag = CommentFlag.find_by_member_id_and_comment_id(current_member.id, comment.id))
+                  = link_to t("unflag"), comment_flag_path(comment, flag), :remote => true, :method => "delete", 'data-type' => :json, :class => "flag"
+                - else
+                  = link_to t("flag"), comment_flags_path(comment, flag), :remote => true, :method => "post", 'data-type' => :json, :class => "flag"
+                = image_tag "/assets/loading.gif", :id => "flag_loading", :style => "display:none"
   
       - if @comment
         = form_for @comment do |form|
