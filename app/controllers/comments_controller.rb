@@ -9,7 +9,7 @@ class CommentsController < InheritedResources::Base
 
     if @comment.save
       if request.xhr?
-        render :partial => "debates/comment", :layout => false, :locals => { :comment => @comment }
+        render :partial => "comments/comment", :layout => false, :locals => { :comment => @comment }
       else
         flash[:notice] = "Comment successfully saved"
         redirect_to debate_path(debate)
