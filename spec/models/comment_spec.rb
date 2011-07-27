@@ -26,6 +26,32 @@ describe Comment do
     its(:comment_accepted){ should be_true }
   end
 
+  describe ".visible" do
+    subject{ Comment.visible }
+    context "with comments awaiting moderation" do
+      before do
+        @debate_comment = Factory(:comment_awaiting_moderation)
+      end
+      it{ should be_empty }
+    end
+
+    context "with comments not on moderation queue" do
+      before do
+        @debate_comment = Factory(:debate_comment)
+      end
+      it{ should == [ @debate_comment ] }
+    end
+
+    context "with one moderated to yes comment and one moderated to no" do
+      before do
+        @debate_comment = Factory(:moderated_comment)
+        moderated_to_no_comment = Factory(:moderated_comment)
+        moderated_to_no_comment.update_attribute :comment_accepted, false
+      end
+      it{ should == [ @debate_comment ] }
+    end
+  end
+
   describe ".moderated" do
     subject{ Comment.moderated }
     context "with no moderated comments" do

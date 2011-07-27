@@ -38,6 +38,6 @@ rescue NameError
 end
 
 Capybara.register_driver :selenium_chrome do |app| 
-  Capybara::Driver::Selenium.new(app, :browser => :chrome) 
+  Capybara::Selenium::Driver.new(app, :browser => :chrome) 
 end 
 Capybara.javascript_driver = :selenium_chrome
