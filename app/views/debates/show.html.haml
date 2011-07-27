@@ -14,7 +14,7 @@
           -if @comment
             = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
           -else
-            =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", :class => "join_the_conversation"
+            =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", :class => "comment_login"
 
           .comments_tooltip= @comments.count
           .clearfix
@@ -25,8 +25,7 @@
           -if @comment
             = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
           -else
-            =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox"
-
+            =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", :class => "comment_login"
           #load_more= t("debate_show.load_more")
       - if @comment
         #new_comment
@@ -34,7 +33,7 @@
             =image_tag "/assets/close.png"
           = form_for @comment, :remote => true, :html => { 'data-type' => :html } do |form|
             = image_tag current_member.image_url
-            = form.text_area :content, :class => 'required'
+            = form.text_area :content, :class => 'required', :placeholder => "Comment prompt" 
             = hidden_field(:debate, :id)
             = form.submit "Enviar", :class => "btn"
 :javascript
