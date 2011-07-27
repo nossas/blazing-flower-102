@@ -9,12 +9,12 @@ Feature: Moderate a comment
     When I follow "Comments"
     Then I should see a list of comments
 
-  Scenario: Comments index should not show comments out of moderation
-    Given I am logged in to the admin section
-    And 1 comment is in the moderation queue
-    And 1 comment is not in the moderation queue
-    When I follow "Comments"
-    Then I should see only the first comment
+  #  Scenario: Comments index should not show comments out of moderation
+  #  Given I am logged in to the admin section
+  #  And 1 comment is in the moderation queue
+  #  And 1 comment is not in the moderation queue
+  #  When I follow "Comments"
+  #  Then I should see only the first comment
 
   Scenario: Comments should have moderated scope to show moderated comments
     Given I am logged in to the admin section
