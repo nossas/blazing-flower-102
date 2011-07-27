@@ -10,5 +10,4 @@ describe PersonalStory do
   it { should allow_value(nil).for(:connected_action) }
 
   it { should_not allow_value('SERENA').for(:connected_action) }
-
 end
