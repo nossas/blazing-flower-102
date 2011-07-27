@@ -4,7 +4,7 @@ class DebatesController < InheritedResources::Base
 
   def show
     @debate = Debate.where(:id => params[:id]).first
-    @comments = @debate.comments.visible
+    @comments = @debate.comments.visible.order('created_at ASC')
   end
 
   def load_comments
