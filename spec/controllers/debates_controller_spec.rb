@@ -4,7 +4,7 @@ describe DebatesController do
   describe "GET show" do
     before do
       debate = mock_model(Debate)
-      debate.stub_chain(:comments, :where).and_return([mock_model(Comment)])
+      debate.stub_chain(:comments, :visible).and_return([mock_model(Comment)])
       Debate.stub_chain(:where, :first).and_return(debate)
     end
 

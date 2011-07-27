@@ -13,6 +13,10 @@ class Comment < ActiveRecord::Base
   validates_presence_of :commentable_type
   validate :validate_member_has_profile
 
+  def self.visible
+    self.where(["comment_accepted OR (SELECT count(*) FROM comment_flags WHERE comment_flags.comment_id = comments.id) < ?", MODERATION_THRESHOLD])
+  end
+
   def self.awaiting_moderation
     self.where(["comment_accepted IS NULL AND (SELECT count(*) FROM comment_flags WHERE comment_flags.comment_id = comments.id) >= ?", MODERATION_THRESHOLD])
   end
