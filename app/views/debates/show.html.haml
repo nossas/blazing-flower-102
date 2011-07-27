@@ -1,5 +1,5 @@
 .grid_12
-  .issue_name= link_to "ISSUE NAME", "#"
+  .issue_name= link_to @debate.issue.name, issue_path(@debate.issue)
 %h1.grid_12{ "data-debate" => @debate.id }
   = @debate.title
   .outline= @debate.title
