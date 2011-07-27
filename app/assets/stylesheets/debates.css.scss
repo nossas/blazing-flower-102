@@ -3,13 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "vars.css.scss";
+@import "mixins.css.scss";
 
 body.debates {
   .comments {
     background: white;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
+    @include border-radius(4px);
     padding: 30px 24px;
     h3 {
       color: $orange;
@@ -38,9 +37,7 @@ body.debates {
         color: $pink;
         padding: 3px;
         padding-bottom: 0;
-        border-radius: 4px;
-        -moz-border-radius: 4px;
-        -webkit-border-radius: 4px;
+        @include border-radius(4px);
         line-height: 100%;
         font-weight: bold;
         float: right;
@@ -106,5 +103,14 @@ body.debates {
         float: right !important;
       }
     }
+  }
+
+  .share{
+    float:left;
+  }
+
+  .debate_header{
+    background: white;
+    @include border-radius(4px);
   }
 }
