@@ -14,6 +14,9 @@ class Comment < ActiveRecord::Base
   validate :validate_member_has_profile
 
   default_scope order('created_at DESC')
+  def self.visible
+    self.where(["comment_accepted OR (SELECT count(*) FROM comment_flags WHERE comment_flags.comment_id = comments.id) < ?", MODERATION_THRESHOLD])
+  end
 
   def self.awaiting_moderation
     self.where(["comment_accepted IS NULL AND (SELECT count(*) FROM comment_flags WHERE comment_flags.comment_id = comments.id) >= ?", MODERATION_THRESHOLD])

@@ -4,11 +4,11 @@ class DebatesController < InheritedResources::Base
 
   def show
     @debate = Debate.where(:id => params[:id]).first
-    @comments = @debate.comments.where("comment_accepted = true OR comment_accepted IS NULL")
+    @comments = @debate.comments.visible
   end
 
   def load_comments
-    @comments = Debate.where(:id => params[:id]).first.comments.page(params[:page]).per(5)
+    @comments = Debate.where(:id => params[:id]).first.comments.visible.page(params[:page]).per(5)
     if request.xhr?
       render :partial => 'comments/comments', :layout => false
     end
