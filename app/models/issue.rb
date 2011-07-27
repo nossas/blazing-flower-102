@@ -3,6 +3,7 @@ class Issue < ActiveRecord::Base
 
   has_many :petitions
   has_many :debates
+  has_many :personal_stories
 
   has_attached_file :image,
                     :path => ':attachment/:id/:style/:filename',
