@@ -158,3 +158,12 @@ Factory.define :comment_flag do |d|
   d.comment { Factory(:debate_comment) }
   d.member { Factory(:member) }
 end
+
+Factory.define :personal_story do |s|
+  s.sequence(:title){|n| "Personal Story #{n}" }
+  s.description "Awesome video!"
+  s.video_embed_code "123"
+  s.connected_action "PETITION"
+
+  s.association :issue
+end
