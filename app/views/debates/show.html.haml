@@ -12,7 +12,36 @@
   <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e3043431fd4aaea"></script>
   <!-- AddThis Button END -->
 
-.debate_header.grid_12 lalal
+.grid_12
+  .debate_header.clearfix
+    %h2= @debate.question
+    .date= l @debate.created_at.to_date, :format => :long
+    .little_ball ·
+    .comments_counter 
+      .comments_tooltip= @comments.count
+      = t("debate_show.have_joined_the_conversation")
+
+.grid_10.prefix_1
+  .authors.clearfix
+    .names
+      %p.name= @debate.author_1.name
+      %p.bio= "#{@debate.author_title_side_1}, #{@debate.author_organization_side_1}"
+    
+    .quotes
+    = image_tag @debate.author_1.image_url
+      .balloon
+        .content
+          = @debate.quote_side_1
+    
+    .texts
+
+    .author2
+      %p.name= @debate.author_2.name
+      %p.bio= "#{@debate.author_title_side_2}, #{@debate.author_organization_side_2}"
+      = image_tag @debate.author_2.image_url
+      .balloon
+        .content
+          = @debate.quote_side_2
 
 - if !@debate.comments.empty? || @comment
   .grid_10.push_1

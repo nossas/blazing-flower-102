@@ -135,6 +135,12 @@ Factory.define :debate do |d|
   d.author_2 { Factory(:member) }
   d.association :issue
   d.title {Faker::Company.name}
+  d.author_title_side_1 "Lieutentent"
+  d.author_title_side_2 "Admiral"
+  d.author_organization_side_1 {Faker::Company.name}
+  d.author_organization_side_2 {Faker::Company.name}
+  d.quote_side_1 {Faker::Lorem.paragraph}
+  d.quote_side_2 {Faker::Lorem.paragraph}
 end
 
 Factory.define :comment do |c|

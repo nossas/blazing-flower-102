@@ -32,17 +32,6 @@ body.debates {
         font-size: 18px;
         font-weight: normal !important;
       }
-      .comments_tooltip {
-        border: 2px solid $pink;
-        color: $pink;
-        padding: 3px;
-        padding-bottom: 0;
-        @include border-radius(4px);
-        line-height: 100%;
-        font-weight: bold;
-        float: right;
-      }
-
     }
     .comment {
       padding: 24px; 
@@ -112,5 +101,89 @@ body.debates {
   .debate_header{
     background: white;
     @include border-radius(4px);
+    padding: 20px;
+    margin: 10px 0;
+    @include box-shadow(gray 0px 0 5px 1px);
+    h2{
+      color: $orange;
+      text-align: center;
+    }
+    .date{
+      width: 47%;
+      float: left;
+      text-align: right;
+      line-height: 2em;
+    }
+    .comments_counter{
+      width: 47%;
+      float: left;
+      line-height: 2em;
+    }
+    .little_ball{
+      width: 6%;
+      line-height: 1em;
+      text-align: center;
+      float:left;
+      font-size: 200%;
+      font-weight: bold;
+    }
+    .comments_tooltip{
+      display: inline-block;
+      float: none;
+    }
+  }
+  .comments_tooltip {
+    border: 2px solid $pink;
+    color: $pink;
+    padding: 3px;
+    padding-bottom: 0;
+    @include border-radius(4px);
+    line-height: 100%;
+    font-weight: bold;
+    float: right;
+  }
+  .authors{
+    margin: 20px 0;
+    background: url("/assets/debate_divider.png") repeat-y center;
+    .author1, .author2 {
+      width: 45%;
+      p { margin-bottom: 5px; }
+      p.name{
+        color: $blue;
+        font-size: 150%;
+      }
+      p.bio { margin-bottom: 20px; }
+      .balloon{
+        .content{
+          width: 230px;
+          color: white;
+          padding: 10px;
+          @include border-radius(10px);
+        }
+      }
+    }
+    .author1 { 
+      float: left;
+      text-align: right;
+      .balloon { 
+        float: left;
+        padding-right: 12px;
+        background: url("/assets/debate_quote_balloon_left.png") no-repeat right;
+        .content{
+          background: $pink;
+        }
+      }
+    }
+    .author2 {
+      float: right;
+      .balloon { 
+        float: right; 
+        padding-left: 12px;
+        background: url("/assets/debate_quote_balloon_right.png") no-repeat left;
+        .content {
+          background: $orange;
+        }
+      }
+    }
   }
 }

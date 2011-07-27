@@ -83,9 +83,7 @@ body > .main {
   background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten(#dc6837, 20%)), color-stop(1, #dc6837)) !important;
   @include border-radius(10px !important);
   border: none;
-  -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray !important;
-  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray !important;
-  box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray !important;
+  @include box-shadow(inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray !important);
   color: #fff !important;
   font-size: 18px !important;
   font-weight: bold !important;
@@ -107,9 +105,7 @@ body > .main {
     background: #b30300 !important;
     background: -moz-linear-gradient(top, lighten($pink, 15%) 0%, lighten($pink, 5%) 100%) !important;
     background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($pink, 15%)), color-stop(1, lighten($pink, 5%))) !important;
-    -moz-box-shadow: inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important;
-    -webkit-box-shadow: inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important;
-    box-shadow: inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important;
+    @include box-shadow(inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important);
   }
 }
 
@@ -117,8 +113,7 @@ body > .main {
   background: $mid_gray !important;
   background: -moz-linear-gradient(top, lighten($mid_gray, 20%) 0%, $mid_gray 100%) !important;
   background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($mid_gray, 20%)), color-stop(1, $mid_gray)) !important;
-  -moz-box-shadow: inset 0px 0px 0px 1px $mid_gray, 0 1px 3px #333 !important;
-  -webkit-box-shadow: inset 0px 0px 0px 1px $mid_gray, 0 1px 3px #333 !important;
+  @include box-shadow(inset 0px 0px 0px 1px $mid_gray, 0 1px 3px #333 !important);
 }
 
 input[type="text"], textarea {
