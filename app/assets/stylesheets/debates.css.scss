@@ -168,9 +168,9 @@ body.debates {
       .balloon { 
         float: left;
         padding-right: 12px;
-        background: url("/assets/debate_quote_balloon_left.png") no-repeat right;
+        background: url("/assets/debate_quote_balloon_left.png") no-repeat right 20px;
         .content{
-          background: $pink;
+          background: #e574b0;
         }
       }
     }
@@ -179,9 +179,9 @@ body.debates {
       .balloon { 
         float: right; 
         padding-left: 12px;
-        background: url("/assets/debate_quote_balloon_right.png") no-repeat left;
+        background: url("/assets/debate_quote_balloon_right.png") no-repeat left 20px;
         .content {
-          background: $orange;
+          background: #f19d68;
         }
       }
     }
