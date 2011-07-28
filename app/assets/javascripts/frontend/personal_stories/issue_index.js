@@ -15,6 +15,15 @@ $(document).ready(function(){
           $current_video.html(data.video_embed_code);
           $current_title.html(data.title);
           $current_description.html(data.description);
+          if(data.connected_action == "DEBATE"){
+            $('.petition.btn').hide();
+            $('.debate.btn').show();
+          } else if(data.connected_action == "PETITON" {
+            $('.debate.btn').hide();
+            $('.petition.btn').show();
+          } else {
+            $('.take_action').hide();
+          }
         },
         error: function(xhr, status){
           console.log(xhr);

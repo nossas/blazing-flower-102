@@ -35,6 +35,7 @@ gem 'cancan'
 # gem 'dynamic_form'
 
 gem 'aws-s3'
+gem 'httparty'
 gem 'newrelic_rpm'
 
 # Database related gems

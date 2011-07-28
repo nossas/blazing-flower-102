@@ -15,13 +15,16 @@
     <!-- AddThis Button END -->
     %h2#current_title= @stories.first.title
     #current_description= raw @stories.first.description
-    -case @stories.first.connected_action
-      -when "DEBATE"
-        -if @debate
-          =link_to "Take Action", debate_path(@debate.id), :class => "btn take_action"
-      -when "PETITION"
-        -if @petition
-          =link_to "Take Action", petition_path(@petition.id), :class => "btn take_action"
+    -if @debate
+      -if @stories.first.connected_action != "DEBATE"
+        =link_to "Take Action", debate_path(@debate.id), :class => "btn take_action debate", :style => "display: none;"
+      -else
+        =link_to "Take Action", debate_path(@debate.id), :class => "btn take_action debate"
+    -if @petition
+      -if @stories.first.connected_action != "PETITION"
+        =link_to "Take Action", petition_path(@petition.id), :class => "btn take_action petition", :style => "display: none;"
+      -else
+        =link_to "Take Action", petition_path(@petition.id), :class => "btn take_action petition"
 .grid_12
   .story_list
     -@stories.each do |story|
