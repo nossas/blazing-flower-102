@@ -1,0 +1,27 @@
+$(document).ready(function(){
+
+  var $current_video = $('#current_video');
+  var $current_title = $('#current_title');
+  var $current_description = $('#current_description');
+
+  $('.story .thumbnail').each(function(){
+    $(this).bind('click', function(){
+      console.log('clicked thumbnail');
+      $.ajax({
+        url: '/personal_stories/' + $(this).attr('data-storyID'),
+        type: 'GET',
+        dataType: 'json',
+        success: function(data){
+          $current_video.html(data.video_embed_code);
+          $current_title.html(data.title);
+          $current_description.html(data.description);
+        },
+        error: function(xhr, status){
+          console.log(xhr);
+          console.log(status);
+        }
+      }); 
+    });
+  });
+
+});

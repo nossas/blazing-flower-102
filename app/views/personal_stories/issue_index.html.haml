@@ -4,10 +4,17 @@
     =t("video_show.page_title")
 .current
   .grid_6.alpha
-    =raw @stories.first.video_embed_code
+    #current_video
+      =raw @stories.first.video_embed_code
   .grid_6.omega
-    %h2= @stories.first.title
-    .description= raw @stories.first.description
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style ">
+    <a class="addthis_counter addthis_pill_style"></a>
+    </div>
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e3043431fd4aaea"></script>
+    <!-- AddThis Button END -->
+    %h2#current_title= @stories.first.title
+    #current_description= raw @stories.first.description
     -case @stories.first.connected_action
       -when "DEBATE"
         -if @debate
@@ -16,6 +23,8 @@
         -if @petition
           =link_to "Take Action", petition_path(@petition.id), :class => "btn take_action"
 .grid_12
-  -@stories.each do |story|
-    .story{ :id => "story-#{story.id}"}
-      =raw story.video_embed_code
+  .story_list
+    -@stories.each do |story|
+      .story{ :id => "story-#{story.id}"}
+        .thumbnail{'data-storyID' => story.id}=raw story.video_embed_code
+        .title= story.title
