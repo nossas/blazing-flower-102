@@ -103,7 +103,7 @@ body.debates {
     @include border-radius(4px);
     padding: 20px;
     margin: 10px 0;
-    @include box-shadow(gray 0px 0 5px 1px);
+    @include box-shadow($light_gray 0px 0 5px 1px);
     h2{
       color: $orange;
       text-align: center;
@@ -187,5 +187,9 @@ body.debates {
     }
   }
   .quotes { margin-bottom: 20px; }
-  .texts { text-align: justify; }
+  .texts {
+    .author1, .author2 { 
+      text-align: justify; 
+    }
+  }
 }
