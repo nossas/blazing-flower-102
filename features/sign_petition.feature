@@ -40,7 +40,8 @@ Feature: Signing a Petition
     And I have signed the first petition
     And I am on the first petition page
     When I enter my member information in the petition signature form
-    Then I should see "Você já assinou esta petição."
+    Then I should see a link to the TAF
+    And I should see "Você já assinou embaixo."
 
   @javascript
   Scenario: Signing a Petition without required fields

@@ -17,7 +17,7 @@ $("#member_email").change(function(){
       if($('label.error[for="member_email"]').length == 0){
         $('form input#member_email').after($('<label>').attr('for', 'member_email').attr('generated', 'true').addClass('error'));
       }
-      $('label.error[for="member_email"]').html('Você já assinou esta petição.').show();
+      $('label.error[for="member_email"]').html('Você já assinou embaixo. Agora <a class="show_taf" href="#share">espalhe esta ideia</a>.').show();
     }
   });
 });
