@@ -94,10 +94,7 @@ class Petition < ActiveRecord::Base
   end
 
   def export_to_csv
-    AWS::S3::Base.establish_connection!(
-      :access_key_id     => SITE['s3_access_key_id'],
-      :secret_access_key => SITE['s3_secret_access_key']
-    )
+    Rails.logger.info "Exporting #{self.title} to CSV."
 
     headings = [
       "id",
@@ -109,27 +106,25 @@ class Petition < ActiveRecord::Base
       "created_at"
     ]
 
-    Rails.logger.info "Exporting #{self.title} to CSV."
-    lines = []
-    headings_plus = headings.clone
-    headings_plus.push("petition")
-    lines << CSV.generate_line(headings_plus) 
-
-    self.members.each do |member|
-      data = headings.collect{|item| member.send(item)}
-      data.push(self.title)
-      lines << CSV.generate_line(data)
-    end
-
     file = Rails.root.to_s + "/tmp/signatures-#{self.title}.csv"
     CSV.open(file, 'wb') do |f|
-      f << lines
+      f << headings
+      self.members.each do |member|
+        f << headings.collect{|item| member.send(item)}
+      end
     end
+
+    Rails.logger.info "Sending #{self.title} to S3."
+
+    AWS::S3::Base.establish_connection!(
+      :access_key_id     => SITE['s3_access_key_id'],
+      :secret_access_key => SITE['s3_secret_access_key']
+    )
 
     s3_file_name = "#{Time.now.strftime("%m-%d-%H-%M")}-signatures-#{self.title}.csv"
     AWS::S3::S3Object.store(s3_file_name, open(file), SITE['s3_export_bucket'], :content_type => 'text/csv')
+
     Rails.logger.info "Finished preparing and uploading lists to S3. End of Line."
   end
-
 
 end
