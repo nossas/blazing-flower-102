@@ -15,6 +15,7 @@ Then /^I fill in the debate form with correct information$/ do
   fill_in 'Question', :with => "Why are we writing tests for this?"
   fill_in 'debate[author_email_side_1]', :with => Member.first.email
   fill_in 'debate[author_email_side_2]', :with => Member.last.email
+  fill_in 'debate[title]', :with => "Debate title"
 end
 
 Then /^I fill in the debate form with incorrect information$/ do

@@ -20,9 +20,7 @@ body > header {
   padding-bottom: 12px !important;
   margin-bottom: 12px;
   background: #f2f0ed;
-  border-radius: 0 0 8px 8px;
-  -moz-border-radius: 0 0 8px 8px;
-  -webkit-border-radius: 0 0 8px 8px;
+  @include border-radius(0 0 8px 8px);
   .member_panel{
     text-align:right;
     p { margin: 0; font-size: 14px; }
@@ -55,9 +53,7 @@ body > header > nav {
 
 body > .main {
   background: #f2f0ed;
-  border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
+  @include border-radius(8px);
   padding: 10px 10px;
   position: relative;
 
@@ -85,13 +81,9 @@ body > .main {
   background: #dc6837 !important;
   background: -moz-linear-gradient(top, lighten(#dc6837, 20%) 0%, #dc6837 100%) !important;
   background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten(#dc6837, 20%)), color-stop(1, #dc6837)) !important;
-  -moz-border-radius: 10px !important;
-  -webkit-border-radius: 10px !important;
-  border-radius: 10px !important;
+  @include border-radius(10px !important);
   border: none;
-  -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray !important;
-  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray !important;
-  box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray !important;
+  @include box-shadow(inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray !important);
   color: #fff !important;
   font-size: 18px !important;
   font-weight: bold !important;
@@ -113,9 +105,7 @@ body > .main {
     background: #b30300 !important;
     background: -moz-linear-gradient(top, lighten($pink, 15%) 0%, lighten($pink, 5%) 100%) !important;
     background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($pink, 15%)), color-stop(1, lighten($pink, 5%))) !important;
-    -moz-box-shadow: inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important;
-    -webkit-box-shadow: inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important;
-    box-shadow: inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important;
+    @include box-shadow(inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important);
   }
 }
 
@@ -123,8 +113,7 @@ body > .main {
   background: $mid_gray !important;
   background: -moz-linear-gradient(top, lighten($mid_gray, 20%) 0%, $mid_gray 100%) !important;
   background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($mid_gray, 20%)), color-stop(1, $mid_gray)) !important;
-  -moz-box-shadow: inset 0px 0px 0px 1px $mid_gray, 0 1px 3px #333 !important;
-  -webkit-box-shadow: inset 0px 0px 0px 1px $mid_gray, 0 1px 3px #333 !important;
+  @include box-shadow(inset 0px 0px 0px 1px $mid_gray, 0 1px 3px #333 !important);
 }
 
 input[type="text"], textarea {

@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(:version => 20110727192538) do
     t.text     "author_title_side_2"
     t.text     "author_organization_side_1"
     t.text     "author_organization_side_2"
-    t.text     "title"
+    t.text     "title",                      :null => false
   end
 
   add_index "debates", ["author_email_side_1"], :name => "index_debates_on_author_email_side_1"

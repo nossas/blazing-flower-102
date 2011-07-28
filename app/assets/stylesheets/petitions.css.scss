@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "vars.css.scss";
+@import "mixins.css.scss";
 
 body.petitions {
 
@@ -28,17 +29,13 @@ body.petitions {
     margin: 24px 0 14px;
     background-color: $light_gray;
     border: 1px solid $light_gray;
-    border-radius: 8px;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
+    @include border-radius(8px);
     .progress {
       height: 24px;
       background-color: $pink;
       background-image: -moz-linear-gradient(100% 100% 90deg, $pink, lighten($pink, 20%));
       background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(lighten($pink, 20%)), to($pink));
-      border-radius: 4px 0 0 4px;
-      -moz-border-radius: 4px 0 0 4px;
-      -webkit-border-radius: 4px 0 0 4px;
+      @include border-radius(4px 0 0 4px);
     }
   }
 
@@ -65,11 +62,8 @@ body.petitions {
 
   .canvas{
     background: #ebebeb;
-    box-shadow: 3px 3px 3px #ccc;
-    -moz-box-shadow: 3px 3px 3px #ccc;
-    -webkit-box-shadow: 3px 3px 3px #ccc;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    @include box-shadow(3px 3px 3px #ccc);
+    @include border-radius(5px);
     margin-bottom: 10px;
     padding: 24px;
     img { float: left; }

@@ -130,10 +130,19 @@ Factory.define :petition_signature_with_comment, :parent => :petition_signature 
 end
 
 Factory.define :debate do |d|
-  d.question "What question is this?"
+  d.question {Faker::Lorem.sentence(20) + "?"}
   d.author_1 { Factory(:member) }
   d.author_2 { Factory(:member) }
   d.association :issue
+  d.title {Faker::Company.name}
+  d.author_title_side_1 "Lieutentent"
+  d.author_title_side_2 "Admiral"
+  d.author_organization_side_1 {Faker::Company.name}
+  d.author_organization_side_2 {Faker::Company.name}
+  d.quote_side_1 {Faker::Lorem.paragraph}
+  d.quote_side_2 {Faker::Lorem.paragraph}
+  d.text_side_1 {Faker::Lorem.paragraphs.join("\n")}
+  d.text_side_2 {Faker::Lorem.paragraphs.join("\n")}
 end
 
 Factory.define :comment do |c|
