@@ -24,12 +24,6 @@ class PersonalStory < ActiveRecord::Base
       id = Hash[url.query.split("&").map { |p| p.split("=")  }]["v"]
       self.video_embed_code = "<iframe class='youtube-player' type='text/html' width='375' height='385' src='http://www.youtube.com/embed/#{id}' frameborder='0'></iframe>"      
       self.thumbnail = "http://img.youtube.com/vi/#{id}/0.jpg"
-    else
-      response = []
-      Net::HTTP.start(url.host, url.port) { |http| response = http.head([ url.path, url.query ].compact.join("?")) }
-      self.video_embed_code = url.to_s if [ "image/jpeg", "image/png", "image/gif" ].include?(response["content-type"])
-
-      self.thumbnail = video_url.to_s
     end
   end
 
