@@ -18,6 +18,8 @@ module NavigationHelpers
       custom_petition_path(Petition.first.custom_path)
     when /this debate page/
       debate_path(Debate.first)
+    when /the petition taf page/
+      "#{custom_petition_path(Petition.first.custom_path)}#share"
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

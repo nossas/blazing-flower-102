@@ -22,6 +22,14 @@ $("#member_email").change(function(){
   });
 });
 
+function loadTAF(){
+  if(window.location.hash == '#share'){
+    $('.take_action').load(window.location.pathname + '/share')
+  }
+};
+
+$(window).bind('hashchange', loadTAF);
+
 $("#petition_signature_comment").keyup(function(){
   $("#comment_tip").html((140 - $("#petition_signature_comment").val().length) + " caracteres");
 });

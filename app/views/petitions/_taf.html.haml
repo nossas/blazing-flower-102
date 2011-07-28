@@ -1,45 +1,45 @@
-- if @new_signature
-  %h2= @petition.taf.thank_you_headline
+- if @new_signature or @member.nil?
+  %h2= @taf.thank_you_headline
   %p
-    %strong= @petition.taf.thank_you_text
+    %strong= @taf.thank_you_text
 - else
   %h2= t("petition_show.already_signed", :name => @member.first_name)
 
-- if @petition.taf && @petition.taf.display_facebook
+- if @taf && @taf.display_facebook
   .canvas.clearfix
     %h3= t("petition_show.share_on_facebook")
     = link_to image_tag("/assets/auth/facebook_128.png"), "http://www.facebook.com/sharer.php?u=#{request.url}", :target => "_blank", :title => t("petition_show.share_on_facebook"), :class => "facebook_btn"
     .share_text
-      %strong= @petition.taf.facebook_title
+      %strong= @taf.facebook_title
       %br
-      = @petition.taf.facebook_message
+      = @taf.facebook_message
   
-- if @petition.taf && @petition.taf.display_orkut
+- if @taf && @taf.display_orkut
   .canvas.clearfix
     %h3= t("petition_show.share_on_orkut")
-    = link_to image_tag("/assets/auth/orkut_128.png"), "http://promote.orkut.com/preview?nt=orkut.com&du=#{request.url}&tt=#{@petition.taf.orkut_title}&cn=#{@petition.taf.orkut_message}", :target => "_blank", :title => t("petition_show.share_on_orkut"), :class => "orkut_btn"
+    = link_to image_tag("/assets/auth/orkut_128.png"), "http://promote.orkut.com/preview?nt=orkut.com&du=#{request.url}&tt=#{@taf.orkut_title}&cn=#{@taf.orkut_message}", :target => "_blank", :title => t("petition_show.share_on_orkut"), :class => "orkut_btn"
     .share_text
-      %strong= @petition.taf.orkut_title
+      %strong= @taf.orkut_title
       %br
-      = @petition.taf.orkut_message
+      = @taf.orkut_message
   
-- if @petition.taf && @petition.taf.display_twitter
+- if @taf && @taf.display_twitter
   .canvas.clearfix
     %h3= t("petition_show.share_on_twitter")
-    = link_to image_tag("/assets/auth/twitter_128.png"), "https://twitter.com/share?url=#{request.url}&text=#{@petition.taf.tweet}", :target => "_blank", :title => t("petition_show.share_on_twitter"), :class => "twitter_btn"
+    = link_to image_tag("/assets/auth/twitter_128.png"), "https://twitter.com/share?url=#{request.url}&text=#{@taf.tweet}", :target => "_blank", :title => t("petition_show.share_on_twitter"), :class => "twitter_btn"
     .share_text
-      = @petition.taf.tweet
+      = @taf.tweet
  
-- if @petition.taf && @petition.taf.display_email
+- if @taf && @taf.display_email
   .canvas.clearfix
     %h3= t("petition_show.share_via_email")
-    = link_to image_tag("/assets/auth/email.png"), "mailto:?subject=#{@petition.taf.email_subject}&body=#{@petition.taf.email_message}", :title => t("petition_show.share_via_email"), :class => "email_btn"
+    = link_to image_tag("/assets/auth/email.png"), "mailto:?subject=#{@taf.email_subject}&body=#{@taf.email_message}", :title => t("petition_show.share_via_email"), :class => "email_btn"
     .share_text
-      %strong= @petition.taf.email_subject
+      %strong= @taf.email_subject
       %br
-      = @petition.taf.email_message
+      = @taf.email_message
   
-- if @petition.taf && @petition.taf.display_copy_url 
+- if @taf && @taf.display_copy_url 
   .canvas.clearfix
-    =raw clippy(custom_petition_url(@petition.taf.petition.custom_path), "#e7e7e7")
-    =text_field_tag "clippy_input", custom_petition_url(@petition.taf.petition.custom_path), :id => "clippy_input", :class => "right"
+    =raw clippy(custom_petition_url(@taf.petition.custom_path), "#e7e7e7")
+    =text_field_tag "clippy_input", custom_petition_url(@taf.petition.custom_path), :id => "clippy_input", :class => "right"

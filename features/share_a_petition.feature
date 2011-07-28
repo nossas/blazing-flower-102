@@ -3,6 +3,12 @@ Feature: Share a petition
   As an member
   I want to share the petition in social networks
 
+  @javascript
+  Scenario: Viewing a TAF page directly
+    Given there is a petition with Facebook share enabled
+    When I go to the petition taf page
+    Then I should see "Sharing on Facebook"
+
   @omniauth_test @javascript
   Scenario: Share on Facebook when it's enabled
     Given there is a petition with Facebook share enabled
