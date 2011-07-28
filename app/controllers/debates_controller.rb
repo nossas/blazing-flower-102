@@ -4,6 +4,8 @@ class DebatesController < InheritedResources::Base
 
   def show
     @debate = Debate.where(:id => params[:id]).first
+    return render_404 unless @debate
+
     @comments = @debate.comments.visible
   end
 
