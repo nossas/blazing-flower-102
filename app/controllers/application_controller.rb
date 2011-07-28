@@ -3,19 +3,11 @@ class ApplicationController < ActionController::Base
 
  # Overwriting the sign_out and sign_in redirect path method
   def after_sign_in_path_for(resource_or_scope)
-    if request.referrer
-      request.referrer
-    else
-      super
-    end
+    request.referrer || super
   end
 
   def after_sign_out_path_for(resource_or_scope)
-    if request.referrer
-      request.referrer
-    else
-      super
-    end
+    request.referrer || super
   end
 
   def render_404
