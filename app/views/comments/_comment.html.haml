@@ -5,8 +5,8 @@
     %p.content= comment.content
     %p
       = distance_of_time_in_words comment.created_at, Time.now
-      |
       - if current_member
+        |
         - if(flag = CommentFlag.find_by_member_id_and_comment_id(current_member.id, comment.id))
           = link_to t("unflag"), comment_flag_path(comment, flag), :remote => true, :method => "delete", 'data-type' => :json, :class => "flag"
         - else
