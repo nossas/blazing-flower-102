@@ -1,5 +1,6 @@
 MeuRio::Application.routes.draw do
   resources :petition_signatures, :only => [:create, :index]
+  resources :issues, :only => [:show]
   resources :debates, :only => [:show]
   resources :comments, :only => [:create] do
     resources :comment_flags, :only => [:create, :destroy], :as => "flags"

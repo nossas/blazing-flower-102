@@ -13,7 +13,7 @@ class Comment < ActiveRecord::Base
   validates_presence_of :commentable_type
   validate :validate_member_has_profile
 
-  default_scope :order => 'created_at ASC'
+  default_scope order('created_at DESC')
 
   scope :visible, lambda {
     where(["comment_accepted OR (SELECT count(*) FROM comment_flags WHERE comment_flags.comment_id = comments.id) < ?", MODERATION_THRESHOLD])

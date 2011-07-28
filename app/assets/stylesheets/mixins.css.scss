@@ -12,3 +12,21 @@
   -o-transform:scale($factor);
 }
 
+@mixin border-radius($radius){
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+@mixin box-shadow($shadow1, $shadow2 : false){
+  @if $shadow2 {
+    -moz-box-shadow: $shadow1, $shadow2;
+    -webkit-box-shadow: $shadow1, $shadow2;
+    box-shadow: $shadow1, $shadow2;
+  }
+  @else {
+    -moz-box-shadow: $shadow1;
+    -webkit-box-shadow: $shadow1;
+    box-shadow: $shadow1;
+  }
+}
