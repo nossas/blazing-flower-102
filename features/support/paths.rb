@@ -18,6 +18,9 @@ module NavigationHelpers
       custom_petition_path(Petition.first.custom_path)
     when /this debate page/
       debate_path(Debate.first)
+    when /the personal stories page for an issue/
+      issue_personal_stories_path(Issue.first.id)
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

@@ -2,6 +2,7 @@ class PersonalStoriesController < ApplicationController
   def issue_index
     @issue = Issue.where(:id => params[:issue_id]).first
     @stories = @issue.personal_stories 
+    @current = @stories.first
     
     render 404 unless !@stories.blank?
 

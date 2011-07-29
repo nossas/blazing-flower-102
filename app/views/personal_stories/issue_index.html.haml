@@ -2,10 +2,10 @@
   .issue_name= link_to @issue.name
   %h1.video_page_title
     =t("video_show.page_title")
-.current
-  .grid_6.alpha
-    #current_video
-      =raw @stories.first.video_embed_code
+.current.grid_12.alpha.omega
+  .grid_6.omega
+    #current_video{ 'data-storyID' => @current.id }
+      =raw @current.video_embed_code
   .grid_6.omega
     <!-- AddThis Button BEGIN -->
     <div class="addthis_toolbox addthis_default_style ">
@@ -13,21 +13,24 @@
     </div>
     <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e3043431fd4aaea"></script>
     <!-- AddThis Button END -->
-    %h2#current_title= @stories.first.title
-    #current_description= raw @stories.first.description
+    %h3#current_title= @current.title
+    #current_description= raw @current.description
     -if @debate
-      -if @stories.first.connected_action != "DEBATE"
+      -if @current.connected_action != "DEBATE"
         =link_to "Take Action", debate_path(@debate.id), :class => "btn take_action debate", :style => "display: none;"
       -else
         =link_to "Take Action", debate_path(@debate.id), :class => "btn take_action debate"
     -if @petition
-      -if @stories.first.connected_action != "PETITION"
+      -if @current.connected_action != "PETITION"
         =link_to "Take Action", petition_path(@petition.id), :class => "btn take_action petition", :style => "display: none;"
       -else
         =link_to "Take Action", petition_path(@petition.id), :class => "btn take_action petition"
+  .clearfix
 .grid_12
   .story_list
     -@stories.each do |story|
-      .story.grid_3.alpha{ :id => "story-#{story.id}"}
-        %img.thumbnail{:src => "#{story.thumbnail}", 'data-storyID' => story.id, :width => '210', :height => '155'  }
+      .story.grid_3.alpha{ :id => "story-#{story.id}" }
+        .thumbnail{'data-storyID' => story.id, :class => @current == story ? "current" : "" }
+          %img{:src => "#{story.thumbnail}", :width => '210', :height => '155'  }
+          .play_button=image_tag("video_play.png")
         .title= story.title
