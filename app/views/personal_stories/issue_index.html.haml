@@ -30,4 +30,4 @@
     -@stories.each do |story|
       .story.grid_3.alpha{ :id => "story-#{story.id}"}
         %img.thumbnail{:src => "#{story.thumbnail}", 'data-storyID' => story.id, :width => '210', :height => '155'  }
-        %h3.title= story.title
+        .title= story.title

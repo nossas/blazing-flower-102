@@ -3,4 +3,11 @@
 
 body.personal_stories {
 
+  .title {
+    text-transform: uppercase;
+    color: $blue;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
 }
