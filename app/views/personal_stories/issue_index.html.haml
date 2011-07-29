@@ -28,6 +28,6 @@
 .grid_12
   .story_list
     -@stories.each do |story|
-      .story{ :id => "story-#{story.id}"}
-        .thumbnail{'data-storyID' => story.id}=raw story.video_embed_code
-        .title= story.title
+      .story.grid_3.alpha{ :id => "story-#{story.id}"}
+        %img.thumbnail{:src => "#{story.thumbnail}", 'data-storyID' => story.id, :width => '210', :height => '155'  }
+        %h3.title= story.title
