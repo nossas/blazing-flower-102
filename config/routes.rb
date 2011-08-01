@@ -5,6 +5,7 @@ MeuRio::Application.routes.draw do
   resources :comments, :only => [:create] do
     resources :comment_flags, :only => [:create, :destroy], :as => "flags"
   end
+  resources :personal_stories, :only => [:show]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :members, :controllers => { :omniauth_callbacks => "omniauth_callbacks" } do
@@ -25,6 +26,9 @@ MeuRio::Application.routes.draw do
   match 'debates/:id/load_comments/:page' => "debates#load_comments"
   match "petition/:custom_path" => "petitions#show", :as => "custom_petition"
   match "petition/:custom_path/share" => "tafs#show", :as => "custom_taf"
+
+  match "issue/:issue_id/personal-stories" => "personal_stories#issue_index", :as => "issue_personal_stories"
+  match "issue/:issue_id/personal-stories/:id" => "personal_stories#issue_index", :as => "issue_personal_story"
 
   root :to => "pages#show", :id => "index"
 end
