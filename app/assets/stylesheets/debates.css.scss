@@ -118,6 +118,9 @@ body.debates {
       width: 47%;
       float: left;
       line-height: 2em;
+      a.comments_link:hover{
+        text-decoration: none !important;
+      }
     }
     .little_ball{
       width: 6%;

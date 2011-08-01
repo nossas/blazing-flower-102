@@ -10,12 +10,16 @@ $(document).ready(function(){
   //show and hide comment box
   $new_comment.hide();
 
-  $('.join_the_conversation').bind('click', function(e){
-    $new_comment.show(); 
-    $("#bottom_buttons").hide();
+  $(window).bind('hashchange', function(){
+    if(window.location.hash == '#new_comment'){
+      $new_comment.show(); 
+      $("#bottom_buttons").hide();
+    }
   });
 
   $('#close').bind('click', function(){
+    window.location.hash = 'comments_bottom';
+    $('#comment_content').val('');
     $new_comment.hide(); 
     $("#bottom_buttons").show();
   });
