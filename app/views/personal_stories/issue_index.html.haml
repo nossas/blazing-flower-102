@@ -4,7 +4,7 @@
     =t("video_show.page_title")
 .current.grid_12.alpha.omega
   .grid_6.omega
-    #current_video{ 'data-storyID' => @current.id }
+    #current_video{ 'data-storyID' => @current.id, 'data-firststoryid' => @current.id }
       =raw @current.video_embed_code
   .grid_6.omega
     <!-- AddThis Button BEGIN -->
@@ -30,7 +30,31 @@
   .story_list
     -@stories.each do |story|
       .story.grid_3.alpha{ :id => "story-#{story.id}" }
-        %a.thumbnail{'data-storyID' => story.id, :href => "issue/#{@issue.id}/personal-stories/#{story.id}", :class => @current == story ? "current" : "" }
+        %a.thumbnail{'data-storyID' => story.id, :href => "/issue/#{@issue.id}/personal-stories/#{story.id}", :class => @current == story ? "current" : "" }
           %img{:src => "#{story.thumbnail}", :width => '210', :height => '155'  }
           .play_button=image_tag("video_play.png")
         .title= story.title
+
+=content_for :javascripts do
+  :javascript
+    $(document).ready(function(){
+      if(Modernizr.history){
+        window.setTimeout(function() {
+          window.addEventListener("popstate", function(e) {
+            var $story = $('a[data-storyid = "' + $("#current_video").attr("data-storyid") + '"]');
+            if(e.state && e.state.data){
+              PersonalStory.replaceVideo(e.state.data); 
+              PersonalStory.movePlayButton($story);
+            } else {
+              var $current_video = $('#current_video');
+              if($current_video.attr('data-storyid') !== $current_video.attr('data-firststoryid')){
+                $story = $('a[data-storyid = "' + $("#current_video").attr("data-firststoryid") + '"]');
+                PersonalStory.getPersonalStory($story);
+                PersonalStory.movePlayButton($story);
+              }
+            }
+          }, false);
+        }, 1);
+      }
+    });
+    
