@@ -1,0 +1,8 @@
+.grid_12.alpha
+  %h1= @issue.name
+.grid_9.alpha
+  .intro
+    %p=@issue.excerpt
+    %img{ :src => @issue.image.url }
+  .description=@issue.description
+.grid_3.omega

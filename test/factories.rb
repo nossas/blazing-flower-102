@@ -176,3 +176,4 @@ Factory.define :personal_story do |s|
 
   s.association :issue
 end
+

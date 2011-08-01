@@ -14,6 +14,8 @@ module NavigationHelpers
       '/admin'
     when /the admin users page/
       '/admin/admin_users'
+    when /an issue page/
+      issue_path(Issue.first)
     when /the first petition page/
       custom_petition_path(Petition.first.custom_path)
     when /this debate page/
