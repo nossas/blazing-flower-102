@@ -5,7 +5,7 @@ ActiveAdmin.register PersonalStory do
     f.input :title, :as => :string
     f.input :description
     f.input :connected_action, :label => 'Button links to:', :as => :select, :collection =>  [['Petition', 'PETITION'], ['Debate', 'DEBATE']]
-    f.input :video_embed_code
+    f.input :video_url
   end
   f.buttons
  end

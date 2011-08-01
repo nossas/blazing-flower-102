@@ -1,0 +1,60 @@
+.grid_12
+  .issue_name= link_to @issue.name
+  %h1.video_page_title
+    =t("video_show.page_title")
+.current.grid_12.alpha.omega
+  .grid_6.omega
+    #current_video{ 'data-storyID' => @current.id, 'data-firststoryid' => @current.id }
+      =raw @current.video_embed_code
+  .grid_6.omega
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style ">
+    <a class="addthis_counter addthis_pill_style"></a>
+    </div>
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e3043431fd4aaea"></script>
+    <!-- AddThis Button END -->
+    %h3#current_title= @current.title
+    #current_description= raw @current.description
+    -if @debate
+      -if @current.connected_action != "DEBATE"
+        =link_to "Take Action", debate_path(@debate.id), :class => "btn take_action debate", :style => "display: none;"
+      -else
+        =link_to "Take Action", debate_path(@debate.id), :class => "btn take_action debate"
+    -if @petition
+      -if @current.connected_action != "PETITION"
+        =link_to "Take Action", petition_path(@petition.id), :class => "btn take_action petition", :style => "display: none;"
+      -else
+        =link_to "Take Action", petition_path(@petition.id), :class => "btn take_action petition"
+  .clearfix
+.grid_12
+  .story_list
+    -@stories.each do |story|
+      .story.grid_3.alpha{ :id => "story-#{story.id}" }
+        %a.thumbnail{'data-storyID' => story.id, :href => "/issue/#{@issue.id}/personal-stories/#{story.id}", :class => @current == story ? "current" : "" }
+          %img{:src => "#{story.thumbnail}", :width => '210', :height => '155'  }
+          .play_button=image_tag("video_play.png")
+        .title= story.title
+
+=content_for :javascripts do
+  :javascript
+    $(document).ready(function(){
+      if(Modernizr.history){
+        window.setTimeout(function() {
+          window.addEventListener("popstate", function(e) {
+            var $story = $('a[data-storyid = "' + $("#current_video").attr("data-storyid") + '"]');
+            if(e.state && e.state.data){
+              PersonalStory.replaceVideo(e.state.data); 
+              PersonalStory.movePlayButton($story);
+            } else {
+              var $current_video = $('#current_video');
+              if($current_video.attr('data-storyid') !== $current_video.attr('data-firststoryid')){
+                $story = $('a[data-storyid = "' + $("#current_video").attr("data-firststoryid") + '"]');
+                PersonalStory.getPersonalStory($story);
+                PersonalStory.movePlayButton($story);
+              }
+            }
+          }, false);
+        }, 1);
+      }
+    });
+    

@@ -20,3 +20,4 @@ Client secret: rQNBq42mXN_RE7SGFBOlNkKG
 Redirect URIs: http://localhost:3000/oauth2callback
 JavaScript origins:	http://localhost:3000
 
+
