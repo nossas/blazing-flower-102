@@ -33,7 +33,7 @@ gem 'paperclip'
 gem 'cancan'
 
 gem 'aws-s3'
-gem 'newrelic_rpm'
+gem 'httparty'
 
 # Database related gems
 gem 'pg'
@@ -74,6 +74,8 @@ end
 group :production do
   # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
   gem 'thin'
+
+  gem 'newrelic_rpm'
 
   # The below is a fix until Rails 3.1rc5 arrives
   # gem 'therubyracer-heroku', '0.8.1.pre3'
