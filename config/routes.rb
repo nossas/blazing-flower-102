@@ -28,6 +28,7 @@ MeuRio::Application.routes.draw do
   match "petition/:custom_path/share" => "tafs#show", :as => "custom_taf"
 
   match "issue/:issue_id/personal-stories" => "personal_stories#issue_index", :as => "issue_personal_stories"
+  match "issue/:issue_id/personal-stories/:id" => "personal_stories#issue_index", :as => "issue_personal_story"
 
   root :to => "pages#show", :id => "index"
 end

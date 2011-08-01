@@ -20,6 +20,8 @@ module NavigationHelpers
       debate_path(Debate.first)
     when /the personal stories page for an issue/
       issue_personal_stories_path(Issue.first.id)
+    when /the personal stories page with a story id in the URL for an issue/
+      issue_personal_story_path(Issue.first.id, PersonalStory.last.id)
 
 
     # Add more mappings here.

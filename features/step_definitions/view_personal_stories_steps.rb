@@ -30,3 +30,12 @@ Then /^I should see the selected video's description$/ do
   page.should have_content("#{PersonalStory.last.description}")
 end
 
+Then /^I should see that video's title$/ do
+  page.should have_content("#{PersonalStory.last.title}")
+end
+
+Then /^I should see that video's description$/ do
+  page.should have_content("#{PersonalStory.last.description}")
+end
+
+

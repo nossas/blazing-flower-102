@@ -19,4 +19,12 @@ Feature: View the personal story videos for an issue
     And I click on a thumbnail for a video
     Then I should see the selected video's title
     And I should see the selected video's description
+
+  Scenario: Viewing the personal stories issue index page with a specific video selected
+    Given 1 issues exist
+    And there are 3 personal stories connected to the issue
+    When I go to the personal stories page with a story id in the URL for an issue 
+    Then I should see that video's title
+    And I should see that video's description
+    And I should see the other stories' thumbnails
     
