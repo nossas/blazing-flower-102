@@ -23,7 +23,7 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git', :branch => 'rails-3-1'
+gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 # gem 'activeadmin'
 
 # 3 Fixes for activeadmin / rails 3.1

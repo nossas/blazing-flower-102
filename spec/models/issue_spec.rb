@@ -15,6 +15,10 @@ describe Issue do
     it { should have_many :personal_stories }
   end
 
+  describe "#featured_personal_story" do
+    it { should belong_to :featured_personal_story }
+  end
+
   describe "#debates" do
     it { should have_many :debates }
   end

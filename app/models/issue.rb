@@ -7,6 +7,7 @@ class Issue < ActiveRecord::Base
 
   belongs_to :featured_petition, :class_name => 'Petition', :foreign_key => :featured_petition_id
   belongs_to :featured_debate, :class_name => 'Debate', :foreign_key => :featured_debate_id
+  belongs_to :featured_personal_story, :class_name => 'PersonalStory', :foreign_key => :featured_personal_story_id
 
   has_attached_file :image,
                     :path => ':attachment/:id/:style/:filename',
