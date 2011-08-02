@@ -48,23 +48,22 @@
       .author1= raw @debate.text_side_1.gsub("\n", "<br /><br />")
       .author2= raw @debate.text_side_2.gsub("\n", "<br /><br />")
 
-- if !@debate.comments.empty? || @comment
-  .grid_10.push_1
-    .comments
-      %a{:name => "comments_top"}
-      .previous_comments
-        %h3 Comment prompt
-        = image_tag "/assets/comments_arrow.png", :id => "comments_arrow"
-        .subtitle
-          -if @comment
-            = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
-          -else
-            =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "comment_login"
+.grid_10.push_1
+  .comments
+    %a{:name => "comments_top"}
+    .previous_comments
+      %h3 Comment prompt
+      = image_tag "/assets/comments_arrow.png", :id => "comments_arrow"
+      .subtitle
+        -if @comment
+          = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
+        -else
+          =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "comment_login"
 
-          .comments_tooltip= @comments.count
-          .clearfix
-        - @comments.first(5).each do |comment|
-          = render :partial => "comments/comment", :locals => { :comment => comment }
+        .comments_tooltip= @comments.count
+        .clearfix
+      - @comments.first(5).each do |comment|
+        = render :partial => "comments/comment", :locals => { :comment => comment }
       -if !@debate.comments.empty?
         #bottom_buttons
           %a{:name => "comments_bottom"}
