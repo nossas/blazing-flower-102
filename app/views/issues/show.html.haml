@@ -2,7 +2,8 @@
   %h1= @issue.name
 .grid_9.alpha
   .intro
-    %p=@issue.excerpt
-    %img{ :src => @issue.image.url }
+    %img{ :src => @issue.image.url(:large), :width => "630", :height => "435" }
+    .excerpt
+      %p=@issue.excerpt
   .description=@issue.description
 .grid_3.omega

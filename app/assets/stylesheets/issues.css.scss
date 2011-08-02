@@ -1,0 +1,25 @@
+// Place all the styles related to the Petitions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "vars.css.scss";
+@import "mixins.css.scss";
+
+body.issues {
+
+  .intro {
+    .excerpt {
+      color: #fff;
+      background: $blue;
+      padding: 20px;
+      -webkit-border-radius: 12px;
+      -webkit-border-top-right-radius: 0;
+      -moz-border-radius: 12px;
+      -moz-border-radius-topright: 0;
+      border-radius: 12px;
+      border-top-right-radius: 0;
+      opacity: 0.9;
+    }
+  }
+
+}

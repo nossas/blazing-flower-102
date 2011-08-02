@@ -8,6 +8,7 @@ class Issue < ActiveRecord::Base
   has_attached_file :image,
                     :path => ':attachment/:id/:style/:filename',
                     :storage => :s3,
+                    :styles => { :large => "630x435" },
                     :bucket => SITE['s3_bucket'],
                     :s3_credentials => {
                       :access_key_id => SITE['s3_access_key_id'],
