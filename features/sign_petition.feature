@@ -59,11 +59,11 @@ Feature: Signing a Petition
     And I should see "First_name can't be blank"
     And I should see "Last_name can't be blank"
 
-  @omniauth_test
+  @omniauth_test @javascript
   Scenario: Logged in via 3th party service
     Given I am logged in via Facebook
     And 2 published petitions exist
     And I am on the first petition page
-    When I fill in "Comment" with "My comment"
+    When I fill in "petition_signature_comment" with "My comment"
     And I press "Assine"
     Then I should see a thank-you message
