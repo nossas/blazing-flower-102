@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/gregbell/active_admin.git
-  revision: 4a6a8fe7f683db4c458ba0d0edc162aee5b46855
+  revision: 16202a64190b92f37a38868f1d85d68a5d28e0af
+  ref: 16202a64190b92f37a38868f1d85d68a5d28e0af
   branch: rails-3-1
   specs:
     activeadmin (0.2.2)
@@ -49,7 +50,7 @@ GEM
       multi_json (~> 1.0)
     addressable (2.2.6)
     archive-tar-minitar (0.5.2)
-    arel (2.1.3)
+    arel (2.1.4)
     autotest-growl (0.2.9)
     autotest-rails (4.1.0)
       ZenTest
@@ -123,7 +124,7 @@ GEM
     gherkin (2.4.5)
       json (>= 1.4.6)
     haml (3.1.2)
-    has_scope (0.5.0)
+    has_scope (0.5.1)
     heroku (2.4.0)
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
@@ -198,8 +199,8 @@ GEM
       cocaine (>= 0.0.2)
       mime-types
     pg (0.11.0)
-    polyglot (0.3.1)
-    rack (1.3.1)
+    polyglot (0.3.2)
+    rack (1.3.2)
     rack-cache (1.0.2)
       rack (>= 0.4)
     rack-mount (0.8.1)
@@ -209,7 +210,7 @@ GEM
       ruby-openid (>= 2.1.8)
     rack-ssl (1.3.2)
       rack
-    rack-test (0.6.0)
+    rack-test (0.6.1)
       rack (>= 1.0)
     rails (3.1.0.rc4)
       actionmailer (= 3.1.0.rc4)
@@ -228,7 +229,7 @@ GEM
       thor (~> 0.14.6)
     raindrops (0.7.0)
     rake (0.8.7)
-    rdoc (3.8)
+    rdoc (3.9.1)
     responders (0.6.4)
     rest-client (1.6.3)
       mime-types (>= 1.16)
@@ -259,7 +260,7 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.4)
-    sass (3.1.4)
+    sass (3.1.5)
     sass-rails (3.1.0.rc.4)
       actionpack (~> 3.1.0.rc1)
       railties (~> 3.1.0.rc1)
@@ -277,8 +278,8 @@ GEM
     skinny (0.1.2)
       eventmachine
       thin
-    sprockets (2.0.0.beta.10)
-      hike (~> 1.0)
+    sprockets (2.0.0.beta.12)
+      hike (~> 1.2)
       rack (~> 1.0)
       tilt (!= 1.3.0, ~> 1.1)
     sqlite3 (1.3.3)
@@ -291,7 +292,8 @@ GEM
       rack (>= 1.0.0)
     thor (0.14.6)
     tilt (1.3.2)
-    treetop (1.4.9)
+    treetop (1.4.10)
+      polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
     uglifier (1.0.0)
@@ -301,7 +303,7 @@ GEM
       kgio (~> 2.4)
       rack
       raindrops (~> 0.6)
-    warden (1.0.4)
+    warden (1.0.5)
       rack (>= 1.0)
     xml-simple (1.1.0)
     xpath (0.1.4)

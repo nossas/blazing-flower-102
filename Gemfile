@@ -16,7 +16,7 @@ gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'
 gem 'uglifier'
 
-gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git', :branch => "rails-3-1"
+gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git', :branch => "rails-3-1", :ref => "16202a64190b92f37a38868f1d85d68a5d28e0af"
 # gem 'activeadmin'
 
 # 3 Fixes for activeadmin / rails 3.1
