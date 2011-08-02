@@ -5,6 +5,9 @@ class Issue < ActiveRecord::Base
   has_many :debates
   has_many :personal_stories
 
+  belongs_to :featured_petition, :class_name => 'Petition', :foreign_key => :featured_petition_id
+  belongs_to :featured_debate, :class_name => 'Debate', :foreign_key => :featured_debate_id
+
   has_attached_file :image,
                     :path => ':attachment/:id/:style/:filename',
                     :storage => :s3,
