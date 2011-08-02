@@ -136,14 +136,40 @@ body.debates {
     }
   }
   .comments_tooltip {
+    position: relative;
+    padding: 3px 5px 1px 5px;
     border: 2px solid $pink;
-    color: $pink;
-    padding: 3px;
-    padding-bottom: 0;
-    @include border-radius(4px);
+    color: #333;
+    background: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     line-height: 100%;
+    color: $pink;
     font-weight: bold;
     float: right;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: -9px;
+      left: 6px;
+      border-width: 7px 7px 0 0;
+      border-style: solid;
+      border-color: $pink transparent;
+      display: block;
+      width: 0;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 8px;
+      border-width: 4px 4px 0 0;
+      border-style: solid;
+      border-color: white transparent;
+      display: block;
+      width: 0;
+    }
   }
   .authors{
     margin: 20px 0;
@@ -188,7 +214,11 @@ body.debates {
         }
       }
     }
+    .quotes { margin-bottom: 20px; }
+    .texts { 
+      .author1, .author2 {
+        text-align: justify;
+      }
+    }
   }
-  .quotes { margin-bottom: 20px; }
-  .texts { text-align: justify; }
 }
