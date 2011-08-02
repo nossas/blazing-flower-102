@@ -47,4 +47,3 @@ Feature: View the personal story videos for an issue
     Then I should see that video's title
     And I should see that video's description
     And I should see the other stories' thumbnails
-    

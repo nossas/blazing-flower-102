@@ -18,7 +18,8 @@
     .date= l @debate.created_at.to_date, :format => :long
     .little_ball ·
     .comments_counter 
-      .comments_tooltip= @comments.count
+      %a.comments_link{:href=> '#comments_top'}
+        .comments_tooltip= @comments.count
       = t("debate_show.have_joined_the_conversation")
 
 .grid_10.prefix_1
@@ -50,15 +51,15 @@
 - if !@debate.comments.empty? || @comment
   .grid_10.push_1
     .comments
+      %a{:name => "comments_top"}
       .previous_comments
         %h3 Comment prompt
         = image_tag "/assets/comments_arrow.png", :id => "comments_arrow"
         .subtitle
-          %a{:name => "comments_top"}
           -if @comment
             = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
           -else
-            =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'comments_top', :class => "comment_login"
+            =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "comment_login"
 
           .comments_tooltip= @comments.count
           .clearfix
@@ -70,7 +71,7 @@
           -if @comment
             = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
           -else
-            =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'comments_bottom', :class => "comment_login"
+            =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "comment_login"
           #load_more= t("debate_show.load_more")
       - if @comment
         #new_comment
