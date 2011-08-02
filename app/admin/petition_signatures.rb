@@ -1,5 +1,4 @@
-ActiveAdmin.register PetitionSignature do
-  menu :label => "Petition Comments"
+ActiveAdmin.register PetitionSignature, :as => 'PetitionComment' do
   actions :all, :except => :new
   filter :petition
   filter :created_at
@@ -27,10 +26,10 @@ ActiveAdmin.register PetitionSignature do
       if ps.comment_accepted
         span b 'Yes'
       else
-        span link_to('Yes', accept_comment_admin_petition_signature_path(ps))
+        span link_to('Yes', accept_comment_admin_petition_comment_path(ps))
       end
       if ps.comment_accepted.nil? or ps.comment_accepted
-        span link_to('No', reject_comment_admin_petition_signature_path(ps))
+        span link_to('No', reject_comment_admin_petition_comment_path(ps))
       else
         span b 'No'
       end
