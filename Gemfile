@@ -11,10 +11,18 @@ gem "oa-oauth", :require => "omniauth/oauth"
 gem 'oa-openid', :require => 'omniauth/openid'
 
 # Asset template engines
-gem 'haml'
-gem 'sass-rails'
-gem 'coffee-script'
-gem 'uglifier'
+# gem 'haml'
+# gem 'sass-rails'
+# gem 'coffee-script'
+# gem 'uglifier'
+
+# Asset template engines
+group :assets do
+  gem 'haml'
+  gem 'sass-rails', "~> 3.1.0.rc"
+  gem 'coffee-script'
+  gem 'uglifier'
+end
 
 gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 # gem 'activeadmin'
@@ -42,7 +50,6 @@ gem 'foreigner'
 #including so we can run the complete petition rake task for demos
 gem 'factory_girl_rails'
 gem "faker"
-
 
 group :development, :test do
   gem 'heroku'
@@ -74,9 +81,5 @@ end
 group :production do
   # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
   gem 'thin'
-
   gem 'newrelic_rpm'
-
-  # The below is a fix until Rails 3.1rc5 arrives
-  gem 'therubyracer-heroku', '0.8.1.pre3'
 end
