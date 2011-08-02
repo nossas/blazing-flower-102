@@ -1,6 +1,6 @@
 source :rubyforge
 
-gem "devise", "1.4.2"
+gem "devise", "~> 1.4.2"
 
 # gem 'rails',  :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
 gem 'rails', '3.1.0.rc5'
@@ -23,7 +23,7 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git', :branch => 'rails-3-1'
+gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 # gem 'activeadmin'
 
 # 3 Fixes for activeadmin / rails 3.1
