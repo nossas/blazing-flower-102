@@ -320,7 +320,7 @@ DEPENDENCIES
   coffee-script
   cucumber-rails
   database_cleaner
-  devise (= 1.4.2)
+  devise (~> 1.4.2)
   edgecase-git-pair
   factory_girl_rails
   faker
