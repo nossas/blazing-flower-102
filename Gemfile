@@ -80,5 +80,5 @@ end
 group :production do
   # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
   gem 'thin'
-  gem 'newrelic_rpm'
+  # gem 'newrelic_rpm'
 end
