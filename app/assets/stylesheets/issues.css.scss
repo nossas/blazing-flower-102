@@ -8,10 +8,14 @@
 body.issues {
 
   .intro {
+
+    position: relative;
+
     .excerpt {
       color: #fff;
       background: $blue;
       padding: 20px;
+      width: 525px;
       -webkit-border-radius: 12px;
       -webkit-border-top-right-radius: 0;
       -moz-border-radius: 12px;
@@ -19,7 +23,27 @@ body.issues {
       border-radius: 12px;
       border-top-right-radius: 0;
       opacity: 0.9;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
+
+    img {
+      -webkit-border-radius: 12px;
+      -moz-border-radius: 12px;
+      border-radius: 12px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+  }
+
+  .description {
+    padding: 25px 0;
+    margin: 470px 0 25px;
+    border-top: 2px solid $blue;
+    border-bottom: 1px solid $blue;
   }
 
 }
