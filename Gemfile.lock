@@ -69,10 +69,6 @@ GEM
     childprocess (0.2.0)
       ffi (~> 1.0.6)
     cocaine (0.1.0)
-    coffee-script (2.2.0)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.1.1)
     columnize (0.3.4)
     crack (0.1.8)
     cucumber (1.0.2)
@@ -316,7 +312,6 @@ DEPENDENCIES
   aws-s3
   cancan
   capybara
-  coffee-script
   cucumber-rails
   database_cleaner
   devise (= 1.4.2)

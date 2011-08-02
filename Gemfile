@@ -11,16 +11,15 @@ gem "oa-oauth", :require => "omniauth/oauth"
 gem 'oa-openid', :require => 'omniauth/openid'
 
 # Asset template engines
-# gem 'haml'
+gem 'haml'
 # gem 'sass-rails'
 # gem 'coffee-script'
 # gem 'uglifier'
 
 # Asset template engines
 group :assets do
-  gem 'haml'
   gem 'sass-rails', "~> 3.1.0.rc"
-  gem 'coffee-script'
+  # gem 'coffee-script'
   gem 'uglifier'
 end
 
