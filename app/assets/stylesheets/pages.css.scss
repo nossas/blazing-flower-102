@@ -1,0 +1,21 @@
+// Place all the styles related to the Petitions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "vars.css.scss";
+@import "mixins.css.scss";
+
+body.pages {
+  h1 {
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  li {
+    font-size: 15px;
+    line-height: 140%;
+  }
+}
