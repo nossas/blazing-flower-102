@@ -22,6 +22,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def google_custom_domain
     session[:auth_data] = auth_data
+    session[:return_path] = env['omniauth.origin']
     render :action => :google_custom_domain
   end
 

@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
 
  # Overwriting the sign_out and sign_in redirect path method
   def after_sign_in_path_for(resource_or_scope)
-    request.env['omniauth.origin'] || request.referrer || super
+    return_path = session.delete(:return_path)
+    request.env['omniauth.origin'] || return_path || request.referrer || super
   end
 
   def after_sign_out_path_for(resource_or_scope)

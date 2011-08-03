@@ -86,6 +86,7 @@ describe OmniauthCallbacksController do
     end
 
     subject{ post :google_custom_domain_complete, :email => 'foo@bar.com' }
+    it{ response.should be_successful }
 
     it "should create a provider authorization and call gmail passing it" do
       expect{subject}.to change{ProviderAuthorization.count}.by(1)
