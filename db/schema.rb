@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110801194442) do
+ActiveRecord::Schema.define(:version => 20110802185318) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -117,6 +117,12 @@ ActiveRecord::Schema.define(:version => 20110801194442) do
     t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "featured_petition_id"
+    t.integer  "featured_debate_id"
+    t.integer  "featured_personal_story_id"
+    t.text     "debate_call_to_action"
+    t.text     "petition_call_to_action"
+    t.text     "personal_story_call_to_action"
   end
 
   create_table "members", :force => true do |t|
