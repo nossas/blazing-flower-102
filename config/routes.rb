@@ -4,7 +4,6 @@ MeuRio::Application.routes.draw do
 
   devise_for :members, :controllers => { :omniauth_callbacks => "omniauth_callbacks" } do
     get 'logout' => 'devise/sessions#destroy', :as => :destroy_member_session
-    post 'google_custom_domain_complete' => 'omniauth_callbacks#google_custom_domain_complete', :as => :google_custom_domain_complete
   end
 
   match 'debates/:id/load_comments/:page' => "debates#load_comments"
