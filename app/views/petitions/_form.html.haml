@@ -7,18 +7,18 @@
       =fields_for @member do |m|
         .row.clearfix
           .field
-            =m.label :email
-            %span.required_mark *
-            =m.text_field :email, :class => "required email"
-          .field.right
             =m.label :first_name
             %span.required_mark *
             =m.text_field :first_name, :class => "required"
-        .row.clearfix
-          .field
+          .field.right
             =m.label :last_name
             %span.required_mark *
             =m.text_field :last_name, :class => "required"
+        .row.clearfix
+          .field
+            =m.label :email
+            %span.required_mark *
+            =m.text_field :email, :class => "required email"
           .field.right
             =m.label :zona
             =m.select :zona, ['', 'Centro', 'Norte', 'Oeste', 'Sul', 'Eu não sou do Rio'], :class => "required"
