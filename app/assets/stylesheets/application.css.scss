@@ -63,20 +63,6 @@ body > .main {
   }
 }
 
-#facebox .popup .content {
-  text-align: center;
-  display: block;
-}
-
-.facebook_btn, .orkut_btn, .twitter_btn, .email_btn {
-  img {
-    width: 48px;
-    &:hover {
-      @include scale(1.1, 0);
-    }
-  }
-}
-
 .btn, .btn.disabled{
   // Almost all properties are !important because activeadmin's CSS is trying overriding this class
   background: #dc6837 !important;
