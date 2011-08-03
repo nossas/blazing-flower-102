@@ -242,19 +242,19 @@
       member:
         first_name: "Nome"
         last_name: "Sobrenome"
-        email: "Endereço de Email"
+        email: "E-mail"
         zona: "Zona"
       petition_signature:
         comment: "Comentário"
 
   petition_show:
-    goal: "Meta: %{goal}"
+    goal: "Objetivo: %{goal}"
     signatures:
       zero: "Nenhum membro assinou esta petição"
       one: "<span class='counter'>1</span> membro assinou esta petição"
-      other: "<span class='counter'>%{count}</span> membros assinaram esta petição"
+      other: "<span class='counter'>%{count}</span> pessoas assinaram esta petição."
     comment_tip: "140 caracteres"
-    recent_comments: "COMENTÁRIOS RECENTES"
+    recent_comments: "Comentários Recentes"
     already_signed: "%{name}, você já assinou esta petição! Agora conte isso para os seus amigos:"
     share_on_facebook: "Compartilhar no Facebook"
     share_on_orkut: "Compartilhar no Orkut"
