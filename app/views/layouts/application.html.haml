@@ -14,19 +14,22 @@
           =image_tag current_member.image_url, :id => "member_thumbnail", :class => "right"
           %p=current_member.name
           %p=current_member.email
-          %p=link_to t("logout"), destroy_member_session_path
+          - if session[:fb_token]
+            %p=link_to t("logout"), facebook_logout_path
+          - else
+            %p=link_to t("logout"), destroy_member_session_path
         - else
           %p
             =link_to t("join_us"), "#", :id => "join_us_btn"
             =link_to t("login"), "#login", :rel => "facebox"
       %nav
-        =link_to 'Lorem Ipsum'
+        =link_to 'SOBRE O MEU RIO', root_url
         |
-        =link_to 'Lorem Ipsum'
+        =link_to 'NA ATIVIDADE', '#'
         |
-        =link_to 'Lorem Ipsum', "#", :class => "selected"
+        =link_to 'NOSSO BLOG', "#", :class => "selected"
         |
-        =link_to 'Lorem Ipsum', "#", :class => "last"
+        =link_to 'DANDO UMA FORÇA', "#", :class => "last"
     #main.main.container_12
       - if notice
         %p.notice= notice

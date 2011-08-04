@@ -22,9 +22,9 @@
         =link_to "Take Action", debate_path(@debate.id), :class => "btn take_action debate"
     -if @petition
       -if @current.connected_action != "PETITION"
-        =link_to "Take Action", petition_path(@petition.id), :class => "btn take_action petition", :style => "display: none;"
+        =link_to "Take Action", custom_petition_path(@petition), :class => "btn take_action petition", :style => "display: none;"
       -else
-        =link_to "Take Action", petition_path(@petition.id), :class => "btn take_action petition"
+        =link_to "Take Action", custom_petition_path(@petition), :class => "btn take_action petition"
   .clearfix
 .grid_12
   .story_list

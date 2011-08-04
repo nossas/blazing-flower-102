@@ -29,7 +29,7 @@ end
 
 # fake data for omniauth test cases
 GOOGLE_CUSTOM_DOMAIN_VALID_AUTH_DATA = {
-  "provider" => "google_apps",
+  "provider" => "google",
   "uid" => "https://www.google.com/accounts/o8/id?id=AItOawmEH3kd6WVTpQc2YhDiGGkcobh0_GY5fxE1",
   "user_info" => {
     "first_name" => "Ren",
@@ -39,7 +39,7 @@ GOOGLE_CUSTOM_DOMAIN_VALID_AUTH_DATA = {
 }
 
 GOOGLE_APP_VALID_AUTH_DATA = {
-  "provider" => "google_apps",
+  "provider" => "google",
   "uid" => "https://www.google.com/accounts/o8/id?id=AItOawmEH3kd6WVTpQc2YhDiGGkcobh0_GY5fxE",
   "user_info" => {
     "email" => "ren.provey@gmail.com"
@@ -50,7 +50,7 @@ GOOGLE_APP_VALID_AUTH_DATA = {
 }
 
 GOOGLE_APP_INVALID_AUTH_DATA = {
-  "provider" => "google_apps",
+  "provider" => "google",
   "uid" => "https://www.google.com/accounts/o8/id?id=AItOawmEH3kd6WVTpQc2YhDiGGkcobh0_GY5fxE",
   "user_info" => {
     "email" => "bad_email"
