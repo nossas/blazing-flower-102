@@ -275,3 +275,6 @@
   flag: "Denunciar"
   unflag: "Desfazer denúncia"
   privacy_policy: "Política de Privacidade"
+  about_page:
+    title: "Sobre o Meu Rio"
+    highlight_text: "O Meu Rio é um movimento democrático e apartidário, que usa ferramentas on-line para ligar os cidadãos do Rio de Janeiro e garantir que a sua voz oriente os processos de decisão que estão transformando a cidade."
