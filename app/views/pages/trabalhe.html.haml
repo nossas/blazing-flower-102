@@ -1,13 +1,17 @@
 %h1.grid_9
   = t("pages_show_jobs.title")
 
-.grid_9
+.grid_9.alpha
   =raw t("pages_show_jobs.description")
 
-.grid_9
   - Job.active.each do |j|
     .job
       %h2.title
         = j.title
       .description
         =raw j.description
+
+.grid_3.omega.sidebar
+  =raw t("pages_show_jobs.sidebar_title")
+  =raw t("pages_show_jobs.sidebar_content")
+
