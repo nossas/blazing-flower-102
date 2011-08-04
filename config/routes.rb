@@ -5,6 +5,7 @@ MeuRio::Application.routes.draw do
   devise_for :members, :controllers => { :omniauth_callbacks => "omniauth_callbacks" } do
     get 'logout' => 'devise/sessions#destroy', :as => :destroy_member_session
   end
+  match '/facebook_logout' => 'application#facebook_logout', :as => :facebook_logout
 
   match 'debates/:id/load_comments/:page' => "debates#load_comments"
   match "petition/:custom_path" => "petitions#show", :as => "custom_petition"
