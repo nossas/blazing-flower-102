@@ -80,4 +80,40 @@ body.issues {
     }
   }
 
+  .count {
+    font-size: 90%;
+  }
+
+  .head_info {
+    background: #fff;
+    border-top: 1px solid $blue;
+    border-bottom: 1px solid $blue;
+    padding: 15px 0;
+  }
+  
+  .count, .arrow {
+    float: left;
+    margin-right: 10px;
+    display: block;
+  }
+  
+  .article {
+    border-bottom: 1px solid $light_gray;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    font-size: 95%;
+
+    img {
+      float: right;
+    }
+
+    .title {
+      text-transform: uppercase;
+    }
+
+    .date {
+      margin:5px 0 15px;
+    }
+  }
+
 }
