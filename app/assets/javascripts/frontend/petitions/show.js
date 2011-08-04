@@ -8,16 +8,14 @@ $("form#new_petition_signature").validate({
 });
 
 $("#member_email").change(function(){
+  $('label.error.already_signed[for="member_email"]').hide();
   $('form input[type=submit]').removeClass('disabled').removeAttr('disabled');
   $.getJSON('/petition_signatures', {email: $(this).val(), petition_id: $('form').data('petition_id')})
   .success(function(data){
     if(data){
       $('form input[type=submit]').addClass('disabled').attr('disabled', 'disabled');
       $('form input#member_email').addClass('error');
-      if($('label.error[for="member_email"]').length == 0){
-        $('form input#member_email').after($('<label>').attr('for', 'member_email').attr('generated', 'true').addClass('error'));
-      }
-      $('label.error[for="member_email"]').html('Você já assinou embaixo. Agora <a class="show_taf" href="#share">espalhe essa ideia</a>.').show();
+      $('label.error.already_signed[for="member_email"]').css('display', 'block');
     }
   });
 });
