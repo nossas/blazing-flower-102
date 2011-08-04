@@ -14,7 +14,10 @@
           =image_tag current_member.image_url, :id => "member_thumbnail", :class => "right"
           %p=current_member.name
           %p=current_member.email
-          %p=link_to t("logout"), destroy_member_session_path
+          - if session[:fb_token]
+            %p=link_to t("logout"), facebook_logout_path
+          - else
+            %p=link_to t("logout"), destroy_member_session_path
         - else
           %p
             =link_to t("join_us"), "#", :id => "join_us_btn"

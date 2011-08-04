@@ -1,5 +1,7 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
+    session[:fb_token] = auth_data["credentials"]["token"]
+    
     p = ProviderAuthorization.find_for_facebook_oauth(auth_data, current_member)
     if p.persisted?
       @member = p.member
