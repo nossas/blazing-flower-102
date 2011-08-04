@@ -13,6 +13,10 @@ ActiveAdmin.register PersonalStory do
     end
     column :title
     column :video_url
+    column "Options" do |e| 
+      span link_to 'Show', admin_personal_story_path(e)
+      span link_to 'Edit', edit_admin_personal_story_path(e)
+    end
   end
 
   form do |f|
