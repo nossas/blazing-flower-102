@@ -41,6 +41,11 @@ describe OmniauthCallbacksController do
 
   describe "GET google" do
     subject{ get :google }
+    it "should make session[:google_login] true" do
+      subject
+      session[:google_login].should be_true
+    end
+
     it 'should call find_for_google_oauth' do
       controller.stub(:auth_data).and_return(GOOGLE_APP_VALID_AUTH_DATA) 
       ProviderAuthorization.should_receive(:find_for_google_oauth).with(GOOGLE_APP_VALID_AUTH_DATA, nil).and_return(Factory(:provider_authorization))
