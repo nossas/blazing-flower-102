@@ -279,7 +279,27 @@
   about_page:
     title: "Sobre o Meu Rio"
     highlight_text: "O Meu Rio é um movimento democrático e apartidário, que usa ferramentas on-line para ligar os cidadãos do Rio de Janeiro e garantir que a sua voz oriente os processos de decisão que estão transformando a cidade."
-    on_meu_rio_you_can: "No Meu Rio você poderá..."
-    feature1_title: "Descobrir a realidade de outros cariocas"
-    feature2_title: "Bater uma bola sobre as questões da cidade"
-    feature3_title: "Assinar embaixo e construir um Rio melhor"
+    what_you_can_do: "No Meu Rio você poderá..."
+    feature1_title: "Descobrir a realidade de outros cariocas:"
+    feature1_text: "Na seção Direto da Gema, exibiremos, semanalmente, vídeos de cariocas contando suas histórias e dizendo o que o Rio de Janeiro está precisando ouvir. Assista, reflita e compartilhe com seus amigos e sua família."
+    feature2_title: "Bater uma bola sobre as grandes questões da cidade:"
+    feature2_text: "A seção Bate-Bola é o lugar para quem tem ideias e opinião. Aqui, os membros do Meu Rio poderão debater os pontos de vista de dois autores convidados e, através desse diálogo, buscar as melhores soluções para os problemas em questão."
+    feature3_title: "Assinar embaixo para construir um Rio melhor:"
+    feature3_text: "Na seção Assine Embaixo, organizaremos petições sobre as principais reivindicações dos cariocas. Elas serão entregues diretamente às instituições capazes de transformar nossa cidade. Dê sua voz ao movimento."
+    rally_title: "O Movimento:"
+    rally_text: "O Meu Rio é um movimento democrático e apartidário que usa ferramentas on-line para conectar os cidadãos do Rio de Janeiro e garantir que sua voz oriente os processos de decisão que estão transformando a cidade.
+
+Com a realização da Copa e das Olimpíadas nos próximos anos, essa oportunidade é única. No Meu Rio, acreditamos que uma maior participação popular nas questões de políticas públicas é a chave para um Rio mais justo. Nós cariocas podemos sim, juntos, construir uma cidade melhor para todos e mostrar que nossa força pode trazer resultados surpreendentes."
+    who_we_are_title: "Quem Somos:"
+    who_we_are_text: "O Meu Rio é um movimento organizado e financiado pela sociedade civil. Nossa equipe é formada por jornalistas, cientistas políticos, programadores, publicitários, designers e economistas com currículos nas áreas de direitos humanos, políticas públicas, movimentos sociais e meio ambiente."
+    why_and_goals: "Porquê:"
+    scenario_title: "O Cenário:"
+    scenario_text: "O Rio de Janeiro está passando por um período único, enfrentando desafios históricos e recebendo investimentos bilionários para os próximos mega-eventos que a cidade irá sediar. O Rio está mudando tão rápido que fica difícil acompanhar e garantir que os maiores beneficiados sejamos nós: os cariocas."
+    mission_title: "Nossa Missão:"
+    mission_text: "Construir uma nova cultura política com os cariocas para fazer com que o cidadão comum possa participar efetivamente da construção de políticas públicas. Queremos uma cidade digna de seus cidadãos e cidadãos com condições de assegurar o funcionamento transparente das instituições públicas e privadas envolvidas com o Rio."
+    how_title: "Como Faremos Isso:"
+    how_text: "Criaremos ferramentas on-line para conectar os cariocas digitalmente em torno de questões relevantes para o Rio. Os membros da nossa comunidade poderão usar nosso site para conhecer as diferentes realidades do Rio, denunciar problemas e dialogar com especialistas em políticas públicas. Vamos nos engajar em causas importantes para o Rio em que a participação da sociedade possa fazer a diferença e usaremos a voz da comunidade em abaixo-assinados, levando soluções práticas às instituições responsáveis."
+    and_you_title: "E Você Com Isso?"
+    and_you_text: "Bom, se você também ama o Rio e deseja que a cidade tire o maior proveito deste momento histórico, nós queremos você, para ouvir, debater e agir ao nosso lado.
+
+Quer nos ajudar a construir um Rio de Janeiro mais justo e democrático? Faça do parte do Meu Rio!"
