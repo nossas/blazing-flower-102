@@ -57,7 +57,7 @@ body.pages {
     }
   }
 
-  .on_meu_rio_you_can {
+  .what_you_can_do {
     background: #fbfaf8;
     padding: 20px 0;
     margin-top: 30px;
@@ -79,13 +79,13 @@ body.pages {
     }
     .omega {
       .feature {
-        border-right: 1px solid $blue;
+        background: url("debate_divider.png") repeat-y right;
         padding-left: 0;
       }
     }
     .alpha {
       .feature {
-        border-left: 1px solid $blue;
+        background: url("debate_divider.png") repeat-y left;
         padding-right: 0;
       }
     }

@@ -5,57 +5,57 @@
   .grid_8.alpha= t("about_page.highlight_text")
 
 .grid_8
-  %p= Faker::Lorem.paragraph
-  %p= link_to "LEIA MAIS »", "#"
+  %p= t("about_page.intro")
+  %p= link_to t("about_page.read_more"), "#why_and_goals"
 .grid_4.join_meu_rio
   %p
-    Sua participação é importante!
+    = t("about_page.you_are_important")
     = image_tag "/assets/comments_arrow.png"
-  = link_to "Junte-se a nós", "#", :class => "btn"
+  = link_to t("about_page.join_us"), "#", :class => "btn"
 
-.on_meu_rio_you_can.grid_12
-  %h2.grid_12.omega= t("about_page.on_meu_rio_you_can")
+.what_you_can_do.grid_12
+  %h2.grid_12.omega= t("about_page.what_you_can_do")
   .grid_4.omega
     .feature
       = image_tag "/assets/03_video_icon.png"
       %p.title= t("about_page.feature1_title")
-      %p= Faker::Lorem.paragraph
-      = link_to "Veja um vídeo recente »", "#"
+      %p= t("about_page.feature1_text")
+      = link_to t("about_page.video_link"), personal_story_path(PersonalStory.last) if PersonalStory.last
   .grid_4
     .feature
       = image_tag "/assets/02_debate_icon.png"
       %p.title= t("about_page.feature2_title")
-      %p= Faker::Lorem.paragraph
-      = link_to "Veja um debate recente »", "#"
+      %p= t("about_page.feature2_text")
+      = link_to t("about_page.debate_link"), debate_path(Debate.last) if Debate.last
   .grid_4.alpha
     .feature
       = image_tag "/assets/01_petition_icon.png"
       %p.title= t("about_page.feature3_title")
-      %p= Faker::Lorem.paragraph
-      = link_to "Veja uma petição recente »", "#"
+      %p= t("about_page.feature3_text")
+      = link_to t("about_page.petition_link"), custom_petition_path(Petition.last.custom_path) if Petition.last
 
 .grid_8
-  %h2 Quem somos
-  %p= Faker::Lorem.paragraph
+  %h2= t("about_page.who_we_are_title")
+  %p= raw t("about_page.who_we_are_text").gsub("\n", "<br />")
   %p= link_to "Leia mais sobre quem somos »", "#"
-  %h2 Motivação e objetivos
-  %h3 O Cenário:
-  %p= Faker::Lorem.paragraph
-  %h3 O Movimento:
-  %p= Faker::Lorem.paragraph
-  %h3 Nossa Missão:
-  %p= Faker::Lorem.paragraph
-  %h3 Como Faremos Isso:
-  %p= Faker::Lorem.paragraph
-  %h3 E você com isso?
-  %p= Faker::Lorem.paragraph
+  %h2#why_and_goals= t("about_page.why_and_goals")
+  %h3= t("about_page.scenario_title")
+  %p= raw t("about_page.scenario_text").gsub("\n", "<br />")
+  %h3= t("about_page.rally_title")
+  %p= raw t("about_page.rally_text").gsub("\n", "<br />")
+  %h3= t("about_page.mission_title")
+  %p= raw t("about_page.mission_text").gsub("\n", "<br />")
+  %h3= t("about_page.how_title")
+  %p= raw t("about_page.how_text").gsub("\n", "<br />")
+  %h3= t("about_page.and_you_title")
+  %p= raw t("about_page.and_you_text").gsub("\n", "<br />")
   %h3 Quer nos ajudar a construir um Rio de Janeiro mais justo e democrático? Faça parte do Meu Rio!
 
 .grid_4
   .speech_bubble
-    %h3 O que estamos fazendo...
+    %h3= t("about_page.what_we_are_doing")
     %p.date 28/07/2011
     %p= Faker::Lorem.paragraph(3)
-    = link_to "Leia mais no nosso blog »", "#"
+    = link_to t("about_page.read_more_on_blog"), "#"
   .speech_bubble
-    %h3 Siga-nos
+    %h3= t("about_page.follow_us")
