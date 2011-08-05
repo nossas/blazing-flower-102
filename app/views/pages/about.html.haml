@@ -1,0 +1,61 @@
+%h1.grid_12= t("about_page.title")
+
+.about_image.grid_12
+  = image_tag "/assets/rio.jpg"
+  .grid_8.alpha= t("about_page.highlight_text")
+
+.grid_8
+  %p= Faker::Lorem.paragraph
+  %p= link_to "LEIA MAIS »", "#"
+.grid_4.join_meu_rio
+  %p
+    Sua participação é importante!
+    = image_tag "/assets/comments_arrow.png"
+  = link_to "Junte-se a nós", "#", :class => "btn"
+
+.on_meu_rio_you_can.grid_12
+  %h2.grid_12.omega= t("about_page.on_meu_rio_you_can")
+  .grid_4.omega
+    .feature
+      = image_tag "/assets/03_video_icon.png"
+      %p.title= t("about_page.feature1_title")
+      %p= Faker::Lorem.paragraph
+      = link_to "Veja um vídeo recente »", "#"
+  .grid_4
+    .feature
+      = image_tag "/assets/02_debate_icon.png"
+      %p.title= t("about_page.feature2_title")
+      %p= Faker::Lorem.paragraph
+      = link_to "Veja um debate recente »", "#"
+  .grid_4.alpha
+    .feature
+      = image_tag "/assets/01_petition_icon.png"
+      %p.title= t("about_page.feature3_title")
+      %p= Faker::Lorem.paragraph
+      = link_to "Veja uma petição recente »", "#"
+
+.grid_8
+  %h2 Quem somos
+  %p= Faker::Lorem.paragraph
+  %p= link_to "Leia mais sobre quem somos »", "#"
+  %h2 Motivação e objetivos
+  %h3 O Cenário:
+  %p= Faker::Lorem.paragraph
+  %h3 O Movimento:
+  %p= Faker::Lorem.paragraph
+  %h3 Nossa Missão:
+  %p= Faker::Lorem.paragraph
+  %h3 Como Faremos Isso:
+  %p= Faker::Lorem.paragraph
+  %h3 E você com isso?
+  %p= Faker::Lorem.paragraph
+  %h3 Quer nos ajudar a construir um Rio de Janeiro mais justo e democrático? Faça parte do Meu Rio!
+
+.grid_4
+  .speech_bubble
+    %h3 O que estamos fazendo...
+    %p.date 28/07/2011
+    %p= Faker::Lorem.paragraph(3)
+    = link_to "Leia mais no nosso blog »", "#"
+  .speech_bubble
+    %h3 Siga-nos

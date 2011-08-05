@@ -53,12 +53,12 @@ describe ProviderAuthorization do
 
   end
 
-  describe ".find_for_google_apps_oauth" do
-    subject{ ProviderAuthorization.find_for_google_apps_oauth(GOOGLE_APP_VALID_AUTH_DATA) }
+  describe ".find_for_google_oauth" do
+    subject{ ProviderAuthorization.find_for_google_oauth(GOOGLE_APP_VALID_AUTH_DATA) }
 
     context "when both provider authorization and member do not exist" do
       it{ should be_persisted }
-      its(:provider){ should == 'google_apps' }
+      its(:provider){ should == 'google' }
       its(:uid){ should == GOOGLE_APP_VALID_AUTH_DATA['uid'] }
       its(:member){ subject.email.should == GOOGLE_APP_VALID_AUTH_DATA['user_info']['email'] }
       it{ expect{subject}.should change{Member.count}.by(1) }
@@ -68,7 +68,7 @@ describe ProviderAuthorization do
     context "when only the provider authorization does not exist" do
       before {@member = Factory(:member, :email => GOOGLE_APP_VALID_AUTH_DATA['user_info']['email'])}
       it{ should be_persisted }
-      its(:provider){ should == 'google_apps' }
+      its(:provider){ should == 'google' }
       its(:uid){ should == GOOGLE_APP_VALID_AUTH_DATA['uid'] }
       its(:member){ subject.email.should == GOOGLE_APP_VALID_AUTH_DATA['user_info']['email'] }
       it{ expect{subject}.should_not change{Member.count} }
@@ -79,11 +79,11 @@ describe ProviderAuthorization do
 
       before do
         @member = Factory(:member, :email => GOOGLE_APP_VALID_AUTH_DATA['user_info']['email'])
-        @provider_authorization = Factory(:provider_authorization, :uid => GOOGLE_APP_VALID_AUTH_DATA['uid'], :member => @member, :provider => "google_apps")
+        @provider_authorization = Factory(:provider_authorization, :uid => GOOGLE_APP_VALID_AUTH_DATA['uid'], :member => @member, :provider => "google")
       end
 
       it{ should be_persisted }
-      its(:provider){ should == 'google_apps' }
+      its(:provider){ should == 'google' }
       its(:uid){ should == GOOGLE_APP_VALID_AUTH_DATA['uid'] }
       its(:member){ subject.email.should == GOOGLE_APP_VALID_AUTH_DATA['user_info']['email'] }
       it{ expect{subject}.should_not change{Member.count} }

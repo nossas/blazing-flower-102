@@ -255,6 +255,7 @@
       other: "<span class='counter'>%{count}</span> pessoas assinaram esta petição."
     comment_tip: "140 caracteres"
     recent_comments: "Comentários Recentes"
+    already_signed_error: "Você já assinou embaixo. Agora <a class=\"show_taf\" href=\"#share\">espalhe essa ideia</a>."
     already_signed: "%{name}, você já assinou esta petição! Agora conte isso para os seus amigos:"
     share_on_facebook: "Compartilhar no Facebook"
     share_on_orkut: "Compartilhar no Orkut"
@@ -275,3 +276,10 @@
   flag: "Denunciar"
   unflag: "Desfazer denúncia"
   privacy_policy: "Política de Privacidade"
+  about_page:
+    title: "Sobre o Meu Rio"
+    highlight_text: "O Meu Rio é um movimento democrático e apartidário, que usa ferramentas on-line para ligar os cidadãos do Rio de Janeiro e garantir que a sua voz oriente os processos de decisão que estão transformando a cidade."
+    on_meu_rio_you_can: "No Meu Rio você poderá..."
+    feature1_title: "Descobrir a realidade de outros cariocas"
+    feature2_title: "Bater uma bola sobre as questões da cidade"
+    feature3_title: "Assinar embaixo e construir um Rio melhor"

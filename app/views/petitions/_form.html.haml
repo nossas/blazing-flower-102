@@ -1,6 +1,8 @@
 .canvas.clearfix
   %h2= @petition.call_to_action_headline
   %p= raw @petition.call_to_action_text
+  %label.error.already_signed{:for => 'member_email'}
+    = raw(t('petition_show.already_signed_error'))
   
   =form_for @petition_signature, :remote => true, :update => { :success => ".take_action" }, :html => {'data-petition_id' => @petition.id} do |f|
     - if current_member.nil?
