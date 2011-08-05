@@ -4,12 +4,21 @@
     <%= f.input :excerpt %>
     <%= f.input :description %>
     <%= f.input :image, :as => :file %>
-    <%= f.input :featured_debate, :as => :select, :collection => @issue.debates %>
-    <%= f.input :debate_call_to_action, :as => :string %>
-    <%= f.input :featured_personal_story, :as => :select, :collection => @issue.personal_stories %>
-    <%= f.input :personal_story_call_to_action, :as => :string %>
-    <%= f.input :featured_petition, :as => :select, :collection => @issue.petitions %>
-    <%= f.input :petition_call_to_action, :as => :string %>
+    <%- unless @issue.debates.blank? %>
+      <p style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;">Select what Debate you want to feature on the Issue page. The blank option will not display the module at all.</p>
+      <%= f.input :featured_debate, :as => :select, :collection => @issue.debates %>
+      <%= f.input :debate_call_to_action, :as => :string %>
+    <%- end %>
+    <%- unless @issue.personal_stories.blank? %>
+      <p style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;">Select what Personal Story Video you want to feature on the Issue page. The blank option will not display the module at all.</p>
+      <%= f.input :featured_personal_story, :as => :select, :collection => @issue.personal_stories %>
+      <%= f.input :personal_story_call_to_action, :as => :string %>
+    <%- end %>
+    <%- unless @issue.petitions.blank? %>
+      <p style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;">Select what Petition you want to feature on the Issue page. The blank option will not display the module at all.</p>
+      <%= f.input :featured_petition, :as => :select, :collection => @issue.petitions %>
+      <%= f.input :petition_call_to_action, :as => :string %>
+    <%- end %>
   <% end %>
   <%= f.buttons %>
 <% end %>

@@ -1,5 +1,8 @@
 class Issue < ActiveRecord::Base
   validates_presence_of :name
+  validates_length_of :debate_call_to_action, :in => 60..80, :allow_blank => true
+  validates_length_of :petition_call_to_action, :in => 60..80, :allow_blank => true
+  validates_length_of :personal_story_call_to_action, :in => 60..80, :allow_blank => true
 
   has_many :petitions
   has_many :debates
