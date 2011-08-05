@@ -25,12 +25,18 @@ body.debates {
     .previous_comments {
       margin-bottom: 15px;
     }
+    .top_buttons{
+    }
     .subtitle {
       padding: 0 20px 10px 0px;
       border-bottom: 1px solid $blue;
       #join_the_coversation {
         font-size: 18px;
         font-weight: normal !important;
+      }
+      
+      .comments_tooltip {
+        margin-top: -3px;
       }
     }
     .comment {
@@ -90,6 +96,7 @@ body.debates {
       }
       .btn {
         float: right !important;
+        margin-right: 5px;
       }
     }
   }
@@ -103,7 +110,7 @@ body.debates {
     @include border-radius(4px);
     padding: 20px;
     margin: 10px 0;
-    @include box-shadow(gray 0px 0 5px 1px);
+    @include box-shadow($light_gray 0px 0 5px 1px);
     h2{
       color: $orange;
       text-align: center;
@@ -220,5 +227,15 @@ body.debates {
         text-align: justify;
       }
     }
+  }
+  .quotes { margin-bottom: 20px; }
+  .texts {
+    .author1, .author2 { 
+      text-align: justify; 
+    }
+  }
+
+  #bottom_buttons {
+    padding-bottom: 10px;
   }
 }

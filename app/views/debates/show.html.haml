@@ -9,6 +9,11 @@
   <div class="addthis_toolbox addthis_default_style ">
   <a class="addthis_counter addthis_pill_style"></a>
   </div>
+  :javascript
+    var addthis_config = {
+              services_compact: 'email, facebook, orkut, twitter',
+              services_exclude: 'formspring'
+    }
   <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e3043431fd4aaea"></script>
   <!-- AddThis Button END -->
 
@@ -51,36 +56,38 @@
 .grid_10.push_1
   .comments
     %a{:name => "comments_top"}
-    .previous_comments
       %h3 Comment prompt
       = image_tag "/assets/comments_arrow.png", :id => "comments_arrow"
-      .subtitle
+    .subtitle
+      -if @comment
+        = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
+      -else
+        =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "comment_login"
+
+      .comments_tooltip= @comments.count
+      .clearfix
+    .previous_comments
+      - @comments.first(5).each do |comment|
+        = render :partial => "comments/comment", :locals => { :comment => comment }
+    -if !@debate.comments.empty?
+      #bottom_buttons
+        %a{:name => "comments_bottom"}
         -if @comment
           = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
         -else
           =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "comment_login"
-
-        .comments_tooltip= @comments.count
-        .clearfix
-      - @comments.first(5).each do |comment|
-        = render :partial => "comments/comment", :locals => { :comment => comment }
-      -if !@debate.comments.empty?
-        #bottom_buttons
-          %a{:name => "comments_bottom"}
-          -if @comment
-            = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
-          -else
-            =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "comment_login"
-          #load_more= t("debate_show.load_more")
-      - if @comment
-        #new_comment
-          #close
-            =image_tag "/assets/close.png"
-          = form_for @comment, :remote => true, :html => { 'data-type' => :html } do |form|
-            = image_tag current_member.image_url
-            = form.text_area :content, :class => 'required', :placeholder => "Comment prompt" 
-            = hidden_field(:debate, :id)
-            = form.submit "Enviar", :class => "btn"
+        #load_more= t("debate_show.load_more")
+    - if @comment
+      #new_comment
+        #close
+          =image_tag "/assets/close.png"
+        = form_for @comment, :remote => true, :html => { 'data-type' => :html } do |form|
+          = image_tag current_member.image_url
+          = form.text_area :content, :class => 'required', :placeholder => "Comment prompt" 
+          = hidden_field(:debate, :id)
+          = form.submit "Enviar", :class => "btn"
 :javascript
   var flag_label = "#{t("flag")}"
   var unflag_label = "#{t("unflag")}"
+=content_for :javascripts do
+  :javascript
