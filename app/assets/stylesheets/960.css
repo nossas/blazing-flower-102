@@ -34,11 +34,13 @@ body {
 .grid_1,
 .grid_2,
 .grid_3,
+.grid_3-5,
 .grid_4,
 .grid_5,
 .grid_6,
 .grid_7,
 .grid_8,
+.grid_8-5,
 .grid_9,
 .grid_10,
 .grid_11,
@@ -113,6 +115,10 @@ body {
   width: 140px;
 }
 
+.container_12 .grid_3-5 {
+  width: 260px;
+}
+
 .container_12 .grid_4 {
   width: 300px;
 }
@@ -127,6 +133,10 @@ body {
 
 .container_12 .grid_8 {
   width: 620px;
+}
+
+.container_12 .grid_8-5 {
+  width: 660px;
 }
 
 .container_12 .grid_10 {

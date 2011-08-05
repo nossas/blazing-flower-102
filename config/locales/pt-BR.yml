@@ -242,19 +242,20 @@
       member:
         first_name: "Nome"
         last_name: "Sobrenome"
-        email: "Endereço de Email"
+        email: "E-mail"
         zona: "Zona"
       petition_signature:
         comment: "Comentário"
 
   petition_show:
-    goal: "Meta: %{goal}"
+    goal: "Objetivo: %{goal}"
     signatures:
       zero: "Nenhum membro assinou esta petição"
       one: "<span class='counter'>1</span> membro assinou esta petição"
-      other: "<span class='counter'>%{count}</span> membros assinaram esta petição"
+      other: "<span class='counter'>%{count}</span> pessoas assinaram esta petição."
     comment_tip: "140 caracteres"
-    recent_comments: "COMENTÁRIOS RECENTES"
+    recent_comments: "Comentários Recentes"
+    already_signed_error: "Você já assinou embaixo. Agora <a class=\"show_taf\" href=\"#share\">espalhe essa ideia</a>."
     already_signed: "%{name}, você já assinou esta petição! Agora conte isso para os seus amigos:"
     share_on_facebook: "Compartilhar no Facebook"
     share_on_orkut: "Compartilhar no Orkut"
@@ -265,6 +266,8 @@
   debate_show:
     join_the_conversation: "Participe da Discussão!"
     have_joined_the_conversation: "pessoas participam da discussão"
+  video_show:
+    page_title: "Page title"
   omniauth_callbacks_google_custom_domain:
     ask_for_email: "Por favor informe o seu email para completar o registro"
   login: "Entrar"
@@ -272,3 +275,11 @@
   join_us: "Junte-se a nós"
   flag: "Denunciar"
   unflag: "Desfazer denúncia"
+  privacy_policy: "Política de Privacidade"
+  about_page:
+    title: "Sobre o Meu Rio"
+    highlight_text: "O Meu Rio é um movimento democrático e apartidário, que usa ferramentas on-line para ligar os cidadãos do Rio de Janeiro e garantir que a sua voz oriente os processos de decisão que estão transformando a cidade."
+    on_meu_rio_you_can: "No Meu Rio você poderá..."
+    feature1_title: "Descobrir a realidade de outros cariocas"
+    feature2_title: "Bater uma bola sobre as questões da cidade"
+    feature3_title: "Assinar embaixo e construir um Rio melhor"

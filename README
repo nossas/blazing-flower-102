@@ -1,3 +1,17 @@
+Getting Started:
+
+ - Ensure you have PostGREs running
+ - For Cucumber you will need to install the chromedriver from http://code.google.com/p/selenium/downloads/list
+
+$ bundle install
+$ rake db:migrate
+$ rake db:test:prepare
+
+
+Generating HTML output for Cucumber:
+$ cucumber features --format html --out public/cucumber.html
+
+
 Google OAuth2
 
 Development:
@@ -5,4 +19,5 @@ Client ID: 924257413195.apps.googleusercontent.com
 Client secret: rQNBq42mXN_RE7SGFBOlNkKG
 Redirect URIs: http://localhost:3000/oauth2callback
 JavaScript origins:	http://localhost:3000
+
 

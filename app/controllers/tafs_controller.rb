@@ -1,8 +1,7 @@
 class TafsController < ApplicationController
   def show
-    petition = Petition.where(:custom_path => params[:custom_path]).first
-    return render_404 unless petition and petition.state == 'published'
+    @taf = Petition.find_by_custom_path(params[:custom_path]).taf
 
-    @taf = petition.taf
+    render :partial => "petitions/taf", :layout => false, :content_type => "text/html"
   end
 end

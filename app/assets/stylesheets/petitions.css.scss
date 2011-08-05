@@ -7,14 +7,6 @@
 
 body.petitions {
 
-  .issue_name {
-    text-transform: uppercase;
-    color: $blue;
-    font-size: 14px;
-    font-family: Akagi-Book;
-    padding-top: 10px;
-  }
-
   h1 {
     margin-bottom: 36px;
   }
@@ -65,7 +57,7 @@ body.petitions {
     @include box-shadow(3px 3px 3px #ccc);
     @include border-radius(5px);
     margin-bottom: 10px;
-    padding: 24px;
+    padding: 16px 24px;
     img { float: left; }
     .share_text { 
       color: $dark_gray;
@@ -82,6 +74,12 @@ body.petitions {
       img { margin-right: 10px }
     }
     .member_info { margin-bottom: 20px }
+    .already_signed{
+      width: 97%;
+      padding: 5px;
+      background-color: #fae2d1;
+      display: none;
+    }
     h2 { text-transform: uppercase; }
   }
 

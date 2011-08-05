@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727150958) do
+ActiveRecord::Schema.define(:version => 20110802185318) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -117,6 +117,12 @@ ActiveRecord::Schema.define(:version => 20110727150958) do
     t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "featured_petition_id"
+    t.integer  "featured_debate_id"
+    t.integer  "featured_personal_story_id"
+    t.text     "debate_call_to_action"
+    t.text     "petition_call_to_action"
+    t.text     "personal_story_call_to_action"
   end
 
   create_table "members", :force => true do |t|
@@ -131,6 +137,18 @@ ActiveRecord::Schema.define(:version => 20110727150958) do
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
+
+  create_table "personal_stories", :force => true do |t|
+    t.text     "title"
+    t.text     "description"
+    t.integer  "issue_id"
+    t.string   "connected_action"
+    t.text     "video_embed_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "thumbnail"
+    t.text     "video_url"
+  end
 
   create_table "petition_signatures", :force => true do |t|
     t.integer  "member_id",        :null => false

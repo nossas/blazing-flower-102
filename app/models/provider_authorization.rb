@@ -16,14 +16,14 @@ class ProviderAuthorization < ActiveRecord::Base
     end
   end
 
-  def self.find_for_google_apps_oauth(access_token, signed_in_resource=nil)
-    if authorization = ProviderAuthorization.where(:provider => 'google_apps', :uid => access_token['uid']).first
+  def self.find_for_google_oauth(access_token, signed_in_resource=nil)
+    if authorization = ProviderAuthorization.where(:provider => 'google', :uid => access_token['uid']).first
       authorization
     else
-      m = Member.find_for_google_apps_oauth(access_token, signed_in_resource)
+      m = Member.find_for_google_oauth(access_token, signed_in_resource)
       # For cases where google does not give us the email address
       return false unless m
-      self.create(:member => m, :provider => 'google_apps', :uid => access_token['uid'])
+      self.create(:member => m, :provider => 'google', :uid => access_token['uid'])
     end
   end
 end

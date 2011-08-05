@@ -29,6 +29,7 @@ class PetitionSignaturesController < ApplicationController
       @new_signature = true
     end
 
+    @taf = @petition.taf
     render :partial => "petitions/taf", :layout => false, :content_type => "text/html"
 
   end

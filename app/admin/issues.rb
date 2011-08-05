@@ -7,15 +7,7 @@ ActiveAdmin.register Issue do
     end
   end
 
-  form do |f|
-    f.inputs "Issue Information" do
-      f.input :name, :as => :string
-      f.input :excerpt
-      f.input :description
-      f.input :image, :as => :file
-    end
-    f.buttons
-  end
+  form :partial => "form"
 
   show do
     div({:class => 'panel'}) do

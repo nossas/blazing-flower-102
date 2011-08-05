@@ -59,20 +59,7 @@ body > .main {
 
   p {
     font-size: 15px;
-  }
-}
-
-#facebox .popup .content {
-  text-align: center;
-  display: block;
-}
-
-.facebook_btn, .orkut_btn, .twitter_btn, .email_btn {
-  img {
-    width: 48px;
-    &:hover {
-      @include scale(1.1, 0);
-    }
+    line-height: 140%;
   }
 }
 
@@ -93,7 +80,7 @@ body > .main {
   text-shadow: 0 0 1px black !important;
   padding: 10px !important;
   line-height: 100%;
-  margin: 0 !important;
+  margin: 0;
   display: inline-block;
   &:hover {
     background: $pink !important;
@@ -150,6 +137,14 @@ a {
 }
 
 #join_us_btn { padding-right: 20px }
+
+.issue_name {
+  text-transform: uppercase;
+  color: $blue;
+  font-size: 14px;
+  font-family: Akagi-Book;
+  padding-top: 10px;
+}
 
 .small {
   font-size: 10.5px;

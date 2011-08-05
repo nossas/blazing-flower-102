@@ -1,0 +1,33 @@
+.grid_12.alpha
+  %h1= @issue.name
+.grid_8-5.alpha
+  .intro
+    %img{ :src => @issue.image.url(:large), :width => "630", :height => "435" }
+    .excerpt
+      %p=@issue.excerpt
+  .description.clearfix
+    %p=@issue.description
+    .see_more=link_to "Read More >>", '#' 
+.grid_3-5.omega
+  -if @issue.featured_petition
+    .block.petition
+      %p.title Assinar embaixo e contruir um Rio
+      .right=image_tag("petition_icon.png")
+      %p=@issue.petition_call_to_action
+      =image_tag("comments_arrow.png", :class => "block_arrow")
+      =link_to "Assine Embaixo", custom_petition_path(@issue.featured_petition.custom_path), :class => 'btn'
+  -if @issue.featured_debate
+    .block.debate
+      %p.title Bater uma bola sobre as quest&otilde;es da cidade
+      .right=image_tag("debate_icon.png")
+      %p=@issue.debate_call_to_action
+      =image_tag("comments_arrow.png", :class => "block_arrow")
+      =link_to "Dê Sua Opinião", debate_path(@issue.featured_debate), :class => 'btn'
+  -if @issue.featured_personal_story
+    .block.personal_story
+      %p.title Descobrir a realidade de outros cariocas
+      .right=image_tag("video_icon.png")
+      %p=@issue.personal_story_call_to_action
+      =image_tag("comments_arrow.png", :class => "block_arrow")
+      =link_to "Descubra esse Rio", issue_personal_story_path(@issue.id, @issue.featured_personal_story.id), :class => 'btn'
+  .see_more=link_to "See More >>", '#' 

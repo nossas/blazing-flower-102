@@ -9,16 +9,21 @@ $(document).ready(function(){
 
   //show and hide comment box
   $new_comment.hide();
-
-  $('.join_the_conversation').bind('click', function(e){
-    $new_comment.show(); 
-    $("#bottom_buttons").hide();
-  });
-
-  $('#close').bind('click', function(){
+  function closeNewComment(){
+    window.location.hash = 'comments_bottom';
+    $('#comment_content').val('');
     $new_comment.hide(); 
     $("#bottom_buttons").show();
+  }
+
+  $(window).bind('hashchange', function(){
+    if(window.location.hash == '#new_comment'){
+      $new_comment.show(); 
+      $("#bottom_buttons").hide();
+    }
   });
+
+  $('#close').bind('click', closeNewComment);
 
   //comment submissision and validation
   $form.validate({
@@ -41,6 +46,7 @@ $(document).ready(function(){
       $comment_count.text(parseInt($comment_count.text()) + 1);
     }).bind("ajax:complete", function(evt, xhr, status){
       $submitButton.val($submitButton.data('origText'));
+      closeNewComment();
     }).bind("ajax:error", function(evt, xhr, status, error){
       $form.prepend("There were errors with the the submission. Please reload the page and try again.");
     });

@@ -18,7 +18,8 @@
     .date= l @debate.created_at.to_date, :format => :long
     .little_ball ·
     .comments_counter 
-      .comments_tooltip= @comments.count
+      %a.comments_link{:href=> '#comments_top'}
+        .comments_tooltip= @comments.count
       = t("debate_show.have_joined_the_conversation")
 
 .grid_10.prefix_1
@@ -47,21 +48,29 @@
       .author1= raw @debate.text_side_1.gsub("\n", "<br /><br />")
       .author2= raw @debate.text_side_2.gsub("\n", "<br /><br />")
 
-- if !@debate.comments.empty? || @comment
-  .grid_10.push_1
-    .comments
-      .previous_comments
-        %h3 Comment prompt
-        = image_tag "/assets/comments_arrow.png", :id => "comments_arrow"
-        .subtitle
+.grid_10.push_1
+  .comments
+    %a{:name => "comments_top"}
+    .previous_comments
+      %h3 Comment prompt
+      = image_tag "/assets/comments_arrow.png", :id => "comments_arrow"
+      .subtitle
+        -if @comment
           = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
-          .comments_tooltip= @comments.count
-          .clearfix
-        - @comments.first(5).each do |comment|
-          = render :partial => "comments/comment", :locals => { :comment => comment }
+        -else
+          =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "comment_login"
+
+        .comments_tooltip= @comments.count
+        .clearfix
+      - @comments.first(5).each do |comment|
+        = render :partial => "comments/comment", :locals => { :comment => comment }
       -if !@debate.comments.empty?
         #bottom_buttons
-          = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
+          %a{:name => "comments_bottom"}
+          -if @comment
+            = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
+          -else
+            =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "comment_login"
           #load_more= t("debate_show.load_more")
       - if @comment
         #new_comment
@@ -69,7 +78,7 @@
             =image_tag "/assets/close.png"
           = form_for @comment, :remote => true, :html => { 'data-type' => :html } do |form|
             = image_tag current_member.image_url
-            = form.text_area :content, :class => 'required'
+            = form.text_area :content, :class => 'required', :placeholder => "Comment prompt" 
             = hidden_field(:debate, :id)
             = form.submit "Enviar", :class => "btn"
 :javascript

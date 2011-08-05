@@ -1,9 +1,9 @@
 source :rubyforge
 
-gem "devise", "1.4.2"
+gem "devise", "~> 1.4.2"
 
 # gem 'rails',  :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
-gem 'rails', '3.1.0.rc4'
+gem 'rails', '3.1.0.rc5'
 gem 'jquery-rails'
 
 # External authentication
@@ -12,41 +12,43 @@ gem 'oa-openid', :require => 'omniauth/openid'
 
 # Asset template engines
 gem 'haml'
-gem 'sass-rails', "~> 3.1.0.rc"
-gem 'coffee-script'
-gem 'uglifier'
+# gem 'sass-rails'
+# gem 'coffee-script'
+# gem 'uglifier'
 
-gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git', :branch => "rails-3-1"
+# Asset template engines
+group :assets do
+  gem 'sass-rails', "~> 3.1.0.rc"
+  gem 'coffee-script'
+  gem 'uglifier'
+end
+
+gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 # gem 'activeadmin'
 
 # 3 Fixes for activeadmin / rails 3.1
-gem "meta_search",    '>= 1.1.0.pre'
+gem "meta_search",    '>= 1.1.0.pre2'
 gem "fastercsv"
 gem "kaminari"
 
 # Fix for Heroku, try upgrading with Rails 3.1
-gem "rake", "0.8.7"
+# gem "rake", "0.8.7"
 
 gem 'state_machine'
 gem 'paperclip'
 
 gem 'cancan'
 
-# gem 'dynamic_form'
-
 gem 'aws-s3'
-gem 'newrelic_rpm'
+gem 'httparty'
 
 # Database related gems
 gem 'pg'
 gem 'foreigner'
 
-# gem 'geokit-rails3'
-
-gem "faker"
-
 #including so we can run the complete petition rake task for demos
 gem 'factory_girl_rails'
+gem "faker"
 
 group :development, :test do
   gem 'heroku'
@@ -78,7 +80,5 @@ end
 group :production do
   # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
   gem 'thin'
-
-  # The below is a fix until Rails 3.1rc5 arrives
-  gem 'therubyracer-heroku', '0.8.1.pre3'
+  # gem 'newrelic_rpm'
 end

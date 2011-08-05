@@ -182,7 +182,7 @@ Devise.setup do |config|
   # config.navigational_formats = [:"*/*", "*/*", :html]
 
   # The default HTTP method used to sign out a resource. Default is :get.
-  # config.sign_out_via = :get
+  config.sign_out_via = :delete
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
@@ -207,9 +207,12 @@ Devise.setup do |config|
   else
     config.omniauth :facebook, "245105508840675", "7079867525c8cdf6a0e57d5dc20d5029", {:client_options => {:ssl => {:ca_path => '/etc/ssl/certs', :ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
   end
-  
-  config.omniauth :google_apps, OpenID::Store::Filesystem.new('/tmp'), :domain => 'gmail.com'
-      # For heroku we need to configure it separatly for production env
-      #{:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
+
+  # config.omniauth :google_apps, OpenID::Store::Filesystem.new('/tmp'), :domain => 'gmail.com'
+
+  config.omniauth :open_id, OpenID::Store::Filesystem.new('/tmp'), :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id'
+
+  # For heroku we need to configure it separatly for production env
+  # {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
 
 end

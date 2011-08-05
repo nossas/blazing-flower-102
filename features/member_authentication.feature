@@ -3,13 +3,13 @@ Feature: 3rd party sign-in
   as a guest
   I should be able to login via 3rd party sites
 
-  Scenario: 
+  Scenario: Login Button
     Given I am not logged in
     When go to the home page
     Then I should see "Login"
-  
-  @omniauth_test
-  Scenario: 
+
+  @omniauth_test @javascript
+  Scenario: Logout Button
     Given I am logged in via Facebook
     When go to the home page
-    Then I should see "Logout"
+    Then I should see "Sair"

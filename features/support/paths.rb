@@ -14,10 +14,20 @@ module NavigationHelpers
       '/admin'
     when /the admin users page/
       '/admin/admin_users'
+    when /an issue page/
+      issue_path(Issue.first)
     when /the first petition page/
       custom_petition_path(Petition.first.custom_path)
     when /this debate page/
       debate_path(Debate.first)
+    when /the petition taf page/
+      "#{custom_petition_path(Petition.first.custom_path)}#share"
+    when /the personal stories page for an issue/
+      issue_personal_stories_path(Issue.first.id)
+    when /the personal stories page with a story id in the URL for an issue/
+      issue_personal_story_path(Issue.first.id, PersonalStory.last.id)
+    when /the about page/
+      page_path("about")
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

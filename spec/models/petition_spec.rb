@@ -160,13 +160,13 @@ describe Petition do
     it { should have_one :taf }
   end
 
-  describe "export petition signature list" do
+  describe "#export_to_csv" do
     before do
-      @p = Factory.create(:complete_petition) 
-      4.times do 
-        m = Factory.create(:member)
-        PetitionSignature.create({:petition => @p, :member => m})
-      end
+      @p = Factory.create(:complete_petition, :title => "petition-csv-export-test")
+      @p.publish!
+
+      m = Factory.create(:member, :first_name => "Diogo", :last_name => "Provey", :email => 'ren@purpose.com', :created_at => "2011-07-28 12:08:11 -0400")
+      PetitionSignature.create({:petition => @p, :member => m})
     end
 
     after do
@@ -177,7 +177,12 @@ describe Petition do
     it "should export a list of members who have signed the petition" do
       @p.export_to_csv
       File.exists?(Rails.root.to_s + "/tmp/signatures-#{@p.title}.csv").should be_true
+
+      generated_file = File.open(Rails.root.to_s + "/tmp/signatures-#{@p.title}.csv").read
+      generated_file.should include("id,first_name,last_name,email,zona,celular,created_at")
+      generated_file.should include("Diogo,Provey,ren@purpose.com,Centro,,2011-07-28 16:08:11 UTC")
     end
+
   end
 
 end

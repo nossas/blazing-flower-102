@@ -1,0 +1,43 @@
+@import "vars.css.scss";
+@import "mixins.css.scss";
+
+body.personal_stories {
+
+  .title {
+    text-transform: uppercase;
+    color: $blue;
+    font-size: 16px;
+  }
+
+  h3 {
+    font-weight: 600;
+    color: $dark_gray;
+    margin-top: 10px;
+  }
+
+  .current.grid_12 {
+    border-top: 2px solid $blue;
+    border-bottom: 1px solid $blue;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0 0 25px;
+  }
+
+  .play_button {
+    margin-top: -105px;
+    margin-left: 70px;
+    padding-bottom: 28px;
+    display: none;
+  }
+  
+  .thumbnail.current {
+    .play_button {
+      display: block;
+    }
+  }
+
+  .thumbnail:hover {
+    cursor: pointer;
+  }
+
+}

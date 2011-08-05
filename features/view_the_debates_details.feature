@@ -3,21 +3,16 @@ Feature: View the debate's details
   As a guest
   I want to view the debate's details
 
-  @omniauth_test
-  Scenario: The one where I am logged in and there is comments
+  @omniauth_test @javascript
+  Scenario: The one where I am logged in
     Given I am logged in via Facebook
     And There is a commented debate
     When I go to this debate page
     Then I should see the debate comment
     And I should see the new comment form
 
-  Scenario: The one where I am not logged in and there is comments
+  Scenario: The one where I am not logged in
     Given There is a commented debate
     When I go to this debate page
     Then I should see the debate comment
     And I should not see the new comment form
-
-  Scenario: The one where I am not logged in and there is no comments
-    Given There is a debate
-    When I go to this debate page
-    Then I should not see the whole white comment box

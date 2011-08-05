@@ -37,3 +37,7 @@
           %strong= "#{petition_signature.member.name}, #{petition_signature.member.zona}"
         -else
           %strong= "#{petition_signature.member.name}"
+
+- content_for :javascripts do
+  :javascript
+    $(document).ready(loadTAF);

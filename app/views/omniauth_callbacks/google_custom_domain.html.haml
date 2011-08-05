@@ -1,5 +1,4 @@
-%h1= t("omniauth_callbacks_google_custom_domain.ask_for_email")
+%h1 Por favor informe o seu email para completar o registro
 =form_tag({:controller => "omniauth_callbacks", :action => "google_custom_domain_complete"}, :method => "post") do
-  %label Please enter your email
   =text_field_tag(:email)
   %input{ :type => :submit, :value => "Submit" }
