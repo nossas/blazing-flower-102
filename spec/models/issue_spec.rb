@@ -2,6 +2,12 @@ require 'spec_helper'
 
 describe Issue do
   it { should validate_presence_of :name } 
+  it { should_not allow_value('This is way toooooooooo looooooooooooooooong it has so many characters try counting them all I bet you can not do it. It is longer than a tweet. Or maybe it is not I have not actually counted.').for(:debate_call_to_action) }
+  it { should_not allow_value('This is way toooooooooo looooooooooooooooong it has so many characters try counting them all I bet you can not do it. It is longer than a tweet. Or maybe it is not I have not actually counted.').for(:petition_call_to_action) }
+  it { should_not allow_value('This is way toooooooooo looooooooooooooooong it has so many characters try counting them all I bet you can not do it. It is longer than a tweet. Or maybe it is not I have not actually counted.').for(:personal_story_call_to_action) }
+  it { should allow_value('This is not too long. It is practically perfect in every way.').for(:debate_call_to_action) }
+  it { should allow_value('This is not too long. It is practically perfect in every way.').for(:petition_call_to_action) }
+  it { should allow_value('This is not too long. It is practically perfect in every way.').for(:personal_story_call_to_action) }
 
   describe "#petitions" do
     it { should have_many :petitions }
