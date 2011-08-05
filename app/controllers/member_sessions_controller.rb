@@ -2,6 +2,11 @@ class MemberSessionsController < Devise::SessionsController
   def destroy
     super
     session[:fb_token] = nil
+    session[:google_login] = nil
+  end
+
+  def google_logout
+    redirect_to("https://www.google.com/accounts/Logout")
   end
 
   def facebook_logout

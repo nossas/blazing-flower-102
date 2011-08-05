@@ -42,6 +42,7 @@ describe OmniauthCallbacksController do
   describe "GET google" do
     subject{ get :google }
     it "should make session[:google_login] true" do
+      controller.stub(:auth_data).and_return(GOOGLE_APP_VALID_AUTH_DATA) 
       subject
       session[:google_login].should be_true
     end

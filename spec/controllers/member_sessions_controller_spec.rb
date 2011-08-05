@@ -6,6 +6,15 @@ describe MemberSessionsController do
     request.env["devise.mapping"] = Devise.mappings[:member]
   end
 
+  describe "#logout_google" do
+    before do
+      session[:google_login] = true
+      get :google_logout
+    end
+    subject{ response }
+    it{ should redirect_to("https://www.google.com/accounts/Logout") }
+  end
+
   describe "#logout_facebook" do
     before do
       session[:fb_token] = "api_key|session_key"
@@ -19,8 +28,10 @@ describe MemberSessionsController do
     before do
       sign_in Factory(:member)
       session[:fb_token] = "api_key|session_key"
+      session[:google_login] = true
       get :destroy
     end
     it{ session[:fb_token].should be_nil }
+    it{ session[:google_login].should be_nil }
   end
 end

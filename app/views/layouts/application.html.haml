@@ -16,6 +16,10 @@
           %p=current_member.email
           - if session[:fb_token]
             %p=link_to t("logout"), facebook_logout_path
+          - elsif session[:google_login]
+            %p
+              %a{:href => google_logout_path, :target => 'google_logout_iframe'}= t('logout')
+              %iframe#google_logout_iframe{:name => "google_logout_iframe", :style=> "display: none;"}
           - else
             %p=link_to t("logout"), destroy_member_session_path
         - else
