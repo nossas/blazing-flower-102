@@ -12,7 +12,7 @@ Feature: Managing Tell a Friend pages
   Scenario: New TAF form
     Given I am logged in to the admin section
     And I am on the admin tafs page
-    When I follow "New Taf"
+    When I follow "Novo(a) Taf"
     Then I should see a new taf form
 
   Scenario: New Taf creation

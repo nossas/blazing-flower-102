@@ -13,7 +13,7 @@ Feature: Managing Personal Stories
     Given I am logged in to the admin section
     And 3 personal stories exist
     When I follow "Personal Stories"
-    And I click "New Personal Story"
+    And I click "Novo(a) Personal Story"
     And I fill in the personal story form with correct information
     And I press "Create Personal story"
     Then I should see "Personal story was successfully created."

@@ -12,5 +12,5 @@ Feature: Managing Issues
   Scenario: New Issue form
     Given I am logged in to the admin section
     And I am on the admin issues page
-    When I follow "New Issue"
+    When I follow "Novo(a) Issue"
     Then I should see new issue form
