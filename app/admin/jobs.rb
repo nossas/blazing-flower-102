@@ -5,7 +5,6 @@ ActiveAdmin.register Job do
     column "Options" do |e| 
       span link_to 'Show', admin_job_path(e)
       span link_to 'Edit', edit_admin_job_path(e)
-      span link_to 'Delete', destroy_admin_job_path(e)
     end
   end
 
