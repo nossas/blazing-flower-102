@@ -1,3 +1,4 @@
+# coding: UTF-8
 require 'spec_helper'
 
 describe Taf do
@@ -24,9 +25,9 @@ describe Taf do
 
       it "should validate orkut_title" do
         @taf.valid?.should be_false
-        @taf.errors.messages[:orkut_title][0].should == "can't be blank"
-        @taf.errors.messages[:orkut_link][0].should == "can't be blank"
-        @taf.errors.messages[:orkut_message][0].should == "can't be blank"
+        @taf.errors.messages[:orkut_title][0].should == "não pode ficar em branco"
+        @taf.errors.messages[:orkut_link][0].should == "não pode ficar em branco"
+        @taf.errors.messages[:orkut_message][0].should == "não pode ficar em branco"
       end
     end
   end
@@ -44,9 +45,9 @@ describe Taf do
 
       it "should validate properties" do
         @taf.valid?.should be_false
-        @taf.errors.messages[:facebook_title][0].should == "can't be blank"
-        @taf.errors.messages[:facebook_link][0].should == "can't be blank"
-        @taf.errors.messages[:facebook_message][0].should == "can't be blank"
+        @taf.errors.messages[:facebook_title][0].should == "não pode ficar em branco"
+        @taf.errors.messages[:facebook_link][0].should == "não pode ficar em branco"
+        @taf.errors.messages[:facebook_message][0].should == "não pode ficar em branco"
       end
     end
   end
@@ -64,8 +65,8 @@ describe Taf do
 
       it "should validate properties" do
         @taf.valid?.should be_false
-        @taf.errors.messages[:tweet][0].should == "can't be blank"
-        @taf.errors.messages[:twitter_url][0].should == "can't be blank"
+        @taf.errors.messages[:tweet][0].should == "não pode ficar em branco"
+        @taf.errors.messages[:twitter_url][0].should == "não pode ficar em branco"
       end
     end
   end
@@ -83,8 +84,8 @@ describe Taf do
 
       it "should validate properties" do
         @taf.valid?.should be_false
-        @taf.errors.messages[:email_subject][0].should == "can't be blank"
-        @taf.errors.messages[:email_message][0].should == "can't be blank"
+        @taf.errors.messages[:email_subject][0].should == "não pode ficar em branco"
+        @taf.errors.messages[:email_message][0].should == "não pode ficar em branco"
       end
     end
   end

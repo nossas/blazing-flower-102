@@ -31,7 +31,7 @@ Feature: Signing a Petition
     And I am on the first petition page
     When I enter my member information in the petition signature form
     And I press the submit button
-    Then I should see "You've already signed this petition."
+    Then I should see "você já assinou esta petição! Agora conte isso para os seus amigos:"
 
   @javascript
   Scenario: Signing a Petition (existing member, existing petition signature) with javascript
@@ -55,9 +55,9 @@ Feature: Signing a Petition
     And I am on the first petition page
     When I press the submit button
     Then I should see a petition signature form
-    And I should see "Email can't be blank"
-    And I should see "First_name can't be blank"
-    And I should see "Last_name can't be blank"
+    And I should see "Email não pode ficar em branco não é válido"
+    And I should see "First_name não pode ficar em branco"
+    And I should see "Last_name não pode ficar em branco"
 
   @omniauth_test @javascript
   Scenario: Logged in via 3th party service

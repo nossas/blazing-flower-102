@@ -6,7 +6,7 @@ Feature: 3rd party sign-in
   Scenario: Login Button
     Given I am not logged in
     When go to the home page
-    Then I should see "Login"
+    Then I should see "Entrar"
 
   @omniauth_test @javascript
   Scenario: Logout Button
