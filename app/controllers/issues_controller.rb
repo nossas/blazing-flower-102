@@ -5,6 +5,7 @@ class IssuesController < ApplicationController
   end
 
   def archive
+    @issues = Issue.all
     @issue = Issue.where(:id => params[:id]).first
 
     articles_unsorted = @issue.petitions + @issue.debates + @issue.personal_stories
@@ -26,6 +27,10 @@ class IssuesController < ApplicationController
       @articles = @articles.first(10)
       @articles_start = 1
       @articles_end = @articles.length
+    end
+
+    if request.xhr?
+      render :json => {:articles => @articles, :issue => @issue, :start => @articles_start, :end => @articles_end, :count => @article_count, :page => @page }
     end
   end
 

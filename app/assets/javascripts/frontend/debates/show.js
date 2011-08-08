@@ -29,7 +29,6 @@ $(document).ready(function(){
   });
 
   $('#new_comment').hide();
-  console.log("hiding comments");
 
   $('.join_the_conversation').bind('click', openNewComment);
 

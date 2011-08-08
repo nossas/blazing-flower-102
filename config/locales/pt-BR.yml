@@ -266,6 +266,9 @@
   debate_show:
     join_the_conversation: "Participe da Discussão!"
     have_joined_the_conversation: "pessoas participam da discussão"
+  issue_show:
+  issue_archive:
+    archive: "Arquivo"
   video_show:
     page_title: "Page title"
   omniauth_callbacks_google_custom_domain:

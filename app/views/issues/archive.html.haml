@@ -1,10 +1,16 @@
-%h1.grid_12= @issue.name
+%h1.grid_12= t("issue_archive.archive")
 
 -unless @articles.nil?
   .head_info.grid_12
     .grid_3.alpha
-      =form_tag do 
-        =select_tag(:issue, options_from_collection_for_select(Issue.all, "id", "name"))
+      %dl.dropdown
+        %dt
+          %a{:href => "#" }
+            %span= @issue.name
+        %dd
+          %ul
+            -@issues.each do |issue|
+              %li=link_to issue.name, issue_archive_path(issue.id)
     .grid_3.prefix_6.omega
       .count= "Displaying #{@articles_start}-#{@articles_end} of #{@article_count}"
       -unless @articles_start < 10
@@ -12,27 +18,5 @@
       -unless @articles_end >= @article_count 
         .arrow.next=link_to image_tag("archive_arrow_right.png"), issue_archive_page_path(@issue.id, @page + 1)
     .clearfix
-  -@articles.each do |article|
-    .article.grid_12
-      -if article.class == Debate
-        .grid_2.alpha
-          =image_tag "archive_debate_icon.png"
-        .grid_8.omega
-          =link_to "#{article.title} >>", debate_path(article.id), :class => "title" 
-          .date=article.created_at.strftime("%d %B %Y")
-          .excerpt= article.question
-      -elsif article.class == PersonalStory
-        .grid_2.alpha
-          =image_tag "archive_video_icon.png"
-        .grid_8.omega
-          =link_to "#{article.title} >>", issue_personal_story_path(@issue.id, article.id), :class => "title"
-          .date=article.created_at.strftime("%d %B %Y")
-          .excerpt= article.excerpt
-      -elsif article.class == Petition
-        .grid_2.alpha
-          =image_tag "archive_petition_icon.png"
-        .grid_8.omega
-          =link_to "#{article.headline} >>", custom_petition_path(article.custom_path), :class => "title" 
-          .date=article.created_at.strftime("%d %B %Y")
-          .excerpt= article.short_description
-
+  .articles
+    =render :partial => "articles"
