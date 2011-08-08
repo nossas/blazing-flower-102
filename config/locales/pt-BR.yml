@@ -248,10 +248,10 @@
         comment: "Comentário"
 
   petition_show:
-    goal: "Objetivo: %{goal}"
+    goal: "Meta: %{goal}"
     signatures:
-      zero: "Nenhum membro assinou esta petição"
-      one: "<span class='counter'>1</span> membro assinou esta petição"
+      zero: "Nenhuma pessoa assinou esta petição"
+      one: "<span class='counter'>1</span> pessoa assinou esta petição"
       other: "<span class='counter'>%{count}</span> pessoas assinaram esta petição."
     comment_tip: "140 caracteres"
     recent_comments: "Comentários Recentes"

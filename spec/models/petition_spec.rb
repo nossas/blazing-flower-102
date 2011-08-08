@@ -90,7 +90,7 @@ describe Petition do
 
       it "should validate comment field properties" do
         @petition.valid?.should be_false
-        @petition.errors.messages[:comment_question][0].should == "can't be blank"
+        @petition.errors.messages[:comment_question][0].should == "não pode ficar em branco"
       end
     end
   end
