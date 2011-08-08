@@ -2,10 +2,10 @@ ActiveAdmin.register Job do
   index do
     column :title
     column :active
-    column "Options" do |e| 
-      span link_to 'Show', admin_job_path(e)
-      span link_to 'Edit', edit_admin_job_path(e)
-      span link_to 'Delete', destroy_admin_job_path(e)
+    column "Options" do |j|
+      span link_to 'Show', admin_job_path(j)
+      span link_to 'Edit', edit_admin_job_path(j)
+      span link_to 'Delete', admin_job_path(j), :confirm => 'Are you sure?', :method => :delete
     end
   end
 
