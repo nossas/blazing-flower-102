@@ -1,6 +1,4 @@
 class Member < ActiveRecord::Base
-  include Rails.application.routes.url_helpers
-
   has_many :petition_signatures
   has_many :members
   has_many :provider_authorizations, :dependent => :destroy
