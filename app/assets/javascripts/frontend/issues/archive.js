@@ -40,7 +40,10 @@ var Issue = {
   },
 
   replaceArticles : function(data){
-    var datum = $.parseJSON(data), var $previous = $('.previous'), var $next = $('.next');
+    var datum = $.parseJSON(data); 
+    var $previous = $('.previous');
+    var $next = $('.next');
+
     $('.count').html('Displaying ' + datum.start + '-' + datum.end + ' of ' + datum.count);
     if(datum.start < 10){
       $('.previous').hide();
