@@ -2,9 +2,10 @@ MeuRio::Application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  devise_for :members, :controllers => { :omniauth_callbacks => "omniauth_callbacks" } do
-    get 'logout' => 'devise/sessions#destroy', :as => :destroy_member_session
-    post 'google_custom_domain_complete' => 'omniauth_callbacks#google_custom_domain_complete', :as => :google_custom_domain_complete
+  devise_for :members, :controllers => { :omniauth_callbacks => "omniauth_callbacks", :sessions => "member_sessions" } do
+    get 'logout' => 'member_sessions#destroy', :as => :destroy_member_session
+    match '/facebook_logout' => 'member_sessions#facebook_logout', :as => :facebook_logout
+    match '/google_logout' => 'member_sessions#google_logout', :as => :google_logout
   end
 
   # Ren: I no longer believe this is necessary?

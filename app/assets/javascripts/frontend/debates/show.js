@@ -3,25 +3,35 @@ $(document).ready(function(){
   var $new_comment = $('#new_comment');
   var $form = $("form#new_comment");
   var $submitButton = $form.find('input[name="commit"]');
+  var $comment_count = $('.comments_tooltip');
 
   var page = 2;
   var debate = $("h1.grid_12").attr("data-debate");
 
+  var openNewComment = function(){
+    $new_comment.show(); 
+    $("#bottom_buttons").hide();
+  }
+
   //show and hide comment box
-  $new_comment.hide();
-  function closeNewComment(){
+  var closeNewComment = function(){
     window.location.hash = 'comments_bottom';
     $('#comment_content').val('');
     $new_comment.hide(); 
     $("#bottom_buttons").show();
   }
 
+
   $(window).bind('hashchange', function(){
     if(window.location.hash == '#new_comment'){
-      $new_comment.show(); 
-      $("#bottom_buttons").hide();
+      openNewComment();
     }
   });
+
+  $('#new_comment').hide();
+  console.log("hiding comments");
+
+  $('.join_the_conversation').bind('click', openNewComment);
 
   $('#close').bind('click', closeNewComment);
 
@@ -42,8 +52,9 @@ $(document).ready(function(){
   $form.bind("ajax:success", function(evt, data, status, xhr){
       $form.find('textarea').val("");
       $('.previous_comments').append(data);
-      $comment_count = $('.comments_tooltip');
-      $comment_count.text(parseInt($comment_count.text()) + 1);
+      $comment_count.each(function(){
+        $(this).text(parseInt($(this).text()) + 1);
+      });
     }).bind("ajax:complete", function(evt, xhr, status){
       $submitButton.val($submitButton.data('origText'));
       closeNewComment();

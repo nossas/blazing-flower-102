@@ -15,3 +15,6 @@ en:
   logout: "Logout"
   flag: "Flag"
   unflag: "Unflag"
+  about_page:
+    title: "About Meu Rio"
+    hightlight_text: "O Meu Rio é um movimento democrático e apartidário, que usa ferramentas on-line para ligar os cidadãos do Rio de Janeiro e garantir que a sua voz oriente os processos de decisão que estão transformando a cidade."

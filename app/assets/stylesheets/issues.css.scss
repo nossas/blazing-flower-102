@@ -69,6 +69,8 @@ body.issues {
 
     .title {
       font-weight: bold;
+      float: left;
+      max-width: 165px;
     }
 
     .block_arrow {
@@ -114,6 +116,11 @@ body.issues {
     .date {
       margin:5px 0 15px;
     }
+  .see_more {
+    text-transform: uppercase;
+    font-weight: 800;
   }
+
+}
 
 }
