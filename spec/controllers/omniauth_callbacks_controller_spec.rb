@@ -6,6 +6,11 @@ describe OmniauthCallbacksController do
   end
   describe "GET facebook" do
     subject{ get :facebook }
+    it "should store the facebook token " do
+      controller.stub(:auth_data).and_return(FACEBOOK_VALID_AUTH_DATA) 
+      subject
+      session[:fb_token].should == 'fake_token'
+    end
     it 'should call find_for_facebook_oauth' do
       controller.stub(:auth_data).and_return(FACEBOOK_VALID_AUTH_DATA) 
       ProviderAuthorization.should_receive(:find_for_facebook_oauth).with(FACEBOOK_VALID_AUTH_DATA, nil).and_return(Factory(:provider_authorization))
@@ -36,6 +41,12 @@ describe OmniauthCallbacksController do
 
   describe "GET google" do
     subject{ get :google }
+    it "should make session[:google_login] true" do
+      controller.stub(:auth_data).and_return(GOOGLE_APP_VALID_AUTH_DATA) 
+      subject
+      session[:google_login].should be_true
+    end
+
     it 'should call find_for_google_oauth' do
       controller.stub(:auth_data).and_return(GOOGLE_APP_VALID_AUTH_DATA) 
       ProviderAuthorization.should_receive(:find_for_google_oauth).with(GOOGLE_APP_VALID_AUTH_DATA, nil).and_return(Factory(:provider_authorization))

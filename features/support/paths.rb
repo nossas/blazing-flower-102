@@ -26,6 +26,8 @@ module NavigationHelpers
       issue_personal_stories_path(Issue.first.id)
     when /the personal stories page with a story id in the URL for an issue/
       issue_personal_story_path(Issue.first.id, PersonalStory.last.id)
+    when /the about page/
+      page_path("about")
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

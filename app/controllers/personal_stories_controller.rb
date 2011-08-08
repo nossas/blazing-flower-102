@@ -3,7 +3,7 @@ class PersonalStoriesController < ApplicationController
     @issue = Issue.where(:id => params[:issue_id]).first
     @stories = @issue.personal_stories 
     @current = @stories.where(:id => params[:id]).first || @stories.first
-    
+
     render 404 unless !@stories.blank?
 
     @debate = @issue.debates.first

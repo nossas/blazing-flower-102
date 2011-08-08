@@ -1,5 +1,5 @@
 .comment.clearfix
-  = image_tag comment.member.image_url
+  = image_tag comment.member.image_url, :class => "member_image"
   .right_column
     %p= link_to "#{comment.member.first_name} #{comment.member.last_name}", "#"
     %p.content= comment.content
