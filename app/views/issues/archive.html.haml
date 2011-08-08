@@ -8,9 +8,9 @@
     .grid_3.prefix_6.omega
       .count= "Displaying #{@articles_start}-#{@articles_end} of #{@article_count}"
       -unless @articles_start < 10
-        .arrow=link_to image_tag("archive_arrow_left.png"), issue_archive_page_path(@issue.id, @page - 1)
+        .arrow.prevous=link_to image_tag("archive_arrow_left.png"), issue_archive_page_path(@issue.id, @page - 1)
       -unless @articles_end >= @article_count 
-        .arrow=link_to image_tag("archive_arrow_right.png"), issue_archive_page_path(@issue.id, @page + 1)
+        .arrow.next=link_to image_tag("archive_arrow_right.png"), issue_archive_page_path(@issue.id, @page + 1)
     .clearfix
   -@articles.each do |article|
     .article.grid_12
@@ -27,12 +27,12 @@
         .grid_8.omega
           =link_to "#{article.title} >>", issue_personal_story_path(@issue.id, article.id), :class => "title"
           .date=article.created_at.strftime("%d %B %Y")
-          .excerpt= article.description
+          .excerpt= article.excerpt
       -elsif article.class == Petition
         .grid_2.alpha
           =image_tag "archive_petition_icon.png"
         .grid_8.omega
           =link_to "#{article.headline} >>", custom_petition_path(article.custom_path), :class => "title" 
           .date=article.created_at.strftime("%d %B %Y")
-          .excerpt= article.description
+          .excerpt= article.short_description
 
