@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110802185318) do
+ActiveRecord::Schema.define(:version => 20110804155956) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -123,6 +123,14 @@ ActiveRecord::Schema.define(:version => 20110802185318) do
     t.text     "debate_call_to_action"
     t.text     "petition_call_to_action"
     t.text     "personal_story_call_to_action"
+  end
+
+  create_table "jobs", :force => true do |t|
+    t.text     "title",                         :null => false
+    t.text     "description",                   :null => false
+    t.boolean  "active",      :default => true, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "members", :force => true do |t|
