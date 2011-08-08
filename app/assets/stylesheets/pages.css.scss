@@ -120,6 +120,14 @@ body.pages {
     }
     p { margin: 5px 0; }
     p.date { color: $pink; }
+    a {
+      img { 
+        width: 32px; 
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
     &:after{
       content:"";
     	position:absolute;

@@ -11,7 +11,7 @@
   %p
     = t("about_page.you_are_important")
     = image_tag "/assets/comments_arrow.png"
-  = link_to t("about_page.join_us"), "#", :class => "btn"
+  = link_to t("about_page.join_us"), "#login", :class => "btn", :rel => "facebox"
 
 .what_you_can_do.grid_12
   %h2.grid_12.omega= t("about_page.what_you_can_do")
@@ -59,3 +59,6 @@
     = link_to t("about_page.read_more_on_blog"), "#"
   .speech_bubble
     %h3= t("about_page.follow_us")
+    = link_to image_tag("/assets/auth/facebook_128.png"), "http://www.facebook.com/pages/Meu-Rio", :target => "_blank"
+    = link_to image_tag("/assets/auth/twitter_128.png"), "http://twitter.com/Meu_Rio", :target => "_blank"
+    = link_to image_tag("/assets/auth/orkut_128.png"), "http://www.orkut.com/Main#Community?cmm=114209047", :target => "_blank"
