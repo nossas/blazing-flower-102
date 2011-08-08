@@ -177,3 +177,7 @@ Factory.define :personal_story do |s|
   s.association :issue
 end
 
+Factory.define :job do |j|
+  j.sequence(:title) { |n| "Job Title #{n}" }
+  j.description "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui.</p>"
+end

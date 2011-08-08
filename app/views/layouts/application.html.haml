@@ -6,7 +6,7 @@
     %link{:href => "/assets/favicon.png", :rel => "shortcut icon"}
     = csrf_meta_tags
     = yield :meta_tags
-  %body{:class=> controller.controller_name }
+  %body{:class=> "#{controller.controller_name} #{controller.action_name}" }
     %header.container_12
       .grid_2.logo= link_to image_tag("/assets/meu-rio.png"), root_path
       .grid_3.prefix_7.member_panel

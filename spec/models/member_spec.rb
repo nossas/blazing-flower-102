@@ -52,7 +52,7 @@ describe Member do
       end
 
       it "should create using his gravatar" do
-        Member.find_for_google_oauth(GOOGLE_APP_VALID_AUTH_DATA).image_url.should == 'http://www.gravatar.com/avatar/e9d7835fee9dabb3745b3bae39d8a1ff.jpg?s=60&d=identicon'
+        Member.find_for_google_oauth(GOOGLE_APP_VALID_AUTH_DATA).image_url.should == 'http://www.gravatar.com/avatar/e9d7835fee9dabb3745b3bae39d8a1ff.jpg?s=60&d=http://localhost:3000/assets/avatar_blank.png'
       end
 
     end
