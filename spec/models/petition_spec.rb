@@ -160,6 +160,25 @@ describe Petition do
     it { should have_one :taf }
   end
 
+  describe "#add_wmode_to_youtube_iframe" do
+    context "when we call it as before_create hook" do 
+      subject{ Factory(:petition, :media => "<iframe width=\"560\" height=\"349\" src=\"http://www.youtube.com/embed/Z00jjc-WtZI\" frameborder=\"0\" allowfullscreen></iframe>") }
+      its(:media){ should ==  "<iframe width=\"560\" height=\"349\" src=\"http://www.youtube.com/embed/Z00jjc-WtZI?wmode=opaque\" frameborder=\"0\" allowfullscreen></iframe>" }
+    end
+    context "when we call it directly" do 
+      subject{ Factory.build(:petition, :media => "<iframe width=\"560\" height=\"349\" src=\"http://www.youtube.com/embed/Z00jjc-WtZI\" frameborder=\"0\" allowfullscreen></iframe>").tap{|p| p.add_wmode_to_youtube_iframe } }
+      its(:media){ should ==  "<iframe width=\"560\" height=\"349\" src=\"http://www.youtube.com/embed/Z00jjc-WtZI?wmode=opaque\" frameborder=\"0\" allowfullscreen></iframe>" }
+    end
+    context "when we have a vimeo video" do
+      subject{ Factory.build(:petition, :media => '<iframe src="http://player.vimeo.com/video/18534513?title=0&amp;byline=0&amp;portrait=0" width="400" height="225" frameborder="0"></iframe><p><a href="http://vimeo.com/18534513">December in Toronto</a> from <a href="http://vimeo.com/user3045401">Millefiore Clarkes</a> on <a href="http://vimeo.com">Vimeo</a>.</p>').tap{|p| p.add_wmode_to_youtube_iframe } }
+      its(:media){ should == '<iframe src="http://player.vimeo.com/video/18534513?title=0&amp;byline=0&amp;portrait=0" width="400" height="225" frameborder="0"></iframe><p><a href="http://vimeo.com/18534513">December in Toronto</a> from <a href="http://vimeo.com/user3045401">Millefiore Clarkes</a> on <a href="http://vimeo.com">Vimeo</a>.</p>' }
+    end
+    context "when we have an image" do
+      subject{ Factory.build(:petition, :media => 'http://meurio.org.br/images/logo.png').tap{|p| p.add_wmode_to_youtube_iframe } }
+      its(:media){ should == 'http://meurio.org.br/images/logo.png' }
+    end
+  end
+
   describe "#export_to_csv" do
     before do
       @p = Factory.create(:complete_petition, :title => "petition-csv-export-test")
