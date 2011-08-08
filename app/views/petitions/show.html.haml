@@ -9,7 +9,7 @@
 %h1.grid_12
   = @petition.title.upcase
 .grid_6
-  .media= raw @petition.media
+  .media{:style => "z-index:0"}= raw @petition.media
   -if @petition.ok_to_display_counter?
     .grid_5.alpha
       .graph
