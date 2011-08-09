@@ -266,8 +266,13 @@
   debate_show:
     join_the_conversation: "Participe da Discussão!"
     have_joined_the_conversation: "pessoas participam da discussão"
+  issue_show:
+  issue_archive:
+    archive: "Arquivo"
   video_show:
     page_title: "Page title"
+    join_the_debate_link: "DÊ SUA OPINIÃO"
+    take_action_link: "ASSINE EMBAIXO"
   omniauth_callbacks_google_custom_domain:
     ask_for_email: "Por favor informe o seu email para completar o registro"
   login: "Entrar"

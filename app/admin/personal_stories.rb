@@ -24,6 +24,7 @@ ActiveAdmin.register PersonalStory do
       f.input :issue
       f.input :title, :as => :string
       f.input :description
+      f.input :excerpt
       f.input :connected_action, :label => 'Button links to:', :as => :select, :collection =>  [['Petition', 'PETITION'], ['Debate', 'DEBATE']]
       f.input :video_url
     end
