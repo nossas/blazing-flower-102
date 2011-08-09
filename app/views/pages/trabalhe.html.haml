@@ -7,7 +7,7 @@
   - Job.active.each do |j|
     .job.closed
       %a.toggle_icon{:href => '#'}
-      %a.title
+      %a.title{:href => '#'}
         = j.title
       .description
         =raw j.description
