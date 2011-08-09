@@ -75,7 +75,7 @@
         -if @comment
           = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
         -else
-          =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "comment_login"
+          = link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "comment_login"
         #load_more= t("debate_show.load_more")
     - if @comment
       #new_comment
