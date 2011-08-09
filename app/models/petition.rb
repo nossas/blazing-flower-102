@@ -30,6 +30,8 @@ class Petition < ActiveRecord::Base
 
   validate :has_valid_state_attributes
 
+  before_create :add_wmode_to_youtube_iframe
+
   def complete?
     (self.taf && self.autofire_email && self.taf.valid? && self.autofire_email.valid?)
   end
@@ -127,4 +129,7 @@ class Petition < ActiveRecord::Base
     Rails.logger.info "Finished preparing and uploading lists to S3. End of Line."
   end
 
+  def add_wmode_to_youtube_iframe
+    self.media.gsub!(/(<iframe .*src=)("([^"\?]*)")/, '\1"\3?wmode=opaque"')
+  end
 end

@@ -11,13 +11,13 @@ Feature: Managing Users
   Scenario: Add a new user account
     Given I am logged in to the admin section
     When I follow "Users"
-    And I follow "New Admin User"
+    And I follow "Novo(a) Admin User"
     Then I should see a new User form
 
   Scenario: New Admin User account
     Given I am logged in to the admin section
     When I follow "Users"
-    And I follow "New Admin User"
+    And I follow "Novo(a) Admin User"
     And I fill out the new User form
     And I press "Create Admin user"
     Then I should see "Admin user was successfully created."
@@ -29,7 +29,7 @@ Feature: Managing Users
   Scenario: Create a new admin user account
     Given I am logged in to the admin section
     When I follow "Users"
-    And follow "New Admin User"
+    And follow "Novo(a) Admin User"
     And I fill out the new User form
     And I check "Admin"
     And I press "Create Admin user"
@@ -38,7 +38,7 @@ Feature: Managing Users
   Scenario: New Admin User account with not all fields filled in
     Given I am logged in to the admin section
     When I follow "Users"
-    And I follow "New Admin User"
+    And I follow "Novo(a) Admin User"
     And I fill in "First name" with "Dumbo"
     And I press "Create Admin user"
     Then I should not see "New user created."
@@ -46,13 +46,13 @@ Feature: Managing Users
   Scenario: New Admin User without filling in the password
     Given I am logged in to the admin section
     When I follow "Users"
-    And I follow "New Admin User"
+    And I follow "Novo(a) Admin User"
     And I fill in "First name" with "Dumbo"
     And I fill in "Last name" with "the Elephant"
     And I fill in "Email" with "dumbo253@gmail.com"
     And I press "Create Admin user"
     Then I should not see "New user created."
-    And I should see "can't be blank"
+    And I should see "não pode ficar em branco"
 
   Scenario: Edit a user's account details
     Given I am logged in to the admin section

@@ -120,6 +120,14 @@ body.pages {
     }
     p { margin: 5px 0; }
     p.date { color: $pink; }
+    a {
+      img { 
+        width: 32px; 
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
     &:after{
       content:"";
     	position:absolute;
@@ -131,6 +139,48 @@ body.pages {
 	    bottom:auto;
 	    border-width:10px 15px 10px 0;
 	    border-color:transparent #fbfaf8;
+    }
+  }
+
+  .grid_8.trabalhe {
+    padding-left:10px;
+    padding-bottom:40px;
+  }
+  .trabalhe {
+    .job {
+      padding:20px;
+      border-top:1px solid $blue;
+      a.title {
+        font-size: 18px;
+      }
+      a.toggle_icon {
+        float:right;
+        display:block;
+        width:20px;
+        height:20px;
+      }
+      .description {
+        display:none;
+        margin-top:20px;
+      }
+      &:last-child {
+        border-bottom:1px solid $blue;
+      }
+    }
+    .job.open a.toggle_icon{
+      background-image:url(/assets/orange_collapse_icon.png);
+    }
+    .job.closed a.toggle_icon{
+      background-image:url(/assets/orange_open_icon.png);
+    }
+    .sidebar {
+      width:235px;
+      margin-left:25px;
+      padding:25px 20px 10px 20px;
+      border-top:2px solid $blue;
+      background-color: #fff;
+      @include border-radius(0 0 3px 3px);
+      @include box-shadow(0px 2px 2px $light_gray);
     }
   }
 }

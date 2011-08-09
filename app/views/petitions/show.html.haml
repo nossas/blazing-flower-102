@@ -9,12 +9,12 @@
 %h1.grid_12
   = @petition.title.upcase
 .grid_6
-  .media= raw @petition.media
+  .media{:style => "z-index:0"}= raw @petition.media
   -if @petition.ok_to_display_counter?
-    .grid_5.alpha
+    .grid_4.alpha
       .graph
         .progress{:style => "width: #{@petition.percentage_complete}%;"}
-    .grid_1.omega
+    .grid_2.omega
       .goal= t("petition_show.goal", :goal => @petition.counter_goal)
     .grid_6.omega.alpha
       %strong.counter= raw t("petition_show.signatures", :count => @petition.petition_signatures.count)

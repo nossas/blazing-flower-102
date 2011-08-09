@@ -6,14 +6,14 @@ Feature: Authentication
   Scenario: Non-logged in users should be redirected to a log in page
     Given there is one administrative user
     When I go to the admin dashboard page
-    Then I should see "You need to sign in or sign up before continuing."
+    Then I should see "Para continuar, faça login ou registre-se."
 
   Scenario: Users should be able to sign in
     Given there is one administrative user
     When I go to the admin dashboard page
     And I fill in the admin login form 
     And I press "Login"
-    Then I should see "Signed in successfully."
+    Then I should see "Conectado com sucesso."
 
   Scenario: Deactivated user trying to log in
     Given there is one deactivated user
@@ -24,8 +24,8 @@ Feature: Authentication
 
   Scenario: Logging out
     Given I am logged in to the admin section
-    When I follow "Logout"
-    Then I should see "You need to sign in or sign up before continuing."
+    When I follow "Sair"
+    Then I should see "Para continuar, faça login ou registre-se."
 
     # Removing this for now
     # Scenario: Login with changed password

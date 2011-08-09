@@ -248,10 +248,10 @@
         comment: "Comentário"
 
   petition_show:
-    goal: "Objetivo: %{goal}"
+    goal: "Meta: %{goal}"
     signatures:
-      zero: "Nenhum membro assinou esta petição"
-      one: "<span class='counter'>1</span> membro assinou esta petição"
+      zero: "Nenhuma pessoa assinou esta petição"
+      one: "<span class='counter'>1</span> pessoa assinou esta petição"
       other: "<span class='counter'>%{count}</span> pessoas assinaram esta petição."
     comment_tip: "140 caracteres"
     recent_comments: "Comentários Recentes"
@@ -279,6 +279,11 @@
   flag: "Denunciar"
   unflag: "Desfazer denúncia"
   privacy_policy: "Política de Privacidade"
+  pages_show_jobs:
+    title: "Venha Trabalhar Com A Gente!"
+    description: "<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod.</p>"
+    sidebar_title: "HOW TO APPLY"
+    sidebar_content: "<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam.</p><p>Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod.</p><p><a href='mailto:jobs@meurio.org.br'>jobs@meurio.org.br</a></p>"
   about_page:
     title: "Sobre o Meu Rio"
     highlight_text: "O Meu Rio é um movimento democrático e apartidário, que usa ferramentas on-line para ligar os cidadãos do Rio de Janeiro e garantir que a sua voz oriente os processos de decisão que estão transformando a cidade."
@@ -303,9 +308,7 @@ Com a realização da Copa e das Olimpíadas nos próximos anos, essa oportunida
     how_title: "Como Faremos Isso:"
     how_text: "Criaremos ferramentas on-line para conectar os cariocas digitalmente em torno de questões relevantes para o Rio. Os membros da nossa comunidade poderão usar nosso site para conhecer as diferentes realidades do Rio, denunciar problemas e dialogar com especialistas em políticas públicas. Vamos nos engajar em causas importantes para o Rio em que a participação da sociedade possa fazer a diferença e usaremos a voz da comunidade em abaixo-assinados, levando soluções práticas às instituições responsáveis."
     and_you_title: "E Você Com Isso?"
-    and_you_text: "Bom, se você também ama o Rio e deseja que a cidade tire o maior proveito deste momento histórico, nós queremos você, para ouvir, debater e agir ao nosso lado.
-
-Quer nos ajudar a construir um Rio de Janeiro mais justo e democrático? Faça do parte do Meu Rio!"
+    and_you_text: "Bom, se você também ama o Rio e deseja que a cidade tire o maior proveito deste momento histórico, nós queremos você, para ouvir, debater e agir ao nosso lado."
     video_link: "Veja um vídeo recente »"
     debate_link: "Veja um debate recente »"
     petition_link: "Veja uma petição recente »"

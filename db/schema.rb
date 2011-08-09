@@ -125,6 +125,14 @@ ActiveRecord::Schema.define(:version => 20110808152011) do
     t.text     "personal_story_call_to_action"
   end
 
+  create_table "jobs", :force => true do |t|
+    t.text     "title",                         :null => false
+    t.text     "description",                   :null => false
+    t.boolean  "active",      :default => true, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "members", :force => true do |t|
     t.text     "zona"
     t.text     "email",      :null => false

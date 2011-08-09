@@ -1,0 +1,34 @@
+%h1.grid_9
+  = t("pages_show_jobs.title")
+
+.grid_8.alpha.trabalhe
+  =raw t("pages_show_jobs.description")
+
+  - Job.active.each do |j|
+    .job.closed
+      %a.toggle_icon{:href => '#'}
+      %a.title{:href => '#'}
+        = j.title
+      .description
+        =raw j.description
+
+.grid_4.omega.trabalhe
+  .sidebar
+    %h2= raw t("pages_show_jobs.sidebar_title")
+    =raw t("pages_show_jobs.sidebar_content")
+
+- content_for :javascripts do
+  :javascript
+    $('.job a.title').click(toggleJob);
+    $('.job a.toggle_icon').click(toggleJob);
+
+    function toggleJob() {
+      $('.description', $(this).parent()).slideToggle('slow', function() {
+        if($(this).parent().hasClass('open')){
+          $(this).parent().removeClass('open').addClass('closed');
+        } else {
+          $(this).parent().removeClass('closed').addClass('open');
+        }
+      });
+      return false;
+    }
