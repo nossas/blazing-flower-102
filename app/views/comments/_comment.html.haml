@@ -11,4 +11,4 @@
           = link_to t("unflag"), comment_flag_path(comment, flag), :remote => true, :method => "delete", 'data-type' => :json, :class => "flag"
         - else
           = link_to t("flag"), comment_flags_path(comment, flag), :remote => true, :method => "post", 'data-type' => :json, :class => "flag"
-        = image_tag "/assets/loading.gif", :id => "flag_loading", :style => "display:none"
+        = image_tag "/assets/loading.gif", :class => "flag_loading", :style => "display:none"

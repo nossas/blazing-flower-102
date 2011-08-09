@@ -9,8 +9,11 @@ $(document).ready(function(){
   var debate = $("h1.grid_12").attr("data-debate");
 
   var openNewComment = function(){
-    $new_comment.show(); 
-    $("#bottom_buttons").hide();
+    $load_more.trigger('click', function(){
+      $new_comment.show(); 
+      $(window).scrollTop($('.previous_comments .comment:last').offset().top);
+      $("#bottom_buttons").hide();
+    });
   }
 
   //show and hide comment box
@@ -65,7 +68,7 @@ $(document).ready(function(){
 
     $load_more = $("#load_more");
     
-    $load_more.bind('click', function(e){
+    $load_more.bind('click', function(e, callback){
       $load_more.data('origText', $(this).html());
       $load_more.html( "Loading..." );
       $.ajax({
@@ -77,9 +80,11 @@ $(document).ready(function(){
               page++;
               $('.previous_comments .comment:last').after(data);
               $load_more.html($load_more.data('origText'));
+              rebindFlagLinks();
             } else {
               $load_more.html("No more comments to load");  
             };
+            if(callback){ callback(data); }
           },
           error: function(xhr, status){
             $load_more.html("There's been an error. Please reload the page.");
@@ -87,9 +92,9 @@ $(document).ready(function(){
       });
     });
 
-    $('.flag').bind('ajax:success', function(event, data){
-        $(this).show();
-        $("#flag_loading").hide();
+    function rebindFlagLinks(){
+      $('.flag').unbind();
+      $('.flag').bind('ajax:success', function(event, data){
         var link = $(this);
         if(link.data("method") == "post"){
           link.html(unflag_label).data("method", "delete").attr("href", link.attr("href") + "/" + data.id);
@@ -99,11 +104,17 @@ $(document).ready(function(){
           var path = path_array.slice(0, (path_array.length - 1)).join("/");
           link.html(flag_label).data("method", "post").attr("href", path);
         }
-    });
+      }).bind("ajax:complete", function(evt, xhr, status){
+        $(this).show();
+        $(this).next(".flag_loading").hide();
+      }).bind("ajax:error", function(evt, xhr, status, error){
+        $(this).html("There was an error while flagging the comment. Please reload the page.");
+      });
 
-    $(".flag").bind("click", function(){
+      $(".flag").bind("click", function(){
         $(this).hide();
-        $("#flag_loading").show();
-
-    });
+        $(this).next(".flag_loading").show();
+      });
+    }
+    rebindFlagLinks();
 });
