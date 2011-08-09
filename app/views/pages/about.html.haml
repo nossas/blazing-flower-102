@@ -37,7 +37,6 @@
 .grid_8
   %h2= t("about_page.who_we_are_title")
   %p= raw t("about_page.who_we_are_text").gsub("\n", "<br />")
-  %p= link_to "Leia mais sobre quem somos »", "#"
   %h2#why_and_goals= t("about_page.why_and_goals")
   %h3= t("about_page.scenario_title")
   %p= raw t("about_page.scenario_text").gsub("\n", "<br />")
@@ -55,7 +54,7 @@
   .speech_bubble
     %h3= t("about_page.what_we_are_doing")
     %p.date 28/07/2011
-    %p= Faker::Lorem.paragraph(3)
+    %p
     = link_to t("about_page.read_more_on_blog"), "#"
   .speech_bubble
     %h3= t("about_page.follow_us")
