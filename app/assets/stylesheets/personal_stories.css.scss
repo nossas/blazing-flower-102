@@ -5,11 +5,10 @@ body.personal_stories {
   .story {
     float:left;
     width:210px;
-    margin-right:12px;
+    margin-right:24px;
   }
 
   .title {
-    text-transform: uppercase;
     color: $blue;
     font-size: 16px;
   }
