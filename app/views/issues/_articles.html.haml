@@ -17,7 +17,7 @@
     -elsif article.class == Petition
       .grid_2.alpha
         =image_tag "archive_petition_icon.png"
-      .grid_7.suffix_3.omega.article_count
+      .grid_7.suffix_3.omega
         =link_to "#{article.headline} >>", custom_petition_path(article.custom_path), :class => "title" 
         .date=article.created_at.strftime("%d %B %Y")
         .excerpt= article.short_description

@@ -26,7 +26,7 @@ class IssuesController < ApplicationController
     else 
       @page = 1
       @articles = @articles.first(10)
-      @articles_start = 1
+      @article_count == 0 ? @articles_start = 0 : @articles_start = 1
       @articles_end = @articles.length
     end
 
