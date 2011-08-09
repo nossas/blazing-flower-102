@@ -36,9 +36,11 @@ body {
 .grid_3,
 .grid_3-5,
 .grid_4,
+.grid_4-5,
 .grid_5,
 .grid_6,
 .grid_7,
+.grid_7-5,
 .grid_8,
 .grid_8-5,
 .grid_9,
@@ -123,12 +125,20 @@ body {
   width: 300px;
 }
 
+.container_12 .grid_4-5 {
+  width: 340px;
+}
+
 .container_12 .grid_5 {
   width: 380px;
 }
 
 .container_12 .grid_7 {
   width: 540px;
+}
+
+.container_12 .grid_7-5 {
+  width: 580px;
 }
 
 .container_12 .grid_8 {

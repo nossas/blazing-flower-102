@@ -1,17 +1,15 @@
 .grid_12
-  .issue_name= link_to @issue.name
+  .issue_name= link_to @issue.name, issue_path(@issue)
   %h1.video_page_title
     =t("video_show.page_title")
 .current.grid_12.alpha.omega
-  .grid_6.omega
+  .grid_7-5.omega
     #current_video{ 'data-storyID' => @current.id, 'data-firststoryid' => @current.id }
       =raw @current.video_embed_code
-  .grid_6.omega
+  .grid_4-5.omega
     <!-- AddThis Button BEGIN -->
-    <div class="addthis_toolbox addthis_default_style ">
-    <a class="addthis_counter addthis_pill_style"></a>
-    </div>
-    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e3043431fd4aaea"></script>
+    <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;pubid=xa-4e414cea7d1fee4b"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e414cea7d1fee4b"></script>
     <!-- AddThis Button END -->
     %h3#current_title= @current.title
     #current_description= raw @current.description
@@ -29,14 +27,18 @@
 .grid_12
   .story_list
     -@stories.each do |story|
-      .story.grid_3.alpha{ :id => "story-#{story.id}" }
+      .story{ :id => "story-#{story.id}" }
         %a.thumbnail{'data-storyID' => story.id, :href => "/issue/#{@issue.id}/personal-stories/#{story.id}", :class => @current == story ? "current" : "" }
           %img{:src => "#{story.thumbnail}", :width => '210', :height => '155'  }
           .play_button=image_tag("video_play.png")
-        .title= story.title
+        .title.clearfix= story.title
 
 =content_for :javascripts do
+
   :javascript
+    MR = {}
+    MR.stories = #{@stories.to_json};
+
     $(document).ready(function(){
       if(Modernizr.history){
         window.setTimeout(function() {
@@ -57,4 +59,3 @@
         }, 1);
       }
     });
-    
