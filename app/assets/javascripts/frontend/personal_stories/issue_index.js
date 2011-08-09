@@ -27,31 +27,25 @@ $(document).ready(function(){
 var PersonalStory ={
 
   getPersonalStory : function(story){
-    $.ajax({
-      url: '/personal_stories/' + story.attr('data-storyID'),
-      type: 'GET',
-      dataType: 'json',
-      success: function(data){
-        PersonalStory.replaceVideo(data);
-        PersonalStory.movePlayButton(story);
-        if(Modernizr.history){
-          // history management works!
-          var videoData = {
-            id : data.id,
-            data: data
-          }
-          if(window.location.pathname.match(/personal-stories\/\d+/)){
-            history.pushState(videoData, '', data.id);
-          } else {
-            history.pushState(videoData, '', 'personal-stories/' + data.id);
-          }
-        } else {
-          // no history support :(
-        }
-      },
-      error: function(xhr, status){
+    var clicked_story = _.first(_.select(MR.stories, function(video){return video.id == story.attr('data-storyid')}));
+    PersonalStory.replaceVideo(clicked_story);
+
+    PersonalStory.movePlayButton(story);
+    if(Modernizr.history){
+      // history management works!
+      var videoData = {
+        id : clicked_story.id,
+        data: clicked_story
       }
-    }); 
+      if(window.location.pathname.match(/personal-stories\/\d+/)){
+        history.pushState(videoData, '', clicked_story.id);
+      } else {
+        history.pushState(videoData, '', 'personal-stories/' + clicked_story.id);
+      }
+    } else {
+      // no history support :(
+    }
+
   },
 
   replaceVideo : function(data){
@@ -63,7 +57,6 @@ var PersonalStory ={
     $current_title.html(data.title);
     $current_description.html(data.description);
     $current_video.attr('data-storyID', data.id);
-    $('.story .thumbnail').removeClass("current");
 
     if(data.connected_action == "DEBATE"){
       $('.petition.btn').hide();
@@ -77,6 +70,8 @@ var PersonalStory ={
   },
 
   movePlayButton : function(thumb){
+    $('.story .thumbnail').removeClass("current");
+    $('.play_button').hide();
     thumb.addClass("current");
     thumb.children(".play_button").show();
   }

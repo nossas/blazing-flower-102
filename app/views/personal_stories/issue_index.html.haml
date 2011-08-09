@@ -34,7 +34,11 @@
         .title.clearfix= story.title
 
 =content_for :javascripts do
+
   :javascript
+    MR = {}
+    MR.stories = #{@stories.to_json};
+
     $(document).ready(function(){
       if(Modernizr.history){
         window.setTimeout(function() {
@@ -55,4 +59,3 @@
         }, 1);
       }
     });
-    
