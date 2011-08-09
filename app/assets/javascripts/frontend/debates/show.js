@@ -9,10 +9,18 @@ $(document).ready(function(){
   var debate = $("h1.grid_12").attr("data-debate");
 
   var openNewComment = function(){
-    $load_more.trigger('click', function(){
+    $('.new_comment_loading').show();
+    $.get('/debates/' + debate + '/comments').success(function(data){
+      $('.previous_comments .comment').remove();
+      $('.previous_comments').prepend(data);
+      rebindFlagLinks();
+      page = Math.ceil($('.previous_comments .comment').length / 5) + 1;
       $new_comment.show(); 
       $(window).scrollTop($('.previous_comments .comment:last').offset().top);
       $("#bottom_buttons").hide();
+    })
+    .complete(function(){
+      $('.new_comment_loading').hide();
     });
   }
 
@@ -33,21 +41,21 @@ $(document).ready(function(){
 
   $('#new_comment').hide();
 
-  $('.join_the_conversation').bind('click', openNewComment);
+  //$('.join_the_conversation').bind('click', openNewComment);
 
   $('#close').bind('click', closeNewComment);
 
   //comment submissision and validation
   $form.validate({
     messages: {
-      "comment[content]": "Please enter a comment!"
+      "comment[content]": "Por favor preencha o seu comentário."
     }
   });
 
   $submitButton.bind('click', function(){
     if($form.valid()){
       $submitButton.data( 'origText', $(this).val());
-      $submitButton.val( "Submitting...");
+      $submitButton.val( "Enviando...");
     }
   });
 
@@ -70,7 +78,7 @@ $(document).ready(function(){
     
     $load_more.bind('click', function(e, callback){
       $load_more.data('origText', $(this).html());
-      $load_more.html( "Loading..." );
+      $load_more.html( "Carregando..." );
       $.ajax({
           url: '/debates/' + debate + '/load_comments/' + page,
           type: 'GET',
@@ -82,7 +90,7 @@ $(document).ready(function(){
               $load_more.html($load_more.data('origText'));
               rebindFlagLinks();
             } else {
-              $load_more.html("No more comments to load");  
+              $load_more.html("Todos os comentários estão visíveis agora");  
             };
             if(callback){ callback(data); }
           },

@@ -24,7 +24,9 @@ MeuRio::Application.routes.draw do
   resources :issues, :only => [:show]
   match "issues/:id/archive" => "issues#archive", :as => "issue_archive"
   match "issues/:id/archive/:page" => "issues#archive", :as => "issue_archive_page"
-  resources :debates, :only => [:show]
+  resources :debates, :only => [:show] do
+    resources :comments, :only => [:index]
+  end
   match 'debates/:id/load_comments/:page' => "debates#load_comments"
   resources :personal_stories, :only => [:show]
   match "issue/:issue_id/personal-stories" => "personal_stories#issue_index", :as => "issue_personal_stories"
