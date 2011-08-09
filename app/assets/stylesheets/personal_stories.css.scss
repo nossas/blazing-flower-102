@@ -2,6 +2,11 @@
 @import "mixins.css.scss";
 
 body.personal_stories {
+  .story {
+    float:left;
+    width:210px;
+    margin-right:12px;
+  }
 
   .title {
     text-transform: uppercase;
@@ -12,7 +17,7 @@ body.personal_stories {
   h3 {
     font-weight: 600;
     color: $dark_gray;
-    margin-top: 10px;
+    margin: 10px 0;
   }
 
   .current.grid_12 {
@@ -29,7 +34,10 @@ body.personal_stories {
     padding-bottom: 28px;
     display: none;
   }
-  
+
+  .take_action {
+    margin-top:20px;
+  }
   .thumbnail.current {
     .play_button {
       display: block;
