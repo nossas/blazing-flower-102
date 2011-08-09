@@ -140,7 +140,7 @@ body.issues {
 
     dd { position: relative; }
 
-    dt a {background:$mid_gray no-repeat scroll right center; display:block; padding-right:20px; border:1px solid #d4ca9a; width:150px; 
+    dt {background:$mid_gray no-repeat scroll right center; display:block; padding-right:20px; border:1px solid #d4ca9a; width:150px; color: $blue;
       span { cursor:pointer; display:block; padding:5px; }
     }
 

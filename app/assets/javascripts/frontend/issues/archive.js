@@ -2,7 +2,7 @@ $(document).ready(function(){
 
   var $dropdown_ul = $(".dropdown dd ul");
 
-  $(".dropdown dt a").bind('click', function() {
+  $(".dropdown dt").bind('click', function() {
       $dropdown_ul.toggle();
   });
 
@@ -10,7 +10,7 @@ $(document).ready(function(){
       e.preventDefault();
       var $this = $(this);
       var text = $this.html();
-      $(".dropdown dt a span").html(text);
+      $(".dropdown dt span").html(text);
       $dropdown_ul.hide();
       Issue.getIssueArticles($this.attr('href'));
   });

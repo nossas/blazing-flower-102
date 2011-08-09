@@ -5,8 +5,7 @@
     .grid_3.alpha
       %dl.dropdown
         %dt
-          %a{:href => "#" }
-            %span= @issue.name
+          %span= @issue.name
         %dd
           %ul
             -@issues.each do |issue|
@@ -21,7 +20,7 @@
   .articles.grid_12.alpha.omega
     =render :partial => "articles"
     .clearfix
-  .grid_3.prefix_9.omega
+  .grid_3.prefix_9.omega.article_count
     .count= "Displaying #{@articles_start}-#{@articles_end} of #{@article_count}"
     -unless @articles_start < 10
       .arrow.prevous=link_to image_tag("archive_arrow_left.png"), issue_archive_page_path(@issue.id, @page - 1)
