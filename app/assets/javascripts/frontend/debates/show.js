@@ -29,7 +29,6 @@ $(document).ready(function(){
   });
 
   $('#new_comment').hide();
-  console.log("hiding comments");
 
   $('.join_the_conversation').bind('click', openNewComment);
 
@@ -51,7 +50,7 @@ $(document).ready(function(){
 
   $form.bind("ajax:success", function(evt, data, status, xhr){
       $form.find('textarea').val("");
-      $('.previous_comments').append(data);
+      $('.previous_comments .comment:last').after(data);
       $comment_count.each(function(){
         $(this).text(parseInt($(this).text()) + 1);
       });
@@ -76,7 +75,7 @@ $(document).ready(function(){
           success: function(data){
             if (data){
               page++;
-              $('.previous_comments').append(data);
+              $('.previous_comments .comment:last').after(data);
               $load_more.html($load_more.data('origText'));
             } else {
               $load_more.html("No more comments to load");  
