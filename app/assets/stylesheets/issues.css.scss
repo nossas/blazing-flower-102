@@ -82,9 +82,83 @@ body.issues {
     }
   }
 
+  .count {
+    font-size: 90%;
+  }
+
+  .head_info {
+    background: #fff;
+    border-top: 1px solid $blue;
+    border-bottom: 1px solid $blue;
+    padding: 15px 0;
+  }
+  
+  .count, .arrow {
+    float: left;
+    margin: 3px 10px 0 0;
+    display: block;
+  }
+
+  .count {
+    margin-top: 5px;
+  }
+
+  .articles {
+    margin-top: 50px;
+  }
+  
+  .article {
+    border-bottom: 1px solid $light_gray;
+    margin-bottom: 15px;
+    padding-bottom: 25px;
+    font-size: 95%;
+
+    img {
+      float: right;
+    }
+
+    .title {
+      text-transform: uppercase;
+    }
+
+    .date {
+      margin:5px 0 15px;
+    }
   .see_more {
     text-transform: uppercase;
     font-weight: 800;
   }
 
 }
+
+  /* General dropdown styles */       
+  dl.dropdown {
+    margin: 0 0 0 20px; 
+    padding: 0px;
+
+    dd, dt, ul { margin: 0px; padding: 0px; }
+
+    dd { position: relative; }
+
+    dt a {background:$mid_gray no-repeat scroll right center; display:block; padding-right:20px; border:1px solid #d4ca9a; width:150px; 
+      span { cursor:pointer; display:block; padding:5px; }
+    }
+
+   dd ul { background:#e4dfcb none repeat scroll 0 0; display:none;
+      list-style:none; padding:5px 0px; position:absolute; 
+      left:0px; top:2px; width:auto; min-width:170px;}
+
+   span.value { display:none;}
+
+   dd ul li { margin-left: 0; padding-left:30px;
+    &:hover { background: $dark_gray; }
+   }
+    dd ul li a { padding:5px; display:block;}
+  }
+
+  .article_count {
+    margin-bottom: 35px;
+  }
+
+}
+
