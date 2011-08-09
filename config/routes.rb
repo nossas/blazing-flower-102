@@ -28,6 +28,7 @@ MeuRio::Application.routes.draw do
   resources :issues, :only => [:show]
   resources :debates, :only => [:show]
   resources :personal_stories, :only => [:show]
+  resources :members, :only => [ :show, :update ]
   resources :comments, :only => [:create] do
     resources :comment_flags, :only => [:create, :destroy], :as => "flags"
   end
