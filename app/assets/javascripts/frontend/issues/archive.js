@@ -21,6 +21,8 @@ $(document).ready(function(){
           $dropdown_ul.hide();
   });
   
+  $('.article').last().css('border-bottom', '1px solid #2cbae2');
+  
 });
 
 var Issue = {
@@ -63,6 +65,7 @@ var Issue = {
 
     $('.articles').empty();
     $.tmpl(Issue.articleTemplate, datum).appendTo($('.articles')); 
+    $('.article').last().css('border-bottom', '1px solid #2cbae2');
   }
 
 }

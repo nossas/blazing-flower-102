@@ -11,6 +11,7 @@ class IssuesController < ApplicationController
     articles_unsorted = @issue.petitions + @issue.debates + @issue.personal_stories
 
     @articles = articles_unsorted.sort{ |a, b| b.created_at <=> a.created_at }
+
     @article_count = @articles.length
     if !params[:page].nil? && params[:page].to_i > 1
       @page = params[:page].to_i

@@ -3,21 +3,21 @@
     -if article.class == Debate
       .grid_2.alpha
         =image_tag "archive_debate_icon.png"
-      .grid_8.omega
+      .grid_7.suffix_3.omega
         =link_to "#{article.title} >>", debate_path(article.id), :class => "title" 
         .date=article.created_at.strftime("%d %B %Y")
         .excerpt= article.question
     -elsif article.class == PersonalStory
       .grid_2.alpha
         =image_tag "archive_video_icon.png"
-      .grid_8.omega
+      .grid_7.suffix_3.omega
         =link_to "#{article.title} >>", issue_personal_story_path(@issue.id, article.id), :class => "title"
         .date=article.created_at.strftime("%d %B %Y")
         .excerpt= article.excerpt
     -elsif article.class == Petition
       .grid_2.alpha
         =image_tag "archive_petition_icon.png"
-      .grid_8.omega
+      .grid_7.suffix_3.omega.article_count
         =link_to "#{article.headline} >>", custom_petition_path(article.custom_path), :class => "title" 
         .date=article.created_at.strftime("%d %B %Y")
         .excerpt= article.short_description
