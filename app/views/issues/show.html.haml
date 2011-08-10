@@ -7,7 +7,7 @@
       %p=@issue.excerpt
   .description.clearfix
     %p=@issue.description
-    .see_more=link_to "Read More >>", '#' 
+    .see_more=link_to "Read More >>", issue_archive_path(@issue.id) 
 .grid_3-5.omega
   -if @issue.featured_petition
     .block.petition
@@ -30,4 +30,4 @@
       %p=@issue.personal_story_call_to_action
       =image_tag("comments_arrow.png", :class => "block_arrow")
       =link_to "Descubra esse Rio", issue_personal_story_path(@issue.id, @issue.featured_personal_story.id), :class => 'btn'
-  .see_more=link_to "See More >>", '#' 
+  .see_more=link_to "See More >>", issue_archive_path(@issue.id) 

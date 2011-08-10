@@ -82,9 +82,83 @@ body.issues {
     }
   }
 
+  .count {
+    font-size: 90%;
+  }
+
+  .head_info {
+    background: #fff;
+    border-top: 1px solid $blue;
+    border-bottom: 1px solid $blue;
+    padding: 15px 0;
+  }
+  
+  .count, .arrow {
+    float: left;
+    margin: 3px 10px 0 0;
+    display: block;
+  }
+
+  .count {
+    margin-top: 5px;
+  }
+
+  .articles {
+    margin-top: 50px;
+  }
+  
+  .article {
+    border-bottom: 1px solid $light_gray;
+    margin-bottom: 15px;
+    padding-bottom: 25px;
+    font-size: 95%;
+
+    img {
+      float: right;
+    }
+
+    .title {
+      text-transform: uppercase;
+    }
+
+    .date {
+      margin:5px 0 15px;
+    }
   .see_more {
     text-transform: uppercase;
     font-weight: 800;
   }
 
 }
+
+  /* General dropdown styles */       
+  dl.dropdown {
+    margin: 0 0 0 20px; 
+    padding: 0px;
+
+    dd, dt, ul { margin: 0px; padding: 0px; }
+
+    dd { position: relative; }
+
+    dt {background: url('/assets/archive_dropdown_slice.png') no-repeat scroll right center; display:block; padding:0px 20px 0px 10px; border: none; width:276px; height: 33px; color: $dark_gray;
+      span { cursor:pointer; display:block; padding:7px 5px 5px; }
+    }
+
+   dd ul { background:$light_gray none repeat scroll 0 0; display:none;
+      list-style:none; padding:5px 0px; position:absolute; 
+      left:0px; top:0px; width:auto; min-width:270px;}
+
+   span.value { display:none;}
+
+   dd ul li { margin-left: 0; padding-left:30px;
+    &:hover { background: $dark_gray; }
+   }
+    dd ul li a { padding:5px; display:block;}
+  }
+
+  .article_count {
+    margin-bottom: 35px;
+  }
+
+}
+

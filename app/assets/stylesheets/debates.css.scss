@@ -57,7 +57,7 @@ body.debates {
         margin-right: 24px;
         float: left;
       }
-      img#flag_loading {
+      img.flag_loading {
         width: 12px;
       }
     }
@@ -65,6 +65,11 @@ body.debates {
     .join_the_conversation, .comment_login {
       padding-left: 20px;
       float: left;
+    }
+
+    img.new_comment_loading {
+      padding-left: 5px;
+      width: 15px;
     }
 
     #close {
