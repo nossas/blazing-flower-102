@@ -144,12 +144,13 @@ body.issues {
   dl.dropdown {
     margin: 0 0 0 20px; 
     padding: 0px;
+    width: 276px;
 
     dd, dt, ul { margin: 0px; padding: 0px; }
 
     dd { position: relative; }
 
-    dt {background: url('/assets/archive_dropdown_slice.png') no-repeat scroll right center; display:block; padding:0px 20px 0px 10px; border: none; width:276px; height: 33px; color: $dark_gray;
+    dt {background: url('/assets/archive_dropdown_slice.png') no-repeat scroll right center; display:block; padding:0px 20px 0px 10px; border: none; width:276px; height: 33px; color: $dark_gray; cursor:pointer;
       span { cursor:pointer; display:block; padding:7px 5px 5px; }
     }
 

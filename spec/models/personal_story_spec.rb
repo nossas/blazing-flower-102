@@ -4,6 +4,7 @@ describe PersonalStory do
   it { should validate_presence_of :video_url }
   it { should validate_presence_of :issue }
   it { should validate_presence_of :title }
+  it { should validate_presence_of :excerpt }
 
   it { should allow_value('PETITION').for(:connected_action) }
   it { should allow_value('DEBATE').for(:connected_action) }
