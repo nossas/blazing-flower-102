@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110808152011) do
+ActiveRecord::Schema.define(:version => 20110810173817) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(:version => 20110808152011) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "autofire_emails", :force => true do |t|
-    t.text     "from",        :default => "Dev <dev@meurio.org.br>", :null => false
-    t.text     "subject",     :default => "Obrigado por participar", :null => false
+    t.text     "from",        :default => "Alessandra Orofino <alessandra@meurio.org.br>", :null => false
+    t.text     "subject",     :default => "Obrigado por participar",                       :null => false
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -237,16 +237,16 @@ ActiveRecord::Schema.define(:version => 20110808152011) do
 
   add_index "tafs", ["petition_id"], :name => "index_tafs_on_petition_id", :unique => true
 
-  add_foreign_key "autofire_emails", "petitions", :name => "autofire_emails_petition_id_fk"
-
-  add_foreign_key "debates", "members", :name => "debates_author_email_side_1_fk", :column => "author_email_side_1", :primary_key => "email"
-  add_foreign_key "debates", "members", :name => "debates_author_email_side_2_fk", :column => "author_email_side_2", :primary_key => "email"
-
-  add_foreign_key "petition_signatures", "members", :name => "petition_signatures_member_id_fk"
-  add_foreign_key "petition_signatures", "petitions", :name => "petition_signatures_petition_id_fk"
-
-  add_foreign_key "provider_authorizations", "members", :name => "provider_authorizations_member_id_fk"
-
-  add_foreign_key "tafs", "petitions", :name => "tafs_petition_id_fk"
+  create_table "widgets", :force => true do |t|
+    t.text     "title"
+    t.text     "link"
+    t.text     "image_file_name"
+    t.text     "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.text     "type",               :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
