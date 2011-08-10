@@ -7,6 +7,12 @@
 
 body.issues {
 
+  .grid_8-5.issue_main {
+    width: 636px;
+    margin-left: 16px;
+    margin-right: 20px;
+  }
+
   .intro {
 
     position: relative;
@@ -47,6 +53,9 @@ body.issues {
     margin: 470px 0 25px;
     border-top: 2px solid $blue;
     border-bottom: 1px solid $blue;
+    p {
+      line-height: 160%;
+    }
   }
 
   .block {
