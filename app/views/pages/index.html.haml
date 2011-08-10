@@ -6,7 +6,7 @@
 %strong Petitions:
 %br
 - Petition.all.each do |petition|
-  %p= link_to petition.title, custom_petition_path(petition)
+  %p= link_to petition.title, custom_petition_path(petition.custom_path)
 
 %strong Debates:
 %br
