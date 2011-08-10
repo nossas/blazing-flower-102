@@ -1,16 +1,18 @@
-%h1.grid_12 Perfil de usuário
+%h1.grid_12= @member.name
 
-.grid_4 l
+.grid_4 #personal_info
 
 .grid_8
   - if @member.meu_rio_is
     .meu_rio_is
-      %h3 Meu Rio é...
+      %h3= t("members_show.meu_rio_is")
       = @member.meu_rio_is
-  %h3.grid_8.alpha.omega Patricia esta participando em...
   .participation.grid_8.alpha.omega
-    .icon.grid_1.alpha
-    .content.grid_7.omega
-      .date 30 de Julho de 2011
-      .link Signed the Petition name
-      .comment= Faker::Lorem.paragraph
+    %h3= t("members_show.is_collaborating_in", :name => @member.first_name)
+    - @member.petition_signatures.each do |item|
+      .icon.grid_1.alpha= image_tag "/assets/petition_icon.png"
+      .content.grid_7.omega
+        - @member.petition_signatures.each do |item|
+          .date= l item.created_at
+          .link= link_to t("members_show.signed_petition", :title => item.petition.title), custom_petition_path(item.petition.custom_path)
+          .comment= "\"#{item.comment}\""
