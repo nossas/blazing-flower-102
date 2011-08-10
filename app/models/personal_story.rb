@@ -6,6 +6,7 @@ class PersonalStory < ActiveRecord::Base
   validates_presence_of :issue
   validates_presence_of :title
   validates_presence_of :video_url
+  validates_presence_of :excerpt
 
   validates_format_of :video_url, :with => /\Ahttps?:\/\/(\w+\.?)\w+\.\w{2,3}\/\S+/
 

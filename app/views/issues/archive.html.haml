@@ -2,7 +2,7 @@
 
 -unless @articles.nil?
   .head_info.grid_12
-    .grid_3.alpha
+    .grid_4.alpha
       %dl.dropdown
         %dt
           %span= @issue.name
@@ -10,9 +10,9 @@
           %ul
             -@issues.each do |issue|
               %li=link_to issue.name, issue_archive_path(issue.id)
-    .grid_3.prefix_6.omega
+    .grid_3.prefix_5.omega
       .count= "Displaying #{@articles_start}-#{@articles_end} of #{@article_count}"
-      -unless @articles_start < 10
+      -unless @articles_start < 5
         .arrow.prevous=link_to image_tag("archive_arrow_left.png"), issue_archive_page_path(@issue.id, @page - 1)
       -unless @articles_end >= @article_count 
         .arrow.next=link_to image_tag("archive_arrow_right.png"), issue_archive_page_path(@issue.id, @page + 1)
@@ -22,7 +22,7 @@
     .clearfix
   .grid_3.prefix_9.omega.article_count
     .count= "Displaying #{@articles_start}-#{@articles_end} of #{@article_count}"
-    -unless @articles_start < 10
+    -unless @articles_start < 5
       .arrow.prevous=link_to image_tag("archive_arrow_left.png"), issue_archive_page_path(@issue.id, @page - 1)
     -unless @articles_end >= @article_count 
       .arrow.next=link_to image_tag("archive_arrow_right.png"), issue_archive_page_path(@issue.id, @page + 1)

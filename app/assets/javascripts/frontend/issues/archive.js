@@ -47,7 +47,7 @@ var Issue = {
     var $next = $('.next');
 
     $('.count').html('Displaying ' + datum.start + '-' + datum.end + ' of ' + datum.count);
-    if(datum.start < 10){
+    if(datum.start < 5){
       $('.previous').hide();
     } else {
       $('.previous').show();
