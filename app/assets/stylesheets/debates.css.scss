@@ -6,6 +6,10 @@
 @import "mixins.css.scss";
 
 body.debates {
+
+  h2 {
+    font-size: 26px;
+  }
   .comments {
     background: white;
     @include border-radius(4px);
@@ -60,6 +64,9 @@ body.debates {
       img.flag_loading {
         width: 12px;
       }
+      .date {
+        color: #595959;
+      }
     }
 
     .join_the_conversation, .comment_login {
@@ -82,8 +89,8 @@ body.debates {
       font-size: 95%;
       cursor: pointer;
       float: right;
-      background: url(/assets/load_more_plus.png) top right no-repeat;
-      padding-right: 25px;
+      background: url(/assets/orange_open_icon.png) top right no-repeat;
+      padding-right: 3px 25px 0 0;
 
       &:hover {
         color: $pink;
@@ -115,7 +122,7 @@ body.debates {
     @include border-radius(4px);
     padding: 20px;
     margin: 10px 0;
-    @include box-shadow($light_gray 0px 0 5px 1px);
+    @include box-shadow(#dddcdc 0px 0 5px 1px);
     h2{
       color: $orange;
       text-align: center;
@@ -191,7 +198,7 @@ body.debates {
       p { margin-bottom: 5px; }
       p.name{
         color: $blue;
-        font-size: 150%;
+        font-size: 18px;
       }
       p.bio { margin-bottom: 20px; }
       .balloon{
@@ -236,7 +243,7 @@ body.debates {
   .quotes { margin-bottom: 20px; }
   .texts {
     .author1, .author2 { 
-      text-align: justify; 
+      text-align: left; 
     }
   }
 
