@@ -1,3 +1,32 @@
 // Place all the styles related to the Members controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "vars.css.scss";
+@import "mixins.css.scss";
+
+.meu_rio_is{
+  position:relative;
+  color: white;
+  padding: 10px 20px;
+  background: $orange;
+  @include border-radius(10px);
+  h3{
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+    font-family: Folk-solid;
+    text-transform: uppercase;
+  }
+  &:after{
+    content:"";
+    position:absolute;
+    border-style:solid;
+    display:block; 
+    width:0;
+    top:20px; /* controls vertical position */
+	  left:-15px; /* value = - border-left-width - border-right-width */
+	  bottom:auto;
+	  border-width: 15px 15px 0 0;
+	  border-color:transparent $orange;
+  }
+}

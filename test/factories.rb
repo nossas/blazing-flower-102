@@ -19,6 +19,7 @@ Factory.define :member do |m|
   m.sequence(:email) {|n| "test-email-#{n}@example.com" }
   m.first_name {Faker::Name.first_name}
   m.last_name {Faker::Name.last_name}
+  m.meu_rio_is {Faker::Lorem.paragraph}
   m.zona "Centro"
   m.after_create { |p| p.update_attributes :image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(p.email)}.jpg?s=60&d=identicon" }
 end

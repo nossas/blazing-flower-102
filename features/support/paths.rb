@@ -28,6 +28,8 @@ module NavigationHelpers
       issue_personal_story_path(Issue.first.id, PersonalStory.last.id)
     when /the about page/
       page_path("about")
+    when /this member page/
+      member_path(@member)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

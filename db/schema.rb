@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110804155956) do
+ActiveRecord::Schema.define(:version => 20110810180615) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(:version => 20110804155956) do
     t.string   "first_name", :null => false
     t.string   "last_name",  :null => false
     t.string   "image_url"
+    t.text     "meu_rio_is"
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true

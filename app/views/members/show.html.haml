@@ -1,1 +1,16 @@
-member profile
+%h1.grid_12 Perfil de usuário
+
+.grid_4 l
+
+.grid_8
+  - if @member.meu_rio_is
+    .meu_rio_is
+      %h3 Meu Rio é...
+      = @member.meu_rio_is
+  %h3.grid_8.alpha.omega Patricia esta participando em...
+  .participation.grid_8.alpha.omega
+    .icon.grid_1.alpha
+    .content.grid_7.omega
+      .date 30 de Julho de 2011
+      .link Signed the Petition name
+      .comment= Faker::Lorem.paragraph
