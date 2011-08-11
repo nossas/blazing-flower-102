@@ -45,4 +45,8 @@ class Member < ActiveRecord::Base
     "#{self.first_name} #{self.last_name}"
   end
 
+  def action_history
+    (self.petition_signatures + self.comments).sort{|x, y| y.created_at <=> x.created_at}
+  end
+
 end

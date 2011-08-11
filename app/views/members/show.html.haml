@@ -11,7 +11,7 @@
     %h3
       = t("members_show.is_collaborating_in", :name => @member.first_name)
       = image_tag "/assets/comments_arrow.png"
-    - (@member.petition_signatures + @member.comments).sort{|x, y| y.created_at <=> x.created_at}.each do |item|
+    - @member.action_history.each do |item|
       .post.clearfix
         .icon.grid_1.alpha
           = image_tag "/assets/01_petition_icon.png" if item.instance_of? PetitionSignature
