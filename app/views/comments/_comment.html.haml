@@ -4,7 +4,7 @@
     %p= link_to "#{comment.member.first_name} #{comment.member.last_name}", "#"
     %p.content= comment.content
     %p
-      = distance_of_time_in_words comment.created_at, Time.now
+      %span.date= distance_of_time_in_words comment.created_at, Time.now
       - if current_member
         |
         - if(flag = CommentFlag.find_by_member_id_and_comment_id(current_member.id, comment.id))

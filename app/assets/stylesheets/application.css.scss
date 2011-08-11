@@ -63,7 +63,7 @@ body > .main {
   }
 }
 
-.btn, .btn.disabled{
+.btn, .btn.disabled, a.btn{
   // Almost all properties are !important because activeadmin's CSS is trying overriding this class
   background: #dc6837 !important;
   background: -moz-linear-gradient(top, lighten(#dc6837, 20%) 0%, #dc6837 100%) !important;
@@ -87,6 +87,7 @@ body > .main {
     background: -moz-linear-gradient(top, lighten($pink, 20%) 0%, $pink 100%) !important;
     background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($pink, 20%)), color-stop(1, $pink)) !important;
     cursor: pointer !important;
+    text-decoration: none !important;
   }
   &:active{
     background: #b30300 !important;

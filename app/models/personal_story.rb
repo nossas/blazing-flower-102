@@ -7,10 +7,11 @@ class PersonalStory < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :video_url
   validates_presence_of :excerpt
+  validates_presence_of :description
 
   validates_format_of :video_url, :with => /\Ahttps?:\/\/(\w+\.?)\w+\.\w{2,3}\/\S+/
 
-  validates_inclusion_of :connected_action, :in => ['PETITION', 'DEBATE'], :allow_nil => true
+  validates_inclusion_of :connected_action, :in => ['PETITION', 'DEBATE', 'NONE'], :allow_nil => true
 
   default_scope :order => "created_at DESC"
 
