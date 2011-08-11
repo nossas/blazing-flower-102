@@ -18,7 +18,7 @@ Feature: View a member profile
     And this member commented the petition "Meio Ambiente é Coisa Séria" with "Vamos salvar a nossa cidade!" on "30/06/2011"
     When I go to this member page
     Then I should see "Nícolas está colaborando com..."
-    And I should see "Quinta, 30 de Junho de 2011, 03:00 h"
+    And I should see "Quinta, 30 de Junho de 2011, 00:00 h"
     And I should see "Assinatura da petição Meio Ambiente é Coisa Séria"
     And I should see "Vamos salvar a nossa cidade!"
     And I should see the petition comment icon
@@ -29,7 +29,7 @@ Feature: View a member profile
     When I go to this member page
     Then I should see "Pedro está colaborando com..."
     And I should see "Comentários do debate Falando sobre o Maracanã"
-    And I should see "Quinta, 30 de Junho de 2011, 03:00 h"
+    And I should see "Quinta, 30 de Junho de 2011, 00:00 h"
     And I should see "Nunca gostei da localização do estádio"
     And I should see the debate comment icon
 

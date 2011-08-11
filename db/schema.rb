@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110808152011) do
+ActiveRecord::Schema.define(:version => 20110811170629) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(:version => 20110808152011) do
     t.string   "first_name", :null => false
     t.string   "last_name",  :null => false
     t.string   "image_url"
+    t.text     "meu_rio_is"
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
@@ -236,6 +237,19 @@ ActiveRecord::Schema.define(:version => 20110808152011) do
   end
 
   add_index "tafs", ["petition_id"], :name => "index_tafs_on_petition_id", :unique => true
+
+  create_table "widgets", :force => true do |t|
+    t.text     "title"
+    t.text     "link"
+    t.text     "image_file_name"
+    t.text     "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.text     "type",               :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "html_content"
+  end
 
   add_foreign_key "autofire_emails", "petitions", :name => "autofire_emails_petition_id_fk"
 

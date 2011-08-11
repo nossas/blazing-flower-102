@@ -322,3 +322,8 @@ Com a realização da Copa e das Olimpíadas nos próximos anos, essa oportunida
     read_more_on_blog: "Leia mais no nosso blog »"
     follow_us: "Siga-nos"
     intro: "Com a realização da Copa e das Olimpíadas nos próximos anos, essa oportunidade é única. No Meu Rio, acreditamos que uma maior participação popular nas questões de políticas públicas é a chave para um Rio mais justo. Nós cariocas podemos sim, juntos, construir uma cidade melhor para todos e mostrar que nossa força pode trazer resultados surpreendentes."
+  members_show:
+    is_collaborating_in: "%{name} está colaborando com..."
+    meu_rio_is: "Meu Rio é..."
+    signed_petition: "Assinatura da petição %{title}"
+    commented_debate: "Comentários do debate %{name}"
