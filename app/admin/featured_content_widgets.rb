@@ -4,8 +4,11 @@ ActiveAdmin.register FeaturedContentWidget do
   filter :link
 
   index do
+    column :title
     column :link
-    column :image_url
+    column "Image" do |w|
+      image_tag w.image.url
+    end
     column "Options" do |w|
       span link_to 'Show', admin_featured_content_widget_path(w)
       span link_to 'Edit', edit_admin_featured_content_widget_path(w)
@@ -14,7 +17,8 @@ ActiveAdmin.register FeaturedContentWidget do
 
   form do |f|
     f.inputs "Featured Content Widget" do
-      f.input :link, :as => :string
+      f.input :title, :as => :string
+      f.input :link,  :as => :string
       f.input :image
     end
 
