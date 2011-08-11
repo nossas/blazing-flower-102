@@ -9,7 +9,7 @@
   position:relative;
   color: white;
   padding: 10px 20px;
-  background: $orange;
+  background: $blue;
   margin-bottom: 40px;
   @include border-radius(10px);
   h3{
@@ -28,7 +28,7 @@
 	  left:-15px; /* value = - border-left-width - border-right-width */
 	  bottom:auto;
 	  border-width: 15px 15px 0 0;
-	  border-color:transparent $orange;
+	  border-color:transparent $blue;
   }
 }
 
@@ -38,11 +38,20 @@
     font-style: italic;
     border-bottom: 1px $blue solid;
     padding: 5px;
+    position: relative;
+    img {
+      position: absolute;
+      top: 15px;
+      left: -12px;
+    }
   }
   .post {
     margin-bottom: 20px;
     .icon {
-      img { width: 100%; }
+      img { 
+        width: 80%; 
+        float: right;
+      }
     }
   }
 }
