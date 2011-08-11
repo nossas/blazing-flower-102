@@ -8,6 +8,12 @@ $(document).ready(function(){
   var page = 2;
   var debate = $("h1.grid_12").attr("data-debate");
 
+  function allCommentsLoaded(){
+    $load_more.unbind();
+    $load_more.html("Todos os comentários estão visíveis agora");  
+    $load_more.removeClass("load_more_link");  
+  }
+
   var openNewComment = function(){
     $('.new_comment_loading').show();
     $.get('/debates/' + debate + '/comments').success(function(data){
@@ -15,9 +21,7 @@ $(document).ready(function(){
       $('.previous_comments').append(data);
       page = Math.ceil($('.previous_comments .comment').length / 5) + 1;
       $new_comment.show(); 
-
       $(window).scrollTop($('a[name=comments_bottom]').offset().top);
-
       $("#bottom_buttons").hide();
     })
     .complete(function(){
@@ -63,11 +67,12 @@ $(document).ready(function(){
       $comment_count.each(function(){
         $(this).text(parseInt($(this).text()) + 1);
       });
+      allCommentsLoaded();
     }).bind("ajax:complete", function(evt, xhr, status){
       $submitButton.val($submitButton.data('origText'));
       closeNewComment();
     }).bind("ajax:error", function(evt, xhr, status, error){
-      $form.prepend("There were errors with the the submission. Please reload the page and try again.");
+      $form.prepend("Houve um erro no envio do comentário. Tente recarregar a página.");
     });
 
     //load more comments via ajax
@@ -86,13 +91,12 @@ $(document).ready(function(){
               $('.previous_comments').append(data);
               $load_more.html($load_more.data('origText'));
             } else {
-              $load_more.html("Todos os comentários estão visíveis agora");  
-              $load_more.removeClass("load_more_link");  
+              allCommentsLoaded();
             };
             if(callback){ callback(data); }
           },
           error: function(xhr, status){
-            $load_more.html("There's been an error. Please reload the page.");
+            $load_more.html("Houve um erro na carga dos comentários. Tente recarregar a página.");
           }
       });
     });
@@ -111,7 +115,7 @@ $(document).ready(function(){
       $(this).show();
       $(this).next(".flag_loading").hide();
     }).bind("ajax:error", function(evt, xhr, status, error){
-      $(this).html("There was an error while flagging the comment. Please reload the page.");
+      $(this).html("Houve um erro ao denunciar o comentário. Tente recarregar a página.");
     });
 
     $(".flag").live("click", function(){
