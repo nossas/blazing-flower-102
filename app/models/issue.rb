@@ -23,4 +23,8 @@ class Issue < ActiveRecord::Base
                       :access_key_id => SITE['s3_access_key_id'],
                       :secret_access_key => SITE['s3_secret_access_key']
                     }
+
+  scope :has_articles, lambda {
+    self.where('EXISTS (SELECT true FROM debates d WHERE d.issue_id = issues.id) OR EXISTS (SELECT true FROM petitions p WHERE p.issue_id = issues.id) OR EXISTS (SELECT true FROM personal_stories ps WHERE ps.issue_id = issues.id)') }
+
 end

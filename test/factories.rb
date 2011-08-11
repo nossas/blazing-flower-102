@@ -172,6 +172,7 @@ end
 Factory.define :personal_story do |s|
   s.sequence(:title){|n| "Personal Story #{n}" }
   s.description { Faker::Lorem.paragraph }
+  s.excerpt { Faker::Lorem.paragraph }
   s.video_url "http://vimeo.com/26570444"
   s.connected_action "PETITION"
 

@@ -32,14 +32,17 @@
   }
 }
 
-.participation {
+.posts {
   h3 {
     font-weight: normal;
     font-style: italic;
     border-bottom: 1px $blue solid;
     padding: 5px;
   }
-  .icon {
-    img { width: 100%; }
+  .post {
+    margin-bottom: 20px;
+    .icon {
+      img { width: 100%; }
+    }
   }
 }

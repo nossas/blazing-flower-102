@@ -1,4 +1,15 @@
 class CommentsController < InheritedResources::Base
+  actions :index
+  optional_belongs_to :debate
+  respond_to :html, :only => [ :create, :index ]
+  respond_to :json, :only => [ :create ]
+
+  def index
+    index! do |format|
+      format.html{ render :partial => 'comments', :layout => false }
+    end
+  end
+
   def create
     @comment = Comment.new(params[:comment])
     if debate_id = params[:debate][:id]

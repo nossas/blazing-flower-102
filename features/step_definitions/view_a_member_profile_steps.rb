@@ -19,3 +19,9 @@ end
 Then /^I should see the petition comment icon$/ do
   page.should have_xpath("//img[@src=\"/assets/petition_icon.png\"]")
 end
+
+Given /^this member commented the debate "([^"]*)" with "([^"]*)" on "([^"]*)"$/ do |debate_title, comment, comment_date|
+  Factory(:provider_authorization, :member => @member)
+  @debate = Factory(:debate, :title => debate_title)
+  @comment = Factory(:debate_comment, :commentable => @debate, :member => @member, :content => comment, :created_at => Date.parse(comment_date))
+end
