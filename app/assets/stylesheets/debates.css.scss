@@ -90,7 +90,7 @@ body.debates {
       cursor: pointer;
       float: right;
       background: url(/assets/orange_open_icon.png) top right no-repeat;
-      padding-right: 3px 25px 0 0;
+      padding: 3px 25px 0 0;
 
       &:hover {
         color: $pink;
