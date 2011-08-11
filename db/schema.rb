@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110811170629) do
+ActiveRecord::Schema.define(:version => 20110811234832) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -252,6 +252,11 @@ ActiveRecord::Schema.define(:version => 20110811170629) do
   end
 
   add_foreign_key "autofire_emails", "petitions", :name => "autofire_emails_petition_id_fk"
+
+  add_foreign_key "comment_flags", "comments", :name => "comment_flags_comment_id_fk"
+  add_foreign_key "comment_flags", "members", :name => "comment_flags_member_id_fk"
+
+  add_foreign_key "comments", "members", :name => "comments_member_id_fk"
 
   add_foreign_key "debates", "members", :name => "debates_author_email_side_1_fk", :column => "author_email_side_1", :primary_key => "email"
   add_foreign_key "debates", "members", :name => "debates_author_email_side_2_fk", :column => "author_email_side_2", :primary_key => "email"
