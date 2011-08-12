@@ -73,6 +73,9 @@ body.debates {
       padding-left: 20px;
       float: left;
     }
+    .subtitle .comment_login {
+      margin-top: 3px;
+    }
 
     img.new_comment_loading {
       padding-left: 5px;
@@ -199,7 +202,7 @@ body.debates {
     background: url("/assets/debate_divider.png") repeat-y center;
     .author1, .author2 {
       width: 45%;
-      p { margin-bottom: 5px; }
+      p { margin-bottom: 0; }
       p.name{
         color: $blue;
         font-size: 18px;
@@ -240,7 +243,7 @@ body.debates {
     .quotes { margin-bottom: 20px; }
     .texts { 
       .author1, .author2 {
-        text-align: justify;
+        text-align: left;
       }
     }
   }
