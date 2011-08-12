@@ -213,6 +213,9 @@ body.debates {
       p.name{
         color: $blue;
         font-size: 18px;
+        &:hover {
+          color: $pink;
+        }
       }
       p.bio { margin-bottom: 20px; }
       .balloon{
