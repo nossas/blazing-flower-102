@@ -6,7 +6,7 @@ ActiveAdmin.register Debate do
     column :author_email_side_2
     column "Options" do |d|
       span link_to "Show", admin_debate_path(d)
-      span link_to "Edit", admin_debate_path(d)
+      span link_to "Edit", edit_admin_debate_path(d)
     end
   end
 
