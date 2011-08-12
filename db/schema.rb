@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110811234832) do
+ActiveRecord::Schema.define(:version => 20110811235548) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -87,21 +87,22 @@ ActiveRecord::Schema.define(:version => 20110811234832) do
   add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
 
   create_table "debates", :force => true do |t|
-    t.text     "question",                   :null => false
+    t.text     "question",                                   :null => false
     t.text     "quote_side_1"
     t.text     "quote_side_2"
     t.text     "text_side_1"
     t.text     "text_side_2"
     t.integer  "issue_id"
-    t.text     "author_email_side_1",        :null => false
-    t.text     "author_email_side_2",        :null => false
+    t.text     "author_email_side_1",                        :null => false
+    t.text     "author_email_side_2",                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "author_title_side_1"
     t.text     "author_title_side_2"
     t.text     "author_organization_side_1"
     t.text     "author_organization_side_2"
-    t.text     "title",                      :null => false
+    t.text     "title",                                      :null => false
+    t.text     "comment_prompt",             :default => "", :null => false
   end
 
   add_index "debates", ["author_email_side_1"], :name => "index_debates_on_author_email_side_1"

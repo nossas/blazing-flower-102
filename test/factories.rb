@@ -135,6 +135,7 @@ Factory.define :debate do |d|
   d.author_2 { Factory(:member) }
   d.association :issue
   d.title {Faker::Company.name}
+  d.comment_prompt {"What do you have to say?"}
   d.author_title_side_1 "Lieutentent"
   d.author_title_side_2 "Admiral"
   d.author_organization_side_1 {Faker::Company.name}

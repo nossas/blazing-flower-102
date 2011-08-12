@@ -8,6 +8,7 @@ class Debate < ActiveRecord::Base
   validate :authors_are_members
   validates_presence_of :title
   validates_presence_of :question
+  validates_presence_of :comment_prompt
   validates_presence_of :author_email_side_1
   validates_presence_of :author_email_side_2
 
