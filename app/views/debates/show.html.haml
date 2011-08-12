@@ -58,8 +58,8 @@
 #comment_area.grid_10.push_1
   .comments
     %a{:name => "comments_top"}
-      %h3= @debate.comment_prompt
-      = image_tag "/assets/comments_arrow.png", :id => "comments_arrow"
+    %h3= @debate.comment_prompt
+    = image_tag "/assets/comments_arrow.png", :id => "comments_arrow"
     .subtitle
       -if @comment
         = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
