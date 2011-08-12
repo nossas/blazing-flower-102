@@ -6,6 +6,13 @@
 @import "mixins.css.scss";
 
 body.debates {
+  .addthis_button img {
+    padding-left: 16px;
+  }
+
+  #comment_area{
+    padding-top: 29px;
+  }
 
   h2 {
     font-size: 26px;
