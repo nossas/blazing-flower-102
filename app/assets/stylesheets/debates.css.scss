@@ -84,11 +84,15 @@ body.debates {
       float: right;
       cursor: pointer;
     }
-    #load_more {
+
+    .load_more {
       text-transform: uppercase;
       font-size: 95%;
-      cursor: pointer;
       float: right;
+    }
+
+    .load_more_link {
+      cursor: pointer;
       background: url(/assets/orange_open_icon.png) top right no-repeat;
       padding: 3px 25px 0 0;
 

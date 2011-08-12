@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110810173817) do
+ActiveRecord::Schema.define(:version => 20110811235548) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(:version => 20110810173817) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "autofire_emails", :force => true do |t|
-    t.text     "from",        :default => "Alessandra Orofino <alessandra@meurio.org.br>", :null => false
-    t.text     "subject",     :default => "Obrigado por participar",                       :null => false
+    t.text     "from",        :default => "Dev <dev@meurio.org.br>", :null => false
+    t.text     "subject",     :default => "Obrigado por participar", :null => false
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -87,21 +87,22 @@ ActiveRecord::Schema.define(:version => 20110810173817) do
   add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
 
   create_table "debates", :force => true do |t|
-    t.text     "question",                   :null => false
+    t.text     "question",                                   :null => false
     t.text     "quote_side_1"
     t.text     "quote_side_2"
     t.text     "text_side_1"
     t.text     "text_side_2"
     t.integer  "issue_id"
-    t.text     "author_email_side_1",        :null => false
-    t.text     "author_email_side_2",        :null => false
+    t.text     "author_email_side_1",                        :null => false
+    t.text     "author_email_side_2",                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "author_title_side_1"
     t.text     "author_title_side_2"
     t.text     "author_organization_side_1"
     t.text     "author_organization_side_2"
-    t.text     "title",                      :null => false
+    t.text     "title",                                      :null => false
+    t.text     "comment_prompt",             :default => "", :null => false
   end
 
   add_index "debates", ["author_email_side_1"], :name => "index_debates_on_author_email_side_1"
@@ -142,6 +143,7 @@ ActiveRecord::Schema.define(:version => 20110810173817) do
     t.string   "first_name", :null => false
     t.string   "last_name",  :null => false
     t.string   "image_url"
+    t.text     "meu_rio_is"
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
@@ -247,6 +249,24 @@ ActiveRecord::Schema.define(:version => 20110810173817) do
     t.text     "type",               :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "html_content"
   end
+
+  add_foreign_key "autofire_emails", "petitions", :name => "autofire_emails_petition_id_fk"
+
+  add_foreign_key "comment_flags", "comments", :name => "comment_flags_comment_id_fk"
+  add_foreign_key "comment_flags", "members", :name => "comment_flags_member_id_fk"
+
+  add_foreign_key "comments", "members", :name => "comments_member_id_fk"
+
+  add_foreign_key "debates", "members", :name => "debates_author_email_side_1_fk", :column => "author_email_side_1", :primary_key => "email"
+  add_foreign_key "debates", "members", :name => "debates_author_email_side_2_fk", :column => "author_email_side_2", :primary_key => "email"
+
+  add_foreign_key "petition_signatures", "members", :name => "petition_signatures_member_id_fk"
+  add_foreign_key "petition_signatures", "petitions", :name => "petition_signatures_petition_id_fk"
+
+  add_foreign_key "provider_authorizations", "members", :name => "provider_authorizations_member_id_fk"
+
+  add_foreign_key "tafs", "petitions", :name => "tafs_petition_id_fk"
 
 end

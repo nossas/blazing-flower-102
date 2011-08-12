@@ -54,7 +54,7 @@
 .grid_10.push_1
   .comments
     %a{:name => "comments_top"}
-      %h3 Comment prompt
+      %h3= @debate.comment_prompt
       = image_tag "/assets/comments_arrow.png", :id => "comments_arrow"
     .subtitle
       -if @comment
@@ -76,14 +76,14 @@
           = image_tag "/assets/loading.gif", :class => "new_comment_loading", :style => "display:none"
         -else
           = link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "comment_login"
-        #load_more= t("debate_show.load_more")
+        .load_more.load_more_link= t("debate_show.load_more")
     - if @comment
       #new_comment
         #close
           =image_tag "/assets/orange_close_icon.png"
         = form_for @comment, :remote => true, :html => { 'data-type' => :html } do |form|
           = image_tag current_member.image_url
-          = form.text_area :content, :class => 'required', :placeholder => "Comment prompt" 
+          = form.text_area :content, :class => 'required', :placeholder => @debate.comment_prompt
           = hidden_field(:debate, :id)
           = form.submit "Enviar", :class => "btn"
 :javascript

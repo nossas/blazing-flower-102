@@ -29,6 +29,7 @@ MeuRio::Application.routes.draw do
   end
   match 'debates/:id/load_comments/:page' => "debates#load_comments"
   resources :personal_stories, :only => [:show]
+  resources :members, :only => [ :show, :update ]
   match "issue/:issue_id/personal-stories" => "personal_stories#issue_index", :as => "issue_personal_stories"
   match "issue/:issue_id/personal-stories/:id" => "personal_stories#issue_index", :as => "issue_personal_story"
   resources :comments, :only => [:create] do

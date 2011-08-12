@@ -18,6 +18,9 @@ ActiveAdmin.register Comment, :as => "CommunityComment" do
   end
 
   index do
+    column :debate do |c|
+      c.commentable.title
+    end
     column :member do |c|
       c.member.email
     end
