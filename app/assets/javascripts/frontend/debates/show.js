@@ -21,7 +21,7 @@ $(document).ready(function(){
       $('.previous_comments').append(data);
       page = Math.ceil($('.previous_comments .comment').length / 5) + 1;
       $new_comment.show(); 
-      $(window).scrollTop($('a[name=comments_bottom]').offset().top);
+      $(window).scrollTop($new_comment.offset().top);
       $("#bottom_buttons").hide();
     })
     .complete(function(){
