@@ -28,6 +28,7 @@ Feature: Managing Petitions
     When I am on the admin petitions page
     Then I should not see "Preview"
 
+  @no_hudson
   Scenario: Exporting a list of people who have a petition
     Given I am logged in to the admin section
     And 1 published petitions exist
