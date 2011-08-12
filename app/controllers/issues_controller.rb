@@ -8,7 +8,7 @@ class IssuesController < ApplicationController
     @issues = Issue.has_articles
     @issue = Issue.where(:id => params[:id]).first
 
-    @articles = (@issue.petitions + @issue.debates + @issue.personal_stories).sort{ |a, b| b.created_at <=> a.created_at }
+    @articles = (@issue.petitions.where(:state => 'published') + @issue.debates + @issue.personal_stories).sort{ |a, b| b.created_at <=> a.created_at }
 
     @article_count = @articles.length
     if !params[:page].nil? && params[:page].to_i > 1
