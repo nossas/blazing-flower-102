@@ -33,7 +33,7 @@ $("#petition_signature_comment").keyup(function(){
 });
 
 $('.take_action').bind('ajax:success', function(event, data){
-  $('.take_action').html(data);
+  window.location.hash = '#share';
 });
 
 $('#submit_btn').click(function(){
