@@ -75,10 +75,10 @@ ActiveRecord::Schema.define(:version => 20110811235548) do
   add_index "comment_flags", ["comment_id", "member_id"], :name => "index_comment_flags_on_comment_id_and_member_id", :unique => true
 
   create_table "comments", :force => true do |t|
-    t.integer  "member_id"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.text     "content"
+    t.integer  "member_id",        :null => false
+    t.integer  "commentable_id",   :null => false
+    t.string   "commentable_type", :null => false
+    t.text     "content",          :null => false
     t.boolean  "comment_accepted"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -256,8 +256,5 @@ ActiveRecord::Schema.define(:version => 20110811235548) do
   add_foreign_key "comment_flags", "members", :name => "comment_flags_member_id_fk"
 
   add_foreign_key "comments", "members", :name => "comments_member_id_fk"
-
-  add_foreign_key "debates", "members", :name => "debates_author_email_side_1_fk", :column => "author_email_side_1", :primary_key => "email"
-  add_foreign_key "debates", "members", :name => "debates_author_email_side_2_fk", :column => "author_email_side_2", :primary_key => "email"
 
 end
