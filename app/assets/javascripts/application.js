@@ -5,4 +5,5 @@
 // the compiled file.
 //
 //= require jquery_ujs
+//= require init.js
 //= require_tree ./frontend

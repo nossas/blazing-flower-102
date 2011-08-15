@@ -7,7 +7,10 @@
   %strong Petitions:
   %br
   - Petition.all.each do |petition|
-    %p= link_to petition.title, custom_petition_path(petition.custom_path)
+    -if petition.complete?
+      %p= link_to petition.title, custom_petition_path(petition.custom_path)
+    - else
+      %p= "Petition named '#{petition.title}' is not complete"
 
   %strong Debates:
   %br
@@ -31,9 +34,14 @@
     %p= link_to member.name, member_path(member)
 
 .grid_6
-  %strong Featured Content Demonstration:
+  %strong Featured Content QA:
   %br
   - FeaturedContentWidget.all.each do |w|
     .widget
       = link_to(image_tag(w.image.url), w.link)
 
+  %strong Public Hearings Widget QA:
+  %br
+  - PublicHearingsWidget.all.each do |w|
+    .widget
+      =raw w.html_content

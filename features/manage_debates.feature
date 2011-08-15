@@ -12,6 +12,7 @@ Feature: Managing Debates
   Scenario: Creating a debate
     Given I am logged in to the admin section
     And 3 members exist
+    And 1 issues exist
     When I follow "Debates"
     And I click "Novo(a) Debate"
     And I fill in the debate form with correct information

@@ -180,7 +180,7 @@ describe Petition do
     end
   end
 
-  describe "#export_to_csv" do
+  describe "#export_to_csv", :no_hudson => true do
     before do
       @p = Factory.create(:complete_petition, :title => "petition-csv-export-test")
       @p.publish!

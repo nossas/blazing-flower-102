@@ -8,15 +8,20 @@ $(document).ready(function(){
   var page = 2;
   var debate = $("h1.grid_12").attr("data-debate");
 
+  function allCommentsLoaded(){
+    $load_more.unbind();
+    $load_more.html("Todos os comentários estão visíveis agora");  
+    $load_more.removeClass("load_more_link");  
+  }
+
   var openNewComment = function(){
     $('.new_comment_loading').show();
     $.get('/debates/' + debate + '/comments').success(function(data){
       $('.previous_comments .comment').remove();
-      $('.previous_comments').prepend(data);
-      rebindFlagLinks();
+      $('.previous_comments').append(data);
       page = Math.ceil($('.previous_comments .comment').length / 5) + 1;
       $new_comment.show(); 
-      $(window).scrollTop($('.previous_comments .comment:last').offset().top);
+      $(window).scrollTop($new_comment.offset().top);
       $("#bottom_buttons").hide();
     })
     .complete(function(){
@@ -32,7 +37,6 @@ $(document).ready(function(){
     $("#bottom_buttons").show();
   }
 
-
   $(window).bind('hashchange', function(){
     if(window.location.hash == '#new_comment'){
       openNewComment();
@@ -40,8 +44,6 @@ $(document).ready(function(){
   });
 
   $('#new_comment').hide();
-
-  //$('.join_the_conversation').bind('click', openNewComment);
 
   $('#close').bind('click', closeNewComment);
 
@@ -61,20 +63,20 @@ $(document).ready(function(){
 
   $form.bind("ajax:success", function(evt, data, status, xhr){
       $form.find('textarea').val("");
-      $('.previous_comments .comment:last').after(data);
+      $('.previous_comments').append(data);
       $comment_count.each(function(){
         $(this).text(parseInt($(this).text()) + 1);
       });
+      allCommentsLoaded();
     }).bind("ajax:complete", function(evt, xhr, status){
       $submitButton.val($submitButton.data('origText'));
       closeNewComment();
     }).bind("ajax:error", function(evt, xhr, status, error){
-      $form.prepend("There were errors with the the submission. Please reload the page and try again.");
+      $form.prepend("Houve um erro no envio do comentário. Tente recarregar a página.");
     });
 
     //load more comments via ajax
-
-    $load_more = $("#load_more");
+    $load_more = $(".load_more");
     
     $load_more.bind('click', function(e, callback){
       $load_more.data('origText', $(this).html());
@@ -86,43 +88,38 @@ $(document).ready(function(){
           success: function(data){
             if (data){
               page++;
-              $('.previous_comments .comment:last').after(data);
+              $('.previous_comments').append(data);
               $load_more.html($load_more.data('origText'));
-              rebindFlagLinks();
             } else {
-              $load_more.html("Todos os comentários estão visíveis agora");  
+              allCommentsLoaded();
             };
             if(callback){ callback(data); }
           },
           error: function(xhr, status){
-            $load_more.html("There's been an error. Please reload the page.");
+            $load_more.html("Houve um erro na carga dos comentários. Tente recarregar a página.");
           }
       });
     });
 
-    function rebindFlagLinks(){
-      $('.flag').unbind();
-      $('.flag').bind('ajax:success', function(event, data){
-        var link = $(this);
-        if(link.data("method") == "post"){
-          link.html(unflag_label).data("method", "delete").attr("href", link.attr("href") + "/" + data.id);
-        }
-        else{
-          var path_array = link.attr("href").split("/");
-          var path = path_array.slice(0, (path_array.length - 1)).join("/");
-          link.html(flag_label).data("method", "post").attr("href", path);
-        }
-      }).bind("ajax:complete", function(evt, xhr, status){
-        $(this).show();
-        $(this).next(".flag_loading").hide();
-      }).bind("ajax:error", function(evt, xhr, status, error){
-        $(this).html("There was an error while flagging the comment. Please reload the page.");
-      });
+    $('.flag').live('ajax:success', function(event, data){
+      var link = $(this);
+      if(link.data("method") == "post"){
+        link.html(unflag_label).data("method", "delete").attr("href", link.attr("href") + "/" + data.id);
+      }
+      else{
+        var path_array = link.attr("href").split("/");
+        var path = path_array.slice(0, (path_array.length - 1)).join("/");
+        link.html(flag_label).data("method", "post").attr("href", path);
+      }
+    }).live("ajax:complete", function(evt, xhr, status){
+      $(this).show();
+      $(this).next(".flag_loading").hide();
+    }).bind("ajax:error", function(evt, xhr, status, error){
+      $(this).html("Houve um erro ao denunciar o comentário. Tente recarregar a página.");
+    });
 
-      $(".flag").bind("click", function(){
-        $(this).hide();
-        $(this).next(".flag_loading").show();
-      });
-    }
-    rebindFlagLinks();
+    $(".flag").live("click", function(){
+      $(this).hide();
+      $(this).next(".flag_loading").show();
+    });
 });

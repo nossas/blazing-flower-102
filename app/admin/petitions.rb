@@ -34,84 +34,44 @@ ActiveAdmin.register Petition do
         div({:class => 'attributes_table petition' }) do
           table do
             tr do
-              th do
-                'Title'
-              end
-              td do
-                petition.title
-              end
+              th { 'Title' }
+              td { petition.title }
             end
             tr do
-              th do
-                'Custom Path'
-              end
-              td do
-                petition.custom_path
-              end
+              th { 'Custom Path' }
+              td { petition.custom_path }
             end
             tr do
-              th do
-                'Issue'
-              end
-              td do
-                petition.issue.name
-              end
+              th { 'Issue' }
+              td { petition.issue.name }
             end
             tr do
-              th do
-                'Headline'
-              end
-              td do
-                petition.headline
-              end
+              th { 'Headline' }
+              td { petition.headline }
             end
             tr do
-              th do
-                'Description'
-              end
-              td do
-                petition.description
-              end
+              th { 'Description' }
+              td { petition.description }
             end
             tr do
-              th do
-                'Short Description'
-              end
-              td do
-                petition.short_description
-              end
+              th { 'Short Description' }
+              td { petition.short_description }
             end
             tr do
-              th do
-                'Media'
-              end
-              td do
-                raw petition.media
-              end
+              th { 'Media' }
+              td { raw(petition.media) }
             end
             tr do
-              th do
-                'Call to Action Headline'
-              end
-              td do
-                petition.call_to_action_headline
-              end
+              th { 'Call to Action Headline' }
+              td { petition.call_to_action_headline }
             end
             tr do
-              th do
-                'Call to Action Button'
-              end
-              td do
-                petition.call_to_action
-              end
+              th { 'Call to Action Button' }
+              td { petition.call_to_action }
             end
             tr do
-              th do
-                'Call to Action Text'
-              end
-              td do
-                petition.call_to_action_text
-              end
+              th { 'Call to Action Text' }
+              td { petition.call_to_action_text }
             end
           end
         end
@@ -124,28 +84,16 @@ ActiveAdmin.register Petition do
         div({:class => 'attributes_table petition' }) do
           table do
             tr do
-              th do
-                'Display Counter?'
-              end
-              td do
-                petition.display_counter == true ? "Yes" : "No"
-              end
+              th { 'Display Counter?' }
+              td { petition.display_counter == true ? "Yes" : "No" }
             end
             tr do
-              th do
-                'Counter Threshold'
-              end
-              td do
-                petition.counter_threshold.to_s
-              end
+              th { 'Counter Threshold' }
+              td { petition.counter_threshold.to_s }
             end
             tr do
-              th do
-                'Counter Goal'
-              end
-              td do
-                petition.counter_goal.to_s
-              end
+              th { 'Counter Goal' }
+              td { petition.counter_goal.to_s }
             end
           end
         end
@@ -157,28 +105,16 @@ ActiveAdmin.register Petition do
           div({:class => 'attributes_table petition' }) do
             table do
               tr do
-                th do
-                  'Display Comments?'
-                end
-                td do
-                  petition.display_comment_field == true ? "Yes" : "No"
-                end
+                th { 'Display Comments?' }
+                td { petition.display_comment_field == true ? "Yes" : "No" }
               end
               tr do
-                th do
-                  'Comment Question'
-                end
-                td do
-                  petition.comment_question
-                end
+                th { 'Comment Question' }
+                td { petition.comment_question }
               end
               tr do
-                th do
-                  'Surface Comments?'
-                end
-                td do
-                  petition.surface_comments == true ? "Yes" : "No"
-                end
+                th { 'Surface Comments?' }
+                td { petition.surface_comments == true ? "Yes" : "No" }
               end
             end
           end
