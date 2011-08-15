@@ -17,10 +17,10 @@
           = image_tag "/assets/01_petition_icon.png" if item.instance_of? PetitionSignature
           = image_tag "/assets/02_debate_icon.png" if item.instance_of? Comment
         .content.grid_7.omega
+          .date= l item.created_at, :format => :very_short
           .link
             = link_to t("members_show.signed_petition", :title => item.petition.title), custom_petition_path(item.petition.custom_path) if item.instance_of? PetitionSignature
             = link_to t("members_show.commented_debate", :name => item.commentable.title), debate_path(item.commentable) if item.instance_of? Comment
-          .date= l item.created_at
           .comment
             = "\"#{item.comment}\"" if item.instance_of? PetitionSignature
             = "\"#{item.content}\"" if item.instance_of? Comment

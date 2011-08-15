@@ -61,6 +61,7 @@
   time:
     formats:
       default: "%A, %d de %B de %Y, %H:%M h"
+      very_short: "%d de %B de %Y"
       short: "%d/%m, %H:%M h"
       long: "%A, %d de %B de %Y, %H:%M h"
     am: ''
