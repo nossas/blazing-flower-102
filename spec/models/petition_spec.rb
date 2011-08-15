@@ -200,7 +200,7 @@ describe Petition do
 
       generated_file = File.open(Rails.root.to_s + "/tmp/signatures-#{@p.title}.csv").read
       generated_file.should include("id,first_name,last_name,email,zona,celular,created_at")
-      generated_file.should include("Diogo,Provey,ren@purpose.com,Centro,,2011-07-28 16:08:11 UTC")
+      generated_file.should include("Diogo,Provey,ren@purpose.com,Centro,,2011-07-28 13:08:11 -0300")
     end
 
   end

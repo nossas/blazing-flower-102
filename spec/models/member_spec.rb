@@ -57,35 +57,4 @@ describe Member do
 
     end
   end
-
-  describe "#action_history" do
-    before :each do
-      @petition_signature = mock_model PetitionSignature, :created_at => Time.now - 1.day
-      @debate_comment = mock_model Comment, :created_at => Time.now
-    end
-
-    context "when there is no petition signature or debate comment" do
-      its(:action_history){ should be_empty }
-    end
-
-    context "when there is one petition signature" do
-      before { subject.stub(:petition_signatures).and_return([@petition_signature]) }
-      its(:action_history){ should be_== [@petition_signature] }
-    end
-
-    context "when there is one debate comment" do
-      before { subject.stub(:comments).and_return([@debate_comment]) }
-      its(:action_history){ should be_== [@debate_comment] }
-    end
-
-    context "when there is a new debate comment and an old petition signature" do
-      before :each do
-        subject.stub(:petition_signatures).and_return([@petition_signature])
-        subject.stub(:comments).and_return([@debate_comment])
-      end
-      its(:action_history){ should be_== [@debate_comment, @petition_signature] }
-    end
-
-  end
-
 end

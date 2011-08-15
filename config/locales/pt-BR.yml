@@ -256,7 +256,7 @@
       other: "<span class='counter'>%{count}</span> pessoas assinaram esta petição."
     comment_tip: "140 caracteres"
     recent_comments: "Comentários Recentes"
-    already_signed_error: "Você já assinou embaixo. Agora <a class=\"show_taf\" href=\"#share\">espalhe essa ideia</a>."
+    already_signed_error: "Esse email já consta na petição. Agora <a class=\"show_taf\" href=\"#share\">espalhe essa ideia</a>."
     already_signed: "%{name}, você já assinou esta petição! Agora conte isso para os seus amigos:"
     share_on_facebook: "Compartilhar no Facebook"
     share_on_orkut: "Compartilhar no Orkut"
