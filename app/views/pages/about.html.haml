@@ -46,7 +46,9 @@
   %p= raw t("about_page.how_text").gsub("\n", "<br />")
   %h3= t("about_page.and_you_title")
   %p= raw t("about_page.and_you_text").gsub("\n", "<br />")
-  %h3 Quer nos ajudar a construir um Rio de Janeiro mais justo e democrático? Faça parte do Meu Rio!
+  %h3 
+    Quer nos ajudar a construir um Rio de Janeiro mais justo e democrático? 
+    %a{:href=> "#login", :rel => "facebox"} Faça parte do Meu Rio!
 
 .grid_4
   .speech_bubble
