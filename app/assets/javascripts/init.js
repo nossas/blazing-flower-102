@@ -3,17 +3,20 @@ MR = {
     init: function() {
       // application-wide code
       MR.common.googleLogout();
-
-      $.facebox.settings.closeImage = "/assets/closelabel.png";
-      $.facebox.settings.loadingImage = "/assets/loading.gif";
-
-      $("[rel=facebox]").facebox();
+      MR.common.faceboxInit();
     },
 
     googleLogout: function(){
       $('iframe#google_logout_iframe').load(function(){
         window.location.href = "/logout";
       });
+    },
+
+    faceboxInit: function(){
+      $.facebox.settings.closeImage = "/assets/closelabel.png";
+      $.facebox.settings.loadingImage = "/assets/loading.gif";
+
+      $("[rel=facebox]").facebox();
     }
   },
 
