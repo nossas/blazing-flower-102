@@ -15,27 +15,27 @@ Feature: View a member profile
 
   Scenario: The one where the member signed a petition
     Given there is a member called "Nícolas"
-    And this member commented the petition "Meio Ambiente é Coisa Séria" with "Vamos salvar a nossa cidade!" on "30/06/2011"
+    And this member commented the petition "Meio Ambiente é Coisa Séria" with "Vamos salvar a nossa cidade!" on "30/06/2011" for the issue "Cidade cinza"
     When I go to this member page
     Then I should see "Nícolas está colaborando com..."
     And I should see "30 de Junho de 2011"
-    And I should see "Assinatura da petição Meio Ambiente é Coisa Séria"
+    And I should see "Assinatura da petição Meio Ambiente é Coisa Séria, Cidade cinza"
     And I should see "Vamos salvar a nossa cidade!"
     And I should see the petition comment icon
 
   Scenario: The one where the member commented a debate
     Given there is a member called "Pedro"
-    And this member commented the debate "Falando sobre o Maracanã" with "Nunca gostei da localização do estádio" on "30/06/2011"
+    And this member commented the debate "Falando sobre o Maracanã" with "Nunca gostei da localização do estádio" on "30/06/2011" for the issue "Reforma dos estádios"
     When I go to this member page
     Then I should see "Pedro está colaborando com..."
-    And I should see "Comentários do debate Falando sobre o Maracanã"
+    And I should see "Comentários do debate Falando sobre o Maracanã, Reforma dos estádios"
     And I should see "30 de Junho de 2011"
     And I should see "Nunca gostei da localização do estádio"
     And I should see the debate comment icon
 
   Scenario: The one where the member signed a petition and commented a debate
     Given there is a member called "Brandon"
-    And this member commented the petition "Meio Ambiente é Coisa Séria" with "Vamos salvar a nossa cidade!" on "30/06/2011"
-    And this member commented the debate "Falando sobre o Maracanã" with "Nunca gostei da localização do estádio" on "07/07/2011"
+    And this member commented the petition "Meio Ambiente é Coisa Séria" with "Vamos salvar a nossa cidade!" on "30/06/2011" for the issue "Cidade cinza"
+    And this member commented the debate "Falando sobre o Maracanã" with "Nunca gostei da localização do estádio" on "07/07/2011" for the issue "Reforma dos estádios"
     When I go to this member page
-    Then I should see "Falando sobre o Maracanã" before "Meio Ambiente é Coisa Séria"
+    Then I should see "Falando sobre o Maracanã, Reforma dos estádios" before "Meio Ambiente é Coisa Séria, Cidade cinza"

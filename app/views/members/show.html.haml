@@ -19,8 +19,8 @@
         .content.grid_7.omega
           .date= l item.created_at, :format => :very_short
           .link
-            = link_to t("members_show.signed_petition", :title => item.petition.title), custom_petition_path(item.petition.custom_path) if item.instance_of? PetitionSignature
-            = link_to t("members_show.commented_debate", :name => item.commentable.title), debate_path(item.commentable) if item.instance_of? Comment
+            = link_to t("members_show.signed_petition", :title => item.petition.title, :issue => item.petition.issue.name), custom_petition_path(item.petition.custom_path) if item.instance_of? PetitionSignature
+            = link_to t("members_show.commented_debate", :name => item.commentable.title, :issue => item.commentable.issue.name), debate_path(item.commentable) if item.instance_of? Comment
           .comment
             = "\"#{item.comment}\"" if item.instance_of? PetitionSignature
             = "\"#{item.content}\"" if item.instance_of? Comment

@@ -326,5 +326,5 @@ Com a realização da Copa e das Olimpíadas nos próximos anos, essa oportunida
   members_show:
     is_collaborating_in: "%{name} está colaborando com..."
     meu_rio_is: "Meu Rio é..."
-    signed_petition: "Assinatura da petição %{title}"
-    commented_debate: "Comentários do debate %{name}"
+    signed_petition: "Assinatura da petição %{title}, %{issue} »"
+    commented_debate: "Comentários do debate %{name}, %{issue} »"
