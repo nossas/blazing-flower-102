@@ -17,6 +17,17 @@ MR = {
       $.facebox.settings.loadingImage = "/assets/loading.gif";
 
       $("[rel=facebox]").facebox();
+    },
+
+    addFragmentListener: function(){
+      store.set('lastFragment', $(this).data('record-fragment'));
+    },
+
+    handleFragmentEvent: function(){
+      if(store.get('lastFragment')){
+        window.location.href = window.location.href + '#' + store.get('lastFragment');
+        store.remove('lastFragment');
+      }
     }
   },
 
