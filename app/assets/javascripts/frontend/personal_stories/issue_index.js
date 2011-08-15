@@ -1,36 +1,34 @@
-$(document).ready(function(){
+MR.personal_stories = {
+  issue_index: function(){
+    console.log("you're on the issue index page!");
+    var $thumb = $('.story .thumbnail');
 
-  var $thumb = $('.story .thumbnail');
+    $thumb.each(function(){
+      var $this = $(this);
+      $(this).bind('click', function(e){
 
-  $thumb.each(function(){
-    var $this = $(this);
-    $(this).bind('click', function(e){
-
-      e.preventDefault();
-      //check if current video is same as thumbnail
-      if ($(this).attr('data-storyID') != $('#current_video').attr('data-storyID')){
-        PersonalStory.getPersonalStory($this);
-      }
-    }).mouseenter(function(){
-      if($(this).hasClass('current') == false){
-        $(this).children(".play_button").show();
-      }
-    }).mouseleave(function(){
-      if($(this).hasClass('current') == false){
-        $(this).children(".play_button").hide();
-      }
+        e.preventDefault();
+        //check if current video is same as thumbnail
+        if ($(this).attr('data-storyID') != $('#current_video').attr('data-storyID')){
+          MR.personal_stories.getPersonalStory($this);
+        }
+      }).mouseenter(function(){
+        if($(this).hasClass('current') == false){
+          $(this).children(".play_button").show();
+        }
+      }).mouseleave(function(){
+        if($(this).hasClass('current') == false){
+          $(this).children(".play_button").hide();
+        }
+      });
     });
-  });
+  },
 
-});
-
-var PersonalStory ={
-
-  getPersonalStory : function(story){
+  getPersonalStory: function(story){
     var clicked_story = _.first(_.select(MR.stories, function(video){return video.id == story.attr('data-storyid')}));
-    PersonalStory.replaceVideo(clicked_story);
+    MR.personal_stories.replaceVideo(clicked_story);
 
-    PersonalStory.movePlayButton(story);
+    MR.personal_stories.movePlayButton(story);
     if(Modernizr.history){
       // history management works!
       var videoData = {
@@ -48,7 +46,7 @@ var PersonalStory ={
 
   },
 
-  replaceVideo : function(data){
+  replaceVideo: function(data){
     var $current_video = $('#current_video');
     var $current_title = $('#current_title');
     var $current_description = $('#current_description');
@@ -69,7 +67,7 @@ var PersonalStory ={
     }
   },
 
-  movePlayButton : function(thumb){
+  movePlayButton: function(thumb){
     $('.story .thumbnail').removeClass("current");
     $('.play_button').hide();
     thumb.addClass("current");
