@@ -20,7 +20,7 @@
       = image_tag "/assets/03_video_icon.png"
       %p.title= t("about_page.feature1_title")
       %p.description= t("about_page.feature1_text")
-      = link_to t("about_page.video_link"), personal_story_path(PersonalStory.last) if PersonalStory.last
+      = link_to t("about_page.video_link"), issue_personal_story_path(:issue_id => PersonalStory.last.issue_id, :id => PersonalStory.last.id) if PersonalStory.last
   .grid_4
     .feature
       = image_tag "/assets/02_debate_icon.png"

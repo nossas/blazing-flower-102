@@ -27,11 +27,11 @@
             =link_to t("join_us"), "#", :id => "join_us_btn"
             =link_to t("login"), "#login", :rel => "facebox"
       %nav
-        =link_to 'SOBRE O MEU RIO', page_path(:id => 'about')
+        =link_to 'SOBRE O MEU RIO', page_path(:id => 'about'), :class => (@current_page ==  "about" ? "selected" : "")
         |
         =link_to 'NA ATIVIDADE', '#'
         |
-        =link_to 'NOSSO BLOG', "#", :class => "selected"
+        =link_to 'NOSSO BLOG', "#"
         |
         =link_to 'DANDO UMA FORÇA', "#", :class => "last"
     #main.main.container_12
