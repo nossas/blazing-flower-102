@@ -328,3 +328,5 @@ Com a realização da Copa e das Olimpíadas nos próximos anos, essa oportunida
     meu_rio_is: "Meu Rio é..."
     signed_petition: "Assinatura da petição %{title}, %{issue} »"
     commented_debate: "Comentários do debate %{name}, %{issue} »"
+    joined_on: "Juntou-se ao Meu Rio no dia %{date}"
+    bio: "Bio"

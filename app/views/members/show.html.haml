@@ -1,13 +1,19 @@
-%h1.grid_12= @member.name
+%h1.grid_12
 
-.grid_4 #personal_info
+.grid_4
+  .profile
+    = image_tag "/assets/avatar_opt1.png"
+    %h3= @member.name
+    .date= t("members_show.joined_on", :date => l(@member.created_at, :format => :very_short))
+    .bio= t("members_show.bio")
+    = @member.bio
 
-.grid_8
+.grid_7.push_1
   - if @member.meu_rio_is
     .meu_rio_is
       %h3= t("members_show.meu_rio_is")
       = @member.meu_rio_is
-  .posts.grid_8.alpha.omega
+  .posts.grid_7.alpha.omega
     %h3
       = t("members_show.is_collaborating_in", :name => @member.first_name)
       = image_tag "/assets/comments_arrow.png"
@@ -16,7 +22,7 @@
         .icon.grid_1.alpha
           = image_tag "/assets/01_petition_icon.png" if item.instance_of? PetitionSignature
           = image_tag "/assets/02_debate_icon.png" if item.instance_of? Comment
-        .content.grid_7.omega
+        .content.grid_6.omega
           .date= l item.created_at, :format => :very_short
           .link
             = link_to t("members_show.signed_petition", :title => item.petition.title, :issue => item.petition.issue.name), custom_petition_path(item.petition.custom_path) if item.instance_of? PetitionSignature
