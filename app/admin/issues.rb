@@ -46,6 +46,14 @@ ActiveAdmin.register Issue do
                   img({:src => issue.image.url})
                 end
               end
+              tr do
+                th do 
+                  'Thumbnail'
+                end
+                td do
+                  img({:src => issue.thumbnail.url})
+                end
+              end
             end
           end
         end
