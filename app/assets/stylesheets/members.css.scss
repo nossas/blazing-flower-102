@@ -69,14 +69,12 @@
     color: $green; 
     font-size: 28px;
   }
-  .date {
-    font-size: 14px;
-    border-bottom: 1px solid $blue;
-    padding-bottom: 20px;
-  }
+  .date { font-size: 14px; }
   .bio {
     color: $blue;
     text-transform: uppercase;
-    margin-top: 20px;
+    padding-top: 10px;
+    margin: 20px 0 5px 0;
+    border-top: 1px solid $blue;
   }
 }

@@ -36,3 +36,7 @@ end
 Then /^I should see "([^"]*)" before "([^"]*)"$/ do |arg1, arg2|
   page.body.should match(/#{arg1}[\s\w\d\W]*#{arg2}/)
 end
+
+Given /^there is a member without bio$/ do
+  @member = Factory(:member, :bio => nil)
+end
