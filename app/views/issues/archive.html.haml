@@ -9,7 +9,7 @@
         %dd
           %ul
             -@issues.each do |issue|
-              %li=link_to issue.name, issue_archive_path(issue.id)
+              %li=link_to issue.name, issue_archive_path(issue.id), :class => "issue-#{issue.id}"
     .grid_3.prefix_5.omega
       .count= "Displaying #{@articles_start}-#{@articles_end} of #{@article_count}"
       -unless @articles_start < 5

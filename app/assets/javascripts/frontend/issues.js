@@ -25,10 +25,9 @@ MR.issues = {
     $('.article').last().css('border-bottom', '1px solid #2cbae2');
     if(Modernizr.history){
       window.addEventListener("popstate", function(e){
-        console.log(e);
-        console.log('popping');
-        if(e.state && e.state.data){
-          replaceArticles(e.state.data);
+        if(e.state !== null){
+          MR.issues.replaceArticles(e.state);
+          $(".dropdown dt span").html(e.state.issue.name);
         }
       });
     }
@@ -78,7 +77,6 @@ MR.issues = {
   },
 
   setHistory : function(data){
-    console.log('setting history');
     if(Modernizr.history){
       history.pushState(data, '', '/issues/' + data.issue.id + '/archive');
     }
