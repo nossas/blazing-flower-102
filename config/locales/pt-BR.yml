@@ -325,7 +325,7 @@ Com a realização da Copa e das Olimpíadas nos próximos anos, essa oportunida
     intro: "Com a realização da Copa e das Olimpíadas nos próximos anos, essa oportunidade é única. No Meu Rio, acreditamos que uma maior participação popular nas questões de políticas públicas é a chave para um Rio mais justo. Nós cariocas podemos sim, juntos, construir uma cidade melhor para todos e mostrar que nossa força pode trazer resultados surpreendentes."
   members_show:
     is_collaborating_in: "O que %{name} já fez no Meu Rio:"
-    meu_rio_is: "Meu Rio é..."
+    meu_rio_is: "O Meu Rio é..."
     signed_petition: "Assinou o abaixo-assinado %{title}, %{issue} »"
     commented_debate: "Fez um comentário no debate %{name}, %{issue} »"
     joined_on: "Membro desde %{date}"
