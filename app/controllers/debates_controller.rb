@@ -6,6 +6,7 @@ class DebatesController < InheritedResources::Base
     @debate = Debate.where(:id => params[:id]).first
     return render_404 unless @debate
 
+    @distinct_member_count = @debate.distinct_member_count
     @comments = @debate.comments.visible
   end
 

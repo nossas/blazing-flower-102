@@ -1,0 +1,15 @@
+<%= semantic_form_for [:admin, @meu_rio_is_widget] do |f| %>
+  <%= f.inputs do %>
+    <div style="margin-left:20%; padding:20px;">
+      <p><strong>Please use the following HTML as a basic structure:</strong></p><br/>
+      <div>
+        &lt;div class='mr_is'&gt;<br/>
+          &lt;p&gt;Brief sentence about what Meu Rio is&lt;/p&gt;<br/>
+        &lt;/div&gt;<br/>
+      </div>
+    </div>
+    <%= f.input :html_content, :label => 'HTML Content' %>
+
+    <%= f.buttons %>
+  <% end %>
+<% end %>

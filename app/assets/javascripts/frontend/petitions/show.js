@@ -4,6 +4,8 @@ MR.petitions = {
     MR.petitions.loadTAF();
 
     //set listeners
+    $(window).bind('hashchange', MR.petitions.loadTAF);
+
     $("form#new_petition_signature").validate({
       messages: {
         "member[first_name]": "Campo obrigatório",
@@ -26,14 +28,12 @@ MR.petitions = {
       });
     });
 
-    $(window).bind('hashchange', MR.petitions.loadTAF);
-
     $("#petition_signature_comment").keyup(function(){
       $("#comment_tip").html((140 - $("#petition_signature_comment").val().length) + " caracteres");
     });
 
     $('.take_action').bind('ajax:success', function(event, data){
-      window.location.hash = '#share';
+      window.location.hash = '#compartilhe';
     });
 
     $('#submit_btn').click(function(){
@@ -45,7 +45,7 @@ MR.petitions = {
   },
 
   loadTAF: function(){
-    if(window.location.hash == '#share'){
+    if(window.location.hash == '#compartilhe'){
       $('.take_action').load(window.location.pathname + '/share')
     }
   }

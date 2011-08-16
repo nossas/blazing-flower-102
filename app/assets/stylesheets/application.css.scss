@@ -49,6 +49,12 @@ body > header > nav {
   a.last { margin-right: 0; }
   a.selected, a:hover { background: url(/assets/nav_hover_underline.png) no-repeat top left; text-decoration: none !important; }
   a:hover { color: $pink !important; text-decoration: none; }
+  .issue_menu_head{
+    display: inline-block;
+  }
+  .issue_menu{
+    display: none;
+  }
 }
 
 body > .main {

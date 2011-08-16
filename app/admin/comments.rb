@@ -19,7 +19,7 @@ ActiveAdmin.register Comment, :as => "CommunityComment" do
 
   index do
     column :debate do |c|
-      c.commentable.title
+      span link_to(c.commentable.title, debate_path(c.commentable), :target => '_blank')
     end
     column :member do |c|
       c.member.email
