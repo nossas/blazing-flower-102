@@ -23,7 +23,7 @@ module NavigationHelpers
     when /this debate page/
       debate_path(Debate.first)
     when /the petition taf page/
-      "#{custom_petition_path(Petition.first.custom_path)}#share"
+      "#{custom_petition_path(Petition.first.custom_path)}#compartilhe"
     when /the personal stories page for an issue/
       issue_personal_stories_path(Issue.first.id)
     when /the personal stories page with a story id in the URL for an issue/
