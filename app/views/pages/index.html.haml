@@ -40,6 +40,12 @@
     .widget
       = link_to(image_tag(w.image.url), w.link)
 
+  %strong Image Widget QA:
+  %br
+  - ImageWidget.all.each do |w|
+    .widget
+      = image_tag(w.image.url(:medium))
+
   %strong Legislative Agenda Widget QA:
   %br
   - LegislativeAgendaWidget.all.each do |w|
