@@ -39,3 +39,8 @@ Feature: View a member profile
     And this member commented the debate "Falando sobre o Maracanã" with "Nunca gostei da localização do estádio" on "07/07/2011" for the issue "Reforma dos estádios"
     When I go to this member page
     Then I should see "Falando sobre o Maracanã, Reforma dos estádios" before "Meio Ambiente é Coisa Séria, Cidade cinza"
+
+  Scenario: The one where the member doesn't have a bio
+    Given there is a member without bio
+    When I go to this member page
+    Then I should not see "Bio"
