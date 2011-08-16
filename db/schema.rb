@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110815211801) do
+ActiveRecord::Schema.define(:version => 20110816182855) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -124,6 +124,10 @@ ActiveRecord::Schema.define(:version => 20110815211801) do
     t.text     "debate_call_to_action"
     t.text     "petition_call_to_action"
     t.text     "personal_story_call_to_action"
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumnail_updated_at"
   end
 
   create_table "jobs", :force => true do |t|
