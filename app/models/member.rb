@@ -10,6 +10,13 @@ class Member < ActiveRecord::Base
   validates_presence_of :first_name
   validates_presence_of :last_name
 
+  has_attached_file(
+    :image, 
+    :path => 'members/:id/:filename', 
+    :storage => :s3, 
+    :bucket => SITE['s3_bucket'], 
+    :s3_credentials => { :access_key_id => SITE['s3_access_key_id'], :secret_access_key => SITE['s3_secret_access_key'] })
+
   devise :omniauthable
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
