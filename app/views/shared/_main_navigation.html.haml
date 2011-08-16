@@ -1,14 +1,21 @@
-%nav
+%nav#main
   %ul
     %li
-      =link_to 'SOBRE O MEU RIO', page_path(:id => 'about'), :class => (@current_page ==  "about" ? "selected" : "")
+      =link_to 'SOBRE O MEU RIO', page_path(:id => 'about'), :class => "top_level #{(@current_page ==  'about' ? 'selected' : '')}"
+      |
     %li.issue_menu_wrap
-      =link_to 'NA ATIVIDADE', '#', :id => "issue_nav_link", :class => "#{(@current_page == 'issue' ? 'selected' : '')}"
-      %ul
-        %li
-          %p
-            testing herasfd  asdfasdf asd fasdfasdfasdf sdaf asd
+      =link_to 'NA ATIVIDADE', '#', :class => "top_level #{(@current_page == 'issue' ? 'selected' : '')}"
+      |
+      %ul.issues
+        %li.issue_pane
+          =image_tag 'http://placehold.it/100x75'
+          =link_to "Lorem ipsum", '#'
+        %li.issue_pane
+          =image_tag 'http://placehold.it/100x75'
+          =link_to "Dolor sit amet", '#'
     %li
-      =link_to 'NOSSO BLOG', "#"
+      =link_to 'NOSSO BLOG', "#", :class => "top_level"
+      |
     %li
-      =link_to 'DANDO UMA FORÇA', "#", :class => "last"
+      =link_to 'DANDO UMA FORÇA', "#", :class => "top_level last"
+      |

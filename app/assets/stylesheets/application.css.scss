@@ -28,52 +28,70 @@ body > header {
   }
 }
 
-body > header > nav {
+nav#main {
   float:right;
   margin-top:60px;
   color: $dark_gray;
+  a:hover { text-decoration:none; }
   li {
     float:left;
     position:relative;
-    border-right:2px solid $dark_gray;
-    &:last-child{
-      border-right:none;
-    }
-    a, .issue_menu_wrap {
-      display:block;
+    a.top_level {
+      display:inline-block;
       padding: 0px 15px;
       margin: 0px 5px;
       line-height:2;
       color: $dark_gray;
       font-weight: bold;
       font-size: 16px;
+      &:hover { color: $pink;}
+    }
+    a.top_level.last { margin-right: 0; }
+    a.top_level.selected,a.top_level:hover {
+      background: url(/assets/nav_hover_underline.png) no-repeat center bottom;
     }
   }
-  a.last { margin-right: 0; }
-  a.selected, a:hover { background: url(/assets/nav_hover_underline.png) no-repeat top left; text-decoration: none !important; }
-  a:hover { color: $pink !important; text-decoration: none; }
-  .issue_menu_wrap{
-    //display: none;
-    position:relative;
-    a {
-      background-color:$orange;
-      @include border-radius(5px 5px 0 0);
+  li.issue_menu_wrap{
+    &:hover {
+      ul.issues{
+        visibility:visible;
+      }
+      >a {
+        color:#fff;
+        background-color:rgba(237, 126, 67, .9);
+      }
     }
-    ul{
-      //display:none;
-      z-index:100;
-      right:5px;
+    position:relative;
+    >a {
+      @include border-radius(5px 5px 0 0);
+      &:hover {
+        background-image:none;
+        color:#fff;
+      }
+    }
+    ul.issues{
+      visibility:hidden;
       position:absolute;
-      background-color:$orange;
+      right:12px;
+      z-index:100;
+      background-color:rgba(237, 126, 67, .9);
       @include border-radius(5px 0 5px 5px);
+      padding:10px;
 
-      width:500px;
-      height:200px;
+      min-width:240px;
+      min-height:100px;
+      li.issue_pane {
+        width:100px;
+        padding:5px 10px;
+        a {
+          font-size:13px;
+          color:#fff;
+          padding:none;
+        }
+      }
     }
   }
 }
-
-
 
 body > .main {
   background: #f2f0ed;
@@ -156,9 +174,9 @@ h1 {
 }
 
 a {
-  text-decoration: none !important;
+  text-decoration: none;
   color: $blue;
-  &:hover{ text-decoration: underline !important; color: $pink; }
+  &:hover{ text-decoration: underline; color: $pink; }
 }
 
 #join_us_btn { padding-right: 20px }
