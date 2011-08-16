@@ -20,8 +20,18 @@ MR.issues = {
         if (! $clicked.parents().hasClass("dropdown"))
             $dropdown_ul.hide();
     });
-    
+
+    //initializers
     $('.article').last().css('border-bottom', '1px solid #2cbae2');
+    if(Modernizr.history){
+      window.addEventListener("popstate", function(e){
+        console.log(e);
+        console.log('popping');
+        if(e.state && e.state.data){
+          replaceArticles(e.state.data);
+        }
+      });
+    }
   },
 
   articleTemplate: $.template(null,
@@ -33,13 +43,15 @@ MR.issues = {
       type: 'GET',
       dataType: 'html',
       success: function(data){
+        data = $.parseJSON(data);
         MR.issues.replaceArticles(data);
+        MR.issues.setHistory(data);
       } 
     });
   },
 
   replaceArticles : function(data){
-    var datum = $.parseJSON(data); 
+    var datum = data; 
     var $previous = $('.previous');
     var $next = $('.next');
 
@@ -63,7 +75,13 @@ MR.issues = {
     $('.articles').empty();
     $.tmpl(MR.issues.articleTemplate, datum).appendTo($('.articles')); 
     $('.article').last().css('border-bottom', '1px solid #2cbae2');
-  }
+  },
 
+  setHistory : function(data){
+    console.log('setting history');
+    if(Modernizr.history){
+      history.pushState(data, '', '/issues/' + data.issue.id + '/archive');
+    }
+  }
 }
 
