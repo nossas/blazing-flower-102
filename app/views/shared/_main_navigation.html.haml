@@ -1,11 +1,14 @@
 %nav
-  =link_to 'SOBRE O MEU RIO', page_path(:id => 'about'), :class => (@current_page ==  "about" ? "selected" : "")
-  |
-  .issue_menu_head
-    =link_to 'NA ATIVIDADE', '#', :class => (@current_page == "issue" ? "selected" : "")
-  .issue_menu
-    testing
-  |
-  =link_to 'NOSSO BLOG', "#"
-  |
-  =link_to 'DANDO UMA FORÇA', "#", :class => "last"
+  %ul
+    %li
+      =link_to 'SOBRE O MEU RIO', page_path(:id => 'about'), :class => (@current_page ==  "about" ? "selected" : "")
+    %li.issue_menu_wrap
+      =link_to 'NA ATIVIDADE', '#', :id => "issue_nav_link", :class => "#{(@current_page == 'issue' ? 'selected' : '')}"
+      %ul
+        %li
+          %p
+            testing herasfd  asdfasdf asd fasdfasdfasdf sdaf asd
+    %li
+      =link_to 'NOSSO BLOG', "#"
+    %li
+      =link_to 'DANDO UMA FORÇA', "#", :class => "last"
