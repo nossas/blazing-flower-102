@@ -1,0 +1,11 @@
+%nav
+  =link_to 'SOBRE O MEU RIO', page_path(:id => 'about'), :class => (@current_page ==  "about" ? "selected" : "")
+  |
+  .issue_menu_head
+    =link_to 'NA ATIVIDADE', '#', :class => (@current_page == "issue" ? "selected" : "")
+  .issue_menu
+    testing
+  |
+  =link_to 'NOSSO BLOG', "#"
+  |
+  =link_to 'DANDO UMA FORÇA', "#", :class => "last"
