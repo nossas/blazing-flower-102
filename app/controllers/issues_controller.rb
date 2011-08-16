@@ -1,5 +1,7 @@
 class IssuesController < ApplicationController
   
+  before_filter { @current_page = "issue" }
+  
   def show
     @issue = Issue.where(:id => params[:id]).first
   end

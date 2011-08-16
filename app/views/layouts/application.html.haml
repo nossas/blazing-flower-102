@@ -29,7 +29,7 @@
       %nav
         =link_to 'SOBRE O MEU RIO', page_path(:id => 'about'), :class => (@current_page ==  "about" ? "selected" : "")
         |
-        =link_to 'NA ATIVIDADE', '#'
+        =link_to 'NA ATIVIDADE', '#', :class => (@current_page == "issue" ? "selected" : "")
         |
         =link_to 'NOSSO BLOG', "#"
         |
