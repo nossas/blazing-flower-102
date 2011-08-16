@@ -22,8 +22,8 @@
     .little_ball ·
     .comments_counter 
       %a.comments_link{:href=> '#comments_top'}
-        .comments_tooltip= @comments.count
-      = t("debate_show.have_joined_the_conversation")
+        .comments_tooltip= @distinct_member_count
+      = (@distinct_member_count == 1 ? t("debate_show.have_joined_the_conversation") : t("debate_show.have_joined_the_conversation_plural"))
 
 .grid_10.prefix_1
   .authors

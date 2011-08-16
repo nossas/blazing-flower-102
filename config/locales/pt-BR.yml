@@ -266,7 +266,8 @@
     copied: "Copiado!"
   debate_show:
     join_the_conversation: "Participe da Discussão! >>"
-    have_joined_the_conversation: "pessoas estão discutindo isso."
+    have_joined_the_conversation: "pessoa está discutindo isso."
+    have_joined_the_conversation_plural: "pessoas estão discutindo isso."
     load_more: "Ver mais comentários"
   issue_show:
     petition: "Abaixo-Assinado" 
