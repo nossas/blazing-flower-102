@@ -40,9 +40,15 @@
     .widget
       = link_to(image_tag(w.image.url), w.link)
 
-  %strong Public Hearings Widget QA:
+  %strong Image Widget QA:
   %br
-  - PublicHearingsWidget.all.each do |w|
+  - ImageWidget.all.each do |w|
+    .widget
+      = image_tag(w.image.url(:medium))
+
+  %strong Legislative Agenda Widget QA:
+  %br
+  - LegislativeAgendaWidget.all.each do |w|
     .widget
       =raw w.html_content
 
@@ -51,3 +57,16 @@
   - MeuRioTeamWidget.all.each do |w|
     .widget
       =raw w.html_content
+
+  %strong Meu Rio Is Widget QA:
+  %br
+  - MeuRioIsWidget.all.each do |w|
+    .widget
+      =raw w.html_content
+
+  %strong Public Hearings Widget QA:
+  %br
+  - PublicHearingsWidget.all.each do |w|
+    .widget
+      =raw w.html_content
+

@@ -5,8 +5,9 @@
     = image_tag "/assets/avatar_opt1.png"
     %h3= @member.name
     .date= t("members_show.joined_on", :date => l(@member.created_at, :format => :very_short))
-    .bio= t("members_show.bio")
-    = @member.bio
+    - if @member.bio
+      .bio= t("members_show.bio")
+      = @member.bio
 
 .grid_7.push_1
   - if @member.meu_rio_is
