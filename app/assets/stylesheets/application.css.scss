@@ -41,10 +41,9 @@ body > header > nav {
     }
     a, .issue_menu_wrap {
       display:block;
-      text-transform: uppercase;
-      text-decoration: none;
       padding: 0px 15px;
       margin: 0px 5px;
+      line-height:2;
       color: $dark_gray;
       font-weight: bold;
       font-size: 16px;
@@ -57,7 +56,7 @@ body > header > nav {
     //display: none;
     position:relative;
     a {
-      background:red;
+      background-color:$orange;
       @include border-radius(5px 5px 0 0);
     }
     ul{
@@ -65,7 +64,7 @@ body > header > nav {
       z-index:100;
       right:5px;
       position:absolute;
-      background:red;
+      background-color:$orange;
       @include border-radius(5px 0 5px 5px);
 
       width:500px;
