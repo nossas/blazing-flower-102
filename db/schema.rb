@@ -124,6 +124,10 @@ ActiveRecord::Schema.define(:version => 20110816155214) do
     t.text     "debate_call_to_action"
     t.text     "petition_call_to_action"
     t.text     "personal_story_call_to_action"
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumnail_updated_at"
   end
 
   create_table "jobs", :force => true do |t|

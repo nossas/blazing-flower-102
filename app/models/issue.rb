@@ -24,6 +24,16 @@ class Issue < ActiveRecord::Base
                       :secret_access_key => SITE['s3_secret_access_key']
                     }
 
+  has_attached_file :thumbnail,
+                    :path => ':attachment/:id/:style/:filename',
+                    :storage => :s3,
+                    :styles => { :thumb => "100x100" },
+                    :bucket => SITE['s3_bucket'],
+                    :s3_credentials => {
+                      :access_key_id => SITE['s3_access_key_id'],
+                      :secret_access_key => SITE['s3_secret_access_key']
+                    }
+
   scope :has_articles, lambda {
     self.where('EXISTS (SELECT true FROM debates d WHERE d.issue_id = issues.id) OR EXISTS (SELECT true FROM petitions p WHERE p.issue_id = issues.id) OR EXISTS (SELECT true FROM personal_stories ps WHERE ps.issue_id = issues.id)') }
 
