@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110815211801) do
+ActiveRecord::Schema.define(:version => 20110816155214) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -136,15 +136,19 @@ ActiveRecord::Schema.define(:version => 20110815211801) do
 
   create_table "members", :force => true do |t|
     t.text     "zona"
-    t.text     "email",      :null => false
+    t.text     "email",              :null => false
     t.text     "celular"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name", :null => false
-    t.string   "last_name",  :null => false
+    t.string   "first_name",         :null => false
+    t.string   "last_name",          :null => false
     t.string   "image_url"
     t.text     "meu_rio_is"
     t.text     "bio"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
@@ -252,6 +256,11 @@ ActiveRecord::Schema.define(:version => 20110815211801) do
     t.datetime "updated_at"
     t.text     "html_content"
   end
+
+  add_foreign_key "comment_flags", "comments", :name => "comment_flags_comment_id_fk"
+  add_foreign_key "comment_flags", "members", :name => "comment_flags_member_id_fk"
+
+  add_foreign_key "comments", "members", :name => "comments_member_id_fk"
 
   add_foreign_key "comment_flags", "comments", :name => "comment_flags_comment_id_fk"
   add_foreign_key "comment_flags", "members", :name => "comment_flags_member_id_fk"
