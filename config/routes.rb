@@ -30,8 +30,8 @@ MeuRio::Application.routes.draw do
   match 'debates/:id/load_comments/:page' => "debates#load_comments"
   resources :personal_stories, :only => [:show]
   resources :members, :only => [ :show, :update ]
-  match "issue/:issue_id/personal-stories" => "personal_stories#issue_index", :as => "issue_personal_stories"
-  match "issue/:issue_id/personal-stories/:id" => "personal_stories#issue_index", :as => "issue_personal_story"
+  match "issues/:issue_id/personal_stories" => "personal_stories#issue_index", :as => "issue_personal_stories"
+  match "issues/:issue_id/personal_stories/:id" => "personal_stories#issue_index", :as => "issue_personal_story"
   resources :comments, :only => [:create] do
     resources :comment_flags, :only => [:create, :destroy], :as => "flags"
   end

@@ -28,34 +28,114 @@ body > header {
   }
 }
 
-body > header > nav {
-  text-align: right;
-  font-size: 125%;
+nav#main {
+  float:right;
+  margin-top:60px;
   color: $dark_gray;
-  position: absolute;
-  padding: 10px;
-  right: 10px;
-  bottom: 0;
-  a {
-    display: inline-block;
-    text-transform: uppercase;
-    text-decoration: none !important;
-    padding: 0px 15px 25px;
-    margin: 0px 5px;
-    color: $dark_gray !important;
-    font-weight: bold;
-    font-size: 16px;
+  a:hover { text-decoration:none; }
+  li {
+    float:left;
+    position:relative;
+    a.top_level {
+      display:inline-block;
+      padding: 0px 15px;
+      margin: 0px 5px;
+      line-height:2;
+      color: $dark_gray;
+      font-weight: bold;
+      font-size: 16px;
+      &:hover { color: $pink;}
+    }
+    a.top_level.last { margin-right: 0; }
+    a.top_level.selected,a.top_level:hover {
+      background: url(/assets/nav_hover_underline.png) no-repeat center bottom;
+    }
   }
-  a.last { margin-right: 0; }
-  a.selected, a:hover { background: url(/assets/nav_hover_underline.png) no-repeat top left; text-decoration: none !important; }
-  a:hover { color: $pink !important; text-decoration: none; }
-  .issue_menu_head{
-    display: inline-block;
-  }
-  .issue_menu{
-    display: none;
+  li.issue_menu_wrap{
+    &:hover {
+      .issue_menu.wide, .issue_menu.small{
+        visibility:visible;
+      }
+      >a {
+        color:#fff;
+        background-color:rgba(237, 126, 67, .9);
+      }
+    }
+    position:relative;
+    >a {
+      @include border-radius(5px 5px 0 0);
+      &:hover {
+        background-image:none;
+        color:#fff;
+      }
+    }
+    .issue_menu{
+      &.wide{
+        width:410px;
+      }
+      &.small{
+        width:240px;
+        .thumbnails{
+          padding-right:0;
+        }
+      }
+      visibility:hidden;
+      position:absolute;
+      padding:15px 10px;
+      right:8px; // See comment below about odd 1px bug for issues page
+      z-index:100;
+      background-color:rgba(237, 126, 67, .9);
+      @include border-radius(5px 0 5px 5px);
+
+      min-height:100px;
+      .thumbnails {
+        float:left;
+        padding-right:10px;
+        li.issue_pane {
+          width:100px;
+          padding:0 10px;
+          a {
+            font-size:13px;
+            color:#fff;
+            padding:none;
+            img {
+              width:100px;
+              height:75px;
+            }
+          }
+        }
+      }
+      .list {
+        float:left;
+        padding-left:15px;
+        width:130px;
+        min-height:100px;
+        border-left:1px solid #fff;
+        span{
+          display:block;
+          padding-bottom:5px;
+          line-height:12px;
+          font-size:12px;
+          color:#fff;
+        }
+        ul {
+          padding-left:10px;
+          li.issue_pane {
+            a {
+              display:block;
+              width:130px;
+              font-size:12px;
+              color:#fff;
+            }
+          }
+        }
+      }
+    }
   }
 }
+
+// Fix for odd extra pixel showing up when you're on the issue page
+body.issues nav#main .issue_menu { right:9px; }
 
 body > .main {
   background: white;
@@ -66,6 +146,30 @@ body > .main {
   p {
     font-size: 15px;
     line-height: 140%;
+  }
+}
+
+footer {
+  margin-top: 25px;
+  nav {
+    a { 
+      text-transform: uppercase;
+      margin: 0px 15px;
+      color: $dark_gray;
+    }
+  }
+  .social {
+    p {
+      font-weight: bold;
+      float: left;
+      margin-left: 40px;
+      text-transform: uppercase;
+    }
+    a {
+      display: block;
+      float: left;
+      margin: -5px 5px 0;
+    }
   }
 }
 
@@ -138,9 +242,9 @@ h1 {
 }
 
 a {
-  text-decoration: none !important;
+  text-decoration: none;
   color: $blue;
-  &:hover{ text-decoration: underline !important; color: $pink; }
+  &:hover{ text-decoration: underline; color: $pink; }
 }
 
 #join_us_btn { padding-right: 20px }
