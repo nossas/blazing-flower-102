@@ -35,10 +35,10 @@ MR.personal_stories = {
         id : clicked_story.id,
         data: clicked_story
       }
-      if(window.location.pathname.match(/personal-stories\/\d+/)){
+      if(window.location.pathname.match(/personal_stories\/\d+/)){
         history.pushState(videoData, '', clicked_story.id);
       } else {
-        history.pushState(videoData, '', 'personal-stories/' + clicked_story.id);
+        history.pushState(videoData, '', 'personal_stories/' + clicked_story.id);
       }
     } else {
       // no history support :(

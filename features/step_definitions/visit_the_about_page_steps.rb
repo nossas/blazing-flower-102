@@ -7,5 +7,5 @@ Then /^I should see the last debate link$/ do
 end
 
 Then /^I should see the last personal story link$/ do
-  page.should have_xpath("//a[@href='/issue/#{PersonalStory.first.issue_id}/personal-stories/#{PersonalStory.first.id}']")
+  page.should have_xpath("//a[@href='/issues/#{PersonalStory.first.issue_id}/personal_stories/#{PersonalStory.first.id}']")
 end
