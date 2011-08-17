@@ -36,7 +36,7 @@
 =content_for :javascripts do
 
   :javascript
-    MR = {}
+    MR = MR || {};
     MR.stories = #{@stories.to_json};
 
     $(document).ready(function(){
