@@ -1,4 +1,14 @@
 MR.issues = {
+  show: function(){
+    $('#read_more').click(MR.issues.readMore);
+  },
+
+  readMore: function(){
+    $('.description').slideDown();
+    $('#read_more').remove();
+    return false;
+  },
+
   archive: function(){
     var $dropdown_ul = $(".dropdown dd ul");
 
