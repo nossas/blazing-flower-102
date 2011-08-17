@@ -1,13 +1,11 @@
 %nav#main
   %ul
     %li
-      =link_to 'SOBRE O MEU RIO', page_path(:id => 'about'), :class => "top_level #{(@current_page ==  'about' ? 'selected' : '')}"
-      |
+      =link_to('SOBRE O MEU RIO', page_path(:id => 'about'), :class => "top_level #{(@current_page ==  'about' ? 'selected' : nil)}")+'|'
     %li.issue_menu_wrap
-      =link_to 'NA ATIVIDADE', '#', :class => "top_level #{(@current_page == 'issue' ? 'selected' : '')}"
-      |
+      =link_to('NA ATIVIDADE', '#', :class => "top_level")+'|'
       -if nav_issues.count > 2
-        .issues.wide.clearfix
+        .issue_menu.wide.clearfix
           %ul.thumbnails
             - for issue in nav_issues.first(2) do
               %li.issue_pane
@@ -21,16 +19,13 @@
                 %li.issue_pane
                   =link_to issue.name, issue
       -else
-        .issues.grid_3
-          %ul.grid_3.alpha.thumbnails
+        .issue_menu.small.clearfix
+          %ul.thumbnails
             - for issue in nav_issues do
               %li.issue_pane
                 =link_to image_tag(issue.thumbnail), issue
                 =link_to issue.name, issue
-
-
     %li
-      =link_to 'NOSSO BLOG', "#", :class => "top_level"
-      |
+      =link_to('NOSSO BLOG', "#", :class => "top_level")+'|'
     %li
       =link_to 'DANDO UMA FORÇA', "#", :class => "top_level last"
