@@ -53,7 +53,7 @@ nav#main {
   }
   li.issue_menu_wrap{
     &:hover {
-      ul.issues{
+      .issues{
         visibility:visible;
       }
       >a {
@@ -69,24 +69,58 @@ nav#main {
         color:#fff;
       }
     }
-    ul.issues{
+    .issues.wide{
       visibility:hidden;
       position:absolute;
+      width:410px;
+      padding:15px 10px;
       right:12px;
       z-index:100;
       background-color:rgba(237, 126, 67, .9);
       @include border-radius(5px 0 5px 5px);
-      padding:10px;
 
-      min-width:240px;
       min-height:100px;
-      li.issue_pane {
-        width:100px;
-        padding:5px 10px;
-        a {
-          font-size:13px;
+      .thumbnails {
+        float:left;
+        padding-right:10px;
+        li.issue_pane {
+          width:100px;
+          padding:0 10px;
+          a {
+            font-size:13px;
+            color:#fff;
+            padding:none;
+            img {
+              width:100px;
+              height:75px;
+            }
+          }
+        }
+      }
+      .list {
+        float:left;
+        padding-left:15px;
+        width:130px;
+        min-height:100px;
+        border-left:1px solid #fff;
+        span{
+          display:block;
+          padding-bottom:5px;
+          line-height:12px;
+          font-size:12px;
+          font-weight:bold;
           color:#fff;
-          padding:none;
+        }
+        ul {
+          padding-left:10px;
+          li.issue_pane {
+            a {
+              display:block;
+              width:130px;
+              font-size:12px;
+              color:#fff;
+            }
+          }
         }
       }
     }
