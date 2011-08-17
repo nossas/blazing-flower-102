@@ -149,6 +149,30 @@ body > .main {
   }
 }
 
+footer {
+  margin-top: 25px;
+  nav {
+    a { 
+      text-transform: uppercase;
+      margin: 0px 15px;
+      color: $dark_gray;
+    }
+  }
+  .social {
+    p {
+      font-weight: bold;
+      float: left;
+      margin-left: 40px;
+      text-transform: uppercase;
+    }
+    a {
+      display: block;
+      float: left;
+      margin: -5px 5px 0;
+    }
+  }
+}
+
 .btn, .btn.disabled, a.btn{
   // Almost all properties are !important because activeadmin's CSS is trying overriding this class
   background: #dc6837 !important;
