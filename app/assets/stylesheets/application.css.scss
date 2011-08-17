@@ -19,7 +19,7 @@ body > header {
   padding-top: 12px !important;
   padding-bottom: 12px !important;
   margin-bottom: 12px;
-  background: #f2f0ed;
+  background: white;
   @include border-radius(0 0 8px 8px);
   .member_panel{
     text-align:right;
@@ -58,7 +58,7 @@ body > header > nav {
 }
 
 body > .main {
-  background: #f2f0ed;
+  background: white;
   @include border-radius(8px);
   padding: 10px 10px;
   position: relative;

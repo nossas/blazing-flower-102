@@ -1,19 +1,23 @@
 %h1.grid_12
 
 .grid_4
-  .profile
-    = image_tag "/assets/avatar_opt1.png"
+  .profile_top
+  .profile_mid
+    = image_tag @member.image.url
     %h3= @member.name
     .date= t("members_show.joined_on", :date => l(@member.created_at, :format => :very_short))
     - if @member.bio
       .bio= t("members_show.bio")
       = @member.bio
+  .profile_bot
 
 .grid_7.push_1
   - if @member.meu_rio_is
-    .meu_rio_is
+    .meu_rio_is_top
       %h3= t("members_show.meu_rio_is")
+    .meu_rio_is_mid
       = @member.meu_rio_is
+    .meu_rio_is_bot
   .posts.grid_7.alpha.omega
     %h3
       = t("members_show.is_collaborating_in", :name => @member.first_name)

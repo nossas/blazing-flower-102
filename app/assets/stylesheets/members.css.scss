@@ -5,32 +5,30 @@
 @import "vars.css.scss";
 @import "mixins.css.scss";
 
-.meu_rio_is{
-  position:relative;
-  color: white;
-  padding: 10px 20px;
-  background: $blue;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  @include border-radius(10px);
+.meu_rio_is_top {
+  margin-top: 36px;
+  padding: 20px 30px 0 30px;
+  height: 27px;
+  background: url(/assets/member_quote_top.png);
   h3{
-    margin-bottom: 5px;
+    color: white;
     letter-spacing: 2px;
     font-family: Folk-solid;
     text-transform: uppercase;
   }
-  &:after{
-    content:"";
-    position:absolute;
-    border-style:solid;
-    display:block; 
-    width:0;
-    top:20px; /* controls vertical position */
-	  left:-20px; /* value = - border-left-width - border-right-width */
-	  bottom:auto;
-	  border-width: 10px 22px 10px 0;
-	  border-color:transparent $blue;
-  }
+
+}
+
+.meu_rio_is_bot {
+  margin-bottom: 40px;
+  height: 19px;
+  background: url(/assets/member_quote_bot.png);
+}
+
+.meu_rio_is_mid{
+  color: white;
+  padding: 0 30px;
+  background: url(/assets/member_quote_mid.png) repeat-y;
 }
 
 .posts {
@@ -57,10 +55,14 @@
   }
 }
 
-.profile {
-  @include box-shadow(0 0 5px #888);
-  @include border-radius(10px);
-  padding: 20px;
+.profile_top {
+  background: url("/assets/member_profile_top.png") no-repeat;
+  height: 36px;
+}
+
+.profile_mid {
+  padding: 0 20px;
+  background: url("/assets/member_profile_mid.png") repeat-y;
   img { 
     width: 100%; 
     margin-bottom: 10px;
@@ -77,4 +79,9 @@
     margin: 20px 0 5px 0;
     border-top: 1px solid $blue;
   }
+}
+
+.profile_bot {
+  background: url("/assets/member_profile_bot.png") no-repeat;
+  height: 44px;
 }
