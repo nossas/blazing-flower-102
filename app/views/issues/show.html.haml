@@ -18,7 +18,7 @@
       .right=image_tag("petition_icon.png")
       %p=@issue.petition_call_to_action
       =image_tag("comments_arrow.png", :class => "block_arrow")
-      =link_to "Assine Embaixo", custom_petition_path(@issue.featured_petition.custom_path), :class => 'btn'
+      =link_to "Assine Embaixo", issue_custom_petition_path(@issue.id, @issue.featured_petition.custom_path), :class => 'btn'
   -if @issue.featured_debate
     .block.debate
       %p.title= t("issue_show.debate")

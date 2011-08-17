@@ -1,5 +1,5 @@
 Then /^I should see the last petition link$/ do
-  page.should have_xpath("//a[@href='/petition/#{Petition.last.custom_path}']")
+  page.should have_xpath("//a[@href='/issues/#{Petition.last.issue_id}/petition/#{Petition.last.custom_path}']")
 end
 
 Then /^I should see the last debate link$/ do

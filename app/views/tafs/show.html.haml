@@ -12,7 +12,7 @@
 %h3= @taf.thank_you_text
 
 - if @taf.ok_to_display_copy_url?
-  =text_field_tag "d_clip_text", custom_petition_url(@taf.petition.custom_path), :id => "d_clip_field"
+  =text_field_tag "d_clip_text", issue_custom_petition_url(@taf.petition.issue_id, @taf.petition.custom_path), :id => "d_clip_field"
   #clipboard
     %a{:id => "d_clip_button", :href => "#"} Copy
 
