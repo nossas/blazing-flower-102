@@ -103,6 +103,7 @@ MR.debates = {
   },
 
   openNewComment: function(){
+    var debate = $("h1.grid_12").attr("data-debate");
     $('.new_comment_loading').show();
     $.get('/debates/' + debate + '/comments').success(function(data){
       $('.previous_comments .comment').remove();
