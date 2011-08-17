@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def nav_issues
+    @nav_issues ||= Issue.order('id DESC')
+  end
+
   def clippy(text, bgcolor='#FFFFFF')
     html = <<-EOF
     <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
