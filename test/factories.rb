@@ -26,6 +26,8 @@ end
 Factory.define :issue do |i|
   i.sequence(:name) { |n| "test-issue-#{n}" }
   i.description {Faker::Lorem.paragraphs.join("\n")}
+  i.image_file_name 'missing.png'
+  i.thumbnail_file_name 'missing.png'
   i.excerpt { Faker::Lorem.sentences }
 end
 
