@@ -2,6 +2,8 @@ class Issue < ActiveRecord::Base
   MIN_CALL_TO_ACTION_LENGTH = 60
   MAX_CALL_TO_ACTION_LENGTH = 80
   validates_presence_of :name
+  validates_presence_of :image_file_name
+  validates_presence_of :thumbnail_file_name
   validates_length_of :debate_call_to_action, :in => MIN_CALL_TO_ACTION_LENGTH..MAX_CALL_TO_ACTION_LENGTH, :allow_blank => true
   validates_length_of :petition_call_to_action, :in => MIN_CALL_TO_ACTION_LENGTH..MAX_CALL_TO_ACTION_LENGTH, :allow_blank => true
   validates_length_of :personal_story_call_to_action, :in => MIN_CALL_TO_ACTION_LENGTH..MAX_CALL_TO_ACTION_LENGTH, :allow_blank => true
@@ -22,7 +24,8 @@ class Issue < ActiveRecord::Base
                     :s3_credentials => {
                       :access_key_id => SITE['s3_access_key_id'],
                       :secret_access_key => SITE['s3_secret_access_key']
-                    }
+                    },
+                    :default_url => 'http://placehold.it/635x435'
 
   has_attached_file :thumbnail,
                     :path => '/issues/:attachment/:id/:filename',
@@ -31,7 +34,8 @@ class Issue < ActiveRecord::Base
                     :s3_credentials => {
                       :access_key_id => SITE['s3_access_key_id'],
                       :secret_access_key => SITE['s3_secret_access_key']
-                    }
+                    },
+                    :default_url => 'http://placehold.it/100x75'
 
   scope :has_articles, lambda {
     self.where('EXISTS (SELECT true FROM debates d WHERE d.issue_id = issues.id) OR EXISTS (SELECT true FROM petitions p WHERE p.issue_id = issues.id) OR EXISTS (SELECT true FROM personal_stories ps WHERE ps.issue_id = issues.id)') }
