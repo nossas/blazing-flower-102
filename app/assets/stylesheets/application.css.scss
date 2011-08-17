@@ -53,7 +53,7 @@ nav#main {
   }
   li.issue_menu_wrap{
     &:hover {
-      .issues{
+      .issue_menu.wide, .issue_menu.small{
         visibility:visible;
       }
       >a {
@@ -69,12 +69,20 @@ nav#main {
         color:#fff;
       }
     }
-    .issues.wide{
+    .issue_menu{
+      &.wide{
+        width:410px;
+      }
+      &.small{
+        width:240px;
+        .thumbnails{
+          padding-right:0;
+        }
+      }
       visibility:hidden;
       position:absolute;
-      width:410px;
       padding:15px 10px;
-      right:12px;
+      right:8px; // See comment below about odd 1px bug for issues page
       z-index:100;
       background-color:rgba(237, 126, 67, .9);
       @include border-radius(5px 0 5px 5px);
@@ -108,7 +116,6 @@ nav#main {
           padding-bottom:5px;
           line-height:12px;
           font-size:12px;
-          font-weight:bold;
           color:#fff;
         }
         ul {
@@ -126,6 +133,9 @@ nav#main {
     }
   }
 }
+
+// Fix for odd extra pixel showing up when you're on the issue page
+body.issues nav#main .issue_menu { right:9px; }
 
 body > .main {
   background: #f2f0ed;
