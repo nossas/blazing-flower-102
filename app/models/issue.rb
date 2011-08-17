@@ -25,9 +25,8 @@ class Issue < ActiveRecord::Base
                     }
 
   has_attached_file :thumbnail,
-                    :path => ':attachment/:id/:style/:filename',
+                    :path => '/issues/:attachment/:id/:filename',
                     :storage => :s3,
-                    :styles => { :thumb => "100x100" },
                     :bucket => SITE['s3_bucket'],
                     :s3_credentials => {
                       :access_key_id => SITE['s3_access_key_id'],
