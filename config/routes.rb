@@ -18,6 +18,8 @@ MeuRio::Application.routes.draw do
   end
 
   resources :pages, :controller => 'pages', :only => :show
+  match "issues/:id/petition/:custom_path" => "petitions#show", :as => "issue_custom_petition"
+  match "issues/:id/petition/:custom_path/share" => "tafs#show", :as => "issue_custom_taf"
   match "petition/:custom_path" => "petitions#show", :as => "custom_petition"
   match "petition/:custom_path/share" => "tafs#show", :as => "custom_taf"
   resources :petition_signatures, :only => [:create, :index]

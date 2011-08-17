@@ -41,5 +41,5 @@
   
 - if @taf && @taf.display_copy_url 
   .canvas.clearfix
-    =raw clippy(custom_petition_url(@taf.petition.custom_path), "#e7e7e7")
-    =text_field_tag "clippy_input", custom_petition_url(@taf.petition.custom_path), :id => "clippy_input", :class => "right"
+    =raw clippy(issue_custom_petition_url(@taf.petition.issue_id, @taf.petition.custom_path), "#e7e7e7")
+    =text_field_tag "clippy_input", issue_custom_petition_url(@taf.petition.issue_id, @taf.petition.custom_path), :id => "clippy_input", :class => "right"
