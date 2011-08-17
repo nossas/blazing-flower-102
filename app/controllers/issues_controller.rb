@@ -16,7 +16,7 @@ class IssuesController < ApplicationController
     if !params[:page].nil? && params[:page].to_i > 1
       @page = params[:page].to_i
       @articles_start = (@page - 1) * 5
-      article_end = @page * 5
+      article_end = (@page * 5) - 1
       @articles = @articles[@articles_start..article_end]
       if @articles.length == 5
         @articles_end = @articles_start + 5
