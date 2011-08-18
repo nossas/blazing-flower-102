@@ -19,10 +19,28 @@
 
 .small {font-size: 10.5px;}
 
+.Akagi-Book { font-family: Akagi-Book; }
+.Akagi-Light { font-family: Akagi-Light; }
+
+.Folk-solid { font-family: Folk-solid; }
+
+
+header, #main {
+  margin-bottom: 10px;
+}
+
+
 a {
   text-decoration: none;
   color: $blue;
   &:hover{ color: $pink; text-decoration:none; }
+}
+
+body {
+  background: #e1e1d9 url(/assets/background_texture_100px.png) repeat top left;
+  height: 100%;
+  width: 100%;
+  font-family: 'Akagi-Book', Helvetica, Ariel, sans-serif;
 }
 
 body > header {
@@ -36,6 +54,9 @@ body > header {
     text-align:right;
     p { margin: 0; font-size: 14px; }
     img { margin-left: 10px; }
+  }
+  .logo {
+    background-color: transparent;
   }
 }
 
