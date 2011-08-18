@@ -1,12 +1,8 @@
 #homepage
-  .widget_container.margin_bottom.clearfix
+  .widget_container.margin_bottom
     =render '/widgets/featured_content_1'
-
-    .widget.placeholder.margin_bottom
-      =image_tag 'http://placehold.it/300x60'
-
-    .widget.placeholder
-      =image_tag 'http://placehold.it/300x220'
+    =render '/widgets/date_weather'
+    =render '/widgets/legislative'
 
   .widget_container.left.margin_right.clear_fix{:style => 'width:300px;'}
     .widget.margin_bottom.placeholder
