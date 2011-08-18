@@ -26,13 +26,13 @@
       = image_tag "/assets/02_debate_icon.png"
       %p.title= t("about_page.feature2_title")
       %p.description= t("about_page.feature2_text")
-      = link_to t("about_page.debate_link"), debate_path(Debate.last) if Debate.last
+      = link_to t("about_page.debate_link"), issue_debate_path(Debate.last.issue_id, Debate.last) if Debate.last
   .grid_4.alpha
     .feature
       = image_tag "/assets/01_petition_icon.png"
       %p.title= t("about_page.feature3_title")
       %p.description= t("about_page.feature3_text")
-      = link_to t("about_page.petition_link"), custom_petition_path(Petition.last.custom_path) if Petition.last
+      = link_to t("about_page.petition_link"), issue_custom_petition_path(Petition.last.issue_id, Petition.last.custom_path) if Petition.last
 
 .grid_8
   %h2= t("about_page.who_we_are_title")

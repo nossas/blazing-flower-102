@@ -8,14 +8,14 @@
   %br
   - Petition.all.each do |petition|
     -if petition.complete?
-      %p= link_to petition.title, custom_petition_path(petition.custom_path)
+      %p= link_to petition.title, issue_custom_petition_path(petition.issue_id, petition.custom_path)
     - else
       %p= "Petition named '#{petition.title}' is not complete"
 
   %strong Debates:
   %br
   - Debate.all.each do |debate|
-    %p= link_to debate.title, debate_path(debate)
+    %p= link_to debate.title, issue_debate_path(debate.issue_id, debate)
 
   %strong Personal Stories:
   %br

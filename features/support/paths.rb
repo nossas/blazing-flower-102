@@ -21,7 +21,7 @@ module NavigationHelpers
     when /the first petition page/
       custom_petition_path(Petition.first.custom_path)
     when /this debate page/
-      debate_path(Debate.first)
+      issue_debate_path(Debate.first.issue_id, Debate.first)
     when /the petition taf page/
       "#{custom_petition_path(Petition.first.custom_path)}#compartilhe"
     when /the personal stories page for an issue/

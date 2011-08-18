@@ -3,13 +3,13 @@
 .grid_8-5.issue_main
   .intro
     %img{ :src => @issue.image.url(:large), :width => "635", :height => "435" }
-    .excerpt
-      %p=@issue.excerpt
-  .description.clearfix
-    %p=@issue.description
+  .excerpt
+    %p=@issue.excerpt
+    .description
+      %p=@issue.description
     .see_more
-      =link_to(issue_archive_path(@issue.id)) do
-        = t("issue_show.see_more")
+      %a#read_more{:href => '#'}
+        = t("issue_show.read_more")
         =image_tag('next_link.png')
 .grid_3-5.omega
   -if @issue.featured_petition
@@ -18,14 +18,14 @@
       .right=image_tag("petition_icon.png")
       %p=@issue.petition_call_to_action
       =image_tag("comments_arrow.png", :class => "block_arrow")
-      =link_to "Assine Embaixo", custom_petition_path(@issue.featured_petition.custom_path), :class => 'btn'
+      =link_to "Assine Embaixo", issue_custom_petition_path(@issue.id, @issue.featured_petition.custom_path), :class => 'btn'
   -if @issue.featured_debate
     .block.debate
       %p.title= t("issue_show.debate")
       .right=image_tag("debate_icon.png")
       %p=@issue.debate_call_to_action
       =image_tag("comments_arrow.png", :class => "block_arrow")
-      =link_to "Dê Sua Opinião", debate_path(@issue.featured_debate), :class => 'btn'
+      =link_to "Dê Sua Opinião", issue_debate_path(@issue.id, @issue.featured_debate), :class => 'btn'
   -if @issue.featured_personal_story
     .block.personal_story
       %p.title= t("issue_show.personal_story")
