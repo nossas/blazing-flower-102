@@ -3,20 +3,48 @@
 .grid_4
   .profile_top
   .profile_mid
-    = image_tag @member.image.url
-    %h3= @member.name
+    = image_tag @member.image.url, :id => "member_picture"
+
+    - if @member == current_member
+      = link_to "#", :id => "change_picture_btn" do
+        = image_tag "/assets/pencil.png"
+        = t("members_show.change_picture")
+
+    %h3
+      = @member.name
+      - if @member == current_member
+        = link_to image_tag("/assets/pencil.png"), "#", :id => "change_name_btn"
+
     .date= t("members_show.joined_on", :date => l(@member.created_at, :format => :very_short))
-    - if @member.bio
-      .bio= t("members_show.bio")
+
+    - if @member == current_member
+      .title
+        = t("members_show.email")
+        = link_to image_tag("/assets/pencil.png"), "#", :id => "change_email_btn"
+      = @member.email
+
+    - if @member == current_member
+      .title
+        = t("members_show.zone")
+        = link_to image_tag("/assets/pencil.png"), "#", :id => "change_zone_btn"
+      = @member.zona
+
+    - if @member.bio || @member == current_member
+      .title
+        = t("members_show.bio")
+        = link_to image_tag("/assets/pencil.png"), "#", :id => "change_bio_btn"
       = @member.bio
+
   .profile_bot
 
 .grid_8
-  - if @member.meu_rio_is
+  - if @member.meu_rio_is || @member == current_member
     .meu_rio_is_top
       %h3= t("members_show.meu_rio_is")
     .meu_rio_is_mid
       = @member.meu_rio_is
+      - if @member == current_member
+        = link_to image_tag("/assets/pencil.png"), "#", :id => "change_meu_rio_is_btn"
     .meu_rio_is_bot
   .posts.grid_8.alpha.omega
     %h3

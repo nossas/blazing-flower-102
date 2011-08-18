@@ -336,3 +336,5 @@ Com a realização da Copa e das Olimpíadas nos próximos anos, essa oportunida
     commented_debate: "Fez um comentário no debate %{name}, %{issue} »"
     joined_on: "Membro desde %{date}"
     bio: "Sobre mim"
+    email: "Email"
+    zone: "Zona"
