@@ -1,22 +1,22 @@
-.homepage{:style => 'padding:10px 0 0 10px;'}
-  .widget_container.bottom_margin.clearfix
+#homepage
+  .widget_container.margin_bottom.clearfix
     .widget.margin_right.placeholder
       =image_tag 'http://placehold.it/620x300'
 
-    .widget.placeholder.bottom_margin
+    .widget.placeholder.margin_bottom
       =image_tag 'http://placehold.it/300x60'
 
     .widget.placeholder
       =image_tag 'http://placehold.it/300x220'
 
-  .widget_container.margin_right.clear_fix{:style => 'float:left; width:300px;'}
+  .widget_container.left.margin_right.clear_fix{:style => 'width:300px;'}
     .widget.margin_bottom.placeholder
       =image_tag 'http://placehold.it/300x220'
 
     .widget.placeholder
       =image_tag 'http://placehold.it/300x140'
 
-  .widget_container.margin_bottom.margin_right{:style => 'float:left; width:auto;'}
+  .widget_container.left.margin_bottom.margin_right{:style => 'width:auto;'}
     .widget.placeholder
       =image_tag 'http://placehold.it/140x380'
 
@@ -32,13 +32,19 @@
     .widget.placeholder
       =image_tag 'http://placehold.it/300x220'
 
-  .widget_container{:style => 'float:left; width:auto;'}
+  .widget_container.left{:style => 'width:auto;'}
     .widget.placeholder
       =image_tag 'http://placehold.it/620x140'
 
 
 
 .clearfix
+
+%br
+%br
+%br
+
+%h2= QA Information
 
 .grid_6
   %strong Issues:

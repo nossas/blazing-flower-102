@@ -5,28 +5,18 @@
 @import "vars.css.scss";
 @import "mixins.css.scss";
 
-.widget{
-  float:left;
-  width:auto;
-}
+#homepage{
+  padding:10px 0 0 10px;
+  .widget{
+    float:left;
+    width:auto;
+  }
 
-.widget.placeholder{
-  font-size:0px;
-}
+  .widget_container{width:auto;}
 
-.widget.right{
-  float:right;
-}
+  .widget.margin_right, .widget_container.margin_right {margin-right:20px;}
+  .widget.margin_bottom, .widget_container.margin_bottom {margin-bottom:20px;}
 
-.clear_left {
-  clear:left;
+  // Temporary Styles
+  .widget.placeholder{font-size:0px;}
 }
-
-.margin_right, .right_margin {
-  margin-right:20px;
-}
-
-.bottom_margin, .margin_bottom {
-  margin-bottom:20px;
-}
-
