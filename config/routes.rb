@@ -26,7 +26,7 @@ MeuRio::Application.routes.draw do
   match "na_atividade/:id" => "issues#show", :as => "issue"
   match "na_atividade/:id/arquivo" => "issues#archive", :as => "issue_archive"
   match "na_atividade/:id/arquivo/:page" => "issues#archive", :as => "issue_archive_page"
-  match "bate-bola/:id" => "debates#show", :as => "debate"
+  match "na_atividade/:issue_id/bate-bola/:id" => "debates#show", :as => "issue_debate"
   resources :debates, :only => [:show] do
     resources :comments, :only => [:index]
   end

@@ -15,7 +15,7 @@
   %strong Debates:
   %br
   - Debate.all.each do |debate|
-    %p= link_to debate.title, debate_path(debate)
+    %p= link_to debate.title, issue_debate_path(debate.issue_id, debate)
 
   %strong Personal Stories:
   %br

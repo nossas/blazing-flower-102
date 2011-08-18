@@ -3,7 +3,7 @@ Then /^I should see the last petition link$/ do
 end
 
 Then /^I should see the last debate link$/ do
-  page.should have_xpath("//a[@href='/bate-bola/#{Debate.last.id}']")
+  page.should have_xpath("//a[@href='/na_atividade/#{Debate.last.issue_id}/bate-bola/#{Debate.last.id}']")
 end
 
 Then /^I should see the last personal story link$/ do

@@ -4,7 +4,7 @@
       .grid_2.alpha
         =image_tag "archive_debate_icon.png"
       .grid_7.suffix_3.omega
-        =link_to "#{article.title} >>", debate_path(article.id), :class => "title" 
+        =link_to "#{article.title} >>", issue_debate_path(@issue.id, article.id), :class => "title" 
         .date=article.created_at.strftime("%d %B %Y")
         .excerpt= article.question
     -elsif article.class == PersonalStory
