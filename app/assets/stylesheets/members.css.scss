@@ -73,16 +73,21 @@
   }
   .date { 
     font-size: 14px; 
-    border-bottom: 1px solid $blue;
     padding-bottom: 10px;
   }
   .title {
     color: $blue;
     text-transform: uppercase;
-    margin: 20px 0 5px 0;
+    margin: 5px 0;
   }
   .is_subscriber {
-    margin: 20px 0 5px 0;
+    margin: 20px 0 0 0;
+    font-size: 12px;
+  }
+  .info {
+    border-top: 1px solid $blue;
+    border-bottom: 1px solid $blue;
+    padding: 10px 0;
   }
 }
 

@@ -17,24 +17,25 @@
 
     .date= t("members_show.joined_on", :date => l(@member.created_at, :format => :very_short))
 
-    - if @member == current_member
-      .title
-        = t("members_show.email")
-        = link_to image_tag("/assets/pencil.png"), "#", :id => "change_email_btn"
-      = @member.email
-
-    - if @member == current_member
-      .title
-        = t("members_show.zone")
-        = link_to image_tag("/assets/pencil.png"), "#", :id => "change_zone_btn"
-      = @member.zona
-
-    - if @member.bio || @member == current_member
-      .title
-        = t("members_show.bio")
-        - if @member == current_member
-          = link_to image_tag("/assets/pencil.png"), "#", :id => "change_bio_btn"
-      = @member.bio
+    .info
+      - if @member == current_member
+        .title
+          = t("members_show.email")
+          = link_to image_tag("/assets/pencil.png"), "#", :id => "change_email_btn"
+        = @member.email
+  
+      - if @member == current_member
+        .title
+          = t("members_show.zone")
+          = link_to image_tag("/assets/pencil.png"), "#", :id => "change_zone_btn"
+        = @member.zona
+  
+      - if @member.bio || @member == current_member
+        .title
+          = t("members_show.bio")
+          - if @member == current_member
+            = link_to image_tag("/assets/pencil.png"), "#", :id => "change_bio_btn"
+        = @member.bio
 
     - if @member == current_member
       .is_subscriber
