@@ -46,7 +46,7 @@
 %h2
   QA Information
 
-.grid_6
+.grid_4
   %strong Issues:
   %br
   - Issue.all.each do |issue|
@@ -76,12 +76,13 @@
   %p= link_to "Privacy Policy", page_path("privacy_policy")
   %p= link_to "Jobs", page_path("trabalhe")
 
+.grid_4
   %strong Members:
   %br
   - Member.all.each do |member|
     %p= link_to member.name, member_path(member)
 
-.grid_6
+.grid_4
   %strong Image Widget QA:
   %br
   - ImageWidget.all.each do |w|
