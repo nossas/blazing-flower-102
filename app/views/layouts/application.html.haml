@@ -34,17 +34,18 @@
         %p.alert= alert
       = yield
     %footer.container_12
-      %nav.grid_9.alpha
+      %nav.grid_7.alpha
         =link_to "Contatos", "mailto:info@meurio.org.br"
         |
         =link_to "POLÍTICA DE Privacidade", "/pages/privacy_policy"
         |
         =link_to "TRABALHE COM A GENTE", "/pages/trabalhe"
-      .social.grid_3.omega
-        %p Siga-Nos!
-        =link_to image_tag('facebook_25.png'), "http://www.facebook.com/pages/Meu-Rio", :target => "_blank"
-        =link_to image_tag('twitter_25.png'), "http://twitter.com/#!/meu_rio", :target => "_blank"
+      %p.social.right.grid_4
+        TAMBÉM ESTAMOS AQUI, Ó:
+
         =link_to image_tag('orkut_25.png'), "http://www.orkut.com/Main#Community?cmm=114209047", :target => "_blank"
+        =link_to image_tag('twitter_25.png'), "http://twitter.com/#!/meu_rio", :target => "_blank"
+        =link_to image_tag('facebook_25.png'), "http://www.facebook.com/pages/Meu-Rio", :target => "_blank"
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"}
     :javascript
       !window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))    
@@ -60,5 +61,5 @@
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
-  
+
   = render :partial => "shared/login"

@@ -19,6 +19,12 @@
 
 .small {font-size: 10.5px;}
 
+a {
+  text-decoration: none;
+  color: $blue;
+  &:hover{ color: $pink; text-decoration:none; }
+}
+
 body > header {
   min-height:127px; // Avoid page jump if the logo is slow to load
   padding:10px !important; // Override 960.gs
@@ -38,7 +44,6 @@ nav#primary {
   margin-top:60px;
   color: $dark_gray;
   font-weight: bold;
-  a:hover { text-decoration:none; }
   li {
     float:left;
     position:relative;
@@ -153,27 +158,24 @@ body > #main {
   }
 }
 
-footer {
+body > footer {
   margin-top: 25px;
   nav {
-    a { 
+    a, a:visited {
       text-transform: uppercase;
       margin: 0px 15px;
       color: $dark_gray;
+      &:hover{color: $pink;}
     }
   }
   .social {
-    p {
-      font-weight: bold;
-      float: left;
-      margin-left: 40px;
-      text-transform: uppercase;
-    }
     a {
-      display: block;
-      float: left;
-      margin: -5px 5px 0;
+      display: inline-block;
+      float: right;
+      margin: -5px 0 0 5px;
     }
+    font-weight: bold;
+    text-transform: uppercase;
   }
 }
 
@@ -243,12 +245,6 @@ h1 {
     top: 0px;
     left: -2px;
   }
-}
-
-a {
-  text-decoration: none;
-  color: $blue;
-  &:hover{ text-decoration: underline; color: $pink; }
 }
 
 #join_us_btn { padding-right: 20px }
