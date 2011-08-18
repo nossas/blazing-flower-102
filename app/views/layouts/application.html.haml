@@ -23,7 +23,7 @@
           - else
             %p=link_to t("logout"), destroy_member_session_path
         - else
-          %p
+          .join_login_wrap
             =link_to t("join_us"), "#", :id => "join_us_btn"
             =link_to t("login"), "#login", :rel => "facebox"
       =render :partial => "shared/main_navigation"
@@ -37,9 +37,9 @@
       %nav.grid_9.alpha
         =link_to "Contatos", "mailto:info@meurio.org.br"
         |
-        =link_to "Politica de Privacidade", "/pages/privacy_policy"
+        =link_to "POLÍTICA DE Privacidade", "/pages/privacy_policy"
         |
-        =link_to "Carreiras", "/pages/trabalhe"
+        =link_to "TRABALHE COM A GENTE", "/pages/trabalhe"
       .social.grid_3.omega
         %p Siga-Nos!
         =link_to image_tag('facebook_25.png'), "http://www.facebook.com/pages/Meu-Rio", :target => "_blank"

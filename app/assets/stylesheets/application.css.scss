@@ -20,12 +20,12 @@
 .small {font-size: 10.5px;}
 
 body > header {
-  min-height:147px; // Avoid page jump if the logo is slow to load
+  min-height:127px; // Avoid page jump if the logo is slow to load
   padding:10px !important; // Override 960.gs
   margin-bottom: 10px;
   background: white;
-
   @include border-radius(0 0 8px 8px);
+  .join_login_wrap {font-size: 15px;}
   .member_panel{
     text-align:right;
     p { margin: 0; font-size: 14px; }
@@ -37,6 +37,7 @@ nav#primary {
   float:right;
   margin-top:60px;
   color: $dark_gray;
+  font-weight: bold;
   a:hover { text-decoration:none; }
   li {
     float:left;
@@ -47,7 +48,6 @@ nav#primary {
       margin: 0px 5px;
       line-height:2;
       color: $dark_gray;
-      font-weight: bold;
       font-size: 16px;
       &:hover { color: $pink;}
     }
@@ -73,6 +73,7 @@ nav#primary {
       }
     }
     .issue_menu{
+      font-weight:normal;
       &.wide{
         width:410px;
       }
