@@ -34,7 +34,7 @@ MR.issues = {
   },
 
   articleTemplate: $.template(null,
-                               '{{each articles}}<div class="article grid_12">{{if question}}<div class="grid_2 alpha"><img src="/assets/archive_debate_icon.png"></div> <div class="grid_8 omega"><a href="/debates/${id}" class="title">${title} >></a><div class="date">${created_at}</div><div class="excerpt">${question}</div></div>{{/if}} {{if connected_action}}<div class="grid_2 alpha"><img src="/assets/archive_video_icon.png"></div> <div class="grid_8 omega"><a href="/issues/${issue.id}/personal_stories/${id}" class="title">${title} >></a><div class="date">${created_at}</div><div class="excerpt">${excerpt}</div></div>{{/if}} {{if custom_path}}<div class="grid_2 alpha"><img src="/assets/archive_petition_icon.png"></div><div class="grid_8 omega"><a href="issues/${issue.id}/petitions/${custom_path}" class="title">${headline} >></a><div class="date">${created_at}</div><div class="excerpt">${short_description}</div></div>{{/if}}</div>{{/each}}'),
+                               '{{each articles}}<div class="article grid_12">{{if question}}<div class="grid_2 alpha"><img src="/assets/archive_debate_icon.png"></div> <div class="grid_8 omega"><a href="/bate-bola/${id}" class="title">${title} >></a><div class="date">${created_at}</div><div class="excerpt">${question}</div></div>{{/if}} {{if connected_action}}<div class="grid_2 alpha"><img src="/assets/archive_video_icon.png"></div> <div class="grid_8 omega"><a href="/na_atividade/${issue.id}/direto_da_gema/${id}" class="title">${title} >></a><div class="date">${created_at}</div><div class="excerpt">${excerpt}</div></div>{{/if}} {{if custom_path}}<div class="grid_2 alpha"><img src="/assets/archive_petition_icon.png"></div><div class="grid_8 omega"><a href="/na_atividade/${issue.id}/assine_embaixo/${custom_path}" class="title">${headline} >></a><div class="date">${created_at}</div><div class="excerpt">${short_description}</div></div>{{/if}}</div>{{/each}}'),
 
   getIssueArticles: function(issue_path){
     $.ajax({
@@ -54,18 +54,18 @@ MR.issues = {
     var $previous = $('.previous');
     var $next = $('.next');
 
-    $('.count').html('Displaying ' + datum.start + '-' + datum.end + ' of ' + datum.count);
+    $('.count').html('Exibindo ' + datum.start + '-' + datum.end + ' de ' + datum.count);
     if(datum.start < 5){
       $('.previous').hide();
     } else {
       $('.previous').show();
-      $('.previous').attr('href', '/issues/' + datum.issue.id + '/archive/' + (datum.page - 1));
+      $('.previous').attr('href', '/na_atividade/' + datum.issue.id + '/arquivo/' + (datum.page - 1));
     }
     if(datum.end >= datum.count){
       $('.next').hide();
     } else {
       $('.next').show();
-      $('.next').attr('href', '/issues/' + datum.issue.id + '/archive/' + (datum.page + 1));
+      $('.next').attr('href', '/na_atividade/' + datum.issue.id + '/arquivo/' + (datum.page + 1));
     }
     _.each(datum.articles, function(article){
         article.created_at = new Date(article.created_at).toDateString();
@@ -78,7 +78,7 @@ MR.issues = {
 
   setHistory : function(data){
     if(Modernizr.history){
-      history.pushState(data, '', '/issues/' + data.issue.id + '/archive');
+      history.pushState(data, '', '/na_atividade/' + data.issue.id + '/arquivo');
     }
   }
 }

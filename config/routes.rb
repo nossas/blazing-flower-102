@@ -12,28 +12,29 @@ MeuRio::Application.routes.draw do
   # match 'admin_user_root' => 'admin/dashboard#index'
 
   namespace :admin do
-    get 'preview/petition/:id' => "petitions#preview", :as => "preview_petition"
-    get 'petition/:id/export' => "petitions#export", :as => "export_petition"
-    get 'petition/:id/export' => "petitions#export", :as => "export_petition"
+    get 'preview/assine_embaixo/:id' => "petitions#preview", :as => "preview_petition"
+    get 'assine_embaixo/:id/export' => "petitions#export", :as => "export_petition"
+    get 'assine_embaixo/:id/export' => "petitions#export", :as => "export_petition"
   end
 
   resources :pages, :controller => 'pages', :only => :show
-  match "issues/:id/petition/:custom_path" => "petitions#show", :as => "issue_custom_petition"
-  match "issues/:id/petition/:custom_path/share" => "tafs#show", :as => "issue_custom_taf"
-  match "petition/:custom_path" => "petitions#show", :as => "custom_petition"
-  match "petition/:custom_path/share" => "tafs#show", :as => "custom_taf"
+  match "na_atividade/:id/assine_embaixo/:custom_path" => "petitions#show", :as => "issue_custom_petition"
+  match "na_atividade/:id/assine_embaixo/:custom_path/share" => "tafs#show", :as => "issue_custom_taf"
+  match "assine_embaixo/:custom_path" => "petitions#show", :as => "custom_petition"
+  match "assine_embaixo/:custom_path/share" => "tafs#show", :as => "custom_taf"
   resources :petition_signatures, :only => [:create, :index]
-  resources :issues, :only => [:show]
-  match "issues/:id/archive" => "issues#archive", :as => "issue_archive"
-  match "issues/:id/archive/:page" => "issues#archive", :as => "issue_archive_page"
+  match "na_atividade/:id" => "issues#show", :as => "issue"
+  match "na_atividade/:id/arquivo" => "issues#archive", :as => "issue_archive"
+  match "na_atividade/:id/arquivo/:page" => "issues#archive", :as => "issue_archive_page"
+  match "bate-bola/:id" => "debates#show", :as => "debate"
   resources :debates, :only => [:show] do
     resources :comments, :only => [:index]
   end
   match 'debates/:id/load_comments/:page' => "debates#load_comments"
   resources :personal_stories, :only => [:show]
   resources :members, :only => [ :show, :update ]
-  match "issues/:issue_id/personal_stories" => "personal_stories#issue_index", :as => "issue_personal_stories"
-  match "issues/:issue_id/personal_stories/:id" => "personal_stories#issue_index", :as => "issue_personal_story"
+  match "na_atividade/:issue_id/direto_da_gema" => "personal_stories#issue_index", :as => "issue_personal_stories"
+  match "na_atividade/:issue_id/direto_da_gema/:id" => "personal_stories#issue_index", :as => "issue_personal_story"
   resources :comments, :only => [:create] do
     resources :comment_flags, :only => [:create, :destroy], :as => "flags"
   end
