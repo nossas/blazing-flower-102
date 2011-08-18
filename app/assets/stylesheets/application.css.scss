@@ -17,12 +17,14 @@
 .clear_left {clear:left;}
 .clear_right {clear:right;}
 
+.small {font-size: 10.5px;}
+
 body > header {
-  position: relative;
-  padding-top: 12px !important;
-  padding-bottom: 12px !important;
-  margin-bottom: 12px;
+  min-height:147px; // Avoid page jump if the logo is slow to load
+  padding:10px !important; // Override 960.gs
+  margin-bottom: 10px;
   background: white;
+
   @include border-radius(0 0 8px 8px);
   .member_panel{
     text-align:right;
@@ -31,7 +33,7 @@ body > header {
   }
 }
 
-nav#main {
+nav#primary {
   float:right;
   margin-top:60px;
   color: $dark_gray;
@@ -50,9 +52,7 @@ nav#main {
       &:hover { color: $pink;}
     }
     a.top_level.last { margin-right: 0; }
-    a.top_level.selected,a.top_level:hover {
-      background: url(/assets/nav_hover_underline.png) no-repeat center bottom;
-    }
+    a.top_level.selected,a.top_level:hover { background: url(/assets/nav_hover_underline.png) no-repeat center bottom;}
   }
   li.issue_menu_wrap{
     &:hover {
@@ -138,9 +138,9 @@ nav#main {
 }
 
 // Fix for odd extra pixel showing up when you're on the issue page
-body.issues nav#main .issue_menu { right:9px; }
+body.issues nav#primary .issue_menu { right:9px; }
 
-body > .main {
+body > #main {
   background: white;
   @include border-radius(8px);
   padding: 10px 10px;
@@ -260,6 +260,3 @@ a {
   padding-top: 10px;
 }
 
-.small {
-  font-size: 10.5px;
-}
