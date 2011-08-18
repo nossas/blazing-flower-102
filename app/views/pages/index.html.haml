@@ -6,31 +6,22 @@
 
   .widget_container.left.margin_right.clear_fix{:style => 'width:300px;'}
     =render '/widgets/public_hearings'
-
-    .widget.placeholder
-      =image_tag 'http://placehold.it/300x140'
+    =render '/widgets/join'
 
   .widget_container.left.margin_bottom.margin_right
-    .widget.placeholder
-      =image_tag 'http://placehold.it/140x380'
+    =render '/widgets/meu_rio_is'
 
   .widget_container.left
-    .widget.margin_bottom
-      =render '/widgets/featured_content_2'
+    =render '/widgets/featured_content_2'
 
-  .widget_container{:style => 'float:left; width:auto;'}
-    .widget.placeholder
-      =image_tag 'http://placehold.it/140x60'
+  .widget_container.left
+    =render '/widgets/follow'
 
   .widget_container.right{:style => 'margin-right:10px;'}
-    .widget.placeholder
-      =image_tag 'http://placehold.it/300x220'
+    =render '/widgets/team_update'
 
   .widget_container.left
-    .widget.placeholder
-      =image_tag 'http://placehold.it/620x140'
-
-
+    =render '/widgets/twitter'
 
 .clearfix
 
