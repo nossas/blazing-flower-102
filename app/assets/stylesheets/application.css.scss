@@ -190,13 +190,12 @@ body > footer {
     }
   }
   .social {
+    font-weight: bold;
     a {
       display: inline-block;
       float: right;
       margin: -5px 0 0 5px;
     }
-    font-weight: bold;
-    text-transform: uppercase;
   }
 }
 

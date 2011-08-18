@@ -23,14 +23,14 @@ class CommentsController < InheritedResources::Base
         render :partial => "comments/comment", :layout => false, :locals => { :comment => @comment }
       else
         flash[:notice] = "Comment successfully saved"
-        redirect_to debate_path(debate)
+        redirect_to issue_debate_path(debate.issue_id, debate)
       end
     else 
       if request.xhr?
         render :json => @comment.errors, :status => :unprocessable_entity
       else
         flash[:notice] = "Comment could not be saved"
-        redirect_to debate_path(debate)
+        redirect_to issue_debate_path(debate.issue_id, debate)
       end
     end
   end
