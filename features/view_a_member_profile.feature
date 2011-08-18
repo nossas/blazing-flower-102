@@ -44,3 +44,32 @@ Feature: View a member profile
     Given there is a member without bio
     When I go to this member page
     Then I should not see "Bio"
+
+  @omniauth_test @javascript
+  Scenario: The one where I'm seeing my profile page
+    Given I am logged in via Facebook
+    And my email is "nicolas@quavio.com.br"
+    And my zone is "Centro"
+    When I go to my profile page
+    Then I should see "nicolas@quavio.com.br"
+    And I should see "Centro"
+    And I should see the change picture button
+    And I should see the change name button
+    And I should see the change email button
+    And I should see the change zone button
+    And I should see the change bio button
+    And I should see the change Meu Rio is... button
+    And I should see "Desejo receber notícias do Meu Rio por email."
+
+  Scenario: The one where I'm seeing somebody else profile
+    Given there is a member who lives in the "Norte" zone, his email is "nicolas@quavio.com.br" and his 'Meu Rio is' slogan is "A minha forma de colaborar para um Rio melhor!"
+    When I go to this member page
+    Then I should not see "nicolas@quavio.com.br"
+    And I should not see "Norte"
+    And I should not see the change picture button
+    And I should not see the change name button
+    And I should not see the change email button
+    And I should not see the change zone button
+    And I should not see the change bio button
+    And I should not see the change Meu Rio is... button
+    And I should not see "Desejo receber notícias do Meu Rio por email."
