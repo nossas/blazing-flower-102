@@ -32,8 +32,14 @@
     - if @member.bio || @member == current_member
       .title
         = t("members_show.bio")
-        = link_to image_tag("/assets/pencil.png"), "#", :id => "change_bio_btn"
+        - if @member == current_member
+          = link_to image_tag("/assets/pencil.png"), "#", :id => "change_bio_btn"
       = @member.bio
+
+    - if @member == current_member
+      .is_subscriber
+        = check_box("member", "is_subscriber")
+        = label(:member, :is_subscriber, t("members_show.is_subscriber"))
 
   .profile_bot
 
