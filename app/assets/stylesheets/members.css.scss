@@ -63,21 +63,31 @@
 .profile_mid {
   padding: 0 20px;
   background: url("/assets/member_profile_mid.png") repeat-y;
-  img { 
+  img#member_picture { 
     width: 100%; 
-    margin-bottom: 10px;
   }
   h3 { 
     color: $green; 
     font-size: 28px;
+    margin: 10px 0;
   }
-  .date { font-size: 14px; }
-  .bio {
+  .date { 
+    font-size: 14px; 
+    padding-bottom: 10px;
+  }
+  .title {
     color: $blue;
     text-transform: uppercase;
-    padding-top: 10px;
-    margin: 20px 0 5px 0;
+    margin: 5px 0;
+  }
+  .is_subscriber {
+    margin: 20px 0 0 0;
+    font-size: 12px;
+  }
+  .info {
     border-top: 1px solid $blue;
+    border-bottom: 1px solid $blue;
+    padding: 10px 0;
   }
 }
 

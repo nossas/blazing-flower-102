@@ -22,26 +22,6 @@ body.issues {
 
     position: relative;
 
-    .excerpt {
-      color: #fff;
-      background: $blue;
-      padding: 20px;
-      width: 525px;
-      -webkit-border-radius: 6px;
-      -webkit-border-top-right-radius: 0;
-      -webkit-border-bottom-left-radius: 0;
-      -moz-border-radius: 6px;
-      -moz-border-radius-topright: 0;
-      -moz-border-radius-bottomleft: 0;
-      border-radius: 6px;
-      border-top-right-radius: 0;
-      border-bottom-left-radius: 0;
-      opacity: 0.8;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
     img {
       -webkit-border-radius: 6px;
       -moz-border-radius: 6px;
@@ -54,6 +34,9 @@ body.issues {
   }
 
   .description {
+    display: none;
+  }
+  .excerpt {
     padding: 25px 0;
     margin: 470px 0 25px;
     border-top: 2px solid $blue;

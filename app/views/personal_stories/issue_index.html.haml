@@ -15,14 +15,14 @@
     #current_description= raw @current.description
     -if !@debate.nil?
       -if @current.connected_action != "DEBATE"
-        =link_to t("video_show.join_the_debate_link"), debate_path(@debate.id), :class => "btn take_action debate", :style => "display: none;"
+        =link_to t("video_show.join_the_debate_link"), issue_debate_path(@issue.id, @debate.id), :class => "btn take_action debate", :style => "display: none;"
       -else
-        =link_to t("video_show.join_the_debate_link"), debate_path(@debate.id), :class => "btn take_action debate"
+        =link_to t("video_show.join_the_debate_link"), issue_debate_path(@issue.id, @debate.id), :class => "btn take_action debate"
     -if !@petition.nil?
       -if @current.connected_action != "PETITION"
-        =link_to t("video_show.take_action_link"), custom_petition_path(@petition.custom_path), :class => "btn take_action petition", :style => "display: none;"
+        =link_to t("video_show.take_action_link"), issue_custom_petition_path(@issue.id, @petition.custom_path), :class => "btn take_action petition", :style => "display: none;"
       -else
-        =link_to t("video_show.take_action_link"), custom_petition_path(@petition.custom_path), :class => "btn take_action petition"
+        =link_to t("video_show.take_action_link"), issue_custom_petition_path(@issue.id, @petition.custom_path), :class => "btn take_action petition"
   .clearfix
 .grid_12
   .story_list
@@ -36,7 +36,7 @@
 =content_for :javascripts do
 
   :javascript
-    MR = {}
+    MR = MR || {};
     MR.stories = #{@stories.to_json};
 
     $(document).ready(function(){

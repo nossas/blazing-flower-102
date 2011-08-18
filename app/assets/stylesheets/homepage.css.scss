@@ -1,0 +1,22 @@
+// Place all the styles related to the Homepage here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "vars.css.scss";
+@import "mixins.css.scss";
+
+#homepage{
+  padding:10px 0 0 10px;
+  .widget{
+    float:left;
+    width:auto;
+  }
+
+  .widget_container{width:auto;}
+
+  .widget.margin_right, .widget_container.margin_right {margin-right:20px;}
+  .widget.margin_bottom, .widget_container.margin_bottom {margin-bottom:20px;}
+
+  // Temporary Styles
+  .widget.placeholder{font-size:0px;}
+}

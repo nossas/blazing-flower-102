@@ -4,7 +4,7 @@
       .grid_2.alpha
         =image_tag "archive_debate_icon.png"
       .grid_7.suffix_3.omega
-        =link_to "#{article.title} >>", debate_path(article.id), :class => "title" 
+        =link_to "#{article.title} >>", issue_debate_path(@issue.id, article.id), :class => "title" 
         .date=article.created_at.strftime("%d %B %Y")
         .excerpt= article.question
     -elsif article.class == PersonalStory
@@ -18,6 +18,6 @@
       .grid_2.alpha
         =image_tag "archive_petition_icon.png"
       .grid_7.suffix_3.omega
-        =link_to "#{article.headline} >>", custom_petition_path(article.custom_path), :class => "title" 
+        =link_to "#{article.headline} >>", issue_custom_petition_path(@issue.id, article.custom_path), :class => "title" 
         .date=article.created_at.strftime("%d %B %Y")
         .excerpt= article.short_description

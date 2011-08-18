@@ -1,7 +1,7 @@
-%nav#main
+%nav#primary
   %ul
     %li
-      =link_to('SOBRE O MEU RIO', page_path(:id => 'about'), :class => "top_level #{(@current_page ==  'about' ? 'selected' : nil)}")+'|'
+      =link_to('SOBRE NÓS', page_path(:id => 'about'), :class => "top_level #{(@current_page ==  'about' ? 'selected' : nil)}")+'|'
     %li.issue_menu_wrap
       =link_to('NA ATIVIDADE', '#', :class => "top_level")+'|'
       -if nav_issues.count > 2

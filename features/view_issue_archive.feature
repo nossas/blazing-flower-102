@@ -14,4 +14,14 @@ Feature: In order to get to know every piece of content ever created for an issu
     Given 1 issues exist
     When I go to an issue archive page
     Then I should see "Arquivo"
-    And I should see "Displaying 0-0 of 0"
+    And I should see "Exibindo 0-0 de 0"
+
+  @javascript
+  Scenario: Seeing another issue's archive
+    Given 2 complete issues exist
+    When I go to an issue archive page
+    And I press the issue's name
+    And I click the other issue's name
+    Then I should see the other issue's title
+    And I should see the other issue's first debate's title
+    And I should not see the original issue's first debate's title

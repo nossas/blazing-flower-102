@@ -21,7 +21,7 @@ module NavigationHelpers
     when /the first petition page/
       custom_petition_path(Petition.first.custom_path)
     when /this debate page/
-      debate_path(Debate.first)
+      issue_debate_path(Debate.first.issue_id, Debate.first)
     when /the petition taf page/
       "#{custom_petition_path(Petition.first.custom_path)}#compartilhe"
     when /the personal stories page for an issue/
@@ -32,6 +32,8 @@ module NavigationHelpers
       page_path("about")
     when /this member page/
       member_path(@member)
+    when /my profile page/
+      member_path(ProviderAuthorization.find_by_uid("547955110").member)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

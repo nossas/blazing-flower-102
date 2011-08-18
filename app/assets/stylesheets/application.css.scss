@@ -14,25 +14,57 @@
 .left { float: left }
 .right { float: right }
 
+.clear_left {clear:left;}
+.clear_right {clear:right;}
+
+.small {font-size: 10.5px;}
+
+.Akagi-Book { font-family: Akagi-Book; }
+.Akagi-Light { font-family: Akagi-Light; }
+
+.Folk-solid { font-family: Folk-solid; }
+
+
+header, #main {
+  margin-bottom: 10px;
+}
+
+
+a {
+  text-decoration: none;
+  color: $blue;
+  &:hover{ color: $pink; text-decoration:none; }
+}
+
+body {
+  background: #e1e1d9 url(/assets/background_texture_100px.png) repeat top left;
+  height: 100%;
+  width: 100%;
+  font-family: 'Akagi-Book', Helvetica, Ariel, sans-serif;
+}
+
 body > header {
-  position: relative;
-  padding-top: 12px !important;
-  padding-bottom: 12px !important;
-  margin-bottom: 12px;
+  min-height:127px; // Avoid page jump if the logo is slow to load
+  padding:10px !important; // Override 960.gs
+  margin-bottom: 10px;
   background: white;
   @include border-radius(0 0 8px 8px);
+  .join_login_wrap {font-size: 15px;}
   .member_panel{
     text-align:right;
     p { margin: 0; font-size: 14px; }
     img { margin-left: 10px; }
   }
+  .logo {
+    background-color: transparent;
+  }
 }
 
-nav#main {
+nav#primary {
   float:right;
   margin-top:60px;
   color: $dark_gray;
-  a:hover { text-decoration:none; }
+  font-weight: bold;
   li {
     float:left;
     position:relative;
@@ -42,14 +74,11 @@ nav#main {
       margin: 0px 5px;
       line-height:2;
       color: $dark_gray;
-      font-weight: bold;
       font-size: 16px;
       &:hover { color: $pink;}
     }
     a.top_level.last { margin-right: 0; }
-    a.top_level.selected,a.top_level:hover {
-      background: url(/assets/nav_hover_underline.png) no-repeat center bottom;
-    }
+    a.top_level.selected,a.top_level:hover { background: url(/assets/nav_hover_underline.png) no-repeat center bottom;}
   }
   li.issue_menu_wrap{
     &:hover {
@@ -70,6 +99,7 @@ nav#main {
       }
     }
     .issue_menu{
+      font-weight:normal;
       &.wide{
         width:410px;
       }
@@ -135,9 +165,9 @@ nav#main {
 }
 
 // Fix for odd extra pixel showing up when you're on the issue page
-body.issues nav#main .issue_menu { right:9px; }
+body.issues nav#primary .issue_menu { right:9px; }
 
-body > .main {
+body > #main {
   background: white;
   @include border-radius(8px);
   padding: 10px 10px;
@@ -149,26 +179,22 @@ body > .main {
   }
 }
 
-footer {
+body > footer {
   margin-top: 25px;
   nav {
-    a { 
+    a, a:visited {
       text-transform: uppercase;
       margin: 0px 15px;
       color: $dark_gray;
+      &:hover{color: $pink;}
     }
   }
   .social {
-    p {
-      font-weight: bold;
-      float: left;
-      margin-left: 40px;
-      text-transform: uppercase;
-    }
+    font-weight: bold;
     a {
-      display: block;
-      float: left;
-      margin: -5px 5px 0;
+      display: inline-block;
+      float: right;
+      margin: -5px 0 0 5px;
     }
   }
 }
@@ -241,12 +267,6 @@ h1 {
   }
 }
 
-a {
-  text-decoration: none;
-  color: $blue;
-  &:hover{ text-decoration: underline; color: $pink; }
-}
-
 #join_us_btn { padding-right: 20px }
 
 .issue_name {
@@ -257,6 +277,3 @@ a {
   padding-top: 10px;
 }
 
-.small {
-  font-size: 10.5px;
-}

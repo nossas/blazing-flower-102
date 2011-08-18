@@ -1,6 +1,5 @@
 MR.personal_stories = {
   issue_index: function(){
-    console.log("you're on the issue index page!");
     var $thumb = $('.story .thumbnail');
 
     $thumb.each(function(){
@@ -35,10 +34,10 @@ MR.personal_stories = {
         id : clicked_story.id,
         data: clicked_story
       }
-      if(window.location.pathname.match(/personal_stories\/\d+/)){
+      if(window.location.pathname.match(/direto_da_gema\/\d+/)){
         history.pushState(videoData, '', clicked_story.id);
       } else {
-        history.pushState(videoData, '', 'personal_stories/' + clicked_story.id);
+        history.pushState(videoData, '', 'direto_da_gema/' + clicked_story.id);
       }
     } else {
       // no history support :(

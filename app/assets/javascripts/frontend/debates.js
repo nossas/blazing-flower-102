@@ -103,6 +103,8 @@ MR.debates = {
   },
 
   openNewComment: function(){
+    var debate = $("h1.grid_12").attr("data-debate");
+    var $new_comment = $('#new_comment');
     $('.new_comment_loading').show();
     $.get('/debates/' + debate + '/comments').success(function(data){
       $('.previous_comments .comment').remove();
@@ -118,6 +120,7 @@ MR.debates = {
   },
 
   closeNewComment: function(){
+    var $new_comment = $('#new_comment');
     window.location.hash = 'comments_bottom';
     $('#comment_content').val('');
     $new_comment.hide(); 
