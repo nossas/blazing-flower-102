@@ -208,7 +208,7 @@ body > footer {
   border: none;
   @include box-shadow(inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray !important);
   color: #fff !important;
-  font-size: 18px !important;
+  font-size: 18px;
   font-weight: bold !important;
   text-transform: uppercase !important;
   text-decoration: none !important;
@@ -238,6 +238,11 @@ body > footer {
   background: -moz-linear-gradient(top, lighten($mid_gray, 20%) 0%, $mid_gray 100%) !important;
   background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($mid_gray, 20%)), color-stop(1, $mid_gray)) !important;
   @include box-shadow(inset 0px 0px 0px 1px $mid_gray, 0 1px 3px #333 !important);
+}
+
+.btn.small, a.btn.small {
+  font-size: 15px;
+  padding: 7px !important;
 }
 
 input[type="text"], textarea {
