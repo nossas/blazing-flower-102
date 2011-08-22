@@ -262,6 +262,8 @@ ActiveRecord::Schema.define(:version => 20110818152453) do
     t.text     "html_content"
   end
 
+  add_foreign_key "autofire_emails", "petitions", :name => "autofire_emails_petition_id_fk"
+
   add_foreign_key "comment_flags", "comments", :name => "comment_flags_comment_id_fk"
   add_foreign_key "comment_flags", "members", :name => "comment_flags_member_id_fk"
 
@@ -273,5 +275,12 @@ ActiveRecord::Schema.define(:version => 20110818152453) do
   add_foreign_key "issues", "debates", :name => "issues_featured_debate_id_fk", :column => "featured_debate_id"
   add_foreign_key "issues", "personal_stories", :name => "issues_featured_personal_story_id_fk", :column => "featured_personal_story_id"
   add_foreign_key "issues", "petitions", :name => "issues_featured_petition_id_fk", :column => "featured_petition_id"
+
+  add_foreign_key "petition_signatures", "members", :name => "petition_signatures_member_id_fk"
+  add_foreign_key "petition_signatures", "petitions", :name => "petition_signatures_petition_id_fk"
+
+  add_foreign_key "provider_authorizations", "members", :name => "provider_authorizations_member_id_fk"
+
+  add_foreign_key "tafs", "petitions", :name => "tafs_petition_id_fk"
 
 end
