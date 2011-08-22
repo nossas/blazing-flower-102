@@ -112,4 +112,27 @@ body.members {
     height: 44px;
   }
 
+
+  .title, .profile_mid .title {
+    display: block;
+    float: left;
+    margin-right: 5px;
+  }
+
+  .change {
+    display: block;
+    float: left;
+  }
+  
+  #facebox{
+     h2{
+      text-transform: uppercase;
+     }
+
+     .btn {
+       float: right;
+       margin: 15px 0;
+    }
+  }
+
 }

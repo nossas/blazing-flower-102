@@ -7,15 +7,16 @@
       = image_tag @member.image.url, :id => "member_picture"
 
       - if @member == current_member
-        = link_to "#", :id => "change_picture_btn" do
+        = link_to "#image_form", :id => "change_picture_btn", :rel => "facebox" do
           = image_tag "/assets/pencil.png"
           = t("members_show.change_picture")
 
     .name
       %h3
-        .display= @member.name
+        .display.title= @member.name
         - if @member == current_member
           = link_to image_tag("/assets/pencil.png"), "#", :id => "change_name_btn", :class => "change"
+          .clearfix
           #name-editor.edit
             =form_for @member do |f|
               =f.text_field :first_name 
@@ -23,6 +24,7 @@
             .btn.small.confirm=link_to "OK", "#", :id => "name-confirm"
             .btn.small.cancel=link_to "Cancel", "#", :id => "name-cancel"
 
+    .clearfix
     .date= t("members_show.joined_on", :date => l(@member.created_at, :format => :very_short))
 
     .info
@@ -31,9 +33,10 @@
           .title
             = t("members_show.email")
           =link_to image_tag("/assets/pencil.png"), "#", :id => "change_email_btn", :class => "change"
+          .clearfix
           #email-editor.edit
             =form_for @member do |f|
-              =f.text_field :email
+              =f.text_field :email, :class => "email required"
             .btn.small.confirm=link_to "OK", "#", :id => "email-confirm"
             .btn.small.cancel=link_to "Cancel", "#", :id => "email-cancel"
           .display= @member.email
@@ -42,13 +45,14 @@
         - if @member == current_member
           .title
             = t("members_show.zone")
-          .display= @member.zona
           =link_to image_tag("/assets/pencil.png"), "#", :id => "change_zone_btn", :class => "change"
+          .clearfix
           #zona-editor.edit
             =form_for @member do |f|
               =f.select :zona, options_for_select(['', 'Centro', 'Norte', 'Oeste', 'Sul', 'Eu não sou do Rio'], @member.zona)
             .btn.small.confirm=link_to "OK", "#", :id => "zona-confirm"
             .btn.small.cancel=link_to "Cancel", "#", :id => "zona-cancel"
+          .display= @member.zona
   
       .bio
         - if @member.bio || @member == current_member
@@ -56,27 +60,32 @@
             = t("members_show.bio")
           - if @member == current_member
             = link_to image_tag("/assets/pencil.png"), "#", :id => "change_bio_btn", :class => "change"
+            .clearfix
             #bio-editor.edit
               =form_for @member do |f|
                 =f.text_area :bio, :rows => '5'
               .btn.small.confirm=link_to "OK", "#", :id => "bio-confirm"
               .btn.small.cancel=link_to "Cancel", "#", :id => "bio-cancel"
+          .clearfix
           .display= @member.bio
 
     - if @member == current_member
       .is_subscriber
-        = check_box("member", "is_subscriber")
-        = label(:member, :is_subscriber, t("members_show.is_subscriber"))
+        =form_for @member do |f|
+          =f.check_box :is_subscriber
+          =f.label :is_subscriber, t("members_show.is_subscriber")
 
   .profile_bot
 
 .grid_8
   - if @member.meu_rio_is || @member == current_member
     .meu_rio_is_top
-      %h3= t("members_show.meu_rio_is")
-    .meu_rio_is_mid
+      %h3.title= t("members_show.meu_rio_is")
       - if @member == current_member
         =link_to image_tag("/assets/pencil.png"), "#", :id => "change_meu_rio_is_btn", :class => "change"
+    .meu_rio_is_mid
+      .clearfix
+      - if @member == current_member
         #meu_rio_is-editor.edit
           =form_for @member do |f|
             =f.text_area :meu_rio_is, :rows => '5'
@@ -101,3 +110,11 @@
           .comment
             = "\"#{item.comment}\"" if item.instance_of? PetitionSignature
             = "\"#{item.content}\"" if item.instance_of? Comment
+
+-if @member = current_member
+  #image_form{ :style => "display: none;" }
+    %header
+      %h2 Upload Profile Photo
+    =form_for @member, :html => {:multipart => true} do |f|
+      =f.file_field :image
+      =f.submit "Upload", :class => "btn"
