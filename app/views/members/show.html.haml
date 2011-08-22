@@ -81,14 +81,14 @@
   - if @member.meu_rio_is || @member == current_member
     .meu_rio_is_top
       %h3.title= t("members_show.meu_rio_is")
-      - if @member == current_member
-        =link_to image_tag("/assets/pencil.png"), "#", :id => "change_meu_rio_is_btn", :class => "change"
     .meu_rio_is_mid
+      -if @member == current_member
+        =link_to image_tag("/assets/pencil.png"), "#", :id => "change_meu_rio_is_btn", :class => "change"
       .clearfix
       - if @member == current_member
         #meu_rio_is-editor.edit
           =form_for @member do |f|
-            =f.text_area :meu_rio_is, :rows => '5'
+            =f.text_area :meu_rio_is, :rows => '3', :cols => '91'
           .btn.small.confirm=link_to "OK", "#", :id => "meu_rio_is-confirm"
           .btn.small.cancel=link_to "Cancel", "#", :id => "meo_rio_is-cancel"
       .display= @member.meu_rio_is

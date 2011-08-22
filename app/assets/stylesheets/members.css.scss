@@ -102,6 +102,11 @@ body.members {
 
   .edit{
     display: none;
+    padding-bottom: 10px;
+
+    form {
+      padding-bottom: 10px;
+    }
 
     input {
       width: 100%;
@@ -126,6 +131,9 @@ body.members {
     float: left;
   }
 
+  .meu_rio_is_mid .change{
+    margin-top: -22px;
+  }
 
   .name {
     input {
