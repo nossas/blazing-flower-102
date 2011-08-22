@@ -113,12 +113,14 @@ body.members {
     }
   }
 
-
   .profile_bot {
     background: url("/assets/member_profile_bot.png") no-repeat;
     height: 44px;
   }
 
+  .display {
+    padding-bottom: 10px;
+  }
 
   .title, .profile_mid .title {
     display: block;

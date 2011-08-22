@@ -45,33 +45,44 @@ MR.members = {
 
     MR.form = $form;
 
-    $.ajax({
-      type: 'POST',
-      url: '/members/' + $('.profile').attr('data-id'),
-      data: data,
-      success: function(data, status, xhr){
-        if($form.children('select').length > 0){
-          $display.html($form.children('select').val());
-        } else if($form.children('textarea').length > 0){
-          $display.html($form.children('textarea').val());
-        } else {
-          var changedText = "";
-          $form.children('input').each(function(){
-            changedText = changedText + ' ' + $(this).val();
-          });
-          $display.html(changedText);
-        }
-        MR.members.closeEdit(button);
-      },
-      error: function(data, status, xhr){
-        var errors = $.parseJSON(data.responseText);
-        for(var key in errors){
-          if(errors.hasOwnProperty(key)){
-            $form.append('<p class="error"><span class="key">' + key + '</span> ' + errors[key] + '</p>');
-          }
-        }
-      },  
-      dataType: 'json'
+    $form.validate({
+      rules: {
+        'member[bio]': { maxlength: 200 },
+        'member[meu_rio_is]': { maxlength: 140 }, 
+        'member[email]': { email: true }
+      } 
     });
+
+    if($form.valid()){
+      $.ajax({
+        type: 'POST',
+        url: '/members/' + $('.profile').attr('data-id'),
+        data: data,
+        success: function(data, status, xhr){
+          if($form.children('select').length > 0){
+            $display.html($form.children('select').val());
+          } else if($form.children('textarea').length > 0){
+            $display.html($form.children('textarea').val());
+          } else {
+            var changedText = "";
+            $form.children('input').each(function(){
+              changedText = changedText + ' ' + $(this).val();
+            });
+            $display.html(changedText);
+          }
+          MR.members.closeEdit(button);
+        },
+        error: function(data, status, xhr){
+          var errors = $.parseJSON(data.responseText);
+          for(var key in errors){
+            if(errors.hasOwnProperty(key)){
+              $form.append('<p class="error"><span class="key">' + key + '</span> ' + errors[key] + '</p>');
+            }
+          }
+        },  
+        dataType: 'json'
+      });
+    }
+
   }
 }

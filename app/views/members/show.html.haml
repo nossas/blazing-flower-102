@@ -63,7 +63,7 @@
             .clearfix
             #bio-editor.edit
               =form_for @member do |f|
-                =f.text_area :bio, :rows => '5'
+                =f.text_area :bio, :rows => '5', :maxlength => "220"
               .btn.small.confirm=link_to "OK", "#", :id => "bio-confirm"
               .btn.small.cancel=link_to "Cancel", "#", :id => "bio-cancel"
           .clearfix
@@ -88,7 +88,7 @@
       - if @member == current_member
         #meu_rio_is-editor.edit
           =form_for @member do |f|
-            =f.text_area :meu_rio_is, :rows => '3', :cols => '91'
+            =f.text_area :meu_rio_is, :rows => '3', :cols => '91', :maxlength => "160"
           .btn.small.confirm=link_to "OK", "#", :id => "meu_rio_is-confirm"
           .btn.small.cancel=link_to "Cancel", "#", :id => "meo_rio_is-cancel"
       .display= @member.meu_rio_is
