@@ -247,13 +247,13 @@ textarea.error, input.error, select.error { border-color: $pink !important; }
 label.error{ font-size: 90%; }
 
 h1 {
-  font-family: Folk-solid !important;
+  font-family: Folk-solid;
   text-transform: uppercase;
-  color: $green !important;
-  letter-spacing: 1.5px !important;
-  font-size: 180% !important;
+  color: $green;
+  letter-spacing: 1.5px;
+  font-size: 180%;
   position: relative;
-  font-weight: normal !important;
+  font-weight: normal;
   .outline{
     font-family: Folk-outline;
     color: #666;
