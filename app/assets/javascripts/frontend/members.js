@@ -50,17 +50,16 @@ MR.members = {
       url: '/members/' + $('.profile').attr('data-id'),
       data: data,
       success: function(data, status, xhr){
-        console.log(data);
-        console.log(status);
         if($form.children('select').length > 0){
-          console.log('select');
           $display.html($form.children('select').val());
         } else if($form.children('textarea').length > 0){
-          console.log('textarea');
           $display.html($form.children('textarea').val());
         } else {
-          console.log('not textarea or select');
-          $display.html($form.children('input').val());
+          var changedText = "";
+          $form.children('input').each(function(){
+            changedText = changedText + ' ' + $(this).val();
+          });
+          $display.html(changedText);
         }
         MR.members.closeEdit(button);
       },
