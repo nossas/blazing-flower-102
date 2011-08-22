@@ -4,6 +4,7 @@ class PersonalStory < ActiveRecord::Base
   belongs_to :issue
 
   validates_presence_of :issue
+
   validates_presence_of :title
   validates_presence_of :video_url
   validates_presence_of :excerpt

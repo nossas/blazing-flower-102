@@ -1,4 +1,38 @@
-.grid_6
+#homepage
+  .widget_container.margin_bottom
+    =render '/widgets/featured_content_1'
+    =render '/widgets/date_weather'
+    =render '/widgets/legislative'
+
+  .widget_container.left.margin_right.clear_fix{:style => 'width:300px;'}
+    =render '/widgets/public_hearings'
+    =render '/widgets/join'
+
+  .widget_container.left.margin_bottom.margin_right
+    =render '/widgets/meu_rio_is'
+
+  .widget_container.left
+    =render '/widgets/featured_content_2'
+
+  .widget_container.left
+    =render '/widgets/follow'
+
+  .widget_container.right{:style => 'margin-right:10px;'}
+    =render '/widgets/team_update'
+
+  .widget_container.left
+    =render '/widgets/twitter'
+
+.clearfix
+
+%br
+%br
+%br
+
+%h2
+  QA Information
+
+.grid_4
   %strong Issues:
   %br
   - Issue.all.each do |issue|
@@ -28,18 +62,13 @@
   %p= link_to "Privacy Policy", page_path("privacy_policy")
   %p= link_to "Jobs", page_path("trabalhe")
 
+.grid_4
   %strong Members:
   %br
   - Member.all.each do |member|
     %p= link_to member.name, member_path(member)
 
-.grid_6
-  %strong Featured Content QA:
-  %br
-  - FeaturedContentWidget.all.each do |w|
-    .widget
-      = link_to(image_tag(w.image.url), w.link)
-
+.grid_4
   %strong Image Widget QA:
   %br
   - ImageWidget.all.each do |w|

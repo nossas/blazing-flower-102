@@ -1,0 +1,71 @@
+// Place all the styles related to the Homepage here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "vars.css.scss";
+@import "mixins.css.scss";
+
+#homepage{
+  padding:10px 0 0 10px;
+  .widget {
+    float:left;
+    width:auto;
+    overflow:hidden;
+    &#featured_content_1 {
+      width:620px;
+      height:300px;
+    }
+    &#featured_content_2 {
+      width:460px;
+      height:300px;
+    }
+    &#date_weather {
+      width:300px;
+      height:60px;
+      background: url('/assets/homepage/weather.png') no-repeat center center;
+    }
+    &#legislative {
+      width:300px;
+      height:220px;
+      background: url('/assets/homepage/legislator.png') no-repeat center center;
+    }
+    &#public_hearings {
+      width:300px;
+      height:220px;
+      background: url('/assets/homepage/public_hearings.png') no-repeat center center;
+    }
+    &#meu_rio_is {
+      width:140px;
+      height:380px;
+      background: url('/assets/homepage/member.png') no-repeat center center;
+    }
+    &#follow {
+      width:140px;
+      height:60px;
+      background: url('/assets/homepage/follow.png') no-repeat center center;
+    }
+    &#team_update {
+      width:300px;
+      height:220px;
+      background: url('/assets/homepage/team_update.png') no-repeat center center;
+    }
+    &#join_widget {
+      width:300px;
+      height:140px;
+      background: url('/assets/homepage/join.png') no-repeat center center;
+    }
+    &#twitter_widget {
+      width:620px;
+      height:140px;
+      background: url('/assets/homepage/twitter.png') no-repeat center center;
+    }
+  }
+
+  .widget_container{width:auto;}
+
+  .widget.margin_right, .widget_container.margin_right {margin-right:20px;}
+  .widget.margin_bottom, .widget_container.margin_bottom {margin-bottom:20px;}
+
+  // Temporary Styles
+  .widget.placeholder{font-size:0px;}
+}

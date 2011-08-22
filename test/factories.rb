@@ -185,3 +185,9 @@ Factory.define :job do |j|
   j.sequence(:title) { |n| "Job Title #{n}" }
   j.description "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui.</p>"
 end
+
+Factory.define :featured_content_widget do |w|
+  w.title 'Featured Content Widget'
+  w.link 'http://www.meurio.org.br'
+  w.image_file_name 'testing.png'
+end
