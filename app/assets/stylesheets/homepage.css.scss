@@ -43,6 +43,19 @@
       width:140px;
       height:60px;
       background: url('/assets/homepage/follow.png') no-repeat center center;
+      padding-top:7px;
+      .facebook_wrap {
+        width:52px;
+        height:22px;
+        margin-left:12px;
+        overflow:hidden;
+      }
+      .twitter_wrap {
+        margin-top:6px;
+        width: 64px !important; // Hack to hide the @meu_rio
+        height:22px; // Hack to hide the @meu_rio
+        overflow:hidden;
+      }
     }
     &#team_update {
       width:300px;
