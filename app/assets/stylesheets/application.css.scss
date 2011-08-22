@@ -204,7 +204,7 @@ body > footer {
   border: none;
   @include box-shadow(inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray !important);
   color: #fff !important;
-  font-size: 18px !important;
+  font-size: 18px;
   font-weight: bold !important;
   text-transform: uppercase !important;
   text-decoration: none !important;
@@ -236,6 +236,11 @@ body > footer {
   @include box-shadow(inset 0px 0px 0px 1px $mid_gray, 0 1px 3px #333 !important);
 }
 
+.btn.small, a.btn.small {
+  font-size: 15px;
+  padding: 7px !important;
+}
+
 input[type="text"], textarea {
   border: 2px solid $light_gray;
   &:focus{
@@ -247,13 +252,13 @@ textarea.error, input.error, select.error { border-color: $pink !important; }
 label.error{ font-size: 90%; }
 
 h1 {
-  font-family: Folk-solid !important;
+  font-family: Folk-solid;
   text-transform: uppercase;
-  color: $green !important;
-  letter-spacing: 1.5px !important;
-  font-size: 180% !important;
+  color: $green;
+  letter-spacing: 1.5px;
+  font-size: 180%;
   position: relative;
-  font-weight: normal !important;
+  font-weight: normal;
   .outline{
     font-family: Folk-outline;
     color: #666;

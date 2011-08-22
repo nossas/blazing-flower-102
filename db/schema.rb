@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110817204907) do
+ActiveRecord::Schema.define(:version => 20110818152453) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(:version => 20110817204907) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "autofire_emails", :force => true do |t|
-    t.text     "from",        :default => "Dev <dev@meurio.org.br>", :null => false
-    t.text     "subject",     :default => "Obrigado por participar", :null => false
+    t.text     "from",        :default => "Alessandra Orofino <alessandra@meurio.org.br>", :null => false
+    t.text     "subject",     :default => "Obrigado por participar",                       :null => false
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -75,10 +75,10 @@ ActiveRecord::Schema.define(:version => 20110817204907) do
   add_index "comment_flags", ["comment_id", "member_id"], :name => "index_comment_flags_on_comment_id_and_member_id", :unique => true
 
   create_table "comments", :force => true do |t|
-    t.integer  "member_id",        :null => false
-    t.integer  "commentable_id",   :null => false
-    t.string   "commentable_type", :null => false
-    t.text     "content",          :null => false
+    t.integer  "member_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.text     "content"
     t.boolean  "comment_accepted"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -264,11 +264,6 @@ ActiveRecord::Schema.define(:version => 20110817204907) do
 
   add_foreign_key "autofire_emails", "petitions", :name => "autofire_emails_petition_id_fk"
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> bf8922e0b0bd13207d04e84c1f5576fad1766b33
   add_foreign_key "comment_flags", "comments", :name => "comment_flags_comment_id_fk"
   add_foreign_key "comment_flags", "members", :name => "comment_flags_member_id_fk"
 
@@ -277,13 +272,10 @@ ActiveRecord::Schema.define(:version => 20110817204907) do
   add_foreign_key "debates", "members", :name => "debates_author_email_side_1_fk", :column => "author_email_side_1", :primary_key => "email"
   add_foreign_key "debates", "members", :name => "debates_author_email_side_2_fk", :column => "author_email_side_2", :primary_key => "email"
 
-<<<<<<< HEAD
-=======
   add_foreign_key "issues", "debates", :name => "issues_featured_debate_id_fk", :column => "featured_debate_id"
   add_foreign_key "issues", "personal_stories", :name => "issues_featured_personal_story_id_fk", :column => "featured_personal_story_id"
   add_foreign_key "issues", "petitions", :name => "issues_featured_petition_id_fk", :column => "featured_petition_id"
 
->>>>>>> bf8922e0b0bd13207d04e84c1f5576fad1766b33
   add_foreign_key "petition_signatures", "members", :name => "petition_signatures_member_id_fk"
   add_foreign_key "petition_signatures", "petitions", :name => "petition_signatures_petition_id_fk"
 
@@ -291,8 +283,4 @@ ActiveRecord::Schema.define(:version => 20110817204907) do
 
   add_foreign_key "tafs", "petitions", :name => "tafs_petition_id_fk"
 
-<<<<<<< HEAD
->>>>>>> 15369785_View_a_member_profile
-=======
->>>>>>> bf8922e0b0bd13207d04e84c1f5576fad1766b33
 end

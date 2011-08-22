@@ -5,8 +5,8 @@ ActiveAdmin.register LegislativeAgendaWidget do
   index do
     column :html_content
     column "Options" do |w|
-      span link_to 'Show', admin_public_hearings_widget_path(w)
-      span link_to 'Edit', edit_admin_public_hearings_widget_path(w)
+      span link_to 'Show', admin_legislative_agenda_widget_path(w)
+      span link_to 'Edit', edit_admin_legislative_agenda_widget_path(w)
     end
   end
 
