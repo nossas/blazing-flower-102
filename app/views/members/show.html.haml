@@ -115,6 +115,6 @@
   #image_form{ :style => "display: none;" }
     %header
       %h2 Upload Profile Photo
-    =form_for @member, :html => {:multipart => true} do |f|
+    =form_for @member, :html => { :multipart => true } do |f|
       =f.file_field :image
       =f.submit "Upload", :class => "btn"
