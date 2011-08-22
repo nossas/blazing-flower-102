@@ -5,11 +5,13 @@ Feature: 3rd party sign-in
 
   Scenario: Login Button
     Given I am not logged in
+    And homepage content exists
     When go to the home page
     Then I should see "Entrar"
 
   @omniauth_test @javascript
   Scenario: Logout Button
     Given I am logged in via Facebook
+    And homepage content exists
     When go to the home page
     Then I should see "Sair"

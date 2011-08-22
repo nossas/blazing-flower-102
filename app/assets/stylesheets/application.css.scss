@@ -25,11 +25,6 @@
 .Folk-solid { font-family: Folk-solid; }
 
 
-header, #main {
-  margin-bottom: 10px;
-}
-
-
 a {
   text-decoration: none;
   color: $blue;
@@ -172,6 +167,7 @@ body > #main {
   @include border-radius(8px);
   padding: 10px 10px;
   position: relative;
+  margin-bottom: 10px;
 
   p {
     font-size: 15px;

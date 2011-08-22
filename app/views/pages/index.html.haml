@@ -1,42 +1,27 @@
 #homepage
-  .widget_container.margin_bottom.clearfix
-    .widget.margin_right.placeholder
-      =image_tag 'http://placehold.it/620x300'
-
-    .widget.placeholder.margin_bottom
-      =image_tag 'http://placehold.it/300x60'
-
-    .widget.placeholder
-      =image_tag 'http://placehold.it/300x220'
+  .widget_container.margin_bottom
+    =render '/widgets/featured_content_1'
+    =render '/widgets/date_weather'
+    =render '/widgets/legislative'
 
   .widget_container.left.margin_right.clear_fix{:style => 'width:300px;'}
-    .widget.margin_bottom.placeholder
-      =image_tag 'http://placehold.it/300x220'
+    =render '/widgets/public_hearings'
+    =render '/widgets/join'
 
-    .widget.placeholder
-      =image_tag 'http://placehold.it/300x140'
+  .widget_container.left.margin_bottom.margin_right
+    =render '/widgets/meu_rio_is'
 
-  .widget_container.left.margin_bottom.margin_right{:style => 'width:auto;'}
-    .widget.placeholder
-      =image_tag 'http://placehold.it/140x380'
+  .widget_container.left
+    =render '/widgets/featured_content_2'
 
-  .widget_container{:style => 'float:left; width:auto;'}
-    .widget.margin_bottom.placeholder
-      =image_tag 'http://placehold.it/460x300'
+  .widget_container.left
+    =render '/widgets/follow'
 
-  .widget_container{:style => 'float:left; width:auto;'}
-    .widget.placeholder
-      =image_tag 'http://placehold.it/140x60'
+  .widget_container.right{:style => 'margin-right:10px;'}
+    =render '/widgets/team_update'
 
-  .widget_container{:style => 'float:right; width:auto; margin-right:10px;'}
-    .widget.placeholder
-      =image_tag 'http://placehold.it/300x220'
-
-  .widget_container.left{:style => 'width:auto;'}
-    .widget.placeholder
-      =image_tag 'http://placehold.it/620x140'
-
-
+  .widget_container.left
+    =render '/widgets/twitter'
 
 .clearfix
 
@@ -47,7 +32,7 @@
 %h2
   QA Information
 
-.grid_6
+.grid_4
   %strong Issues:
   %br
   - Issue.all.each do |issue|
@@ -77,18 +62,13 @@
   %p= link_to "Privacy Policy", page_path("privacy_policy")
   %p= link_to "Jobs", page_path("trabalhe")
 
+.grid_4
   %strong Members:
   %br
   - Member.all.each do |member|
     %p= link_to member.name, member_path(member)
 
-.grid_6
-  %strong Featured Content QA:
-  %br
-  - FeaturedContentWidget.all.each do |w|
-    .widget
-      = link_to(image_tag(w.image.url), w.link)
-
+.grid_4
   %strong Image Widget QA:
   %br
   - ImageWidget.all.each do |w|
