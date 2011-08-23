@@ -16,6 +16,10 @@ MR.widgets = {
     MR.widgets.legislative.api = MR.widgets.createScrollable.apply(this);
   },
 
+  public_hearings: function(){
+    MR.widgets.public_hearings.api = MR.widgets.createScrollable.apply(this);
+  },
+
   createScrollable: function(){
     this.find('.scrollable')
       .scrollable({circular: true});
