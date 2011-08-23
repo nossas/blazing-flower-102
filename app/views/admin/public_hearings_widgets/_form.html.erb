@@ -1,11 +1,11 @@
 <%= semantic_form_for [:admin, @public_hearings_widget] do |f| %>
   <%= f.inputs do %>
     <div style="margin-left:20%; padding:20px;">
-      <p><strong>For each event, please use the following HTML as a basic structure:</strong></p><br/>
+      <p><strong>For each Public Hearing, please use the following HTML as a basic structure:</strong></p><br/>
       <div>
-        &lt;div class='event'&gt;<br/>
-          &lt;h3&gt;Event Title&lt;/h3&gt;<br/>
-          &lt;p&gt;Brief sentance about the event&lt;/p&gt;<br/>
+        &lt;div class='item'&gt;<br/>
+          &lt;p class='date'>&gt;10/10/2011&lt;/p&gt;<br/>
+          &lt;p&gt;Brief sentance about the public hearing&lt;/p&gt;<br/>
         &lt;/div&gt;<br/>
       </div>
     </div>
