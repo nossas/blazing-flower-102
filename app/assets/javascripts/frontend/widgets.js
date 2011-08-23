@@ -12,6 +12,11 @@ MR.widgets = {
           .append($('<span>').addClass('day').html($(this).data('day')))
       );
     });
+
+    MR.widgets.legislative.api = MR.widgets.createScrollable.apply(this);
+  },
+
+  createScrollable: function(){
     this.find('.scrollable')
       .scrollable({circular: true});
 
@@ -23,7 +28,6 @@ MR.widgets = {
     } else {
       this.find('.scrollable').autoscroll({autoplay: true, autopause: true});
     }
-
-    MR.widgets.legislative.api = this.find('.scrollable').scrollable();
+    return this.find('.scrollable').scrollable();
   }
 }
