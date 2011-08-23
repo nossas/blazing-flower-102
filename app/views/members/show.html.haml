@@ -4,7 +4,7 @@
   .profile_top
   .profile_mid
     .image
-      = image_tag @member.image.url, :id => "member_picture"
+      = image_tag @member.current_image_url, :id => "member_picture"
 
       - if @member == current_member
         = link_to "#image_form", :id => "change_picture_btn", :rel => "facebox" do
@@ -63,7 +63,7 @@
             .clearfix
             #bio-editor.edit
               =form_for @member do |f|
-                =f.text_area :bio, :rows => '5', :maxlength => "220"
+                =f.text_area :bio, :rows => '12', :maxlength => "220"
               .btn.small.confirm=link_to "OK", "#", :id => "bio-confirm"
               .btn.small.cancel=link_to "Cancel", "#", :id => "bio-cancel"
           .clearfix

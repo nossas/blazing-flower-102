@@ -9,7 +9,7 @@ describe PagesController do
     end
 
     it "routes to #index" do
-      get("/pages/index").should route_to("pages#show", :id => "index")
+      get("/paginas/index").should route_to("pages#show", :id => "index")
     end
 
   end

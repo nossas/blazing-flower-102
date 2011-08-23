@@ -15,7 +15,8 @@ class Member < ActiveRecord::Base
     :path => 'members/:id/:filename', 
     :storage => :s3, 
     :bucket => SITE['s3_bucket'], 
-    :s3_credentials => { :access_key_id => SITE['s3_access_key_id'], :secret_access_key => SITE['s3_secret_access_key'] })
+    :s3_credentials => { :access_key_id => SITE['s3_access_key_id'], :secret_access_key => SITE['s3_secret_access_key'] },
+    :styles => { :thumb => "50x50" })
 
   devise :omniauthable
 
@@ -54,6 +55,14 @@ class Member < ActiveRecord::Base
 
   def action_history
     (self.petition_signatures + self.comments).sort{|x, y| y.created_at <=> x.created_at}
+  end
+
+  def current_image_url(size='')
+    if self.image.url == "/images/original/missing.png"
+      self.image_url
+    else
+      self.image.url(size)
+    end
   end
 
 end
