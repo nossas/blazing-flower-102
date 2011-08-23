@@ -1,1 +1,5 @@
 #legislative.widget.margin_bottom
+  %h1 De Olho No Legislativo
+  .scrollable
+    .items
+      = raw(LegislativeAgendaWidget.first.html_content) if LegislativeAgendaWidget.first

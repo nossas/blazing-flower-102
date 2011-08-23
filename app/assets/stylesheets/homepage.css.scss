@@ -11,6 +11,12 @@
     float:left;
     width:auto;
     overflow:hidden;
+    h1{
+      font-size: 25px;
+      padding-top: 10px;
+      text-align: center;
+      color: white;
+    }
     &#featured_content_1 {
       width:620px;
       height:300px;
@@ -28,6 +34,31 @@
       width:300px;
       height:220px;
       background: url('/assets/homepage/legislator.png') no-repeat center center;
+      .scrollable{
+        position: relative;
+        overflow: hidden;
+        width: 300px;
+        height: 220px;
+        .items{
+          width: 20000em;
+          position: absolute;
+          clear: both;
+          .item{
+            float: left;
+            width: 300px;
+            .date{
+              float: right;
+              width: 60px;
+              padding: 5px;
+              .month, .day{
+                text-transform: uppercase;
+                color: $dark_gray;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
     }
     &#public_hearings {
       width:300px;
@@ -45,9 +76,9 @@
       background: url('/assets/homepage/follow.png') no-repeat center center;
       padding-top:7px;
       .facebook_wrap {
-        width:52px;
+        width:60px;
         height:22px;
-        margin-left:12px;
+        margin-left:3px;
         overflow:hidden;
       }
       .twitter_wrap {
