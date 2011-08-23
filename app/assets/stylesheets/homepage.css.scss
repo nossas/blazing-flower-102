@@ -80,6 +80,34 @@
       width:300px;
       height:220px;
       background: url('/assets/homepage/public_hearings.png') no-repeat center center;
+      h1 {
+        font-size:20px;
+        margin-bottom: 25px;
+      }
+      .controls {
+        float: right;
+        margin-right: 20px;
+      }
+      .scrollable{
+        position: relative;
+        overflow: hidden;
+        width: 300px;
+        height: 130px;
+        .items{
+          width: 20000em;
+          position: absolute;
+          clear: both;
+          .item{
+            .date {
+              font-size:12px;
+              margin-bottom:8px;
+            }
+            float: left;
+            width: 260px;
+            padding: 0 20px;
+          }
+        }
+      }
     }
     &#meu_rio_is {
       width:140px;

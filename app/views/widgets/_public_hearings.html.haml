@@ -1,8 +1,8 @@
 #public_hearings.widget.margin_bottom
   %h1 PRÓXIMAS AUDIÊNCIAS PÚBLICAS
-    .scrollable
-      .items
-        = raw(PublicHearingsWidget.first.html_content) if PublicHearingsWidget.first
-    .controls
-      =link_to image_tag('/assets/homepage/scroll_arrow_left.png'), '#', :class => 'prev'
-      =link_to image_tag('/assets/homepage/scroll_arrow_right.png'), '#', :class => 'next'
+  .scrollable
+    .items
+      = raw(PublicHearingsWidget.first.html_content) if PublicHearingsWidget.first
+  .controls
+    =link_to image_tag('/assets/scroll_arrow_left.png'), '#', :class => 'prev'
+    =link_to image_tag('/assets/scroll_arrow_right.png'), '#', :class => 'next'
