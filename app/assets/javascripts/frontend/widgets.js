@@ -1,4 +1,9 @@
 MR.widgets = {
+  /*
+  * Each function is called when we find a .widget element with 
+  * a corresponding id in the homepage
+  * (for example: an element <div class="widget" id="legislative"> calls the legislative function on initialization)
+  */
   legislative: function(){
     this.find('.scrollable .items .item').each(function(){
       $(this).prepend(
