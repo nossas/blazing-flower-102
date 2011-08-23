@@ -1,12 +1,14 @@
 MR.pages = {
   show: function(){
-    MR.pages.initializeWidgets('legislative');
+    MR.pages.initializeWidgets();
   },
 
   initializeWidgets: function(){
-    $.each(arguments, function(i, el){
-      if($('#' + el).length > 0){
-        MR.widgets[el].apply($('#' + el));
+    $('.widget').each(function(){
+      var widgetName = $(this).attr('id');
+      if(MR.widgets[widgetName]){
+        console.log('Initializing widget ' + widgetName);
+        MR.widgets[widgetName].apply($(this));
       }
     });
   }
