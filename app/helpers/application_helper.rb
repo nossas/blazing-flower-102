@@ -1,5 +1,5 @@
 module ApplicationHelper
-  require 'Twitter'
+  require 'twitter'
 
   def nav_issues
     @nav_issues ||= Issue.order('id DESC')
