@@ -143,9 +143,26 @@
       background: url('/assets/homepage/join.png') no-repeat center center;
     }
     &#twitter_widget {
-      width:620px;
+      width:580px;
       height:140px;
+      padding: 0px 20px;
       background: url('/assets/homepage/twitter.png') no-repeat center center;
+
+      h1 {
+        color: $green;
+        text-align: left;
+        font-size: 190%;
+      }
+
+      p {
+        margin-left: 30px;
+        margin-right: 10px;
+      }
+
+      a.name {
+        color: $green;
+        font-weight: bold;
+      }
     }
   }
 
