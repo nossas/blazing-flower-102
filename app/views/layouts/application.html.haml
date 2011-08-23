@@ -12,7 +12,7 @@
       .grid_3.prefix_7.member_panel
         - if current_member
           =image_tag current_member.image_url, :id => "member_thumbnail", :class => "right"
-          %p=current_member.name
+          %p=link_to current_member.first_name, member_path(current_member)
           %p=current_member.email
           - if session[:fb_token]
             %p=link_to t("logout"), facebook_logout_path

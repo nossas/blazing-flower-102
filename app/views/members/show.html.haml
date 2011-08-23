@@ -63,7 +63,7 @@
             .clearfix
             #bio-editor.edit
               =form_for @member do |f|
-                =f.text_area :bio, :rows => '5', :maxlength => "220"
+                =f.text_area :bio, :rows => '12', :maxlength => "220"
               .btn.small.confirm=link_to "OK", "#", :id => "bio-confirm"
               .btn.small.cancel=link_to "Cancel", "#", :id => "bio-cancel"
           .clearfix
