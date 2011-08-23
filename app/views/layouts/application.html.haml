@@ -11,7 +11,7 @@
       =link_to image_tag("/assets/meu-rio.png"), root_path, :id => "logo", :class => "grid_2"
       .grid_3.prefix_7.member_panel
         - if current_member
-          =image_tag current_member.image_url, :id => "member_thumbnail", :class => "right"
+          =image_tag current_member.current_image_url(:thumb), :id => "member_thumbnail", :width => '50', :height => '50', :class => "right"
           %p=link_to current_member.first_name, member_path(current_member)
           %p=current_member.email
           - if session[:fb_token]

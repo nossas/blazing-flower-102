@@ -4,7 +4,7 @@
   .profile_top
   .profile_mid
     .image
-      = image_tag @member.image.url, :id => "member_picture"
+      = image_tag @member.current_image_url, :id => "member_picture"
 
       - if @member == current_member
         = link_to "#image_form", :id => "change_picture_btn", :rel => "facebox" do
