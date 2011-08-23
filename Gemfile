@@ -46,6 +46,10 @@ gem 'httparty'
 gem 'pg'
 gem 'foreigner'
 
+gem 'dalli'
+
+gem 'twitter'
+
 #including so we can run the complete petition rake task for demos
 gem 'factory_girl_rails'
 gem "faker"
