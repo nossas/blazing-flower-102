@@ -17,7 +17,8 @@ MeuRio::Application.routes.draw do
     get 'assine_embaixo/:id/export' => "petitions#export", :as => "export_petition"
   end
 
-  resources :pages, :controller => 'pages', :only => :show
+  match "paginas/:id" => "pages#show", :as => "page"
+
   match "na_atividade/:id/assine_embaixo/:custom_path" => "petitions#show", :as => "issue_custom_petition"
   match "na_atividade/:id/assine_embaixo/:custom_path/share" => "tafs#show", :as => "issue_custom_taf"
   match "assine_embaixo/:custom_path" => "petitions#show", :as => "custom_petition"
