@@ -69,5 +69,5 @@
             = link_to t("members_show.signed_petition", :title => item.petition.title, :issue => item.petition.issue.name), issue_custom_petition_path(item.petition.issue.id, item.petition.custom_path) if item.instance_of? PetitionSignature
             = link_to t("members_show.commented_debate", :name => item.commentable.title, :issue => item.commentable.issue.name), issue_debate_path(item.commentable.issue_id, item.commentable) if item.instance_of? Comment
           .comment
-            = "\"#{item.comment}\"" if item.instance_of? PetitionSignature
-            = "\"#{item.content}\"" if item.instance_of? Comment
+            = "\"#{item.comment}\"" if item.instance_of?(PetitionSignature) && !item.comment.empty?
+            = "\"#{item.content}\"" if item.instance_of?(Comment) && !item.content.empty?
