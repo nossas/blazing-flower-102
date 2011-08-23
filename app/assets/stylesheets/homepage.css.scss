@@ -14,6 +14,7 @@
     h1{
       font-size: 25px;
       padding-top: 10px;
+      margin-bottom: 22px;
       text-align: center;
       color: white;
     }
@@ -34,26 +35,41 @@
       width:300px;
       height:220px;
       background: url('/assets/homepage/legislator.png') no-repeat center center;
+      .controls {
+        float: right;
+        margin-right: 20px;
+      }
       .scrollable{
         position: relative;
         overflow: hidden;
         width: 300px;
-        height: 220px;
+        height: 130px;
         .items{
           width: 20000em;
           position: absolute;
           clear: both;
           .item{
             float: left;
-            width: 300px;
+            width: 260px;
+            padding: 0 20px;
             .date{
               float: right;
               width: 60px;
-              padding: 5px;
+              background: url('/assets/homepage/legislator_calendar_bg.png') no-repeat top center;
               .month, .day{
+                display:block;
+                text-align: center;
                 text-transform: uppercase;
+                font-weight: bold;
                 color: $dark_gray;
-                font-size: 14px;
+              }
+              .month{
+                padding-top:6px;
+                font-size: 12px;
+              }
+              .day {
+                font-size: 28px;
+                line-height: 1;
               }
             }
           }

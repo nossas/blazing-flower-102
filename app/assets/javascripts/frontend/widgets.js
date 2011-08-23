@@ -7,14 +7,22 @@ MR.widgets = {
   legislative: function(){
     this.find('.scrollable .items .item').each(function(){
       $(this).prepend(
-        $('<div>')
+        $('<div>').addClass('date')
           .append($('<span>').addClass('month').html($(this).data('month')))
           .append($('<span>').addClass('day').html($(this).data('day')))
       );
     });
     this.find('.scrollable')
-      .scrollable({circular: true})
-      .autoscroll({autoplay: false});
+      .scrollable({circular: true});
+
+    // Ensure that the URL is not appended with a #
+    this.find('.controls a').click(function(){return false;});
+
+    if(this.find('.scrollable .item').length < 4){
+      this.find('.controls').hide();
+    } else {
+      this.find('.scrollable').autoscroll({autoplay: true, autopause: true});
+    }
 
     MR.widgets.legislative.api = this.find('.scrollable').scrollable();
   }

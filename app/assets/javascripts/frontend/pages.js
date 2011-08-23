@@ -7,7 +7,6 @@ MR.pages = {
     $('.widget').each(function(){
       var widgetName = $(this).attr('id');
       if(MR.widgets[widgetName]){
-        console.log('Initializing widget ' + widgetName);
         MR.widgets[widgetName].apply($(this));
       }
     });
