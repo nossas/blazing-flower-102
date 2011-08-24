@@ -29,9 +29,7 @@ MR.widgets = {
 
     if(this.find('.scrollable .item').length < 4){
       this.find('.controls').hide();
-    } else {
-      this.find('.scrollable').autoscroll({interval: 5000, autoplay: true, autopause: true});
-    }
+    } 
     return this.find('.scrollable').scrollable();
   }
 }
