@@ -43,12 +43,17 @@
         margin-right: 10px;
         font-family: Folk-solid;
         font-size: 180%;
+        letter-spacing: 0.05em;
 
         .month {
           display: block;
           font-size: 60%;
           text-transform: uppercase;
         }
+      }
+
+      .icon {
+        margin-top: 5px;
       }
 
       .forecast {

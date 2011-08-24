@@ -35,7 +35,7 @@ module ApplicationHelper
 
   def meu_rio_tweets
     Rails.cache.fetch("tweets", :expires_in => 15.minutes) do
-      result = Twitter.user_timeline('hipsterhacker').first
+      result = Twitter.user_timeline('meu_rio').first
     end
   end
 
