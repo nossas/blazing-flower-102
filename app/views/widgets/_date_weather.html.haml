@@ -1,1 +1,11 @@
 #date_weather.widget.margin_bottom
+  .date= raw Time.now.localtime.strftime("%d <span class='month'>%B</span>")
+  .icon
+    =image_tag "#{weather_category}_#{day_or_night}.png"
+  .max.forecast
+    .label Max
+    .temp= WeatherWidget.weather['item']['yweather:forecast'][0]['high']
+  .min.forecast
+    .label Min
+    .temp= WeatherWidget.weather['item']['yweather:forecast'][0]['low']
+
