@@ -1,1 +1,4 @@
 #team_update.widget
+  %h1 O QUE ESTAMOS APRONTANDO...
+  .scrollable
+    = raw(MeuRioTeamWidget.first.html_content) if MeuRioTeamWidget.first
