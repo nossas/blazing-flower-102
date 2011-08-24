@@ -1,7 +1,7 @@
 Getting Started:
 
  - Ensure you have PostGREs running
- - For Cucumber you will need to install the chromedriver from http://code.google.com/p/selenium/downloads/list
+ - For Cucumber you will need to install the chromedriver from http://code.google.com/p/chromium/downloads/list
 
 $ bundle install
 $ rake db:migrate
