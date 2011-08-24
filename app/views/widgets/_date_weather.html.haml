@@ -1,5 +1,5 @@
 #date_weather.widget.margin_bottom
-  .date= raw Time.now.localtime.strftime("%d <span class='month'>%B</span>")
+  .date= raw I18n.l Time.now.localtime, :format => :widget
   .icon
     =image_tag "#{weather_category}_#{day_or_night}.png"
   .max.forecast
