@@ -46,21 +46,23 @@
       }
 
       .date, .icon {
-        width: 80px;
-        margin-right: 10px;
+        width: 90px;
+        margin-top: -2px;
         font-family: Folk-solid, sans-serif;
-        font-size: 180%;
+        font-size: 225%;
+        line-height: 115%;
         letter-spacing: 0.05em;
 
         .month {
           display: block;
-          font-size: 60%;
+          font-size: 50%;
+          line-height: 65%;
           text-transform: uppercase;
         }
       }
 
       .icon {
-        margin-top: 5px;
+        margin-top: 4px;
       }
 
       .forecast {
@@ -73,6 +75,7 @@
         .temp {
           font-family: Folk-solid;
           font-size: 130%;
+          line-height: 70%;
         }
       }
     }
