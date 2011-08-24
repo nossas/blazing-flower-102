@@ -4,8 +4,8 @@
     =image_tag "#{weather_category}_#{day_or_night}.png"
   .max.forecast
     .label Max
-    .temp= WeatherWidget.weather['item']['yweather:forecast'][0]['high']
+    .temp #{WeatherWidget.weather['item']['yweather:forecast'][0]['high']}°
   .min.forecast
     .label Min
-    .temp= WeatherWidget.weather['item']['yweather:forecast'][0]['low']
+    .temp #{WeatherWidget.weather['item']['yweather:forecast'][0]['low']}°
 
