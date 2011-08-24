@@ -1,4 +1,6 @@
 module ApplicationHelper
+  require 'twitter'
+
   def nav_issues
     @nav_issues ||= Issue.order('id DESC')
   end
@@ -29,4 +31,11 @@ module ApplicationHelper
     </object>
     EOF
   end
+
+  def meu_rio_tweets
+    Rails.cache.fetch("tweets", :expires_in => 15.minutes) do
+      result = Twitter.user_timeline('hipsterhacker').first
+    end
+  end
+
 end
