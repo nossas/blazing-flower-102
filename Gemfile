@@ -6,6 +6,8 @@ gem "devise", "~> 1.4.2"
 gem 'rails', '3.1.0.rc6'
 gem 'jquery-rails'
 
+gem 'newrelic_rpm'
+
 # External authentication
 gem "oa-oauth", :require => "omniauth/oauth"
 gem 'oa-openid', :require => 'omniauth/openid'
