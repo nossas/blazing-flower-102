@@ -2,7 +2,7 @@
   %h1 PRÓXIMAS AUDIÊNCIAS PÚBLICAS
   .scrollable
     .items
-      = raw(PublicHearingsWidget.first.html_content) if PublicHearingsWidget.first
+      = raw(PublicHearingWidget.first.html_content) if PublicHearingWidget.first
   .controls
     =link_to image_tag('/assets/scroll_arrow_left.png'), '#', :class => 'prev'
     =link_to image_tag('/assets/scroll_arrow_right.png'), '#', :class => 'next'
