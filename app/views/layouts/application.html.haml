@@ -8,7 +8,7 @@
     = yield :meta_tags
   %body{:class=> "#{controller.controller_name} #{controller.action_name}", 'data-controller' => controller_name, 'data-action' => action_name }
     %header.container_12
-      =link_to image_tag("/assets/meu-rio.png"), root_path, :id => "logo", :class => "grid_2"
+      =link_to 'home', root_path, :id => "logo", :class => "grid_2 sprite logo ir"
       .grid_3.prefix_7.member_panel
         - if current_member
           =image_tag current_member.current_image_url(:thumb), :id => "member_thumbnail", :width => '50', :height => '50', :class => "right"
@@ -37,11 +37,11 @@
       %nav.grid_7.alpha
         =link_to "CONTATO", "mailto:info@meurio.org.br"
         |
-        =link_to "POLÍTICA DE Privacidade", page_path("privacidade")
+        =link_to "POL&#0195;�TICA DE Privacidade", page_path("privacidade")
         |
         =link_to "TRABALHE COM A GENTE", page_path("trabalhe")
       %p.social.right.grid_4
-        TAMBÉM ESTAMOS AQUI, Ó:
+        TAMBÃ‰M ESTAMOS AQUI, Ã“:
         =link_to image_tag('orkut_25.png'), "http://www.orkut.com/Main#Community?cmm=114209047", :target => "_blank"
         =link_to image_tag('twitter_25.png'), "http://twitter.com/#!/meu_rio", :target => "_blank"
         =link_to image_tag('facebook_25.png'), "http://www.facebook.com/pages/Meu-Rio", :target => "_blank"

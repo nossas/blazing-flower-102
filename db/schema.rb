@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(:version => 20110818152453) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "autofire_emails", :force => true do |t|
-    t.text     "from",        :default => "Alessandra Orofino <alessandra@meurio.org.br>", :null => false
-    t.text     "subject",     :default => "Obrigado por participar",                       :null => false
+    t.text     "from",        :default => "Dev <dev@meurio.org.br>", :null => false
+    t.text     "subject",     :default => "Obrigado por participar", :null => false
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -75,10 +75,10 @@ ActiveRecord::Schema.define(:version => 20110818152453) do
   add_index "comment_flags", ["comment_id", "member_id"], :name => "index_comment_flags_on_comment_id_and_member_id", :unique => true
 
   create_table "comments", :force => true do |t|
-    t.integer  "member_id"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.text     "content"
+    t.integer  "member_id",        :null => false
+    t.integer  "commentable_id",   :null => false
+    t.string   "commentable_type", :null => false
+    t.text     "content",          :null => false
     t.boolean  "comment_accepted"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -8,22 +8,31 @@
  *= require_tree . 
 */
 
+/*
+ * Elements are ordered by lowest specificity first,
+ * then alphabetically (e.g., elements, classes, ids)
+ * Alphabetical ordering makes order predictable.
+ * Specificity based ordering keeps code concise, organized,
+ * and lowers risk of having to use !important. 
+ * Together, they eliminate arbitrary and confusing grouping schemes.
+ * -DP
+ */
+
 @import "vars.css.scss";
 @import "mixins.css.scss";
-
-.left { float: left }
-.right { float: right }
-
-.clear_left {clear:left;}
-.clear_right {clear:right;}
-
-.small {font-size: 10.5px;}
 
 .Akagi-Book { font-family: Akagi-Book; }
 .Akagi-Light { font-family: Akagi-Light; }
 
+.clear_left {clear:left;}
+.clear_right {clear:right;}
+
 .Folk-solid { font-family: Folk-solid; }
 
+.left { float: left }
+.right { float: right }
+
+.small {font-size: 10.5px;}
 
 a {
   text-decoration: none;
@@ -32,7 +41,7 @@ a {
 }
 
 body {
-  background: #e1e1d9 url(/assets/background_texture_100px.png) repeat top left;
+  background: #e1e1d9 url(/assets/bg-test.jpg) no-repeat bottom center fixed;
   height: 100%;
   width: 100%;
   font-family: 'Akagi-Book', Helvetica, Ariel, sans-serif;
@@ -55,6 +64,68 @@ body > header {
   }
 }
 
+// Fix for odd extra pixel showing up when you're on the issue page
+body.issues nav#primary .issue_menu { right:9px; }
+
+body > #main {
+  background: white;
+  @include border-radius(8px);
+  padding: 10px 10px;
+  position: relative;
+  margin-bottom: 10px;
+
+  p {
+    font-size: 15px;
+    line-height: 140%;
+  }
+}
+
+body > footer {
+  margin-top: 25px;
+  nav {
+    a, a:visited {
+      text-transform: uppercase;
+      margin: 0px 15px;
+      color: $dark_gray;
+      &:hover{color: $pink;}
+    }
+  }
+  .social {
+    font-weight: bold;
+    a {
+      display: inline-block;
+      float: right;
+      margin: -5px 0 0 5px;
+    }
+  }
+}
+
+h1 {
+  font-family: Folk-solid;
+  text-transform: uppercase;
+  color: $green;
+  letter-spacing: 1.5px;
+  font-size: 180%;
+  position: relative;
+  font-weight: normal;
+  .outline{
+    font-family: Folk-outline;
+    color: #666;
+    position: absolute;
+    top: 0px;
+    left: -2px;
+  }
+}
+
+input[type="text"], textarea {
+  border: 2px solid $light_gray;
+  &:focus{
+    border-color: $orange;
+  }
+}
+
+label.error{ font-size: 90%; }
+
 nav#primary {
   float:right;
   margin-top:60px;
@@ -73,7 +144,7 @@ nav#primary {
       &:hover { color: $pink;}
     }
     a.top_level.last { margin-right: 0; }
-    a.top_level.selected,a.top_level:hover { background: url(/assets/nav_hover_underline.png) no-repeat center bottom;}
+    a.top_level.selected,a.top_level:hover { background: url(/assets/nav_hover_underline.png) no-repeat center bottom; color: $pink;}
   }
   li.issue_menu_wrap{
     &:hover {
@@ -159,41 +230,7 @@ nav#primary {
   }
 }
 
-// Fix for odd extra pixel showing up when you're on the issue page
-body.issues nav#primary .issue_menu { right:9px; }
-
-body > #main {
-  background: white;
-  @include border-radius(8px);
-  padding: 10px 10px;
-  position: relative;
-  margin-bottom: 10px;
-
-  p {
-    font-size: 15px;
-    line-height: 140%;
-  }
-}
-
-body > footer {
-  margin-top: 25px;
-  nav {
-    a, a:visited {
-      text-transform: uppercase;
-      margin: 0px 15px;
-      color: $dark_gray;
-      &:hover{color: $pink;}
-    }
-  }
-  .social {
-    font-weight: bold;
-    a {
-      display: inline-block;
-      float: right;
-      margin: -5px 0 0 5px;
-    }
-  }
-}
+textarea.error, input.error, select.error { border-color: $pink !important; }
 
 .btn, .btn.disabled, a.btn{
   // Almost all properties are !important because activeadmin's CSS is trying overriding this class
@@ -241,35 +278,6 @@ body > footer {
   padding: 7px !important;
 }
 
-input[type="text"], textarea {
-  border: 2px solid $light_gray;
-  &:focus{
-    border-color: $orange;
-  }
-}
-
-textarea.error, input.error, select.error { border-color: $pink !important; }
-label.error{ font-size: 90%; }
-
-h1 {
-  font-family: Folk-solid;
-  text-transform: uppercase;
-  color: $green;
-  letter-spacing: 1.5px;
-  font-size: 180%;
-  position: relative;
-  font-weight: normal;
-  .outline{
-    font-family: Folk-outline;
-    color: #666;
-    position: absolute;
-    top: 0px;
-    left: -2px;
-  }
-}
-
-#join_us_btn { padding-right: 20px }
-
 .issue_name {
   text-transform: uppercase;
   color: $blue;
@@ -278,3 +286,70 @@ h1 {
   padding-top: 10px;
 }
 
+.sprite {
+  background-image: url('/assets/sprite.png');
+  float: left;
+  position: relative;
+}
+
+.sprite.debate {
+  background-position: -152px -140px;
+  height: 47px;
+  width: 58px;
+}
+
+.sprite.facebook {
+  background-position: -54px -10px;
+  height: 20px;
+  width: 58px;
+}
+
+.sprite.facebook_small {
+  background-position: -54px -34px;
+  height: 24px;
+  width: 24px;
+}
+
+.sprite.logo {
+  background-position: -191px -4px;
+  height: 122px;
+  width: 98px;
+}
+
+.sprite.orkut {
+  background-position: -10px -10px;
+  height: 31px;
+  width: 31px;
+}
+
+.sprite.orkut_small {
+  background-position: -88px -34px;
+  height: 24px;
+  width: 24px;
+}
+
+.sprite.petition {
+  background-position: -88px -135px;
+  height: 51px;
+  width: 59px;
+}
+
+.sprite.twitter {
+  background-position: -122px -34px;
+  height: 25px;
+  width: 24px;
+}
+
+.sprite.twitter_small {
+  background-position: -122px -10px;
+  height: 20px;
+  width: 55px;
+}
+
+.sprite.video {
+  background-position: -10px -135px;
+  height: 56px;
+  width: 68px;
+}
+
+#join_us_btn { padding-right: 20px }

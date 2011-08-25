@@ -60,7 +60,7 @@ gem 'inherited_resources'
 group :development, :test do
   gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
   gem 'heroku'
-  gem 'unicorn'
+  #gem 'unicorn'
   gem 'sqlite3', '1.3.3'
   gem 'foreman'
   gem 'ruby-debug19', :require => 'ruby-debug'
@@ -69,9 +69,13 @@ group :development, :test do
   gem "rspec-rails", "~> 2.6"
   gem "shoulda-matchers"
 
-  gem "mailcatcher"
+  #gem "mailcatcher"
 
+<<<<<<< Updated upstream
   # gem 'jasmine'
+=======
+  #gem 'jasmine'
+>>>>>>> Stashed changes
 
   gem "autotest-rails"
   gem "autotest-growl"
@@ -88,6 +92,6 @@ end
 group :production do
   gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
   # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
-  gem 'thin'
+  #gem 'thin'
   # gem 'newrelic_rpm'
 end

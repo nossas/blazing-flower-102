@@ -19,81 +19,21 @@ body.pages {
     line-height: 140%;
   }
 
-  .about_image {
-    position: relative;
-    margin-bottom: 10px;
-    img { 
-      width: 100%; 
-      @include border-radius(5px);
-    }
-    .grid_8 {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: rgba(44, 186, 226, 0.7);
-      padding: 30px;
-      color: white;
-      font-size: 19px;
-      line-height: 150%;
-      @include border-radius(5px 0 5px 0);
-    }
-  }
-
-  .join_meu_rio {
-    background: #fbfaf8;
-    text-align: center;
-    padding: 20px 0;
-    @include border-radius(5px);
-    @include box-shadow(2px 2px 2px $light_gray);
+  &.show {
     p {
-      position: relative;
-      font-weight: bold; 
-      color: $dark_gray;
-      img {
-        position: absolute;
-        left: 30px;
-        top: 10px;
+      padding: 0 10px 10px 0;
+      &.noindent {
+        padding: 0;
+      }
+    }
+    h3 {
+      padding: 0 0 0 10px;
+      &.noindent {
+        padding: 0;
       }
     }
   }
 
-  .what_you_can_do {
-    background: #fbfaf8;
-    padding: 20px 0;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    @include border-radius(5px);
-    @include box-shadow(2px 2px 2px $light_gray);   
-    h2 { 
-      text-transform: uppercase; 
-      font-size: 20px;
-    }
-    .feature { 
-      padding: 0 20px;
-      p.title { font-weight: bold; }
-      img { 
-        float: right;
-        width: 50px;
-        margin: 0 0 10px 10px;
-      }
-      p.description {
-        height: 150px;
-      }
-    }
-    .omega {
-      .feature {
-        background: url("debate_divider.png") repeat-y right;
-        padding-left: 0;
-      }
-    }
-    .alpha {
-      .feature {
-        background: url("debate_divider.png") repeat-y left;
-        padding-right: 0;
-      }
-    }
-  }
-  
   .grid_8 {
     h2 {
       border-top: 2px solid $blue;
@@ -108,47 +48,65 @@ body.pages {
     }
   }
 
-  .speech_bubble {
-    position:relative;
-  	padding:15px;
-  	margin-bottom: 5px;
-  	background:#fbfaf8; /* default background for browsers without gradient support */
-    width: 80%;
-    float: right;
-    @include border-radius(10px);
-    h3 { 
-      text-transform: uppercase; 
-      font-size: 16px;
-      margin-bottom: 5px;
-    }
-    p { margin: 5px 0; }
-    p.date { color: $pink; }
-    a {
-      img { 
-        width: 32px; 
-        &:hover {
-          opacity: 0.8;
-        }
-      }
-    }
-    &:after{
-      content:"";
-    	position:absolute;
-    	border-style:solid;
-      display:block; 
-      width:0;
-      top:16px; /* controls vertical position */
-	    left:-15px; /* value = - border-left-width - border-right-width */
-	    bottom:auto;
-	    border-width:10px 15px 10px 0;
-	    border-color:transparent #fbfaf8;
-    }
-  }
-
   .grid_8.trabalhe {
     padding-left:10px;
     padding-bottom:40px;
   }
+
+  .speech_bubble_container {
+    background: url(/assets/widget-container-green-arrow-bottom.gif) no-repeat bottom left;
+    clear: right;
+    float: right;
+    min-height: 185px;
+    position: relative;
+    width: 301px;
+    &.orange {
+      background: url(/assets/widget-container-orange-arrow-bottom.gif) no-repeat bottom left;
+      min-height: 80px;
+      width: 299px;
+      .speech_bubble_top {
+        background: url(/assets/widget-container-orange-arrow-top.gif) no-repeat top left;
+        height: 53px;
+      }
+      .speech_bubble h3 {
+        color: #fff;
+        font-family: Folk-solid;
+      }
+    }
+    .speech_bubble_top {
+      background: url(/assets/widget-container-green-arrow-top.gif) no-repeat top left;
+      height: 60px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: inherit;
+    }
+    .speech_bubble {
+      float: left;
+      margin: 15px 20px 15px 25px;
+      padding-left: 10px;
+      position:relative;
+      width: auto;
+      a {
+        font-weight: bold;
+        img { 
+          width: 32px; 
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+      h3 {
+        color: #40a468;
+        text-transform: uppercase; 
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+      p { margin: 5px 0; }
+      p.date { color: $pink; }
+    }
+  }
+
   .trabalhe {
     .job {
       padding:20px;
@@ -184,6 +142,172 @@ body.pages {
       background-color: #fff;
       @include border-radius(0 0 3px 3px);
       @include box-shadow(0px 2px 2px $light_gray);
+    }
+  }
+
+  #about_description p {
+    span {
+      display: block;
+    }
+    a {
+      font-weight: bold;
+    }
+  }
+
+  #about_image {
+    position: relative;
+    margin-bottom: 20px;
+    img {
+      width: 100%; 
+      @include border-radius(5px);
+    }
+    .grid_8 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(44, 186, 226, 0.7);
+      padding: 30px;
+      color: white;
+      font-size: 19px;
+      line-height: 150%;
+      @include border-radius(5px 0 5px 0);
+      span {
+        display: block;
+      }
+      p {
+        margin-bottom: 0px;
+        a {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  #join_meu_rio {
+    text-align: center;
+    padding: 40px 0 0;
+    p {
+      position: relative;
+      font-weight: bold; 
+      color: $dark_gray;
+      img {
+        position: absolute;
+        left: 30px;
+        top: 10px;
+      }
+    }
+  }
+
+  #quem_somos {
+    h2 {
+      font-family: Folk-solid;
+    }
+    p {
+      padding-left: 10px;
+    }
+  }
+
+  #quote_container {
+    .sprite {
+      margin: 19px 10px 0px 10px;
+      padding: 0;
+      .facebook {
+        margin-left: 25px;
+      }
+      .orkut {
+        top: -6px;
+      }
+    }
+  }
+
+  #what_you_can_do {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    h2 {
+      font-family: Folk-solid;
+      font-size: 20px;
+      margin-left: 0;
+      text-transform: uppercase;
+    }
+    >img {
+      float: right;
+      margin: 0 0 10px 10px;
+    }
+    section {
+      p {
+        padding-left: 10px;
+      }
+      width: 302px;
+      &.alpha {
+        margin-right: 7px;
+      }
+      &.omega {
+        margin-left: 7px;
+      }
+      header {
+        background: url("/assets/widget-container-green-top.gif") repeat-y scroll 0 0 transparent;
+        float: left;
+        p {
+          color: #FFFFFF;
+          /* important used here to override high specificity global rule set somewhere else: 
+           * body > #main p { font-size: 15px; }
+           * TODO: change font sizes to use em instead of px 
+           */
+          font-size: 1.3em !important;
+          font-weight: bold;
+          line-height: 1.1em;
+          margin: 10px 15px 0 5px;
+          text-transform: uppercase;
+        }
+      }
+      >div {
+        background: url("/assets/widget-container-green-body.gif") repeat-y scroll left top transparent;
+        float: left;
+        min-height: 200px;
+        padding-top: 15px;
+        >.icon {
+          float: right;
+          margin: 10px;
+        }
+        >p {
+          margin: 10px 5px 0;
+        }
+        a {
+          font-weight: bold;
+          margin: 15px;
+        }
+      }
+      footer {
+        background: url("/assets/widget-container-green-bottom.gif") repeat-y scroll left bottom transparent;
+        float: left;
+        min-height: 35px;
+        width: 100%;
+      }
+    }
+    .feature {
+      padding: 0 20px;
+      p.title { font-weight: bold; }
+      img {
+        float: right;
+        width: 50px;
+        margin: 0 0 10px 10px;
+      }
+      p.description {
+        height: 150px;
+      }
+    }
+    .omega {
+      .feature {
+        background: url("debate_divider.png") repeat-y right;
+        padding-left: 0;
+      }
+    }
+    .alpha {
+      .feature {
+        background: url("debate_divider.png") repeat-y left;
+        padding-right: 0;
+      }
     }
   }
 }
