@@ -27,47 +27,48 @@
     .clearfix
     .date= t("members_show.joined_on", :date => l(@member.created_at, :format => :very_short))
 
-    .info
-      .email
-        - if @member == current_member
-          .title
-            = t("members_show.email")
-          =link_to image_tag("/assets/pencil.png"), "#", :id => "change_email_btn", :class => "change"
-          .clearfix
-          #email-editor.edit
-            =form_for @member do |f|
-              =f.text_field :email, :class => "email required"
-            .btn.small.confirm=link_to "OK", "#", :id => "email-confirm"
-            .btn.small.cancel=link_to "Cancel", "#", :id => "email-cancel"
-          .display= @member.email
-  
-      .zone
-        - if @member == current_member
-          .title
-            = t("members_show.zone")
-          =link_to image_tag("/assets/pencil.png"), "#", :id => "change_zone_btn", :class => "change"
-          .clearfix
-          #zona-editor.edit
-            =form_for @member do |f|
-              =f.select :zona, options_for_select(['', 'Centro', 'Norte', 'Oeste', 'Sul', 'Eu não sou do Rio'], @member.zona)
-            .btn.small.confirm=link_to "OK", "#", :id => "zona-confirm"
-            .btn.small.cancel=link_to "Cancel", "#", :id => "zona-cancel"
-          .display= @member.zona
-  
-      .bio
-        - if @member.bio || @member == current_member
-          .title
-            = t("members_show.bio")
+    - if @member == current_member || @member.bio
+      .info
+        .email
           - if @member == current_member
-            = link_to image_tag("/assets/pencil.png"), "#", :id => "change_bio_btn", :class => "change"
+            .title
+              = t("members_show.email")
+            =link_to image_tag("/assets/pencil.png"), "#", :id => "change_email_btn", :class => "change"
             .clearfix
-            #bio-editor.edit
+            #email-editor.edit
               =form_for @member do |f|
-                =f.text_area :bio, :rows => '12', :maxlength => "220"
-              .btn.small.confirm=link_to "OK", "#", :id => "bio-confirm"
-              .btn.small.cancel=link_to "Cancel", "#", :id => "bio-cancel"
-          .clearfix
-          .display= @member.bio
+                =f.text_field :email, :class => "email required"
+              .btn.small.confirm=link_to "OK", "#", :id => "email-confirm"
+              .btn.small.cancel=link_to "Cancel", "#", :id => "email-cancel"
+            .display= @member.email
+    
+        .zone
+          - if @member == current_member
+            .title
+              = t("members_show.zone")
+            =link_to image_tag("/assets/pencil.png"), "#", :id => "change_zone_btn", :class => "change"
+            .clearfix
+            #zona-editor.edit
+              =form_for @member do |f|
+                =f.select :zona, options_for_select(['', 'Centro', 'Norte', 'Oeste', 'Sul', 'Eu não sou do Rio'], @member.zona)
+              .btn.small.confirm=link_to "OK", "#", :id => "zona-confirm"
+              .btn.small.cancel=link_to "Cancel", "#", :id => "zona-cancel"
+            .display= @member.zona
+    
+        .bio
+          - if @member.bio || @member == current_member
+            .title
+              = t("members_show.bio")
+            - if @member == current_member
+              = link_to image_tag("/assets/pencil.png"), "#", :id => "change_bio_btn", :class => "change"
+              .clearfix
+              #bio-editor.edit
+                =form_for @member do |f|
+                  =f.text_area :bio, :rows => '12', :maxlength => "220"
+                .btn.small.confirm=link_to "OK", "#", :id => "bio-confirm"
+                .btn.small.cancel=link_to "Cancel", "#", :id => "bio-cancel"
+            .clearfix
+            .display= @member.bio
 
     - if @member == current_member
       .is_subscriber

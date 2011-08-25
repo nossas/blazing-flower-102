@@ -82,9 +82,24 @@
       background: url('/assets/homepage/public_hearings.png') no-repeat center center;
     }
     &#meu_rio_is {
-      width:140px;
-      height:380px;
+      width:120px;
+      height:360px;
+      padding: 10px;
       background: url('/assets/homepage/member.png') no-repeat center center;
+      h3 {
+        color: $green;
+        text-transform: uppercase;
+        font-style: italic;
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+      h2 {
+        color: $green;
+        font-size: 18px;
+      }
+      img {
+        width: 100%;
+      }
     }
     &#follow {
       width:140px;
