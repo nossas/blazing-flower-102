@@ -1,2 +1,2 @@
 #meu_rio_is.widget
-  = raw MeuRioIsWidget.first.html_content
+  = raw(MeuRioIsWidget.first.html_content) if MeuRioIsWidget.first
