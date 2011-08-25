@@ -1,1 +1,11 @@
 #date_weather.widget.margin_bottom
+  .date= raw I18n.l Time.now.localtime, :format => :widget
+  .icon
+    =image_tag "#{weather_category}_#{day_or_night}.png"
+  .max.forecast
+    .label Max
+    .temp #{WeatherWidget.weather['item']['yweather:forecast'][0]['high']}°
+  .min.forecast
+    .label Min
+    .temp #{WeatherWidget.weather['item']['yweather:forecast'][0]['low']}°
+

@@ -1,4 +1,7 @@
 module ApplicationHelper
+  require 'twitter'
+  require 'httparty'
+
   def nav_issues
     @nav_issues ||= Issue.order('id DESC')
   end
@@ -29,4 +32,30 @@ module ApplicationHelper
     </object>
     EOF
   end
+
+  def meu_rio_tweets
+    Rails.cache.fetch("tweets", :expires_in => 15.minutes) do
+      result = Twitter.user_timeline('meu_rio').first
+    end
+  end
+
+  def weather_category
+    thunder = [0, 1, 2, 3, 4, 37, 38, 39, 40, 45, 46, 47]
+    rain = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 35, 41, 42, 43]
+    cloudy = [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 44]
+    sunny = [31, 32, 33, 34, 36]
+
+    conditions_hash = { :thunder => thunder, :rain => rain, :cloudy => cloudy, :sunny => sunny }
+    return conditions_hash.select{ |key, conditions| conditions.include? WeatherWidget.weather['item']['yweather:condition']['code'].to_i }.keys.first.to_s
+  end
+
+  def day_or_night 
+    time = Time.zone.now
+    if ( time > WeatherWidget.parse_time(WeatherWidget.weather["yweather:astronomy"]["sunset"]) ) || ( time < WeatherWidget.parse_time(WeatherWidget.weather["yweather:astronomy"]["sunrise"]) )
+      return "night"
+    else
+      return "day"
+    end 
+  end
+
 end

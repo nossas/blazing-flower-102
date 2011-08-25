@@ -3,7 +3,7 @@ source :rubyforge
 gem "devise", "~> 1.4.2"
 
 # gem 'rails',  :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
-gem 'rails', '3.1.0.rc5'
+gem 'rails', '3.1.0.rc6'
 gem 'jquery-rails'
 
 # External authentication
@@ -23,8 +23,9 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
-# gem 'activeadmin'
+# Temporary pulling current sprockets source, to avoid plethora of output while tests run
+gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git'
+
 
 # 3 Fixes for activeadmin / rails 3.1
 gem "meta_search",    '>= 1.1.0.pre2'
@@ -46,11 +47,16 @@ gem 'httparty'
 gem 'pg'
 gem 'foreigner'
 
+gem 'dalli'
+
+gem 'twitter'
+
 #including so we can run the complete petition rake task for demos
 gem 'factory_girl_rails'
 gem "faker"
 
 group :development, :test do
+  gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
   gem 'heroku'
   gem 'unicorn'
   gem 'sqlite3', '1.3.3'
@@ -63,7 +69,7 @@ group :development, :test do
 
   gem "mailcatcher"
 
-  gem 'jasmine'
+  # gem 'jasmine'
 
   gem "autotest-rails"
   gem "autotest-growl"
@@ -78,6 +84,7 @@ group :development, :test do
 end
 
 group :production do
+  gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
   # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
   gem 'thin'
   # gem 'newrelic_rpm'

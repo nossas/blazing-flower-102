@@ -1,6 +1,8 @@
 MeuRio::Application.routes.draw do
-  ActiveAdmin.routes(self)
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  unless Rails.env == 'frontend'
+    ActiveAdmin.routes(self)
+    devise_for :admin_users, ActiveAdmin::Devise.config
+  end
 
   devise_for :members, :controllers => { :omniauth_callbacks => "omniauth_callbacks", :sessions => "member_sessions" } do
     get 'logout' => 'member_sessions#destroy', :as => :destroy_member_session

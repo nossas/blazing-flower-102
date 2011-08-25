@@ -75,4 +75,4 @@ ActiveAdmin.setup do |config|
   
   # To load a javascript file:
     config.register_javascript 'admin/active_admin.js'
-end
+end unless Rails.env == 'frontend'

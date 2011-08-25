@@ -11,6 +11,13 @@
     float:left;
     width:auto;
     overflow:hidden;
+    p{
+      font-size: 14px;
+      color: $dark_gray;
+      a{
+        font-weight: bold;
+      }
+    }
     h1{
       font-size: 25px;
       padding-top: 10px;
@@ -27,9 +34,50 @@
       height:300px;
     }
     &#date_weather {
-      width:300px;
+      width:280px;
       height:60px;
+      padding-left: 20px;
+      color: #fff;
       background: url('/assets/homepage/weather.png') no-repeat center center;
+
+      .forecast, .date, .icon {
+        float: left;
+        text-align: center;
+      }
+
+      .date, .icon {
+        width: 90px;
+        margin-top: -2px;
+        font-family: Folk-solid, sans-serif;
+        font-size: 225%;
+        line-height: 115%;
+        letter-spacing: 0.05em;
+
+        .month {
+          display: block;
+          font-size: 50%;
+          line-height: 65%;
+          text-transform: uppercase;
+        }
+      }
+
+      .icon {
+        margin-top: 4px;
+      }
+
+      .forecast {
+        width: 45px;
+        margin-top: 10px;
+        .label {
+          text-transform: uppercase;
+          font-size: 75%;
+        }
+        .temp {
+          font-family: Folk-solid;
+          font-size: 130%;
+          line-height: 70%;
+        }
+      }
     }
     &#legislative {
       width:300px;
@@ -80,6 +128,34 @@
       width:300px;
       height:220px;
       background: url('/assets/homepage/public_hearings.png') no-repeat center center;
+      h1 {
+        font-size:20px;
+        margin-bottom: 25px;
+      }
+      .controls {
+        float: right;
+        margin-right: 20px;
+      }
+      .scrollable{
+        position: relative;
+        overflow: hidden;
+        width: 300px;
+        height: 130px;
+        .items{
+          width: 20000em;
+          position: absolute;
+          clear: both;
+          .item{
+            .date {
+              font-size:12px;
+              margin-bottom:8px;
+            }
+            float: left;
+            width: 260px;
+            padding: 0 20px;
+          }
+        }
+      }
     }
     &#meu_rio_is {
       width:120px;
@@ -120,9 +196,21 @@
       }
     }
     &#team_update {
-      width:300px;
-      height:220px;
+      width: 260px;
+      height:200px;
       background: url('/assets/homepage/team_update.png') no-repeat center center;
+      padding: 5px 20px 20px 40px;
+      overflow: hidden;
+
+      h1{
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: $green;
+      }
+      .date {
+        font-size:12px;
+        margin-bottom:8px;
+      }
     }
     &#join_widget {
       width:300px;
@@ -130,9 +218,26 @@
       background: url('/assets/homepage/join.png') no-repeat center center;
     }
     &#twitter_widget {
-      width:620px;
+      width:580px;
       height:140px;
+      padding: 0px 20px;
       background: url('/assets/homepage/twitter.png') no-repeat center center;
+
+      h1 {
+        color: $green;
+        text-align: left;
+        font-size: 190%;
+      }
+
+      p {
+        margin-left: 30px;
+        margin-right: 10px;
+      }
+
+      a.name {
+        color: $green;
+        font-weight: bold;
+      }
     }
   }
 
