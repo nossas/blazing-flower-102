@@ -166,7 +166,7 @@
         position: relative;
         overflow: hidden;
         width: 120px;
-        height: 340px;
+        height: 335px;
         .items{
           width: 20000em;
           position: absolute;
@@ -191,8 +191,12 @@
             text-decoration: underline;
           }
         }
-        img {
-          width: 100%;
+        .image{
+          height: 120px;
+          overflow: hidden;
+          img {
+            width: 100%;
+          }
         }
       }
       .controls{
