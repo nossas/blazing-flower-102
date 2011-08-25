@@ -34,7 +34,7 @@ module ApplicationHelper
   end
 
   def meu_rio_tweets
-    Rails.cache.fetch("tweets", :expires_in => 15.minutes) do
+    Rails.cache.fetch("tweets", :expires_in => 30.minutes) do
       result = Twitter.user_timeline('meu_rio').first
     end
   end
@@ -42,7 +42,7 @@ module ApplicationHelper
   def weather_category
     thunder = [0, 1, 2, 3, 4, 37, 38, 39, 40, 45, 46, 47]
     rain = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 35, 41, 42, 43]
-    cloudy = [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 44]
+    cloudy = [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 44, 30]
     sunny = [31, 32, 33, 34, 36]
 
     conditions_hash = { :thunder => thunder, :rain => rain, :cloudy => cloudy, :sunny => sunny }
