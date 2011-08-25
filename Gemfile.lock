@@ -340,6 +340,7 @@ DEPENDENCIES
   haml
   heroku
   httparty
+  inherited_resources
   jquery-rails
   kaminari
   mailcatcher
