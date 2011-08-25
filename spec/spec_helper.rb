@@ -110,3 +110,22 @@ FACEBOOK_VALID_AUTH_DATA = {
                              "locale"=>"pt_BR",
                              "verified"=>true,
                              "updated_time"=>"2011-05-20T16:11:58+0000"}}}
+
+TWITTER_VALID_TIMELINE_RESPONSE = [
+  {"user" => 
+    {"statuses_count" => 2,"screen_name" => "Meu_Rio","id" => 295834140},
+    "in_reply_to_status_id" => nil,
+    "created_at" => "Wed Aug 24 17:30:51 +0000 2011",
+    "id_str" => "106418202430545920",
+    "id" => 106418202430545920,"text" => "Estamos trabalhando duro em nossa primeira campanha!"
+  },
+  {"user" => 
+    {"statuses_count" => 2,"screen_name" => "Meu_Rio","id" => 295834140,},
+    "in_reply_to_user_id" => nil,
+    "created_at" => "Wed Aug 24 15:58:20 +0000 2011",
+    "id_str" => "106394922780868608",
+    "id" => 106394922780868608,
+    "text" => "Oi Pessoal! Tudo Bem?"
+  }
+]
+
