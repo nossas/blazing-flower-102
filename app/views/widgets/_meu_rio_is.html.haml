@@ -1,2 +1,7 @@
 #meu_rio_is.widget
-  = raw MeuRioIsWidget.first.html_content
+  .scrollable
+    .items
+      = raw(MeuRioIsWidget.first.html_content) if MeuRioIsWidget.first
+  .controls
+    =link_to image_tag('/assets/scroll_arrow_left.png'), '#', :class => 'prev'
+    =link_to image_tag('/assets/scroll_arrow_right.png'), '#', :class => 'next'

@@ -20,16 +20,22 @@ MR.widgets = {
     MR.widgets.public_hearings.api = MR.widgets.createScrollable.apply(this);
   },
 
+  meu_rio_is: function(){
+    MR.widgets.meu_rio_is.api = MR.widgets.createScrollable.apply(this);
+  },
+
   createScrollable: function(){
-    this.find('.scrollable')
-      .scrollable({circular: true});
-
-    // Ensure that the URL is not appended with a #
-    this.find('.controls a').click(function(){return false;});
-
-    if(this.find('.scrollable .item').length < 4){
-      this.find('.controls').hide();
-    } 
-    return this.find('.scrollable').scrollable();
+    if(this.find('.scrollable .item').length > 0){
+      this.find('.scrollable')
+        .scrollable({circular: true});
+  
+      // Ensure that the URL is not appended with a #
+      this.find('.controls a').click(function(){return false;});
+  
+      if(this.find('.scrollable .item').length < 4){
+        this.find('.controls').hide();
+      } 
+      return this.find('.scrollable').scrollable();
+    }
   }
 }
