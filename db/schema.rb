@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110818152453) do
+ActiveRecord::Schema.define(:version => 20110825190821) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -75,10 +76,10 @@ ActiveRecord::Schema.define(:version => 20110818152453) do
   add_index "comment_flags", ["comment_id", "member_id"], :name => "index_comment_flags_on_comment_id_and_member_id", :unique => true
 
   create_table "comments", :force => true do |t|
-    t.integer  "member_id"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.text     "content"
+    t.integer  "member_id",        :null => false
+    t.integer  "commentable_id",   :null => false
+    t.string   "commentable_type", :null => false
+    t.text     "content",          :null => false
     t.boolean  "comment_accepted"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -107,6 +108,21 @@ ActiveRecord::Schema.define(:version => 20110818152453) do
 
   add_index "debates", ["author_email_side_1"], :name => "index_debates_on_author_email_side_1"
   add_index "debates", ["author_email_side_2"], :name => "index_debates_on_author_email_side_2"
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "issues", :force => true do |t|
     t.text     "name"
@@ -261,26 +277,5 @@ ActiveRecord::Schema.define(:version => 20110818152453) do
     t.datetime "updated_at"
     t.text     "html_content"
   end
-
-  add_foreign_key "autofire_emails", "petitions", :name => "autofire_emails_petition_id_fk"
-
-  add_foreign_key "comment_flags", "comments", :name => "comment_flags_comment_id_fk"
-  add_foreign_key "comment_flags", "members", :name => "comment_flags_member_id_fk"
-
-  add_foreign_key "comments", "members", :name => "comments_member_id_fk"
-
-  add_foreign_key "debates", "members", :name => "debates_author_email_side_1_fk", :column => "author_email_side_1", :primary_key => "email"
-  add_foreign_key "debates", "members", :name => "debates_author_email_side_2_fk", :column => "author_email_side_2", :primary_key => "email"
-
-  add_foreign_key "issues", "debates", :name => "issues_featured_debate_id_fk", :column => "featured_debate_id"
-  add_foreign_key "issues", "personal_stories", :name => "issues_featured_personal_story_id_fk", :column => "featured_personal_story_id"
-  add_foreign_key "issues", "petitions", :name => "issues_featured_petition_id_fk", :column => "featured_petition_id"
-
-  add_foreign_key "petition_signatures", "members", :name => "petition_signatures_member_id_fk"
-  add_foreign_key "petition_signatures", "petitions", :name => "petition_signatures_petition_id_fk"
-
-  add_foreign_key "provider_authorizations", "members", :name => "provider_authorizations_member_id_fk"
-
-  add_foreign_key "tafs", "petitions", :name => "tafs_petition_id_fk"
 
 end

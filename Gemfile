@@ -43,6 +43,8 @@ gem 'cancan'
 gem 'aws-s3'
 gem 'httparty'
 
+gem 'delayed_job'
+
 # Database related gems
 gem 'pg'
 gem 'foreigner'
