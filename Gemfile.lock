@@ -1,18 +1,4 @@
 GIT
-  remote: git://github.com/gregbell/active_admin.git
-  revision: 325d8e0e44cc21ea46ec7dee87bd2836e7111bdd
-  specs:
-    activeadmin (0.2.2)
-      devise (>= 1.1.2)
-      fastercsv
-      formtastic (>= 1.1.0)
-      inherited_resources
-      kaminari (>= 0.12.4)
-      meta_search (>= 0.9.2)
-      rails (>= 3.0.0)
-      sass (>= 3.1.0)
-
-GIT
   remote: git://github.com/sstephenson/sprockets.git
   revision: e13d1e875f1dbd267e6da9705bda3a83ab397cdc
   specs:
@@ -39,6 +25,15 @@ GEM
       rack-mount (~> 0.8.1)
       rack-test (~> 0.6.0)
       sprockets (~> 2.0.0.beta.12)
+    activeadmin (0.3.0)
+      devise (>= 1.1.2)
+      fastercsv
+      formtastic (>= 1.1.0)
+      inherited_resources
+      kaminari (>= 0.12.4)
+      meta_search (>= 0.9.2)
+      rails (>= 3.0.0)
+      sass (>= 3.1.0)
     activemodel (3.1.0.rc6)
       activesupport (= 3.1.0.rc6)
       bcrypt-ruby (~> 2.1.4)
@@ -322,7 +317,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activeadmin!
+  activeadmin
   autotest-growl
   autotest-rails
   awesome_print
@@ -338,7 +333,6 @@ DEPENDENCIES
   edgecase-git-pair
   factory_girl_rails
   faker
-  fastercsv
   foreigner
   foreman
   haml
@@ -346,9 +340,7 @@ DEPENDENCIES
   httparty
   inherited_resources
   jquery-rails
-  kaminari
   mailcatcher
-  meta_search (>= 1.1.0.pre2)
   oa-oauth
   oa-openid
   paperclip
