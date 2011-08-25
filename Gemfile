@@ -26,8 +26,6 @@ end
 # Temporary pulling current sprockets source, to avoid plethora of output while tests run
 gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git'
 
-gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
-# gem 'activeadmin'
 
 # 3 Fixes for activeadmin / rails 3.1
 gem "meta_search",    '>= 1.1.0.pre2'
@@ -58,6 +56,7 @@ gem 'factory_girl_rails'
 gem "faker"
 
 group :development, :test do
+  gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
   gem 'heroku'
   gem 'unicorn'
   gem 'sqlite3', '1.3.3'
@@ -85,6 +84,7 @@ group :development, :test do
 end
 
 group :production do
+  gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
   # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
   gem 'thin'
   # gem 'newrelic_rpm'
