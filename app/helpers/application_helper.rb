@@ -34,8 +34,12 @@ module ApplicationHelper
   end
 
   def meu_rio_tweets
-    Rails.cache.fetch("tweets", :expires_in => 30.minutes) do
-      result = Twitter.user_timeline('meu_rio').first
+    begin
+      Rails.cache.fetch("tweets", :expires_in => 30.minutes) do
+        result = Twitter.user_timeline('meu_rio').first
+      end
+    rescue
+      "Tweets could not be loaded= #{$!}"
     end
   end
 
