@@ -55,6 +55,8 @@ gem 'twitter'
 gem 'factory_girl_rails'
 gem "faker"
 
+gem 'inherited_resources'
+
 group :development, :test do
   gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
   gem 'heroku'
