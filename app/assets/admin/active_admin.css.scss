@@ -4,3 +4,13 @@
 
 // To customize the Active Admin interfaces, add your
 // styles here:
+
+// Removing new buttons from widget admin interface
+a[href='/admin/public_hearing_widgets/new'],
+a[href='/admin/featured_content_widgets/new'],
+a[href='/admin/meu_rio_team_widgets/new'],
+a[href='/admin/meu_rio_is_widgets/new'],
+a[href='/admin/legislative_agenda_widgets/new'],
+a[href='/admin/image_widgets/new']{
+  display:none;
+}
