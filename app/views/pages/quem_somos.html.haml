@@ -16,7 +16,7 @@
 
 #what_you_can_do.grid_12
   %h2.grid_12.omega= t("about_page.what_you_can_do")
-  %section.grid_3-5.alpha
+  %section.grid_3-5.alpha.wobble_container
     %header
       %p= t("about_page.feature1_title")
     %div
@@ -25,7 +25,7 @@
       = link_to t("about_page.video_link"), issue_personal_story_path(:issue_id => PersonalStory.first.issue_id, :id => PersonalStory.first.id) if PersonalStory.first
     %footer
   
-  %section.grid_3-5
+  %section.grid_3-5.wobble_container
     %header
       %p= t("about_page.feature1_title")
     %div
@@ -34,7 +34,7 @@
       = link_to t("about_page.debate_link"), issue_debate_path(Debate.last.issue_id, Debate.last) if Debate.last
     %footer
   
-  %section.grid_3-5.omega
+  %section.grid_3-5.omega.wobble_container
     %header
       %p= t("about_page.feature1_title")
     %div

@@ -21,18 +21,7 @@
 @import "vars.css.scss";
 @import "mixins.css.scss";
 
-.Akagi-Book { font-family: Akagi-Book; }
-.Akagi-Light { font-family: Akagi-Light; }
-
-.clear_left {clear:left;}
-.clear_right {clear:right;}
-
-.Folk-solid { font-family: Folk-solid; }
-
-.left { float: left }
-.right { float: right }
-
-.small {font-size: 10.5px;}
+header, footer, nav, section, article { display: block; }
 
 a {
   text-decoration: none;
@@ -232,6 +221,24 @@ nav#primary {
 
 textarea.error, input.error, select.error { border-color: $pink !important; }
 
+.Akagi-Book { font-family: Akagi-Book; }
+.Akagi-Light { font-family: Akagi-Light; }
+
+.clear_left {clear:left;}
+.clear_right {clear:right;}
+
+.Folk-solid { font-family: Folk-solid; }
+
+.left { float: left }
+.right { float: right }
+
+.small {font-size: 10.5px;}
+.text_align {
+  &.center {
+    text-align: center;
+  }
+}
+
 .btn, .btn.disabled, a.btn{
   // Almost all properties are !important because activeadmin's CSS is trying overriding this class
   background: #dc6837 !important;
@@ -286,6 +293,60 @@ textarea.error, input.error, select.error { border-color: $pink !important; }
   padding-top: 10px;
 }
 
+.speech_bubble_container {
+  background: url(/assets/widget-container-green-arrow-bottom.gif) no-repeat bottom left;
+  clear: right;
+  float: right;
+  min-height: 140px;
+  position: relative;
+  width: 301px;
+  &.orange {
+    background: url(/assets/widget-container-orange-arrow-bottom.gif) no-repeat bottom left;
+    min-height: 80px;
+    width: 299px;
+    .speech_bubble_top {
+      background: url(/assets/widget-container-orange-arrow-top.gif) no-repeat top left;
+      height: 53px;
+    }
+    .speech_bubble h3 {
+      color: #fff;
+      font-family: Folk-solid;
+    }
+  }
+  .speech_bubble_top {
+    background: url(/assets/widget-container-green-arrow-top.gif) no-repeat top left;
+    height: 60px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: inherit;
+  }
+  .speech_bubble {
+    float: left;
+    margin: 15px 20px 15px 25px;
+    padding-left: 10px;
+    position:relative;
+    width: auto;
+    a {
+      font-weight: bold;
+      img { 
+        width: 32px; 
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+    h3 {
+      color: #40a468;
+      text-transform: uppercase; 
+      font-size: 1.2em;
+      margin-bottom: 5px;
+    }
+    p { margin: 5px 0; }
+    p.date { color: $pink; }
+  }
+}
+
 .sprite {
   background-image: url('/assets/sprite.png');
   float: left;
@@ -293,6 +354,12 @@ textarea.error, input.error, select.error { border-color: $pink !important; }
 }
 
 .sprite.debate {
+  background-position: -152px -140px;
+  height: 47px;
+  width: 58px;
+}
+
+.sprite.debate_pink {
   background-position: -152px -140px;
   height: 47px;
   width: 58px;
@@ -328,28 +395,88 @@ textarea.error, input.error, select.error { border-color: $pink !important; }
   width: 24px;
 }
 
+.sprite.personal_story_pink {
+  background-position: -10px -136px;
+  height: 55px;
+  width: 68px;
+}
+
 .sprite.petition {
   background-position: -88px -135px;
   height: 51px;
   width: 59px;
 }
 
-.sprite.twitter {
-  background-position: -122px -34px;
-  height: 25px;
-  width: 24px;
+.sprite.petition_pink {
+  background-position: -106px -206px;
+  height: 70px;
+  width: 83px;
 }
 
-.sprite.twitter_small {
+.sprite.twitter {
   background-position: -122px -10px;
   height: 20px;
   width: 55px;
+}
+
+.sprite.twitter_small {
+  background-position: -122px -34px;
+  height: 25px;
+  width: 24px;
 }
 
 .sprite.video {
   background-position: -10px -135px;
   height: 56px;
   width: 68px;
+}
+
+.wobble_container {
+  overflow: hidden;
+  width: 302px;
+  >div {
+    background: url("/assets/widget-container-green-body.gif") repeat-y scroll left top transparent;
+    float: left;
+    min-height: 200px;
+    padding-top: 15px;
+    >.icon {
+      float: right;
+      margin: 10px;
+    }
+    >p {
+      margin: 10px 5px 0;
+    }
+    a {
+      font-weight: bold;
+      margin: 15px;
+    }
+  }
+  header {
+    background: url("/assets/widget-container-green-top.gif") repeat-y scroll 0 0 transparent;
+    float: left;
+    width: 302px; // Redundancy to override overridden width inheritance from parent <section> 
+    p {
+      color: #FFFFFF;
+      /* important used here to override high specificity global rule set somewhere else: 
+       * body > #main p { font-size: 15px; }
+       * TODO: change font sizes to use em instead of px 
+       */
+      font-size: 1.3em !important;
+      font-weight: bold;
+      line-height: 1.1em;
+      margin: 10px 15px 0 5px;
+      text-transform: uppercase;
+    }
+  }
+  p {
+    padding-left: 10px;
+  }
+  footer {
+    background: url("/assets/widget-container-green-bottom.gif") repeat-y scroll left bottom transparent;
+    float: left;
+    min-height: 35px;
+    width: 100%;
+  }
 }
 
 #join_us_btn { padding-right: 20px }

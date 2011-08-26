@@ -6,6 +6,7 @@
     %link{:href => "/assets/favicon.png", :rel => "shortcut icon"}
     = csrf_meta_tags
     = yield :meta_tags
+    =javascript_include_tag "libs/modernizr-2.0.js"
   %body{:class=> "#{controller.controller_name} #{controller.action_name}", 'data-controller' => controller_name, 'data-action' => action_name }
     %header.container_12
       =link_to 'home', root_path, :id => "logo", :class => "grid_2 sprite logo ir"
@@ -37,20 +38,20 @@
       %nav.grid_7.alpha
         =link_to "CONTATO", "mailto:info@meurio.org.br"
         |
-        =link_to "POL&#0195;�TICA DE Privacidade", page_path("privacidade")
+        =link_to "POLÍTICA DE Privacidade", page_path("privacidade")
         |
         =link_to "TRABALHE COM A GENTE", page_path("trabalhe")
       %p.social.right.grid_4
-        TAMBÃ‰M ESTAMOS AQUI, Ã“:
-        =link_to image_tag('orkut_25.png'), "http://www.orkut.com/Main#Community?cmm=114209047", :target => "_blank"
-        =link_to image_tag('twitter_25.png'), "http://twitter.com/#!/meu_rio", :target => "_blank"
-        =link_to image_tag('facebook_25.png'), "http://www.facebook.com/pages/Meu-Rio", :target => "_blank"
+        TAMBÉM ESTAMOS AQUI, Ó:
+        =link_to 'Orkut', "http://www.orkut.com/Main#Community?cmm=114209047", :target => "_blank", :class => "sprite orkut_small ir"
+        =link_to 'Twitter', "http://twitter.com/#!/meu_rio", :target => "_blank", :class => "sprite twitter_small ir"
+        =link_to 'Facebook', "http://www.facebook.com/pages/Meu-Rio", :target => "_blank", :class => "sprite facebook_small ir"
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"}
     :javascript
       !window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))    
     =javascript_include_tag("http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js")
     =javascript_include_tag("http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js")
-    =javascript_include_tag "libs/underscore-1.1.6.min.js", "libs/modernizr-2.0.js", "libs/facebox", "libs/store", "libs/jquery.tools.min", "application"
+    =javascript_include_tag "libs/underscore-1.1.6.min.js", "libs/facebox", "libs/store", "libs/jquery.tools.min", "application"
     = yield :javascripts
     /[if lt IE 7 ]
       <script src="assets/libs/dd_belatedpng.js"></script>

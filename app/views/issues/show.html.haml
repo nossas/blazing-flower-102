@@ -13,26 +13,35 @@
         =image_tag('next_link.png')
 .grid_3-5.omega
   -if @issue.featured_petition
-    .block.petition
-      %p.title= t("issue_show.petition")
-      .right=image_tag("petition_icon.png")
-      %p=@issue.petition_call_to_action
-      =image_tag("comments_arrow.png", :class => "block_arrow")
-      =link_to "Assine Embaixo", issue_custom_petition_path(@issue.id, @issue.featured_petition.custom_path), :class => 'btn'
+    %section.petition.wobble_container
+      %header
+        %p= t("issue_show.petition")
+      %div
+        .sprite.icon.petition
+        %p=@issue.petition_call_to_action
+        .text_align.center
+          =link_to "Assine Embaixo", issue_custom_petition_path(@issue.id, @issue.featured_petition.custom_path), :class => 'btn'
+      %footer
   -if @issue.featured_debate
-    .block.debate
-      %p.title= t("issue_show.debate")
-      .right=image_tag("debate_icon.png")
-      %p=@issue.debate_call_to_action
-      =image_tag("comments_arrow.png", :class => "block_arrow")
-      =link_to "Dê Sua Opinião", issue_debate_path(@issue.id, @issue.featured_debate), :class => 'btn'
+    %section.debate.wobble_container
+      %header
+        %p= t("issue_show.debate")
+      %div
+        .sprite.icon.debate_pink
+        %p=@issue.debate_call_to_action
+        .text_align.center
+          =link_to "Dê Sua Opinião", issue_debate_path(@issue.id, @issue.featured_debate), :class => 'btn'
+      %footer
   -if @issue.featured_personal_story
-    .block.personal_story
-      %p.title= t("issue_show.personal_story")
-      .right=image_tag("video_icon.png")
-      %p=@issue.personal_story_call_to_action
-      =image_tag("comments_arrow.png", :class => "block_arrow")
-      =link_to "Descubra esse Rio", issue_personal_story_path(@issue.id, @issue.featured_personal_story.id), :class => 'btn'
+    %section.personal_story.wobble_container
+      %header
+        %p= t("issue_show.personal_story")
+      %div
+        .sprite.icon.personal_story_pink
+        %p=@issue.personal_story_call_to_action
+        .text_align.center
+          =link_to "Descubra esse Rio", issue_personal_story_path(@issue.id, @issue.featured_personal_story.id), :class => 'btn'
+      %footer
   .see_more
     =link_to(issue_archive_path(@issue.id)) do
       = t("issue_show.see_more")
