@@ -6,21 +6,91 @@
 @import "mixins.css.scss";
 
 body.debates {
+  h2 {
+    font-size: 26px;
+  }
+
   .addthis_button img {
     padding-left: 16px;
   }
 
-  #comment_area{
-    padding-top: 29px;
+  .authors {
+    margin: 0 0 20px 0;
+    background: url("/assets/debate_divider.png") repeat-y center;
+    .author1, .author2 {
+      width: 45%;
+      p { 
+        margin-bottom: 0;
+        &.name {
+          color: $blue;
+          font-size: 18px;
+           &:hover {
+             color: $pink;
+           }
+        }
+        &.bio {
+          margin-bottom: 20px;
+        } 
+      }
+      .balloon {
+        .content {
+          color: white;
+          padding: 10px 20px 10px 10px;
+        }
+      }
+    }
+    .author1 { 
+      float: left;
+      text-align: right;
+      .balloon { 
+        float: left;
+        padding-right: 12px;
+      }
+      .profile {
+        display: block;
+        float: right;
+        margin-left: 10px;
+      }
+    }
+    .author2 {
+      float: right;
+      .balloon { 
+        float: right; 
+        padding-left: 12px;
+      }
+      .profile {
+        display: block;
+        float: left;
+        margin-right: 10px;
+      }
+    }
+    .quotes { margin-bottom: 10px; }
+    .texts { 
+      .author1, .author2 {
+        text-align: left;
+      }
+    }
   }
 
-  h2 {
-    font-size: 26px;
-  }
   .comments {
     background: white;
     @include border-radius(4px);
     padding: 30px 24px;
+    form {
+      padding: 24px;
+      img { 
+        float: left;
+        margin-right: 24px;
+      }
+      textarea {
+        width: 588px;
+        height: 100px;
+      }
+      .btn {
+        float: right !important;
+        margin-right: 5px;
+      }
+    }
     h3 {
       color: $orange;
       font-size: 18px;
@@ -36,18 +106,29 @@ body.debates {
     .previous_comments {
       margin-bottom: 15px;
     }
-    .top_buttons{
+    .top_buttons {
+      
     }
     .subtitle {
       padding: 0 20px 10px 0px;
       border-bottom: 1px solid $blue;
+      overflow: hidden;
       #join_the_coversation {
         font-size: 18px;
         font-weight: normal !important;
       }
-      
-      .comments_tooltip {
-        margin-top: -3px;
+      >div {
+        float: right;
+        margin-top: 7px;
+      }
+      .comments_tooltip_large {
+        margin-top: 0px;
+      }
+      span {
+        color: $pink;
+        font-size: 1.3em;
+        font-weight: bold;
+        padding-left: 5px;
       }
     }
     .comment {
@@ -72,7 +153,7 @@ body.debates {
         width: 12px;
       }
       .date {
-        color: #595959;
+        color: $dark_gray;
       }
     }
 
@@ -89,12 +170,6 @@ body.debates {
       width: 15px;
     }
 
-    #close {
-      margin-top: 15px;
-      float: right;
-      cursor: pointer;
-    }
-
     .load_more {
       text-transform: uppercase;
       font-size: 95%;
@@ -102,60 +177,57 @@ body.debates {
     }
 
     .load_more_link {
-      cursor: pointer;
       background: url(/assets/orange_open_icon.png) top right no-repeat;
-      padding: 3px 25px 0 0;
+      cursor: pointer;
+      line-height: 16px;
+      padding: 3px 25px 10px 0;
 
       &:hover {
         color: $pink;
       }
     }
-    form {
-      padding: 24px;
-      img { 
-        float: left;
-        margin-right: 24px;
-      }
-      textarea {
-        width: 588px;
-        height: 100px;
-      }
-      .btn {
-        float: right !important;
-        margin-right: 5px;
-      }
+
+    #close {
+      margin-top: 15px;
+      float: right;
+      cursor: pointer;
     }
   }
 
-  .share{
-    float:left;
-  }
-
-  .debate_header{
+  .debate_header {
     background: white;
-    @include border-radius(4px);
-    padding: 20px;
     margin: 10px 0;
-    @include box-shadow(#dddcdc 0px 0 5px 1px);
+    padding: 20px;
     h2{
       color: $orange;
       text-align: center;
     }
-    .date{
+    .comments_counter {
+      color: $dark_gray;
+      float: left;
+      line-height: 2em;
+      width: 47%;
+      a.comments_link:hover{
+        text-decoration: none !important;
+      }
+    }
+    .comments_link {
+      span {
+        color: $pink;
+        font-weight: bold;
+      }
+    }
+    .comments_tooltip {
+      margin-right: 5px;
+      top: 6px;
+    }
+    .date {
       width: 47%;
       float: left;
       text-align: right;
       line-height: 2em;
     }
-    .comments_counter{
-      width: 47%;
-      float: left;
-      line-height: 2em;
-      a.comments_link:hover{
-        text-decoration: none !important;
-      }
-    }
-    .little_ball{
+    .little_ball {
       width: 6%;
       line-height: 1em;
       text-align: center;
@@ -163,101 +235,24 @@ body.debates {
       font-size: 200%;
       font-weight: bold;
     }
-    .comments_tooltip{
-      display: inline-block;
-      float: none;
-    }
   }
-  .comments_tooltip {
-    position: relative;
-    padding: 3px 5px 1px 5px;
-    border: 2px solid $pink;
-    color: #333;
-    background: white;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    line-height: 100%;
-    color: $pink;
-    font-weight: bold;
-    float: right;
-    &:before {
-      content: "";
-      position: absolute;
-      bottom: -9px;
-      left: 6px;
-      border-width: 7px 7px 0 0;
-      border-style: solid;
-      border-color: $pink transparent;
-      display: block;
-      width: 0;
-    }
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 8px;
-      border-width: 4px 4px 0 0;
-      border-style: solid;
-      border-color: white transparent;
-      display: block;
-      width: 0;
-    }
-  }
-  .authors{
-    margin: 20px 0;
-    background: url("/assets/debate_divider.png") repeat-y center;
-    .author1, .author2 {
-      width: 45%;
-      p { margin-bottom: 0; }
-      p.name{
-        color: $blue;
-        font-size: 18px;
-        &:hover {
-          color: $pink;
-        }
-      }
-      p.bio { margin-bottom: 20px; }
-      .balloon{
-        .content{
-          width: 230px;
-          color: white;
-          padding: 10px;
-          @include border-radius(10px);
-        }
-      }
-    }
-    .author1 { 
-      float: left;
-      text-align: right;
-      .balloon { 
-        float: left;
-        padding-right: 12px;
-        background: url("/assets/debate_quote_balloon_left.png") no-repeat right 20px;
-        .content{
-          background: #e574b0;
-        }
-      }
-    }
-    .author2 {
-      float: right;
-      .balloon { 
-        float: right; 
-        padding-left: 12px;
-        background: url("/assets/debate_quote_balloon_right.png") no-repeat left 20px;
-        .content {
-          background: #f19d68;
-        }
-      }
-    }
-    .quotes { margin-bottom: 20px; }
-    .texts { 
-      .author1, .author2 {
-        text-align: left;
+
+  .grid_12 {
+    .issue_name {
+      .sprite.debate {
+        float: right;
+        position: absolute;
+        right: 15px;
       }
     }
   }
+
   .quotes { margin-bottom: 20px; }
+
+  .share{
+    float:left;
+  }
+
   .texts {
     .author1, .author2 { 
       text-align: left; 
@@ -265,6 +260,11 @@ body.debates {
   }
 
   #bottom_buttons {
+    overflow: hidden;
     padding-bottom: 10px;
+  }
+
+  #comment_area{
+    padding-top: 29px;
   }
 }

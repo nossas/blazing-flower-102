@@ -253,7 +253,6 @@ textarea.error, input.error, select.error { border-color: $pink !important; }
   text-transform: uppercase !important;
   text-decoration: none !important;
   text-align: center !important;
-  text-shadow: 0 0 1px black !important;
   padding: 10px !important;
   line-height: 100%;
   margin: 0;
@@ -351,6 +350,30 @@ textarea.error, input.error, select.error { border-color: $pink !important; }
   background-image: url('/assets/sprite.png');
   float: left;
   position: relative;
+}
+
+.sprite.balloon_left {
+  background-position: 0px -288px;
+  height: 116px;
+  width: 353px;
+}
+
+.sprite.balloon_right {
+  background-position: -10px -415px;
+  height: 116px;
+  width: 353px;
+}
+
+.sprite.comments_tooltip {
+  background-position: -99px -98px;
+  height: 22px;
+  width: 28px;
+}
+
+.sprite.comments_tooltip_large {
+  background-position: -49px -95px;
+  height: 29px;
+  width: 37px;
 }
 
 .sprite.debate {

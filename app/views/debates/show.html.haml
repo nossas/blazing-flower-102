@@ -1,5 +1,7 @@
 .grid_12
-  .issue_name= link_to @debate.issue.name, issue_path(@debate.issue)
+  .issue_name
+    .sprite.debate
+    = link_to @debate.issue.name, issue_path(@debate.issue)
 %h1.grid_12{ "data-debate" => @debate.id }
   = @debate.title
 
@@ -22,34 +24,36 @@
     .little_ball ·
     .comments_counter 
       %a.comments_link{:href=> '#comments_top'}
-        .comments_tooltip= @distinct_member_count
+        .sprite.comments_tooltip
+        %span
+          = @distinct_member_count
       = (@distinct_member_count == 1 ? t("debate_show.have_joined_the_conversation") : t("debate_show.have_joined_the_conversation_plural"))
 
 .grid_10.prefix_1
   .authors
+    .quotes.clearfix
+      .author1
+        .balloon.sprite.balloon_left
+          .content
+            = "\"#{@debate.quote_side_1}\""
+      .author2
+        .balloon.sprite.balloon_right
+          .content
+            = "\"#{@debate.quote_side_2}\""
+    
     .names.clearfix
       .author1
+        = link_to @debate.author_1, :class => "profile"  do
+          = image_tag @debate.author_1.image_url, :height => 60, :width => 60
         = link_to @debate.author_1 do
           %p.name= @debate.author_1.name
         %p.bio= "#{@debate.author_title_side_1}, #{@debate.author_organization_side_1}"
       .author2
+        = link_to @debate.author_2, :class => "profile" do
+          = image_tag @debate.author_2.image_url, :height => 60, :width => 60
         = link_to @debate.author_2 do
           %p.name= @debate.author_2.name
         %p.bio= "#{@debate.author_title_side_2}, #{@debate.author_organization_side_2}"
-    
-    .quotes.clearfix
-      .author1
-        = link_to @debate.author_1 do
-          = image_tag @debate.author_1.image_url, :height => 60, :width => 60
-        .balloon
-          .content
-            = "\"#{@debate.quote_side_1}\""
-      .author2
-        = link_to @debate.author_2 do
-          = image_tag @debate.author_2.image_url, :height => 60, :width => 60
-        .balloon
-          .content
-            = "\"#{@debate.quote_side_2}\""
     
     .texts.clearfix
       .author1= raw @debate.text_side_1.gsub("\n", "<br /><br />")
@@ -65,9 +69,11 @@
         = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
         = image_tag "/assets/loading.gif", :class => "new_comment_loading", :style => "display:none"
       -else
-        =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "comment_login"
+        =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "btn comment_login"
 
-      .comments_tooltip= @comments.count
+      %div
+        .sprite.comments_tooltip_large
+        %span= @comments.count
       .clearfix
     .previous_comments
       - @comments.first(5).each do |comment|
@@ -79,7 +85,7 @@
           = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
           = image_tag "/assets/loading.gif", :class => "new_comment_loading", :style => "display:none"
         -else
-          = link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "comment_login"
+          = link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "btn comment_login"
         .load_more.load_more_link= t("debate_show.load_more")
     - if @comment
       #new_comment
