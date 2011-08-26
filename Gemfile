@@ -45,6 +45,7 @@ gem 'factory_girl_rails'
 gem "faker"
 
 gem 'inherited_resources'
+gem 'kaminari'
 
 group :development, :test do
   gem 'activeadmin'
