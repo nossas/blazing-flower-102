@@ -14,7 +14,7 @@ class PetitionSignature < ActiveRecord::Base
   end
 
   def send_confirmation
-    PetitionMailer.petition_signature_confirmation(self).deliver
+    PetitionMailer.delay.petition_signature_confirmation(self)
   end
 
   def belongs_to_published_petition
