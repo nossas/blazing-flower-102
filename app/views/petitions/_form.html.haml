@@ -3,7 +3,7 @@
   %p= raw @petition.call_to_action_text
   %label.error.already_signed{:for => 'member_email'}
     = raw(t('petition_show.already_signed_error'))
-  
+
   =form_for @petition_signature, :remote => true, :update => { :success => ".take_action" }, :html => {'data-petition_id' => @petition.id} do |f|
     - if current_member.nil?
       =fields_for @member do |m|
@@ -38,7 +38,7 @@
     %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
     .policy.small
       O Meu Rio protege a
-      =link_to "sua privacidade", "/pages/privacy_policy", :target => "_blank"
+      =link_to "sua privacidade", page_path("privacidade"), :target => "_blank"
     .submit
       =f.submit @petition.call_to_action, :class => "btn", :id => "submit_btn"
       =image_tag "/images/ajax-loader.gif", :id => "loader", :style => "display:none"
