@@ -9,8 +9,8 @@
       %p=@issue.description
     .see_more
       %a#read_more{:href => '#'}
-        = t("issue_show.read_more")
-        =image_tag('next_link.png')
+        %span= t("issue_show.read_more")
+        .next_link 
 .grid_3-5.omega
   -if @issue.featured_petition
     .block.petition
@@ -35,5 +35,5 @@
       =link_to "Descubra esse Rio", issue_personal_story_path(@issue.id, @issue.featured_personal_story.id), :class => 'btn'
   .see_more
     =link_to(issue_archive_path(@issue.id)) do
-      = t("issue_show.see_more")
-      =image_tag('next_link.png')
+      %span= t("issue_show.see_more")
+      .next_link
