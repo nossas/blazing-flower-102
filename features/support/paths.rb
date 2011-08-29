@@ -29,7 +29,7 @@ module NavigationHelpers
     when /the personal stories page with a story id in the URL for an issue/
       issue_personal_story_path(Issue.first.id, PersonalStory.last.id)
     when /the about page/
-      page_path("quem_somos")
+      page_path("sobre_nos")
     when /this member page/
       member_path(@member)
     when /my profile page/

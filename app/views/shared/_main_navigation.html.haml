@@ -1,7 +1,7 @@
 %nav#primary
   %ul
     %li
-      =link_to('SOBRE NÓS', page_path(:id => 'quem_somos'), :class => "top_level #{(@current_page ==  'about' ? 'selected' : nil)}")+'|'
+      =link_to('SOBRE NÓS', page_path(:id => 'sobre_nos'), :class => "top_level #{(@current_page ==  'about' ? 'selected' : nil)}")+'|'
     %li.issue_menu_wrap
       =link_to('NA ATIVIDADE', '#', :class => "top_level")+'|'
       -if nav_issues.count > 2
@@ -26,6 +26,6 @@
                 =link_to image_tag(issue.thumbnail), issue
                 =link_to issue.name, issue
     %li
-      =link_to('NOSSO BLOG', "#", :class => "top_level")+'|'
+      =link_to('NOSSO BLOG', "http://meu-rio.tumblr.com/", :class => "top_level", :target => "_blank")+'|'
     %li
       =link_to 'DANDO UMA FORÇA', "#", :class => "top_level last"
