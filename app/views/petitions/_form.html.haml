@@ -1,44 +1,53 @@
-.canvas.clearfix
-  %h2= @petition.call_to_action_headline
-  %p= raw @petition.call_to_action_text
-  %label.error.already_signed{:for => 'member_email'}
-    = raw(t('petition_show.already_signed_error'))
-  
-  =form_for @petition_signature, :remote => true, :update => { :success => ".take_action" }, :html => {'data-petition_id' => @petition.id} do |f|
-    - if current_member.nil?
-      =fields_for @member do |m|
-        .row.clearfix
-          .field
-            =m.label :first_name
-            %span.required_mark *
-            =m.text_field :first_name, :class => "required"
-          .field.right
-            =m.label :last_name
-            %span.required_mark *
-            =m.text_field :last_name, :class => "required"
-        .row.clearfix
-          .field
-            =m.label :email
-            %span.required_mark *
-            =m.text_field :email, :class => "required email"
-          .field.right
-            =m.label :zona
-            =m.select :zona, ['', 'Centro', 'Norte', 'Oeste', 'Sul', 'Eu não sou do Rio'], :class => "required"
-    - else
-      .member_info.clearfix
-        %p
-          =image_tag current_member.image_url, :id => "member_thumbnail"
+.speech_bubble_container.gray_big
+  .speech_bubble_top
+  .speech_bubble
+    %h2= @petition.call_to_action_headline
+    %p= raw @petition.call_to_action_text
+    %label.error.already_signed{:for => 'member_email'}
+      = raw(t('petition_show.already_signed_error'))
+    
+    =form_for @petition_signature, :remote => true, :update => { :success => ".take_action" }, :html => {'data-petition_id' => @petition.id} do |f|
+      - if current_member.nil?
+        =fields_for @member do |m|
+          .row.clearfix
+            .field
+              =m.label :first_name
+              %span.required_mark *
+              =m.text_field :first_name, :class => "required"
+            .field.right
+              =m.label :last_name
+              %span.required_mark *
+              =m.text_field :last_name, :class => "required"
+          .row.clearfix
+            .field
+              =m.label :email
+              %span.required_mark *
+              =m.text_field :email, :class => "required email"
+            .field.right.zona
+              =m.label :zona
+              %dl.dropdown
+                %dt
+                  %span="Centro"
+                %dd
+                  %ul
+                    -Array.[]('', 'Centro', 'Norte', 'Oeste', 'Sul', 'Eu não sou do Rio').each do |petition|
+                      %li=link_to petition, petition
+              =m.select :zona, ['', 'Centro', 'Norte', 'Oeste', 'Sul', 'Eu não sou do Rio'], :class => "required"
+      - else
+        .member_info.clearfix
           %p
-            %strong=current_member.name
-          %p=current_member.email
-    .row.comment
-      =f.label :comment
-      =f.text_area :comment, :rows => 4, :maxlength => "140"
-      %small#comment_tip= t("petition_show.comment_tip")
-    %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
-    .policy.small
-      O Meu Rio protege a
-      =link_to "sua privacidade", "/pages/privacy_policy", :target => "_blank"
-    .submit
-      =f.submit @petition.call_to_action, :class => "btn", :id => "submit_btn"
-      =image_tag "/images/ajax-loader.gif", :id => "loader", :style => "display:none"
+            =image_tag current_member.image_url, :id => "member_thumbnail"
+            %p
+              %strong=current_member.name
+            %p=current_member.email
+      .row.comment
+        =f.label :comment
+        =f.text_area :comment, :rows => 4, :maxlength => "140"
+        %small#comment_tip= t("petition_show.comment_tip")
+      %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
+      .policy.small
+        O Meu Rio protege a
+        =link_to "sua privacidade", "/pages/privacy_policy", :target => "_blank"
+      .submit
+        =f.submit @petition.call_to_action, :class => "btn", :id => "submit_btn"
+        =image_tag "/images/ajax-loader.gif", :id => "loader", :style => "display:none"

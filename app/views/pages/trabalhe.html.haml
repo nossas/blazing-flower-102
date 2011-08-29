@@ -13,9 +13,11 @@
         =raw j.description
 
 .grid_4.omega.trabalhe
-  .sidebar
-    %h2= raw t("pages_show_jobs.sidebar_title")
-    =raw t("pages_show_jobs.sidebar_content")
+  .speech_bubble_container.gray
+    .speech_bubble_top
+    .speech_bubble
+      %h2= raw t("pages_show_jobs.sidebar_title")
+      =raw t("pages_show_jobs.sidebar_content")
 
 - content_for :javascripts do
   :javascript

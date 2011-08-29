@@ -1,6 +1,6 @@
 .grid_12
   .issue_name
-    .sprite.debate
+    .sprite.debate_pink
     = link_to @debate.issue.name, issue_path(@debate.issue)
 %h1.grid_12{ "data-debate" => @debate.id }
   = @debate.title
@@ -63,7 +63,7 @@
   .comments
     %a{:name => "comments_top"}
     %h3= @debate.comment_prompt
-    = image_tag "/assets/comments_arrow.png", :id => "comments_arrow"
+    .sprite.comments_arrow
     .subtitle
       -if @comment
         = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"

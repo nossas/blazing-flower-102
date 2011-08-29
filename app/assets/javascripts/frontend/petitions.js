@@ -2,7 +2,8 @@ MR.petitions = {
   show : function(){
     //page initializer
     MR.petitions.loadTAF();
-
+    MR.common.setUpDropDowns(MR.petitions.runThese);
+    
     //set listeners
     $(window).bind('hashchange', MR.petitions.loadTAF);
 
@@ -48,6 +49,10 @@ MR.petitions = {
     if(window.location.hash == '#compartilhe'){
       $('.take_action').load(window.location.pathname + '/share')
     }
-  }
+  },
 
+  runThese: function(params){
+    $('option', '#member_zona').removeAttr('selected');
+    $('option[value=' + $(params).attr('href') + ']', '#member_zona').attr('selected', 'selected');
+  }
 }

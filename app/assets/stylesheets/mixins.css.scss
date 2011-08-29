@@ -30,3 +30,10 @@
     box-shadow: $shadow1;
   }
 }
+
+@mixin glow($color){
+  -moz-box-shadow: 0 0 10px $color;
+  -webkit-box-shadow: 0 0 10px $color;
+  filter: progid:DXImageTransform.Microsoft.Glow(color=$color,strength=5);
+  box-shadow: 0 0 10px $color;
+}

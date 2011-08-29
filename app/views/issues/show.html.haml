@@ -17,7 +17,7 @@
       %header
         %p= t("issue_show.petition")
       %div
-        .sprite.icon.petition
+        .sprite.icon.petition_pink
         %p=@issue.petition_call_to_action
         .text_align.center
           =link_to "Assine Embaixo", issue_custom_petition_path(@issue.id, @issue.featured_petition.custom_path), :class => 'btn'

@@ -28,6 +28,40 @@ MR = {
         window.location.href = window.location.href + '#' + store.get('lastFragment');
         store.remove('lastFragment');
       }
+    },
+
+    setUpDropDowns: function(callback){
+      var $dropdown_ul = $(".dropdown dd ul");
+
+      $(".dropdown dt").bind('click', function() {
+          $dropdown_ul.toggle();
+      });
+
+      $(".dropdown dd ul li a").unbind('click').bind('click', function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        var text = $this.html();
+        $(".dropdown dt span").html(text);
+          $dropdown_ul.hide();
+          callback ? callback(this) : function(){};
+      });
+      
+      $(document).unbind('click').bind('click', function(e) {
+        var $clicked = $(e.target);
+        if (! $clicked.parents().hasClass("dropdown"))
+          $dropdown_ul.hide();
+        });
+
+      //initializers
+      MR.issues.removeLastBorder();
+      if(Modernizr.history){
+        window.addEventListener("popstate", function(e){
+          if(e.state !== null){
+            MR.issues.replaceArticles(e.state);
+            $(".dropdown dt span").html(e.state.issue.name);
+          }
+        });
+      }
     }
   },
 

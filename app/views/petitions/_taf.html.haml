@@ -6,40 +6,50 @@
   %h2= t("petition_show.already_signed", :name => @member.first_name)
 
 - if @taf && @taf.display_facebook
-  .canvas.clearfix
-    %h3= t("petition_show.share_on_facebook")
-    = link_to image_tag("/assets/auth/facebook_128.png"), "http://www.facebook.com/sharer.php?u=#{request.url}", :target => "_blank", :title => t("petition_show.share_on_facebook"), :class => "facebook_btn"
-    .share_text
-      %strong= @taf.facebook_title
-      %br
-      = @taf.facebook_message
+  .speech_bubble_container.gray_big
+    .speech_bubble_top
+    .speech_bubble
+      %h3= t("petition_show.share_on_facebook")
+      = link_to image_tag("/assets/auth/facebook_128.png"), "http://www.facebook.com/sharer.php?u=#{request.url}", :target => "_blank", :title => t("petition_show.share_on_facebook"), :class => "facebook_btn"
+      .share_text
+        %strong= @taf.facebook_title
+        %br
+        = @taf.facebook_message
   
 - if @taf && @taf.display_orkut
-  .canvas.clearfix
-    %h3= t("petition_show.share_on_orkut")
-    = link_to image_tag("/assets/auth/orkut_128.png"), "http://promote.orkut.com/preview?nt=orkut.com&du=#{request.url}&tt=#{@taf.orkut_title}&cn=#{@taf.orkut_message}", :target => "_blank", :title => t("petition_show.share_on_orkut"), :class => "orkut_btn"
-    .share_text
-      %strong= @taf.orkut_title
-      %br
-      = @taf.orkut_message
+  .speech_bubble_container.gray_big
+    .speech_bubble_top
+    .speech_bubble
+      %h3= t("petition_show.share_on_orkut")
+      = link_to image_tag("/assets/auth/orkut_128.png"), "http://promote.orkut.com/preview?nt=orkut.com&du=#{request.url}&tt=#{@taf.orkut_title}&cn=#{@taf.orkut_message}", :target => "_blank", :title => t("petition_show.share_on_orkut"), :class => "orkut_btn"
+      .share_text
+        %strong= @taf.orkut_title
+        %br
+        = @taf.orkut_message
   
 - if @taf && @taf.display_twitter
-  .canvas.clearfix
-    %h3= t("petition_show.share_on_twitter")
-    = link_to image_tag("/assets/auth/twitter_128.png"), "https://twitter.com/share?url=#{request.url}&text=#{@taf.tweet}", :target => "_blank", :title => t("petition_show.share_on_twitter"), :class => "twitter_btn"
-    .share_text
-      = @taf.tweet
+  .speech_bubble_container.gray_big
+    .speech_bubble_top
+    .speech_bubble
+      %h3= t("petition_show.share_on_twitter")
+      = link_to image_tag("/assets/auth/twitter_128.png"), "https://twitter.com/share?url=#{request.url}&text=#{@taf.tweet}", :target => "_blank", :title => t("petition_show.share_on_twitter"), :class => "twitter_btn"
+      .share_text
+        = @taf.tweet
  
 - if @taf && @taf.display_email
-  .canvas.clearfix
-    %h3= t("petition_show.share_via_email")
-    = link_to image_tag("/assets/auth/email.png"), "mailto:?subject=#{@taf.email_subject}&body=#{@taf.email_message}", :title => t("petition_show.share_via_email"), :class => "email_btn"
-    .share_text
-      %strong= @taf.email_subject
-      %br
-      = @taf.email_message
+  .speech_bubble_container.gray_big
+    .speech_bubble_top
+    .speech_bubble
+      %h3= t("petition_show.share_via_email")
+      = link_to image_tag("/assets/auth/email.png"), "mailto:?subject=#{@taf.email_subject}&body=#{@taf.email_message}", :title => t("petition_show.share_via_email"), :class => "email_btn"
+      .share_text
+        %strong= @taf.email_subject
+        %br
+        = @taf.email_message
   
 - if @taf && @taf.display_copy_url 
-  .canvas.clearfix
-    =raw clippy(issue_custom_petition_url(@taf.petition.issue_id, @taf.petition.custom_path), "#e7e7e7")
-    =text_field_tag "clippy_input", issue_custom_petition_url(@taf.petition.issue_id, @taf.petition.custom_path), :id => "clippy_input", :class => "right"
+  .speech_bubble_container.gray_big
+    .speech_bubble_top
+    .speech_bubble
+      =raw clippy(issue_custom_petition_url(@taf.petition.issue_id, @taf.petition.custom_path), "#e7e7e7")
+      =text_field_tag "clippy_input", issue_custom_petition_url(@taf.petition.issue_id, @taf.petition.custom_path), :id => "clippy_input", :class => "right"

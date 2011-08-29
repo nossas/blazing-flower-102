@@ -70,6 +70,7 @@ body > #main {
 }
 
 body > footer {
+  color: $dark_gray;
   margin-top: 25px;
   nav {
     a, a:visited {
@@ -125,15 +126,17 @@ nav#primary {
     position:relative;
     a.top_level {
       display:inline-block;
-      padding: 0px 15px;
+      padding: 0 15px 7px;
       margin: 0px 5px;
       line-height:2;
       color: $dark_gray;
       font-size: 16px;
-      &:hover { color: $pink;}
+      &.last { margin-right: 0; }
+      &.selected,&:hover,&:focus {
+        background: url(/assets/nav_hover_underline.png) no-repeat center bottom;
+        outline: 0 none !important;
+      }
     }
-    a.top_level.last { margin-right: 0; }
-    a.top_level.selected,a.top_level:hover { background: url(/assets/nav_hover_underline.png) no-repeat center bottom; color: $pink;}
   }
   li.issue_menu_wrap{
     &:hover {
@@ -154,63 +157,62 @@ nav#primary {
       }
     }
     .issue_menu{
-      font-weight:normal;
+      background-color: rgba(237, 126, 67, .9);
+      @include border-radius(5px 0 5px 5px);
+      font-weight: normal;
+      min-height: 100px;
+      position: absolute;
+      padding: 15px 10px;
+      right: 9px; // See comment below about odd 1px bug for issues page
+      visibility: hidden;
+      z-index: 100;
       &.wide{
-        width:410px;
+        width: 410px;
       }
       &.small{
-        width:240px;
+        width: 240px;
         .thumbnails{
-          padding-right:0;
+          padding-right: 0;
         }
       }
-      visibility:hidden;
-      position:absolute;
-      padding:15px 10px;
-      right:8px; // See comment below about odd 1px bug for issues page
-      z-index:100;
-      background-color:rgba(237, 126, 67, .9);
-      @include border-radius(5px 0 5px 5px);
-
-      min-height:100px;
       .thumbnails {
-        float:left;
-        padding-right:10px;
+        float: left;
+        padding-right: 10px;
         li.issue_pane {
-          width:100px;
-          padding:0 10px;
+          width: 100px;
+          padding: 0 10px;
           a {
-            font-size:13px;
-            color:#fff;
-            padding:none;
+            font-size: 13px;
+            color: #fff;
+            padding: none;
             img {
-              width:100px;
-              height:75px;
+              width: 100px;
+              height: 75px;
             }
           }
         }
       }
       .list {
-        float:left;
-        padding-left:15px;
-        width:130px;
-        min-height:100px;
-        border-left:1px solid #fff;
-        span{
-          display:block;
-          padding-bottom:5px;
-          line-height:12px;
-          font-size:12px;
-          color:#fff;
+        float: left;
+        padding-left: 15px;
+        width: 130px;
+        min-height: 100px;
+        border-left: 1px solid #fff;
+        span {
+          display: block;
+          padding-bottom: 5px;
+          line-height: 12px;
+          font-size: 12px;
+          color: #fff;
         }
         ul {
-          padding-left:10px;
+          padding-left: 10px;
           li.issue_pane {
             a {
-              display:block;
-              width:130px;
-              font-size:12px;
-              color:#fff;
+              display: block;
+              width: 130px;
+              font-size: 12px;
+              color: #fff;
             }
           }
         }
@@ -219,7 +221,7 @@ nav#primary {
   }
 }
 
-textarea.error, input.error, select.error { border-color: $pink !important; }
+textarea.error, input.error, select.error { border-color: $red !important; }
 
 .Akagi-Book { font-family: Akagi-Book; }
 .Akagi-Light { font-family: Akagi-Light; }
@@ -241,9 +243,7 @@ textarea.error, input.error, select.error { border-color: $pink !important; }
 
 .btn, .btn.disabled, a.btn{
   // Almost all properties are !important because activeadmin's CSS is trying overriding this class
-  background: #dc6837 !important;
-  background: -moz-linear-gradient(top, lighten(#dc6837, 20%) 0%, #dc6837 100%) !important;
-  background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten(#dc6837, 20%)), color-stop(1, #dc6837)) !important;
+  background: $orange url(/assets/bg_btn.gif) repeat-x center center !important;
   @include border-radius(10px !important);
   border: none;
   @include box-shadow(inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray !important);
@@ -253,35 +253,80 @@ textarea.error, input.error, select.error { border-color: $pink !important; }
   text-transform: uppercase !important;
   text-decoration: none !important;
   text-align: center !important;
-  padding: 10px !important;
+  padding: 5px 10px !important;
+  position: relative;
   line-height: 100%;
   margin: 0;
   display: inline-block;
   &:hover {
-    background: $pink !important;
-    background: -moz-linear-gradient(top, lighten($pink, 20%) 0%, $pink 100%) !important;
-    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($pink, 20%)), color-stop(1, $pink)) !important;
+    background: $pink url(/assets/bg_btn-active.gif) repeat-x center center !important;
     cursor: pointer !important;
     text-decoration: none !important;
   }
   &:active{
-    background: #b30300 !important;
+    /*
+    background: $red !important;
     background: -moz-linear-gradient(top, lighten($pink, 15%) 0%, lighten($pink, 5%) 100%) !important;
     background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($pink, 15%)), color-stop(1, lighten($pink, 5%))) !important;
+    */
     @include box-shadow(inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important);
   }
 }
 
 .btn.disabled, .btn.disabled:hover, .btn.disabled:active{
+  /*
   background: $mid_gray !important;
   background: -moz-linear-gradient(top, lighten($mid_gray, 20%) 0%, $mid_gray 100%) !important;
   background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($mid_gray, 20%)), color-stop(1, $mid_gray)) !important;
+  */
   @include box-shadow(inset 0px 0px 0px 1px $mid_gray, 0 1px 3px #333 !important);
 }
 
 .btn.small, a.btn.small {
-  font-size: 15px;
-  padding: 7px !important;
+  font-size: 10px;
+  padding: 5px 7px !important;
+}
+
+/* General dropdown styles */       
+.dropdown {
+  margin: 0 0 0 20px; 
+  padding: 0px;
+  width: 276px;
+  dd, dt, ul { margin: 0px; padding: 0px; }
+  dd { position: relative; margin-top: -3px; }
+  dt {background: url('/assets/archive_dropdown_slice.png') no-repeat scroll right center; display:block; padding:0px 20px 0px 10px; border: none; width:276px; height: 33px; color: $dark_gray; cursor:pointer;
+    span { cursor:pointer; display:block; padding:7px 5px 5px; }
+  }
+  dd ul { 
+    -moz-border-radius: 0 0 10px 10px;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+    background: $lighter_gray none repeat scroll 0 0;
+    display: none;
+    list-style: none;
+    padding: 5px 0px;
+    position: absolute; 
+    left: 0px;
+    top: 0px;
+    width: auto;
+    min-width: 270px;
+    z-index: 1;
+  }
+  span.value { display:none;}
+  dd ul li {
+    margin-left: 0;
+    padding-left:10px;
+    &:hover {
+      background: $light_gray;
+    }
+  }
+  dd ul li a {
+    display:block;
+    padding:5px;
+    &:hover {
+      color: $dark_gray;
+    }
+  }
 }
 
 .issue_name {
@@ -299,19 +344,6 @@ textarea.error, input.error, select.error { border-color: $pink !important; }
   min-height: 140px;
   position: relative;
   width: 301px;
-  &.orange {
-    background: url(/assets/widget-container-orange-arrow-bottom.gif) no-repeat bottom left;
-    min-height: 80px;
-    width: 299px;
-    .speech_bubble_top {
-      background: url(/assets/widget-container-orange-arrow-top.gif) no-repeat top left;
-      height: 53px;
-    }
-    .speech_bubble h3 {
-      color: #fff;
-      font-family: Folk-solid;
-    }
-  }
   .speech_bubble_top {
     background: url(/assets/widget-container-green-arrow-top.gif) no-repeat top left;
     height: 60px;
@@ -343,6 +375,63 @@ textarea.error, input.error, select.error { border-color: $pink !important; }
     }
     p { margin: 5px 0; }
     p.date { color: $pink; }
+    dl dd ul li a {
+      font-weight: normal;
+    }
+  }
+  &.orange {
+    background: url(/assets/widget-container-orange-arrow-bottom.gif) no-repeat bottom left;
+    min-height: 80px;
+    width: 299px;
+    .speech_bubble_top {
+      background: url(/assets/widget-container-orange-arrow-top.gif) no-repeat top left;
+      height: 53px;
+    }
+    .speech_bubble h3 {
+      color: #fff;
+      font-family: Folk-solid;
+    }
+  }
+  &.gray {
+    background: url(/assets/widget-container-gray-bottom.png) no-repeat bottom left;
+    min-height: 80px;
+    width: 275px;
+    .speech_bubble_top {
+      background: url(/assets/widget-container-gray-top.png) no-repeat top left;
+      height: 53px;
+      top: -30px;
+    }
+    .speech_bubble h2 {
+      color: $orange;
+      font-size: 1.3em;
+      margin-bottom: 5px;
+      margin-top: -20px;
+    }
+    .speech_bubble h3 {
+      color: #fff;
+      font-family: Folk-solid;
+    }
+  }
+  &.gray_big {
+    background: url(/assets/widget-container-gray-big-bottom.png) no-repeat bottom left;
+    margin: 30px 0px 15px 25px;
+    min-height: 55px;
+    width: 461px;
+    .speech_bubble_top {
+      background: url(/assets/widget-container-gray-big-top.png) no-repeat top left;
+      height: 53px;
+      top: -30px;
+    }
+    .speech_bubble h2 {
+      color: $orange;
+      font-size: 1.3em;
+      margin-bottom: 5px;
+      margin-top: -20px;
+    }
+    .speech_bubble h3 {
+      color: #fff;
+      font-family: Folk-solid;
+    }
   }
 }
 
@@ -364,6 +453,12 @@ textarea.error, input.error, select.error { border-color: $pink !important; }
   width: 353px;
 }
 
+.sprite.comments_arrow {
+  background-position: -10px -84px;
+  height: 44px;
+  width: 22px;
+}
+
 .sprite.comments_tooltip {
   background-position: -99px -98px;
   height: 22px;
@@ -377,9 +472,9 @@ textarea.error, input.error, select.error { border-color: $pink !important; }
 }
 
 .sprite.debate {
-  background-position: -152px -140px;
-  height: 47px;
-  width: 58px;
+  background-position: -200px -210px;
+  height: 66px;
+  width: 83px;
 }
 
 .sprite.debate_pink {
@@ -418,6 +513,12 @@ textarea.error, input.error, select.error { border-color: $pink !important; }
   width: 24px;
 }
 
+.sprite.personal_story {
+  background-position: -10px -210px;
+  height: 66px;
+  width: 83px;
+}
+
 .sprite.personal_story_pink {
   background-position: -10px -136px;
   height: 55px;
@@ -425,15 +526,15 @@ textarea.error, input.error, select.error { border-color: $pink !important; }
 }
 
 .sprite.petition {
-  background-position: -88px -135px;
-  height: 51px;
-  width: 59px;
+  background-position: -107px -206px;
+  height: 70px;
+  width: 83px;
 }
 
 .sprite.petition_pink {
-  background-position: -106px -206px;
-  height: 70px;
-  width: 83px;
+  background-position: -88px -135px;
+  height: 51px;
+  width: 59px;
 }
 
 .sprite.twitter {
@@ -467,7 +568,7 @@ textarea.error, input.error, select.error { border-color: $pink !important; }
       margin: 10px;
     }
     >p {
-      margin: 10px 5px 0;
+      margin: 10px 5px 0 15px;
     }
     a {
       font-weight: bold;
