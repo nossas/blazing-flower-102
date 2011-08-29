@@ -10,9 +10,6 @@ MeuRio::Application.routes.draw do
     match '/google_logout' => 'member_sessions#google_logout', :as => :google_logout
   end
 
-  # Ren: I no longer believe this is necessary?
-  # match 'admin_user_root' => 'admin/dashboard#index'
-
   namespace :admin do
     get 'preview/assine_embaixo/:id' => "petitions#preview", :as => "preview_petition"
     get 'assine_embaixo/:id/export' => "petitions#export", :as => "export_petition"

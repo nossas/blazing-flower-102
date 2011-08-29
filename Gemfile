@@ -1,20 +1,24 @@
 source :rubyforge
 
-gem "devise", "~> 1.4.2"
-
 # gem 'rails',  :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
 gem 'rails', '3.1.0.rc6'
 gem 'jquery-rails'
+
+# Authentication and Permissions
+gem "devise", "~> 1.4.2"
+gem 'cancan'
 
 # External authentication
 gem "oa-oauth", :require => "omniauth/oauth"
 gem 'oa-openid', :require => 'omniauth/openid'
 
+# External apis
+gem 'twitter'
+gem 'aws-s3'
+gem 'httparty'
+
 # Asset template engines
 gem 'haml'
-# gem 'sass-rails'
-# gem 'coffee-script'
-# gem 'uglifier'
 
 # Asset template engines
 group :assets do
@@ -26,23 +30,8 @@ end
 # Temporary pulling current sprockets source, to avoid plethora of output while tests run
 gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git'
 
-
-# 3 Fixes for activeadmin / rails 3.1
-gem "meta_search",    '>= 1.1.0.pre2'
-gem "fastercsv"
-gem "kaminari"
-
-# Fix for Heroku, try upgrading with Rails 3.1
-# gem "rake", "0.8.7"
-
 gem 'state_machine'
 gem 'paperclip'
-
-gem 'cancan'
-
-gem 'aws-s3'
-gem 'httparty'
-
 gem 'delayed_job'
 
 # Database related gems
@@ -51,16 +40,15 @@ gem 'foreigner'
 
 gem 'dalli'
 
-gem 'twitter'
-
 #including so we can run the complete petition rake task for demos
 gem 'factory_girl_rails'
 gem "faker"
 
 gem 'inherited_resources'
+gem 'kaminari'
 
 group :development, :test do
-  gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
+  gem 'activeadmin'
   gem 'heroku'
   gem 'unicorn'
   gem 'sqlite3', '1.3.3'
@@ -88,7 +76,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
+  gem 'activeadmin'
   # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
   gem 'thin'
   # gem 'newrelic_rpm'

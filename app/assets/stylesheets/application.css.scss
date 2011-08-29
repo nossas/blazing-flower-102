@@ -46,9 +46,40 @@ body > header {
   @include border-radius(0 0 8px 8px);
   .join_login_wrap {font-size: 15px;}
   .member_panel{
-    text-align:right;
-    p { margin: 0; font-size: 14px; }
+    text-align:center;
+    p { margin: 0; font-size: 13px; }
     img { margin-left: 10px; }
+    padding: 10px;
+
+    .info {
+      border-left: 1px solid #fff;
+      padding-left: 10px;
+    }
+
+    .arrow {
+      width: 12px;
+      height: 7px;
+      background: url(/assets/arrows.png) 0px -7px no-repeat;
+      margin-left: 5px;
+    }
+  }
+  .active {
+    background-color: $orange;
+    opacity: 0.8;
+    @include border-radius(5px 5px);
+    a {
+      color: #fff;
+    }
+    .arrow {
+      background: url(/assets/arrows.png) 0px 0px no-repeat;
+    }
+  }
+  .flyout {
+    display: none;
+    text-align: left;
+    padding: 5px 10px 0 0;
+    height: 100%;
+    font-weight: 600;
   }
   .logo {
     background-color: transparent;
@@ -57,7 +88,7 @@ body > header {
 
 nav#primary {
   float:right;
-  margin-top:60px;
+  margin-top:10px;
   color: $dark_gray;
   font-weight: bold;
   li {
@@ -202,15 +233,15 @@ body > footer {
   background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten(#dc6837, 20%)), color-stop(1, #dc6837)) !important;
   @include border-radius(10px !important);
   border: none;
-  @include box-shadow(inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray !important);
+  @include box-shadow(inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray);
   color: #fff !important;
   font-size: 18px;
-  font-weight: bold !important;
+  font-weight: bold;
   text-transform: uppercase !important;
   text-decoration: none !important;
   text-align: center !important;
-  text-shadow: 0 0 1px black !important;
-  padding: 10px !important;
+  text-shadow: 0 0 1px black;
+  padding: 10px;
   line-height: 100%;
   margin: 0;
   display: inline-block;
@@ -239,6 +270,10 @@ body > footer {
 .btn.small, a.btn.small {
   font-size: 15px;
   padding: 7px !important;
+}
+
+.btn a {
+  color: #fff;
 }
 
 input[type="text"], textarea {

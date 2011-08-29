@@ -12,6 +12,9 @@ describe PagesController do
       get("/paginas/index").should route_to("pages#show", :id => "index")
     end
 
+    it "route to #sobre_nos" do
+      {:get => "/paginas/sobre_nos"}.should route_to(:controller => "pages", :action =>"show", :id => "sobre_nos")
+    end
   end
 
 end
