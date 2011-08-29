@@ -5,6 +5,7 @@ MR.petitions = {
 
     //set listeners
     $(window).bind('hashchange', MR.petitions.loadTAF);
+    $(window).bind('hashchange', MR.petitions.loadDonation);
 
     $("form#new_petition_signature").validate({
       messages: {
@@ -42,6 +43,12 @@ MR.petitions = {
         $('#submit_btn').hide();
       }
     });
+  },
+
+  loadDonation: function(){
+    if(window.location.hash == '#doe'){
+      $('.take_action').load(window.location.pathname + '/donate');
+    }
   },
 
   loadTAF: function(){
