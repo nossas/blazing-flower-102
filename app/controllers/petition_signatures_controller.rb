@@ -30,7 +30,10 @@ class PetitionSignaturesController < ApplicationController
     end
 
     @taf = @petition.taf
-    render :partial => "petitions/taf", :layout => false, :content_type => "text/html"
-
+    if @petition.display_donation?
+      render :partial => "petitions/donation", :layout => false, :content_type => "text/html"
+    else
+      render :partial => "petitions/taf", :layout => false, :content_type => "text/html"
+    end
   end
 end

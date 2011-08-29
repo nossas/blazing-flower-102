@@ -34,7 +34,7 @@ MR.petitions = {
     });
 
     $('.take_action').bind('ajax:success', function(event, data){
-      window.location.hash = '#compartilhe';
+      $('.take_action').html(data);
     });
 
     $('#submit_btn').click(function(){
