@@ -2,11 +2,11 @@
   %header
     %h2 LOGIN
   %p.message
-    Entre através de sua rede social favorita
+    Faça o login com a sua conta do Facebook ou Orkut.
   #services
     = link_to(image_tag('auth/facebook_128.png'), member_omniauth_authorize_path(:facebook), :class => "facebook_btn")
     = link_to(image_tag('auth/orkut_128.png'), member_omniauth_authorize_path(:google), :class => "orkut_btn")
   %p.disclaimer
-    We will never know your password or other sensitive data from your account on the social network choosen.  We will only have access to basic information such as name, photo and email.
+    O Meu Rio não terá acesso à sua senha ou informações de sua conta em uma dessas duas redes sociais. Teremos apenas seu nome, email e foto.
   %p.disclaimer
-    Remember what network you registered with.  It's the one you will always use to access your account.
+    Não se esqueça: use apenas uma das duas contas no Meu Rio.
