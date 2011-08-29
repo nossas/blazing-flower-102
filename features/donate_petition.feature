@@ -11,3 +11,12 @@ Feature: Donate for a petition
     When I am on the first petition page
     Then I should see "Obrigada pela sua participação"
     And I should see the petition donation details
+
+  @javascript
+  Scenario: Signing a Petition (existing member, existing petition signature) with javascript
+    Given there is a petition with donation enabled
+    And I am an existing member
+    And I have signed the first petition
+    And I am on the first petition page
+    When I enter my member information in the petition signature form
+    Then I should see a link to the donation
