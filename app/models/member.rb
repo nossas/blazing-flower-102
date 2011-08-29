@@ -65,4 +65,7 @@ class Member < ActiveRecord::Base
     end
   end
 
+  def has_signed? petition
+    !!petition_signatures.find_by_id(petition.id)
+  end
 end
