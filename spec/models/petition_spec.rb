@@ -86,7 +86,7 @@ describe Petition do
 
     context "#display_comment_field => true" do
       before do
-        @petition = Factory.build(:petition, :display_comment_field => true)
+        @petition = Factory.build(:petition, :display_comment_field => true, :comment_question => nil)
       end
 
       it "should validate comment field properties" do
