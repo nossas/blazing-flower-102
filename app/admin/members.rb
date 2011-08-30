@@ -17,4 +17,48 @@ ActiveAdmin.register Member do
       span link_to "Edit", edit_admin_member_path(o)
     end
   end
+
+  show do
+    div({:class => 'panel' }) do
+      div({:class => 'panel_contents' }) do
+        div({:class => 'attributes_table member' }) do
+          table do
+            tr do
+              th { Member.human_attribute_name :first_name }
+              td { member.first_name }
+            end
+            tr do
+              th { Member.human_attribute_name :last_name }
+              td { member.last_name }
+            end
+            tr do
+              th { Member.human_attribute_name :email }
+              td { member.email }
+            end
+            tr do
+              th { Member.human_attribute_name :zona }
+              td { member.zona }
+            end
+            tr do
+              th { Member.human_attribute_name :celular }
+              td { member.celular }
+            end
+            tr do
+              th { Member.human_attribute_name :image_url }
+              td { member.image_url }
+            end
+            tr do
+              th { Member.human_attribute_name :meu_rio_is }
+              td { member.meu_rio_is }
+            end
+            tr do
+              th { Member.human_attribute_name :bio }
+              td { member.bio }
+            end
+          end
+        end
+      end
+    end
+  end
+
 end
