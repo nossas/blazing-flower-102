@@ -240,12 +240,17 @@
       full_messages:
         format: "%{attribute} %{message}"
     
+    models:
+      member: "Membro"
     attributes:
       member:
         first_name: "Nome"
         last_name: "Sobrenome"
         email: "E-mail"
         zona: "Zona"
+        meu_rio_is: "Meu Rio é..."
+        image_url: "URL da imagem"
+        celular: "Celular"
       petition_signature:
         comment: "Comentário"
 
