@@ -47,6 +47,8 @@ gem "faker"
 gem 'inherited_resources'
 gem 'kaminari'
 
+gem "simplecov", :require => false, :group => :test
+
 group :development, :test do
   gem 'activeadmin'
   gem 'heroku'
