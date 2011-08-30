@@ -2,6 +2,7 @@
 db/*.sqlite3
 log/*.log
 tmp/
+coverage/*
 .sass-cache/
 .*.swp
 .DS_Store

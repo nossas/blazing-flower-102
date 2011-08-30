@@ -153,6 +153,9 @@ ActiveAdmin.register Petition do
 
   index do
     column :title
+    column 'Issue' do |p|
+      p.issue.name
+    end
     column :state
     column :custom_path
     column 'Autofire Email' do |p|
