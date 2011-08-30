@@ -1,4 +1,10 @@
-Obrigada pela sua participação
-= @petition.donation_thanks_message
-= @petition.donation_headline
-= @petition.donation_text
+.donation_thanks
+  Obrigada pela sua participação!
+.donation_box
+  .headline
+    = @petition.donation_headline
+  .text
+    = @petition.donation_text
+  .button_wrapper
+    = image_tag 'comments_arrow.png', :class => 'donation_arrow'
+    %input{:type => :submit, :class => :btn, :value => "Faça Uma Doação" }

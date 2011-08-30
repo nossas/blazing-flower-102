@@ -8,7 +8,6 @@ Given /^I have already signed this petition$/ do
 end
 
 Then /^I should see the petition donation details$/ do
-  page.body.should match @petition.donation_thanks_message
   page.body.should match @petition.donation_headline
   page.body.should match @petition.donation_text
 end

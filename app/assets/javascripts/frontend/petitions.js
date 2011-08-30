@@ -2,6 +2,7 @@ MR.petitions = {
   show : function(){
     //page initializer
     MR.petitions.loadTAF();
+    MR.petitions.loadDonation();
 
     //set listeners
     $(window).bind('hashchange', MR.petitions.loadTAF);
