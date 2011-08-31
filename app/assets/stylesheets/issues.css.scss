@@ -6,22 +6,39 @@
 @import "mixins.css.scss";
 
 body.issues {
-
-
   h1 {
     margin-left: 15px;
   }
 
   .grid_8-5.issue_main {
-    width: 636px;
-    margin-left: 16px;
+    width: 620px;
+    margin-left: 10px;
     margin-right: 20px;
   }
 
+  .grid_3-5 {
+    margin-left: 0;
+    .see_more {
+      clear: left;
+    }
+    .wobble_container {
+      margin-bottom: 10px;
+      div {
+        min-height: 0;
+      }
+      .text_align.center {
+        clear: both;
+        text-align: center;
+        a {
+          margin: 0;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
   .intro {
-
     position: relative;
-
     img {
       -webkit-border-radius: 6px;
       -moz-border-radius: 6px;
@@ -29,6 +46,7 @@ body.issues {
       position: absolute;
       top: 0;
       left: 0;
+      width: 620px;
     }
 
   }
@@ -39,10 +57,9 @@ body.issues {
   .excerpt {
     padding: 25px 0;
     margin: 470px 0 25px;
-    border-top: 2px solid $blue;
-    border-bottom: 1px solid $blue;
-    p {
+    p, .see_more a {
       line-height: 160%;
+      padding-left: 15px;
     }
   }
 
@@ -122,40 +139,14 @@ body.issues {
     .date {
       margin:5px 0 15px;
     }
-  .see_more {
-    text-transform: uppercase;
-    font-weight: 800;
-  }
-
-}
-
-  /* General dropdown styles */       
-  dl.dropdown {
-    margin: 0 0 0 20px; 
-    padding: 0px;
-    width: 276px;
-
-    dd, dt, ul { margin: 0px; padding: 0px; }
-
-    dd { position: relative; }
-
-    dt {background: url('/assets/archive_dropdown_slice.png') no-repeat scroll right center; display:block; padding:0px 20px 0px 10px; border: none; width:276px; height: 33px; color: $dark_gray; cursor:pointer;
-      span { cursor:pointer; display:block; padding:7px 5px 5px; }
-    }
-
-   dd ul { background:$light_gray none repeat scroll 0 0; display:none;
-      list-style:none; padding:5px 0px; position:absolute; 
-      left:0px; top:0px; width:auto; min-width:270px;}
-
-   span.value { display:none;}
-
-   dd ul li { margin-left: 0; padding-left:30px;
-    &:hover { background: $dark_gray; }
+    .see_more {
+      text-transform: uppercase;
+      font-weight: 800;
    }
-    dd ul li a { padding:5px; display:block;}
   }
 
   .article_count {
+    border-top: 1px solid $blue;
     margin-bottom: 35px;
   }
   
@@ -179,5 +170,17 @@ body.issues {
     }
   }
 
+  &.archive {
+    a.title {
+      font-weight: bold;
+    }
+    .article .sprite {
+      float: right;
+    }
+    .excerpt {
+      margin: 0;
+      padding: 0;
+    }
+  }
 }
 

@@ -1,7 +1,7 @@
 source :rubyforge
 
 # gem 'rails',  :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
-gem 'rails', '3.1.0.rc6'
+gem 'rails', '~> 3.1.0'
 gem 'jquery-rails'
 
 # Authentication and Permissions
@@ -28,7 +28,7 @@ group :assets do
 end
 
 # Temporary pulling current sprockets source, to avoid plethora of output while tests run
-gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git'
+gem 'sprockets'
 
 gem 'state_machine'
 gem 'paperclip'
@@ -52,7 +52,6 @@ gem "simplecov", :require => false, :group => :test
 group :development, :test do
   gem 'activeadmin'
   gem 'heroku'
-  gem 'unicorn'
   gem 'sqlite3', '1.3.3'
   gem 'foreman'
   gem 'ruby-debug19', :require => 'ruby-debug'
@@ -62,8 +61,6 @@ group :development, :test do
   gem "shoulda-matchers"
 
   gem "mailcatcher"
-
-  # gem 'jasmine'
 
   gem "autotest-rails"
   gem "autotest-growl"

@@ -1,40 +1,49 @@
 %h1.grid_12= t("about_page.title")
 
-.about_image.grid_12
+#about_image.grid_12
   = image_tag "/assets/rio.jpg"
-  .grid_8.alpha= t("about_page.highlight_text")
 
-.grid_8
-  %p= t("about_page.intro")
-  %p= link_to t("about_page.read_more"), "#why_and_goals"
-.grid_4.join_meu_rio
+#about_description.grid_8
+  %p.noindent
+    %span= t("about_page.intro")
+    = link_to t("about_page.read_more"), "#why_and_goals"
+
+#join_meu_rio.grid_4
   %p
     = t("about_page.you_are_important")
     = image_tag "/assets/comments_arrow.png"
   = link_to t("about_page.join_us"), "#login", :class => "btn", :rel => "facebox"
 
-.what_you_can_do.grid_12
+#what_you_can_do.grid_12
   %h2.grid_12.omega= t("about_page.what_you_can_do")
-  .grid_4.omega
-    .feature
-      = image_tag "/assets/03_video_icon.png"
-      %p.title= t("about_page.feature1_title")
-      %p.description= t("about_page.feature1_text")
+  %section.grid_3-5.alpha.wobble_container
+    %header
+      %p= t("about_page.feature1_title")
+    %div
+      .sprite.icon.personal_story
+      %p= t("about_page.feature1_text")
       = link_to t("about_page.video_link"), issue_personal_story_path(:issue_id => PersonalStory.first.issue_id, :id => PersonalStory.first.id) if PersonalStory.first
-  .grid_4
-    .feature
-      = image_tag "/assets/02_debate_icon.png"
-      %p.title= t("about_page.feature2_title")
-      %p.description= t("about_page.feature2_text")
+    %footer
+  
+  %section.grid_3-5.wobble_container
+    %header
+      %p= t("about_page.feature1_title")
+    %div
+      .sprite.icon.debate
+      %p= t("about_page.feature2_text")
       = link_to t("about_page.debate_link"), issue_debate_path(Debate.last.issue_id, Debate.last) if Debate.last
-  .grid_4.alpha
-    .feature
-      = image_tag "/assets/01_petition_icon.png"
-      %p.title= t("about_page.feature3_title")
-      %p.description= t("about_page.feature3_text")
+    %footer
+  
+  %section.grid_3-5.omega.wobble_container
+    %header
+      %p= t("about_page.feature1_title")
+    %div
+      .sprite.icon.petition
+      %p= t("about_page.feature3_text")
       = link_to t("about_page.petition_link"), issue_custom_petition_path(Petition.last.issue_id, Petition.last.custom_path) if Petition.last
+    %footer
 
-.grid_8
+#quem_somos.grid_8
   %h2= t("about_page.who_we_are_title")
   %p= raw t("about_page.who_we_are_text").gsub("\n", "<br />")
   %h2#why_and_goals= t("about_page.why_and_goals")
@@ -51,14 +60,19 @@
     %br
     %a{:href=> "#login", :rel => "facebox"} Faça parte do Meu Rio!
 
-.grid_4
-  .speech_bubble
-    %h3= t("about_page.what_we_are_doing")
-    %p.date 28/07/2011
-    %p
-    = link_to t("about_page.read_more_on_blog"), "#"
-  .speech_bubble
-    %h3= t("about_page.follow_us")
-    = link_to image_tag("/assets/auth/facebook_128.png"), "http://www.facebook.com/pages/Meu-Rio", :target => "_blank"
-    = link_to image_tag("/assets/auth/twitter_128.png"), "http://twitter.com/Meu_Rio", :target => "_blank"
-    = link_to image_tag("/assets/auth/orkut_128.png"), "http://www.orkut.com/Main#Community?cmm=114209047", :target => "_blank"
+#quote_container.grid_4
+  .speech_bubble_container
+    .speech_bubble_top
+    .speech_bubble
+      %h3.noindent= t("about_page.what_we_are_doing")
+      %p.date 28/07/2011
+      %p
+      = link_to t("about_page.read_more_on_blog"), "#"
+    
+  .speech_bubble_container.orange
+    .speech_bubble_top
+    .speech_bubble
+      %h3.noindent= t("about_page.follow_us")
+      = link_to 'facebook', "http://www.facebook.com/pages/Meu-Rio", :target => "_blank", :class => "sprite facebook ir"
+      = link_to 'twitter', "http://twitter.com/Meu_Rio", :target => "_blank", :class => "sprite twitter ir"
+      = link_to 'orkut', "http://www.orkut.com/Main#Community?cmm=114209047", :target => "_blank", :class => "sprite orkut ir"

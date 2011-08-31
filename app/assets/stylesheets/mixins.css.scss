@@ -13,9 +13,10 @@
 }
 
 @mixin border-radius($radius){
-  border-radius: $radius;
   -moz-border-radius: $radius;
   -webkit-border-radius: $radius;
+  border-radius: $radius;
+  behavior: url(/assets/ie-css3.htc);
 }
 
 @mixin box-shadow($shadow1, $shadow2 : false){
@@ -29,4 +30,11 @@
     -webkit-box-shadow: $shadow1;
     box-shadow: $shadow1;
   }
+}
+
+@mixin glow($color){
+  -moz-box-shadow: 0 0 10px $color;
+  -webkit-box-shadow: 0 0 10px $color;
+  filter: progid:DXImageTransform.Microsoft.Glow(color=$color,strength=5);
+  box-shadow: 0 0 10px $color;
 }

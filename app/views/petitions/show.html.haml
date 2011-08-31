@@ -5,16 +5,18 @@
     %meta{ :property => "og:url", :content => "#{@taf.facebook_link}" } 
   
 .grid_12
-  .issue_name= link_to "ISSUE NAME", "#"
+  .issue_name
+    .sprite.petition_pink
+    = link_to "ISSUE NAME", "#"
 %h1.grid_12
   = @petition.title.upcase
 .grid_6
   .media{:style => "z-index:0"}= raw @petition.media
   -if @petition.ok_to_display_counter?
-    .grid_4.alpha
+    .grid_5.alpha.progress_bar_container
       .graph
         .progress{:style => "width: #{@petition.percentage_complete}%;"}
-    .grid_2.omega
+    .grid_1.omega.meta_container
       .goal= t("petition_show.goal", :goal => @petition.counter_goal)
     .grid_6.omega.alpha
       %strong.counter= raw t("petition_show.signatures", :count => @petition.petition_signatures.count)
