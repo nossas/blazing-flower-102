@@ -116,6 +116,14 @@ Factory.define :complete_petition, :parent => :petition do |p|
   p.after_create { |p| Factory.create(:autofire_email, :petition => p) }
 end
 
+Factory.define :petition_with_donation_enabled, :parent => :petition do |p|
+  p.after_create { |p| Factory.create(:autofire_email, :petition => p) }
+  p.display_donation true
+  p.donation_thanks_message 'donation thanks'
+  p.donation_headline 'donation help'
+  p.donation_text 'donation text'
+end
+
 Factory.define :petition_signature do |p|
   p.petition { Factory(:complete_petition).tap{|p| p.publish } }
   p.association :member

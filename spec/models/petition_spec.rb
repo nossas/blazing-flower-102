@@ -205,4 +205,29 @@ describe Petition do
 
   end
 
+  describe "#complete?" do
+    let(:taf) { Taf.new.tap{|t| t.stub(:valid?).and_return true} }
+    let(:autofire_email) { AutofireEmail.new.tap{|a| a.stub(:valid?).and_return true} }
+
+    context "when the petition have no TAF, autofire email, nor display donation" do
+      its(:complete?) { should be_false }
+    end
+
+    context "when the petition have a TAF, autofire email, but it's not a display donation" do
+      subject { Petition.new(:taf => taf, :autofire_email => autofire_email) }
+      its(:complete?) { should be_true }
+    end
+
+    context "when the petition have a TAF, and display donation but no autofire email" do
+      subject { Petition.new(:taf => taf, :display_donation => true) }
+      its(:complete?) { should be_false }
+    end
+
+    context "when the petition have a display donation and autofire email but no TAF" do
+      subject { Petition.new(:autofire_email => autofire_email, :display_donation => true) }
+      its(:complete?) { should be_true }
+    end
+
+  end
+
 end

@@ -1,4 +1,4 @@
--if @petition.complete?
+-if @petition.complete? && !@petition.display_donation?
   =content_for :meta_tags do
     %meta{ :property => "og:image", :content => "#{@taf.facebook_image.url(:medium)}" } 
     %meta{ :property => "og:description", :content => "#{@taf.facebook_message}" } 

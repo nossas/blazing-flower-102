@@ -36,7 +36,7 @@ class Petition < ActiveRecord::Base
   before_create :add_wmode_to_youtube_iframe
 
   def complete?
-    (self.taf && self.autofire_email && self.taf.valid? && self.autofire_email.valid?)
+    (taf && autofire_email && taf.valid? && autofire_email.valid?) || (autofire_email && autofire_email.valid? && display_donation)
   end
 
   def ok_to_display_counter?
