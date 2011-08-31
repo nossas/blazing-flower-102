@@ -101,8 +101,8 @@ ActiveAdmin.register Petition do
         end
       end
 
+      h3 'Comments'
       div({:class => 'panel' }) do
-        h3 'Comments'
         div({:class => 'panel_contents' }) do
           div({:class => 'attributes_table petition' }) do
             table do
@@ -122,6 +122,34 @@ ActiveAdmin.register Petition do
           end
         end
       end
+
+
+      h3 'Donation'
+      div({:class => 'panel' }) do
+        div({:class => 'panel_contents' }) do
+          div({:class => 'attributes_table petition' }) do
+            table do
+              tr do
+                th { 'Display Donation?' }
+                td { petition.display_donation == true ? "Yes" : "No" }
+              end
+              tr do
+                th { 'Donation Thanks Message' }
+                td { petition.donation_thanks_message }
+              end
+              tr do
+                th { 'Donation Headline' }
+                td { petition.donation_headline }
+              end
+              tr do
+                th { 'Donation Text' }
+                td { petition.donation_text }
+              end
+            end
+          end
+        end
+      end
+
     end
   end
 
@@ -140,7 +168,9 @@ ActiveAdmin.register Petition do
       end
     end
     column 'TAF' do |p|
-      if p.taf
+      if p.display_donation
+        span 'Disable the donation to use a TAF'
+      elsif p.taf
         link_to "Edit TAF", edit_admin_taf_path(p.taf)
       else
         link_to "Create TAF", new_admin_taf_path
@@ -189,6 +219,13 @@ ActiveAdmin.register Petition do
       f.input :display_comment_field
       f.input :comment_question, :as => :string
       f.input :surface_comments
+    end
+
+    f.inputs "Donation Settings" do
+      f.input :display_donation
+      f.input :donation_thanks_message, :as => :string
+      f.input :donation_headline, :as => :string
+      f.input :donation_text
     end
 
     f.buttons

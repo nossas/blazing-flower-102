@@ -2,10 +2,12 @@ MR.petitions = {
   show : function(){
     //page initializer
     MR.petitions.loadTAF();
+    MR.petitions.loadDonation();
     MR.common.setUpDropDowns(MR.petitions.runThese);
-    
+
     //set listeners
     $(window).bind('hashchange', MR.petitions.loadTAF);
+    $(window).bind('hashchange', MR.petitions.loadDonation);
 
     $("form#new_petition_signature").validate({
       messages: {
@@ -44,7 +46,7 @@ MR.petitions = {
           $progress.animate({width: percent + '%'});
         }
       }
-      window.location.hash = '#compartilhe';
+      $('.take_action').html(data);
     });
 
     $('#submit_btn').click(function(){
@@ -53,6 +55,12 @@ MR.petitions = {
         $('#submit_btn').hide();
       }
     });
+  },
+
+  loadDonation: function(){
+    if(window.location.hash == '#doe'){
+      $('.take_action').load(window.location.pathname + '/donate');
+    }
   },
 
   loadTAF: function(){
