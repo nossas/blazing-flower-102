@@ -1,4 +1,5 @@
 ActiveAdmin.register Issue do
+  menu :priority => 2
   index do
     column :name
     column "Options" do |o|

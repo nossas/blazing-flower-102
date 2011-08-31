@@ -1,4 +1,6 @@
 ActiveAdmin.register Petition do
+  menu :priority => 1
+
   filter :state, :as => :select, :collection => ['draft', 'published', 'archived', 'deactivated']
   filter :title
   filter :custom_path
