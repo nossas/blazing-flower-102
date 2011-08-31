@@ -154,12 +154,24 @@ ActiveAdmin.register Petition do
   end
 
   index do
-    column :title
+    column 'Title' do |p|
+      if p.state == ('published' || 'archived')
+        link_to p.title, custom_petition_path(p.custom_path)
+      else
+        "#{p.title}"
+      end
+    end
     column 'Issue' do |p|
       p.issue.name
     end
     column :state
-    column :custom_path
+    column 'Custom path' do |p|
+      if p.state == ('published' || 'archived')
+        link_to p.custom_path, custom_petition_path(p.custom_path)
+      else
+        "#{p.custom_path}"
+      end
+    end
     column 'Autofire Email' do |p|
       if p.autofire_email
         link_to "Edit Email", edit_admin_autofire_email_path(p.autofire_email)
@@ -179,6 +191,7 @@ ActiveAdmin.register Petition do
     column "Signatures" do |p|
       span p.members.count
     end
+    column :created_at
     column "Options" do |e| 
       span link_to 'Show', admin_petition_path(e)
       span link_to 'Edit', edit_admin_petition_path(e)
