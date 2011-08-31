@@ -14,7 +14,7 @@ ActiveAdmin.register Petition do
       if @petition.published?
         redirect_to custom_petition_path(@petition.custom_path)
       else
-        flash[:notice] = "You're currently viewing the preview of this petition. To publish it, please go back to the Edit page and change its state to Published."
+        flash[:preview] = "You're currently viewing the preview of this petition. To publish it, please go back to the Edit page and change its state to Published."
         render "petitions/show", :layout => 'application'
       end
     end

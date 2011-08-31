@@ -26,8 +26,8 @@
       -if !@petition.nil?
         -if @current.connected_action != "PETITION"
           =link_to t("video_show.take_action_link"), issue_custom_petition_path(@issue.id, @petition.custom_path), :class => "btn take_action petition", :style => "display: none;"
-      -else
-        =link_to t("video_show.take_action_link"), issue_custom_petition_path(@issue.id, @petition.custom_path), :class => "btn take_action petition"
+        -else
+          =link_to t("video_show.take_action_link"), issue_custom_petition_path(@issue.id, @petition.custom_path), :class => "btn take_action petition"
   .clearfix
 .grid_12.video_thumbs
   .story_list

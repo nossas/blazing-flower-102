@@ -1,7 +1,7 @@
 source :rubyforge
 
 # gem 'rails',  :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
-gem 'rails', '3.1.0.rc6'
+gem 'rails', '~> 3.1.0'
 gem 'jquery-rails'
 
 # Authentication and Permissions
@@ -28,7 +28,7 @@ group :assets do
 end
 
 # Temporary pulling current sprockets source, to avoid plethora of output while tests run
-gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git'
+gem 'sprockets'
 
 gem 'state_machine'
 gem 'paperclip'

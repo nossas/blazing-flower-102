@@ -37,6 +37,8 @@ MR.petitions = {
 
     $('.take_action').bind('ajax:success', function(event, data){
       $('.take_action').html(data);
+      var $counter = $('span.counter');
+      $counter.html(parseInt($counter.html()) + 1);
     });
 
     $('#submit_btn').click(function(){
