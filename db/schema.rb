@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(:version => 20110825190821) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "autofire_emails", :force => true do |t|
-    t.text     "from",        :default => "Dev <dev@meurio.org.br>", :null => false
-    t.text     "subject",     :default => "Obrigado por participar", :null => false
+    t.text     "from",        :default => "Alessandra Orofino <alessandra@meurio.org.br>", :null => false
+    t.text     "subject",     :default => "Obrigado por participar",                       :null => false
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"

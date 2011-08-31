@@ -52,7 +52,6 @@ gem "simplecov", :require => false, :group => :test
 group :development, :test do
   gem 'activeadmin'
   gem 'heroku'
-  #gem 'unicorn'
   gem 'sqlite3', '1.3.3'
   gem 'foreman'
   gem 'ruby-debug19', :require => 'ruby-debug'
@@ -61,9 +60,7 @@ group :development, :test do
   gem "rspec-rails", "~> 2.6"
   gem "shoulda-matchers"
 
-  #gem "mailcatcher"
-
-  # gem 'jasmine'
+  gem "mailcatcher"
 
   gem "autotest-rails"
   gem "autotest-growl"
@@ -80,6 +77,6 @@ end
 group :production do
   gem 'activeadmin'
   # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
-  #gem 'thin'
+  gem 'thin'
   # gem 'newrelic_rpm'
 end
