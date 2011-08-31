@@ -1,7 +1,17 @@
 MR.personal_stories = {
   issue_index: function(){
-    var $thumb = $('.story .thumbnail');
+    var story,
+        thumb,
 
+    // Apply 'first' class to every 4th thumbnail
+    $story = $('div.story');
+    $story.each(function(){
+      if ($story.index(this) % 4 === 0){
+        $(this).addClass('first');
+      }
+    });
+    
+    $thumb = $('div.story a.thumbnail');
     $thumb.each(function(){
       var $this = $(this);
       $(this).bind('click', function(e){
@@ -13,11 +23,11 @@ MR.personal_stories = {
         }
       }).mouseenter(function(){
         if($(this).hasClass('current') == false){
-          $(this).children(".play_button").show();
+          $(this).children(".play_button").addClass('active');
         }
       }).mouseleave(function(){
         if($(this).hasClass('current') == false){
-          $(this).children(".play_button").hide();
+          $(this).children(".play_button").removeClass('active');
         }
       });
     });
@@ -58,17 +68,20 @@ MR.personal_stories = {
     if(data.connected_action == "DEBATE"){
       $('.petition.btn').hide();
       $('.debate.btn').show();
+      $('.comments_arrow').removeClass('hidden');
     } else if(data.connected_action == "PETITION"){
       $('.debate.btn').hide();
       $('.petition.btn').show();
+      $('.comments_arrow').removeClass('hidden');
     } else {
       $('.take_action').hide();
+      $('.comments_arrow').addClass('hidden');
     }
   },
 
   movePlayButton: function(thumb){
     $('.story .thumbnail').removeClass("current");
-    $('.play_button').hide();
+    //$('.play_button').removeClass("active");
     thumb.addClass("current");
     thumb.children(".play_button").show();
   }

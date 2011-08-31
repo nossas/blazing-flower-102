@@ -19,7 +19,6 @@
     .clearfix
   .articles.grid_12.alpha.omega
     =render :partial => "articles"
-    .clearfix
   .grid_3.prefix_9.omega.article_count
     .count= "Exibindo #{@articles_start}-#{@articles_end} de #{@article_count}"
     -unless @articles_start < 5

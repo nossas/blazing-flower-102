@@ -6,8 +6,8 @@
 @import "mixins.css.scss";
 
 body.petitions {
-
   h1 {
+    color: $dark_gray;
     margin-bottom: 36px;
   }
 
@@ -38,56 +38,26 @@ body.petitions {
     }
   }
 
-  .media {
-    iframe, img {
-      width: 100% !important
-    }
+  h2 {
+    color: $orange;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
   }
 
-  .graph {
-    margin: 24px 0 14px;
-    background-color: $light_gray;
-    border: 1px solid $light_gray;
-    @include border-radius(8px);
-    .progress {
-      height: 24px;
-      background-color: $pink;
-      background-image: -moz-linear-gradient(100% 100% 90deg, $pink, lighten($pink, 20%));
-      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(lighten($pink, 20%)), to($pink));
-      @include border-radius(4px 0 0 4px);
-    }
+  img#thank_you {
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
-  .goal {
-    margin-top: 28px;
-    text-align: right;
-    font-size: 13px;
-  }
-
-  .counter {
-    font-size: 16px;
-    span{
-      color: $pink;
-      font-size: 24px;
-    }
-  }
-
-  .description { margin-top: 26px }
-
-  .take_action, .comments {
-    margin-left: 20px;
-    width: 450px;
-    h3 { text-transform: uppercase; }
-  }
-
-  .canvas{
+  .canvas {
     background: #ebebeb;
     @include box-shadow(3px 3px 3px #ccc);
     @include border-radius(5px);
     margin-bottom: 10px;
     padding: 16px 24px;
     img { float: left; }
-    .share_text { 
+    .share_text {
       color: $dark_gray;
       font-size: 12.5px;
       margin-top: 5px;
@@ -111,35 +81,6 @@ body.petitions {
     h2 { text-transform: uppercase; }
   }
 
-  h2 {
-    color: $orange;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-  }
-
-  .row {
-    margin-top: 10px;
-    .field {
-      width: 48%;
-      float: left;
-    }
-    .right {
-      float: right;
-    }
-    label { font-size: 12.5px }
-    .required_mark { color: $blue; }
-    input[type="text"], select { width: 184px; }
-    textarea { width: 394px; margin-bottom: 5px; }
-    input[type="text"], textarea, select { display: block; margin-bottom: 5px }
-  }
-
-  .row.comment {
-    margin-bottom: 32px;
-  }
-
-  .policy { padding-top: 15px; float: left; }
-  .submit { float: right }
-  
   .comments {
     margin-top: 48px;
     h3 { border-bottom: 1px solid $light_blue; border-top: 1px solid $light_blue; padding: 10px 0 5px 12px; font-size: 16px; margin-bottom: 24px; }
@@ -156,8 +97,106 @@ body.petitions {
     }
   }
 
-  #clippy_input{
-    width:280px;
+  .counter {
+    font-size: 16px;
+    span{
+      color: $pink;
+      font-size: 24px;
+    }
+  }
+
+  .description { margin-top: 26px }
+
+  .goal {
+    margin-top: 22px;
+    text-align: left;
+    font-size: 13px;
+  }
+
+  .graph {
+    margin: 24px 0 14px;
+    background-color: $light_gray;
+    border: 1px solid $light_gray;
+    @include border-radius(8px);
+    .progress {
+      height: 24px;
+      background-color: $pink;
+      background-image: url(/assets/bg_progress-bar.gif);
+      @include border-radius(4px 0 0 4px);
+    }
+  }
+
+  .issue_name .sprite {
+    float: right;
+    position: absolute;
+    right: 15px;
+  }
+
+  .meta_container {
+    width: 45px;
+  }
+
+  .media {
+    iframe, img {
+      width: 100% !important
+    }
+  }
+
+  .policy { padding-top: 15px; float: left; }
+
+  .progress_bar_container {
+    width: 395px;
+  }
+
+  .row {
+    margin-top: 10px;
+    .field {
+      width: 48%;
+      float: left;
+    }
+    .right {
+      float: right;
+    }
+    label { font-size: 12.5px }
+    .required_mark { color: $blue; }
+    input[type="text"], select { width: 184px; }
+    textarea { width: 394px; margin-bottom: 5px; }
+    input[type="text"], textarea, select { 
+      display: block;
+      margin-bottom: 5px;
+      padding: 6px 3px 7px; 
+    }
+  }
+
+  .row.comment {
+    margin-bottom: 32px;
+  }
+
+  .submit { float: right }
+
+  .take_action, .comments {
+    margin-left: 20px;
+    width: 450px;
+    h3 { text-transform: uppercase; }
+  }
+
+  .zona {
+    >dl {
+      margin: 0;
+      width: 198px;
+      >dd {
+        ul {
+          xdisplay: none;
+          min-width: 162px;
+        }
+      }
+      >dt {
+        width: auto;
+      }
+    }
+    select {
+      display: none;
+    }
   }
 
   #clippy{
@@ -165,9 +204,7 @@ body.petitions {
     padding-top:3px;
   }
 
-  img#thank_you {
-    position: absolute;
-    right: 0;
-    top: 0;
+  #clippy_input{
+    width:280px;
   }
 }

@@ -8,22 +8,20 @@
  *= require_tree . 
 */
 
+/*
+ * Elements are ordered by lowest specificity first,
+ * then alphabetically (e.g., elements, classes, ids)
+ * Alphabetical ordering makes order predictable.
+ * Specificity based ordering keeps code concise, organized,
+ * and lowers risk of having to use !important. 
+ * Together, they eliminate arbitrary and confusing grouping schemes.
+ * -DP
+ */
+
 @import "vars.css.scss";
 @import "mixins.css.scss";
 
-.left { float: left }
-.right { float: right }
-
-.clear_left {clear:left;}
-.clear_right {clear:right;}
-
-.small {font-size: 10.5px;}
-
-.Akagi-Book { font-family: Akagi-Book; }
-.Akagi-Light { font-family: Akagi-Light; }
-
-.Folk-solid { font-family: Folk-solid; }
-
+header, footer, nav, section, article { display: block; }
 
 a {
   text-decoration: none;
@@ -32,7 +30,7 @@ a {
 }
 
 body {
-  background: #e1e1d9 url(/assets/background_texture_100px.png) repeat top left;
+  background: #e1e1d9 url(/assets/bg-test.jpg) no-repeat bottom center fixed;
   height: 100%;
   width: 100%;
   font-family: 'Akagi-Book', Helvetica, Ariel, sans-serif;
@@ -46,147 +44,12 @@ body > header {
   @include border-radius(0 0 8px 8px);
   .join_login_wrap {font-size: 15px;}
   .member_panel{
-    text-align:center;
-    p { margin: 0; font-size: 13px; }
+    text-align:right;
+    p { margin: 0; font-size: 14px; }
     img { margin-left: 10px; }
-    padding: 10px;
-
-    .info {
-      border-left: 1px solid #fff;
-      padding-left: 10px;
-    }
-
-    .arrow {
-      width: 12px;
-      height: 7px;
-      background: url(/assets/arrows.png) 0px -7px no-repeat;
-      margin-left: 5px;
-    }
-  }
-  .active {
-    background-color: $orange;
-    opacity: 0.8;
-    @include border-radius(5px 5px);
-    a {
-      color: #fff;
-    }
-    .arrow {
-      background: url(/assets/arrows.png) 0px 0px no-repeat;
-    }
-  }
-  .flyout {
-    display: none;
-    text-align: left;
-    padding: 5px 10px 0 0;
-    height: 100%;
-    font-weight: 600;
   }
   .logo {
     background-color: transparent;
-  }
-}
-
-nav#primary {
-  float:right;
-  margin-top:10px;
-  color: $dark_gray;
-  font-weight: bold;
-  li {
-    float:left;
-    position:relative;
-    a.top_level {
-      display:inline-block;
-      padding: 0px 15px;
-      margin: 0px 5px;
-      line-height:2;
-      color: $dark_gray;
-      font-size: 16px;
-      &:hover { color: $pink;}
-    }
-    a.top_level.last { margin-right: 0; }
-    a.top_level.selected,a.top_level:hover { background: url(/assets/nav_hover_underline.png) no-repeat center bottom;}
-  }
-  li.issue_menu_wrap{
-    &:hover {
-      .issue_menu.wide, .issue_menu.small{
-        visibility:visible;
-      }
-      >a {
-        color:#fff;
-        background-color:rgba(237, 126, 67, .9);
-      }
-    }
-    position:relative;
-    >a {
-      @include border-radius(5px 5px 0 0);
-      &:hover {
-        background-image:none;
-        color:#fff;
-      }
-    }
-    .issue_menu{
-      font-weight:normal;
-      &.wide{
-        width:410px;
-      }
-      &.small{
-        width:240px;
-        .thumbnails{
-          padding-right:0;
-        }
-      }
-      visibility:hidden;
-      position:absolute;
-      padding:15px 10px;
-      right:8px; // See comment below about odd 1px bug for issues page
-      z-index:100;
-      background-color:rgba(237, 126, 67, .9);
-      @include border-radius(5px 0 5px 5px);
-
-      min-height:100px;
-      .thumbnails {
-        float:left;
-        padding-right:10px;
-        li.issue_pane {
-          width:100px;
-          padding:0 10px;
-          a {
-            font-size:13px;
-            color:#fff;
-            padding:none;
-            img {
-              width:100px;
-              height:75px;
-            }
-          }
-        }
-      }
-      .list {
-        float:left;
-        padding-left:15px;
-        width:130px;
-        min-height:100px;
-        border-left:1px solid #fff;
-        span{
-          display:block;
-          padding-bottom:5px;
-          line-height:12px;
-          font-size:12px;
-          color:#fff;
-        }
-        ul {
-          padding-left:10px;
-          li.issue_pane {
-            a {
-              display:block;
-              width:130px;
-              font-size:12px;
-              color:#fff;
-            }
-          }
-        }
-      }
-    }
   }
 }
 
@@ -207,6 +70,7 @@ body > #main {
 }
 
 body > footer {
+  color: $dark_gray;
   margin-top: 25px;
   nav {
     a, a:visited {
@@ -226,66 +90,6 @@ body > footer {
   }
 }
 
-.btn, .btn.disabled, a.btn{
-  // Almost all properties are !important because activeadmin's CSS is trying overriding this class
-  background: #dc6837 !important;
-  background: -moz-linear-gradient(top, lighten(#dc6837, 20%) 0%, #dc6837 100%) !important;
-  background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten(#dc6837, 20%)), color-stop(1, #dc6837)) !important;
-  @include border-radius(10px !important);
-  border: none;
-  @include box-shadow(inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray);
-  color: #fff !important;
-  font-size: 18px;
-  font-weight: bold;
-  text-transform: uppercase !important;
-  text-decoration: none !important;
-  text-align: center !important;
-  text-shadow: 0 0 1px black;
-  padding: 10px;
-  line-height: 100%;
-  margin: 0;
-  display: inline-block;
-  &:hover {
-    background: $pink !important;
-    background: -moz-linear-gradient(top, lighten($pink, 20%) 0%, $pink 100%) !important;
-    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($pink, 20%)), color-stop(1, $pink)) !important;
-    cursor: pointer !important;
-    text-decoration: none !important;
-  }
-  &:active{
-    background: #b30300 !important;
-    background: -moz-linear-gradient(top, lighten($pink, 15%) 0%, lighten($pink, 5%) 100%) !important;
-    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($pink, 15%)), color-stop(1, lighten($pink, 5%))) !important;
-    @include box-shadow(inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important);
-  }
-}
-
-.btn.disabled, .btn.disabled:hover, .btn.disabled:active{
-  background: $mid_gray !important;
-  background: -moz-linear-gradient(top, lighten($mid_gray, 20%) 0%, $mid_gray 100%) !important;
-  background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($mid_gray, 20%)), color-stop(1, $mid_gray)) !important;
-  @include box-shadow(inset 0px 0px 0px 1px $mid_gray, 0 1px 3px #333 !important);
-}
-
-.btn.small, a.btn.small {
-  font-size: 15px;
-  padding: 7px !important;
-}
-
-.btn a {
-  color: #fff;
-}
-
-input[type="text"], textarea {
-  border: 2px solid $light_gray;
-  &:focus{
-    border-color: $orange;
-  }
-}
-
-textarea.error, input.error, select.error { border-color: $pink !important; }
-label.error{ font-size: 90%; }
-
 h1 {
   font-family: Folk-solid;
   text-transform: uppercase;
@@ -303,7 +107,230 @@ h1 {
   }
 }
 
-#join_us_btn { padding-right: 20px }
+input[type="text"], textarea {
+  border: 2px solid $light_gray;
+  &:focus{
+    border-color: $orange;
+  }
+}
+
+label.error{ font-size: 90%; }
+
+nav#primary {
+  float:right;
+  margin-top:60px;
+  color: $dark_gray;
+  font-weight: bold;
+  li {
+    float:left;
+    position:relative;
+    a.top_level {
+      display:inline-block;
+      padding: 0 15px 7px;
+      margin: 0px 5px;
+      line-height:2;
+      color: $dark_gray;
+      font-size: 16px;
+      &.last { margin-right: 0; }
+      &.selected,&:hover,&:focus {
+        background: url(/assets/nav_hover_underline.png) no-repeat center bottom;
+        outline: 0 none !important;
+      }
+    }
+  }
+  li.issue_menu_wrap{
+    &:hover {
+      .issue_menu.wide, .issue_menu.small, roundrect{
+        visibility:visible;
+      }
+      >a {
+        color:#fff;
+        background-color:rgba(237, 126, 67, .9);
+      }
+    }
+    position:relative;
+    >a {
+      @include border-radius(5px 5px 0 0);
+      &:hover {
+        background-image:none;
+        color:#fff;
+      }
+    }
+    .issue_menu{
+      background-color: rgba(237, 126, 67, .9);
+      @include border-radius(5px 0 5px 5px);
+      font-weight: normal;
+      min-height: 100px;
+      position: absolute;
+      padding: 15px 10px;
+      right: 9px; // See comment below about odd 1px bug for issues page
+      visibility: hidden;
+      z-index: 100;
+      &.wide{
+        width: 410px;
+      }
+      &.small{
+        width: 240px;
+        .thumbnails{
+          padding-right: 0;
+        }
+      }
+      .thumbnails {
+        float: left;
+        padding-right: 10px;
+        li.issue_pane {
+          width: 100px;
+          padding: 0 10px;
+          a {
+            font-size: 13px;
+            color: #fff;
+            padding: none;
+            img {
+              width: 100px;
+              height: 75px;
+            }
+          }
+        }
+      }
+      .list {
+        float: left;
+        padding-left: 15px;
+        width: 130px;
+        min-height: 100px;
+        border-left: 1px solid #fff;
+        span {
+          display: block;
+          padding-bottom: 5px;
+          line-height: 12px;
+          font-size: 12px;
+          color: #fff;
+        }
+        ul {
+          padding-left: 10px;
+          li.issue_pane {
+            a {
+              display: block;
+              width: 130px;
+              font-size: 12px;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+  roundrect {
+    visibility: hidden;
+  }
+}
+
+textarea.error, input.error, select.error { border-color: $red !important; }
+
+.Akagi-Book { font-family: Akagi-Book; }
+.Akagi-Light { font-family: Akagi-Light; }
+
+.clear_left {clear:left;}
+.clear_right {clear:right;}
+
+.Folk-solid { font-family: Folk-solid; }
+
+.left { float: left }
+.right { float: right }
+
+.small {font-size: 10.5px;}
+.text_align {
+  &.center {
+    text-align: center;
+  }
+}
+
+.btn, .btn.disabled, a.btn{
+  // Almost all properties are !important because activeadmin's CSS is trying overriding this class
+  background: $orange url(/assets/bg_btn.gif) repeat-x center center !important;
+  @include border-radius(10px !important);
+  border: none;
+  @include box-shadow(inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray !important);
+  color: #fff !important;
+  font-size: 18px;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  padding: 5px 10px !important;
+  position: relative;
+  line-height: 100%;
+  margin: 0;
+  display: inline-block;
+  &:hover {
+    background: $pink url(/assets/bg_btn-active.gif) repeat-x center center !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+  }
+  &:active{
+    /*
+    background: $red !important;
+    background: -moz-linear-gradient(top, lighten($pink, 15%) 0%, lighten($pink, 5%) 100%) !important;
+    background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($pink, 15%)), color-stop(1, lighten($pink, 5%))) !important;
+    */
+    @include box-shadow(inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important);
+  }
+}
+
+.btn.disabled, .btn.disabled:hover, .btn.disabled:active{
+  /*
+  background: $mid_gray !important;
+  background: -moz-linear-gradient(top, lighten($mid_gray, 20%) 0%, $mid_gray 100%) !important;
+  background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($mid_gray, 20%)), color-stop(1, $mid_gray)) !important;
+  */
+  @include box-shadow(inset 0px 0px 0px 1px $mid_gray, 0 1px 3px #333 !important);
+}
+
+.btn.small, a.btn.small {
+  font-size: 10px;
+  padding: 5px 7px !important;
+}
+
+/* General dropdown styles */       
+.dropdown {
+  margin: 0 0 0 20px; 
+  padding: 0px;
+  width: 276px;
+  dd, dt, ul { margin: 0px; padding: 0px; }
+  dd { position: relative; margin-top: -3px; }
+  dt {background: url('/assets/archive_dropdown_slice.png') no-repeat scroll right center; display:block; padding:0px 20px 0px 10px; border: none; width:276px; height: 33px; color: $dark_gray; cursor:pointer;
+    span { cursor:pointer; display:block; padding:7px 5px 5px; }
+  }
+  dd ul { 
+    -moz-border-radius: 0 0 10px 10px;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+    background: $lighter_gray none repeat scroll 0 0;
+    display: none;
+    list-style: none;
+    padding: 5px 0px;
+    position: absolute; 
+    left: 0px;
+    top: 0px;
+    width: auto;
+    min-width: 270px;
+    z-index: 1;
+  }
+  span.value { display:none;}
+  dd ul li {
+    margin-left: 0;
+    padding-left:10px;
+    &:hover {
+      background: $light_gray;
+    }
+  }
+  dd ul li a {
+    display:block;
+    padding:5px;
+    &:hover {
+      color: $dark_gray;
+    }
+  }
+}
 
 .issue_name {
   text-transform: uppercase;
@@ -313,3 +340,270 @@ h1 {
   padding-top: 10px;
 }
 
+.speech_bubble_container {
+  background: url(/assets/widget-container-green-arrow-bottom.gif) no-repeat bottom left;
+  clear: right;
+  float: right;
+  min-height: 140px;
+  position: relative;
+  width: 301px;
+  .speech_bubble_top {
+    background: url(/assets/widget-container-green-arrow-top.gif) no-repeat top left;
+    height: 60px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: inherit;
+  }
+  .speech_bubble {
+    float: left;
+    margin: 15px 20px 15px 25px;
+    padding-left: 10px;
+    position:relative;
+    width: auto;
+    a {
+      font-weight: bold;
+      img { 
+        width: 32px; 
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+    h3 {
+      color: #40a468;
+      text-transform: uppercase; 
+      font-size: 1.2em;
+      margin-bottom: 5px;
+    }
+    p { margin: 5px 0; }
+    p.date { color: $pink; }
+    dl dd ul li a {
+      font-weight: normal;
+    }
+  }
+  &.orange {
+    background: url(/assets/widget-container-orange-arrow-bottom.gif) no-repeat bottom left;
+    min-height: 80px;
+    width: 299px;
+    .speech_bubble_top {
+      background: url(/assets/widget-container-orange-arrow-top.gif) no-repeat top left;
+      height: 53px;
+    }
+    .speech_bubble h3 {
+      color: #fff;
+      font-family: Folk-solid;
+    }
+  }
+  &.gray {
+    background: url(/assets/widget-container-gray-bottom.png) no-repeat bottom left;
+    min-height: 80px;
+    width: 275px;
+    .speech_bubble_top {
+      background: url(/assets/widget-container-gray-top.png) no-repeat top left;
+      height: 53px;
+      top: -30px;
+    }
+    .speech_bubble h2 {
+      color: $orange;
+      font-size: 1.3em;
+      margin-bottom: 5px;
+      margin-top: -20px;
+    }
+    .speech_bubble h3 {
+      color: #fff;
+      font-family: Folk-solid;
+    }
+  }
+  &.gray_big {
+    background: url(/assets/widget-container-gray-big-bottom.png) no-repeat bottom left;
+    margin: 30px 0px 15px 25px;
+    min-height: 55px;
+    width: 461px;
+    .speech_bubble_top {
+      background: url(/assets/widget-container-gray-big-top.png) no-repeat top left;
+      height: 53px;
+      top: -30px;
+    }
+    .speech_bubble h2 {
+      color: $orange;
+      font-size: 1.3em;
+      margin-bottom: 5px;
+      margin-top: -20px;
+    }
+    .speech_bubble h3 {
+      color: #fff;
+      font-family: Folk-solid;
+    }
+  }
+}
+
+.sprite {
+  background-image: url('/assets/sprite.png');
+  float: left;
+  position: relative;
+}
+
+.sprite.balloon_left {
+  background-position: 0px -288px;
+  height: 116px;
+  width: 353px;
+}
+
+.sprite.balloon_right {
+  background-position: -10px -415px;
+  height: 116px;
+  width: 353px;
+}
+
+.sprite.comments_arrow {
+  background-position: -10px -84px;
+  height: 44px;
+  width: 22px;
+}
+
+.sprite.comments_tooltip {
+  background-position: -99px -98px;
+  height: 22px;
+  width: 28px;
+}
+
+.sprite.comments_tooltip_large {
+  background-position: -49px -95px;
+  height: 29px;
+  width: 37px;
+}
+
+.sprite.debate {
+  background-position: -200px -210px;
+  height: 66px;
+  width: 83px;
+}
+
+.sprite.debate_pink {
+  background-position: -152px -140px;
+  height: 47px;
+  width: 58px;
+}
+
+.sprite.facebook {
+  background-position: -54px -10px;
+  height: 20px;
+  width: 58px;
+}
+
+.sprite.facebook_small {
+  background-position: -54px -34px;
+  height: 24px;
+  width: 24px;
+}
+
+.sprite.logo {
+  background-position: -191px -4px;
+  height: 122px;
+  width: 98px;
+}
+
+.sprite.orkut {
+  background-position: -10px -10px;
+  height: 31px;
+  width: 31px;
+}
+
+.sprite.orkut_small {
+  background-position: -88px -34px;
+  height: 24px;
+  width: 24px;
+}
+
+.sprite.personal_story {
+  background-position: -10px -210px;
+  height: 66px;
+  width: 83px;
+}
+
+.sprite.personal_story_pink {
+  background-position: -10px -136px;
+  height: 55px;
+  width: 68px;
+}
+
+.sprite.petition {
+  background-position: -107px -206px;
+  height: 70px;
+  width: 83px;
+}
+
+.sprite.petition_pink {
+  background-position: -88px -135px;
+  height: 51px;
+  width: 59px;
+}
+
+.sprite.twitter {
+  background-position: -122px -10px;
+  height: 20px;
+  width: 55px;
+}
+
+.sprite.twitter_small {
+  background-position: -122px -34px;
+  height: 25px;
+  width: 24px;
+}
+
+.sprite.video {
+  background-position: -10px -135px;
+  height: 56px;
+  width: 68px;
+}
+
+.wobble_container {
+  overflow: hidden;
+  width: 302px;
+  >div {
+    background: url("/assets/widget-container-green-body.gif") repeat-y scroll left top transparent;
+    float: left;
+    min-height: 200px;
+    padding-top: 15px;
+    >.icon {
+      float: right;
+      margin: 10px;
+    }
+    >p {
+      margin: 10px 5px 0 15px;
+    }
+    a {
+      font-weight: bold;
+      margin: 15px;
+    }
+  }
+  header {
+    background: url("/assets/widget-container-green-top.gif") repeat-y scroll 0 0 transparent;
+    float: left;
+    width: 302px; // Redundancy to override overridden width inheritance from parent <section> 
+    p {
+      color: #FFFFFF;
+      /* important used here to override high specificity global rule set somewhere else: 
+       * body > #main p { font-size: 15px; }
+       * TODO: change font sizes to use em instead of px 
+       */
+      font-size: 1.3em !important;
+      font-weight: bold;
+      line-height: 1.1em;
+      margin: 10px 15px 0 5px;
+      text-transform: uppercase;
+    }
+  }
+  p {
+    padding-left: 10px;
+  }
+  footer {
+    background: url("/assets/widget-container-green-bottom.gif") repeat-y scroll left bottom transparent;
+    float: left;
+    min-height: 35px;
+    width: 100%;
+  }
+}
+
+#join_us_btn { padding-right: 20px }
