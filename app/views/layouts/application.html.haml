@@ -35,6 +35,10 @@
           .clearfix
       =render :partial => "shared/main_navigation"
     #main.container_12
+      - if flash[:preview]
+        %p.preview= flash[:preview]
+      - if alert
+        %p.alert= alert
       = yield
     %footer.container_12
       %nav.grid_7.alpha

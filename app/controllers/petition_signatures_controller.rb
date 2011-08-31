@@ -19,7 +19,7 @@ class PetitionSignaturesController < ApplicationController
         @errors = @member.errors.messages.map do |key, message|
           key.to_s.capitalize + ' ' + message.join(' ') 
         end.join('. ')
-        return redirect_to custom_petition_path(@petition.custom_path), :notice => @errors + '.'
+        return redirect_to custom_petition_path(@petition.custom_path), :alert => @errors + '.'
       end
     end
     @signature = PetitionSignature.find_or_initialize_by_member_id_and_petition_id(@member.id, @petition.id)
