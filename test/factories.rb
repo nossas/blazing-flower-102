@@ -37,6 +37,7 @@ Factory.define :petition do |p|
   p.call_to_action_text "A sua participação é muito importante, contamos com a sua colaboração!"
   p.call_to_action_headline "Assine esta petição!"
   p.title {Faker::Company.name}
+  p.headline {Faker::Lorem.sentence}
   p.description {Faker::Lorem.paragraphs.join("\n")}
   p.short_description {Faker::Lorem.paragraph}
   p.surface_comments true

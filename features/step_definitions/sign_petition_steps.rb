@@ -37,7 +37,7 @@ Then /^I should see a thank\-you message$/ do
 end
 
 Then /^I should see the petition title$/ do
-  assert(page.has_content?("#{Petition.first.headline}"))
+  page.should have_content("#{Petition.first.headline.upcase}")
 end
 
 Then /^I should see a petition signature form$/ do
