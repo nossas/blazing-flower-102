@@ -8,38 +8,37 @@
     <%- unless @issue.debates.blank? %>
       <p style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;">Select what Debate you want to feature on the Issue page. The blank option will not display the module at all.</p>
       <%= f.input :featured_debate, :as => :select, :collection => @issue.debates, :allow_blank => true %>
-      <p style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;">Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long</p>
+      <p id="debate_call_to_action_length" style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;"><span></span>(Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long)</p>
       <%= f.input :debate_call_to_action, :as => :string %>
       <div></div>
     <%- end %>
     <%- unless @issue.personal_stories.blank? %>
       <p style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;">Select what Personal Story Video you want to feature on the Issue page. The blank option will not display the module at all.</p>
       <%= f.input :featured_personal_story, :as => :select, :collection => @issue.personal_stories, :allow_blank => true %>
-      <p style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;">Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long</p>
       <%= f.input :personal_story_call_to_action, :as => :string %>
+      <p id="personal_story_call_to_action_length" style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;"><span></span>(Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long)</p>
       <div></div>
     <%- end %>
     <%- unless @issue.petitions.blank? %>
       <p style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;">Select what Petition you want to feature on the Issue page. The blank option will not display the module at all.</p>
       <%= f.input :featured_petition, :as => :select, :collection => @issue.petitions.where(:state => "published"), :allow_blank => true %>
-      <p style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;">Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long</p>
       <%= f.input :petition_call_to_action, :as => :string %>
+      <p id="petition_call_to_action_length" style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;"><span></span>(Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long)</p>
       <div></div>
     <%- end %>
   <% end %>
   <%= f.buttons %>
 <% end %>
 <script type="text/javascript">
-var counter = function(field){
+var counter = function(field, p){
   $(field).keyup(function(){
-    $(field).parent().next('div').html($(field).val().length + " characters");
+    $(p + ' span').html($(field).val().length + " characters ");
   });
-  $(field).parent().next('div').html($(field).val().length + " characters");
 }
 
-counter('#issue_debate_call_to_action');
-counter('#issue_personal_story_call_to_action');
-counter('#issue_petition_call_to_action');
+counter('#issue_debate_call_to_action', '#debate_call_to_action_length');
+counter('#issue_personal_story_call_to_action', '#personal_story_call_to_action_length');
+counter('#issue_petition_call_to_action', '#petition_call_to_action_length');
 
 </script>
 <style>
