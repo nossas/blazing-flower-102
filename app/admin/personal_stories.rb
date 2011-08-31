@@ -1,4 +1,6 @@
 ActiveAdmin.register PersonalStory do
+  menu :priority => 6
+
   filter :issue
   filter :title
   filter :description

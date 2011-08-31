@@ -11,6 +11,33 @@ body.petitions {
     margin-bottom: 36px;
   }
 
+  .donation_thanks{
+    color: $orange;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  .donation_box{
+    background:url("/assets/donate_background.png") no-repeat;
+    padding: 20px;
+    width: 420px;
+    height: 218px;
+    .headline{
+      font-weight: bold;
+      font-size: 16px;
+      color: $dark_gray;
+      margin-bottom: 15px;
+    }
+    .text{
+      color: $dark_gray;
+      font-size: 12px;
+    }
+    .button_wrapper{
+      float: right;
+    }
+  }
+
   h2 {
     color: $orange;
     margin-bottom: 10px;

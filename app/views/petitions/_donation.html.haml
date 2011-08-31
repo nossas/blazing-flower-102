@@ -1,0 +1,15 @@
+.donation_thanks
+  Obrigada pela sua participação!
+.donation_box
+  .headline
+    = @petition.donation_headline
+  .text
+    = @petition.donation_text
+  .button_wrapper
+    %form{ :method => 'post', :action => 'https://www.moip.com.br/Process.do' }
+      = image_tag 'comments_arrow.png', :class => 'donation_arrow'
+      %input{ :type => 'hidden', :name => 'method', :value => 'donation' }
+      %input{ :type => 'hidden', :name => 'encrypted', :value => 'VVb9chd0Za8WCiQTnUzQaw==' }
+      %input{ :type => 'hidden', :name => 'type', :value => '2' }
+        
+      %input{:type => :submit, :class => :btn, :value => "Faça Uma Doação" }

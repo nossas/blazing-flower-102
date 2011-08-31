@@ -1,4 +1,6 @@
 ActiveAdmin.register Debate do
+  menu :priority => 4
+
   index do
     column :issue
     column :question

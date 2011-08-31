@@ -1,4 +1,6 @@
 ActiveAdmin.register Issue do
+  menu :priority => 2
+
   filter :name
   filter :description
   filter :excerpt

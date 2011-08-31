@@ -1,4 +1,6 @@
 ActiveAdmin.register PetitionSignature, :as => 'PetitionComment' do
+  menu :parent => 'Petitions', :label => "Comment", :priority => 0
+
   actions :all, :except => :new
   filter :petition
   filter :created_at

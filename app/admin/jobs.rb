@@ -1,4 +1,5 @@
 ActiveAdmin.register Job do
+  menu :priority => 11
   index do
     column :title
     column :active
