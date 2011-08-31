@@ -1,7 +1,7 @@
 %nav#primary
   %ul
     %li
-      =link_to('SOBRE NÓS', page_path(:id => 'quem_somos'), :class => "top_level #{(@current_page ==  'quem_somos' ? 'selected' : nil)}")+'|'
+      =link_to('SOBRE NÓS', page_path(:id => 'sobre_nos'), :class => "top_level #{(@current_page ==  'quem_somos' ? 'selected' : nil)}")+'|'
     %li.issue_menu_wrap
       =link_to('NA ATIVIDADE', '#', :class => "top_level")+'|'
       -if nav_issues.count > 2
