@@ -57,4 +57,22 @@ describe Member do
 
     end
   end
+
+  describe "#has_signed?" do
+    let(:member){ Factory(:member) }
+    subject{ member.has_signed?(1) }
+    context "when the user has signed" do
+      before do 
+        member.stub_chain(:petition_signatures, :find_by_petition_id).with(1).and_return(mock_model(PetitionSignature))
+      end
+      it{ should be_true }
+    end
+    context "when the user has not signed" do
+      before do 
+        member.stub_chain(:petition_signatures, :find_by_petition_id).with(1).and_return(nil)
+      end
+      it{ should be_false }
+    end
+  
+  end
 end

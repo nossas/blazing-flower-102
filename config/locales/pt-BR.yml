@@ -262,7 +262,8 @@
       other: "<span class='counter'>%{count}</span> pessoas assinaram esta petição."
     comment_tip: "140 caracteres"
     recent_comments: "Comentários Recentes"
-    already_signed_error: "Esse email já consta na petição. Agora <a class=\"show_taf\" href=\"#share\">espalhe essa ideia</a>."
+    already_signed_error: "Esse email já consta na petição. Agora <a class=\"show_taf\" href=\"#compartilhe\">espalhe essa ideia</a>."
+    already_signed_error_donation: "Esse email já consta na petição. Agora <a class=\"show_taf\" href=\"#doe\">faça uma doação</a>."
     already_signed: "%{name}, você já assinou esta petição! Agora conte isso para os seus amigos:"
     share_on_facebook: "Compartilhar no Facebook"
     share_on_orkut: "Compartilhar no Orkut"
@@ -349,3 +350,6 @@ Com a realização da Copa e das Olimpíadas nos próximos anos, essa oportunida
   page_index:
     know_a_member: "Conheça um membro..."
     join_us: "Junte-se a nós!"
+  pages_thank_you: 
+    title: "Obrigado pela sua participação!"
+    text: "Muito obrigado pela sua doação e por acreditar no trabalho do Meu Rio. Agora que você é um patrocinador do movimento nós lhe enviaremos semestralmente uma cópia eletrônica do nosso relatório de progresso, assim você vai poder acompanhar melhor o destino do seu dindim."

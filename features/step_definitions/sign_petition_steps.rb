@@ -19,7 +19,6 @@ When /^I enter my information in the petition signature form$/ do
   sleep 2
   fill_in "member_first_name", :with => "Diogo"
   fill_in "member_last_name", :with => "Biazus"
-  select "Centro", :from => "member_zona"
 end
 
 When /^I enter my member information in the petition signature form$/ do
@@ -50,5 +49,5 @@ Then /^I should see inline errors$/ do
 end
 
 Then /^I should see a link to the TAF$/ do
-  page.should have_css("a.show_taf[href='#share']")
+  page.should have_css("a.show_taf[href='#compartilhe']")
 end
