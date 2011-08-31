@@ -1,7 +1,13 @@
 ActiveAdmin.register Issue do
   menu :priority => 2
+
+  filter :name
+  filter :description
+  filter :excerpt
+
   index do
     column :name
+    column :created_at
     column "Options" do |o|
       span link_to "Show", admin_issue_path(o)
       span link_to "Edit", edit_admin_issue_path(o)
