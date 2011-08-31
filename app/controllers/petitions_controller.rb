@@ -9,6 +9,8 @@ class PetitionsController < ApplicationController
     @taf = @petition.taf
     @petition_signature = PetitionSignature.new
     @member = current_member || Member.new
+    #raise request.referer.inspect
+    #raise request.env["HTTP_REFERER"].inspect
   end
 
   def donate

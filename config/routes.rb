@@ -21,6 +21,7 @@ MeuRio::Application.routes.draw do
   match "na_atividade/:id/assine_embaixo/:custom_path" => "petitions#show", :as => "issue_custom_petition"
   match "na_atividade/:id/assine_embaixo/:custom_path/share" => "tafs#show", :as => "issue_custom_taf"
   match "na_atividade/:id/assine_embaixo/:custom_path/donate" => "petitions#donate", :as => "issue_custom_donate"
+  match "na_atividade/:id/assine_embaixo/:custom_path/obrigada" => "petitions#thanks", :as => "issue_custom_thanks"
   match "assine_embaixo/:custom_path" => "petitions#show", :as => "custom_petition"
   match "assine_embaixo/:custom_path/share" => "tafs#show", :as => "custom_taf"
   resources :petition_signatures, :only => [:create, :index]
