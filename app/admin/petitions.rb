@@ -156,7 +156,7 @@ ActiveAdmin.register Petition do
   index do
     column 'Title' do |p|
       if p.state == ('published' || 'archived')
-        link_to p.title, custom_petition_path(p)
+        link_to p.title, custom_petition_path(p.custom_path)
       else
         "#{p.title}"
       end
@@ -166,6 +166,13 @@ ActiveAdmin.register Petition do
     end
     column :state
     column :custom_path
+    column 'Custom path' do |p|
+      if p.state == ('published' || 'archived')
+        link_to p.custom_path, custom_petition_path(p.custom_path)
+      else
+        "#{p.custom_path}"
+      end
+    end
     column 'Autofire Email' do |p|
       if p.autofire_email
         link_to "Edit Email", edit_admin_autofire_email_path(p.autofire_email)
