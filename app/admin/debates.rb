@@ -1,6 +1,10 @@
 ActiveAdmin.register Debate do
   menu :priority => 4
 
+  filter :issue
+  filter :author_1
+  filter :author_2
+
   index do
     column :issue
     column :question
@@ -9,6 +13,7 @@ ActiveAdmin.register Debate do
     column "Comments" do |d|
       span "#{d.comments.count}"
     end
+    column :created_at
     column "Options" do |d|
       span link_to "Show", admin_debate_path(d)
       span link_to "Edit", edit_admin_debate_path(d)
