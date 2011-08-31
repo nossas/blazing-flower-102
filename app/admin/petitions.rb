@@ -165,7 +165,6 @@ ActiveAdmin.register Petition do
       p.issue.name
     end
     column :state
-    column :custom_path
     column 'Custom path' do |p|
       if p.state == ('published' || 'archived')
         link_to p.custom_path, custom_petition_path(p.custom_path)
