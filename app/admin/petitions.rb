@@ -141,7 +141,7 @@ ActiveAdmin.register Petition do
               end
               tr do
                 th { 'Donation Text' }
-                td { petition.donation_headline }
+                td { petition.donation_text }
               end
             end
           end
