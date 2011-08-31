@@ -1,5 +1,5 @@
 ActiveAdmin.register AdminUser do
-  menu :label => "Users"
+  menu :priority => 14, :label => "Users"
 
   filter :email
   filter :first_name

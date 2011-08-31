@@ -1,4 +1,6 @@
 ActiveAdmin.register Member do
+  menu :priority => 12
+
   filter :first_name
   filter :last_name
   filter :email

@@ -1,4 +1,6 @@
 ActiveAdmin.register Petition do
+  menu :priority => 1
+
   filter :state, :as => :select, :collection => ['draft', 'published', 'archived', 'deactivated']
   filter :title
   filter :custom_path
@@ -173,6 +175,9 @@ ActiveAdmin.register Petition do
       else
         link_to "Create TAF", new_admin_taf_path
       end
+    end
+    column "Signatures" do |p|
+      span p.members.count
     end
     column "Options" do |e| 
       span link_to 'Show', admin_petition_path(e)

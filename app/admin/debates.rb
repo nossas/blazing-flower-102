@@ -1,9 +1,14 @@
 ActiveAdmin.register Debate do
+  menu :priority => 4
+
   index do
     column :issue
     column :question
     column :author_email_side_1
     column :author_email_side_2
+    column "Comments" do |d|
+      span "#{d.comments.count}"
+    end
     column "Options" do |d|
       span link_to "Show", admin_debate_path(d)
       span link_to "Edit", edit_admin_debate_path(d)
