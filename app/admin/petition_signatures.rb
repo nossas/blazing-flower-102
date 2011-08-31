@@ -21,6 +21,9 @@ ActiveAdmin.register PetitionSignature, :as => 'PetitionComment' do
   
   index do
     column :comment, :sortable => false
+    column 'Petition' do |c|
+      c.petition.title
+    end
     column :created_at
     column :comment_accepted, :sortable => :comment_accepted do |ps|
       if ps.comment_accepted
