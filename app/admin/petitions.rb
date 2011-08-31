@@ -154,7 +154,13 @@ ActiveAdmin.register Petition do
   end
 
   index do
-    column :title
+    column 'Title' do |p|
+      if p.state == ('published' || 'archived')
+        link_to p.title, custom_petition_path(p)
+      else
+        "#{p.title}"
+      end
+    end
     column 'Issue' do |p|
       p.issue.name
     end
