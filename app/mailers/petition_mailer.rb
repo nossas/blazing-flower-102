@@ -13,8 +13,8 @@ class PetitionMailer < ActionMailer::Base
       :subject => @email.subject
     }) do |format|
       format.text
-      format.html
+      # format.html # Text only for now
     end
-    
+
   end
 end
