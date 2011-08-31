@@ -191,6 +191,7 @@ ActiveAdmin.register Petition do
     column "Signatures" do |p|
       span p.members.count
     end
+    column :created_at
     column "Options" do |e| 
       span link_to 'Show', admin_petition_path(e)
       span link_to 'Edit', edit_admin_petition_path(e)
