@@ -2,6 +2,7 @@ class Issue < ActiveRecord::Base
   MIN_CALL_TO_ACTION_LENGTH = 60
   MAX_CALL_TO_ACTION_LENGTH = 80
   validates_presence_of :name
+  validates_presence_of :description
   validates_presence_of :image_file_name
   validates_presence_of :thumbnail_file_name
   validates_length_of :debate_call_to_action, :in => MIN_CALL_TO_ACTION_LENGTH..MAX_CALL_TO_ACTION_LENGTH, :allow_blank => true
