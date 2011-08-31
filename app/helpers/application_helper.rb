@@ -1,5 +1,4 @@
 module ApplicationHelper
-  require 'twitter'
   require 'httparty'
 
   def nav_issues
@@ -31,16 +30,6 @@ module ApplicationHelper
     />
     </object>
     EOF
-  end
-
-  def meu_rio_tweets
-    begin
-      Rails.cache.fetch("tweets", :expires_in => 30.minutes) do
-        result = Twitter.user_timeline('meu_rio').first
-      end
-    rescue
-      "Tweets could not be loaded= #{$!}"
-    end
   end
 
   def weather_category

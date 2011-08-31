@@ -40,6 +40,8 @@ Factory.define :petition do |p|
   p.description {Faker::Lorem.paragraphs.join("\n")}
   p.short_description {Faker::Lorem.paragraph}
   p.surface_comments true
+  p.display_comment_field true
+  p.comment_question "Your comment here"
   p.call_to_action 'Assine'
   p.state 'draft'
   p.association :issue

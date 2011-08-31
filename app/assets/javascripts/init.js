@@ -4,6 +4,16 @@ MR = {
       // application-wide code
       MR.common.googleLogout();
       MR.common.faceboxInit();
+
+      $('.member_panel .arrow').bind('click', function(){
+        $('.flyout').toggle();
+        var $panel = $(this).parent().parent();
+        if($panel.hasClass('active')){
+          $panel.removeClass('active');
+        }else{
+          $panel.addClass('active');
+        }
+      });
     },
 
     googleLogout: function(){

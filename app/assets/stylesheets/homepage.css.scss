@@ -162,19 +162,45 @@
       height:360px;
       padding: 10px;
       background: url('/assets/homepage/member.png') no-repeat center center;
-      h3 {
-        color: $green;
-        text-transform: uppercase;
-        font-style: italic;
-        margin-bottom: 10px;
-        font-size: 18px;
+      .scrollable{
+        position: relative;
+        overflow: hidden;
+        width: 120px;
+        height: 335px;
+        .items{
+          width: 20000em;
+          position: absolute;
+          clear: both;
+          .item{
+            float: left;
+            width: 120px;
+          }
+        }
+        h3 {
+          color: $green;
+          text-transform: uppercase;
+          font-style: italic;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+        h2 {
+          color: $green;
+          font-size: 18px;
+          margin-bottom: 5px;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+        .image{
+          height: 120px;
+          overflow: hidden;
+          img {
+            width: 100%;
+          }
+        }
       }
-      h2 {
-        color: $green;
-        font-size: 18px;
-      }
-      img {
-        width: 100%;
+      .controls{
+        text-align:right;
       }
     }
     &#follow {
@@ -216,6 +242,47 @@
       width:300px;
       height:140px;
       background: url('/assets/homepage/join.png') no-repeat center center;
+      text-align: center;
+
+      h1, h2, h3 {
+        font-family: Folk-solid, sans-serif;
+        color: #fff;
+        -webkit-margin-before: 0em;
+        -webkit-margin-after: 0em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        margin: 0px;
+        padding: 0px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        line-height: 1.15em;
+        font-weight: 400;
+      }
+      h1 {
+        font-size: 175%;
+      }
+
+      h2 {
+        font-size: 150%;
+        margin-bottom: 5px;
+        span {
+          font-size: 75%;
+        }
+      }
+
+      h3 {
+        margin-top: 5px;
+        font-size: 105%;
+      }
+
+      .btn {
+        font-family: Folk-solid, sans-serif;
+        padding: 5px 10px 10px;
+        font-weight: normal;
+        text-shadow: none;
+        letter-spacing: 0.1em;
+        font-size: 19px;
+      }
     }
     &#twitter_widget {
       width:580px;
@@ -232,6 +299,7 @@
       p {
         margin-left: 30px;
         margin-right: 10px;
+        font-size: 102%;
       }
 
       a.name {

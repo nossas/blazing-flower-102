@@ -10,23 +10,29 @@
   %body{:class=> "#{controller.controller_name} #{controller.action_name}", 'data-controller' => controller_name, 'data-action' => action_name }
     %header.container_12
       =link_to 'home', root_path, :id => "logo", :class => "grid_2 sprite logo ir"
-      .grid_3.prefix_7.member_panel
-        - if current_member
-          =image_tag current_member.current_image_url(:thumb), :id => "member_thumbnail", :width => '50', :height => '50', :class => "right"
-          %p=link_to current_member.first_name, member_path(current_member)
-          %p=current_member.email
-          - if session[:fb_token]
-            %p=link_to t("logout"), facebook_logout_path
-          - elsif session[:google_login]
-            %p
-              %a#google_logout_link{:href => google_logout_path, :target => 'google_logout_iframe'}= t('logout')
-              %iframe#google_logout_iframe{:name => "google_logout_iframe", :style=> "display: none;"}
+      .grid_3.prefix_7
+        .member_panel
+          - if current_member
+            .right.info
+              .left
+                =image_tag current_member.current_image_url(:thumb), :id => "member_thumbnail", :width => '50', :height => '50', :class => ""
+                %p=link_to current_member.first_name, member_path(current_member)
+              .right.arrow
+            .flyout.left
+              %p=link_to t("edit_your_profile"), member_path(current_member)
+              - if session[:fb_token]
+                %p=link_to t("logout"), facebook_logout_path
+              - elsif session[:google_login]
+                %p
+                  %a#google_logout_link{:href => google_logout_path, :target => 'google_logout_iframe'}= t('logout')
+                  %iframe#google_logout_iframe{:name => "google_logout_iframe", :style=> "display: none;"}
+              - else
+                %p=link_to t("logout"), destroy_member_session_path
           - else
-            %p=link_to t("logout"), destroy_member_session_path
-        - else
-          .join_login_wrap
-            =link_to t("join_us"), "#", :id => "join_us_btn"
-            =link_to t("login"), "#login", :rel => "facebox"
+            .join_login_wrap
+              =link_to t("join_us"), "#login", :rel => "facebox", :id => "join_us_btn"
+              =link_to t("login"), "#login", :rel => "facebox"
+          .clearfix
       =render :partial => "shared/main_navigation"
     #main.container_12
       - if notice

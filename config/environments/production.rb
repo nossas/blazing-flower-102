@@ -58,7 +58,7 @@ MeuRio::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => "meu-rio.org.br" }
+  config.action_mailer.default_url_options = { :host => "meurio.org.br" }
 
   ActionMailer::Base.smtp_settings = {
     :address        => "smtp.sendgrid.net",

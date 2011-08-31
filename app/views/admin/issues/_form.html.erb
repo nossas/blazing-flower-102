@@ -21,7 +21,7 @@
     <%- end %>
     <%- unless @issue.petitions.blank? %>
       <p style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;">Select what Petition you want to feature on the Issue page. The blank option will not display the module at all.</p>
-      <%= f.input :featured_petition, :as => :select, :collection => @issue.petitions, :allow_blank => true %>
+      <%= f.input :featured_petition, :as => :select, :collection => @issue.petitions.where(:state => "published"), :allow_blank => true %>
       <p style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;">Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long</p>
       <%= f.input :petition_call_to_action, :as => :string %>
       <div></div>

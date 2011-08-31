@@ -149,6 +149,26 @@ body.issues {
     border-top: 1px solid $blue;
     margin-bottom: 35px;
   }
+  
+  .see_more{
+
+    span {
+      display: block;
+      float: left;
+    }
+
+    .next_link{ 
+      background: url(/assets/next_bg.png) 0px 0px no-repeat;
+      height: 10px;
+      width: 10px;
+      float: left;
+      margin: 4px 0 0 4px;
+    }
+
+    a:hover .next_link {
+      background: url(/assets/next_bg.png) 0px -10px no-repeat;
+    }
+  }
 
   &.archive {
     a.title {
