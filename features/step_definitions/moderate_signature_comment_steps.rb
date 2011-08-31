@@ -2,6 +2,10 @@ Given /^(\d+) petition signatures exist$/ do |count|
   count.to_i.times{ Factory(:petition_signature) }
 end
 
+When /^I click on the "Comments" link under Petitions$/ do
+  page.find(:css, "li#petitions ul a").click
+end
+
 Then /^I should see a list of petition signatures$/ do
   assert(page.has_content?(PetitionSignature.first.comment.to_s))
   assert(page.has_content?(PetitionSignature.last.comment.to_s))
