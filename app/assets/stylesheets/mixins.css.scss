@@ -13,9 +13,10 @@
 }
 
 @mixin border-radius($radius){
-  border-radius: $radius;
   -moz-border-radius: $radius;
   -webkit-border-radius: $radius;
+  border-radius: $radius;
+  behavior: url(/assets/ie-css3.htc);
 }
 
 @mixin box-shadow($shadow1, $shadow2 : false){
