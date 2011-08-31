@@ -34,9 +34,16 @@ MR.petitions = {
     });
 
     $('.take_action').bind('ajax:success', function(event, data){
-      var $counter = $('span.counter');
-      $counter.html(parseInt($counter.html()) + 1);
-      
+      var $counter = $('span.counter'), $progress = $('.progress'), $goal = $('.goal');
+      if($counter.length != 0){
+        var goal = parseInt(/(\d+)/.exec($goal.html())[1]);
+        var count = parseInt($counter.html());
+        var percent = (count * 100) / goal;
+        $counter.html(count + 1);
+        if(goal && goal > 0){
+          $progress.animate({width: percent + '%'});
+        }
+      }
       window.location.hash = '#compartilhe';
     });
 
