@@ -42,7 +42,7 @@
             %p=current_member.email
       -if @petition.display_comment_field
         .row.comment
-          =f.label :comment
+          =f.label :comment, @petition.comment_question
           =f.text_area :comment, :rows => 4, :maxlength => "140"
           %small#comment_tip= t("petition_show.comment_tip")
         %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
