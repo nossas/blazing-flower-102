@@ -13,12 +13,14 @@ class Petition < ActiveRecord::Base
   validates_presence_of :issue
 
   validates_presence_of :title
+  validates_presence_of :headline
   validates_presence_of :custom_path
   validates_uniqueness_of :custom_path
   validates_presence_of :call_to_action
   validates_presence_of :call_to_action_headline
   validates_presence_of :call_to_action_text
   validates_presence_of :media
+  validates_presence_of :description
   validates_presence_of :short_description
 
   validates_format_of :custom_path, :with => /^[a-zA-Z0-9_-]+$/

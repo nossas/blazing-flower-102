@@ -7,9 +7,9 @@
 .grid_12
   .issue_name
     .sprite.petition_pink
-    = link_to "ISSUE NAME", "#"
+    = link_to @petition.issue.name, issue_path(@petition.issue)
 %h1.grid_12
-  = @petition.title.upcase
+  = @petition.headline.upcase
 .grid_6
   .media{:style => "z-index:0"}= raw @petition.media
   -if @petition.ok_to_display_counter?

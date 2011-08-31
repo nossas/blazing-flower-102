@@ -3,7 +3,8 @@ Given /^(\d+) complete issues exist$/ do |count|
     issue = Factory.create(:issue)
     Factory.create(:debate, :issue => issue)
     Factory.create(:personal_story, :issue => issue)
-    Factory.create(:complete_petition, :issue => issue)
+    p = Factory.create(:complete_petition, :issue => issue)
+    p.update_attributes({:state => 'published'})
   end
 end
 
