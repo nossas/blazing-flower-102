@@ -44,7 +44,7 @@ class Petition < ActiveRecord::Base
   def ok_to_display_counter?
     self.display_counter && (self.petition_signatures.count >= self.counter_threshold)
   end
-  
+
   def percentage_complete
     percent = 0
 
