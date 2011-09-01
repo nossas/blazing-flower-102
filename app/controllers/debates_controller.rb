@@ -8,6 +8,11 @@ class DebatesController < InheritedResources::Base
 
     @distinct_member_count = @debate.distinct_member_count
     @comments = @debate.comments.visible
+    if params[:todos]
+      @initial_comments = @comments.all
+    else
+      @initial_comments = @comments.first(5)
+    end
   end
 
   def load_comments

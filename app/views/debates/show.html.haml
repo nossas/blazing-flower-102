@@ -76,7 +76,7 @@
         %span= @comments.count
       .clearfix
     .previous_comments
-      - @comments.first(5).each do |comment|
+      - @initial_comments.each do |comment|
         = render :partial => "comments/comment", :locals => { :comment => comment }
     -if !@debate.comments.empty?
       #bottom_buttons
