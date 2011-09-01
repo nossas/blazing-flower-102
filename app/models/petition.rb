@@ -23,6 +23,8 @@ class Petition < ActiveRecord::Base
   validates_presence_of :description
   validates_presence_of :short_description
 
+  validates_length_of :call_to_action, :maximum => 20
+
   validates_format_of :custom_path, :with => /^[a-zA-Z0-9_-]+$/
 
   validates_inclusion_of :display_counter, :in => [true,false]
