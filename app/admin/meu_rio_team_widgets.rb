@@ -1,5 +1,5 @@
 ActiveAdmin.register MeuRioTeamWidget do
-  menu :parent => "Widgets"
+  menu :parent => "Widgets", :label => "Meu Rio Team"
   filter :html_content
 
   index do

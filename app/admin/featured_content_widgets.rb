@@ -1,5 +1,5 @@
 ActiveAdmin.register FeaturedContentWidget do
-  menu :parent => "Widgets"
+  menu :parent => "Widgets", :label => "Featured Content"
 
   filter :link
 

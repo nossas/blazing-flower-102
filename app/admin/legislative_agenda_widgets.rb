@@ -1,5 +1,5 @@
 ActiveAdmin.register LegislativeAgendaWidget do
-  menu :parent => "Widgets"
+  menu :parent => "Widgets", :label => "Legislative Agenda"
   filter :html_content
 
   index do
