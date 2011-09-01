@@ -250,40 +250,5 @@ ActiveAdmin.register Petition do
     end
   end
 
-  form do |f|
-    f.inputs "Campaign Information" do
-      f.input :title, :as => :string
-      f.input :custom_path, :as => :string
-      f.input :issue
-    end
-
-    f.inputs "Petition Information" do
-      f.input :headline, :as => :string
-      f.input :description
-      f.input :short_description, :label => "Excerpt"
-      f.input :media
-      f.input :media_caption, :as => :string
-      f.input :call_to_action_headline, :as => :string
-      f.input :call_to_action_text
-      f.input :call_to_action, :as => :string, :label => "Call to Action button (maximum 20 characters)"
-    end
-
-    f.inputs "Petition Settings" do
-      f.input :display_counter
-      f.input :counter_threshold
-      f.input :counter_goal
-      f.input :display_comment_field
-      f.input :comment_question, :as => :string
-      f.input :surface_comments
-    end
-
-    f.inputs "Donation Settings" do
-      f.input :display_donation
-      f.input :donation_thanks_message, :as => :string
-      f.input :donation_headline, :as => :string
-      f.input :donation_text
-    end
-
-    f.buttons
-  end
+  form :partial => "form"
 end
