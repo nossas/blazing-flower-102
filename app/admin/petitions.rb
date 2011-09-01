@@ -184,15 +184,15 @@ ActiveAdmin.register Petition do
   end
 
   index do
+    column 'Issue' do |p|
+      span p.issue.name
+    end
     column 'Title' do |p|
       if p.state == ('published' || 'archived')
         link_to p.title, custom_petition_path(p.custom_path)
       else
-        "#{p.title}"
+        span p.title
       end
-    end
-    column 'Issue' do |p|
-      p.issue.name
     end
     column "State" do |p|
       span p.state.capitalize
@@ -204,13 +204,6 @@ ActiveAdmin.register Petition do
       end
       if p.can_deactivate?
         span link_to 'Deactivate', admin_deactivate_petition_path(p.id)
-      end
-    end
-    column 'Custom path' do |p|
-      if p.state == ('published' || 'archived')
-        link_to p.custom_path, custom_petition_path(p.custom_path)
-      else
-        "#{p.custom_path}"
       end
     end
     column 'Autofire Email' do |p|
@@ -240,9 +233,6 @@ ActiveAdmin.register Petition do
       span link_to 'Edit', edit_admin_petition_path(e)
       if e.draft?
         span link_to 'Preview', admin_preview_petition_path(e)
-      end
-      if e.published? || e.deactivated?
-        span link_to 'View', custom_petition_path(e.custom_path)
       end
       unless e.draft?
         span link_to 'Export Signatures', admin_export_petition_path(e), :class => "export_signatures"

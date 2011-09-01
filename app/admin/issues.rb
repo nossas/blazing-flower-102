@@ -7,6 +7,12 @@ ActiveAdmin.register Issue do
 
   index do
     column :name
+    column 'Petitions' do |i|
+      span i.petitions.count
+    end
+    column 'Debates' do |i|
+      span i.debates.count
+    end
     column :created_at do |m|
       l m.created_at, :format => :short
     end
