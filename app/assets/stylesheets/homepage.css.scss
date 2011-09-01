@@ -148,7 +148,7 @@
           .item{
             .date {
               font-size:12px;
-              margin-bottom:8px;
+              margin-bottom:0px;
             }
             float: left;
             width: 260px;
@@ -235,7 +235,7 @@
       }
       .date {
         font-size:12px;
-        margin-bottom:8px;
+        margin-bottom:0px;
       }
     }
     &#join_widget {
@@ -313,7 +313,4 @@
 
   .widget.margin_right, .widget_container.margin_right {margin-right:20px;}
   .widget.margin_bottom, .widget_container.margin_bottom {margin-bottom:20px;}
-
-  // Temporary Styles
-  .widget.placeholder{font-size:0px;}
 }
