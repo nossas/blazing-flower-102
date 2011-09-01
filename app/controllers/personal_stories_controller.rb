@@ -4,7 +4,7 @@ class PersonalStoriesController < ApplicationController
     @stories = @issue.personal_stories
     @current = @stories.where(:id => params[:id]).first || @stories.first
 
-    render 404 unless !@stories.blank?
+    render :status => 404 unless !@stories.blank?
 
     @debate = @issue.debates.first
     @petition = @issue.petitions.first
