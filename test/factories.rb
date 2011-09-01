@@ -190,6 +190,7 @@ Factory.define :personal_story do |s|
   s.connected_action "PETITION"
 
   s.association :issue
+  s.after_create { |s| Factory(:petition, :issue => s.issue) }
 end
 
 Factory.define :job do |j|
