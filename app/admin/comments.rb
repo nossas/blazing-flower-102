@@ -26,7 +26,9 @@ ActiveAdmin.register Comment, :as => "CommunityComment" do
       c.member.email
     end
     column :content
-    column :created_at
+    column :created_at do |m|
+      l m.created_at, :format => :short
+    end
     column :comment_accepted, :sortable => :comment_accepted do |ps|
       if ps.comment_accepted
         span b 'Yes'

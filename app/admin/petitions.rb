@@ -20,7 +20,7 @@ ActiveAdmin.register Petition do
         render "petitions/show", :layout => 'application'
       end
     end
-    
+
     def publish
       @petition = Petition.where(:id => params[:id]).first
       if @petition.publish 
@@ -232,12 +232,17 @@ ActiveAdmin.register Petition do
     column "Signatures" do |p|
       span p.members.count
     end
-    column :created_at
+    column :created_at do |m|
+      l m.created_at, :format => :short
+    end
     column "Options" do |e| 
       span link_to 'Show', admin_petition_path(e)
       span link_to 'Edit', edit_admin_petition_path(e)
       if e.draft?
         span link_to 'Preview', admin_preview_petition_path(e)
+      end
+      if e.published? || e.deactivated?
+        span link_to 'View', custom_petition_path(e.custom_path)
       end
       unless e.draft?
         span link_to 'Export Signatures', admin_export_petition_path(e), :class => "export_signatures"

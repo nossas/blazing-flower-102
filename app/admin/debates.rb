@@ -13,7 +13,9 @@ ActiveAdmin.register Debate do
     column "Comments" do |d|
       span "#{d.comments.count}"
     end
-    column :created_at
+    column :created_at do |m|
+      l m.created_at, :format => :short
+    end
     column "Options" do |d|
       span link_to "Show", admin_debate_path(d)
       span link_to "Edit", edit_admin_debate_path(d)
