@@ -196,13 +196,13 @@ ActiveAdmin.register Petition do
     end
     column "State" do |p|
       span p.state.capitalize
-      if p.state == ('draft' || 'archived' || 'deactivated') && p.complete?
+      if p.can_publish?
         span link_to 'Publish', admin_publish_petition_path(p.id)
       end
-      if p.state == ('published' || 'deactivated')
+      if p.can_archive?
         span link_to 'Archive', admin_archive_petition_path(p.id)
       end
-      if p.state == ('published' || 'archived')
+      if p.can_deactivate?
         span link_to 'Deactivate', admin_deactivate_petition_path(p.id)
       end
     end
@@ -260,7 +260,7 @@ ActiveAdmin.register Petition do
       f.input :media_caption, :as => :string
       f.input :call_to_action_headline, :as => :string
       f.input :call_to_action_text
-      f.input :call_to_action, :as => :string, :label => "Call to Action button"
+      f.input :call_to_action, :as => :string, :label => "Call to Action button (maximum 20 characters)"
     end
 
     f.inputs "Petition Settings" do
