@@ -26,6 +26,9 @@ ActiveAdmin.register PersonalStory do
     end
     column :title
     column :video_url
+    column :created_at do |m|
+      l m.created_at, :format => :short
+    end
     column "Options" do |e| 
       span link_to 'Show', admin_personal_story_path(e)
       span link_to 'Edit', edit_admin_personal_story_path(e)

@@ -16,7 +16,9 @@ ActiveAdmin.register Taf do
       span link_to 'Show', admin_taf_path(e)
       span link_to 'Edit', edit_admin_taf_path(e)
     end
-    column :created_at
+    column :created_at do |m|
+      l m.created_at, :format => :short
+    end
   end
 
   form do |f|
