@@ -8,7 +8,6 @@ end
 
 Then /^I should see the debate index page$/ do
   assert(page.has_content?("#{Debate.first.question}"))
-  assert(page.has_content?("#{Debate.first.author_email_side_1}"))
 end
 
 Then /^I fill in the debate form with correct information$/ do
