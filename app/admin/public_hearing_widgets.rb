@@ -1,5 +1,5 @@
 ActiveAdmin.register PublicHearingWidget do
-  menu :parent => "Widgets"
+  menu :parent => "Widgets", :label => "Public Hearings"
   filter :html_content
 
   index do
