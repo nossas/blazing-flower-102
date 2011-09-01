@@ -272,7 +272,7 @@
     click_to_copy: "Clique para copiar"
     copied: "Copiado!"
   debate_show:
-    join_the_conversation: "Entre no Debate! >>"
+    join_the_conversation: "Entre no Debate"
     have_joined_the_conversation: "pessoa está discutindo isso."
     have_joined_the_conversation_plural: "pessoas estão discutindo isso."
     load_more: "Ver mais comentários"
