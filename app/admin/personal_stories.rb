@@ -13,6 +13,17 @@ ActiveAdmin.register PersonalStory do
         'None'
       end
     end
+    column 'Connected Action' do |p|
+      if p.issue
+        if p.connected_action != "DEBATE" && !p.issue.debates.empty?
+          link_to "Debate: #{p.issue.debates.first.title}", issue_debate_path(p.issue.id, p.issue.debates.first.id)
+        elsif p.connected_action != "PETITION" && !p.issue.petitions.empty?
+          link_to "Petition: #{p.issue.petitions.first.title}", issue_custom_petition_path(p.issue.id, p.issue.petitions.first.custom_path)
+        else
+          "None"
+        end
+      end
+    end
     column :title
     column :video_url
     column "Options" do |e| 
@@ -33,3 +44,6 @@ ActiveAdmin.register PersonalStory do
     f.buttons
   end
 end
+
+
+
