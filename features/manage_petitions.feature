@@ -35,3 +35,35 @@ Feature: Managing Petitions
     When I am on the admin petitions page
     And I click "Export Signatures"
     Then I should see "The list of signatures for the petition has been exported to Amazon Web Services."
+
+  Scenario: Publishing a petition
+    Given I am logged in to the admin section
+    And 1 complete petitions exist
+    When I am on the admin petitions page
+    And I click "Publish"
+    Then I should see "Petition has been published."
+    And I should see "Published"
+
+  Scenario: Can't publish an incomplete petition
+    Given I am logged in to the admin section
+    And 1 petitions exist
+    When I am on the admin petitions page
+    Then I should see "Draft"
+    And I should not see "Publish"
+
+  Scenario: Archiving a petition
+    Given I am logged in to the admin section
+    And 1 published petitions exist
+    When I am on the admin petitions page
+    And I click "Archive"
+    Then I should see "Petition has been archived."
+    And I should see "Archive"
+
+  Scenario: Deactivating a petition
+    Given I am logged in to the admin section
+    And 1 published petitions exist
+    When I am on the admin petitions page
+    And I click "Deactivate"
+    Then I should see "Petition has been deactivated."
+    And I should see "Deactivated"
+
