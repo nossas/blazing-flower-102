@@ -13,12 +13,14 @@ class Petition < ActiveRecord::Base
   validates_presence_of :issue
 
   validates_presence_of :title
+  validates_presence_of :headline
   validates_presence_of :custom_path
   validates_uniqueness_of :custom_path
   validates_presence_of :call_to_action
   validates_presence_of :call_to_action_headline
   validates_presence_of :call_to_action_text
   validates_presence_of :media
+  validates_presence_of :description
   validates_presence_of :short_description
 
   validates_format_of :custom_path, :with => /^[a-zA-Z0-9_-]+$/
@@ -36,7 +38,7 @@ class Petition < ActiveRecord::Base
   before_create :add_wmode_to_youtube_iframe
 
   def complete?
-    (self.taf && self.autofire_email && self.taf.valid? && self.autofire_email.valid?)
+    (taf && autofire_email && taf.valid? && autofire_email.valid?) || (autofire_email && autofire_email.valid? && display_donation)
   end
 
   def ok_to_display_counter?

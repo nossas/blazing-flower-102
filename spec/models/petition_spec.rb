@@ -9,11 +9,13 @@ describe Petition do
 
   describe "#valid?" do
     it { should validate_presence_of :title }
+    it { should validate_presence_of :headline }
     it { should validate_presence_of :custom_path }
     it { should validate_presence_of :call_to_action }
     it { should validate_presence_of :call_to_action_text }
     it { should validate_presence_of :call_to_action_headline }
     it { should validate_presence_of :media }
+    it { should validate_presence_of :description }
     it { should validate_presence_of :short_description }
 
     context "with an already exisiting" do
@@ -201,6 +203,31 @@ describe Petition do
       generated_file = File.open(Rails.root.to_s + "/tmp/signatures-#{@p.title}.csv").read
       generated_file.should include("id,first_name,last_name,email,zona,celular,created_at")
       generated_file.should include("Diogo,Provey,ren@purpose.com,Centro,,2011-07-28 13:08:11 -0300")
+    end
+
+  end
+
+  describe "#complete?" do
+    let(:taf) { Taf.new.tap{|t| t.stub(:valid?).and_return true} }
+    let(:autofire_email) { AutofireEmail.new.tap{|a| a.stub(:valid?).and_return true} }
+
+    context "when the petition have no TAF, autofire email, nor display donation" do
+      its(:complete?) { should be_false }
+    end
+
+    context "when the petition have a TAF, autofire email, but it's not a display donation" do
+      subject { Petition.new(:taf => taf, :autofire_email => autofire_email) }
+      its(:complete?) { should be_true }
+    end
+
+    context "when the petition have a TAF, and display donation but no autofire email" do
+      subject { Petition.new(:taf => taf, :display_donation => true) }
+      its(:complete?) { should be_false }
+    end
+
+    context "when the petition have a display donation and autofire email but no TAF" do
+      subject { Petition.new(:autofire_email => autofire_email, :display_donation => true) }
+      its(:complete?) { should be_true }
     end
 
   end

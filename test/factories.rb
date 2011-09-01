@@ -37,6 +37,7 @@ Factory.define :petition do |p|
   p.call_to_action_text "A sua participação é muito importante, contamos com a sua colaboração!"
   p.call_to_action_headline "Assine esta petição!"
   p.title {Faker::Company.name}
+  p.headline {Faker::Lorem.sentence}
   p.description {Faker::Lorem.paragraphs.join("\n")}
   p.short_description {Faker::Lorem.paragraph}
   p.surface_comments true
@@ -114,6 +115,14 @@ end
 Factory.define :complete_petition, :parent => :petition do |p|
   p.after_create { |p| Factory.create(:complete_taf, :petition => p) }
   p.after_create { |p| Factory.create(:autofire_email, :petition => p) }
+end
+
+Factory.define :petition_with_donation_enabled, :parent => :petition do |p|
+  p.after_create { |p| Factory.create(:autofire_email, :petition => p) }
+  p.display_donation true
+  p.donation_thanks_message 'donation thanks'
+  p.donation_headline 'donation help'
+  p.donation_text 'donation text'
 end
 
 Factory.define :petition_signature do |p|

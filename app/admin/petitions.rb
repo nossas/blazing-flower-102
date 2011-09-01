@@ -217,15 +217,12 @@ ActiveAdmin.register Petition do
       end
       f.input :headline, :as => :string
       f.input :description
+      f.input :short_description, :label => "Excerpt"
       f.input :media
       f.input :media_caption, :as => :string
       f.input :call_to_action_headline, :as => :string
       f.input :call_to_action_text
-      f.input :call_to_action, :as => :string
-    end
-
-    f.inputs "Featured Information" do
-      f.input :short_description
+      f.input :call_to_action, :as => :string, :label => "Call to Action button"
     end
 
     f.inputs "Petition Settings" do
