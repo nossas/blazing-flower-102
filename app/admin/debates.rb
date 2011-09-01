@@ -6,10 +6,12 @@ ActiveAdmin.register Debate do
   filter :author_2
 
   index do
-    column :issue
-    column :question
-    column :author_email_side_1
-    column :author_email_side_2
+    column 'Issue' do |d|
+      span d.issue.name
+    end
+    column 'Question' do |d|
+      link_to d.question, issue_debate_path(d.issue, d)
+    end
     column "Comments" do |d|
       span "#{d.comments.count}"
     end
