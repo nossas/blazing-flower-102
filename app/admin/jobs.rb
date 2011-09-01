@@ -3,6 +3,9 @@ ActiveAdmin.register Job do
   index do
     column :title
     column :active
+    column :created_at do |m|
+      l m.created_at, :format => :short
+    end
     column "Options" do |j|
       span link_to 'Show', admin_job_path(j)
       span link_to 'Edit', edit_admin_job_path(j)
