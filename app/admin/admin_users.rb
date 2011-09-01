@@ -18,7 +18,6 @@ ActiveAdmin.register AdminUser do
     column :first_name
     column :last_name
     column :email
-    column :last_sign_in_at
     column :created_at do |m|
       l m.created_at, :format => :short
     end
