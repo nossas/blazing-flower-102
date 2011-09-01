@@ -20,6 +20,36 @@ ActiveAdmin.register Petition do
         render "petitions/show", :layout => 'application'
       end
     end
+    
+    def publish
+      @petition = Petition.where(:id => params[:id]).first
+      if @petition.publish 
+        flash[:notice] = "Petition has been published."
+      else
+        flash[:notice] = "Petition could not be published"
+      end
+      render :action => :index
+    end
+
+    def archive 
+      @petition = Petition.where(:id => params[:id]).first
+      if @petition.archive 
+        flash[:notice] = "Petition has been archived."
+      else
+        flash[:notice] = "Petition could not be archived."
+      end
+      render :action => :index
+    end
+
+    def deactivate
+      @petition = Petition.where(:id => params[:id]).first
+      if @petition.deactivate 
+        flash[:notice] = "Petition has been deactivated."
+      else
+        flash[:notice] = "Petition could not be deactivated."
+      end
+      render :action => :index
+    end
 
     def export
       @petition = Petition.where(:id => params[:id]).first
@@ -164,7 +194,18 @@ ActiveAdmin.register Petition do
     column 'Issue' do |p|
       p.issue.name
     end
-    column :state
+    column "State" do |p|
+      span p.state.capitalize
+      if p.state == ('draft' || 'archived' || 'deactivated') && p.complete?
+        span link_to 'Publish', admin_publish_petition_path(p.id)
+      end
+      if p.state == ('published' || 'deactivated')
+        span link_to 'Archive', admin_archive_petition_path(p.id)
+      end
+      if p.state == ('published' || 'archived')
+        span link_to 'Deactivate', admin_deactivate_petition_path(p.id)
+      end
+    end
     column 'Custom path' do |p|
       if p.state == ('published' || 'archived')
         link_to p.custom_path, custom_petition_path(p.custom_path)
@@ -212,9 +253,6 @@ ActiveAdmin.register Petition do
     end
 
     f.inputs "Petition Information" do
-      if f.object.complete?
-        f.input :state, :as => :select, :collection => (f.object.state_transitions.map{ |t| t.to_name } << f.object.state)
-      end
       f.input :headline, :as => :string
       f.input :description
       f.input :short_description, :label => "Excerpt"

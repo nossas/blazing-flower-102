@@ -6,6 +6,12 @@ Given /^(\d+) published petitions exist$/ do |count|
   end
 end
 
+Given /^(\d+) complete petitions exist$/ do |count|
+  count.to_i.times do
+    Factory.create(:complete_petition)
+  end
+end
+
 Given /^I am an existing member$/ do
   Factory.create(:member)
 end

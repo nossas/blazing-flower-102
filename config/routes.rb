@@ -12,6 +12,9 @@ MeuRio::Application.routes.draw do
 
   namespace :admin do
     get 'preview/assine_embaixo/:id' => "petitions#preview", :as => "preview_petition"
+    get 'petitions/:id/publish' => "petitions#publish", :as => "publish_petition"
+    get 'petitions/:id/archive' => "petitions#archive", :as => "archive_petition"
+    get 'petitions/:id/deactivate' => "petitions#deactivate", :as => "deactivate_petition"
     get 'assine_embaixo/:id/export' => "petitions#export", :as => "export_petition"
     get 'assine_embaixo/:id/export' => "petitions#export", :as => "export_petition"
   end
