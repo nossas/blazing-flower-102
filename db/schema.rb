@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110901201114) do
+ActiveRecord::Schema.define(:version => 20110901214556) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -76,10 +76,10 @@ ActiveRecord::Schema.define(:version => 20110901201114) do
   add_index "comment_flags", ["comment_id", "member_id"], :name => "index_comment_flags_on_comment_id_and_member_id", :unique => true
 
   create_table "comments", :force => true do |t|
-    t.integer  "member_id",        :null => false
-    t.integer  "commentable_id",   :null => false
-    t.string   "commentable_type", :null => false
-    t.text     "content",          :null => false
+    t.integer  "member_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.text     "content"
     t.boolean  "comment_accepted"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -143,7 +143,7 @@ ActiveRecord::Schema.define(:version => 20110901201114) do
     t.string   "thumbnail_file_name"
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
-    t.datetime "thumnail_updated_at"
+    t.datetime "thumbnail_updated_at"
   end
 
   create_table "jobs", :force => true do |t|
@@ -281,5 +281,17 @@ ActiveRecord::Schema.define(:version => 20110901201114) do
     t.datetime "updated_at"
     t.text     "html_content"
   end
+
+  add_foreign_key "comment_flags", "comments", :name => "comment_flags_comment_id_fk"
+  add_foreign_key "comment_flags", "members", :name => "comment_flags_member_id_fk"
+
+  add_foreign_key "comments", "members", :name => "comments_member_id_fk"
+
+  add_foreign_key "debates", "members", :name => "debates_author_email_side_1_fk", :column => "author_email_side_1", :primary_key => "email"
+  add_foreign_key "debates", "members", :name => "debates_author_email_side_2_fk", :column => "author_email_side_2", :primary_key => "email"
+
+  add_foreign_key "issues", "debates", :name => "issues_featured_debate_id_fk", :column => "featured_debate_id"
+  add_foreign_key "issues", "personal_stories", :name => "issues_featured_personal_story_id_fk", :column => "featured_personal_story_id"
+  add_foreign_key "issues", "petitions", :name => "issues_featured_petition_id_fk", :column => "featured_petition_id"
 
 end
