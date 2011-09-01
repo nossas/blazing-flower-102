@@ -3,8 +3,8 @@ ActiveAdmin.register PublicHearingWidget do
   filter :html_content
 
   index do
-    column :html_content do |w|
-      raw(w.html_content)
+    column "HTML Content" do |w|
+      raw w.html_content
     end
     column "Options" do |w|
       span link_to 'Show', admin_public_hearing_widget_path(w)

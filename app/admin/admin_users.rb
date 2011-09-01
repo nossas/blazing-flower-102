@@ -18,8 +18,9 @@ ActiveAdmin.register AdminUser do
     column :first_name
     column :last_name
     column :email
-    column :last_sign_in_at
-    column :created_at
+    column :created_at do |m|
+      l m.created_at, :format => :short
+    end
     column "Options" do |user| 
       span link_to 'Show', admin_admin_user_path(user), :id => "show_user_#{user.id}"
       span link_to 'Edit', edit_admin_admin_user_path(user), :id => "edit_user_#{user.id}"

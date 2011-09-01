@@ -20,7 +20,7 @@ ActiveAdmin.register Petition do
         render "petitions/show", :layout => 'application'
       end
     end
-    
+
     def publish
       @petition = Petition.where(:id => params[:id]).first
       if @petition.publish 
@@ -184,33 +184,26 @@ ActiveAdmin.register Petition do
   end
 
   index do
+    column 'Issue' do |p|
+      span p.issue.name
+    end
     column 'Title' do |p|
       if p.state == ('published' || 'archived')
         link_to p.title, custom_petition_path(p.custom_path)
       else
-        "#{p.title}"
+        span p.title
       end
-    end
-    column 'Issue' do |p|
-      p.issue.name
     end
     column "State" do |p|
       span p.state.capitalize
-      if p.state == ('draft' || 'archived' || 'deactivated') && p.complete?
+      if p.can_publish?
         span link_to 'Publish', admin_publish_petition_path(p.id)
       end
-      if p.state == ('published' || 'deactivated')
+      if p.can_archive?
         span link_to 'Archive', admin_archive_petition_path(p.id)
       end
-      if p.state == ('published' || 'archived')
+      if p.can_deactivate?
         span link_to 'Deactivate', admin_deactivate_petition_path(p.id)
-      end
-    end
-    column 'Custom path' do |p|
-      if p.state == ('published' || 'archived')
-        link_to p.custom_path, custom_petition_path(p.custom_path)
-      else
-        "#{p.custom_path}"
       end
     end
     column 'Autofire Email' do |p|
@@ -232,7 +225,9 @@ ActiveAdmin.register Petition do
     column "Signatures" do |p|
       span p.members.count
     end
-    column :created_at
+    column :created_at do |m|
+      l m.created_at, :format => :short
+    end
     column "Options" do |e| 
       span link_to 'Show', admin_petition_path(e)
       span link_to 'Edit', edit_admin_petition_path(e)
@@ -245,40 +240,5 @@ ActiveAdmin.register Petition do
     end
   end
 
-  form do |f|
-    f.inputs "Campaign Information" do
-      f.input :title, :as => :string
-      f.input :custom_path, :as => :string
-      f.input :issue
-    end
-
-    f.inputs "Petition Information" do
-      f.input :headline, :as => :string
-      f.input :description
-      f.input :short_description, :label => "Excerpt"
-      f.input :media
-      f.input :media_caption, :as => :string
-      f.input :call_to_action_headline, :as => :string
-      f.input :call_to_action_text
-      f.input :call_to_action, :as => :string, :label => "Call to Action button"
-    end
-
-    f.inputs "Petition Settings" do
-      f.input :display_counter
-      f.input :counter_threshold
-      f.input :counter_goal
-      f.input :display_comment_field
-      f.input :comment_question, :as => :string
-      f.input :surface_comments
-    end
-
-    f.inputs "Donation Settings" do
-      f.input :display_donation
-      f.input :donation_thanks_message, :as => :string
-      f.input :donation_headline, :as => :string
-      f.input :donation_text
-    end
-
-    f.buttons
-  end
+  form :partial => "form"
 end
