@@ -15,13 +15,5 @@ ActiveAdmin.register FeaturedContentWidget do
     end
   end
 
-  form do |f|
-    f.inputs "Featured Content Widget" do
-      f.input :title, :as => :string
-      f.input :link,  :as => :string
-      f.input :image
-    end
-
-    f.buttons
-  end
+  form :partial => "form"
 end

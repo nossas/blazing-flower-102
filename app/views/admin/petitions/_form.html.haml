@@ -8,9 +8,10 @@
     =f.input :description
     =f.input :short_description, :label => "Excerpt"
     =f.input :media
-    .caption{:style => "margin-left: 350px;"} 
-      %p{:style => "font-weight: bold;" } To add an image, please use the following format:
-      %p= "<img src='http://www.example.com/path-to-your-image'>" 
+    .caption{:style => "margin-left: 330px;"} 
+      %p
+        %span{ :style => "font-weight: bold;" } To add an image, please use the following format:
+        %span= "<img src='http://www.example.com/path-to-your-image'>" 
       %p{:style => "font-weight: bold;" } To add a video, copy and paste the embed code for the video.
       %br
     =f.input :media_caption, :as => :string
