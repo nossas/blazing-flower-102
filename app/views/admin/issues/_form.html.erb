@@ -4,14 +4,14 @@
     <%= f.input :excerpt %>
     <%= f.input :description %>
     <%= f.input :image, :as => :file %>
-    <div class="image" style="margin-left: 350px;">
+    <div class="image" style="margin-left: 330px;">
       <%- unless @issue.image_updated_at.nil? -%> 
         <img src="<%= @issue.image.url -%>" height="100">
       <% end %>
     </div>
     <%= f.input :thumbnail, :as => :file %>
-    <div class="thumbnail" style="margin-left: 350px;">
-      <%- unless @issue.thumbnail_updated_at.nil? -%> 
+    <div class="thumbnail" style="margin-left: 330px;">
+      <%- unless @issue.thumbnail_file_name.blank? -%> 
         <img src="<%= @issue.thumbnail.url -%>" height="100">
       <% end %>
     </div>
