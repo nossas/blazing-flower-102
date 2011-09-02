@@ -5,6 +5,8 @@
     =f.input :image
     .image{:style => "margin-left: 330px;" }
       -unless @featured_content_widget.image_file_name.blank? 
+        %p Last updated image:
         %img{:src => "#{@featured_content_widget.image.url}", :height => "100"}
+    =f.buttons
     
 

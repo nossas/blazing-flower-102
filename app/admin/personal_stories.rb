@@ -33,17 +33,7 @@ ActiveAdmin.register PersonalStory do
     end
   end
 
-  form do |f|
-    f.inputs "Personal Story" do
-      f.input :issue
-      f.input :title, :as => :string
-      f.input :description
-      f.input :excerpt
-      f.input :connected_action, :label => 'Button links to:', :as => :select, :collection =>  [['None', 'NONE'], ['Petition', 'PETITION'], ['Debate', 'DEBATE']]
-      f.input :video_url
-    end
-    f.buttons
-  end
+  form :partial => "form"
 end
 
 
