@@ -2,8 +2,8 @@ require 'aws/s3'
 require 'csv'
 
 class Petition < ActiveRecord::Base
-  has_one :autofire_email
-  has_one :taf
+  has_one :autofire_email, :dependent => :destroy
+  has_one :taf, :dependent => :destroy
   has_many :petition_signatures
 
   has_many :members, :through => :petition_signatures
