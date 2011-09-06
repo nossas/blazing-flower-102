@@ -5,7 +5,16 @@
     = stylesheet_link_tag "application"
     %link{:href => "/assets/favicon.png", :rel => "shortcut icon"}
     = csrf_meta_tags
-    = yield :meta_tags
+
+    %meta{ :property => "og:title", :content => "#{SITE['og_title']}" }
+    %meta{ :property => "og:type",  :content => "#{SITE['og_type']}" }
+    -if(content_for :meta_tags).empty?
+      %meta{ :property => "og:image",       :content => "#{SITE['og_image']}" }
+      %meta{ :property => "og:url",         :content => "#{SITE['og_url']}" }
+      %meta{ :property => "og:description", :content => "#{SITE['og_description']}" }
+    -else
+      =yield(:meta_tags)
+
     =javascript_include_tag "libs/modernizr-2.0.js"
   %body{:class=> "#{controller.controller_name} #{controller.action_name}", 'data-controller' => controller_name, 'data-action' => action_name }
     %header.container_12
@@ -63,7 +72,7 @@
       <script src="assets/libs/dd_belatedpng.js"></script>
       <script> DD_belatedPNG.fix('img, .png_bg');</script>
     :javascript
-      var _gaq=[['_setAccount','#{SITE['ga_tracking_code']}'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
+      var _gaq=[['_setAccount','#{SITE['ga_tracking_code']}'],['_trackPageview']];
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
