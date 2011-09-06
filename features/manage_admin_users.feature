@@ -5,19 +5,19 @@ Feature: Managing Users
 
   Scenario: Users index
     Given I am logged in to the admin section 
-    When I follow "Users"
+    When I follow "Usuários"
     Then I should see a list of administrative users
 
   Scenario: Add a new user account
     Given I am logged in to the admin section
-    When I follow "Users"
-    And I follow "Novo(a) Admin User"
+    When I follow "Usuários"
+    And I follow "Criar Novo"
     Then I should see a new User form
 
   Scenario: New Admin User account
     Given I am logged in to the admin section
-    When I follow "Users"
-    And I follow "Novo(a) Admin User"
+    When I follow "Usuários"
+    And I follow "Criar Novo"
     And I fill out the new User form
     And I press "Create Admin user"
     Then I should see "Admin user was successfully created."
@@ -28,8 +28,8 @@ Feature: Managing Users
 
   Scenario: Create a new admin user account
     Given I am logged in to the admin section
-    When I follow "Users"
-    And follow "Novo(a) Admin User"
+    When I follow "Usuários"
+    And follow "Criar Novo"
     And I fill out the new User form
     And I check "Admin"
     And I press "Create Admin user"
@@ -37,16 +37,16 @@ Feature: Managing Users
 
   Scenario: New Admin User account with not all fields filled in
     Given I am logged in to the admin section
-    When I follow "Users"
-    And I follow "Novo(a) Admin User"
+    When I follow "Usuários"
+    And I follow "Criar Novo"
     And I fill in "First name" with "Dumbo"
     And I press "Create Admin user"
     Then I should not see "New user created."
 
   Scenario: New Admin User without filling in the password
     Given I am logged in to the admin section
-    When I follow "Users"
-    And I follow "Novo(a) Admin User"
+    When I follow "Usuários"
+    And I follow "Criar Novo"
     And I fill in "First name" with "Dumbo"
     And I fill in "Last name" with "the Elephant"
     And I fill in "Email" with "dumbo253@gmail.com"
@@ -56,14 +56,14 @@ Feature: Managing Users
 
   Scenario: Edit a user's account details
     Given I am logged in to the admin section
-    When I follow "Users"
+    When I follow "Usuários"
     And I follow "Edit"
     Then I should see an edit User form
 
   Scenario: Editing a user's account details with updated password
     Given I am logged in to the admin section
     And there are 2 admin users
-    When I follow "Users"
+    When I follow "Usuários"
     And I follow "Edit"
     And I fill in the edit user form
     And I press "Update Admin user"
@@ -72,7 +72,7 @@ Feature: Managing Users
   Scenario: Editing a user's account details without updating password
     Given I am logged in to the admin section
     And there are 2 admin users
-    When I follow "Users"
+    When I follow "Usuários"
     And I follow "Edit"
     And I fill in the edit user form without the password field
     And I press "Update Admin user"
@@ -81,7 +81,7 @@ Feature: Managing Users
   Scenario: Editing a user's account details (incorrectly filled-out fields)
     Given I am logged in to the admin section
     And there are 2 admin users
-    When I follow "Users"
+    When I follow "Usuários"
     And I follow "Edit"
     And I fill in "Email" with "Not An Email Address"
     And I press "Update Admin user"
