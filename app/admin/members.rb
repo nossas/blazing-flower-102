@@ -7,7 +7,9 @@ ActiveAdmin.register Member do
   filter :zona
 
   index do
-    column :first_name
+    column :first_name do |m|
+      span link_to m.first_name, member_path(m)
+    end
     column :last_name
     column :email
     column :meu_rio_is
@@ -17,7 +19,6 @@ ActiveAdmin.register Member do
     column "Options" do |o|
       span link_to "Show", admin_member_path(o)
       span link_to "Edit", edit_admin_member_path(o)
-      span link_to "Profile", member_path(o)
     end
   end
 
