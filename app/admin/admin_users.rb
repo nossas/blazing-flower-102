@@ -1,3 +1,4 @@
+# coding: utf-8
 ActiveAdmin.register AdminUser do
   menu :priority => 14, :label => "Usuários"
 

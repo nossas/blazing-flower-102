@@ -1,3 +1,4 @@
+# coding: utf-8
 ActiveAdmin.register Comment, :as => "CommunityComment" do
   menu :label => 'Comentários', :parent => 'Debates', :priority => 0
 
