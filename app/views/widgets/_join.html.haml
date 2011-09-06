@@ -4,4 +4,7 @@
   %h2
     %span um
     Rio Mais Justo?
-  .btn=link_to t("page_index.join_us"), "#login", :rel => "facebox" 
+  -if current_member
+    .btn=link_to t("page_index.join_us"), "#already_logged_in", :rel => "facebox" 
+  -else
+    .btn=link_to t("page_index.join_us"), "#join", :rel => "facebox" 
