@@ -23,21 +23,21 @@ class Member < ActiveRecord::Base
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token['extra']['user_hash']
     if member = find_by_email(data["email"])
-      member.update_attributes(:image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(data['email'])}.jpg?s=60&d=http://#{SITE['site_url']}/assets/avatar_blank.png") if member.image_url.nil?
+      member.update_attributes(:image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(data['email'])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png") if member.image_url.nil?
       member
     else
       self.create(
         :email => data["email"], 
         :first_name => data["first_name"], 
         :last_name => data["last_name"],
-        :image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(data['email'])}.jpg?s=60&d=http://#{SITE['site_url']}/assets/avatar_blank.png")
+        :image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(data['email'])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png")
     end
   end
 
   def self.find_for_google_oauth(access_token, signed_in_resource=nil)
     return false unless access_token["user_info"]["email"]
     if member = find_by_email(access_token["user_info"]["email"])
-      member.update_attributes(:image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(access_token['user_info']['email'])}.jpg?s=60&d=http://#{SITE['site_url']}/assets/avatar_blank.png") if member.image_url.nil?
+      member.update_attributes(:image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(access_token['user_info']['email'])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png") if member.image_url.nil?
       member
     else
       # the || tackles the google custom domain issue
@@ -45,7 +45,7 @@ class Member < ActiveRecord::Base
         :email => access_token["user_info"]["email"], 
         :first_name => access_token["first_name"] || access_token["user_info"]["first_name"], 
         :last_name => access_token["last_name"] || access_token["user_info"]["last_name"],
-        :image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(access_token['user_info']['email'])}.jpg?s=60&d=http://#{SITE['site_url']}/assets/avatar_blank.png")
+        :image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(access_token['user_info']['email'])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png")
     end
   end
 
