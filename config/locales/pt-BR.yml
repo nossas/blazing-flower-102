@@ -299,7 +299,7 @@
   pages_show_jobs:
     title: "Venha Trabalhar Com A Gente!"
     description: "<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod.</p>"
-    no_jobs: "<p>Opa!</p><p>Estamos sempre à procura de pessoas apaixonadas pelo Rio mas, no momento, não estamos contratando. Vamos atualizar esta página assim que houver uma vaga disponível.</p><p>Atenciosamente,</p><p>Equipe Meu Rio</p>"
+    no_jobs: "<p>Opa!</p><p>Estamos sempre à procura de pessoas apaixonadas pelo Rio mas, no momento, não estamos contratando. Vamos atualizar esta página assim que houver uma vaga disponível.</p><p>Atenciosamente,<br>Equipe Meu Rio</p>"
     sidebar_title: "HOW TO APPLY"
     sidebar_content: "<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam.</p><p>Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod.</p><p><a href='mailto:jobs@meurio.org.br'>jobs@meurio.org.br</a></p>"
   about_page:
@@ -353,4 +353,4 @@ Com a realização da Copa e das Olimpíadas nos próximos anos, essa oportunida
     join_us: "Junte-se a nós!"
   pages_thank_you: 
     title: "Obrigado pela sua participação!"
-    text: "Muito obrigado pela sua doação e por acreditar no trabalho do Meu Rio. Agora que você é um patrocinador do movimento, faça seu <a href=\"#login\" rel=\"facebox\">cadastro</a> e nós lhe enviaremos anualmente uma cópia eletrônica do nosso relatório financeiro, assim você vai poder acompanhar melhor o destino do seu dindim."
+    text: "Muito obrigado pela sua doação e por acreditar no trabalho do Meu Rio. Agora que você é um patrocinador do movimento, faça seu <a href=\"#join\" rel=\"facebox\">cadastro</a> e nós lhe enviaremos anualmente uma cópia eletrônica do nosso relatório financeiro, assim você vai poder acompanhar melhor o destino do seu dindim."
