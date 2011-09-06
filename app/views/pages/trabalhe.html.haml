@@ -2,15 +2,18 @@
   = t("pages_show_jobs.title")
 
 .grid_8.alpha.trabalhe
-  =raw t("pages_show_jobs.description")
+  -unless Job.active.blank?
+    =raw t("pages_show_jobs.description")
 
-  - Job.active.each do |j|
-    .job.closed
-      %a.toggle_icon{:href => '#'}
-      %a.title{:href => '#'}
-        = j.title
-      .description
-        =raw j.description
+    - Job.active.each do |j|
+      .job.closed
+        %a.toggle_icon{:href => '#'}
+        %a.title{:href => '#'}
+          = j.title
+        .description
+          =raw j.description
+  -else
+    =raw t("pages_show_jobs.no_jobs")
 
 .grid_4.omega.trabalhe
   .speech_bubble_container.gray
