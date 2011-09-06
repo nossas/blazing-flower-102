@@ -6,7 +6,9 @@ ActiveAdmin.register Issue do
   filter :excerpt
 
   index do
-    column :name
+    column :name do |i|
+     span link_to i.name, issue_path(i)
+    end
     column 'Petitions' do |i|
       span i.petitions.count
     end
