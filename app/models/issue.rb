@@ -9,9 +9,9 @@ class Issue < ActiveRecord::Base
   validates_length_of :petition_call_to_action, :in => MIN_CALL_TO_ACTION_LENGTH..MAX_CALL_TO_ACTION_LENGTH, :allow_blank => true
   validates_length_of :personal_story_call_to_action, :in => MIN_CALL_TO_ACTION_LENGTH..MAX_CALL_TO_ACTION_LENGTH, :allow_blank => true
 
-  has_many :petitions
-  has_many :debates
-  has_many :personal_stories
+  has_many :petitions, :dependent => :destroy
+  has_many :debates, :dependent => :destroy
+  has_many :personal_stories, :dependent => :destroy
 
   belongs_to :featured_petition, :class_name => 'Petition', :foreign_key => :featured_petition_id
   belongs_to :featured_debate, :class_name => 'Debate', :foreign_key => :featured_debate_id

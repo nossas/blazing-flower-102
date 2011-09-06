@@ -17,6 +17,7 @@ ActiveAdmin.register Member do
     column "Options" do |o|
       span link_to "Show", admin_member_path(o)
       span link_to "Edit", edit_admin_member_path(o)
+      span link_to "Profile", member_path(o)
     end
   end
 
@@ -48,6 +49,10 @@ ActiveAdmin.register Member do
             tr do
               th { Member.human_attribute_name :image_url }
               td { member.image_url }
+            end
+            tr do
+              th { "URL DO PERFIL" }
+              td { member_path(member) }
             end
             tr do
               th { Member.human_attribute_name :meu_rio_is }

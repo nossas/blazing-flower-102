@@ -4,12 +4,24 @@
     <%= f.input :excerpt %>
     <%= f.input :description %>
     <%= f.input :image, :as => :file %>
+    <div class="image" style="margin-left: 330px;">
+      <%- unless @issue.image_updated_at.nil? -%> 
+        <p>Last updated image:</p>
+        <img src="<%= @issue.image.url -%>" height="100">
+      <% end %>
+    </div>
     <%= f.input :thumbnail, :as => :file %>
+    <div class="thumbnail" style="margin-left: 330px;">
+      <%- unless @issue.thumbnail_file_name.blank? -%> 
+        <p>Last updated image:</p>
+        <img src="<%= @issue.thumbnail.url -%>" height="100">
+      <% end %>
+    </div>
     <%- unless @issue.debates.blank? %>
       <p style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;">Select what Debate you want to feature on the Issue page. The blank option will not display the module at all.</p>
       <%= f.input :featured_debate, :as => :select, :collection => @issue.debates, :allow_blank => true %>
-      <p id="debate_call_to_action_length" style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;"><span></span>(Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long)</p>
       <%= f.input :debate_call_to_action, :as => :string %>
+      <p id="debate_call_to_action_length" style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;"><span></span>(Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long)</p>
       <div></div>
     <%- end %>
     <%- unless @issue.personal_stories.blank? %>

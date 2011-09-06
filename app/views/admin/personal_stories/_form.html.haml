@@ -1,0 +1,10 @@
+=semantic_form_for [:admin, @personal_story] do |f|
+  =f.inputs "Personal Story" do
+    =f.input :issue
+    =f.input :title, :as => :string
+    =f.input :description
+    =f.input :excerpt
+    =f.input :connected_action, :label => 'Button links to:', :as => :select, :collection =>  [['None', 'NONE'], ['Petition', 'PETITION'], ['Debate', 'DEBATE']]
+    =f.input :video_url, :as => :string
+    %p{:style => "margin-left: 330px; font-weight: bold;"} To add a video, please enter the video's URL.
+  =f.buttons

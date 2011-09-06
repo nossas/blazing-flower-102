@@ -6,7 +6,7 @@
   .text
     = @petition.donation_text
   .button_wrapper
-    %form{ :method => 'post', :action => 'https://www.moip.com.br/Process.do' }
+    %form{ :target => '_blank', :method => 'post', :action => 'https://www.moip.com.br/Process.do' }
       = image_tag 'comments_arrow.png', :class => 'donation_arrow'
       %input{ :type => 'hidden', :name => 'method', :value => 'donation' }
       %input{ :type => 'hidden', :name => 'encrypted', :value => 'VVb9chd0Za8WCiQTnUzQaw==' }
