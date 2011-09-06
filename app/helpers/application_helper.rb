@@ -32,6 +32,11 @@ module ApplicationHelper
     EOF
   end
 
+  def about_petition_link
+    petition = Petition.where(:state => 'published').last
+    link_to t("about_page.petition_link"), issue_custom_petition_path(petition.issue_id, petition.custom_path) if petition 
+  end
+
   def weather_category
     thunder = [0, 1, 2, 3, 4, 37, 38, 39, 40, 45, 46, 47]
     rain = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 35, 41, 42, 43]

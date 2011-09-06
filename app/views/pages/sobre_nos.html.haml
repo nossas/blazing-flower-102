@@ -40,7 +40,7 @@
     %div
       .sprite.icon.petition
       %p= t("about_page.feature3_text")
-      = link_to t("about_page.petition_link"), issue_custom_petition_path(Petition.last.issue_id, Petition.last.custom_path) if Petition.last
+      =about_petition_link
     %footer
 
 #quem_somos.grid_8
