@@ -21,8 +21,8 @@ describe Member do
         Member.find_for_facebook_oauth(FACEBOOK_VALID_AUTH_DATA).email.should == FACEBOOK_VALID_AUTH_DATA["user_info"]["email"]
       end
 
-      it "should create using his thumbnail" do
-        Member.find_for_facebook_oauth(FACEBOOK_VALID_AUTH_DATA).image_url.should == FACEBOOK_VALID_AUTH_DATA["user_info"]["image"]
+      it "should create using his gravatar" do
+        Member.find_for_google_oauth(FACEBOOK_VALID_AUTH_DATA).image_url.should == 'http://www.gravatar.com/avatar/5e2a237dafbc45f79428fdda9c5024b1.jpg?s=60&d=http://localhost:3000/assets/avatar_blank.png'
       end
 
     end
