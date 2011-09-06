@@ -52,6 +52,7 @@ gem "simplecov", :require => false, :group => :test
 group :development, :test do
   gem 'activeadmin'
   gem 'heroku'
+  gem 'taps'
   gem 'sqlite3', '1.3.3'
   gem 'foreman'
   gem 'ruby-debug19', :require => 'ruby-debug'
