@@ -1,5 +1,5 @@
 ActiveAdmin.register Member do
-  menu :priority => 12
+  menu :priority => 12, :label => 'Membros'
 
   filter :first_name
   filter :last_name

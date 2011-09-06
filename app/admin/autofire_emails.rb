@@ -1,3 +1,4 @@
+# coding: utf-8
 ActiveAdmin.register AutofireEmail do
   menu false
 

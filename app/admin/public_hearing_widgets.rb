@@ -1,5 +1,6 @@
+# coding: utf-8
 ActiveAdmin.register PublicHearingWidget do
-  menu :parent => "Widgets", :label => "Public Hearings"
+  menu :parent => "Widgets", :label => "Audiências Pública"
   filter :html_content
 
   index do
