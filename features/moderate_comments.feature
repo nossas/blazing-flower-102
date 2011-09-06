@@ -6,7 +6,7 @@ Feature: Moderate a comment
   Scenario: Comments index
     Given I am logged in to the admin section
     And 2 comments are in the moderation queue
-    When I follow "Comments"
+    When I follow "Comentários"
     Then I should see a list of comments
 
   #  Scenario: Comments index should not show comments out of moderation
@@ -20,7 +20,7 @@ Feature: Moderate a comment
     Given I am logged in to the admin section
     And 1 comment is in the moderation queue
     And 1 comment is moderated
-    When I follow "Comments"
+    When I follow "Comentários"
     And I follow "Moderated"
     Then I should see only the moderated comment
 
@@ -28,7 +28,7 @@ Feature: Moderate a comment
     Given I am logged in to the admin section
     And 1 comment is in the moderation queue
     And the first debate comment is accepted
-    When I follow "Comments"
+    When I follow "Comentários"
     And I follow "Moderated"
     Then I should see the first comment having "Comment Accepted" as "Yes"
 
@@ -36,20 +36,20 @@ Feature: Moderate a comment
     Given I am logged in to the admin section
     And 1 comment is in the moderation queue
     And the first debate comment is rejected
-    When I follow "Comments"
+    When I follow "Comentários"
     And I follow "Moderated"
     Then I should see the first comment having "Comment Accepted" as "No"
 
   Scenario: Accept comment
     Given I am logged in to the admin section
     And 1 comment is in the moderation queue
-    When I follow "Comments"
+    When I follow "Comentários"
     And I click "Yes"
     Then the first debate comment should be accepted
 
   Scenario: Reject comment
     Given I am logged in to the admin section
     And 1 comment is in the moderation queue
-    When I follow "Comments"
+    When I follow "Comentários"
     And I click "No"
     Then the first debate comment should be rejected

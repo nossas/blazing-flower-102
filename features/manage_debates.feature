@@ -14,7 +14,7 @@ Feature: Managing Debates
     And 3 members exist
     And 1 issues exist
     When I follow "Debates"
-    And I click "Novo(a) Debate"
+    And I click "Criar Novo"
     And I fill in the debate form with correct information
     And I press "Create Debate"
     Then I should see "Debate was successfully created."
@@ -23,7 +23,7 @@ Feature: Managing Debates
     Given I am logged in to the admin section
     And 3 members exist
     When I follow "Debates"
-    And I click "Novo(a) Debate"
+    And I click "Criar Novo"
     And I fill in the debate form with incorrect information
     And I press "Create Debate"
     Then I should not see "Debate was successfully created."
