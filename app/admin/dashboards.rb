@@ -1,3 +1,4 @@
+# coding: utf-8
 ActiveAdmin::Dashboards.build do
   section "Global Site Performance" do
     div do

@@ -1,3 +1,4 @@
+# coding: utf-8
 ActiveAdmin.register Petition do
   menu :priority => 1
 

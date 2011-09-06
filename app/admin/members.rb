@@ -1,3 +1,4 @@
+# coding: utf-8
 ActiveAdmin.register Member do
   menu :priority => 12, :label => 'Membros'
 

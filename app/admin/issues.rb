@@ -1,3 +1,4 @@
+# coding: utf-8
 ActiveAdmin.register Issue do
   menu :priority => 2, :label => 'Na Atividade'
 

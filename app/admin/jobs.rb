@@ -1,3 +1,4 @@
+# coding: utf-8
 ActiveAdmin.register Job do
   menu :priority => 11, :label => 'Empregos'
   index do
