@@ -1,12 +1,12 @@
 ActiveAdmin.register PersonalStory do
-  menu :priority => 6
+  menu :priority => 6, :label => 'Direto da Gema'
 
   filter :issue
   filter :title
   filter :description
 
   index do
-    column 'Issue' do |i|
+    column 'Na Atividade' do |i|
       span i.issue.name
     end
     # 9/1 Ren: Commenting out for now, because I feel it'll likely come back.

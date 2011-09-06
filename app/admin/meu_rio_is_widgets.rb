@@ -1,6 +1,6 @@
 # coding: utf-8
 ActiveAdmin.register MeuRioIsWidget do
-  menu :parent => "Widgets", :label => "Meu Rio Is"
+  menu :parent => "Home", :label => "Membros"
   filter :html_content
 
   index do

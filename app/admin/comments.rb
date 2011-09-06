@@ -1,5 +1,5 @@
 ActiveAdmin.register Comment, :as => "CommunityComment" do
-  menu :label => 'Comments', :parent => 'Debates', :priority => 0
+  menu :label => 'Comentários', :parent => 'Debates', :priority => 0
 
   actions :all, :except => :new
   filter :commentable_type, :as => :select, :collection => ["debates"]

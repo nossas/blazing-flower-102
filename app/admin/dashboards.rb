@@ -1,4 +1,5 @@
 ActiveAdmin::Dashboards.build do
+  menu :label => "Painel Admnistrativo"
 
   section "Global Site Performance" do
     div do

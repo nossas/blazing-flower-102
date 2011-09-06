@@ -1,5 +1,6 @@
+# coding: utf-8
 ActiveAdmin.register LegislativeAgendaWidget do
-  menu :parent => "Widgets", :label => "Legislative Agenda"
+  menu :parent => "Home", :label => "De Olho no Legislativo"
   filter :html_content
 
   index do

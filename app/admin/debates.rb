@@ -6,7 +6,7 @@ ActiveAdmin.register Debate do
   filter :author_2
 
   index do
-    column 'Issue' do |d|
+    column 'Na Atividade' do |d|
       span d.issue.name
     end
     column 'Question' do |d|
