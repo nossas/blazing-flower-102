@@ -370,6 +370,8 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   font-size: 14px;
   font-family: Akagi-Book;
   padding-top: 10px;
+  position: relative;
+  z-index: 200;
 }
 
 .speech_bubble_container {
