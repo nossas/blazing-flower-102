@@ -72,7 +72,7 @@ ActiveAdmin.register AdminUser do
               td { l admin_user.created_at, :format => :short }
             end
             tr do
-              th { 'Updated_at' }
+              th { 'Updated at' }
               td { l admin_user.updated_at, :format => :short }
             end
           end

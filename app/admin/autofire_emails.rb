@@ -62,7 +62,7 @@ ActiveAdmin.register AutofireEmail do
               td { l e.created_at, :format => :short }
             end
             tr do
-              th { 'Updated_at' }
+              th { 'Updated at' }
               td { l e.updated_at, :format => :short }
             end
           end
