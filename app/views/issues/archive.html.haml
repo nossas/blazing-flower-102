@@ -18,8 +18,6 @@
     =render :partial => "articles"
   .grid_3.prefix_9.omega.article_count
     .count= "Exibindo #{@articles_start}-#{@articles_end} de #{@article_count}"
-    -unless @articles_start < 5
-      .arrow.prevous=link_to image_tag("scroll_arrow_left.png"), issue_archive_page_path(@issue.id, @page - 1)
-    -unless @articles_end >= @article_count 
-      .arrow.next=link_to image_tag("scroll_arrow_right.png"), issue_archive_page_path(@issue.id, @page + 1)
+    .arrow.previous{:class => @articles_start < 5 ? "inactive" : '' }=link_to ">", issue_archive_page_path(@issue.id, @page - 1)
+    .arrow.next{:class => @articles_end >= @article_count ? "inactive" : '' }=link_to ">", issue_archive_page_path(@issue.id, @page + 1)
   .clearfix
