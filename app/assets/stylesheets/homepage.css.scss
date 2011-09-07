@@ -314,3 +314,9 @@
   .widget.margin_right, .widget_container.margin_right {margin-right:20px;}
   .widget.margin_bottom, .widget_container.margin_bottom {margin-bottom:20px;}
 }
+
+.ie #homepage {
+  &#public_hearings h1{
+    font-size: 19px;
+  }
+}
