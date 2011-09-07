@@ -297,11 +297,18 @@
   unflag: "Desfazer denúncia"
   privacy_policy: "Política de Privacidade"
   pages_show_jobs:
-    title: "Venha Trabalhar Com A Gente!"
-    description: "<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod.</p>"
     no_jobs: "<p>Opa!</p><p>Estamos sempre à procura de pessoas apaixonadas pelo Rio mas, no momento, não estamos contratando. Vamos atualizar esta página assim que houver uma vaga disponível.</p><p>Atenciosamente,<br>Equipe Meu Rio</p>"
-    sidebar_title: "HOW TO APPLY"
-    sidebar_content: "<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam.</p><p>Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod.</p><p><a href='mailto:jobs@meurio.org.br'>jobs@meurio.org.br</a></p>"
+    title: "Venha Trabalhar Com A Gente!"
+    sidebar_title: "Como Proceder"
+    sidebar_content: "<p>Envie um e-mail para 
+<a href=\"mailto:alessandra@meurio.org.br\">alessandra@meurio.org.br</a> com seu currículo 
+e uma carta dizendo porque você gostaria de 
+trabalhar com o Meu Rio.</p><p> 
+Conte-nos tudo, não esconda nada. 
+Queremos saber das suas experiências, 
+projetos, e o que você tem feito, ou pretende 
+fazer, para ajudar a construir um Rio mais 
+bacana de se viver.</p>"
   about_page:
     title: "Sobre o Meu Rio"
     highlight_text: "O Meu Rio é um movimento democrático e apartidário, que usa ferramentas on-line para ligar os cidadãos do Rio de Janeiro e garantir que a sua voz oriente os processos de decisão que estão transformando a cidade."
@@ -333,9 +340,9 @@ Com a realização da Copa e das Olimpíadas nos próximos anos, essa oportunida
     you_are_important: "Sua participação é importante!"
     join_us: "Junte-se a nós"
     read_more: "LEIA MAIS »"
-    what_we_are_doing: "O que estamos fazendo..."
+    what_we_are_doing: "O que estamos aprontando..."
     read_more_on_blog: "Leia mais no nosso blog »"
-    follow_us: "Siga-nos"
+    follow_us: "Também estamos aqui, ó:"
     intro: "Com a realização da Copa e das Olimpíadas nos próximos anos, essa oportunidade é única. No Meu Rio, acreditamos que uma maior participação popular nas questões de políticas públicas é a chave para um Rio mais justo. Nós cariocas podemos sim, juntos, construir uma cidade melhor para todos e mostrar que nossa força pode trazer resultados surpreendentes."
   members_show:
     is_collaborating_in: "O que %{name} já fez no Meu Rio:"
