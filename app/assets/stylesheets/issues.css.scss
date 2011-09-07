@@ -118,6 +118,41 @@ body.issues {
     margin-top: 5px;
   }
 
+  .arrow {
+    width: 20px;
+    height: 20px;
+
+    a {
+      cursor: pointer;
+      text-indent: -4000em;
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+  }
+
+  .arrow.next a {
+    background: url(/assets/archive_arrow_right.png) no-repeat 0px 0px;
+  }
+  .arrow.next.inactive {
+    background: url(/assets/archive_arrow_right.png) no-repeat 0px -20px;
+
+    a {
+      display: none;
+    }
+  }
+
+  .arrow.previous a{
+    background: url(/assets/archive_arrow_left.png) no-repeat 0px 0px;
+  }
+  .arrow.previous.inactive {
+    background: url(/assets/archive_arrow_left.png) no-repeat 0px -20px;
+
+    a {
+      display: none;
+    }
+  }
+
   .articles {
     margin-top: 50px;
   }
@@ -182,5 +217,6 @@ body.issues {
       padding: 0;
     }
   }
+
 }
 
