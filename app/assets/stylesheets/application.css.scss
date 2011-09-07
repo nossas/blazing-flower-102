@@ -34,6 +34,18 @@ body {
   height: 100%;
   width: 100%;
   font-family: 'Akagi-Book', Helvetica, Ariel, sans-serif;
+  &.background_blue {
+    background-image: url(/assets/background_blue.png);
+  }
+  &.background_green {
+    background-image: url(/assets/background_green.png);
+  }
+  &.background_orange {
+    background-image: url(/assets/background_orange.png);
+  }
+  &.background_pink {
+    background-image: url(/assets/background_pink.png);
+  }
 }
 
 body > header {
@@ -593,7 +605,7 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   overflow: hidden;
   width: 302px;
   >div {
-    background: url("/assets/widget-container-green-body.gif") repeat-y scroll left top transparent;
+    background: url(/assets/widget-container-green-body.gif) repeat-y scroll left top transparent;
     float: left;
     min-height: 200px;
     padding-top: 15px;
@@ -610,7 +622,7 @@ textarea.error, input.error, select.error { border-color: $red !important; }
     }
   }
   header {
-    background: url("/assets/widget-container-green-top.gif") repeat-y scroll 0 0 transparent;
+    background: url(/assets/widget-container-green-top.gif) repeat-y scroll 0 0 transparent;
     float: left;
     width: 302px; // Redundancy to override overridden width inheritance from parent <section> 
     p {
@@ -630,7 +642,7 @@ textarea.error, input.error, select.error { border-color: $red !important; }
     padding-left: 10px;
   }
   footer {
-    background: url("/assets/widget-container-green-bottom.gif") repeat-y scroll left bottom transparent;
+    background: url(/assets/widget-container-green-bottom.gif) repeat-y scroll left bottom transparent;
     float: left;
     min-height: 35px;
     width: 100%;

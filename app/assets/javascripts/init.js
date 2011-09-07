@@ -4,6 +4,7 @@ MR = {
       // application-wide code
       MR.common.googleLogout();
       MR.common.faceboxInit();
+      MR.common.setBodyBackgroundClass();
 
       $('.member_panel .arrow').bind('click', function(){
         $('.flyout').toggle();
@@ -16,21 +17,20 @@ MR = {
       });
     },
 
+    addFragmentListener: function(){
+        store.set('lastFragment', $(this).data('record-fragment'));
+      },
+    
+    faceboxInit: function(){
+      $.facebox.settings.closeImage = "/assets/closelabel.png";
+      $.facebox.settings.loadingImage = "/assets/loading.gif";
+      $("[rel=facebox]").facebox();
+    },
+
     googleLogout: function(){
       $('iframe#google_logout_iframe').load(function(){
         window.location.href = "/logout";
       });
-    },
-
-    faceboxInit: function(){
-      $.facebox.settings.closeImage = "/assets/closelabel.png";
-      $.facebox.settings.loadingImage = "/assets/loading.gif";
-
-      $("[rel=facebox]").facebox();
-    },
-
-    addFragmentListener: function(){
-      store.set('lastFragment', $(this).data('record-fragment'));
     },
 
     handleFragmentEvent: function(){
@@ -39,7 +39,17 @@ MR = {
         store.remove('lastFragment');
       }
     },
-
+    
+    /**
+     * Adds a random class to the body which CSS uses to set the background img
+     */
+    setBodyBackgroundClass: function(){
+        var backgrounds = ['blue', 'green', 'orange', 'pink'],
+            thisBackground = backgrounds[Math.round(Math.random()*100%3)];
+        
+        $('body').addClass('background_' + thisBackground);
+      },
+      
     setUpDropDowns: function(callback){
       var $dropdown_ul = $(".dropdown dd ul");
 
@@ -74,9 +84,9 @@ MR = {
       }
     }
   },
-
+  
   users: {
-    init: function() {
+    init: function(){
       // controller-wide code
     },
 
