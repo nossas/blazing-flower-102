@@ -16,7 +16,7 @@ Feature: Managing Autofire Emails
   Scenario: New Email form
     Given I am logged in to the admin section
     And I am on the admin autofire emails page
-    When I follow "Novo(a) Autofire Email"
+    When I follow "Criar Novo"
     Then I should see a new autofire email form
 
   Scenario: New Email creation

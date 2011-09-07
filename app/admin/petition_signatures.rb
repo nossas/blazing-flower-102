@@ -1,5 +1,6 @@
+# coding: utf-8
 ActiveAdmin.register PetitionSignature, :as => 'PetitionComment' do
-  menu :parent => 'Petitions', :label => "Comment", :priority => 0
+  menu :parent => 'Petitions', :label => "Comentários", :priority => 0
 
   actions :all, :except => :new
   filter :petition

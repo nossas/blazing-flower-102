@@ -4,6 +4,7 @@ MR = {
       // application-wide code
       MR.common.googleLogout();
       MR.common.faceboxInit();
+      MR.common.mainNavDonationLink();
 
       $('.member_panel .arrow').bind('click', function(){
         $('.flyout').toggle();
@@ -38,6 +39,14 @@ MR = {
         window.location.href = window.location.href + '#' + store.get('lastFragment');
         store.remove('lastFragment');
       }
+    },
+
+    mainNavDonationLink: function(){
+      $('#main_nav_donate').click(function(){
+        $('.moip form').submit();
+        console.log('post submit');
+        return false;
+      });
     },
 
     setUpDropDowns: function(callback){

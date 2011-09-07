@@ -1,5 +1,6 @@
+# coding: utf-8
 ActiveAdmin.register FeaturedContentWidget do
-  menu :parent => "Widgets", :label => "Featured Content"
+  menu :parent => "Home", :label => "Conteúdo em Destaque"
 
   filter :link
 

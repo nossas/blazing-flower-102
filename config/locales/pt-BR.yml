@@ -297,7 +297,7 @@
   unflag: "Desfazer denúncia"
   privacy_policy: "Política de Privacidade"
   pages_show_jobs:
-    no_jobs: "Nenhuma vaga em aberto"
+    no_jobs: "<p>Opa!</p><p>Estamos sempre à procura de pessoas apaixonadas pelo Rio mas, no momento, não estamos contratando. Vamos atualizar esta página assim que houver uma vaga disponível.</p><p>Atenciosamente,<br>Equipe Meu Rio</p>"
     title: "Venha Trabalhar Com A Gente!"
     sidebar_title: "Como Proceder"
     sidebar_content: "<p>Envie um e-mail para 
@@ -360,4 +360,4 @@ Com a realização da Copa e das Olimpíadas nos próximos anos, essa oportunida
     join_us: "Junte-se a nós!"
   pages_thank_you: 
     title: "Obrigado pela sua participação!"
-    text: "Muito obrigado pela sua doação e por acreditar no trabalho do Meu Rio. Agora que você é um patrocinador do movimento, faça seu <a href=\"#login\" rel=\"facebox\">cadastro</a> e nós lhe enviaremos anualmente uma cópia eletrônica do nosso relatório financeiro, assim você vai poder acompanhar melhor o destino do seu dindim."
+    text: "Muito obrigado pela sua doação e por acreditar no trabalho do Meu Rio. Agora que você é um patrocinador do movimento, faça seu <a href=\"#join\" rel=\"facebox\">cadastro</a> e nós lhe enviaremos anualmente uma cópia eletrônica do nosso relatório financeiro, assim você vai poder acompanhar melhor o destino do seu dindim."

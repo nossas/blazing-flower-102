@@ -12,7 +12,7 @@ Feature: Managing Petitions
   Scenario: New Petition form
     Given I am logged in to the admin section
     And I am on the admin petitions page
-    When I follow "Novo(a) Petition"
+    When I follow "Criar Novo"
     Then I should see new petition form
 
   Scenario: Previewing a petition

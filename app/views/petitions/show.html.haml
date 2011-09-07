@@ -13,11 +13,12 @@
 .grid_6
   .media{:style => "z-index:0"}= raw @petition.media
   -if @petition.ok_to_display_counter?
-    .grid_5.alpha.progress_bar_container
-      .graph
-        .progress{:style => "width: #{@petition.percentage_complete}%;"}
-    .grid_1.omega.meta_container
-      .goal= t("petition_show.goal", :goal => @petition.counter_goal)
+    -if @petition.counter_goal != 0
+      .grid_5.alpha.progress_bar_container
+        .graph
+          .progress{:style => "width: #{@petition.percentage_complete}%;"}
+      .grid_1.omega.meta_container
+        .goal= t("petition_show.goal", :goal => @petition.counter_goal)
     .grid_6.omega.alpha
       %strong.counter= raw t("petition_show.signatures", :count => @petition.petition_signatures.count)
   .grid_6.alpha.omega
