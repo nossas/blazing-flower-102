@@ -150,6 +150,16 @@ h1 {
   }
 }
 
+html.ie {
+  nav#primary {
+    li.issue_menu_wrap{
+      .issue_menu {
+        margin-right: 1px;
+      }
+    }
+  }
+}
+
 input[type="text"], textarea {
   border: 2px solid $light_gray;
   &:focus{
@@ -182,24 +192,27 @@ nav#primary {
     }
   }
   li.issue_menu_wrap{
+    position:relative;
     &:hover {
-      .issue_menu.wide, .issue_menu.small, roundrect{
-        visibility:visible;
+      .issue_menu.wide, .issue_menu.small, roundrect {
+        visibility: visible;
       }
       >a {
         color:#fff;
-        background-color:rgba(237, 126, 67, .9);
+        background-color: #ed7e43;
+        background-color: rgba(237, 126, 67, .9);
       }
     }
-    position:relative;
+    
     >a {
       @include border-radius(5px 5px 0 0);
       &:hover {
-        background-image:none;
-        color:#fff;
+        background-image: none;
+        color: #fff;
       }
     }
-    .issue_menu{
+    .issue_menu {
+      background-color: #ed7e43;
       background-color: rgba(237, 126, 67, .9);
       @include border-radius(5px 0 5px 5px);
       font-weight: normal;
@@ -209,12 +222,12 @@ nav#primary {
       right: 9px; // See comment below about odd 1px bug for issues page
       visibility: hidden;
       z-index: 100;
-      &.wide{
+      &.wide {
         width: 410px;
       }
-      &.small{
+      &.small {
         width: 240px;
-        .thumbnails{
+        .thumbnails {
           padding-right: 0;
         }
       }
