@@ -3,7 +3,6 @@
 
 .grid_8.alpha.trabalhe
   -unless Job.active.blank?
-    =raw t("pages_show_jobs.description")
 
     - Job.active.each do |j|
       .job.closed
