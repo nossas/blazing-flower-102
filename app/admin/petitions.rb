@@ -67,16 +67,16 @@ ActiveAdmin.register Petition do
         div({:class => 'attributes_table petition' }) do
           table do
             tr do
+              th { 'Issue' }
+              td { petition.issue.name }
+            end
+            tr do
               th { 'Title' }
               td { petition.title }
             end
             tr do
               th { 'Custom Path' }
               td { petition.custom_path }
-            end
-            tr do
-              th { 'Issue' }
-              td { petition.issue.name }
             end
             tr do
               th { 'Headline' }
@@ -106,6 +106,14 @@ ActiveAdmin.register Petition do
               th { 'Call to Action Text' }
               td { petition.call_to_action_text }
             end
+            tr do
+              th { 'Created at' }
+              td { l petition.created_at, :format => :short }
+            end
+            tr do
+              th { 'Updated at' }
+              td { l petition.updated_at, :format => :short }
+            end
           end
         end
       end
@@ -131,56 +139,54 @@ ActiveAdmin.register Petition do
           end
         end
       end
-
+    end
+    
+    div({:class => 'panel' }) do
       h3 'Comments'
-      div({:class => 'panel' }) do
-        div({:class => 'panel_contents' }) do
-          div({:class => 'attributes_table petition' }) do
-            table do
-              tr do
-                th { 'Display Comments?' }
-                td { petition.display_comment_field == true ? "Yes" : "No" }
-              end
-              tr do
-                th { 'Comment Question' }
-                td { petition.comment_question }
-              end
-              tr do
-                th { 'Surface Comments?' }
-                td { petition.surface_comments == true ? "Yes" : "No" }
-              end
+      div({:class => 'panel_contents' }) do
+        div({:class => 'attributes_table petition' }) do
+          table do
+            tr do
+              th { 'Display Comments?' }
+              td { petition.display_comment_field == true ? "Yes" : "No" }
+            end
+            tr do
+              th { 'Comment Question' }
+              td { petition.comment_question }
+            end
+            tr do
+              th { 'Surface Comments?' }
+              td { petition.surface_comments == true ? "Yes" : "No" }
             end
           end
         end
       end
+    end
 
-
+    div({:class => 'panel' }) do
       h3 'Donation'
-      div({:class => 'panel' }) do
-        div({:class => 'panel_contents' }) do
-          div({:class => 'attributes_table petition' }) do
-            table do
-              tr do
-                th { 'Display Donation?' }
-                td { petition.display_donation == true ? "Yes" : "No" }
-              end
-              tr do
-                th { 'Donation Thanks Message' }
-                td { petition.donation_thanks_message }
-              end
-              tr do
-                th { 'Donation Headline' }
-                td { petition.donation_headline }
-              end
-              tr do
-                th { 'Donation Text' }
-                td { petition.donation_text }
-              end
+      div({:class => 'panel_contents' }) do
+        div({:class => 'attributes_table petition' }) do
+          table do
+            tr do
+              th { 'Display Donation?' }
+              td { petition.display_donation == true ? "Yes" : "No" }
+            end
+            tr do
+              th { 'Donation Thanks Message' }
+              td { petition.donation_thanks_message }
+            end
+            tr do
+              th { 'Donation Headline' }
+              td { petition.donation_headline }
+            end
+            tr do
+              th { 'Donation Text' }
+              td { petition.donation_text }
             end
           end
         end
       end
-
     end
   end
 

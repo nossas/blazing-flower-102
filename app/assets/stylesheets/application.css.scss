@@ -321,7 +321,7 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   background: $orange url(/assets/bg_btn.gif) repeat-x center center !important;
   @include border-radius(10px !important);
   border: none;
-  @include box-shadow(inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray !important);
+  @include box-shadow(inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray);
   color: #fff !important;
   font-family: Folk-solid;
   font-size: 20px;

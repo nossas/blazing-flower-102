@@ -49,6 +49,10 @@ ActiveAdmin.register Member do
               td { member.celular }
             end
             tr do
+              th { 'Image' }
+              td { image_tag(member.image_url) }
+            end
+            tr do
               th { Member.human_attribute_name :image_url }
               td { member.image_url }
             end
@@ -63,6 +67,14 @@ ActiveAdmin.register Member do
             tr do
               th { Member.human_attribute_name :bio }
               td { member.bio }
+            end
+            tr do
+              th { 'Created at' }
+              td { l member.created_at, :format => :short }
+            end
+            tr do
+              th { 'Updated at' }
+              td { l member.updated_at, :format => :short }
             end
           end
         end

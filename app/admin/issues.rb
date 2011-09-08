@@ -16,6 +16,9 @@ ActiveAdmin.register Issue do
     column 'Debates' do |i|
       span i.debates.count
     end
+    column 'Videos' do |i|
+      span i.personal_stories.count
+    end
     column :created_at do |m|
       l m.created_at, :format => :short
     end
@@ -71,6 +74,14 @@ ActiveAdmin.register Issue do
                 td do
                   img({:src => issue.thumbnail.url})
                 end
+              end
+              tr do
+                th { 'Created at' }
+                td { l issue.created_at, :format => :short }
+              end
+              tr do
+                th { 'Updated at' }
+                td { l issue.updated_at, :format => :short }
               end
             end
           end
