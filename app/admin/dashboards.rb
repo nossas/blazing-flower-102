@@ -2,7 +2,7 @@
 ActiveAdmin::Dashboards.build do
   section "Global Site Performance" do
     div do
-      # render 'site_performance'
+      render 'site_performance'
     end
   end
 
