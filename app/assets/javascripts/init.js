@@ -29,6 +29,7 @@ MR = {
 
     closeMemberFlyout: function(){
       $('flyout').hide();
+      var $panel = $('.member_panel');
       $panel.removeClass('active');
     },
 
