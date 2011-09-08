@@ -64,6 +64,14 @@ ActiveAdmin.register Member do
               th { Member.human_attribute_name :bio }
               td { member.bio }
             end
+            tr do
+              th { 'Created at' }
+              td { l member.created_at, :format => :short }
+            end
+            tr do
+              th { 'Updated at' }
+              td { l member.updated_at, :format => :short }
+            end
           end
         end
       end

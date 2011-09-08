@@ -27,6 +27,14 @@ ActiveAdmin.register MeuRioIsWidget do
               th { 'Atualizado em' }
               td { l meu_rio_is_widget.updated_at }
             end
+            tr do
+              th { 'Created at' }
+              td { l admin_user.created_at, :format => :short }
+            end
+            tr do
+              th { 'Updated at' }
+              td { l admin_user.updated_at, :format => :short }
+            end
           end
         end
       end
