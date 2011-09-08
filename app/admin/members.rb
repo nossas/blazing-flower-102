@@ -49,6 +49,10 @@ ActiveAdmin.register Member do
               td { member.celular }
             end
             tr do
+              th { 'Image' }
+              td { image_tag(member.image_url) }
+            end
+            tr do
               th { Member.human_attribute_name :image_url }
               td { member.image_url }
             end
