@@ -71,6 +71,14 @@ ActiveAdmin.register Debate do
               th { 'Comment Prompt' }
               td { debate.comment_prompt }
             end
+            tr do
+              th { 'Created at' }
+              td { l debate.created_at, :format => :short }
+            end
+            tr do
+              th { 'Updated at' }
+              td { l debate.updated_at, :format => :short }
+            end
           end
         end
       end
