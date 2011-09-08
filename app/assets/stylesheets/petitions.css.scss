@@ -184,16 +184,12 @@ body.petitions {
 
   .zona {
     >dl {
-      margin: 0;
-      width: 198px;
+      margin: 4px 0 0 0;
+      width: 158px;
       >dd {
         ul {
-          xdisplay: none;
-          min-width: 162px;
+          min-width: 159px;
         }
-      }
-      >dt {
-        width: auto;
       }
     }
     select {

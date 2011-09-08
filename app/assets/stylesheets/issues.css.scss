@@ -7,6 +7,7 @@
 
 body.issues {
   h1 {
+    font-size: 32px;
     margin-left: 15px;
   }
 
@@ -31,7 +32,7 @@ body.issues {
         text-align: center;
         a {
           margin: 0;
-          margin-top: 10px;
+          margin-top: 20px;
         }
       }
     }
@@ -55,11 +56,16 @@ body.issues {
     display: none;
   }
   .excerpt {
-    padding: 25px 0;
+    border-top: 3px solid $lighter_blue;
+    border-bottom: 1px solid $lighter_blue;
+    padding: 25px 0 10px 0;
     margin: 470px 0 25px;
     p, .see_more a {
       line-height: 160%;
       padding-left: 15px;
+    }
+    .see_more a#read_more {
+      display: inline-block;
     }
   }
 
@@ -103,9 +109,14 @@ body.issues {
 
   .head_info {
     background: #fff;
-    border-top: 1px solid $blue;
+    border-top: 3px solid $blue;
     border-bottom: 1px solid $blue;
-    padding: 15px 0;
+    margin: 0 0 0 -10px;
+    padding: 15px 30px 15px 10px;
+    .grid_3.prefix_5.omega {
+      position: relative;
+      right: -44px;
+    }
   }
   
   .count, .arrow {
@@ -213,6 +224,7 @@ body.issues {
       float: right;
     }
     .excerpt {
+      border: 0;
       margin: 0;
       padding: 0;
     }

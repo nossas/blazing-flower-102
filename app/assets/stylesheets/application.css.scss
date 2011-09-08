@@ -238,6 +238,7 @@ nav#primary {
       z-index: 100;
       &.wide {
         width: 410px;
+        z-index: 201; // This is 201 because .issue_name was overlapping at 200 
       }
       &.small {
         width: 240px;
@@ -368,38 +369,52 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   padding: 0px;
   width: 276px;
   dd, dt, ul { margin: 0px; padding: 0px; }
-  dd { position: relative; margin-top: -3px; }
-  dt {background: url('/assets/archive_dropdown_slice.png') no-repeat scroll right center; display:block; padding:0px 20px 0px 10px; border: none; width:276px; height: 33px; color: $dark_gray; cursor:pointer;
-    span { cursor:pointer; display:block; padding:7px 5px 5px; }
+  dd {
+    position: relative;
+    margin-top: -3px;
+  }
+  dt {
+    display: block;
+    padding: 0px 20px 0px 10px;
+    border: none;
+    color: $dark_gray;
+    cursor:pointer;
+    span {
+      cursor: pointer;
+      display: block;
+      padding: 7px 5px 5px;
+    }
   }
   dd ul { 
+    border: 1px solid $light_gray;
+    border-top: 0;
     -moz-border-radius: 0 0 10px 10px;
     -webkit-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
     background: $lighter_gray none repeat scroll 0 0;
     display: none;
     list-style: none;
-    padding: 5px 0px;
+    padding: 8px 0 5px 0;
     position: absolute; 
     left: 0px;
-    top: 0px;
+    top: 28px;
     width: auto;
-    min-width: 270px;
+    min-width: 268px;
     z-index: 1;
   }
   span.value { display:none;}
   dd ul li {
     margin-left: 0;
     padding-left:10px;
-    &:hover {
-      background: $light_gray;
-    }
   }
   dd ul li a {
-    display:block;
-    padding:5px;
+    border-top: 1px solid $light_gray;
+    display: block;
+    margin: 0 10px 0 0;
+    min-height: 19px;
+    padding: 10px 5px;
     &:hover {
-      color: $dark_gray;
+      color: $pink;
     }
   }
 }
@@ -563,6 +578,18 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   width: 58px;
 }
 
+.sprite.dropdown_archive {
+  background-position: -152px -140px;
+  height: 33px;
+  width: 303px;
+}
+
+.sprite.dropdown_petition {
+  background-position: -10px -243px;
+  height: 32px;
+  width: 163px;
+}
+
 .sprite.facebook {
   background-position: -54px -10px;
   height: 20px;
@@ -653,10 +680,11 @@ textarea.error, input.error, select.error { border-color: $red !important; }
        * body > #main p { font-size: 15px; }
        * TODO: change font sizes to use em instead of px 
        */
-      font-size: 1.3em !important;
+      font-family: Folk-solid;
+      font-size: 28px !important;
       font-weight: bold;
       line-height: 1.1em;
-      margin: 10px 15px 0 5px;
+      margin: 5px 15px 5px 5px;
       text-transform: uppercase;
     }
   }
