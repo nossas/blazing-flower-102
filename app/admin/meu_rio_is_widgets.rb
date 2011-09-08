@@ -20,8 +20,8 @@ ActiveAdmin.register MeuRioIsWidget do
         div({:class => 'attributes_table meu_rio_is_widget' }) do
           table do
             tr do
-              th { 'Atualizado em' }
-              td { l w.updated_at }
+              th { 'HTML Content' }
+              td { raw w.content }
             end
             tr do
               th { 'Created at' }
