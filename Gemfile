@@ -8,6 +8,8 @@ gem 'jquery-rails'
 gem "devise", "~> 1.4.2"
 gem 'cancan'
 
+gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
+
 # External authentication
 gem "oa-oauth", :require => "omniauth/oauth"
 gem 'oa-openid', :require => 'omniauth/openid'
@@ -53,7 +55,6 @@ gem 'newrelic_rpm'
 gem "simplecov", :require => false, :group => :test
 
 group :development, :test do
-  gem 'activeadmin'
   gem 'heroku'
   gem 'sqlite3', '1.3.3'
   gem 'foreman'
@@ -78,7 +79,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'activeadmin'
   # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
   gem 'thin'
 end
