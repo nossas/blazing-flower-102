@@ -3,39 +3,38 @@
     <%= f.input :name, :as => :string %>
     <%= f.input :excerpt %>
     <%= f.input :description %>
-    <%= f.input :image, :as => :file %>
-    <div class="image" style="margin-left: 330px;">
+    <%= f.input :image, :as => :file, :required => true %>
+    <div class="image" style="margin-left: 340px;">
       <%- unless @issue.image_updated_at.nil? -%> 
         <p>Last updated image:</p>
         <img src="<%= @issue.image.url -%>" height="100">
       <% end %>
     </div>
-    <%= f.input :thumbnail, :as => :file %>
-    <div class="thumbnail" style="margin-left: 330px;">
+    <%= f.input :thumbnail, :as => :file, :required => true %>
+    <div class="thumbnail" style="margin-left: 340px;">
       <%- unless @issue.thumbnail_file_name.blank? -%> 
         <p>Last updated image:</p>
         <img src="<%= @issue.thumbnail.url -%>" height="100">
       <% end %>
     </div>
     <%- unless @issue.debates.blank? %>
-      <p style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;">Select what Debate you want to feature on the Issue page. The blank option will not display the module at all.</p>
-      <%= f.input :featured_debate, :as => :select, :collection => @issue.debates, :allow_blank => true %>
-      <%= f.input :debate_call_to_action, :as => :string %>
-      <p id="debate_call_to_action_length" style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;"><span></span>(Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long)</p>
-      <div></div>
+        <p style="padding: 5px; border: 1px solid #666; margin: 20px 20px 0px 340px;">Select what Debate you want to feature on the Issue page. The blank option will not display the module at all.</p>
+        <%= f.input :featured_debate, :as => :select, :collection => @issue.debates, :allow_blank => true %>
+        <%= f.input :debate_call_to_action, :as => :string %>
+        <p id="debate_call_to_action_length" style="padding-left: 10px; border: 1px solid #efefef; margin: 10px 0 0 343px;"><span></span>(Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long)</p>
     <%- end %>
     <%- unless @issue.personal_stories.blank? %>
-      <p style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;">Select what Personal Story Video you want to feature on the Issue page. The blank option will not display the module at all.</p>
+      <p style="padding: 5px; border: 1px solid #666; margin: 20px 20px 0 340px;">Select what Personal Story Video you want to feature on the Issue page. The blank option will not display the module at all.</p>
       <%= f.input :featured_personal_story, :as => :select, :collection => @issue.personal_stories, :allow_blank => true %>
       <%= f.input :personal_story_call_to_action, :as => :string %>
-      <p id="personal_story_call_to_action_length" style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;"><span></span>(Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long)</p>
+      <p id="personal_story_call_to_action_length" style="padding-left: 10px; border: 1px solid #efefef; margin: 10px 0 0 343px;"><span></span>(Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long)</p>
       <div></div>
     <%- end %>
     <%- unless @issue.petitions.blank? %>
-      <p style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;">Select what Petition you want to feature on the Issue page. The blank option will not display the module at all.</p>
+      <p style="padding: 5px; border: 1px solid #666; margin: 20px 20px 0 340px;">Select what Petition you want to feature on the Issue page. The blank option will not display the module at all.</p>
       <%= f.input :featured_petition, :as => :select, :collection => @issue.petitions.where(:state => "published"), :allow_blank => true %>
       <%= f.input :petition_call_to_action, :as => :string %>
-      <p id="petition_call_to_action_length" style="padding-left: 10px; border: 1px solid #efefef; margin-top: 10px;"><span></span>(Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long)</p>
+      <p id="petition_call_to_action_length" style="padding-left: 10px; border: 1px solid #efefef; margin: 10px 0 0 343px;"><span></span>(Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long)</p>
       <div></div>
     <%- end %>
   <% end %>
