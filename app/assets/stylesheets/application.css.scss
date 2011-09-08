@@ -49,14 +49,22 @@ body {
 }
 
 body > header {
-  min-height:127px; // Avoid page jump if the logo is slow to load
-  padding:10px !important; // Override 960.gs
-  margin-bottom: 10px;
   background: white;
+  margin-bottom: 10px;
+  min-height: 127px; // Avoid page jump if the logo is slow to load
+  padding:10px !important; // Override 960.gs
+  position: relative;
   @include border-radius(0 0 8px 8px);
+  &.container_12 {
+    .grid_3.prefix_7 {
+      position: absolute;
+      right: 0;
+      top: 10px;
+    }
+  }
   .join_login_wrap {font-size: 15px;}
   .member_panel{
-    text-align:center;
+    text-align: center;
     p { margin: 0; font-size: 13px; }
     img { margin-left: 10px; }
     padding: 10px;
@@ -170,10 +178,12 @@ input[type="text"], textarea {
 label.error{ font-size: 90%; }
 
 nav#primary {
-  float:right;
-  margin-top:10px;
+  bottom: 17px;
   color: $dark_gray;
+  float: right;
   font-weight: bold;
+  position: absolute;
+  right: 26px;
   li {
     float:left;
     position:relative;
@@ -309,12 +319,12 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   @include box-shadow(inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray !important);
   color: #fff !important;
   font-family: Folk-solid;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold !important;
   text-transform: uppercase !important;
   text-decoration: none !important;
   text-align: center !important;
-  padding: 5px 10px !important;
+  padding: 7px 15px 15px !important;
   position: relative;
   line-height: 100%;
   margin: 0;
@@ -535,12 +545,6 @@ textarea.error, input.error, select.error { border-color: $red !important; }
 }
 
 .sprite.debate {
-  background-position: -200px -210px;
-  height: 66px;
-  width: 83px;
-}
-
-.sprite.debate_pink {
   background-position: -152px -140px;
   height: 47px;
   width: 58px;
@@ -577,24 +581,12 @@ textarea.error, input.error, select.error { border-color: $red !important; }
 }
 
 .sprite.personal_story {
-  background-position: -10px -207px;
-  height: 48px;
-  width: 58px;
-}
-
-.sprite.personal_story_pink {
   background-position: -10px -136px;
-  height: 55px;
-  width: 68px;
+  height: 48px;
+  width: 59px;
 }
 
 .sprite.petition {
-  background-position: -107px -206px;
-  height: 70px;
-  width: 83px;
-}
-
-.sprite.petition_pink {
   background-position: -88px -135px;
   height: 51px;
   width: 59px;
