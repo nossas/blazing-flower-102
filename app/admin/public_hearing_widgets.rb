@@ -16,10 +16,10 @@ ActiveAdmin.register PublicHearingWidget do
   form :partial => "form"
   
   show do |w|
-    div({:class => 'panel' }) do
+    div({ :class => 'panel' }) do
       h3 'Public Hearing Widget Details'
-      div({:class => 'panel_contents' }) do
-        div({:class => 'attributes_table meu_rio_is_widget' }) do
+      div({ :class => 'panel_contents' }) do
+        div({ :class => 'attributes_table meu_rio_is_widget' }) do
           table do
             tr do
               th { 'HTML Content' }
