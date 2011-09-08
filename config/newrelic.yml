@@ -5,8 +5,10 @@ development:
     ignore_errors: ActionController::RoutingError
   apdex_t: 0.5
   ssl: false
-  monitor_mode: true
+  monitor_mode: false
+  license_key: <%= ENV["NEW_RELIC_LICENSE_KEY"] %>
   developer_mode: true
+  app_name: Meu Rio Development
   transaction_tracer:
     record_sql: obfuscated
     enabled: true
@@ -21,11 +23,11 @@ production:
     enabled: true
     ignore_errors: ActionController::RoutingError
   apdex_t: 0.5
-  ssl: false
+  ssl: true
   monitor_mode: true
   license_key: <%= ENV["NEW_RELIC_LICENSE_KEY"] %>
   developer_mode: false
-  app_name: <%= ENV["NEW_RELIC_APP_NAME"] %>
+  app_name: <%= ENV["NEW_RELIC_APPNAME"] %>
   transaction_tracer:
     record_sql: obfuscated
     enabled: true
@@ -33,3 +35,6 @@ production:
     transaction_threshold: apdex_f
   capture_params: false
   log_level: info
+  browser_monitoring:
+      auto_instrument: true
+  capture_memcache_keys: false

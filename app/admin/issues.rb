@@ -16,6 +16,9 @@ ActiveAdmin.register Issue do
     column 'Debates' do |i|
       span i.debates.count
     end
+    column 'Videos' do |i|
+      span i.personal_stories.count
+    end
     column :created_at do |m|
       l m.created_at, :format => :short
     end

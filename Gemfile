@@ -8,7 +8,7 @@ gem 'jquery-rails'
 gem "devise", "~> 1.4.2"
 gem 'cancan'
 
-gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
+gem 'activeadmin' #, :git => 'git://github.com/gregbell/active_admin.git'
 
 # External authentication
 gem "oa-oauth", :require => "omniauth/oauth"
@@ -24,7 +24,7 @@ gem 'haml'
 
 # Asset template engines
 group :assets do
-  gem 'sass-rails', "~> 3.1.0.rc"
+  gem 'sass-rails', "~> 3.1.0"
   gem 'coffee-script'
   gem 'uglifier'
 end
@@ -48,9 +48,6 @@ gem "faker"
 
 gem 'inherited_resources'
 gem 'kaminari'
-
-# Performance Monitoring
-gem 'newrelic_rpm'
 
 gem "simplecov", :require => false, :group => :test
 
@@ -79,6 +76,9 @@ group :development, :test do
 end
 
 group :production do
+  # Performance Monitoring
+  # gem 'newrelic_rpm'
+
   # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
   gem 'thin'
 end
