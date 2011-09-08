@@ -4,17 +4,34 @@ MR = {
       // application-wide code
       MR.common.googleLogout();
       MR.common.faceboxInit();
-      MR.common.mainNavDonationLink();
+      MR.common.setBodyBackgroundClass();
 
       $('.member_panel .arrow').bind('click', function(){
-        $('.flyout').toggle();
-        var $panel = $(this).parent().parent();
-        if($panel.hasClass('active')){
-          $panel.removeClass('active');
-        }else{
-          $panel.addClass('active');
-        }
+        MR.common.openMemberFlyout();
       });
+      $('#member_thumbnail').bind('click', function(){
+        MR.common.openMemberFlyout();
+      });
+    },
+
+    openMemberFlyout : function(){
+      $('.flyout').toggle();
+      var $panel = $('.member_panel');
+      if($panel.hasClass('active')){
+        $panel.removeClass('active');
+      }else{
+        $panel.addClass('active');
+      }
+    },
+
+    addFragmentListener: function(){
+        store.set('lastFragment', $(this).data('record-fragment'));
+      },
+    
+    faceboxInit: function(){
+      $.facebox.settings.closeImage = "/assets/closelabel.png";
+      $.facebox.settings.loadingImage = "/assets/loading.gif";
+      $("[rel=facebox]").facebox();
     },
 
     googleLogout: function(){
@@ -23,24 +40,23 @@ MR = {
       });
     },
 
-    faceboxInit: function(){
-      $.facebox.settings.closeImage = "/assets/closelabel.png";
-      $.facebox.settings.loadingImage = "/assets/loading.gif";
-
-      $("[rel=facebox]").facebox();
-    },
-
-    addFragmentListener: function(){
-      store.set('lastFragment', $(this).data('record-fragment'));
-    },
-
     handleFragmentEvent: function(){
       if(store.get('lastFragment')){
         window.location.href = window.location.href + '#' + store.get('lastFragment');
         store.remove('lastFragment');
       }
     },
-
+    
+    /**
+     * Adds a random class to the body which CSS uses to set the background img
+     */
+    setBodyBackgroundClass: function(){
+        var backgrounds = ['blue', 'green', 'orange', 'pink'],
+            thisBackground = backgrounds[Math.round(Math.random()*100%3)];
+        
+        $('body').addClass('background_' + thisBackground);
+      },
+      
     mainNavDonationLink: function(){
       $('#main_nav_donate').click(function(){
         $('.moip form').submit();
@@ -83,9 +99,9 @@ MR = {
       }
     }
   },
-
+  
   users: {
-    init: function() {
+    init: function(){
       // controller-wide code
     },
 
@@ -117,4 +133,3 @@ UTIL = {
 };
 
 $( document ).ready( UTIL.init );
-

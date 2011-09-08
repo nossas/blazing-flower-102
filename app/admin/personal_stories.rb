@@ -28,6 +28,9 @@ ActiveAdmin.register PersonalStory do
     column :created_at do |m|
       l m.created_at, :format => :short
     end
+    column :updated_at do |m|
+      l m.updated_at, :format => :short
+    end
     column "Options" do |e| 
       span link_to 'Show', admin_personal_story_path(e)
       span link_to 'Edit', edit_admin_personal_story_path(e)
@@ -35,6 +38,58 @@ ActiveAdmin.register PersonalStory do
   end
 
   form :partial => "form"
+  
+  show do |s|
+    div({:class => 'panel' }) do
+      h3 'Na Atividade'
+      div({:class => 'panel_contents' }) do
+        div({:class => 'attributes_table meu_rio_is_widget' }) do
+          table do
+            tr do
+              th { 'Issue' }
+              td { link_to s.issue.name, issue_personal_stories_path(s.issue) }
+            end
+            tr do
+              th { 'Title' }
+              td { s.title }
+            end
+            tr do
+              th { 'Description' }
+              td { s.description }
+            end
+            tr do
+              th { 'Excerpt' }
+              td { s.excerpt }
+            end
+            tr do
+              th { 'Video' }
+              td { raw(s.video_embed_code) }
+            end
+            tr do
+              th { 'Video URL' }
+              td { s.video_url }
+            end
+            tr do
+              th { 'Thumbnail' }
+              td { image_tag(s.thumbnail) }
+            end
+            tr do
+              th { 'Connected Action' }
+              td { s.connected_action.capitalize }
+            end
+            tr do
+              th { 'Created at' }
+              td { l s.created_at, :format => :short }
+            end
+            tr do
+              th { 'Updated at' }
+              td { l s.updated_at, :format => :short }
+            end
+          end
+        end
+      end
+    end
+  end
 end
 
 

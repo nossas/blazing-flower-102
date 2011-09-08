@@ -75,6 +75,14 @@ ActiveAdmin.register Issue do
                   img({:src => issue.thumbnail.url})
                 end
               end
+              tr do
+                th { 'Created at' }
+                td { l issue.created_at, :format => :short }
+              end
+              tr do
+                th { 'Updated at' }
+                td { l issue.updated_at, :format => :short }
+              end
             end
           end
         end

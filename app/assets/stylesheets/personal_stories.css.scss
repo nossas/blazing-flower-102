@@ -5,6 +5,7 @@ body.personal_stories {
   h2 {
     color: $orange;
     margin: 10px 0;
+    text-transform: uppercase;
   }
 
   .story {
@@ -33,7 +34,7 @@ body.personal_stories {
       }
       &.current {
         >img {
-          @include glow($orange);
+          //@include glow($orange);
         }
        .play_button {
           visibility: visible;
@@ -57,7 +58,7 @@ body.personal_stories {
 
   .grid_12 {
     .issue_name {
-      .sprite.personal_story_pink {
+      .sprite.personal_story {
         float: right;
         position: absolute;
         right: 15px;
@@ -65,9 +66,10 @@ body.personal_stories {
     }
     &.current {
       border-bottom: 1px solid $blue;
-      margin: 0 0 48px;
-      padding-bottom: 40px;
-      padding-top: 25px;
+      margin: 0 0 48px -10px;
+      padding: 25px 10px 40px 10px;
+      position: relative;
+      width: 100%;
     }
     &.video_thumbs {
       margin-bottom: 56px;

@@ -7,6 +7,7 @@
 
 body.pages {
   h1 {
+    font-size: 32px;
     margin-bottom: 40px;
   }
 
@@ -36,8 +37,8 @@ body.pages {
 
   .grid_8 {
     h2 {
-      border-top: 2px solid $blue;
-      border-bottom: 1px solid $blue;
+      border-top: 2px solid $lighter_blue;
+      border-bottom: 1px solid $lighter_blue;
       text-transform: uppercase;
       font-size: 20px;
       padding: 10px;
@@ -140,15 +141,22 @@ body.pages {
       position: relative;
       font-weight: bold; 
       color: $dark_gray;
-      img {
+      .btn {
+        left: 15px;
+        top: 6px;
+      }
+      .sprite.arrow-down {
         position: absolute;
-        left: 30px;
-        top: 10px;
+        left: 41px;
+        top: 22px;
       }
     }
   }
 
   #quem_somos {
+    > a {
+      padding-left: 10px;
+    }
     h2 {
       font-family: Folk-solid;
     }
@@ -186,8 +194,16 @@ body.pages {
     }
     .wobble_container {
       width: 302px;
-      header p {
-        margin: 10px 15px 0 10px;
+      header {
+        p {
+          font-size: .9em;
+          margin: 10px 15px 0 10px;
+          em {
+            display: block;
+            font-size: 1.1em;
+            font-style: normal;
+          }
+        }
       }
       &.alpha {
         margin-right: 7px;

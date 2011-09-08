@@ -5,6 +5,6 @@
     %span um
     Rio Mais Justo?
   -if current_member
-    .btn=link_to t("page_index.join_us"), "#already_logged_in", :rel => "facebox" 
+    =link_to t("page_index.join_us"), "#already_logged_in", :rel => "facebox", :class => "btn"
   -else
-    .btn=link_to t("page_index.join_us"), "#join", :rel => "facebox" 
+    =link_to t("page_index.join_us"), "#join", :rel => "facebox", :class => "btn"

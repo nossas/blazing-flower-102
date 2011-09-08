@@ -186,7 +186,8 @@
         h2 {
           color: $green;
           font-size: 18px;
-          margin-bottom: 5px;
+          margin: 5px 0;
+          line-height: 120%;
           &:hover{
             text-decoration: underline;
           }
@@ -277,11 +278,12 @@
 
       .btn {
         font-family: Folk-solid, sans-serif;
-        padding: 5px 10px 10px;
+        padding: 5px 10px 10px !important;
         font-weight: normal;
         text-shadow: none;
         letter-spacing: 0.1em;
         font-size: 19px;
+        @include box-shadow(inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 2px #666666);
       }
     }
     &#twitter_widget {
@@ -313,4 +315,10 @@
 
   .widget.margin_right, .widget_container.margin_right {margin-right:20px;}
   .widget.margin_bottom, .widget_container.margin_bottom {margin-bottom:20px;}
+}
+
+.ie #homepage .widget {
+  &#public_hearings h1{
+    font-size: 19px;
+  }
 }

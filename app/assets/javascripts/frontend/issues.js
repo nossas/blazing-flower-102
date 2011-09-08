@@ -79,16 +79,16 @@ MR.issues = {
 
     $('.count').html('Exibindo ' + datum.start + '-' + datum.end + ' de ' + datum.count);
     if(datum.start < 5){
-      $('.previous').hide();
+      $('.previous').addClass('inactive');
     } else {
-      $('.previous').show();
-      $('.previous').attr('href', '/na_atividade/' + datum.issue.id + '/arquivo/' + (datum.page - 1));
+      $('.previous').removeClass('inactive');
+      $('.previous a').attr('href', '/na_atividade/' + datum.issue.id + '/arquivo/' + (datum.page - 1));
     }
     if(datum.end >= datum.count){
-      $('.next').hide();
+      $('.next').addClass('inactive');
     } else {
-      $('.next').show();
-      $('.next').attr('href', '/na_atividade/' + datum.issue.id + '/arquivo/' + (datum.page + 1));
+      $('.next').removeClass('inactive');
+      $('.next a').attr('href', '/na_atividade/' + datum.issue.id + '/arquivo/' + (datum.page + 1));
     }
     _.each(datum.articles, function(article){
         article.created_at = new Date(article.created_at).toDateString();
