@@ -5,7 +5,6 @@ MR = {
       MR.common.googleLogout();
       MR.common.faceboxInit();
       MR.common.setBodyBackgroundClass();
-      MR.common.mainNavDonationLink();
 
       $('.member_panel .arrow').bind('click', function(){
         MR.common.openMemberFlyout();
