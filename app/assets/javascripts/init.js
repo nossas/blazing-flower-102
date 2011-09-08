@@ -15,13 +15,13 @@ MR = {
     },
 
     openMemberFlyout : function(){
-      $('.flyout').toggle();
-      var $panel = $('.member_panel');
-      if($panel.hasClass('active')){
-        $panel.removeClass('active');
-      }else{
-        $panel.addClass('active');
-      }
+      var $panel = $('.member_panel'), $flyout = $('.flyout');
+      var open = !0;
+      $flyout.show();
+      $panel.addClass("active");
+      $(document).bind("click.member_panel", function(){
+        open ? open = !1 : ($(document).unbind("click.member_panel"), $panel.removeClass("active"), $flyout.hide());
+      });
     },
 
     addFragmentListener: function(){
