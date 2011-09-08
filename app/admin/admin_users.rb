@@ -47,13 +47,13 @@ ActiveAdmin.register AdminUser do
   end
 
   show do
+    if !admin_user.account_active?
+      span "This user's account has been deactivated."
+    end
     div({:class => 'panel' }) do
       h3 'User Information'
       div({:class => 'panel_contents' }) do
         div({:class => 'attributes_table' }) do
-          unless admin_user.account_active?
-            p "This user's account has been deactivated."
-          end
           table do
             tr do
               th { 'Name' }

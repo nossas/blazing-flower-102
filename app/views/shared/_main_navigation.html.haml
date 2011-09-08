@@ -3,7 +3,7 @@
     %li
       =link_to('SOBRE NÓS', page_path(:id => 'sobre_nos'), :class => "top_level #{(@current_page ==  'quem_somos' ? 'selected' : nil)}")+'|'
     %li.issue_menu_wrap
-      =link_to('NA ATIVIDADE', '#', :class => "top_level")+'|'
+      =link_to('NA ATIVIDADE', issue_path(Issue.last), :class => "top_level")+'|'
       -if nav_issues.count > 2
         .issue_menu.wide.clearfix
           %ul.thumbnails
@@ -28,10 +28,5 @@
     %li
       =link_to('NOSSO BLOG', "http://meu-rio.tumblr.com/", :class => "top_level", :target => "_blank")+'|'
     %li
-      =link_to 'DANDO UMA FORÇA', "#", :class => "top_level last", :id => "main_nav_donate"
+      =link_to 'DANDO UMA FORÇA', page_path(:id => 'dando_uma_forca'), :class => "top_level last", :id => "main_nav_donate"
 
-  .moip
-    %form{ :target => '_blank', :method => 'post', :action => 'https://www.moip.com.br/Process.do' }
-      %input{ :type => 'hidden', :name => 'method', :value => 'donation' }
-      %input{ :type => 'hidden', :name => 'encrypted', :value => "#{SITE['moip_key']}" }
-      %input{ :type => 'hidden', :name => 'type', :value => '2' }
