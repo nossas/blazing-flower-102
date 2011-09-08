@@ -12,9 +12,6 @@ MR = {
       $('#member_thumbnail').bind('click', function(){
         MR.common.openMemberFlyout();
       });
-      $('body').bind('click', function(){
-        MR.common.closeMemberFlyout();
-      });
     },
 
     openMemberFlyout : function(){
@@ -25,12 +22,6 @@ MR = {
       }else{
         $panel.addClass('active');
       }
-    },
-
-    closeMemberFlyout: function(){
-      $('flyout').hide();
-      var $panel = $('.member_panel');
-      $panel.removeClass('active');
     },
 
     addFragmentListener: function(){
