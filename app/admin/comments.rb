@@ -21,7 +21,7 @@ ActiveAdmin.register Comment, :as => "CommunityComment" do
 
   index do
     column :debate do |c|
-      span link_to(c.commentable.title, issue_debate_path(c.commentable.issue_id, c.commentable), :target => '_blank')
+      span link_to(c.commentable.title, issue_debate_path(c.commentable.issue_id, c.commentable), :target => '_blank') if c.commentable
     end
     column :member do |c|
       c.member.email
