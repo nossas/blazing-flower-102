@@ -275,6 +275,7 @@ nav#primary {
       }
     }
   }
+  .moip {display:none;}
   roundrect {
     visibility: hidden;
   }
@@ -307,6 +308,7 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   border: none;
   @include box-shadow(inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px $light_gray !important);
   color: #fff !important;
+  font-family: Folk-solid;
   font-size: 18px;
   font-weight: bold !important;
   text-transform: uppercase !important;
@@ -394,6 +396,8 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   font-size: 14px;
   font-family: Akagi-Book;
   padding-top: 10px;
+  position: relative;
+  z-index: 200;
 }
 
 .speech_bubble_container {
@@ -574,8 +578,8 @@ textarea.error, input.error, select.error { border-color: $red !important; }
 
 .sprite.personal_story {
   background-position: -10px -210px;
-  height: 66px;
-  width: 83px;
+  height: 48px;
+  width: 58px;
 }
 
 .sprite.personal_story_pink {

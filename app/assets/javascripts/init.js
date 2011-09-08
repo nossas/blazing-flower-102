@@ -5,6 +5,7 @@ MR = {
       MR.common.googleLogout();
       MR.common.faceboxInit();
       MR.common.setBodyBackgroundClass();
+      MR.common.mainNavDonationLink();
 
       $('.member_panel .arrow').bind('click', function(){
         $('.flyout').toggle();
@@ -50,6 +51,14 @@ MR = {
         $('body').addClass('background_' + thisBackground);
       },
       
+    mainNavDonationLink: function(){
+      $('#main_nav_donate').click(function(){
+        $('.moip form').submit();
+        console.log('post submit');
+        return false;
+      });
+    },
+
     setUpDropDowns: function(callback){
       var $dropdown_ul = $(".dropdown dd ul");
 
@@ -118,4 +127,3 @@ UTIL = {
 };
 
 $( document ).ready( UTIL.init );
-
