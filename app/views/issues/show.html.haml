@@ -10,7 +10,6 @@
     .see_more
       %a#read_more{:href => '#'}
         %span= t("issue_show.read_more")
-        .next_link 
 .grid_3-5.omega
   -if @issue.featured_petition
     %section.petition.wobble_container
@@ -45,4 +44,3 @@
   .see_more
     =link_to(issue_archive_path(@issue.id)) do
       %span= t("issue_show.see_more")
-      .next_link
