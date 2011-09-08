@@ -11,8 +11,8 @@
 #join_meu_rio.grid_4
   %p
     = t("about_page.you_are_important")
-    = image_tag "/assets/comments_arrow.png"
-  = link_to t("about_page.join_us"), "#join", :class => "btn", :rel => "facebox"
+    %b.sprite.arrow-down
+    = link_to t("about_page.join_us"), "#join", :class => "btn", :rel => "facebox"
 
 #what_you_can_do.grid_12
   %h2.grid_12.omega= t("about_page.what_you_can_do")
@@ -27,7 +27,7 @@
   
   %section.grid_3-5.wobble_container
     %header
-      %p= t("about_page.feature1_title")
+      %p= t("about_page.feature2_title")
     %div
       .sprite.icon.debate
       %p= t("about_page.feature2_text")
@@ -36,7 +36,7 @@
   
   %section.grid_3-5.omega.wobble_container
     %header
-      %p= t("about_page.feature1_title")
+      %p= t("about_page.feature3_title")
     %div
       .sprite.icon.petition
       %p= t("about_page.feature3_text")
@@ -59,6 +59,7 @@
     Quer nos ajudar a construir um Rio de Janeiro mais justo e democrático? 
     %br
     %a{:href=> "#join", :rel => "facebox"} Faça parte do Meu Rio!
+  = link_to "Voltar ao Topo", "#"
 
 #quote_container.grid_4
   .speech_bubble_container

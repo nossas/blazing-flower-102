@@ -107,16 +107,20 @@ body > header {
 // Fix for odd extra pixel showing up when you're on the issue page
 body.issues nav#primary .issue_menu { right:9px; }
 
-body > #main {
+body > #main { // the specificity of this selector is overreaching (see below)
   background: white;
   @include border-radius(8px);
   padding: 10px 10px;
   position: relative;
   margin-bottom: 10px;
-
   p {
     font-size: 15px;
     line-height: 140%;
+  }
+  .speech_bubble p {
+    // This is required here because the high specificity of #main causes any
+    // font-size setting in the .speech_bubble group below to get overridden
+    font-size: .9em;
   }
 }
 
@@ -442,11 +446,14 @@ textarea.error, input.error, select.error { border-color: $red !important; }
     }
     h3 {
       color: #40a468;
-      text-transform: uppercase; 
+      text-transform: uppercase;
+      font-family: Folk-solid; 
       font-size: 1.2em;
       margin-bottom: 5px;
     }
-    p { margin: 5px 0; }
+    p {
+      margin: 5px 0;
+    }
     p.date { color: $pink; }
     dl dd ul li a {
       font-weight: normal;
@@ -512,6 +519,12 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   background-image: url('/assets/sprite.png');
   float: left;
   position: relative;
+}
+
+.sprite.arrow-down {
+  background-position: -298px -125px;
+  height: 37px;
+  width: 35px;
 }
 
 .sprite.balloon_left {
