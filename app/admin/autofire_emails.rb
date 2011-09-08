@@ -34,4 +34,42 @@ ActiveAdmin.register AutofireEmail do
     end
     f.buttons
   end
+  
+  show do |e|
+    div({:class => 'panel' }) do
+      h3 'Autofire Email Details'
+      div({:class => 'panel_contents' }) do
+        div({:class => 'attributes_table petition' }) do
+          table do
+            tr do
+              th { 'Petition' }
+              td { e.petition.title }
+            end
+            tr do
+              th { 'From' }
+              td { e.from }
+            end
+            tr do
+              th { 'Subject' }
+              td { e.subject }
+            end
+            tr do
+              th { 'Message' }
+              td { e.message }
+            end
+            tr do
+              th { 'Created at' }
+              td { l e.created_at, :format => :short }
+            end
+            tr do
+              th { 'Updated at' }
+              td { l e.updated_at, :format => :short }
+            end
+          end
+        end
+      end
+    end
+  end
 end
+
+

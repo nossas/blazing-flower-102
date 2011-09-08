@@ -8,14 +8,21 @@ MR = {
       MR.common.mainNavDonationLink();
 
       $('.member_panel .arrow').bind('click', function(){
-        $('.flyout').toggle();
-        var $panel = $(this).parent().parent();
-        if($panel.hasClass('active')){
-          $panel.removeClass('active');
-        }else{
-          $panel.addClass('active');
-        }
+        MR.common.openMemberFlyout();
       });
+      $('#member_thumbnail').bind('click', function(){
+        MR.common.openMemberFlyout();
+      });
+    },
+
+    openMemberFlyout : function(){
+      $('.flyout').toggle();
+      var $panel = $('.member_panel');
+      if($panel.hasClass('active')){
+        $panel.removeClass('active');
+      }else{
+        $panel.addClass('active');
+      }
     },
 
     addFragmentListener: function(){

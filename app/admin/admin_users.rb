@@ -47,15 +47,37 @@ ActiveAdmin.register AdminUser do
   end
 
   show do
-    h3 admin_user.name
-    img({ :src => admin_user.avatar.url(:thumb), :id => "admin_user_avatar" })
-    div do
-      h4 "Email"
-      simple_format admin_user.email
-    end
-    unless admin_user.account_active?
-      p "This user's account has been deactivated."
+    div({:class => 'panel' }) do
+      h3 'User Information'
+      div({:class => 'panel_contents' }) do
+        div({:class => 'attributes_table' }) do
+          unless admin_user.account_active?
+            p "This user's account has been deactivated."
+          end
+          table do
+            tr do
+              th { 'Name' }
+              td { admin_user.name }
+            end
+            tr do
+              th { 'Email' }
+              td { admin_user.email }
+            end
+            tr do
+              th { 'Avatar' }
+              td { img({ :src => admin_user.avatar.url(:thumb), :id => "admin_user_avatar" }) }
+            end
+            tr do
+              th { 'Created at' }
+              td { l admin_user.created_at, :format => :short }
+            end
+            tr do
+              th { 'Updated at' }
+              td { l admin_user.updated_at, :format => :short }
+            end
+          end
+        end
+      end
     end
   end
-
 end
