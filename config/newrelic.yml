@@ -17,17 +17,17 @@ development:
   capture_params: true
   log_level: debug
 
-production: &production_settings
+production:
   error_collector:
     capture_source: true
     enabled: true
     ignore_errors: ActionController::RoutingError
   apdex_t: 0.5
   ssl: true
-  monitor_mode: false
+  monitor_mode: true
   license_key: <%= ENV["NEW_RELIC_LICENSE_KEY"] %>
   developer_mode: false
-  app_name: <%= ENV["NEW_RELIC_APP_NAME"] %>
+  app_name: <%= ENV["NEW_RELIC_APPNAME"] %>
   transaction_tracer:
     record_sql: obfuscated
     enabled: true
@@ -38,7 +38,3 @@ production: &production_settings
   browser_monitoring:
       auto_instrument: true
   capture_memcache_keys: false
-
-blazing-flower-102:
-  <<: *production_settings
-  monitor_mode: true
