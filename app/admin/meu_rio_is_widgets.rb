@@ -21,7 +21,7 @@ ActiveAdmin.register MeuRioIsWidget do
           table do
             tr do
               th { 'HTML Content' }
-              td { raw w.content }
+              td { raw w.html_content }
             end
             tr do
               th { 'Created at' }
