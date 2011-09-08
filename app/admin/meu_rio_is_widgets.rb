@@ -13,27 +13,23 @@ ActiveAdmin.register MeuRioIsWidget do
     end
   end
 
-  show do
+  show do |w|
     div({:class => 'panel' }) do
       h3 'O Meu Rio é...'
       div({:class => 'panel_contents' }) do
         div({:class => 'attributes_table meu_rio_is_widget' }) do
           table do
             tr do
-              th { 'Id' }
-              td { meu_rio_is_widget.id.to_s }
-            end
-            tr do
               th { 'Atualizado em' }
-              td { l meu_rio_is_widget.updated_at }
+              td { l w.updated_at }
             end
             tr do
               th { 'Created at' }
-              td { l admin_user.created_at, :format => :short }
+              td { l w.created_at, :format => :short }
             end
             tr do
               th { 'Updated at' }
-              td { l admin_user.updated_at, :format => :short }
+              td { l w.updated_at, :format => :short }
             end
           end
         end
