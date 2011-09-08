@@ -40,12 +40,15 @@ gem 'foreigner'
 
 gem 'dalli'
 
-#including so we can run the complete petition rake task for demos
+# Including so we can run the complete petition rake task for demos
 gem 'factory_girl_rails'
 gem "faker"
 
 gem 'inherited_resources'
 gem 'kaminari'
+
+# Performance Monitoring
+gem 'newrelic_rpm'
 
 gem "simplecov", :require => false, :group => :test
 
@@ -78,5 +81,4 @@ group :production do
   gem 'activeadmin'
   # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
   gem 'thin'
-  # gem 'newrelic_rpm'
 end
