@@ -9,6 +9,28 @@ describe Member do
     should validate_uniqueness_of :email
   }
 
+  describe "#debates_side_1" do
+    before do 
+      @member = Factory(:member)
+      @debate = Factory.create(:debate, :author_1 => @member)
+    end
+
+    it "should find the debate where the member is author 1" do
+      @member.debates_side_1.first.id.should == @debate.id
+    end
+  end
+
+  describe "#debates_side_2" do
+    before do 
+      @member = Factory(:member)
+      @debate = Factory.create(:debate, :author_2 => @member)
+    end
+
+    it "should find the debate where the member is author 1" do
+      @member.debates_side_2.first.id.should == @debate.id
+    end
+  end
+
   describe ".find_for_facebook_oauth" do
     it "should find the member by email when he's already in the database" do
       m = Factory(:member, :email => FACEBOOK_VALID_AUTH_DATA["extra"]["user_hash"]["email"] )
