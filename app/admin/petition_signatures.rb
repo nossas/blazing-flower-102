@@ -1,10 +1,10 @@
 # coding: utf-8
 ActiveAdmin.register PetitionSignature, :as => 'PetitionComment' do
-  menu :parent => 'Petitions', :label => "Comentários", :priority => 0
+  menu :parent => I18n.t('active_admin.petitions'), :label => I18n.t('active_admin.comments'), :priority => 0
 
   actions :all, :except => :new
-  filter :petition
-  filter :created_at
+  filter :petition, :label => I18n.t('active_admin.petition')
+  filter :created_at, :label => I18n.t('active_admin.created_at')
 
   scope :unmoderated, :default => true
   scope :moderated

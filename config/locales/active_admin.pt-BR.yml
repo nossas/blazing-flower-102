@@ -1,5 +1,12 @@
 "pt-BR":
   active_admin:
+    petition: "Petição"
+    petitions: "Petições"
+    title: "Título"
+    headline: "Chamada"
+    author: "Autor"
+    issue: "Na atividade"
+    comments: "Comentários"
     dashboard: "Painel Administrativo"
     dashboard_welcome:
       welcome: "Bem vindo ao Active Admin. Esta é a página de painéis padrão."

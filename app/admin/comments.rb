@@ -1,6 +1,6 @@
 # coding: utf-8
 ActiveAdmin.register Comment, :as => "CommunityComment" do
-  menu :label => 'Comentários', :parent => 'Na Atividade', :priority => 0
+  menu :label => 'Comentários', :parent => 'Debates', :priority => 0
 
   actions :all, :except => :new
   filter :commentable_type, :as => :select, :collection => ["debates"]
