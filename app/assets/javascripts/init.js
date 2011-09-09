@@ -6,10 +6,7 @@ MR = {
       MR.common.faceboxInit();
       MR.common.setBodyBackgroundClass();
 
-      $('.member_panel .arrow').bind('click', function(){
-        MR.common.openMemberFlyout();
-      });
-      $('#member_thumbnail').bind('click', function(){
+      $('.member_panel .right.info').bind('click', function(){
         MR.common.openMemberFlyout();
       });
     },

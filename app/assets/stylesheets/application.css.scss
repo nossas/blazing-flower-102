@@ -77,8 +77,12 @@ body > header {
     .arrow {
       width: 12px;
       height: 7px;
-      background: url(/assets/arrows.png) 0px -7px no-repeat;
+      background: url(/assets/arrows.png) 0px 0px no-repeat;
       margin-left: 5px;
+
+    }
+    .right.info:hover .arrow {
+      background: url(/assets/arrows.png) 0px -7px no-repeat;
     }
   }
   .active {
@@ -89,7 +93,7 @@ body > header {
       color: #fff;
     }
     .arrow {
-      background: url(/assets/arrows.png) 0px 0px no-repeat;
+      background: url(/assets/arrows.png) 0px -14px no-repeat;
     }
   }
   .flyout {
