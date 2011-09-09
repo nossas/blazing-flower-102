@@ -211,6 +211,7 @@ nav#primary {
   }
   li.issue_menu_wrap{
     position:relative;
+    z-index: 225;
     &:hover {
       .issue_menu.wide, .issue_menu.small, roundrect {
         visibility: visible;
