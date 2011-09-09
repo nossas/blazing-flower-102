@@ -97,4 +97,25 @@ describe Member do
     end
   
   end
+
+  describe "#action_history" do
+    before do
+      @member = Factory(:provider_authorization).member
+      @debate = Factory(:debate, :author_1 => @member)
+      @debate_comment = Factory(:debate_comment, :commentable => @debate, :member => @member)
+      @petition_sig = Factory(:petition_signature, :member => @member)
+    end
+
+    it "should contain the petition signature" do
+      @member.action_history.should include(@petition_sig)
+    end
+
+    it "should contain the debate comment" do
+      @member.action_history.should include(@debate)
+    end
+
+    it "should contain the debate where the member was an author" do
+      @member.action_history.should include(@petition_sig)
+    end
+  end
 end
