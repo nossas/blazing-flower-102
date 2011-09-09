@@ -2,9 +2,9 @@
 ActiveAdmin.register Debate do
   menu :priority => 4
 
-  filter :issue
-  filter :author_1
-  filter :author_2
+  filter :issue, :label => I18n.t('active_admin.issue')
+  filter :author_1, :label => I18n.t('active_admin.author') + '1'
+  filter :author_2, :label => I18n.t('active_admin.author') + '2'
 
   index do
     column 'Na Atividade' do |d|
