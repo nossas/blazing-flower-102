@@ -3,7 +3,7 @@ MR.debates = {
     var $new_comment = $('#new_comment');
     var $form = $("form#new_comment");
     var $submitButton = $form.find('input[name="commit"]');
-    var $comment_count = $('.comments_tooltip');
+    var $comment_count = $('.comment_count');
 
     var page = 2;
     var debate = $("h1.grid_12").attr("data-debate");
