@@ -2,18 +2,18 @@
 ActiveAdmin.register Debate do
   menu :priority => 4
 
-  filter :issue, :label => I18n.t('active_admin.issue')
-  filter :author_1, :label => I18n.t('active_admin.author') + '1'
-  filter :author_2, :label => I18n.t('active_admin.author') + '2'
+  filter :issue, :label => 'Na atividade'
+  filter :author_1, :label => 'Autor 1'
+  filter :author_2, :label => 'Autor 2'
 
   index do
     column 'Na Atividade' do |d|
       span d.issue.name
     end
-    column 'Question' do |d|
+    column 'Questão' do |d|
       link_to d.question, issue_debate_path(d.issue, d)
     end
-    column "Comments" do |d|
+    column "Comentários" do |d|
       span "#{d.comments.count}"
     end
     column :created_at do |m|

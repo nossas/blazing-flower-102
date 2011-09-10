@@ -27,10 +27,10 @@ ActiveAdmin.register PetitionSignature, :as => 'PetitionComment' do
     column 'Petição' do |c|
       c.petition.title
     end
-    column :created_at, :label => 'Criado em' do |m|
+    column :created_at do |m|
       l m.created_at, :format => :short
     end
-    column :comment_accepted, :sortable => :comment_accepted, :label => 'Aceito?' do |ps|
+    column :comment_accepted, :sortable => :comment_accepted do |ps|
       if ps.comment_accepted
         span b 'Sim'
       else

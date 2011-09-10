@@ -6,7 +6,7 @@ Feature: Managing Issues
   Scenario: Issue index
     Given I am logged in to the admin section
     And 2 issues exist
-    When I follow "Na Atividade"
+    When I follow "Issues"
     Then I should see a list of issues
 
   Scenario: New Issue form

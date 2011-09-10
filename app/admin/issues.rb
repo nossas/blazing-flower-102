@@ -1,6 +1,6 @@
 # coding: utf-8
 ActiveAdmin.register Issue do
-  menu :priority => 2, :label => 'Na Atividade'
+  menu :priority => 2
 
   filter :name
   filter :description
@@ -10,7 +10,7 @@ ActiveAdmin.register Issue do
     column :name do |i|
      span link_to i.name, issue_path(i)
     end
-    column 'Petitions' do |i|
+    column 'Petições' do |i|
       span i.petitions.count
     end
     column 'Debates' do |i|

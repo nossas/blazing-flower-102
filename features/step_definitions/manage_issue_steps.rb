@@ -10,7 +10,7 @@ Then /^I should see a list of issues$/ do
 end
 
 Then /^I should see new issue form$/ do
-  And %(I should see "Name")
+  And %(I should see "Nome")
   And %(I should see "Excerpt")
   And %(I should see "Description")
   And %(I should see "Image")

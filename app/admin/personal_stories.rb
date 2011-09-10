@@ -1,8 +1,8 @@
 # coding: utf-8
 ActiveAdmin.register PersonalStory do
-  menu :priority => 6, :label => 'Direto da Gema'
+  menu :priority => 6
 
-  filter :issue
+  filter :issue, :label => 'Na atividade'
   filter :title
   filter :description
 
@@ -22,13 +22,13 @@ ActiveAdmin.register PersonalStory do
     #    end
     #  end
     #end
-    column 'Title' do |s|
+    column 'Título' do |s|
       link_to s.title, issue_personal_stories_path(s.issue)
     end
-    column :created_at do |m|
+    column 'Criado em' do |m|
       l m.created_at, :format => :short
     end
-    column :updated_at do |m|
+    column 'Atualizado em' do |m|
       l m.updated_at, :format => :short
     end
     column "Options" do |e| 

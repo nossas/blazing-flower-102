@@ -1,10 +1,10 @@
 # coding: utf-8
 ActiveAdmin.register Petition do
-  menu :priority => 1, :label => I18n.t('active_admin.petitions')
+  menu :priority => 1
 
   filter :state, :as => :select, :collection => ['draft', 'published', 'archived', 'deactivated'], :label => 'Status'
-  filter :title, :label => I18n.t('active_admin.title')
-  filter :headline, :label => I18n.t('active_admin.headline')
+  filter :title, :label => 'Título'
+  filter :headline, :label => 'Chamada'
 
   controller do
     def preview
