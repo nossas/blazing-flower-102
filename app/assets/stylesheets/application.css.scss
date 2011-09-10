@@ -77,8 +77,12 @@ body > header {
     .arrow {
       width: 12px;
       height: 7px;
-      background: url(/assets/arrows.png) 0px -7px no-repeat;
+      background: url(/assets/arrows.png) 0px 0px no-repeat;
       margin-left: 5px;
+
+    }
+    .right.info:hover .arrow {
+      background: url(/assets/arrows.png) 0px -7px no-repeat;
     }
   }
   .active {
@@ -89,7 +93,7 @@ body > header {
       color: #fff;
     }
     .arrow {
-      background: url(/assets/arrows.png) 0px 0px no-repeat;
+      background: url(/assets/arrows.png) 0px -14px no-repeat;
     }
   }
   .flyout {
@@ -207,6 +211,7 @@ nav#primary {
   }
   li.issue_menu_wrap{
     position:relative;
+    z-index: 225;
     &:hover {
       .issue_menu.wide, .issue_menu.small, roundrect {
         visibility: visible;
@@ -506,7 +511,7 @@ textarea.error, input.error, select.error { border-color: $red !important; }
       color: $orange;
       font-size: 1.3em;
       margin-bottom: 5px;
-      margin-top: -20px;
+      margin-top: -30px;
     }
     .speech_bubble h3 {
       color: #fff;
