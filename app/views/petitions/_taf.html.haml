@@ -6,7 +6,7 @@
   %h2= t("petition_show.already_signed", :name => @member.first_name)
 
 - if @taf && @taf.display_facebook
-  .speech_bubble_container.gray_big
+  .speech_bubble_container.gray_big.taf
     .speech_bubble_top
     .speech_bubble
       %h3= t("petition_show.share_on_facebook")
@@ -17,7 +17,7 @@
         = @taf.facebook_message
   
 - if @taf && @taf.display_orkut
-  .speech_bubble_container.gray_big
+  .speech_bubble_container.gray_big.taf
     .speech_bubble_top
     .speech_bubble
       %h3= t("petition_show.share_on_orkut")
@@ -28,7 +28,7 @@
         = @taf.orkut_message
   
 - if @taf && @taf.display_twitter
-  .speech_bubble_container.gray_big
+  .speech_bubble_container.gray_big.taf
     .speech_bubble_top
     .speech_bubble
       %h3= t("petition_show.share_on_twitter")
@@ -37,7 +37,7 @@
         = @taf.tweet
  
 - if @taf && @taf.display_email
-  .speech_bubble_container.gray_big
+  .speech_bubble_container.gray_big.taf
     .speech_bubble_top
     .speech_bubble
       %h3= t("petition_show.share_via_email")
