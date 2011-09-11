@@ -345,13 +345,17 @@ textarea.error, input.error, select.error { border-color: $red !important; }
     cursor: pointer !important;
     text-decoration: none !important;
   }
-  &:active{
+  &:active {
     /*
     background: $red !important;
     background: -moz-linear-gradient(top, lighten($pink, 15%) 0%, lighten($pink, 5%) 100%) !important;
     background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($pink, 15%)), color-stop(1, lighten($pink, 5%))) !important;
     */
+    color: #fff;
     @include box-shadow(inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important);
+  }
+  &:visited {
+    color: #fff;
   }
 }
 
@@ -366,7 +370,7 @@ textarea.error, input.error, select.error { border-color: $red !important; }
 
 .btn.small, a.btn.small {
   font-size: 10px;
-  padding: 5px 7px !important;
+  padding: 5px 7px 8px !important;
 }
 
 /* General dropdown styles */       
