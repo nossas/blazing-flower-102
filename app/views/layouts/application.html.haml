@@ -52,7 +52,7 @@
                 %p=link_to t("logout_menu"), facebook_logout_path
               - elsif session[:google_login]
                 %p
-                  %a#google_logout_link{:href => google_logout_path, :target => 'google_logout_iframe'}= t('logout')
+                  %a#google_logout_link{:href => google_logout_path, :target => 'google_logout_iframe'}= t('logout_menu')
                   %iframe#google_logout_iframe{:name => "google_logout_iframe", :style=> "display: none;"}
               - else
                 %p=link_to t("logout_menu"), destroy_member_session_path
