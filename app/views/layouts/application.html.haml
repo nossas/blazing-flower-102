@@ -55,7 +55,7 @@
                   %a#google_logout_link{:href => google_logout_path, :target => 'google_logout_iframe'}= t('logout')
                   %iframe#google_logout_iframe{:name => "google_logout_iframe", :style=> "display: none;"}
               - else
-                %p=link_to t("logout"), destroy_member_session_path
+                %p=link_to t("logout_menu"), destroy_member_session_path
           - else
             .join_login_wrap
               =link_to t("join_us"), "#join", :rel => "facebox", :id => "join_us_btn"
