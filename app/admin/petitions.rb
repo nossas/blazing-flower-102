@@ -1,6 +1,6 @@
 # coding: utf-8
 ActiveAdmin.register Petition do
-  menu :priority => 1
+  menu :label => 'Petições', :priority => 1
 
   filter :state, :as => :select, :collection => ['draft', 'published', 'archived', 'deactivated'], :label => 'Status'
   filter :title, :label => 'Título'
