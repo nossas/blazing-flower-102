@@ -29,11 +29,10 @@ class PetitionSignaturesController < ApplicationController
       @new_signature = true
     end
 
-    @taf = @petition.taf
     if @petition.display_donation?
-      render :partial => "petitions/donation", :layout => false, :content_type => "text/html"
+      render :json => {:hash => 'doe'}
     else
-      render :partial => "petitions/taf", :layout => false, :content_type => "text/html"
+      render :json => {:hash => 'compartilhe'}
     end
   end
 end

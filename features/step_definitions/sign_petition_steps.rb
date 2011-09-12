@@ -1,4 +1,12 @@
 # coding: utf-8
+
+Given /^(\d+) published petitions exist without goal$/ do |count|
+  count.to_i.times do
+    f = Factory.create(:complete_petition, :counter_goal => 0).tap{|p| p.publish }
+    f.save
+  end
+end
+
 Given /^(\d+) published petitions exist$/ do |count|
   count.to_i.times do
     f = Factory.create(:complete_petition).tap{|p| p.publish }
