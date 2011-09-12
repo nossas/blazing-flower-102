@@ -49,7 +49,7 @@
             .flyout.left
               %p=link_to t("edit_your_profile"), member_path(current_member)
               - if session[:fb_token]
-                %p=link_to t("logout"), facebook_logout_path
+                %p=link_to t("logout_menu"), facebook_logout_path
               - elsif session[:google_login]
                 %p
                   %a#google_logout_link{:href => google_logout_path, :target => 'google_logout_iframe'}= t('logout')
