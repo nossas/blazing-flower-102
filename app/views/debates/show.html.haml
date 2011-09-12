@@ -25,9 +25,8 @@
     .comments_counter 
       %a.comments_link{:href=> '#comments_top'}
         .sprite.comments_tooltip
-        %span
-          = @distinct_member_count
-      = (@distinct_member_count == 1 ? t("debate_show.have_joined_the_conversation") : t("debate_show.have_joined_the_conversation_plural"))
+        %span.comment_count= @comments.count
+      comentários
 
 .grid_10.prefix_1
   .authors
@@ -73,7 +72,7 @@
 
       %div
         .sprite.comments_tooltip_large
-        %span= @comments.count
+        %span.comment_count= @comments.count
       .clearfix
     .previous_comments
       - @initial_comments.each do |comment|
@@ -92,7 +91,7 @@
         #close
           =image_tag "/assets/orange_close_icon.png"
         = form_for @comment, :remote => true, :html => { 'data-type' => :html } do |form|
-          = image_tag current_member.image_url
+          = image_tag current_member.image_url, :width => 50
           = form.text_area :content, :class => 'required', :placeholder => @debate.comment_prompt
           = hidden_field(:debate, :id)
           = form.submit "Enviar", :class => "btn"

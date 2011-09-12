@@ -11,10 +11,10 @@ end
 
 When /^I fill in the personal story form with correct information$/ do
   And %{I select "#{Issue.first.name}" from "Issue"}
-  And %{I fill in "Title" with "Bonzai!"}
-  And %{I fill in "Excerpt" with "Aloha!"}
-  And %{I fill in "Description" with "Aloha!"}
-  And %{I fill in "Video url" with "http://vimeo.com/26694098"}
+  And %{I fill in "personal_story[title]" with "Bonzai!"}
+  And %{I fill in "personal_story[excerpt]" with "Aloha!"}
+  And %{I fill in "personal_story[description]" with "Aloha!"}
+  And %{I fill in "personal_story[video_url]" with "http://vimeo.com/26694098"}
   And %{I select "Petition" from "personal_story_connected_action"}
 end
 

@@ -242,6 +242,11 @@
     
     models:
       member: "Membro"
+      petition_signature: "Comentários"
+      petition_comment: "Comentários"
+      petition: "Petições"
+      issue: "Na atividade"
+      personal_story: "Direto da gema"
     attributes:
       member:
         first_name: "Nome"
@@ -251,8 +256,21 @@
         meu_rio_is: "Meu Rio é..."
         image_url: "URL da imagem"
         celular: "Celular"
+      issue:
+        name: "Nome"
+        created_at: "Criado em"
       petition_signature:
         comment: "Comentário"
+        comment_accepted: "Aceito?"
+        created_at: "Criado em"
+      debate:
+        question: "Questão"
+        created_at: "Criado em"
+      personal_story:
+        title: "Título"
+        description: "Descrição"
+        created_at: "Criado em"
+        updated_at: "Atualizado em"
 
   petition_show:
     goal: "Meta: %{goal}"
@@ -349,6 +367,7 @@ Com a realização da Copa e das Olimpíadas nos próximos anos, essa oportunida
     meu_rio_is: "O Meu Rio é..."
     signed_petition: "Assinou o abaixo-assinado %{title}, %{issue} »"
     commented_debate: "Fez um comentário no debate %{name}, %{issue} »"
+    debate_author: "Escreveu um artigo no debate %{name}, %{issue} »"
     joined_on: "Membro desde %{date}"
     bio: "Sobre mim"
     email: "Email"

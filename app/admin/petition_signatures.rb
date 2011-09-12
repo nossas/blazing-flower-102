@@ -1,10 +1,10 @@
 # coding: utf-8
 ActiveAdmin.register PetitionSignature, :as => 'PetitionComment' do
-  menu :parent => 'Petitions', :label => "Comentários", :priority => 0
+  menu :parent => 'Petições', :label => 'Comentários', :priority => 0
 
   actions :all, :except => :new
-  filter :petition
-  filter :created_at
+  filter :petition, :label => 'Petição'
+  filter :created_at, :label => 'Criado em'
 
   scope :unmoderated, :default => true
   scope :moderated
@@ -24,7 +24,7 @@ ActiveAdmin.register PetitionSignature, :as => 'PetitionComment' do
   
   index do
     column :comment, :sortable => false
-    column 'Petition' do |c|
+    column 'Petição' do |c|
       c.petition.title
     end
     column :created_at do |m|
@@ -32,14 +32,14 @@ ActiveAdmin.register PetitionSignature, :as => 'PetitionComment' do
     end
     column :comment_accepted, :sortable => :comment_accepted do |ps|
       if ps.comment_accepted
-        span b 'Yes'
+        span b 'Sim'
       else
-        span link_to('Yes', accept_comment_admin_petition_comment_path(ps))
+        span link_to('Sim', accept_comment_admin_petition_comment_path(ps))
       end
       if ps.comment_accepted.nil? or ps.comment_accepted
-        span link_to('No', reject_comment_admin_petition_comment_path(ps))
+        span link_to('Não', reject_comment_admin_petition_comment_path(ps))
       else
-        span b 'No'
+        span b 'Não'
       end
     end
   end

@@ -4,6 +4,9 @@ class Member < ActiveRecord::Base
   has_many :provider_authorizations, :dependent => :destroy
   has_many :comments
 
+  has_many :debates_side_1, :class_name => 'Debate', :foreign_key => :author_email_side_1, :primary_key => :email
+  has_many :debates_side_2, :class_name => 'Debate', :foreign_key => :author_email_side_2, :primary_key => :email
+    
   validates_presence_of :email
   validates_uniqueness_of :email
   validates_format_of :email, :with => EMAIL_REGEX
@@ -54,7 +57,7 @@ class Member < ActiveRecord::Base
   end
 
   def action_history
-    (self.petition_signatures + self.comments).sort{|x, y| y.created_at <=> x.created_at}
+    (self.petition_signatures + self.comments + self.debates_side_1 + self.debates_side_2).sort{|x, y| y.created_at <=> x.created_at}
   end
 
   def current_image_url(size='')

@@ -2,10 +2,9 @@
 ActiveAdmin.register Petition do
   menu :priority => 1
 
-  filter :state, :as => :select, :collection => ['draft', 'published', 'archived', 'deactivated']
-  filter :title
-  filter :custom_path
-  filter :headline
+  filter :state, :as => :select, :collection => ['draft', 'published', 'archived', 'deactivated'], :label => 'Status'
+  filter :title, :label => 'Título'
+  filter :headline, :label => 'Chamada'
 
   controller do
     def preview

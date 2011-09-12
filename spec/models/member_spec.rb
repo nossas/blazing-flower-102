@@ -9,6 +9,28 @@ describe Member do
     should validate_uniqueness_of :email
   }
 
+  describe "#debates_side_1" do
+    before do 
+      @member = Factory(:member)
+      @debate = Factory.create(:debate, :author_1 => @member)
+    end
+
+    it "should find the debate where the member is author 1" do
+      @member.debates_side_1.first.id.should == @debate.id
+    end
+  end
+
+  describe "#debates_side_2" do
+    before do 
+      @member = Factory(:member)
+      @debate = Factory.create(:debate, :author_2 => @member)
+    end
+
+    it "should find the debate where the member is author 1" do
+      @member.debates_side_2.first.id.should == @debate.id
+    end
+  end
+
   describe ".find_for_facebook_oauth" do
     it "should find the member by email when he's already in the database" do
       m = Factory(:member, :email => FACEBOOK_VALID_AUTH_DATA["extra"]["user_hash"]["email"] )
@@ -74,5 +96,26 @@ describe Member do
       it{ should be_false }
     end
   
+  end
+
+  describe "#action_history" do
+    before do
+      @member = Factory(:provider_authorization).member
+      @debate = Factory(:debate, :author_1 => @member)
+      @debate_comment = Factory(:debate_comment, :commentable => @debate, :member => @member)
+      @petition_sig = Factory(:petition_signature, :member => @member)
+    end
+
+    it "should contain the petition signature" do
+      @member.action_history.should include(@petition_sig)
+    end
+
+    it "should contain the debate comment" do
+      @member.action_history.should include(@debate)
+    end
+
+    it "should contain the debate where the member was an author" do
+      @member.action_history.should include(@petition_sig)
+    end
   end
 end
