@@ -111,7 +111,7 @@
               = link_to t("members_show.commented_debate", :name => item.commentable.title, :issue => item.commentable.issue.name), issue_debate_path(item.commentable.issue_id, item.commentable, :todos => 1, :anchor => "comment_#{item.id}") if item.instance_of? Comment
               = link_to t("members_show.debate_author", :name => item.title, :issue => item.issue.name), issue_debate_path(item.issue_id, item) if item.instance_of? Debate
             .comment
-              = "\"#{item.comment}\"" if item.instance_of?(PetitionSignature) && !item.comment.empty?
+              = "\"#{item.comment}\"" if item.instance_of?(PetitionSignature) && item.comment && !item.comment.empty?
               = "\"#{item.content}\"" if item.instance_of?(Comment) && !item.content.empty?
 
 -if @member = current_member
