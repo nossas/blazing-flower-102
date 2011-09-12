@@ -3,7 +3,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     p = ProviderAuthorization.find_for_facebook_oauth(auth_data, current_member)
     if p.persisted?
       @member = p.member
-      flash[:notice] = "Welcome #{@member.name}"
       session[:fb_token] = auth_data["credentials"]["token"]
       sign_in_and_redirect @member, :event => :authentication
     else
@@ -16,7 +15,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     provider_authorization = ProviderAuthorization.find_for_google_oauth(auth_data, current_member)
     if provider_authorization.persisted?
       @member = provider_authorization.member
-      flash[:notice] = "Welcome #{@member.name}"
       session[:google_login] = true
       sign_in_and_redirect @member, :event => :authentication
     else
