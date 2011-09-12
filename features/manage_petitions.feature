@@ -6,7 +6,7 @@ Feature: Managing Petitions
   Scenario: Petition index
     Given I am logged in to the admin section
     And 2 petitions exist
-    When I follow "Petitions"
+    When I follow "Petições"
     Then I should see a list of petitions
 
   Scenario: New Petition form
