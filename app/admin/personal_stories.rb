@@ -1,6 +1,6 @@
 # coding: utf-8
 ActiveAdmin.register PersonalStory do
-  menu :priority => 6
+  menu :priority => 6, :label => 'Direto da Gema'
 
   filter :issue, :label => 'Na atividade'
   filter :title
