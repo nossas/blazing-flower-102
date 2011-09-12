@@ -103,6 +103,7 @@
           .icon.grid_1.alpha
             = image_tag "/assets/01_petition_icon.png" if item.instance_of? PetitionSignature
             = image_tag "/assets/02_debate_icon.png" if item.instance_of? Comment
+            = image_tag "/assets/02_debate_icon.png" if item.instance_of? Debate
           .content.grid_6.omega
             .date= l item.created_at, :format => :very_short
             .link
