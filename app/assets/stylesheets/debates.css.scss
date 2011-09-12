@@ -22,8 +22,7 @@ body.debates {
     background: url("/assets/debate_divider.png") repeat-y center;
     .author1, .author2 {
       width: 45%;
-      p { 
-        margin-bottom: 0;
+      p {
         &.name {
           color: $blue;
           font-size: 18px;
