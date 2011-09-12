@@ -29,7 +29,7 @@
             .field.right.zona
               =m.label :zona
               %dl.dropdown
-                %dt
+                %dt.sprite.dropdown_petition
                   %span=""
                 %dd
                   %ul
@@ -52,5 +52,6 @@
       .policy.small
         O Meu Rio protege a #{link_to("sua privacidade", page_path("privacidade"), :target => "_blank")}.
       .submit
+        %b.sprite.arrow-down
         =f.submit @petition.call_to_action, :class => "btn", :id => "submit_btn"
         =image_tag "/images/ajax-loader.gif", :id => "loader", :style => "display:none"

@@ -103,11 +103,11 @@ ActiveAdmin.register Debate do
             end
             tr do
               th { 'Quote' }
-              td { debate.quote_side_1 }
+              td { raw debate.quote_side_1 }
             end
             tr do
               th { 'Text' }
-              td { debate.text_side_1 }
+              td { raw debate.text_side_1 }
             end
           end
         end
@@ -137,7 +137,7 @@ ActiveAdmin.register Debate do
             end
             tr do
               th { 'Text' }
-              td { debate.text_side_2 }
+              td { raw debate.text_side_2 }
             end
           end
         end

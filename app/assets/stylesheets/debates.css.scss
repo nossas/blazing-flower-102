@@ -6,6 +6,9 @@
 @import "mixins.css.scss";
 
 body.debates {
+  h1 {
+    font-size: 32px;
+  }
   h2 {
     font-size: 26px;
   }
@@ -19,8 +22,7 @@ body.debates {
     background: url("/assets/debate_divider.png") repeat-y center;
     .author1, .author2 {
       width: 45%;
-      p { 
-        margin-bottom: 0;
+      p {
         &.name {
           color: $blue;
           font-size: 18px;
@@ -65,7 +67,8 @@ body.debates {
       }
     }
     .quotes { margin-bottom: 10px; }
-    .texts { 
+    .texts {
+      margin-top: 48px;
       .author1, .author2 {
         text-align: left;
       }
@@ -93,7 +96,9 @@ body.debates {
     }
     h3 {
       color: $orange;
+      font-family: Akagi-Book;
       font-size: 18px;
+      font-style: italic;
       border-bottom: 3px solid $blue;
       padding-bottom: 10px;
       margin-bottom: 10px;
@@ -203,6 +208,7 @@ body.debates {
     padding: 20px;
     h2{
       color: $orange;
+      margin-bottom: 10px;
       text-align: center;
     }
     .comments_counter {

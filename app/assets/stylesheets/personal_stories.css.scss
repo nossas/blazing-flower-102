@@ -9,21 +9,24 @@ body.personal_stories {
   }
 
   .story {
-    float:left;
-    width:210px;
-    margin-right:24px;
-    margin-bottom:24px;
+    float: left;
+    margin-bottom: 24px;
+    margin-right: 24px;
     outline: 0;
+    position: relative;
+    width: 210px;
     .thumbnail {
+      float: left;
       outline: 0 none !important;
       position: relative;
       img {
+        float: left;
         position: relative;
       }
       .play_button {
-        margin-top: -105px;
-        margin-left: 70px;
-        padding-bottom: 28px;
+        left: 83px;
+        position: absolute;
+        top: 56px;
         visibility: hidden;
         &.active {
           visibility: visible;
@@ -47,6 +50,7 @@ body.personal_stories {
       }
     }
     .title {
+      float: left;
       font-size: 1em;
       margin-top: 10px;
       position: relative;
@@ -94,8 +98,9 @@ body.personal_stories {
     .current_description {
       margin-bottom: 7px;
     }
-    .sprite.comments_arrow {
-      left: -5px;
+    .sprite.arrow-down {
+      margin-right: 10px;
+      top: 15px;
     }
   }
 }

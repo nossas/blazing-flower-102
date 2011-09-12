@@ -16,7 +16,7 @@
       %header
         %p= t("issue_show.petition")
       %div
-        .sprite.icon.petition_pink
+        .sprite.icon.petition
         %p=@issue.petition_call_to_action
         .text_align.center
           =link_to @issue.featured_petition.call_to_action, issue_custom_petition_path(@issue.id, @issue.featured_petition.custom_path), :class => 'btn'
@@ -26,7 +26,7 @@
       %header
         %p= t("issue_show.debate")
       %div
-        .sprite.icon.debate_pink
+        .sprite.icon.debate
         %p=@issue.debate_call_to_action
         .text_align.center
           =link_to "Dê Sua Opinião", issue_debate_path(@issue.id, @issue.featured_debate), :class => 'btn'
@@ -36,7 +36,7 @@
       %header
         %p= t("issue_show.personal_story")
       %div
-        .sprite.icon.personal_story_pink
+        .sprite.icon.personal_story
         %p=@issue.personal_story_call_to_action
         .text_align.center
           =link_to "Descubra esse Rio", issue_personal_story_path(@issue.id, @issue.featured_personal_story.id), :class => 'btn'

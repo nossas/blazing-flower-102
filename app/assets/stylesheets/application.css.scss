@@ -65,7 +65,11 @@ body > header {
   .join_login_wrap {font-size: 15px;}
   .member_panel{
     text-align: center;
-    p { margin: 0; font-size: 13px; }
+    p { 
+      font-size: 13px;
+      margin: 0 0 0 10px;
+      text-align: center;
+    }
     img { margin-left: 10px; }
     padding: 10px;
 
@@ -168,6 +172,9 @@ h1 {
 
 html.ie {
   nav#primary {
+    div.issue_menu_wide li {
+      margin-bottom: 5px;
+    }
     li.issue_menu_wrap{
       .issue_menu {
         margin-right: 1px;
@@ -243,6 +250,7 @@ nav#primary {
       z-index: 100;
       &.wide {
         width: 410px;
+        z-index: 201; // This is 201 because .issue_name was overlapping at 200 
       }
       &.small {
         width: 240px;
@@ -329,11 +337,10 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   color: #fff !important;
   font-family: Folk-solid;
   font-size: 20px;
-  font-weight: bold !important;
   text-transform: uppercase !important;
   text-decoration: none !important;
   text-align: center !important;
-  padding: 7px 15px 15px !important;
+  padding: 0 15px 11px !important;
   position: relative;
   line-height: 100%;
   margin: 0;
@@ -343,13 +350,17 @@ textarea.error, input.error, select.error { border-color: $red !important; }
     cursor: pointer !important;
     text-decoration: none !important;
   }
-  &:active{
+  &:active {
     /*
     background: $red !important;
     background: -moz-linear-gradient(top, lighten($pink, 15%) 0%, lighten($pink, 5%) 100%) !important;
     background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, lighten($pink, 15%)), color-stop(1, lighten($pink, 5%))) !important;
     */
+    color: #fff;
     @include box-shadow(inset 0px 0px 1px 1px rgba(255, 115, 100, 0.4) !important);
+  }
+  &:visited {
+    color: #fff;
   }
 }
 
@@ -364,7 +375,7 @@ textarea.error, input.error, select.error { border-color: $red !important; }
 
 .btn.small, a.btn.small {
   font-size: 10px;
-  padding: 5px 7px !important;
+  padding: 5px 7px 8px !important;
 }
 
 /* General dropdown styles */       
@@ -373,38 +384,52 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   padding: 0px;
   width: 276px;
   dd, dt, ul { margin: 0px; padding: 0px; }
-  dd { position: relative; margin-top: -3px; }
-  dt {background: url('/assets/archive_dropdown_slice.png') no-repeat scroll right center; display:block; padding:0px 20px 0px 10px; border: none; width:276px; height: 33px; color: $dark_gray; cursor:pointer;
-    span { cursor:pointer; display:block; padding:7px 5px 5px; }
+  dd {
+    position: relative;
+    margin-top: -3px;
+  }
+  dt {
+    display: block;
+    padding: 0px 20px 0px 10px;
+    border: none;
+    color: $dark_gray;
+    cursor:pointer;
+    span {
+      cursor: pointer;
+      display: block;
+      padding: 7px 5px 5px;
+    }
   }
   dd ul { 
+    border: 1px solid $light_gray;
+    border-top: 0;
     -moz-border-radius: 0 0 10px 10px;
     -webkit-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
     background: $lighter_gray none repeat scroll 0 0;
     display: none;
-    list-style: none;
-    padding: 5px 0px;
-    position: absolute; 
     left: 0px;
-    top: 0px;
+    list-style: none;
+    min-width: 269px;
+    padding: 8px 0 5px 0;
+    position: absolute; 
+    top: 28px;
     width: auto;
-    min-width: 270px;
     z-index: 1;
   }
   span.value { display:none;}
   dd ul li {
     margin-left: 0;
     padding-left:10px;
-    &:hover {
-      background: $light_gray;
-    }
   }
   dd ul li a {
-    display:block;
-    padding:5px;
+    border-top: 1px solid $light_gray;
+    display: block;
+    margin: 0 10px 0 0;
+    min-height: 19px;
+    padding: 10px 5px;
     &:hover {
-      color: $dark_gray;
+      color: $pink;
     }
   }
 }
@@ -517,6 +542,18 @@ textarea.error, input.error, select.error { border-color: $red !important; }
       color: #fff;
       font-family: Folk-solid;
     }
+    &.taf {
+      a {
+        float: left;
+        margin: 5px 10px 0 0;
+      }
+      h3 {
+        color: $light_gray;
+      }
+      .speech_bubble {
+        margin: -16px 20px 15px 25px;
+      }
+    }
   }
 }
 
@@ -566,6 +603,18 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   background-position: -152px -140px;
   height: 47px;
   width: 58px;
+}
+
+.sprite.dropdown_archive {
+  background-position: -10px -205px;
+  height: 32px;
+  width: 274px;
+}
+
+.sprite.dropdown_petition {
+  background-position: -10px -243px;
+  height: 32px;
+  width: 163px;
 }
 
 .sprite.facebook {
@@ -658,10 +707,11 @@ textarea.error, input.error, select.error { border-color: $red !important; }
        * body > #main p { font-size: 15px; }
        * TODO: change font sizes to use em instead of px 
        */
-      font-size: 1.3em !important;
+      font-family: Folk-solid;
+      font-size: 28px !important;
       font-weight: bold;
       line-height: 1.1em;
-      margin: 10px 15px 0 5px;
+      margin: 5px 15px 5px 5px;
       text-transform: uppercase;
     }
   }

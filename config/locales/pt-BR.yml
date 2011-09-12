@@ -298,8 +298,8 @@
     petition: "Abaixo-Assinado" 
     debate: "Bate-Bola"
     personal_story: "Direto da Gema"
-    see_more: "Veja Mais"
-    read_more: "Leia Mais"
+    see_more: "Veja Mais »"
+    read_more: "Leia Mais »"
   issue_archive:
     archive: "Arquivo"
   video_show:

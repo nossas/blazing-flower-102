@@ -74,12 +74,16 @@ body.petitions {
     .member_info { margin-bottom: 20px }
     h2 { text-transform: uppercase; }
   }
-  .speech_bubble{
-    .already_signed{
+  .speech_bubble {
+    padding-bottom: 25px;
+    .already_signed {
       width: 97%;
       padding: 5px;
       background-color: #fae2d1;
       display: none;
+    }
+    h2 {
+      text-transform: uppercase;
     }
   }
 
@@ -100,8 +104,9 @@ body.petitions {
   }
 
   .counter {
-    font-size: 16px;
-    span{
+    font-family: Akagi-Book;
+    font-size: 18px;
+    span {
       color: $pink;
       font-size: 24px;
     }
@@ -171,10 +176,15 @@ body.petitions {
   }
 
   .row.comment {
-    margin-bottom: 32px;
+    margin-bottom: 5px;
   }
 
-  .submit { float: right }
+  .submit {
+    float: right;
+    .sprite.arrow-down {
+      margin-right: 10px;
+    }
+  }
 
   .take_action, .comments {
     margin-left: 20px;
@@ -184,16 +194,12 @@ body.petitions {
 
   .zona {
     >dl {
-      margin: 0;
-      width: 198px;
+      margin: 4px 0 0 0;
+      width: 158px;
       >dd {
         ul {
-          xdisplay: none;
-          min-width: 162px;
+          min-width: 159px;
         }
-      }
-      >dt {
-        width: auto;
       }
     }
     select {

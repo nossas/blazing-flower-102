@@ -16,13 +16,12 @@
         .display.title= @member.name
         - if @member == current_member
           = link_to image_tag("/assets/pencil.png"), "#", :id => "change_name_btn", :class => "change"
-          .clearfix
           #name-editor.edit
             =form_for @member do |f|
               =f.text_field :first_name 
               =f.text_field :last_name 
-            .btn.small.confirm=link_to "OK", "#", :id => "name-confirm"
-            .btn.small.cancel=link_to "Cancel", "#", :id => "name-cancel"
+            =link_to "OK", "#", :id => "name-confirm", :class => "btn small confirm"
+            =link_to "Cancelar", "#", :id => "name-cancel", :class => "btn small cancel"
 
     .clearfix
     .date= t("members_show.joined_on", :date => l(@member.created_at, :format => :very_short))
@@ -38,8 +37,8 @@
             #email-editor.edit
               =form_for @member do |f|
                 =f.text_field :email, :class => "email required"
-              .btn.small.confirm=link_to "OK", "#", :id => "email-confirm"
-              .btn.small.cancel=link_to "Cancel", "#", :id => "email-cancel"
+              =link_to "OK", "#", :id => "email-confirm", :class => "btn small confirm"
+              =link_to "Cancelar", "#", :id => "email-cancel", :class => "btn small cancel"
             .display= @member.email
     
         .zone
@@ -51,8 +50,8 @@
             #zona-editor.edit
               =form_for @member do |f|
                 =f.select :zona, options_for_select(['', 'Centro', 'Norte', 'Oeste', 'Sul', 'Eu não sou do Rio'], @member.zona)
-              .btn.small.confirm=link_to "OK", "#", :id => "zona-confirm"
-              .btn.small.cancel=link_to "Cancel", "#", :id => "zona-cancel"
+              =link_to "OK", "#", :id => "zona-confirm", :class => "btn small confirm"
+              =link_to "Cancelar", "#", :id => "zona-cancel", :class => "btn small cancel"
             .display= @member.zona
     
         .bio
@@ -65,8 +64,8 @@
               #bio-editor.edit
                 =form_for @member do |f|
                   =f.text_area :bio, :rows => '12', :maxlength => "220"
-                .btn.small.confirm=link_to "OK", "#", :id => "bio-confirm"
-                .btn.small.cancel=link_to "Cancel", "#", :id => "bio-cancel"
+                =link_to "OK", "#", :id => "bio-confirm", :class => "btn small confirm"
+                =link_to "Cancelar", "#", :id => "bio-cancel", :class => "btn small cancel"
             .clearfix
             .display= @member.bio
 
@@ -90,8 +89,8 @@
         #meu_rio_is-editor.edit
           =form_for @member do |f|
             =f.text_area :meu_rio_is, :rows => '3', :cols => '91', :maxlength => "160"
-          .btn.small.confirm=link_to "OK", "#", :id => "meu_rio_is-confirm"
-          .btn.small.cancel=link_to "Cancel", "#", :id => "meo_rio_is-cancel"
+          =link_to "OK", "#", :id => "meu_rio_is-confirm", :class => "btn small confirm"
+          =link_to "Cancelar", "#", :id => "meo_rio_is-cancel", :class => "btn small cancel"
       .display= @member.meu_rio_is
     .meu_rio_is_bot
   .posts.grid_8.alpha.omega
@@ -105,7 +104,7 @@
             = image_tag "/assets/01_petition_icon.png" if item.instance_of? PetitionSignature
             = image_tag "/assets/02_debate_icon.png" if item.instance_of? Comment
             = image_tag "/assets/02_debate_icon.png" if item.instance_of? Debate
-          .content.grid_7.omega
+          .content.grid_6.omega
             .date= l item.created_at, :format => :very_short
             .link
               = link_to t("members_show.signed_petition", :title => item.petition.title, :issue => item.petition.issue.name), issue_custom_petition_path(item.petition.issue.id, item.petition.custom_path) if item.instance_of? PetitionSignature
