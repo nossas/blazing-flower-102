@@ -1,6 +1,6 @@
 # coding: utf-8
 ActiveAdmin.register Issue do
-  menu :priority => 2
+  menu :priority => 2, :label => 'Na atividade'
 
   filter :name
   filter :description
