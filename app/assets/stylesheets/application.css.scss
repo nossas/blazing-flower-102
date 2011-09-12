@@ -65,6 +65,8 @@ body > header {
   .join_login_wrap {font-size: 15px;}
   .member_panel{
     text-align: center;
+    position: relative;
+    z-index: 250;
     p { 
       font-size: 13px;
       margin: 0 0 0 10px;
