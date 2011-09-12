@@ -97,6 +97,7 @@ body > header {
     @include border-radius(5px 5px);
     a {
       color: #fff;
+      &:hover { color: $pink; }
     }
     .arrow {
       background: url(/assets/arrows.png) 0px -14px no-repeat;
