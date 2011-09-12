@@ -94,6 +94,7 @@ body > header {
     background-color: $orange;
     opacity: 0.8;
     @include border-radius(5px 5px);
+    z-index: 250;
     a {
       color: #fff;
       &:hover { color: $pink; }
@@ -105,7 +106,7 @@ body > header {
   .flyout {
     display: none;
     text-align: left;
-    padding: 5px 10px 0 0;
+    padding: 5px 0 0 0;
     height: 100%;
     font-weight: 600;
   }
