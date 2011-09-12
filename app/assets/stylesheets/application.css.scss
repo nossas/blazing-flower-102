@@ -96,6 +96,7 @@ body > header {
     @include border-radius(5px 5px);
     a {
       color: #fff;
+      &:hover { color: $pink; }
     }
     .arrow {
       background: url(/assets/arrows.png) 0px -14px no-repeat;
@@ -169,6 +170,10 @@ h1 {
     top: 0px;
     left: -2px;
   }
+}
+
+h2 {
+  font-weight: normal;
 }
 
 html.ie {
