@@ -55,8 +55,8 @@
         %p.bio= "#{@debate.author_title_side_2}, #{@debate.author_organization_side_2}"
     
     .texts.clearfix
-      .author1= raw @debate.text_side_1.gsub("\n", "<br />")
-      .author2= raw @debate.text_side_2.gsub("\n", "<br />")
+      .author1= raw @debate.text_side_1
+      .author2= raw @debate.text_side_2
 
 #comment_area.grid_10.push_1
   .comments
