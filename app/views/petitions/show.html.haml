@@ -36,13 +36,14 @@
   .grid_6.comments
     %h3= t("petition_show.recent_comments")
     - @comments.each do |petition_signature|
-      %p
+      .comment_container
         .sprite.little_blue_bubble
-        = petition_signature.comment
-        %br
-        = link_to petition_signature.member do
-          -if !petition_signature.member.zona.blank?
-            = "#{petition_signature.member.name}, #{petition_signature.member.zona}"
-          -else
-            = "#{petition_signature.member.name}"
+        %p
+          = petition_signature.comment
+          %br
+          = link_to petition_signature.member do
+            -if !petition_signature.member.zona.blank?
+              = "#{petition_signature.member.name}, #{petition_signature.member.zona}"
+            -else
+              = "#{petition_signature.member.name}"
 
