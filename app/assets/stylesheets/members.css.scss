@@ -83,7 +83,7 @@ body.members {
     }
     .date { 
       font-size: 14px; 
-      padding-bottom: 10px;
+      padding: 10px 0;
     }
     .title {
       color: $blue;
@@ -97,6 +97,13 @@ body.members {
       border-top: 1px solid $blue;
       border-bottom: 1px solid $blue;
       padding: 30px 0 10px;
+    }
+  }
+
+  .name {
+    h3 .title {
+      margin-bottom: 0px;
+      padding-bottom: 0px;
     }
   }
 
