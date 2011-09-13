@@ -43,7 +43,7 @@ MR.petitions = {
         $counter.html(count + 1);
         if($goal.length != 0){
           var goal = parseInt(/(\d+)/.exec($goal.html())[1]);
-          var percent = (count * 100) / goal;
+          var percent = Math.floor((count * 100) / goal);
           if(goal && goal > 0){
             $progress.animate({width: percent + '%'});
           }
