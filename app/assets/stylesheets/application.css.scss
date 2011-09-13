@@ -62,7 +62,11 @@ body > header {
       top: 10px;
     }
   }
-  .join_login_wrap {font-size: 15px;}
+  .join_login_wrap {
+    text-align: right;
+    font-size: 15px;
+    margin-right: 6px;
+  }
   .member_panel{
     text-align: center;
     position: relative;
@@ -206,8 +210,7 @@ nav#primary {
   color: $dark_gray;
   float: right;
   font-weight: bold;
-  position: absolute;
-  right: 26px;
+  margin-top: 105px;
   li {
     float:left;
     position:relative;
@@ -355,9 +358,10 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   text-transform: uppercase !important;
   text-decoration: none !important;
   text-align: center !important;
-  padding: 0 15px 11px !important;
+  padding: 7px 15px 13px !important;
   position: relative;
   line-height: 100%;
+  letter-spacing: 1px;
   margin: 0;
   display: inline-block;
   &:hover {
