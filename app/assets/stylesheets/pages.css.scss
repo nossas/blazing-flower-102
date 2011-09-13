@@ -195,10 +195,17 @@ body.pages {
     margin-bottom: 30px;
     padding: 20px 0;
     h2 {
-      font-family: Folk-solid;
-      font-size: 20px;
-      margin-left: 0;
+      font-family: 'Akagi-book';
+      font-weight: bold;
+      color: #fff;
+      font-size: 16px;
+      margin: 15px 10px;
       text-transform: uppercase;
+      em {
+        display:block;
+        font-size:24px;
+        font-style:normal;
+      }
     }
     >img {
       float: right;
