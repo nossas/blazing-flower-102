@@ -21,6 +21,10 @@ MR.members = {
       });
     });
 
+    $("#member_bio").keyup(function(){
+      $("#member_tip").html((140 - $("#member_bio").val().length) + " caracteres");
+    });
+
   },
 
   closeEdit: function(button){
