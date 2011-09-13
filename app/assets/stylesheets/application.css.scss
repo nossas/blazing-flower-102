@@ -358,9 +358,10 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   text-transform: uppercase !important;
   text-decoration: none !important;
   text-align: center !important;
-  padding: 0 15px 11px !important;
+  padding: 7px 15px 13px !important;
   position: relative;
   line-height: 100%;
+  letter-spacing: 1px;
   margin: 0;
   display: inline-block;
   &:hover {
