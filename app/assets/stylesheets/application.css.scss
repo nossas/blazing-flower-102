@@ -62,7 +62,11 @@ body > header {
       top: 10px;
     }
   }
-  .join_login_wrap {font-size: 15px;}
+  .join_login_wrap {
+    text-align: right;
+    font-size: 15px;
+    margin-right: 6px;
+  }
   .member_panel{
     text-align: center;
     position: relative;
