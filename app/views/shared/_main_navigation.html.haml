@@ -18,14 +18,14 @@
             %ul
               - for issue in nav_issues - nav_issues.first(2) do
                 %li.issue_pane
-                  =link_to raw("#{issue.name} &raquo;"), issue
+                  =link_to raw("#{issue.name} <span>&raquo;</span>"), issue
       -else
         .issue_menu.small.clearfix
           %ul.thumbnails
             - for issue in nav_issues do
               %li.issue_pane
                 =link_to image_tag(issue.thumbnail), issue
-                =link_to raw("#{issue.name} &raquo;"), issue
+                =link_to raw("#{issue.name} <span>&raquo;</span>"), issue
     %li
       =link_to('NOSSO BLOG', "http://meu-rio.tumblr.com/", :class => "top_level", :target => "_blank")+'|'
     %li

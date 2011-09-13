@@ -314,6 +314,11 @@ nav#primary {
               &:hover {
                 color: $pink;
               }
+              span {
+                color:inherit;
+                display:inline;
+                font-size:14px;
+              }
             }
           }
         }
