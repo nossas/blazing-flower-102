@@ -95,24 +95,24 @@ body.petitions {
   .comments {
     margin-top: 48px;
     h3 {
+      font-family: 'Folk-solid';
       border-bottom: 1px solid $light_blue;
-      border-top: 1px solid $light_blue;
-      font-size: 16px;
+      border-top: 3px solid $light_blue;
+      font-size: 20px;
       margin-bottom: 24px;
-      padding: 10px 0 5px 12px;
+      padding: 5px 0 10px 12px;
+    }
+    .sprite.little_blue_bubble {
+      margin-left:12px;
     }
     p {
-      padding-left:42px;
+      padding-left:54px;
       margin-bottom: 24px;
       position: relative;
-      font-size: 14px;
-      color: #333333;
+      font-size: 14px !important;
       strong {
         font-weight: normal;
         color: $dark_gray;
-      }
-      .sprite {
-        
       }
     }
   }
