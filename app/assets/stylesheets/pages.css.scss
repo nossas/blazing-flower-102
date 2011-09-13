@@ -54,6 +54,10 @@ body.pages {
     padding-bottom:40px;
   }
 
+  .speech_bubble_container .speech_bubble p.date {
+    color: #595959;
+  }
+
   .trabalhe {
     .speech_bubble_container a{
       font-weight:normal;
@@ -135,6 +139,11 @@ body.pages {
         }
       }
     }
+  }
+
+  #back_to_top {
+    display: block;
+    margin-top: 25px;
   }
 
   #join_meu_rio {

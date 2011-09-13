@@ -37,6 +37,7 @@
     %h3= t("petition_show.recent_comments")
     - @comments.each do |petition_signature|
       %p
+        .sprite.little_blue_bubble
         = petition_signature.comment
         %br
         = link_to petition_signature.member do

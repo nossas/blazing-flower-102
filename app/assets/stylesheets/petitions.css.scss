@@ -48,6 +48,7 @@ body.petitions {
     position: absolute;
     right: 0;
     top: 0;
+    z-index: 200;
   }
 
   .canvas {
@@ -75,7 +76,11 @@ body.petitions {
     h2 { text-transform: uppercase; }
   }
   .speech_bubble {
-    padding-bottom: 25px;
+    padding-bottom: 5px;
+    width: 404px;
+    &.taf {
+      padding-bottom: 25px;
+    }
     .already_signed {
       width: 97%;
       padding: 5px;
@@ -89,16 +94,25 @@ body.petitions {
 
   .comments {
     margin-top: 48px;
-    h3 { border-bottom: 1px solid $light_blue; border-top: 1px solid $light_blue; padding: 10px 0 5px 12px; font-size: 16px; margin-bottom: 24px; }
+    h3 {
+      border-bottom: 1px solid $light_blue;
+      border-top: 1px solid $light_blue;
+      font-size: 16px;
+      margin-bottom: 24px;
+      padding: 10px 0 5px 12px;
+    }
     p {
-      background:url("/images/comment_icon.png") no-repeat;
       padding-left:42px;
       margin-bottom: 24px;
+      position: relative;
       font-size: 14px;
       color: #333333;
       strong {
         font-weight: normal;
         color: $dark_gray;
+      }
+      .sprite {
+        
       }
     }
   }

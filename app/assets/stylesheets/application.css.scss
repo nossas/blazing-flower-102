@@ -277,6 +277,9 @@ nav#primary {
             font-size: 13px;
             color: #fff;
             padding: none;
+            &:hover {
+              color: $pink;
+            }
             img {
               width: 100px;
               height: 75px;
@@ -305,6 +308,9 @@ nav#primary {
               width: 130px;
               font-size: 12px;
               color: #fff;
+              &:hover {
+                color: $pink;
+              }
             }
           }
         }
@@ -536,6 +542,12 @@ textarea.error, input.error, select.error { border-color: $red !important; }
     margin: 30px 0px 15px 25px;
     min-height: 55px;
     width: 461px;
+    h3 {
+      color: $dark_gray;
+      font-family: Akagi-Book
+      font-size: .9em;
+      text-transform: none;
+    }
     .speech_bubble_top {
       background: url(/assets/widget-container-gray-big-top.png) no-repeat top left;
       height: 83px;
@@ -550,14 +562,16 @@ textarea.error, input.error, select.error { border-color: $red !important; }
     .speech_bubble h3 {
       color: #fff;
       font-family: Folk-solid;
+      .share_text {
+        strong {
+          font-size: .8em;
+        }
+      }
     }
     &.taf {
       a {
         float: left;
         margin: 5px 10px 0 0;
-      }
-      h3 {
-        color: $light_gray;
       }
       .speech_bubble {
         margin: -16px 20px 15px 25px;
@@ -636,6 +650,12 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   background-position: -54px -34px;
   height: 24px;
   width: 24px;
+}
+
+.sprite.little_blue_bubble {
+  background-position: -299px -168px;
+  height: 27px;
+  width: 34px;
 }
 
 .sprite.logo {

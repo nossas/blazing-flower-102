@@ -4,20 +4,20 @@
       .grid_2.alpha
         .sprite.debate
       .grid_7.suffix_3.omega
-        =link_to "#{article.title} >>", issue_debate_path(@issue.id, article.id), :class => "title" 
+        =link_to "#{article.title} »", issue_debate_path(@issue.id, article.id), :class => "title" 
         .date=article.created_at.strftime("%d %B %Y")
         .excerpt= article.question
     -elsif article.class == PersonalStory
       .grid_2.alpha
         .sprite.personal_story
       .grid_7.suffix_3.omega
-        =link_to "#{article.title} >>", issue_personal_story_path(@issue.id, article.id), :class => "title"
+        =link_to "#{article.title} »", issue_personal_story_path(@issue.id, article.id), :class => "title"
         .date=article.created_at.strftime("%d %B %Y")
         .excerpt= article.excerpt
     -elsif article.class == Petition
       .grid_2.alpha
         .sprite.petition
       .grid_7.suffix_3.omega
-        =link_to "#{article.headline} >>", issue_custom_petition_path(@issue.id, article.custom_path), :class => "title" 
+        =link_to "#{article.headline} »", issue_custom_petition_path(@issue.id, article.custom_path), :class => "title" 
         .date=article.created_at.strftime("%d %B %Y")
         .excerpt= article.short_description

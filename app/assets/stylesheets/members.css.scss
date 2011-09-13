@@ -7,7 +7,6 @@
 @import "mixins.css.scss";
 
 body.members {
-
   .meu_rio_is_top {
     margin-top: 36px;
     padding: 20px 30px 0 30px;
@@ -88,7 +87,6 @@ body.members {
     }
     .title {
       color: $blue;
-      text-transform: uppercase;
       margin: 5px 0;
     }
     .is_subscriber {
@@ -152,13 +150,13 @@ body.members {
     }
   }
   
-  #change_picture_button {
+	#change_picture_btn {
     font-family: Akagi-Book;
     font-size: 14px;
   }
 
-  #facebox{
-     h2{
+  #facebox {
+     h2 {
       text-transform: uppercase;
      }
 

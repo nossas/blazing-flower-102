@@ -121,12 +121,12 @@ body.issues {
   
   .count, .arrow {
     float: left;
-    margin: 3px 10px 0 0;
+    margin: 10px 10px 0 0;
     display: block;
   }
 
   .count {
-    margin-top: 5px;
+    margin-top: 12px;
   }
 
   .arrow {
@@ -218,7 +218,7 @@ body.issues {
 
   &.archive {
     a.title {
-      font-weight: bold;
+      font-weight: normal;
     }
     .article .sprite {
       float: right;
