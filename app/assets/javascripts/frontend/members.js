@@ -22,9 +22,12 @@ MR.members = {
     });
 
     $("#member_bio").keyup(function(){
-      $("#member_tip").html((140 - $("#member_bio").val().length) + " caracteres");
+      $("#member_tip").html((200 - $("#member_bio").val().length) + " caracteres");
     });
 
+    $("#member_meu_rio_is").keyup(function(){
+      $("#meu_rio_is_tip").html((140 - $("#member_meu_rio_is").val().length) + " caracteres");
+    });
   },
 
   closeEdit: function(button){
