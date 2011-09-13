@@ -29,6 +29,8 @@ a {
   &:hover{ color: $pink; text-decoration:none; }
 }
 
+.no_bold {font-weight:normal !important;}
+
 body {
   background: #e1e1d9 url(/assets/bg-test.jpg) no-repeat bottom center fixed;
   height: 100%;

@@ -103,12 +103,14 @@ body.pages {
     }
   }
 
-  #about_description p {
-    span {
-      display: block;
-    }
-    a {
-      font-weight: bold;
+  #about_description {
+    p {
+      span {
+        display: block;
+      }
+      a {
+        font-weight: bold;
+      }
     }
   }
 
@@ -148,14 +150,14 @@ body.pages {
 
   #join_meu_rio {
     text-align: center;
-    padding: 40px 0 0;
+    padding: 0;
     p {
       position: relative;
       font-weight: bold; 
       color: $dark_gray;
       .btn {
         left: 20px;
-        top: 10px;
+        top: 6px;
       }
       .sprite.arrow-down {
         position: absolute;
