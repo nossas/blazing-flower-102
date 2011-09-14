@@ -7,10 +7,12 @@
 
 body.debates {
   h1 {
-    font-size: 32px;
+    font-size: 25px;
+    color:#595959;
   }
   h2 {
     font-size: 26px;
+    font-weight:bold;
   }
 
   .addthis_button img {
@@ -69,7 +71,7 @@ body.debates {
     }
     .quotes { margin-bottom: 10px; }
     .texts {
-      margin-top: 48px;
+      margin-top: 30px;
       .author1, .author2 {
         text-align: left;
       }
