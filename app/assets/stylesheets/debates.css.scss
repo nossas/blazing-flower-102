@@ -36,7 +36,6 @@ body.debates {
       .balloon {
         .content {
           color: white;
-          padding: 10px 20px 10px 10px;
         }
       }
     }
@@ -46,6 +45,9 @@ body.debates {
       .balloon { 
         float: left;
         padding-right: 12px;
+        .content {
+          padding:12px 8px 10px 20px;
+        }
       }
       .profile {
         display: block;
@@ -58,6 +60,9 @@ body.debates {
       .balloon { 
         float: right; 
         padding-left: 12px;
+        .content {
+          padding:12px 20px 10px 5px;
+        }
       }
       .profile {
         display: block;
