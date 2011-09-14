@@ -6,6 +6,9 @@
 @import "mixins.css.scss";
 
 body.debates {
+  h1 {
+    color: #595959;
+  }
   h2 {
     font-size: 26px;
     font-weight:bold;
