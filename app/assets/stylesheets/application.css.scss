@@ -50,6 +50,22 @@ body {
   }
 }
 
+.messages {
+  padding:10px;
+  color:#fff;
+  background-color: $green;
+  .grid_11{
+    padding-top:3px;
+    padding-left:20px;
+  }
+  .grid_1 {
+    line-height:0;
+    a {
+      margin-left:24px;
+    }
+  }
+}
+
 body > header {
   background: white;
   margin-bottom: 10px;

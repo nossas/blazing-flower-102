@@ -2,12 +2,21 @@ MR = {
   common: {
     init: function() {
       // application-wide code
+      MR.common.closeFlash();
+
       MR.common.googleLogout();
       MR.common.faceboxInit();
       MR.common.setBodyBackgroundClass();
 
       $('.member_panel .right.info').bind('click', function(){
         MR.common.openMemberFlyout();
+      });
+    },
+
+    closeFlash : function(){
+      $('#close_messages').click(function(e){
+        e.preventDefault();
+        $('.messages').slideUp();
       });
     },
 

@@ -9,7 +9,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
       # Hack because we can't tell if provider_authorization is a new_record?
       if provider_authorization.created_at > 3.seconds.ago
-        flash[:welcome] = "Seja bem-vindo! Agora você faz parte da comunidade do Meu Rio."
+        flash[:welcome] = "<b>Seja bem-vindo!</b> Agora você faz parte da comunidade do Meu Rio."
       end
 
       sign_in_and_redirect @member, :event => :authentication
@@ -27,7 +27,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
       # Hack because we can't tell if provider_authorization is a new_record?
       if provider_authorization.created_at > 3.seconds.ago
-        flash[:welcome] = "Seja bem-vindo! Agora você faz parte da comunidade do Meu Rio."
+        flash[:welcome] = "<b>Seja bem-vindo!</b> Agora você faz parte da comunidade do Meu Rio."
       end
 
       sign_in_and_redirect @member, :event => :authentication
