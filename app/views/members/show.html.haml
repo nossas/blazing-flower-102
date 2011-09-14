@@ -119,6 +119,6 @@
   #image_form{ :style => "display: none;" }
     %header
       %h2 Mudar Imagen
-    =form_for @member, :html => { :multipart => true } do |f|
+    =form_for @member, :html => { :multipart => true }, :url => { :action => "update" } do |f|
       =f.file_field :image
       =f.submit "Enviar", :class => "btn"
