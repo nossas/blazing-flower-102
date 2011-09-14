@@ -48,7 +48,7 @@
         = @taf.email_message
   
 - if @taf && @taf.display_copy_url 
-  .speech_bubble_container.gray_big
+  .speech_bubble_container.gray_big.clippy
     .speech_bubble_top
     .speech_bubble
       =raw clippy(issue_custom_petition_url(@taf.petition.issue_id, @taf.petition.custom_path), "#e7e7e7")
