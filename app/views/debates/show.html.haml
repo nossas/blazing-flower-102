@@ -65,7 +65,7 @@
     .sprite.comments_arrow
     .subtitle
       -if @comment
-        = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
+        = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "btn join_the_conversation"
         = image_tag "/assets/loading.gif", :class => "new_comment_loading", :style => "display:none"
       -else
         =link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "btn comment_login"
@@ -81,7 +81,7 @@
       #bottom_buttons
         %a{:name => "comments_bottom"}
         -if @comment
-          = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "join_the_conversation"
+          = link_to t("debate_show.join_the_conversation"), "#new_comment", :class => "btn join_the_conversation"
           = image_tag "/assets/loading.gif", :class => "new_comment_loading", :style => "display:none"
         -else
           = link_to t("debate_show.join_the_conversation"), "#login", :rel => "facebox", 'data-record-fragment' => 'new_comment', :class => "btn comment_login"
