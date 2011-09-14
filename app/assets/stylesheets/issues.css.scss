@@ -6,6 +6,11 @@
 @import "mixins.css.scss";
 
 body.issues {
+
+  #main {
+    padding-bottom: 50px;
+  }
+
   h1 {
     font-size: 32px;
     margin-left: 15px;
