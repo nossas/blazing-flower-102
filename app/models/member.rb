@@ -19,7 +19,7 @@ class Member < ActiveRecord::Base
     :storage => :s3, 
     :bucket => SITE['s3_bucket'], 
     :s3_credentials => { :access_key_id => SITE['s3_access_key_id'], :secret_access_key => SITE['s3_secret_access_key'] },
-    :styles => { :thumb => "50x50" })
+    :styles => { :thumb => "50x50", :medium => "250x250" })
 
   devise :omniauthable
 
@@ -60,7 +60,7 @@ class Member < ActiveRecord::Base
     (self.petition_signatures + self.comments + self.debates_side_1 + self.debates_side_2).sort{|x, y| y.created_at <=> x.created_at}
   end
 
-  def current_image_url(size='')
+  def current_image_url(size="medium")
     if self.image.url == "/images/original/missing.png"
       self.image_url
     else
