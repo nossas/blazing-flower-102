@@ -16,7 +16,7 @@
       .arrow.next{:class => @articles_end >= @article_count ? "inactive" : '' }=link_to ">", issue_archive_page_path(@issue.id, @page + 1)
   .articles.grid_12.alpha.omega
     =render :partial => "articles"
-  .grid_3.prefix_9.omega.article_count
+  .grid_3.prefix_8.omega.article_count
     .count= "Exibindo #{@articles_start}-#{@articles_end} de #{@article_count}"
     .arrow.previous{:class => @articles_start < 5 ? "inactive" : '' }=link_to ">", issue_archive_page_path(@issue.id, @page - 1)
     .arrow.next{:class => @articles_end >= @article_count ? "inactive" : '' }=link_to ">", issue_archive_page_path(@issue.id, @page + 1)
