@@ -31,10 +31,13 @@ body.petitions {
     }
     .text{
       color: $dark_gray;
-      font-size: 12px;
+      font-size: 14px;
     }
     .button_wrapper{
       float: right;
+    }
+    .donation_arrow{
+      margin-top: 20px;
     }
   }
 
