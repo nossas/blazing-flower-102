@@ -32,6 +32,9 @@ body.members {
     color: white;
     padding: 0 30px;
     background: url(/assets/member_quote_mid.png) repeat-y;
+    textarea {
+      width: 565px;
+    }
   }
 
   .posts {
