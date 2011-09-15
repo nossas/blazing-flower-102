@@ -53,6 +53,8 @@ gem 'kaminari'
 
 gem "simplecov", :require => false, :group => :test
 
+gem 'newrelic_rpm'
+
 group :development, :test do
   gem 'heroku'
   gem 'sqlite3', '1.3.3'
@@ -79,7 +81,7 @@ end
 
 group :production do
   # Performance Monitoring
-  gem 'newrelic_rpm'
+  # gem 'newrelic_rpm'
 
   # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
   gem 'thin'
