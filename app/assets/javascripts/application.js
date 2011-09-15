@@ -9,5 +9,7 @@
 //= require ./libs/facebox.js
 //= require ./libs/store.js
 //= require ./libs/jquery.tools.min.js
+//= require ./libs/jquery.tmpl.min.js
+//= require ./libs/jquery.validate.min.js
 //= require init.js
 //= require_tree ./frontend
