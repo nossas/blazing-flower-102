@@ -5,5 +5,9 @@
 // the compiled file.
 //
 //= require jquery_ujs
+//= require ./libs/underscore-1.1.6.min.js
+//= require ./libs/facebox.js
+//= require ./libs/store.js
+//= require ./libs/jquery.tools.min.js
 //= require init.js
 //= require_tree ./frontend
