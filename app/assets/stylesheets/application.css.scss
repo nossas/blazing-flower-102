@@ -202,19 +202,6 @@ h2 {
   font-weight: normal;
 }
 
-html.ie {
-  nav#primary {
-    div.issue_menu_wide li {
-      margin-bottom: 5px;
-    }
-    li.issue_menu_wrap{
-      .issue_menu {
-        margin-right: 1px;
-      }
-    }
-  }
-}
-
 input[type="text"], textarea {
   border: 2px solid $light_gray;
   &:focus{
@@ -260,7 +247,6 @@ nav#primary {
         background-color: rgba(237, 126, 67, .9);
       }
     }
-    
     >a {
       @include border-radius(5px 5px 0 0);
       &:hover {
@@ -349,6 +335,32 @@ nav#primary {
     visibility: hidden;
   }
 }
+
+// Start Main Nav fixes
+
+html.ie {
+  nav#primary {
+    div.issue_menu_wide li {
+      margin-bottom: 5px;
+    }
+    li.issue_menu_wrap{
+      .issue_menu {
+        margin-right: 1px;
+      }
+    }
+  }
+}
+
+@-moz-document url-prefix() {
+  body.issues nav#primary li.issue_menu_wrap .issue_menu,
+  body.personal_stories nav#primary li.issue_menu_wrap .issue_menu,
+  body.petitions nav#primary li.issue_menu_wrap .issue_menu,
+  body.debates nav#primary li.issue_menu_wrap .issue_menu {
+    right: 10px !important;
+  }
+}
+
+// End Main Nav Fixes
 
 textarea.error, input.error, select.error { border-color: $red !important; }
 
