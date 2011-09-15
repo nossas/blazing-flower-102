@@ -44,7 +44,7 @@
           %a{:href => '#', :id => "close_messages"}= image_tag asset_path('close_messages.png')
     %header.container_12
       =link_to 'home', root_path, :id => "logo", :class => "grid_2 sprite logo ir"
-      .grid_3.prefix_7
+      .grid_3-5
         #member_panel.member_panel
           - if current_member
             .right.info
@@ -89,9 +89,7 @@
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"}
     :javascript
       !window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))    
-    =javascript_include_tag("http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js")
-    =javascript_include_tag("http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js")
-    =javascript_include_tag "libs/underscore-1.1.6.min.js", "libs/facebox", "libs/store", "libs/jquery.tools.min", "application"
+    =javascript_include_tag "application"
     = yield :javascripts
     /[if lt IE 7 ]
       <script src="assets/libs/dd_belatedpng.js"></script>
