@@ -16,4 +16,6 @@ Feature: Managing Personal Stories
     And I click "Criar Novo"
     And I fill in the personal story form with correct information
     And I press "Create Vídeo"
-    Then I should see "Vídeo was successfully created"
+    # Until Active Admin gets it's flash back
+    Then I should see "Created at"
+    # Then I should see "Vídeo was successfully created"
