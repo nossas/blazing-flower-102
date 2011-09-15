@@ -12,7 +12,7 @@ class WeatherWidget < Widget
       result = result['rss']['channel']
     rescue
       if Rails.cache.read("weather").blank?
-        result = {"title"=>"Yahoo! Weather - Rio de Janeiro, BR", "yweather:astronomy"=>{"sunrise"=>"6:10 am", "sunset"=>"5:41 pm"}, "item"=>{"title"=>"Conditions for Rio de Janeiro, BR at 5:00 pm LST", "geo:lat"=>"-22.98", "geo:long"=>"-43.2", "link"=>"http://us.rd.yahoo.com/dailynews/rss/weather/Rio_de_Janeiro__BR/*http://weather.yahoo.com/forecast/BRXX0201_c.html", "pubDate"=>"Thu, 25 Aug 2011 5:00 pm LST", "yweather:condition"=>{"text"=>"Partly Cloudy", "code"=>"30", "temp"=>"24", "date"=>"Thu, 25 Aug 2011 5:00 pm LST"}, "yweather:forecast"=>[{"day"=>"Thu", "date"=>"25 Aug 2011", "low"=>"20", "high"=>"24", "text"=>"Clear", "code"=>"31"}], "guid"=>"BRXX0201_2011_08_26_7_00_LST"}}  
+        result = {"title"=>"Yahoo! Weather - Rio de Janeiro, BR", "astronomy"=>{"sunrise"=>"6:10 am", "sunset"=>"5:41 pm"}, "item"=>{"title"=>"Conditions for Rio de Janeiro, BR at 5:00 pm LST", "geo:lat"=>"-22.98", "geo:long"=>"-43.2", "link"=>"http://us.rd.yahoo.com/dailynews/rss/weather/Rio_de_Janeiro__BR/*http://weather.yahoo.com/forecast/BRXX0201_c.html", "pubDate"=>"Thu, 25 Aug 2011 5:00 pm LST", "condition"=>{"text"=>"Partly Cloudy", "code"=>"30", "temp"=>"24", "date"=>"Thu, 25 Aug 2011 5:00 pm LST"}, "forecast"=>[{"day"=>"Thu", "date"=>"25 Aug 2011", "low"=>"20", "high"=>"24", "text"=>"Clear", "code"=>"31"}], "guid"=>"BRXX0201_2011_08_26_7_00_LST"}}  
         logger.warn("Unable to contact the Yahoo Weather API, exception: #{$!}")
       else
         result = self.weather

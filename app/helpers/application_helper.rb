@@ -44,12 +44,12 @@ module ApplicationHelper
     sunny = [31, 32, 33, 34, 36]
 
     conditions_hash = { :thunder => thunder, :rain => rain, :cloudy => cloudy, :sunny => sunny }
-    return conditions_hash.select{ |key, conditions| conditions.include? WeatherWidget.weather['item']['yweather:condition']['code'].to_i }.keys.first.to_s
+    return conditions_hash.select{ |key, conditions| conditions.include? WeatherWidget.weather['item']['condition']['code'].to_i }.keys.first.to_s
   end
 
   def day_or_night 
     time = Time.zone.now
-    if ( time > WeatherWidget.parse_time(WeatherWidget.weather["yweather:astronomy"]["sunset"]) ) || ( time < WeatherWidget.parse_time(WeatherWidget.weather["yweather:astronomy"]["sunrise"]) )
+    if ( time > WeatherWidget.parse_time(WeatherWidget.weather["astronomy"]["sunset"]) ) || ( time < WeatherWidget.parse_time(WeatherWidget.weather["astronomy"]["sunrise"]) )
       return "night"
     else
       return "day"
