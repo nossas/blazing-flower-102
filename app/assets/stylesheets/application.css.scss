@@ -75,7 +75,7 @@ body > header {
   position: relative;
   @include border-radius(0 0 8px 8px);
   &.container_12 {
-    .grid_3.prefix_7 {
+    > .grid_3-5 {
       position: absolute;
       right: 0;
       top: 10px;
