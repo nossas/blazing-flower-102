@@ -2,12 +2,12 @@
 ActiveAdmin.register Debate do
   menu :priority => 4
 
-  filter :issue, :label => 'Na atividade'
+  filter :issue, :label => 'Campanha'
   filter :author_1, :label => 'Autor 1'
   filter :author_2, :label => 'Autor 2'
 
   index do
-    column 'Na Atividade' do |d|
+    column 'Campanha' do |d|
       span d.issue.name
     end
     column 'Questão' do |d|

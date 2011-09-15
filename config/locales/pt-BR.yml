@@ -245,8 +245,8 @@
       petition_signature: "Comentários"
       petition_comment: "Comentários"
       petition: "Petições"
-      issue: "Na atividade"
-      personal_story: "Direto da gema"
+      issue: "Campanha"
+      personal_story: "Vídeo"
     attributes:
       member:
         first_name: "Nome"
@@ -259,6 +259,8 @@
       issue:
         name: "Nome"
         created_at: "Criado em"
+        description: "Descrição"
+        excerpt: "Excerto"
       petition_signature:
         comment: "Comentário"
         comment_accepted: "Aceito?"

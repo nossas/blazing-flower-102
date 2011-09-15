@@ -1,13 +1,13 @@
 # coding: utf-8
 ActiveAdmin.register PersonalStory do
-  menu :priority => 6, :label => 'Direto da Gema'
+  menu :priority => 6, :label => 'Vídeos'
 
-  filter :issue, :label => 'Na atividade'
+  filter :issue, :label => 'Campanha'
   filter :title
   filter :description
 
   index do
-    column 'Na Atividade' do |i|
+    column 'Campanha' do |i|
       span i.issue.name
     end
     # 9/1 Ren: Commenting out for now, because I feel it'll likely come back.
@@ -41,7 +41,7 @@ ActiveAdmin.register PersonalStory do
   
   show do |s|
     div({:class => 'panel' }) do
-      h3 'Na Atividade'
+      h3 'Campanha'
       div({:class => 'panel_contents' }) do
         div({:class => 'attributes_table meu_rio_is_widget' }) do
           table do

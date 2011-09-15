@@ -190,7 +190,7 @@ ActiveAdmin.register Petition do
   end
 
   index do
-    column 'Na Atividade' do |p|
+    column 'Campanha' do |p|
       span p.issue.name
     end
     column 'Title' do |p|

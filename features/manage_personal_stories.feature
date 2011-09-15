@@ -6,14 +6,14 @@ Feature: Managing Personal Stories
   Scenario: Personal Stories index
     Given I am logged in to the admin section
     And 1 personal stories exist
-    When I follow "Direto da Gema"
+    When I follow "Vídeos"
     Then I should see the personal story index page
 
   Scenario: Creating a Personal Story
     Given I am logged in to the admin section
     And 3 personal stories exist
-    When I follow "Direto da Gema"
+    When I follow "Vídeos"
     And I click "Criar Novo"
     And I fill in the personal story form with correct information
-    And I press "Create Direto da gema"
-    Then I should see "Direto da gema was successfully created"
+    And I press "Create Vídeo"
+    Then I should see "Vídeo was successfully created"
