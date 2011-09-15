@@ -92,8 +92,8 @@ Feature: Managing Users
     And I fill in "Email" with "Not An Email Address"
     And I press "Update Admin user"
     # Until Active Admin gets it's flash back
-    Then I should see "Created at"
-    # Then I should see "Admin user was successfully updated."
+    Then I should not see "Created at"
+    # Then I should not see "Admin user was successfully updated."
 
   # Scenario: Editing logged-in user's account details
   #   Given I am logged in to the admin section
