@@ -11,6 +11,7 @@ Running without ActiveAdmin:
  - Due to a memory leak in development mode, we've setup a dev environment that avoids loading ActiveAdmin
  - To run a command against that environment, you just need to prefix the command with the 'frontend' env, e.g.:
     $ RAILS_ENV=frontend rails s
+    ** While we wait on an ActiveAdmin update, you'll want to use thin as your development server **
 
 Generating HTML output for Cucumber:
 $ cucumber features --format html --out public/cucumber.html

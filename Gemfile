@@ -1,14 +1,16 @@
 source :rubyforge
 
 # gem 'rails',  :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
-gem 'rails', '~> 3.1.0'
+gem 'rails', '~> 3.1'
 gem 'jquery-rails'
 
 # Authentication and Permissions
 gem "devise", "~> 1.4.2"
 gem 'cancan'
 
-gem 'activeadmin' #, :git => 'git://github.com/gregbell/active_admin.git'
+gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
+# We need to run development using thin until active_admin is patched
+gem 'thin'
 
 # External authentication
 gem "oa-oauth", :require => "omniauth/oauth"
@@ -24,7 +26,7 @@ gem 'haml'
 
 # Asset template engines
 group :assets do
-  gem 'sass-rails', "~> 3.1.0"
+  gem 'sass-rails'
   gem 'coffee-script'
   gem 'uglifier'
 end
@@ -77,7 +79,7 @@ end
 
 group :production do
   # Performance Monitoring
-  # gem 'newrelic_rpm'
+  gem 'newrelic_rpm'
 
   # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
   gem 'thin'
