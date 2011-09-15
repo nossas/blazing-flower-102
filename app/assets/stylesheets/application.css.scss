@@ -352,7 +352,10 @@ html.ie {
 }
 
 @-moz-document url-prefix() {
-  body.issues nav#primary li.issue_menu_wrap .issue_menu {
+  body.issues nav#primary li.issue_menu_wrap .issue_menu,
+  body.personal_stories nav#primary li.issue_menu_wrap .issue_menu,
+  body.petitions nav#primary li.issue_menu_wrap .issue_menu,
+  body.debates nav#primary li.issue_menu_wrap .issue_menu {
     right: 10px !important;
   }
 }
