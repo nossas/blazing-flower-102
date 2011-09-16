@@ -358,6 +358,10 @@ html.ie {
 //IE7 specific fixes
 
 html.ie7 {
+  #main {
+    z-index: -1;
+  }
+
   li.issue_menu_wrap{
     &:hover {
       a {
