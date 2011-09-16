@@ -39,7 +39,7 @@ describe OmniauthCallbacksController do
       it{ should redirect_to(root_path) }
       it "should set a flash notice" do
         subject
-        flash[:welcome].should == "Seja bem-vindo! Agora você faz parte da comunidade do Meu Rio."
+        flash[:welcome].should == "<b>Seja bem-vindo!</b> Agora você faz parte da comunidade do Meu Rio."
       end
 
       context "with already existing provider_authorization" do
@@ -89,7 +89,7 @@ describe OmniauthCallbacksController do
       it{ should redirect_to(root_path) }
       it "should set a flash notice" do
         subject
-        flash[:welcome].should == "Seja bem-vindo! Agora você faz parte da comunidade do Meu Rio."
+        flash[:welcome].should == "<b>Seja bem-vindo!</b> Agora você faz parte da comunidade do Meu Rio."
       end
 
       context "with already existing provider_authorization" do
