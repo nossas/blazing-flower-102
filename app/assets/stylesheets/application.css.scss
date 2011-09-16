@@ -50,6 +50,10 @@ body {
   }
 }
 
+.ie body{
+  font-size: 75%;
+}
+
 .messages {
   padding:10px;
   color:#fff;
@@ -799,3 +803,4 @@ textarea.error, input.error, select.error { border-color: $red !important; }
 }
 
 #join_us_btn { padding-right: 20px }
+
