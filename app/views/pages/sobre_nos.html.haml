@@ -12,7 +12,10 @@
   %p
     = t("about_page.you_are_important")
     %b.sprite.arrow-down
-    = link_to t("about_page.join_us"), "#join", :class => "btn", :rel => "facebox"
+    -if current_member
+      = link_to t("about_page.join_us"), "#already_logged_in", :class => "btn", :rel => "facebox"
+    -else
+      = link_to t("about_page.join_us"), "#join", :class => "btn", :rel => "facebox"
 
 #what_you_can_do.grid_12
   %h2.grid_12.omega= t("about_page.what_you_can_do")
@@ -58,7 +61,10 @@
   %h3 
     Quer nos ajudar a construir um Rio de Janeiro mais justo e democrático? 
     %br
-    %a{:href=> "#join", :rel => "facebox"} Faça parte do Meu Rio!
+    -if current_member
+      %a{:href=> "#already_logged_in", :rel => "facebox"} Faça parte do Meu Rio!
+    -else
+      %a{:href=> "#join", :rel => "facebox"} Faça parte do Meu Rio!
   = link_to "Voltar ao Topo »", "#", :id => "back_to_top"
   %br
   %br
