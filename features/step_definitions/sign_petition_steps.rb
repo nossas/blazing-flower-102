@@ -43,6 +43,7 @@ end
 
 When /^I press the submit button$/ do
   click_button "#{Petition.first.call_to_action}"
+  sleep 2
 end
 
 Then /^I should see a thank\-you message$/ do
