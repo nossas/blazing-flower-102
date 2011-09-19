@@ -89,6 +89,7 @@ body > header {
   .member_panel{
     text-align: center;
     position: relative;
+    min-height: 82px;
     p { 
       font-size: 13px;
       margin: 0 0 0 10px;
@@ -100,6 +101,7 @@ body > header {
     .info {
       border-left: 1px solid #fff;
       padding-left: 10px;
+      width: 77px;
     }
 
     .arrow {
@@ -267,7 +269,7 @@ nav#primary {
       z-index: 100;
       &.wide {
         width: 410px;
-        z-index: 201; // This is 201 because .issue_name was overlapping at 200 
+        z-index: 210; // This is 201 because .issue_name was overlapping at 200 
       }
       &.small {
         width: 240px;
@@ -339,6 +341,8 @@ nav#primary {
 // Start Main Nav fixes
 
 html.ie {
+  font-size: 75%;
+
   nav#primary {
     div.issue_menu_wide li {
       margin-bottom: 5px;
@@ -346,6 +350,30 @@ html.ie {
     li.issue_menu_wrap{
       .issue_menu {
         margin-right: 1px;
+      }
+    }
+  }
+}
+
+//IE7 specific fixes
+
+html.ie7 {
+  #main {
+    z-index: -1;
+  }
+
+  li.issue_menu_wrap{
+    &:hover {
+      a {
+        background: $orange !important;
+        z-index: 550;
+      }
+    }
+    .issue_menu{
+      &.wide {
+        background: $orange;
+        margin-top: 30px;
+        z-index: 900;
       }
     }
   }
@@ -797,3 +825,4 @@ textarea.error, input.error, select.error { border-color: $red !important; }
 }
 
 #join_us_btn { padding-right: 20px }
+

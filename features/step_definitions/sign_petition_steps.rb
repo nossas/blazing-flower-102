@@ -46,8 +46,8 @@ When /^I press the submit button$/ do
 end
 
 Then /^I should see a thank\-you message$/ do
-  assert(page.has_content?("#{Petition.first.taf.thank_you_headline}"))
-  assert(page.has_content?("#{Petition.first.taf.thank_you_text}"))
+  page.should have_content("#{Petition.first.taf.thank_you_headline}")
+  page.should have_content("#{Petition.first.taf.thank_you_text}")
 end
 
 Then /^I should see the petition title$/ do
