@@ -53,9 +53,8 @@
         .title.clearfix= story.title
 
 =content_for :javascripts do
-
   :javascript
-    MR = MR || {};
+    var MR = MR || {};
     MR.stories = #{@stories.to_json};
 
     $(document).ready(function(){
@@ -64,14 +63,15 @@
           window.addEventListener("popstate", function(e) {
             var $story = $('a[data-storyid = "' + $("#current_video").attr("data-storyid") + '"]');
             if(e.state && e.state.data){
-              PersonalStory.replaceVideo(e.state.data); 
-              PersonalStory.movePlayButton($story);
+              document.write("there is data here!");
+              MR.personal_stories.replaceVideo(e.state.data); 
+              MR.personal_stories.movePlayButton($story);
             } else {
               var $current_video = $('#current_video');
               if($current_video.attr('data-storyid') !== $current_video.attr('data-firststoryid')){
                 $story = $('a[data-storyid = "' + $("#current_video").attr("data-firststoryid") + '"]');
-                PersonalStory.getPersonalStory($story);
-                PersonalStory.movePlayButton($story);
+                MR.personal_stories.getPersonalStory($story);
+                MR.personal_stories.movePlayButton($story);
               }
             }
           }, false);
