@@ -41,6 +41,10 @@ describe OmniauthCallbacksController do
         subject
         flash[:welcome].should == "<b>Seja bem-vindo!</b> Agora você faz parte da comunidade do Meu Rio."
       end
+      it "should send a welcome email" do
+        subject
+        ActionMailer::Base.deliveries.first.to.should == ["diogob@gmail.com"]
+      end
 
       context "with already existing provider_authorization" do
         before do
@@ -90,6 +94,10 @@ describe OmniauthCallbacksController do
       it "should set a flash notice" do
         subject
         flash[:welcome].should == "<b>Seja bem-vindo!</b> Agora você faz parte da comunidade do Meu Rio."
+      end
+      it "should send a welcome email" do
+        subject
+        ActionMailer::Base.deliveries.first.to.should == ["ren.provey@gmail.com"]
       end
 
       context "with already existing provider_authorization" do
