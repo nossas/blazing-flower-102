@@ -1,22 +1,28 @@
 # coding: utf-8
 
 Given /^(\d+) published petitions exist without goal$/ do |count|
+  @petitions ||= []
   count.to_i.times do
     f = Factory.create(:complete_petition, :counter_goal => 0).tap{|p| p.publish }
     f.save
+    @petitions << f
   end
 end
 
 Given /^(\d+) published petitions exist$/ do |count|
+  @petitions ||= []
   count.to_i.times do
     f = Factory.create(:complete_petition).tap{|p| p.publish }
     f.save
+    @petitions << f
   end
 end
 
 Given /^(\d+) complete petitions exist$/ do |count|
+  @petitions ||= []
   count.to_i.times do
     Factory.create(:complete_petition)
+    @petitions << f
   end
 end
 
@@ -47,8 +53,8 @@ When /^I press the submit button$/ do
 end
 
 Then /^I should see a thank\-you message$/ do
-  page.should have_content("#{Petition.first.taf.thank_you_headline}")
-  page.should have_content("#{Petition.first.taf.thank_you_text}")
+  page.should have_content("#{@petitions.first.taf.thank_you_headline}")
+  page.should have_content("#{@petitions.first.taf.thank_you_text}")
 end
 
 Then /^I should see the petition title$/ do
