@@ -1,3 +1,7 @@
+=content_for :meta_tags do
+  %meta{ :property => "og:image",       :content => "#{SITE['og_image']}" }
+  %meta{ :property => "og:description", :content => "Bate-Bola rolando agora no Meu Rio. Aqui, os membros do movimento podem debater os pontos de vista de dois autores convidados e, através desse diálogo, buscar as melhores soluções para os problemas em questão." } 
+  %meta{ :property => "og:url",         :content => "#{SITE['og_url']}" }
 .grid_12
   .issue_name
     .sprite.debate
