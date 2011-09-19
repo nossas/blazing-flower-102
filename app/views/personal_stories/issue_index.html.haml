@@ -1,7 +1,7 @@
 =content_for :meta_tags do
   %meta{ :property => "og:image",       :content => "#{SITE['og_image']}" }
   %meta{ :property => "og:description", :content => "Direto da Gema, o Meu Rio exibe vídeos de cariocas contando suas histórias e dizendo o que o Rio de Janeiro está precisando ouvir. Assista e reflita." } 
-  %meta{ :property => "og:url",         :content => "#{SITE['og_url']}" }
+  %meta{ :property => "og:url",         :content => "#{request.url}" }
 .grid_12
   .issue_name
     .sprite.personal_story
