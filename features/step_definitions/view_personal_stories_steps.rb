@@ -14,7 +14,7 @@ When /^I click on another thumbnail for a video$/ do
 end
 
 When /^I press the back button$/ do
-  page.evaluate_script('window.history.back()')
+  page.execute_script('history.back()')
 end
 
 Then /^I should see a video$/ do
