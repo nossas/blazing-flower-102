@@ -18,6 +18,16 @@
       <!-- AddThis Button BEGIN -->
       <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;pubid=xa-4e414cea7d1fee4b"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
       <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e414cea7d1fee4b"></script>
+      :javascript
+        var addthis_config = {
+                  services_compact: 'email, facebook, orkut, twitter',
+                  services_exclude: 'formspring'
+        }
+        var addthis_share = {
+          templates: {
+            twitter: 'Direto da Gema, o Meu Rio exibe vídeos de cariocas contando suas histórias e dizendo o que o Rio de Janeiro está precisando ouvir. Assista e reflita. {{url}}'
+          }
+        }
       <!-- AddThis Button END -->
       %h2#current_title= @current.title
       #current_description= raw @current.description
