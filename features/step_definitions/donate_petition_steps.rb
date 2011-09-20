@@ -1,5 +1,6 @@
 Given /^there is a petition with donation enabled$/ do
-  @petition = Factory(:petition_with_donation_enabled).tap{|p| p.publish }
+  @petition = Factory(:petition_with_donation_enabled)
+  @petition.publish
 end
 
 Given /^I have already signed this petition$/ do
