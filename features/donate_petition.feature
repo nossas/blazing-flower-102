@@ -21,11 +21,11 @@ Feature: Donate for a petition
     When I enter my member information in the petition signature form
     Then I should see a link to the donation
 
-  @javascript
-  Scenario: Signing a Petition (new member, new petition signature)
-    Given there is a petition with donation enabled
-    And I am on the first petition page
-    When I enter my information in the petition signature form
-    And I press the submit button
-    Then I should see "Obrigada pela sua participação"
-    And I should see the petition donation details
+  #@javascript
+  #Scenario: Signing a Petition (new member, new petition signature)
+    #Given there is a petition with donation enabled
+    #And I am on the first petition page
+    #When I enter my information in the petition signature form
+    #And I press the submit button
+    #Then I should see "Obrigada pela sua participação"
+    #And I should see the petition donation details
