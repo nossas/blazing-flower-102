@@ -25,29 +25,7 @@ ActiveAdmin.register Debate do
     end
   end
 
-  form do |f|
-    f.inputs "Debate Information" do
-      f.input :issue
-      f.input :title, :as => :string
-      f.input :question, :as => :string
-      f.input :comment_prompt, :as => :string
-    end
-    f.inputs "Side 1" do
-      f.input :author_email_side_1, :label => "Author Email", :as => :string
-      f.input :author_title_side_1, :label => "Author Title", :as => :string
-      f.input :author_organization_side_1, :label => "Author Organization", :as => :string
-      f.input :quote_side_1, :label => "Highlighted Quote", :as => :string, :hint => 'Quote should be less than 180 characters'
-      f.input :text_side_1, :label => "Text", :hint => 'Please make sure you include the tag <p> in the beginning of each paragraph and a </p> tag at the end of each paragraph.'
-    end
-    f.inputs "Side 2" do
-      f.input :author_email_side_2, :label => "Author Email", :as => :string
-      f.input :author_title_side_2, :label => "Author Title", :as => :string
-      f.input :author_organization_side_2, :label => "Author Organization", :as => :string
-      f.input :quote_side_2, :label => "Hightlighted Quote", :as => :string, :hint => 'Quote should be less than 180 characters'
-      f.input :text_side_2, :label => "Text", :hint => 'Please make sure you include the tag <p> in the beginning of each paragraph and a </p> tag at the end of each paragraph.'
-    end
-    f.buttons
-  end
+  form :partial => "form"
 
   show do
     div({:class => 'panel' }) do

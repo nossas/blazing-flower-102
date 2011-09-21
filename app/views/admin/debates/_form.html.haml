@@ -1,0 +1,32 @@
+=semantic_form_for [:admin, @debate] do |f|
+  =f.inputs "Debate Information" do
+    =f.input :issue
+    =f.input :title, :as => :string
+    =f.input :question, :as => :string
+    =f.input :comment_prompt, :as => :string
+  =f.inputs "Side 1" do
+    =f.input :author_email_side_1, :label => "Author Email", :as => :string
+    =f.input :author_title_side_1, :label => "Author Title", :as => :string
+    =f.input :author_organization_side_1, :label => "Author Organization", :as => :string
+    =f.input :quote_side_1, :label => "Highlighted Quote", :as => :string
+    <p id="debate_quote_side_1_length" style="padding-left: 10px; border: 1px solid #efefef; margin: 0px 0 10px 323px;"><span></span>(Call to action length should be between <strong>0</strong> and <strong>180</strong> characters long)</p>
+    =f.input :text_side_1, :label => "Text", :hint => 'Please make sure you include the tag <p> in the beginning of each paragraph and a </p> tag at the end of each paragraph.'
+  =f.inputs "Side 2" do
+    =f.input :author_email_side_2, :label => "Author Email", :as => :string
+    =f.input :author_title_side_2, :label => "Author Title", :as => :string
+    =f.input :author_organization_side_2, :label => "Author Organization", :as => :string
+    =f.input :quote_side_2, :label => "Hightlighted Quote", :as => :string
+    <p id="debate_quote_side_2_length" style="padding-left: 10px; border: 1px solid #efefef; margin: 0px 0 10px 323px;"><span></span>(Call to action length should be between <strong>0</strong> and <strong>180</strong> characters long)</p>
+    =f.input :text_side_2, :label => "Text", :hint => 'Please make sure you include the tag <p> in the beginning of each paragraph and a </p> tag at the end of each paragraph.'
+  =f.buttons
+
+:javascript
+  var counter = function(field, p){
+    $(field).keyup(function(){
+      $(p + ' span').html($(field).val().length + " characters ");
+    });
+  }
+
+  counter('#debate_quote_side_1', '#debate_quote_side_1_length');
+  counter('#debate_quote_side_2', '#debate_quote_side_2_length');
+
