@@ -153,8 +153,8 @@ Factory.define :debate do |d|
   d.author_title_side_2 "Admiral"
   d.author_organization_side_1 {Faker::Company.name}
   d.author_organization_side_2 {Faker::Company.name}
-  d.quote_side_1 {Faker::Lorem.paragraph}
-  d.quote_side_2 {Faker::Lorem.paragraph}
+  d.quote_side_1 {Faker::Lorem.sentence}
+  d.quote_side_2 {Faker::Lorem.sentence}
   d.text_side_1 {Faker::Lorem.paragraphs.join("\n")}
   d.text_side_2 {Faker::Lorem.paragraphs.join("\n")}
 end
