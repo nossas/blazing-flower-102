@@ -15,6 +15,9 @@ class Debate < ActiveRecord::Base
   validates_presence_of :author_email_side_1
   validates_presence_of :author_email_side_2
 
+  validates_length_of :quote_side_1, :maximum => 180
+  validates_length_of :quote_side_2, :maximum => 180
+
 
   def authors_are_members
     errors.add(:author_email_side_1, "Author must be an existing member of Meu Rio") if Member.where(:email => self.author_email_side_1).empty?

@@ -8,6 +8,12 @@ describe Debate do
   it { should validate_presence_of :author_email_side_1 }
   it { should validate_presence_of :author_email_side_2 }
 
+  it { should allow_value("Curabitur blandit tempus porttitor.").for(:quote_side_1) }
+  it { should allow_value("Curabitur blandit tempus porttitor.").for(:quote_side_2) }
+
+  it { should_not allow_value("Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus.").for(:quote_side_1) }
+  it { should_not allow_value("Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus.").for(:quote_side_2) }
+
   describe "#distinct_member_count" do
     let(:debate) { Factory(:debate) }
     subject{ debate.distinct_member_count }
