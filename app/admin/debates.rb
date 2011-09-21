@@ -27,7 +27,7 @@ ActiveAdmin.register Debate do
 
   form do |f|
     f.inputs "Debate Information" do
-      f.input :issue
+      f.input :issue, :label => 'Campanha'
       f.input :title, :as => :string
       f.input :question, :as => :string
       f.input :comment_prompt, :as => :string
