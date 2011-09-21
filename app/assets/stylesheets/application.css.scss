@@ -101,13 +101,17 @@ body > header {
     .info {
       border-left: 1px solid #fff;
       padding-left: 10px;
-      width: 77px;
+      width: 87px;
+      text-align: left;
     }
 
     .arrow {
       width: 12px;
       height: 7px;
       background: url(/assets/arrows.png) 0px 0px no-repeat;
+      position: absolute;
+      top: 10px;
+      right: 16px;
       margin-left: 5px;
 
     }
