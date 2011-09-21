@@ -32,7 +32,7 @@
     .speech_bubble_top
     .speech_bubble
       %h3= t("petition_show.share_on_twitter")
-      = link_to image_tag("/assets/auth/twitter_128.png"), "https://twitter.com/share?url=#{request.url}&text=#{@taf.tweet}", :target => "_blank", :title => t("petition_show.share_on_twitter"), :class => "twitter_btn"
+      = link_to image_tag("/assets/auth/twitter_128.png"), "http://twitter.com/share?url=#{request.url}&text=#{u(@taf.tweet)}", :target => "_blank", :title => t("petition_show.share_on_twitter"), :class => "twitter_btn"
       .share_text
         = @taf.tweet
  
