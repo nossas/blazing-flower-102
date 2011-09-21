@@ -10,7 +10,7 @@ Then /^I should see the personal story index page$/ do
 end
 
 When /^I fill in the personal story form with correct information$/ do
-  And %{I select "#{Issue.first.name}" from "Issue"}
+  And %{I select "#{Issue.first.name}" from "Campanha"}
   And %{I fill in "personal_story[title]" with "Bonzai!"}
   And %{I fill in "personal_story[excerpt]" with "Aloha!"}
   And %{I fill in "personal_story[description]" with "Aloha!"}
