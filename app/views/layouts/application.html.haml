@@ -43,7 +43,9 @@
         .grid_1.omega
           %a{:href => '#', :id => "close_messages"}= image_tag asset_path('close_messages.png')
     %header.container_12
-      =link_to 'home', root_path, :id => "logo", :class => "grid_2 sprite logo ir"
+      %a{:href => "#{root_path}", :class => "grid_2 ir"}
+        %span.sprite.logo
+        %span.sprite.tagline
       .grid_3-5
         #member_panel.member_panel
           - if current_member

@@ -7,10 +7,18 @@ MR = {
       MR.common.googleLogout();
       MR.common.faceboxInit();
       MR.common.setBodyBackgroundClass();
+      MR.common.setupLogoAnimation();
 
       $('.member_panel .right.info').bind('click', function(){
         MR.common.openMemberFlyout();
       });
+    },
+
+    setupLogoAnimation : function() {
+      $('a span.logo').hover(
+        function(e){$('a span.tagline').fadeIn();},
+        function(e){$('a span.tagline').fadeOut();}
+      );
     },
 
     closeFlash : function(){
@@ -66,7 +74,6 @@ MR = {
     mainNavDonationLink: function(){
       $('#main_nav_donate').click(function(){
         $('.moip form').submit();
-        console.log('post submit');
         return false;
       });
     },

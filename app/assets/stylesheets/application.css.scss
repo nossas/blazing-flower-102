@@ -731,10 +731,18 @@ textarea.error, input.error, select.error { border-color: $red !important; }
 }
 
 .sprite.logo {
-  background-position: -191px -4px;
-  height: 122px;
+  background-position: -191px -3px;
+  height: 110px;
   width: 100px;
   margin-top: 10px;
+}
+
+.sprite.tagline {
+  background-position: -191px -115px;
+  height: 15px;
+  width: 100px;
+  margin-top: 5px;
+  display:none;
 }
 
 .sprite.orkut {
