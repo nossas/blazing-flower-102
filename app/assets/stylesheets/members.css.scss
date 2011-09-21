@@ -72,6 +72,8 @@ body.members {
 
   .profile_mid {
     padding: 0 20px;
+    word-wrap: break-word;
+    -ms-word-wrap : sWrap; /* IE I LOVE U! CHECK [] YES IF YOU LOVE ME TOO*/
     background: url("/assets/member_profile_mid.png") repeat-y;
     img#member_picture {
       margin-bottom: 5px; 
