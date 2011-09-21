@@ -9,7 +9,7 @@ class MemberMailer < ActionMailer::Base
     mail({
       :from => SITE['default_from_email_address'],
       :to => member.email,
-      :subject => "Bem-vindo #{member.first_name}"
+      :subject => "Seja bem-vindo!"
     }) do |format|
       format.text
       # format.html # Text only for now
