@@ -51,7 +51,7 @@
               .left
                 =image_tag current_member.current_image_url(:thumb), :id => "member_thumbnail", :width => '50', :height => '50', :class => ""
                 %p=link_to current_member.first_name, member_path(current_member)
-              .right.arrow
+              .arrow
             .flyout.left
               %p=link_to t("edit_your_profile"), member_path(current_member)
               - if session[:fb_token]
