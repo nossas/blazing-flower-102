@@ -50,6 +50,8 @@ body {
   }
 }
 
+html.lte7 body { background:#D2C9B7 none; }
+
 .messages {
   padding:10px;
   color:#fff;
@@ -101,14 +103,18 @@ body > header {
     .info {
       border-left: 1px solid #fff;
       padding-left: 10px;
-      width: 77px;
+      width: 87px;
+      text-align: left;
     }
 
     .arrow {
       width: 12px;
       height: 7px;
       background: url(/assets/arrows.png) 0px 0px no-repeat;
-      margin-left: 5px;
+      position: absolute;
+      top: 10px;
+      right: 16px;
+      margin: 0 0 5px 0;
 
     }
     .right.info:hover .arrow {
@@ -727,10 +733,18 @@ textarea.error, input.error, select.error { border-color: $red !important; }
 }
 
 .sprite.logo {
-  background-position: -191px -4px;
-  height: 122px;
+  background-position: -191px -3px;
+  height: 110px;
   width: 100px;
   margin-top: 10px;
+}
+
+.sprite.tagline {
+  background-position: -191px -115px;
+  height: 15px;
+  width: 100px;
+  margin-top: 5px;
+  display:none;
 }
 
 .sprite.orkut {
@@ -826,3 +840,9 @@ textarea.error, input.error, select.error { border-color: $red !important; }
 
 #join_us_btn { padding-right: 20px }
 
+.error_page {
+  padding-top: 50px;
+  iframe {
+    padding-top: 10px;
+  }
+}

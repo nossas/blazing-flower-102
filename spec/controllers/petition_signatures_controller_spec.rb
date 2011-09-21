@@ -32,6 +32,7 @@ describe PetitionSignaturesController do
       end
       it{ should be_success }
       its(:body){ should == {'hash' => 'compartilhe'}.to_json }
+      its(:content_type){should == 'application/json'}
       it "should create a new Member and new Petition Signature" do
         Member.last.email.should == "test-user@example.org"
         PetitionSignature.last.member.should == Member.last

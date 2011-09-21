@@ -21,7 +21,7 @@ end
 Given /^(\d+) complete petitions exist$/ do |count|
   @petitions ||= []
   count.to_i.times do
-    Factory.create(:complete_petition)
+    f = Factory.create(:complete_petition)
     @petitions << f
   end
 end

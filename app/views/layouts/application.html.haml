@@ -43,7 +43,9 @@
         .grid_1.omega
           %a{:href => '#', :id => "close_messages"}= image_tag asset_path('close_messages.png')
     %header.container_12
-      =link_to 'home', root_path, :id => "logo", :class => "grid_2 sprite logo ir"
+      %a{:href => "#{root_path}", :class => "grid_2 ir"}
+        %span.sprite.logo
+        %span.sprite.tagline
       .grid_3-5
         #member_panel.member_panel
           - if current_member
@@ -51,7 +53,7 @@
               .left
                 =image_tag current_member.current_image_url(:thumb), :id => "member_thumbnail", :width => '50', :height => '50', :class => ""
                 %p=link_to current_member.first_name, member_path(current_member)
-              .right.arrow
+              .arrow
             .flyout.left
               %p=link_to t("edit_your_profile"), member_path(current_member)
               - if session[:fb_token]
@@ -86,6 +88,8 @@
         =link_to 'Orkut', "http://www.orkut.com.br/Community?cmm=117834170&refresh=1", :target => "_blank", :class => "sprite orkut_small ir"
         =link_to 'Twitter', "http://twitter.com/#!/meu_rio", :target => "_blank", :class => "sprite twitter_small ir"
         =link_to 'Facebook', "https://www.facebook.com/meurio", :target => "_blank", :class => "sprite facebook_small ir"
+      .grid_12
+        <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a>
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"}
     :javascript
       !window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))    

@@ -29,7 +29,9 @@ class PetitionSignaturesController < ApplicationController
       @new_signature = true
     end
 
-    if @petition.display_donation?
+    logger.debug("Request type: #{request.xhr?}")
+
+    if @petition.display_donation? 
       render :json => {:hash => 'doe'}
     else
       render :json => {:hash => 'compartilhe'}
