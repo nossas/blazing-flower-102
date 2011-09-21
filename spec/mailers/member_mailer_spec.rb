@@ -6,7 +6,7 @@ describe MemberMailer do
     let(:mail) { MemberMailer.welcome(member) }
 
     it "renders the headers" do
-      mail.subject.should eq("Bem-vindo Ren")
+      mail.subject.should eq("Seja bem-vindo!")
       mail.to.should eq(["ren@purpose.com"])
       mail.from.should eq(["test@meurio.org.br"])
     end
