@@ -365,22 +365,27 @@ html.ie {
 
 html.ie7 {
   #main {
-    z-index: -1;
+    z-index: 0;
+  }
+
+  body > header {
+    position:relative;
+    z-index: 100;
+  }
+
+  nav#primary .top_level {
+    padding-bottom:0px;
   }
 
   li.issue_menu_wrap{
     &:hover {
       a {
         background: $orange !important;
-        z-index: 550;
       }
     }
     .issue_menu{
-      &.wide {
-        background: $orange;
-        margin-top: 30px;
-        z-index: 900;
-      }
+      background: $orange !important;
+      margin-top: 30px;
     }
   }
 }
