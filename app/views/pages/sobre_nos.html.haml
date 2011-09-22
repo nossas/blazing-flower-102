@@ -73,11 +73,10 @@
   .speech_bubble_container
     .speech_bubble_top
     .speech_bubble
-      %h3.noindent{:style => "letter-spacing:1px;"}= t("about_page.what_we_are_doing")
-      %p.date 28/07/2011
-      %p
-      = link_to t("about_page.read_more_on_blog"), "http://meu-rio.tumblr.com/", :target => '_blank'
-    
+      %h3.noindent{:style => "letter-spacing:1px;"} O QUE ESTAMOS APRONTANDO... 
+      .scrollable
+        = raw(MeuRioTeamWidget.first.html_content) if MeuRioTeamWidget.first
+
   .speech_bubble_container.orange{:style => "margin-top:20px;"}
     .speech_bubble_top
     .speech_bubble
