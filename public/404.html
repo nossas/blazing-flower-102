@@ -3,18 +3,38 @@
 <head>
   <title>The page you were looking for doesn't exist (404)</title>
   <link rel="stylesheet" type="text/css" href="/assets/960.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/application.css" />
   <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    .error {padding-top: 50px; }
-    iframe { padding-top: 10px; }
+    body { background-color: #fff; color: #666;}
+    .home img{ float: left; }
+    #main.error {padding-top: 30px; text-align: center; }
+    iframe { padding-top: 60px; }
   </style>
 </head>
 
 <body>
   <!-- This file lives in public/404.html -->
-  <div class="container_12 error">
-    <div class="grid_5"><img src="/assets/meurio_404_text.png" alt="Opa!" /></div>
+  <div class="container_12 error" id="main">
+    <div class="grid_5">
+      <a class="home" href="http://www.meurio.org.br"><img src="/assets/meurio_404_logo.png" alt="Meu Rio" /></a>
+      <img src="/assets/meurio_404_text.png" alt="Opa!" /></div>
     <div class="grid_6 prefix_1"><iframe width="420" height="315" src="http://www.youtube-nocookie.com/embed/r9Myh3V4LcY" frameborder="0" allowfullscreen></iframe></div>
   </div>
+  <footer class="container_12">
+    <nav class="grid_7 alpha">
+      <a href="mailto:info@meurio.org.br">CONTATO</a> 
+      <a href="/paginas/privacidade">POLÍTICA DE PRIVACIDADE</a>
+      <a href="/paginas/trabalhe">TRABALHE</a>
+    </nav>
+    <p class="social right grid_4">
+      TAMB&#201;M ESTAMOS AQUI, &#211;:
+      <a href="http://www.orkut.com.br/Community?cmm=117834170&refresh=1" target="blank" class="sprite orkut_small ir">Orkut</a>
+      <a href="http://twitter.com/#!/meu_rio" target="_blank" class="sprite twitter_small ir">Twitter</a>
+      <a href="https://www.facebook.com/meurio" target="_blank" class="sprite facebook_small ir">Facebook</a>
+    </p>
+    <div class="grid_12">
+      <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a>
+    </div>
+  </footer>
 </body>
 </html>
