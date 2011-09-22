@@ -34,7 +34,7 @@
     -else
       =yield(:meta_tags)
 
-    =javascript_include_tag "libs/modernizr-2.0.js"
+    =javascript_include_tag "libs/modernizr-2.0.6.js"
   %body{:class=> "#{controller.controller_name} #{controller.action_name}", 'data-controller' => controller_name, 'data-action' => action_name }
     - unless flash[:welcome].blank?
       .container_12.messages.cleafix
@@ -90,6 +90,13 @@
         =link_to 'Facebook', "https://www.facebook.com/meurio", :target => "_blank", :class => "sprite facebook_small ir"
       .grid_12
         <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a>
+
+    // Hidden elements
+    = render :partial => "shared/login"
+    = render :partial => "shared/join"
+    = render :partial => "shared/already_logged"
+
+    // Scripts
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"}
     :javascript
       !window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))    
@@ -104,6 +111,4 @@
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
 
-  = render :partial => "shared/login"
-  = render :partial => "shared/join"
-  = render :partial => "shared/already_logged"
+
