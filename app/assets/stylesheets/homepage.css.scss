@@ -323,3 +323,12 @@
     font-size: 19px;
   }
 }
+
+.ie7 #homepage .widget#date_weather {
+  .date .month {
+    line-height:1.5;
+  }
+  .temp {
+    line-height:1.3;
+  }
+}
