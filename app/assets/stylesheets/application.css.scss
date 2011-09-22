@@ -365,10 +365,13 @@ html.ie {
 
 html.ie7 {
   #main {
-    z-index: -1;
+    position:relative;
+    z-index: 0;
   }
 
   li.issue_menu_wrap{
+    position:relative;
+    z-index: 100;
     &:hover {
       a {
         background: $orange !important;
