@@ -25,7 +25,6 @@
                 =link_to image_tag(issue.thumbnail), issue
                 =link_to raw("#{issue.name}"), issue
     %li
-      =link_to('NOSSO BLOG', "http://meu-rio.tumblr.com/", :class => "top_level", :target => "_blank")+'|'
+      =link_to('DANDO UMA FORÇA', page_path(:id => 'dando_uma_forca'), :class => "top_level", :id => "main_nav_donate")+'|'
     %li
-      =link_to 'DANDO UMA FORÇA', page_path(:id => 'dando_uma_forca'), :class => "top_level last", :id => "main_nav_donate"
-
+      =link_to('NOSSO BLOG', "http://meu-rio.tumblr.com/", :class => "top_level last", :target => "_blank")
