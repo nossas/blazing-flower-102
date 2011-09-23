@@ -118,7 +118,7 @@
 -if @member = current_member
   #image_form{ :style => "display: none;" }
     %header
-      %h2 Mudar Imagen
+      %h2 Mudar Imagem
     =form_for @member, :html => { :multipart => true }, :url => { :action => "update" } do |f|
       =f.file_field :image
       =f.submit "Enviar", :class => "btn"
