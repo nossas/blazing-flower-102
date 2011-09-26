@@ -6,7 +6,7 @@
   .excerpt
     %p=@issue.excerpt
     .description
-      %p=@issue.description
+      %p=raw @issue.description
     .see_more
       %a#read_more{:href => '#'}
         %span= t("issue_show.read_more")

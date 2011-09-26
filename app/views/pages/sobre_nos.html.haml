@@ -48,7 +48,13 @@
 
 #quem_somos.grid_8
   %h2= t("about_page.who_we_are_title")
-  %p= raw t("about_page.who_we_are_text").gsub("\n", "<br />")
+  %h3= t("about_page.our_team_title")
+  %p= raw t("about_page.our_team_text").gsub("\n", "<br />")
+  %h3= t("about_page.our_advisors_title")
+  %p= raw t("about_page.our_advisors_text").gsub("\n", "<br />")
+  %h3= t("about_page.our_financers_title")
+  %p= raw t("about_page.our_financers_text").gsub("\n", "<br />")
+  -# %p= raw t("about_page.who_we_are_text").gsub("\n", "<br />")
   %h2#why_and_goals= t("about_page.why_and_goals")
   %h3= t("about_page.scenario_title")
   %p= raw t("about_page.scenario_text").gsub("\n", "<br />")

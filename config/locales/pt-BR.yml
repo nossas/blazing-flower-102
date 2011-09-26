@@ -333,7 +333,7 @@ fazer, para ajudar a construir um Rio mais
 bacana de se viver.</p>"
   about_page:
     title: "Sobre o Meu Rio"
-    highlight_text: "O Meu Rio é um movimento democrático e apartidário, que usa ferramentas on-line para ligar os cidadãos do Rio de Janeiro e garantir que a sua voz oriente os processos de decisão que estão transformando a cidade."
+    highlight_text: "O Meu Rio é um movimento organizado e financiado pela sociedade civil. Nossa equipe é formada por jornalistas, cientistas políticos, programadores, publicitários, designers e economistas com currículos nas áreas de direitos humanos, políticas públicas, movimentos sociais e meio ambiente."
     what_you_can_do: "No Meu Rio você poderá..."
     feature1_title: "<em>Descobrir</em> a realidade de outros cariocas:"
     feature1_text: "Na seção Direto da Gema, exibiremos, semanalmente, vídeos de cariocas contando suas histórias e dizendo o que o Rio de Janeiro está precisando ouvir. Assista, reflita e compartilhe com seus amigos e sua família."
@@ -346,6 +346,12 @@ bacana de se viver.</p>"
 
 A realização da Copa e das Olimpíadas nos próximos anos está criando uma enorme oportunidade de desenvolvimento da cidade, e nós acreditamos que uma maior participação dos cariocas nas questões de políticas públicas é essencial para aproveitarmos esse momento da melhor forma. Nós cariocas podemos sim, juntos, construir uma cidade melhor para todos e mostrar que nossa força pode trazer resultados surpreendentes."
     who_we_are_title: "Quem Somos:"
+    our_team_title: "Nossa Equipe"
+    our_team_text: "Nossa Equipe é atualmente composta de 6 pessoas: Alessandra Orofino, João Pessanha, Leonardo Eloi, Marcel Beiner, Miguel Lago e Patricia Oakim. Além disso, contamos com o apoio inestimável de voluntários, parceiros, e prestadores de serviços nas áreas de estratégia, management, design, e desenvolvimento tecnológico."
+    our_advisors_title: "Nosso Conselho"
+    our_advisors_text: "Nosso Conselho é composto de 9 pessoas: Alessandra Orofino, André Urani, Anna Livia Arida, Arminio Fraga Neto, Cecília de Lima Pessanha, Francisco Figueira, João Marcelo da Costa e Silva Lima, Manuel Thedim e Miguel Lago."
+    our_financers_title: "Nossos Financiadores"
+    our_financers_text: 'O Meu Rio não recebe nenhum tipo de incentivo ou apoio financeiro de órgãos públicos, incluindo empresas públicas, e não aceita contribuições de partidos políticos ou representantes eleitos.'
     who_we_are_text: "O Meu Rio é um movimento organizado e financiado pela sociedade civil. Nossa equipe é formada por jornalistas, cientistas políticos, programadores, publicitários, designers e economistas com currículos nas áreas de direitos humanos, políticas públicas, movimentos sociais e meio ambiente."
     why_and_goals: "Porquê:"
     scenario_title: "O Cenário:"
@@ -366,7 +372,7 @@ Quer nos ajudar a construir um Rio de Janeiro mais justo e democrático? Faça d
     what_we_are_doing: "O que estamos aprontando..."
     read_more_on_blog: "Leia mais no nosso blog »"
     follow_us: "Também estamos aqui, ó:"
-    intro: "Com a realização da Copa e das Olimpíadas nos próximos anos, essa oportunidade é única. No Meu Rio, acreditamos que uma maior participação popular nas questões de políticas públicas é a chave para um Rio mais justo. Nós cariocas podemos sim, juntos, construir uma cidade melhor para todos e mostrar que nossa força pode trazer resultados surpreendentes."
+    intro: "A realização da Copa e das Olimpíadas nos próximos anos está criando uma enorme oportunidade de desenvolvimento da cidade, e nós acreditamos que uma maior participação dos cariocas nas questões de políticas públicas é essencial para aproveitarmos esse momento da melhor forma. Nós cariocas podemos sim, juntos, construir uma cidade melhor para todos e mostrar que nossa força pode trazer resultados surpreendentes."
   members_show:
     is_collaborating_in: "O que %{name} já fez no Meu Rio:"
     meu_rio_is: "O Meu Rio é..."
