@@ -235,8 +235,6 @@ ActiveAdmin.register Petition do
       l m.created_at, :format => :short
     end
     column "Options" do |e| 
-      span link_to 'Show', admin_petition_path(e)
-      span link_to 'Edit', edit_admin_petition_path(e)
       if e.draft?
         span link_to 'Preview', admin_preview_petition_path(e)
       end
@@ -244,6 +242,7 @@ ActiveAdmin.register Petition do
         span link_to 'Export Signatures', admin_export_petition_path(e), :class => "export_signatures"
       end
     end
+    default_actions
   end
 
   form :partial => "form"

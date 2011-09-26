@@ -31,10 +31,7 @@ ActiveAdmin.register PersonalStory do
     column 'Atualizado em' do |m|
       l m.updated_at, :format => :short
     end
-    column "Options" do |e| 
-      span link_to 'Show', admin_personal_story_path(e)
-      span link_to 'Edit', edit_admin_personal_story_path(e)
-    end
+    default_actions
   end
 
   form :partial => "form"

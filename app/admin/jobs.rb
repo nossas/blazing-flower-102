@@ -7,11 +7,7 @@ ActiveAdmin.register Job do
     column :created_at do |m|
       l m.created_at, :format => :short
     end
-    column "Options" do |j|
-      span link_to 'Show', admin_job_path(j)
-      span link_to 'Edit', edit_admin_job_path(j)
-      span link_to 'Delete', admin_job_path(j), :confirm => 'Are you sure?', :method => :delete
-    end
+    default_actions
   end
 
   form do |f|

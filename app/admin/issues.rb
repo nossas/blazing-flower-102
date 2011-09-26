@@ -22,10 +22,7 @@ ActiveAdmin.register Issue do
     column :created_at do |m|
       l m.created_at, :format => :short
     end
-    column "Options" do |o|
-      span link_to "Show", admin_issue_path(o)
-      span link_to "Edit", edit_admin_issue_path(o)
-    end
+    default_actions
   end
 
   form :partial => "form"
