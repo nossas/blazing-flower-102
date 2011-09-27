@@ -16,7 +16,6 @@ Running without ActiveAdmin:
 Generating HTML output for Cucumber:
 $ cucumber features --format html --out public/cucumber.html
 
-
 Google OAuth2
 
 Development:
