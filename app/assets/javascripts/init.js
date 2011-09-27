@@ -12,6 +12,14 @@ MR = {
       $('.member_panel .right.info').bind('click', function(){
         MR.common.openMemberFlyout();
       });
+
+      $('#create_account_link').bind('click', function(){
+        MR.common.loadMemberRegistration();
+      });
+    },
+
+    loadMemberRegistration: {
+      $("#facebox_main").load("/new_member");
     },
 
     setupLogoAnimation : function() {

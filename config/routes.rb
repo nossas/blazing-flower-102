@@ -16,6 +16,7 @@ MeuRio::Application.routes.draw do
   devise_for :members, :controllers => { :omniauth_callbacks => "omniauth_callbacks", :sessions => "member_sessions" } do
     get "sign_in", :to => "devise/sessions#new", :as => :new_member_session    
     post "member_session", :to => "devise/sessions#create", :as => :member_session
+    get "new_member", :to => "member_registration#new"
     get 'logout' => 'member_sessions#destroy', :as => :destroy_member_session
     match '/facebook_logout' => 'member_sessions#facebook_logout', :as => :facebook_logout
     match '/google_logout' => 'member_sessions#google_logout', :as => :google_logout
