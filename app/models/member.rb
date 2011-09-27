@@ -21,7 +21,7 @@ class Member < ActiveRecord::Base
     :s3_credentials => { :access_key_id => SITE['s3_access_key_id'], :secret_access_key => SITE['s3_secret_access_key'] },
     :styles => { :thumb => "50x50", :medium => "250x250" })
 
-  devise :omniauthable, :recoverable, :confirmable
+  devise :database_authenticatable, :registerable, :omniauthable, :recoverable, :confirmable
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token['extra']['user_hash']
