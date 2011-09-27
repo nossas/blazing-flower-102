@@ -18,7 +18,7 @@ MR = {
       });
     },
 
-    loadMemberRegistration: {
+    loadMemberRegistration: function(){
       $("#facebox_main").load("/new_member");
     },
 
