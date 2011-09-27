@@ -13,13 +13,15 @@ MR = {
         MR.common.openMemberFlyout();
       });
 
-      $('#create_account_link').bind('click', function(){
+      $('#meu_rio_login a').live('click', function(e){
+        e.preventDefault();
+        console.log("hello");
         MR.common.loadMemberRegistration();
       });
     },
 
-    loadMemberRegistration: function(){
-      $("#facebox_main").load("/new_member");
+    loadMemberRegistration : function() {
+      $(".popup .facebox_main").load("/new_member");
     },
 
     setupLogoAnimation : function() {
