@@ -21,7 +21,7 @@ class Member < ActiveRecord::Base
     :s3_credentials => { :access_key_id => SITE['s3_access_key_id'], :secret_access_key => SITE['s3_secret_access_key'] },
     :styles => { :thumb => "50x50", :medium => "250x250" })
 
-  devise :omniauthable
+  devise :omniauthable, :recoverable, :confirmable
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token['extra']['user_hash']
@@ -33,7 +33,8 @@ class Member < ActiveRecord::Base
         :email => data["email"], 
         :first_name => data["first_name"], 
         :last_name => data["last_name"],
-        :image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(data['email'])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png")
+        :image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(data['email'])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png",
+        :confirmed_at => Time.now )
     end
   end
 
@@ -48,7 +49,8 @@ class Member < ActiveRecord::Base
         :email => access_token["user_info"]["email"], 
         :first_name => access_token["first_name"] || access_token["user_info"]["first_name"], 
         :last_name => access_token["last_name"] || access_token["user_info"]["last_name"],
-        :image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(access_token['user_info']['email'])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png")
+        :image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(access_token['user_info']['email'])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png",
+        :confirmed_at => Time.now )
     end
   end
 

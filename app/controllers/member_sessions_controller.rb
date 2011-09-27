@@ -1,8 +1,9 @@
 class MemberSessionsController < Devise::SessionsController
   def destroy
-    super
     session[:fb_token] = nil
     session[:google_login] = nil
+    session[:boogie_monster] = "boo!"
+    super
   end
 
   def google_logout
