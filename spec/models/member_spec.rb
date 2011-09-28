@@ -47,6 +47,9 @@ describe Member do
         Member.find_for_google_oauth(FACEBOOK_VALID_AUTH_DATA).image_url.should == 'http://www.gravatar.com/avatar/5e2a237dafbc45f79428fdda9c5024b1.jpg?s=260&d=http://localhost:3000/assets/avatar_blank.png'
       end
 
+      it "should include the non-omniauth flag" do
+        Member.find_for_facebook_oauth(FACEBOOK_VALID_AUTH_DATA).has_non_oauth_login.should == false
+      end
     end
 
   end

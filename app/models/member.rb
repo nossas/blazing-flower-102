@@ -34,7 +34,8 @@ class Member < ActiveRecord::Base
         :first_name => data["first_name"], 
         :last_name => data["last_name"],
         :image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(data['email'])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png",
-        :confirmed_at => Time.now )
+        :confirmed_at => Time.now,
+        :has_non_oauth_login => false )
     end
   end
 
@@ -50,7 +51,8 @@ class Member < ActiveRecord::Base
         :first_name => access_token["first_name"] || access_token["user_info"]["first_name"], 
         :last_name => access_token["last_name"] || access_token["user_info"]["last_name"],
         :image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(access_token['user_info']['email'])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png",
-        :confirmed_at => Time.now )
+        :confirmed_at => Time.now,
+        :has_non_oauth_login => false )
     end
   end
 
