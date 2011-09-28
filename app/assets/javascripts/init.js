@@ -21,7 +21,7 @@ MR = {
     },
 
     loadMemberRegistration : function() {
-      $(".popup .facebox_main").load("/new_member");
+      $(".popup .facebox_main").load("/members/sign_up");
     },
 
     setupLogoAnimation : function() {
