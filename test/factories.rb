@@ -132,7 +132,7 @@ Factory.define :petition_signature do |p|
 end
 
 Factory.define :provider_authorization do |p|
-  p.association :member
+  p.association :member, :has_login => true
   p.provider "provider"
   p.sequence(:uid){|n| n.to_s }
 end
