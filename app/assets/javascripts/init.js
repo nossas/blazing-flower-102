@@ -21,7 +21,7 @@ MR = {
         e.preventDefault();
         var $content = $(".popup .content");
         $content.css("width", "465");
-        $content.load("/membros/sign_up");
+        $content.load("/members/sign_up");
       });
     },
 
