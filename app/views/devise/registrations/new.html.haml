@@ -1,27 +1,26 @@
-%h2 Sign up
+%header
+  %h2=t("create_MR_account")
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
   = devise_error_messages!
-  %div
+  %div.left.field
     = f.label :first_name
     = f.text_field :first_name
-    %br/
-  %div
+  %div.right.field
     = f.label :last_name
     = f.text_field :last_name
-    %br/
-  %div
+  .clearfix
+  %div.left.field
     = f.label :email
-    %br/
     = f.email_field :email
-  %div
+  %div.right.field
     = f.label :password
-    %br/
     = f.password_field :password
-    %br/
-  %div
+  .clearfix
+  %div.left.field
     = f.label :password_confirmation
-    %br/
     = f.password_field :password_confirmation
-    %br/
-  %div= f.submit "Sign up"
-= render :partial => "devise/shared/links"
+  .clearfix
+  .policy.small.left
+    O Meu Rio protege a #{link_to("sua privacidade", page_path("privacidade"), :target => "_blank")} e o manterá <br>informado sobre esta e outras campanhas.
+  %div.right= f.submit "Sign up", :class => "btn"
+=# render :partial => "devise/shared/links"

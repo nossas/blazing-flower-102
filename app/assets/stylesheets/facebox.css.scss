@@ -109,3 +109,18 @@ input#member_image {
   width: 94%;
   background-color: #cacaca;
 }
+
+form#member_new {
+  div.field {
+    margin-top: 10px;
+
+    label, input {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input {
+      height: 30px;
+      width: 190px;
+    }
+  }
+}

@@ -13,7 +13,7 @@ MeuRio::Application.routes.draw do
     get 'assine_embaixo/:id/export' => "petitions#export", :as => "export_petition"
   end
 
-  devise_for :members, :controllers => { :omniauth_callbacks => "omniauth_callbacks", :sessions => "member_sessions", :registrations => "member_registration" } do
+  devise_for :members, :path => "membros", :controllers => { :omniauth_callbacks => "omniauth_callbacks", :sessions => "member_sessions", :registrations => "member_registration" } do
     get "sign_in", :to => "devise/sessions#new", :as => :new_member_session    
     post "member_session", :to => "devise/sessions#create", :as => :member_session
     get 'logout' => 'member_sessions#destroy', :as => :destroy_member_session

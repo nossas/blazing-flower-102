@@ -8,20 +8,21 @@ MR = {
       MR.common.faceboxInit();
       MR.common.setBodyBackgroundClass();
       MR.common.setupLogoAnimation();
+      MR.common.loadMemberRegistration();
 
       $('.member_panel .right.info').bind('click', function(){
         MR.common.openMemberFlyout();
       });
 
-      $('#meu_rio_login a').live('click', function(e){
-        e.preventDefault();
-        console.log("hello");
-        MR.common.loadMemberRegistration();
-      });
     },
 
     loadMemberRegistration : function() {
-      $(".popup .facebox_main").load("/members/sign_up");
+      $('#meu_rio_login a').live('click', function(e){
+        e.preventDefault();
+        var $content = $(".popup .content");
+        $content.css("width", "465");
+        $content.load("/membros/sign_up");
+      });
     },
 
     setupLogoAnimation : function() {
