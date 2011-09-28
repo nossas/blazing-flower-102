@@ -23,6 +23,7 @@ class MemberRegistrationController < Devise::RegistrationsController
     else
       @member.attributes = params[:member]
       @member.has_login = true
+      @member.has_non_oauth_login = true
       if @member.save
         if @member.active_for_authentication?
           set_flash_message :notice, :signed_up if is_navigational_format?
