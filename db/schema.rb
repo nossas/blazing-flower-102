@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110927155859) do
+ActiveRecord::Schema.define(:version => 20110928185211) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -178,6 +178,7 @@ ActiveRecord::Schema.define(:version => 20110927155859) do
     t.boolean  "has_non_oauth_login"
     t.string   "password",               :limit => 128
     t.string   "encrypted_password",     :limit => 128, :default => "",   :null => false
+    t.boolean  "has_login"
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
