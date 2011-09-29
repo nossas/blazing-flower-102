@@ -206,14 +206,11 @@
     }
     &#follow {
       overflow: visible;
-      width:140px;
-      height:60px;
+      width:130px;
+      height:56px;
       background: url('/assets/homepage/follow.png') no-repeat center center;
-      padding-top:7px;
+      padding:8px 0 0 10px;
       .facebook_wrap {
-        width:60px;
-        height:22px;
-        margin-left:3px;
         overflow:visible;
       }
       .twitter_wrap {
