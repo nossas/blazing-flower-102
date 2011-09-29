@@ -24,14 +24,15 @@
   .grid_6.alpha.omega
     %p.description= raw @petition.description.gsub("\n", "<br /><br />")
 .grid_6.take_action
-  - if current_member && current_member.has_signed?(@petition.id)
-    - if @petition.display_donation?
-      = render :partial => "petitions/donation"
+  -if @petition.published?
+    - if current_member && current_member.has_signed?(@petition.id)
+      - if @petition.display_donation?
+        = render :partial => "petitions/donation"
+      - else
+        = render :partial => "petitions/taf"
+        = image_tag "/assets/thank_you.png", :id => "thank_you"
     - else
-      = render :partial => "petitions/taf"
-      = image_tag "/assets/thank_you.png", :id => "thank_you"
-  - else
-    = render :partial => "petitions/form"
+      = render :partial => "petitions/form"
 -if @petition.surface_comments == true && !@comments.empty?
   .grid_6.comments
     %h3= t("petition_show.recent_comments")
