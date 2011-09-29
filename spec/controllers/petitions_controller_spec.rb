@@ -2,9 +2,15 @@ require 'spec_helper'
 
 describe PetitionsController do
   describe 'GET show' do
-    it "should be successful" do
+    it "should be successful for a published petition" do
       @p = Factory(:complete_petition)
       @p.publish
+      get :show, :custom_path => @p.custom_path
+      response.should be_success
+    end
+
+    it "should be successful for an archived petition" do
+      @p = Factory(:complete_petition).tap{|cp| cp.publish && cp.archive}
       get :show, :custom_path => @p.custom_path
       response.should be_success
     end
