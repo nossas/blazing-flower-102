@@ -52,6 +52,22 @@
         }
       }
 
+      .separator {
+        .line {
+          border-top: 1px solid #000;
+          width: 140px;
+        }
+
+        .or {
+          margin: -8px 10px 0;
+        }
+      }
+
+      #meu_rio_login{
+        text-align: center;
+        padding: 25px 0;
+      }
+
       .disclaimer{
         font-size: 12px;
       }

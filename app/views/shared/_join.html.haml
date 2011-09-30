@@ -8,7 +8,11 @@
       = link_to(image_tag('auth/facebook_128.png'), member_omniauth_authorize_path(:facebook), :class => "facebook_btn")
       = link_to(image_tag('auth/orkut_128.png'), member_omniauth_authorize_path(:google), :class => "orkut_btn")
       = link_to(image_tag('auth/google.png'), member_omniauth_authorize_path(:google), :class => "google_btn")
+    .separator
+      .left.line
+      .left.or OU
+      .left.line
     #meu_rio_login
-      = link_to t("create_MR_account"), "#", :id => "create_account_link"
+      = link_to t("create_MR_account"), "#", :id => "create_account_link", :class => "btn"
     %p.disclaimer
       O Meu Rio não terá acesso à sua senha ou informações de sua conta em uma dessas duas redes sociais. Teremos apenas seu nome, email e foto.
