@@ -210,7 +210,7 @@ h2 {
   font-weight: normal;
 }
 
-input[type="text"], textarea {
+input[type="text"], textarea, input[type="email"], input[type="password"] {
   border: 2px solid $light_gray;
   &:focus{
     border-color: $orange;
