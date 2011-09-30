@@ -9,6 +9,7 @@ MR = {
       MR.common.setBodyBackgroundClass();
       MR.common.setupLogoAnimation();
       MR.common.loadMemberRegistration();
+      MR.common.loadMemberLogin();
 
       $('.member_panel .right.info').bind('click', function(){
         MR.common.openMemberFlyout();
@@ -16,8 +17,16 @@ MR = {
 
     },
 
+    loadMemberLogin : function(){
+      $('#mr_login a').live('click', function(e){
+        e.preventDefault();
+        var $content = $(".popup .content");
+        $content.load("/members/sign_in");
+      });
+    },
+
     loadMemberRegistration : function() {
-      $('#meu_rio_login a').live('click', function(e){
+      $('#create a').live('click', function(e){
         e.preventDefault();
         var $content = $(".popup .content");
         $content.css("width", "465");

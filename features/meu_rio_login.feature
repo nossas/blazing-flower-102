@@ -41,3 +41,22 @@ Feature: Meu Rio Custom Login
     And I fill in the new member form with the same email
     And I press "Sign up"
     Then I should see "There is already a member with that email on the site"
+
+  @javascript
+  Scenario: Members should be able to access the MR login form
+    Given I am on the homepage
+    When I click "Entrar"
+    And I click "Login Using Your MR Account"
+    Then I should see a member login form
+
+  @javascript
+  Scenario: Members who have a MR login should be able to sign in
+    Given I am a member with a MR login
+    And I am on the homepage
+    When I click "Entrar"
+    And I click "Login Using Your MR Account"
+    And I fill out the member login form
+    Then show me the page
+    And I press "Sign in"
+    Then show me the page
+    Then I should see "translation missing: pt-BR.devise.member_sessions.member.signed_in"

@@ -63,7 +63,7 @@
         }
       }
 
-      #meu_rio_login{
+      .meu_rio_login{
         text-align: center;
         padding: 25px 0;
       }
@@ -72,6 +72,10 @@
         font-size: 12px;
       }
     }
+  }
+
+  #login .separator .line{
+    width: 188px;
   }
 
   .close{
