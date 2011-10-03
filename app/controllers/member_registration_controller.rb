@@ -24,6 +24,7 @@ class MemberRegistrationController < Devise::RegistrationsController
       @member.attributes = params[:member]
       @member.has_login = true
       @member.has_non_oauth_login = true
+      @member.image_url = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(params[:member][:email])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png"
       if @member.save
         if @member.active_for_authentication?
           set_flash_message :notice, :signed_up if is_navigational_format?
