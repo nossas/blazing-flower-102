@@ -21,6 +21,7 @@ MR = {
       $('#mr_login a').live('click', function(e){
         e.preventDefault();
         var $content = $(".popup .content");
+        $content.css("width", "465");
         $content.load("/members/sign_in");
       });
     },
