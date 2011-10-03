@@ -62,16 +62,14 @@ Feature: Meu Rio Custom Login
   @javascript
   Scenario: Signing out of a Meu Rio account
     Given I am a member with a MR login
-    And I am on the homepage
-    When I click "Entrar"
-    And I click "Login Using Your MR Account"
-    And I fill out the member login form
-    And I press "Sign in"
+    When I am logged in using my MR account information
     And I click on my member profile
     And I click "Sair »"
     Then I should see "Você saiu do Meu Rio, obrigado pela visita."
 
   @javascript
-  Scenario: Updating your password (MR login)
-
-
+  Scenario: Updating your password through the member profile page (MR login)
+    Given I am a member with a MR login
+    When I am logged in using my MR account information
+    And I click on my name
+    Then I should see "Password"
