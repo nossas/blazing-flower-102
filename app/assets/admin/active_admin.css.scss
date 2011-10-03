@@ -14,3 +14,5 @@ a[href='/admin/legislative_agenda_widgets/new'],
 a[href='/admin/image_widgets/new']{
   display:none;
 }
+
+body.index.admin_featured_content_widgets #filters_sidebar_section {display:none !important;}
