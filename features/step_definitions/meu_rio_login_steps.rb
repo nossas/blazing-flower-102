@@ -4,7 +4,7 @@ end
 
 Given /^I am a member with a MR login$/ do
   m = Factory.create(:member)
-  m.update_attributes(:password => "clever_password", :password_confirmation => "clever_password")
+  m.update_attributes(:password => "clever_password", :password_confirmation => "clever_password", :confirmed_at => Time.now)
 end
 
 When /^I fill in the new member form$/ do
