@@ -104,6 +104,14 @@ body.members {
       padding: 30px 0 10px;
     }
 
+    .password {
+      label { 
+        margin-top: 10px; 
+        display: block;
+        font-size: 90%;
+      }
+    }
+
     textarea#member_bio {
       width: 250px;
     }
