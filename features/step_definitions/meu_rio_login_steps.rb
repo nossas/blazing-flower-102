@@ -28,6 +28,10 @@ When /^I fill out the member login form$/ do
   fill_in "member_password", :with => "clever_password"
 end
 
+When /^I click on my member profile$/ do
+  page.execute_script("$('.flyout.left').show();")
+end
+
 Then /^I should see a new member form$/ do
   page.should have_css("form#member_new")
   page.should have_css("#member_first_name")

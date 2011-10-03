@@ -59,7 +59,7 @@ Feature: Meu Rio Custom Login
     And I press "Sign in"
     Then I should see "translation missing: pt-BR.devise.member_sessions.member.signed_in"
 
-  @javascript @wip
+  @javascript
   Scenario: Signing out of a Meu Rio account
     Given I am a member with a MR login
     And I am on the homepage
@@ -67,6 +67,7 @@ Feature: Meu Rio Custom Login
     And I click "Login Using Your MR Account"
     And I fill out the member login form
     And I press "Sign in"
+    And I click on my member profile
     And I click "Sair »"
     Then I should see "Você saiu do Meu Rio, obrigado pela visita."
 
