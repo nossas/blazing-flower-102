@@ -56,7 +56,17 @@ Feature: Meu Rio Custom Login
     When I click "Entrar"
     And I click "Login Using Your MR Account"
     And I fill out the member login form
-    Then show me the page
     And I press "Sign in"
-    Then show me the page
     Then I should see "translation missing: pt-BR.devise.member_sessions.member.signed_in"
+
+  @javascript @wip
+  Scenario: Signing out of a Meu Rio account
+    Given I am a member with a MR login
+    And I am on the homepage
+    When I click "Entrar"
+    And I click "Login Using Your MR Account"
+    And I fill out the member login form
+    And I press "Sign in"
+    And I click "Sair »"
+    Then I should see "Você saiu do Meu Rio, obrigado pela visita."
+
