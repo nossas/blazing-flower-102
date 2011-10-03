@@ -69,6 +69,23 @@
             .clearfix
             .display= @member.bio
 
+          -if @member == current_member
+            .password
+              .title
+                -if @member.encrypted_password
+                  =t("members_show.password")
+                -else
+                  =t("members_show.set_password")
+              = link_to image_tag("/assets/pencil.png"), "#", :id => "change_bio_btn", :class => "change"
+              #password_editor.edit
+                =form_for @member do |f|
+                  =f.password_field :password
+                  =f.label :password_confirmation
+                  =f.password_field :password_confirmation
+                =link_to "OK", "#", :id => "password-confirm", :class => "btn small confirm"
+                =link_to "Cancelar", "#", :id => "password-cancel", :class => "btn small cancel"
+              .clearfix
+
     - if @member == current_member
       .is_subscriber
         =form_for @member do |f|

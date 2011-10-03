@@ -71,3 +71,7 @@ Feature: Meu Rio Custom Login
     And I click "Sair »"
     Then I should see "Você saiu do Meu Rio, obrigado pela visita."
 
+  @javascript
+  Scenario: Updating your password (MR login)
+
+
