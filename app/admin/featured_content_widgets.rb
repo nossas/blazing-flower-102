@@ -17,7 +17,7 @@ ActiveAdmin.register FeaturedContentWidget do
   end
 
   form :partial => "form"
-  
+
   show do |w|
     div({:class => 'panel' }) do
       h3 'Comment Information'
