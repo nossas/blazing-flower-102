@@ -1,26 +1,27 @@
-%header
-  %h2=t("create_MR_account")
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  %div.left.field
-    = f.label :first_name
-    = f.text_field :first_name
-  %div.right.field
-    = f.label :last_name
-    = f.text_field :last_name
-  .clearfix
-  %div.left.field.register
-    = f.label :email
-    = f.email_field :email
-  %div.left.field
-    = f.label :password
-    = f.password_field :password
-  %div.right.field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
-  .clearfix
-  %br
-  .policy.small.left
-    O Meu Rio protege a #{link_to("sua privacidade", page_path("privacidade"), :target => "_blank")} e o manterá <br>informado sobre esta e outras campanhas.
-  %div.right= f.submit "Sign up", :class => "btn"
-=# render :partial => "devise/shared/links"
+#new_registration
+  %header
+    %h2=t("create_MR_account")
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    %div.left.field
+      = f.label :first_name
+      = f.text_field :first_name
+    %div.right.field
+      = f.label :last_name
+      = f.text_field :last_name
+    .clearfix
+    %div.left.field.register
+      = f.label :email
+      = f.email_field :email
+    %div.left.field
+      = f.label :password
+      = f.password_field :password
+    %div.right.field
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation
+    .clearfix
+    %br
+    .policy.small.left
+      O Meu Rio protege a #{link_to("sua privacidade", page_path("privacidade"), :target => "_blank")} e o manterá <br>informado sobre esta e outras campanhas.
+    %div.right= f.submit "Sign up", :class => "btn", :id => "sign_up_btn"
+  =# render :partial => "devise/shared/links"

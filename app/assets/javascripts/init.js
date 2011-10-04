@@ -15,6 +15,24 @@ MR = {
         MR.common.openMemberFlyout();
       });
 
+      $("#new_registration #member_new").live('submit', function(e){
+        e.preventDefault();
+        var $form = $(this);
+        data = $form.serialize();
+        $.post("/members", data, function(data, textStatus, jqXHR){
+          if(data.errors != null){
+            for(error in data.errors){ 
+              $form.prepend(data.errors[error] + "</br>");
+            };
+          }else{
+            if(data.flash != null){
+              $("#flashTemplate").tmpl(data).prependTo("body");
+            }
+            $(document).trigger('close.facebox');
+          } 
+        });
+      });
+
     },
 
     loadMemberLogin : function(){
