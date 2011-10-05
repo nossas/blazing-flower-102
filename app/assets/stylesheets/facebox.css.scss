@@ -137,6 +137,12 @@ input#member_image {
 }
 
 form#member_new {
+  #errors {
+    background: #fae2d1;
+    padding: 5px;
+    display: none;
+  }
+
   div.field {
     margin-top: 10px;
 

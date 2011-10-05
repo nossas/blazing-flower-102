@@ -18,6 +18,7 @@ MR = {
       $("#new_registration #member_new").live('submit', function(e){
         e.preventDefault();
         var $form = $(this), $errors = $("#errors");
+        $errors.hide();
         data = $form.serialize();
         $.post("/members", data, function(data, textStatus, jqXHR){
           if(data.errors != null){
@@ -25,6 +26,7 @@ MR = {
             for(error in data.errors){ 
               error_data = error_data + data.errors[error] + "</br>";
             }
+            $errors.show();
             $errors.html(error_data);
           }else{
             if(data.flash != null){
