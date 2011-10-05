@@ -13,6 +13,7 @@ class Member < ActiveRecord::Base
   validates_presence_of :first_name
   validates_presence_of :last_name
   validates_confirmation_of :password
+  validates :password, :presence => true, :if => "has_non_oauth_login"
 
   has_attached_file(
     :image, 
@@ -77,5 +78,9 @@ class Member < ActiveRecord::Base
 
   def has_signed? petition_id
     !!petition_signatures.find_by_petition_id(petition_id)
+  end
+
+  def password_if_MR_login
+
   end
 end

@@ -25,7 +25,17 @@ describe MemberRegistrationController do
       
     end
 
-    context "new member with incorrect information" do
+    context "new member with no password filled in" do
+      before do
+        post :create, { :member =>{"first_name"=>"John", "last_name"=>"Smith", "email"=>"john@smith.edu"} }
+      end
+
+      it "should not create a new member" do
+        Member.count.should == 0
+      end
+    end
+
+    context "new member with non-matching passwords" do
       before do
         post :create, { :member =>{"first_name"=>"John", "last_name"=>"Smith", "email"=>"john@smith.edu", "password"=>"unsafe", "password_confirmation"=>"super_safe"} }
       end
