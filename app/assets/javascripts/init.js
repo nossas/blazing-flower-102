@@ -61,7 +61,7 @@ MR = {
     },
 
     closeFlash : function(){
-      $('#close_messages').click(function(e){
+      $('#close_messages').live('click', function(e){
         e.preventDefault();
         $('.messages').slideUp();
       });
