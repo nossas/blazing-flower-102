@@ -17,13 +17,15 @@ MR = {
 
       $("#new_registration #member_new").live('submit', function(e){
         e.preventDefault();
-        var $form = $(this);
+        var $form = $(this), $errors = $("#errors");
         data = $form.serialize();
         $.post("/members", data, function(data, textStatus, jqXHR){
           if(data.errors != null){
+            var error_data = '';
             for(error in data.errors){ 
-              $form.prepend(data.errors[error] + "</br>");
-            };
+              error_data = error_data + data.errors[error] + "</br>";
+            }
+            $errors.html(error_data);
           }else{
             if(data.flash != null){
               $("#flashTemplate").tmpl(data).prependTo("body");
