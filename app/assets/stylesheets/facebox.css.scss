@@ -53,13 +53,19 @@
       }
 
       .separator {
+        margin: 0px auto;
+        div {
+          display: inline;
+        }
         .line {
           border-top: 1px solid #000;
-          width: 140px;
+          width: 45%;
         }
 
         .or {
-          margin: -8px 10px 0;
+          text-align: center;
+          width: 9%;
+          margin: -8px 0 0;
         }
       }
 

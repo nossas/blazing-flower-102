@@ -37,7 +37,7 @@
     =javascript_include_tag "libs/modernizr-2.0.6.js"
   %body{:class=> "#{controller.controller_name} #{controller.action_name}", 'data-controller' => controller_name, 'data-action' => action_name }
     - unless flash[:welcome].blank? && flash[:alert].blank? && flash[:notice].blank?
-      .container_12.messages.cleafix
+      .container_12.messages.clearfix
         .grid_11.alpha
           =raw(flash[:welcome])
           =raw(flash[:alert])
@@ -102,6 +102,9 @@
       !window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))    
     =javascript_include_tag "application"
     = yield :javascripts
+    %script{:id => "flashTemplate", :type => "text/x-jquery-tmpl"}
+      <div class="container_12 messages clearfix"><div class="grid_11 alpha">${flash}</div>
+      <div class="grid_1 omega"><a href="#" id="close_messages"><img src="/assets/close_messages.png"></a></div></div>
     /[if lt IE 7 ]
       <script src="assets/libs/dd_belatedpng.js"></script>
       <script> DD_belatedPNG.fix('img, .png_bg');</script>

@@ -15,6 +15,26 @@ MR = {
         MR.common.openMemberFlyout();
       });
 
+      $("#new_registration #member_new").live('submit', function(e){
+        e.preventDefault();
+        var $form = $(this), $errors = $("#errors");
+        data = $form.serialize();
+        $.post("/members", data, function(data, textStatus, jqXHR){
+          if(data.errors != null){
+            var error_data = '';
+            for(error in data.errors){ 
+              error_data = error_data + data.errors[error] + "</br>";
+            }
+            $errors.html(error_data);
+          }else{
+            if(data.flash != null){
+              $("#flashTemplate").tmpl(data).prependTo("body");
+            }
+            $(document).trigger('close.facebox');
+          } 
+        });
+      });
+
     },
 
     loadMemberLogin : function(){
@@ -43,7 +63,7 @@ MR = {
     },
 
     closeFlash : function(){
-      $('#close_messages').click(function(e){
+      $('#close_messages').live('click', function(e){
         e.preventDefault();
         $('.messages').slideUp();
       });
