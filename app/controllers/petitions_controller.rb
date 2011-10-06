@@ -1,7 +1,7 @@
 class PetitionsController < ApplicationController
   before_filter do
     @petition = Petition.where(:custom_path => params[:custom_path]).first
-    return render_404 unless @petition and @petition.published?
+    return render_404 unless @petition and ( @petition.published? or @petition.archived? )
   end
 
   def show
@@ -9,8 +9,6 @@ class PetitionsController < ApplicationController
     @taf = @petition.taf
     @petition_signature = PetitionSignature.new
     @member = current_member || Member.new
-    #raise request.referer.inspect
-    #raise request.env["HTTP_REFERER"].inspect
   end
 
   def donate
