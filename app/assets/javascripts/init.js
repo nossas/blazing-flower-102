@@ -43,7 +43,7 @@ MR = {
         $errors.hide();
         data = $form.serialize();
         $.post("/members/sign_in", data, function(data, textStatus, jqXHR){
-          if(data.logged_in == true){
+          if(data.logged_in === true){
             location.reload();
           }else{
             $errors.html("Email ou senha inválidos."); 

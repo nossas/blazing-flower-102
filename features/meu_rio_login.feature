@@ -7,16 +7,16 @@ Feature: Meu Rio Custom Login
   Scenario: New members should be able to access the new member form
     Given I am on the homepage
     When I click "Junte-se a Nós"
-    And I click "Create a Meu Rio Account"
+    And I click "Crie sua conta no Meu Rio"
     Then I should see a new member form
 
   @javascript
   Scenario: New members should be able to create an account
     Given I am on the homepage
     When I click "Junte-se a Nós"
-    And I click "Create a Meu Rio Account"
+    And I click "Crie sua conta no Meu Rio"
     And I fill in the new member form
-    And I press "Sign up"
+    And I press "Criar"
     Then I should see "translation missing: pt-BR.devise.member_registration.member.inactive_signed_up"
 
 
@@ -27,9 +27,9 @@ Feature: Meu Rio Custom Login
     And I have signed the first petition
     When I am on the homepage
     When I click "Junte-se a Nós"
-    And I click "Create a Meu Rio Account"
+    And I click "Crie sua conta no Meu Rio"
     And I fill in the new member form with the same email
-    And I press "Sign up"
+    And I press "Criar"
     Then I should see "translation missing: pt-BR.devise.member_registration.member.inactive_signed_up"
 
   @javascript @omniauth_test
@@ -37,16 +37,16 @@ Feature: Meu Rio Custom Login
     Given I have logged in previously through Facebook
     When I go to the home page
     When I click "Junte-se a Nós"
-    And I click "Create a Meu Rio Account"
+    And I click "Crie sua conta no Meu Rio"
     And I fill in the new member form with the same email
-    And I press "Sign up"
+    And I press "Criar"
     Then I should see "There is already a member with that email on the site"
 
   @javascript
   Scenario: Members should be able to access the MR login form
     Given I am on the homepage
     When I click "Entrar"
-    And I click "Login Using Your MR Account"
+    And I click "Entre com sua conta do Meu Rio"
     Then I should see a member login form
 
   @javascript
@@ -54,9 +54,9 @@ Feature: Meu Rio Custom Login
     Given I am a member with a MR login
     And I am on the homepage
     When I click "Entrar"
-    And I click "Login Using Your MR Account"
+    And I click "Entre com sua conta do Meu Rio"
     And I fill out the member login form
-    And I press "Sign in"
+    And I press "Entrar"
     Then I should see "translation missing: pt-BR.devise.member_sessions.member.signed_in"
 
   @javascript

@@ -10,9 +10,9 @@ end
 When /^I am logged in using my MR account information$/ do
   When %{I am on the homepage }
   And %{ I click "Entrar" }
-  And %{ I click "Login Using Your MR Account" }
+  And %{ I click "Entre com sua conta do Meu Rio" }
   And %{I fill out the member login form}
-  And %{I press "Sign in"}
+  And %{I press "Entrar"}
 end
 
 When /^I fill in the new member form$/ do

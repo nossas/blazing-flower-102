@@ -1,10 +1,12 @@
 class MemberSessionsController < Devise::SessionsController
   # GET /resource/sign_in  
   def new
-    resource = build_resource
-    clean_up_passwords(resource)
     if request.xhr?
+      resource = build_resource
+      clean_up_passwords(resource)
       render :template => "/devise/sessions/new", :layout => false
+    else
+      redirect_to root_path
     end
   end
 

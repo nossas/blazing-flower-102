@@ -256,6 +256,8 @@
         meu_rio_is: "Meu Rio é..."
         image_url: "URL da imagem"
         celular: "Celular"
+        password: "Senha"
+        password_confirmation: "Confirme sua senha"
       issue:
         name: "Nome"
         created_at: "Criado em"
@@ -315,8 +317,12 @@
   logout: "Sair"
   logout_menu: "Sair »"
   join_us: "Junte-se a Nós"
-  create_MR_account: "Create a Meu Rio Account"
-  MR_account_login: "Login Using Your MR Account"
+  create_MR_account: "Crie sua conta no Meu Rio"
+  create_MR_account_intro: "Com uma conta no Meu Rio você poderá 
+aproveitar todo o conteúdo do nosso site."
+  MR_account_login: "Entre com sua conta do Meu Rio"
+  sign_up: "Criar"
+  sign_in: "Entrar"
   flag: "Denunciar"
   unflag: "Desfazer denúncia"
   privacy_policy: "Política de Privacidade"
