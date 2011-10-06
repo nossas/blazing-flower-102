@@ -43,8 +43,6 @@ MR = {
         $errors.hide();
         data = $form.serialize();
         $.post("/members/sign_in", data, function(data, textStatus, jqXHR){
-          console.log(data);    
-          console.log(textStatus);
           if(data.logged_in == true){
             location.reload();
           }else{
