@@ -17,9 +17,9 @@ class MemberRegistrationController < Devise::RegistrationsController
     @member = Member.find_or_initialize_by_email(params[:member][:email])
 
     if @member.has_login
-      flash[:notice] = "There is already a member with that email on the site"
+      resource.errors[:base] << "There is already a member with that email on the site"
       if request.xhr?
-        return render :json => { :success => true, :flash => flash[:notice] }
+        return render :json => { :success => true, :errors => resource.errors.full_messages }
       else
         respond_with_navigational(resource) { render_with_scope :new }
       end
