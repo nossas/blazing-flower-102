@@ -5,11 +5,9 @@
     #errors
     %div.left.field
       = f.label :email
-      %br/
       = f.email_field :email
     %div.right.field
       = f.label :password
-      %br/
       = f.password_field :password
     - if devise_mapping.recoverable? && controller_name != 'passwords'
       %div.left
