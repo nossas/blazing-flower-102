@@ -37,6 +37,23 @@ MR = {
         });
       });
 
+      $("#sign_in_form #member_new").live('submit', function(e){
+        e.preventDefault();
+        var $form = $(this), $errors = $("#errors");
+        $errors.hide();
+        data = $form.serialize();
+        $.post("/members/sign_in", data, function(data, textStatus, jqXHR){
+          console.log(data);    
+          console.log(textStatus);
+          if(data.logged_in == true){
+            location.reload();
+          }else{
+            $errors.html("Email ou senha inválidos."); 
+            $errors.show();
+          }
+        });
+      });
+
     },
 
     loadMemberLogin : function(){
