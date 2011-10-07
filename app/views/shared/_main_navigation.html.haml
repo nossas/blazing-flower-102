@@ -3,8 +3,7 @@
     %li
       =link_to('SOBRE NÓS', page_path(:id => 'sobre_nos'), :class => "top_level #{(@current_page ==  'quem_somos' ? 'selected' : nil)}")+'|'
     %li.issue_menu_wrap
-      -cache('latest issue') do
-        =link_to('NA ATIVIDADE', issue_path(Issue.last), :class => "top_level")+'|'
+      =link_to('NA ATIVIDADE', issue_path(Issue.last), :class => "top_level")+'|'
       -if nav_issues.count > 2
         .issue_menu.wide.clearfix
           %ul.thumbnails
