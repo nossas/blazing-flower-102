@@ -52,6 +52,12 @@ MR = {
         });
       });
 
+      $('.back a').live('click', function(e){
+        e.preventDefault();
+        var target = $(this).attr('href');
+        $(".popup .content").html($(target).html());
+      });
+
     },
 
     loadMemberLogin : function(){

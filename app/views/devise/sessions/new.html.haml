@@ -14,3 +14,5 @@
         = link_to "Esqueceu sua senha?", new_password_path(resource_name), :class => "small"
     .clearfix
     %div.right= f.submit t("sign_in"), :class => "btn"
+  .clearfix
+  .back=link_to t("go_back"), "#login"
