@@ -23,7 +23,8 @@
             =link_to "OK", "#", :id => "name-confirm", :class => "btn small confirm"
             =link_to "Cancelar", "#", :id => "name-cancel", :class => "btn small cancel"
     .clearfix
-    .date= t("members_show.joined_on", :date => l(@member.created_at, :format => :very_short))
+    -if @member.confirmed_at
+      .date= t("members_show.joined_on", :date => l(@member.confirmed_at, :format => :very_short))
 
     - if @member == current_member || @member.bio
       .info

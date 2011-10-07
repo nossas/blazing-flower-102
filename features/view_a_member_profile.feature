@@ -23,6 +23,15 @@ Feature: View a member profile
     And I should see "Vamos salvar a nossa cidade!"
     And I should see the petition comment icon
 
+  Scenario: The one where the member signed a petition before creating a profile
+    Given there is a member called "Nícolas"
+    And this member commented the petition "Meio Ambiente é Coisa Séria" with "Vamos salvar a nossa cidade!" on "20/06/2011" for the issue "Cidade cinza"
+    When I go to this member page
+    Then I should see "O que Nícolas já fez no Meu Rio:"
+    And I should not see "30 de Junho de 2011"
+    And I should not see "Assinou o abaixo-assinado Meio Ambiente é Coisa Séria, Cidade cinza"
+    And I should not see "Vamos salvar a nossa cidade!"
+
   Scenario: The one where the member commented a debate
     Given there is a member called "Pedro"
     And this member commented the debate "Falando sobre o Maracanã" with "Nunca gostei da localização do estádio" on "30/06/2011" for the issue "Reforma dos estádios"

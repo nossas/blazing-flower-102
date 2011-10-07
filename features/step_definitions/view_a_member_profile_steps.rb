@@ -11,7 +11,7 @@ Given /^there is a member without 'Meu Rio is' slogan$/ do
 end
 
 Given /^there is a member called "([^"]*)"$/ do |arg1|
-  @member = Factory(:member, :first_name => arg1)
+  @member = Factory(:member, :first_name => arg1, :confirmed_at => Date.parse("25/06/2011"))
 end
 
 

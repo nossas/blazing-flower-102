@@ -66,7 +66,12 @@ class Member < ActiveRecord::Base
   end
 
   def action_history
-    (self.petition_signatures + self.comments + self.debates_side_1 + self.debates_side_2).sort{|x, y| y.created_at <=> x.created_at}
+    history = (self.petition_signatures + self.comments + self.debates_side_1 + self.debates_side_2).sort{|x, y| y.created_at <=> x.created_at}
+    if history && self.confirmed_at
+      history.find_all{|i| i.created_at > self.confirmed_at}
+    else
+      []
+    end
   end
 
   def current_image_url(size="medium")
