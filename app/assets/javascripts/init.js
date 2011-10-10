@@ -14,27 +14,29 @@ MR = {
       $('.member_panel .right.info').bind('click', function(){
         MR.common.openMemberFlyout();
       });
-
+    
       $("#new_registration #member_new").live('submit', function(e){
         e.preventDefault();
         var $form = $(this), $errors = $("#errors");
         $errors.hide();
-        data = $form.serialize();
-        $.post("/members", data, function(data, textStatus, jqXHR){
-          if(data.errors != null){
-            var error_data = '';
-            for(error in data.errors){ 
-              error_data = error_data + data.errors[error] + "</br>";
-            }
-            $errors.show();
-            $errors.html(error_data);
-          }else{
-            if(data.flash != null){
-              $("#flashTemplate").tmpl(data).prependTo("body");
-            }
-            $(document).trigger('close.facebox');
-          } 
-        });
+        if($form.valid()){
+          data = $form.serialize();
+          $.post("/members", data, function(data, textStatus, jqXHR){
+            if(data.errors != null){
+              var error_data = '';
+              for(error in data.errors){ 
+                error_data = error_data + data.errors[error] + "</br>";
+              }
+              $errors.show();
+              $errors.html(error_data);
+            }else{
+              if(data.flash != null){
+                $("#flashTemplate").tmpl(data).prependTo("body");
+              }
+              $(document).trigger('close.facebox');
+            } 
+          });
+        }
       });
 
       $("#sign_in_form #member_new").live('submit', function(e){
@@ -74,7 +76,17 @@ MR = {
         e.preventDefault();
         var $content = $(".popup .content");
         $content.css("width", "465");
-        $content.load("/members/sign_up");
+        $content.load("/members/sign_up", function(){
+          $("form#member_new").validate({
+            messages: {
+              "member[first_name]": "Campo obrigatório",
+              "member[last_name]": "Campo obrigatório",
+              "member[email]": {"required": "Campo obrigatório", "email": "E-mail inválido"},
+              "member[password]": "Campo obrigatório",
+              "member[password_confirmation]": "Campo obrigatório"
+            }
+          });
+        });
       });
     },
 

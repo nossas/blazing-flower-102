@@ -6,20 +6,20 @@
     #errors
     %div.left.field
       = f.label :first_name
-      = f.text_field :first_name
+      = f.text_field :first_name, :class => "required"
     %div.right.field
       = f.label :last_name
-      = f.text_field :last_name
+      = f.text_field :last_name, :class => "required"
     .clearfix
     %div.left.field.register
       = f.label :email
-      = f.email_field :email
+      = f.email_field :email, :class => "required email"
     %div.left.field
       = f.label :password
-      = f.password_field :password
+      = f.password_field :password, :class => "required"
     %div.right.field
       = f.label :password_confirmation
-      = f.password_field :password_confirmation
+      = f.password_field :password_confirmation, :class => "required"
     .clearfix
     %br
     %div.right= f.submit t("sign_up"), :class => "btn", :id => "sign_up_btn"
