@@ -1,4 +1,9 @@
 %p
-  Welcome #{@resource.email}!
-%p You can confirm your account through the link below:
+  Bem-vindo(a) #{@resource.first_name}!
+%p Por favor, confirme a sua conta no Meu Rio clicando aqui, ó:
 %p= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+%p Depois da confirmação você terá acesso ao site do Meu Rio e nós enviaremos todas as nossas notificações para esse endereço de email.
+%br
+%p atenciosamente,
+%p Equipe Meu Rio
+
