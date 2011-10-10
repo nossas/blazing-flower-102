@@ -15,4 +15,5 @@
     .clearfix
     %div.right= f.submit t("sign_in"), :class => "btn"
   .clearfix
+  .back #{t('not_a_member')}? #{link_to t('join_us') + '!', '#join'}
   .back=link_to t("go_back"), "#login"
