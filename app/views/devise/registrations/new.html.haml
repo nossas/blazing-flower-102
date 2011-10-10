@@ -24,6 +24,7 @@
     %br
     %div.right= f.submit t("sign_up"), :class => "btn", :id => "sign_up_btn"
   .clearfix
+  .back=link_to t('already_have_an_account'), "#login" 
   .back=link_to t("go_back"), "#join"
   .policy.small
     O Meu Rio protege a #{link_to("sua privacidade", page_path("privacidade"), :target => "_blank")} e o manterá <br>informado sobre esta e outras campanhas.
