@@ -73,3 +73,4 @@ Feature: Meu Rio Custom Login
     When I am logged in using my MR account information
     And I click on my name
     Then I should see "Password"
+

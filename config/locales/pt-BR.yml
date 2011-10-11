@@ -327,6 +327,10 @@ aproveitar todo o conteúdo do nosso site."
   flag: "Denunciar"
   unflag: "Desfazer denúncia"
   privacy_policy: "Política de Privacidade"
+  passwords:
+    thanks: "Thank you!"
+    message: "We've sent the instructions to your email"
+    resend: "If you don't recieve the instructions in a few minutes, try"
   pages_show_jobs:
     no_jobs: "<p>Opa!</p><p>Estamos sempre à procura de pessoas apaixonadas pelo Rio mas, no momento, não estamos contratando. Vamos atualizar esta página assim que houver uma vaga disponível.</p><p>Atenciosamente,<br>Equipe Meu Rio</p>"
     title: "Venha Trabalhar Com A Gente!"

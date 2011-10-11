@@ -1,0 +1,4 @@
+.grid_9
+  %h1= t("passwords.thanks")
+  %p= t("passwords.message")
+  %p #{t("passwords.resend")} #{link_to "resending the instructions", member_resend_password_path, :id => "resend_password"}.

@@ -56,4 +56,23 @@ module ApplicationHelper
     end 
   end
 
+  def custom_devise_error_messages!
+    return "" if resource.errors.empty?
+
+    messages = resource.errors.full_messages.map { |msg| content_tag(:div, msg) }.join
+    sentence = I18n.t("errors.messages.not_saved",
+                      :count => resource.errors.count,
+                      :resource => resource.class.model_name.human.downcase)
+
+    html = <<-HTML
+    <div id="errors" style="display:block">
+      #{messages}
+    </div>
+    <br />
+    HTML
+
+    html.html_safe
+  end
+  
+
 end

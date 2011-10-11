@@ -13,11 +13,12 @@ MeuRio::Application.routes.draw do
     get 'assine_embaixo/:id/export' => "petitions#export", :as => "export_petition"
   end
 
-  devise_for :members, :controllers => { :omniauth_callbacks => "omniauth_callbacks", :sessions => "member_sessions", :registrations => "member_registration" } do
+  devise_for :members, :controllers => { :omniauth_callbacks => "omniauth_callbacks", :sessions => "member_sessions", :registrations => "member_registration", :passwords => "member_passwords" } do
     get "sign_in", :to => "devise/sessions#new", :as => :new_member_session    
     post "member_session", :to => "devise/sessions#create", :as => :member_session
     get 'logout' => 'member_sessions#destroy', :as => :destroy_member_session
     get 'members/sign_out' => 'member_sessions#destroy', :as => :destroy_member_session
+    match 'members/passwords/resend' => 'member_passwords#resend', :as => :member_resend_password
     match '/facebook_logout' => 'member_sessions#facebook_logout', :as => :facebook_logout
     match '/google_logout' => 'member_sessions#google_logout', :as => :google_logout
   end

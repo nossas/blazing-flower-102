@@ -165,3 +165,9 @@ form#member_new {
     width: 410px;
   }
 }
+
+body.member_passwords{
+ .field_with_errors {
+    display: inline;
+  }
+}
