@@ -19,7 +19,9 @@ class MemberPasswordsController < Devise::PasswordsController
 
   # GET /resource/password/edit?reset_password_token=abcdef
   def edit
-    super
+    self.resource = resource_class.new
+    resource.reset_password_token = params[:reset_password_token]
+    render "devise/passwords/edit"
   end
 
   def resend
@@ -38,7 +40,7 @@ class MemberPasswordsController < Devise::PasswordsController
       flash_message = resource.active_for_authentication? ? :updated : :updated_not_active
       set_flash_message(:notice, flash_message)
       sign_in(resource_name, resource)
-      respond_with resource, :location => after_sign_in_path_for(resource)
+      respond_with resource, :location => root_path
     else
       respond_with_navigational(resource){ render_with_scope :edit }
     end
