@@ -117,13 +117,6 @@ body.members {
     }
   }
 
-  .name {
-    h3 .title {
-      margin-bottom: 0px;
-      padding-bottom: 0px;
-    }
-  }
-
   p.error .key {
     text-transform: capitalize;
   }
@@ -134,6 +127,12 @@ body.members {
 
     form {
       padding-bottom: 10px;
+      .errors {
+        background: #fae2d1;
+        padding: 5px;
+        margin-bottom: 10px;
+        float: left;
+      }
     }
 
     input {
@@ -166,6 +165,16 @@ body.members {
   }
 
   .name {
+    h3 .title {
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+    }
+    label {
+      display: block;
+      clear: both;
+      font-weight: 400;
+      font-size: 14px;
+    }
     input {
       width: 47%;
       display: block;

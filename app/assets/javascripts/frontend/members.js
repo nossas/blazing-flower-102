@@ -53,6 +53,12 @@ MR.members = {
     MR.form = $form;
 
     $form.validate({
+      messages: {
+        "member[first_name]": "Campo obrigatório",
+        "member[last_name]": "Campo obrigatório",
+        "member[password]": "Campo obrigatório",
+        "member[password_confirmation]": "Campo obrigatório"
+      },
       rules: {
         'member[bio]': { maxlength: 200 },
         'member[meu_rio_is]': { maxlength: 140 }, 
@@ -61,6 +67,9 @@ MR.members = {
     });
 
     if($form.valid()){
+      if ($form.children('.errors').length > 0){
+        $('.errors').hide();
+      }
       $.ajax({
         type: 'POST',
         url: '/members/' + $('.profile').attr('data-id'),
@@ -80,12 +89,17 @@ MR.members = {
           MR.members.closeEdit(button);
         },
         error: function(data, status, xhr){
-          var errors = $.parseJSON(data.responseText);
+          var errors = $.parseJSON(data.responseText), error_text = "<div class='errors'>";
           for(var key in errors){
+            console.log(key);
             if(errors.hasOwnProperty(key)){
-              $form.append('<p class="error"><span class="key">' + key + '</span> ' + errors[key] + '</p>');
+              console.log(errors[key]);
+              console.log(error_text);
+              error_text = error_text + key + ' ' + errors[key] + '</br>';
             }
           }
+          console.log(errors);
+          $form.prepend(error_text + '</div>');
         },  
         dataType: 'json'
       });

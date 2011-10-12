@@ -13,7 +13,7 @@ class Member < ActiveRecord::Base
   validates_presence_of :first_name
   validates_presence_of :last_name
   validates_confirmation_of :password
-  validates :password, :presence => true, :if => "has_non_oauth_login"
+  validates :encrypted_password, :presence => true, :if => "has_non_oauth_login"
   validates :password_confirmation, :presence => true, :if => "password"
 
   has_attached_file(

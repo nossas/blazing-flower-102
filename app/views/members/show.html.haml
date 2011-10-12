@@ -18,8 +18,9 @@
           = link_to image_tag("/assets/pencil.png"), "#", :id => "change_name_btn", :class => "change"
           #name-editor.edit
             =form_for @member do |f|
-              =f.text_field :first_name 
-              =f.text_field :last_name 
+              =f.text_field :first_name, :class => "required left" 
+              =f.text_field :last_name, :class => "required right" 
+            .clearfix
             =link_to "OK", "#", :id => "name-confirm", :class => "btn small confirm"
             =link_to "Cancelar", "#", :id => "name-cancel", :class => "btn small cancel"
     .clearfix
@@ -80,9 +81,9 @@
               = link_to image_tag("/assets/pencil.png"), "#", :id => "change_bio_btn", :class => "change"
               #password_editor.edit
                 =form_for @member do |f|
-                  =f.password_field :password
+                  =f.password_field :password, :class => "required"
                   =f.label :password_confirmation
-                  =f.password_field :password_confirmation
+                  =f.password_field :password_confirmation, :class => "required"
                 =link_to "OK", "#", :id => "password-confirm", :class => "btn small confirm"
                 =link_to "Cancelar", "#", :id => "password-cancel", :class => "btn small cancel"
               .clearfix
