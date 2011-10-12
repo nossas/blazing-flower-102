@@ -11,9 +11,10 @@ class MemberPasswordsController < Devise::PasswordsController
 
     if successful_and_sane?(resource)
       session[:password_reset_member_email] = params[resource_name]
-      render "devise/passwords/thank_you"
+      set_flash_message(:notice, :send_instructions)
+      return render :json => { :success => true, :flash =>  flash[:notice] }
     else
-      respond_with_navigational(resource){ render_with_scope :new }
+      return render :json => { :success => false, :errors => resource.errors.full_messages }
     end
   end
 

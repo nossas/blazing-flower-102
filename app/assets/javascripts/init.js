@@ -20,7 +20,7 @@ MR = {
         var $form = $(this), $errors = $("#errors");
         $errors.hide();
         if($form.valid()){
-          data = $form.serialize();
+          var data = $form.serialize();
           $.post("/members", data, function(data, textStatus, jqXHR){
             if(data.errors != null){
               var error_data = '';

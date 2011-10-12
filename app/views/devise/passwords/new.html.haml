@@ -1,8 +1,9 @@
 %h1 Esqueceu sua senha?
 = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
   %p= "Não se preocupe, é normal. Faz o seguinte: digite seu Email no campo abaixo que nós lhe enviaremos seu login e senha."
-  .grid_4
+  .grid_4.errors
     = custom_devise_error_messages!
+    #errors
   %div.grid_12
     = f.label :email
     %br/
