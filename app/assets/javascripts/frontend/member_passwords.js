@@ -22,7 +22,7 @@ MR.member_passwords = {
             $errors.show();
           }else{
             if(data.flash != null){
-              $("#flashTemplate").tmpl(data).prependTo("body");
+              location = "/"
             }
           } 
         });
