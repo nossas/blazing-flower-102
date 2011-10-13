@@ -17,7 +17,7 @@ Feature: Meu Rio Custom Login
     And I click "Crie sua conta no Meu Rio"
     And I fill in the new member form
     And I press "Criar"
-    Then I should see "translation missing: pt-BR.devise.member_registration.member.inactive_signed_up"
+    Then I should see "Seja bem-vindo ao Meu Rio. Por favor, verifique sua caixa de email com nossa mensagem de confirmação."
 
 
   @javascript
@@ -30,7 +30,7 @@ Feature: Meu Rio Custom Login
     And I click "Crie sua conta no Meu Rio"
     And I fill in the new member form with the same email
     And I press "Criar"
-    Then I should see "translation missing: pt-BR.devise.member_registration.member.inactive_signed_up"
+    Then I should see "Seja bem-vindo ao Meu Rio. Por favor, verifique sua caixa de email com nossa mensagem de confirmação."
 
   @javascript @omniauth_test
   Scenario: Trying to create a new member account after having signed up through Facebook
@@ -57,7 +57,7 @@ Feature: Meu Rio Custom Login
     And I click "Entre com sua conta do Meu Rio"
     And I fill out the member login form
     And I press "Entrar"
-    Then I should see "translation missing: pt-BR.devise.member_sessions.member.signed_in"
+    Then I should see "Pronto! Você está no Meu Rio."
 
   @javascript
   Scenario: Signing out of a Meu Rio account
