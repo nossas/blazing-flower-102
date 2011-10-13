@@ -1,7 +1,7 @@
 #new_registration
   %header
     %h2=t("create_MR_account")
-    %p=t("create_MR_account_intro")
+  %p=t("create_MR_account_intro")
   = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
     #errors
     %div.left.field
@@ -23,8 +23,9 @@
     .clearfix
     %br
     %div.right= f.submit t("sign_up"), :class => "btn", :id => "sign_up_btn"
+  .left
+    .back=link_to t('already_have_an_account'), "#login" 
+    .back=link_to t("go_back"), "#join"
   .clearfix
-  .back=link_to t('already_have_an_account'), "#login" 
-  .back=link_to t("go_back"), "#join"
   .policy.small
-    O Meu Rio protege a #{link_to("sua privacidade", page_path("privacidade"), :target => "_blank")} e o manterá <br>informado sobre esta e outras campanhas.
+    O Meu Rio protege a #{link_to("sua privacidade", page_path("privacidade"), :target => "_blank")} e o manterá informado sobre esta e outras campanhas.

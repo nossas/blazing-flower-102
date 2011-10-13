@@ -190,14 +190,17 @@ body.members {
   }
 
   #facebox {
-     h2 {
-      text-transform: uppercase;
-     }
-
-     .btn {
-       float: right;
-       margin: 15px 0;
+   .btn {
+     float: right;
+     margin: 15px 0;
     }
   }
 
+}
+
+.member_passwords.new {
+  form input[type="email"] {
+    height: 25px;
+    margin-right: 15px;
+  }
 }
