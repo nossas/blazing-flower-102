@@ -38,6 +38,9 @@ ActiveAdmin.register Taf do
       f.input :display_facebook
       f.input :facebook_image, :as => :file
       f.input :alternate_facebook_image, :as => :file
+      f.input :alternate_facebook_image_2, :as => :file
+      f.input :alternate_facebook_image_3, :as => :file
+      f.input :alternate_facebook_image_4, :as => :file
       f.input :facebook_title, :as => :string
       f.input :facebook_link, :as => :string
       f.input :facebook_message

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110928185211) do
+ActiveRecord::Schema.define(:version => 20111014164154) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -250,24 +250,24 @@ ActiveRecord::Schema.define(:version => 20110928185211) do
   add_index "provider_authorizations", ["provider", "uid"], :name => "index_provider_authorizations_on_provider_and_uid", :unique => true
 
   create_table "tafs", :force => true do |t|
-    t.text     "thank_you_headline",                    :default => "Obrigado por participar"
+    t.text     "thank_you_headline",                      :default => "Obrigado por participar"
     t.text     "thank_you_text"
-    t.boolean  "display_orkut",                         :default => false,                     :null => false
+    t.boolean  "display_orkut",                           :default => false,                     :null => false
     t.text     "orkut_title"
     t.text     "orkut_link"
     t.text     "orkut_message"
-    t.boolean  "display_facebook",                      :default => false,                     :null => false
+    t.boolean  "display_facebook",                        :default => false,                     :null => false
     t.text     "facebook_title"
     t.text     "facebook_link"
     t.text     "facebook_message"
-    t.boolean  "display_twitter",                       :default => false,                     :null => false
+    t.boolean  "display_twitter",                         :default => false,                     :null => false
     t.text     "tweet"
     t.text     "twitter_url"
-    t.boolean  "display_email",                         :default => false,                     :null => false
+    t.boolean  "display_email",                           :default => false,                     :null => false
     t.text     "email_subject"
     t.text     "email_message"
-    t.boolean  "display_copy_url",                      :default => false,                     :null => false
-    t.integer  "petition_id",                                                                  :null => false
+    t.boolean  "display_copy_url",                        :default => false,                     :null => false
+    t.integer  "petition_id",                                                                    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "facebook_image_file_name"
@@ -278,6 +278,18 @@ ActiveRecord::Schema.define(:version => 20110928185211) do
     t.string   "alternate_facebook_image_content_type"
     t.integer  "alternate_facebook_image_file_size"
     t.datetime "alternate_facebook_image_updated_at"
+    t.string   "alternate_facebook_image_2_file_name"
+    t.string   "alternate_facebook_image_2_content_type"
+    t.integer  "alternate_facebook_image_2_file_size"
+    t.datetime "alternate_facebook_image_2_updated_at"
+    t.string   "alternate_facebook_image_3_file_name"
+    t.string   "alternate_facebook_image_3_content_type"
+    t.integer  "alternate_facebook_image_3_file_size"
+    t.datetime "alternate_facebook_image_3_updated_at"
+    t.string   "alternate_facebook_image_4_file_name"
+    t.string   "alternate_facebook_image_4_content_type"
+    t.integer  "alternate_facebook_image_4_file_size"
+    t.datetime "alternate_facebook_image_4_updated_at"
   end
 
   add_index "tafs", ["petition_id"], :name => "index_tafs_on_petition_id", :unique => true

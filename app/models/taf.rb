@@ -45,6 +45,36 @@ class Taf < ActiveRecord::Base
                       :secret_access_key => SITE['s3_secret_access_key']
                     }
 
+  has_attached_file :alternate_facebook_image_2,
+                    :styles => { :medium => "200x200>", :thumb => "60x60" },
+                    :path => ':attachment/:id/:style/:filename',
+                    :storage => :s3,
+                    :bucket => SITE['s3_bucket'],
+                    :s3_credentials => {
+                      :access_key_id => SITE['s3_access_key_id'],
+                      :secret_access_key => SITE['s3_secret_access_key']
+                    }
+
+  has_attached_file :alternate_facebook_image_3,
+                    :styles => { :medium => "200x200>", :thumb => "60x60" },
+                    :path => ':attachment/:id/:style/:filename',
+                    :storage => :s3,
+                    :bucket => SITE['s3_bucket'],
+                    :s3_credentials => {
+                      :access_key_id => SITE['s3_access_key_id'],
+                      :secret_access_key => SITE['s3_secret_access_key']
+                    }
+
+  has_attached_file :alternate_facebook_image_4,
+                    :styles => { :medium => "200x200>", :thumb => "60x60" },
+                    :path => ':attachment/:id/:style/:filename',
+                    :storage => :s3,
+                    :bucket => SITE['s3_bucket'],
+                    :s3_credentials => {
+                      :access_key_id => SITE['s3_access_key_id'],
+                      :secret_access_key => SITE['s3_secret_access_key']
+                    }
+
   def ok_to_display_copy_url?
     self.display_copy_url
   end
