@@ -40,7 +40,7 @@ Feature: Meu Rio Custom Login
     And I click "Crie sua conta no Meu Rio"
     And I fill in the new member form with the same email
     And I press "Criar"
-    Then I should see "There is already a member with that email on the site"
+    Then I should see "Este email já está cadastrado. Clique aqui para entrar."
 
   @javascript
   Scenario: Members should be able to access the MR login form

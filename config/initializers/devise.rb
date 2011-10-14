@@ -5,7 +5,7 @@ Devise.setup do |config|
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = "info@meurio.org.br"
+  config.mailer_sender = "contato@meurio.org.br"
 
   # Configure the class responsible to send e-mails.
   config.mailer = "Devise::Mailer"

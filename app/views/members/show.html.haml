@@ -75,9 +75,9 @@
             .password
               .title
                 -if @member.encrypted_password
-                  =t("members_show.password")
-                -else
                   =t("members_show.set_password")
+                -else
+                  =t("members_show.create_password")
               = link_to image_tag("/assets/pencil.png"), "#", :id => "change_bio_btn", :class => "change"
               #password_editor.edit
                 =form_for @member do |f|

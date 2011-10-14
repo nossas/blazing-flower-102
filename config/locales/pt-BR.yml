@@ -321,6 +321,7 @@
   create_MR_account_intro: "Com uma conta no Meu Rio você poderá 
 aproveitar todo o conteúdo do nosso site."
   MR_account_login: "Entre com sua conta do Meu Rio"
+  already_have_an_account: "Já tem uma conta?"
   sign_up: "Criar"
   sign_in: "Entrar"
   go_back: "« Voltar"
@@ -401,6 +402,8 @@ Quer nos ajudar a construir um Rio de Janeiro mais justo e democrático? Faça d
   page_index:
     know_a_member: "Conheça um membro..."
     join_us: "Junte-se a nós!"
+    set_password: "Mudar Senha"
+    create_password: "Criar Senha"
   pages_thank_you: 
     title: "Obrigado pela sua participação!"
     text: "Muito obrigado pela sua doação e por acreditar no trabalho do Meu Rio. Agora que você é um patrocinador do movimento, faça seu <a href=\"#join\" rel=\"facebox\">cadastro</a> e nós lhe enviaremos anualmente uma cópia eletrônica do nosso relatório financeiro, assim você vai poder acompanhar melhor o destino do seu dindim."
