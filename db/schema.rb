@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110902152225) do
+ActiveRecord::Schema.define(:version => 20111014164154) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(:version => 20110902152225) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "autofire_emails", :force => true do |t|
-    t.text     "from",        :default => "Dev <dev@meurio.org.br>", :null => false
-    t.text     "subject",     :default => "Obrigado por participar", :null => false
+    t.text     "from",        :default => "Alessandra Orofino <alessandra@meurio.org.br>", :null => false
+    t.text     "subject",     :default => "Obrigado por participar",                       :null => false
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -156,12 +156,12 @@ ActiveRecord::Schema.define(:version => 20110902152225) do
 
   create_table "members", :force => true do |t|
     t.text     "zona"
-    t.text     "email",                                :null => false
+    t.text     "email",                                                   :null => false
     t.text     "celular"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name",                           :null => false
-    t.string   "last_name",                            :null => false
+    t.string   "first_name",                                              :null => false
+    t.string   "last_name",                                               :null => false
     t.string   "image_url"
     t.text     "meu_rio_is"
     t.text     "bio"
@@ -169,7 +169,16 @@ ActiveRecord::Schema.define(:version => 20110902152225) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.boolean  "is_subscriber",      :default => true
+    t.boolean  "is_subscriber",                         :default => true
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.boolean  "has_non_oauth_login"
+    t.string   "password",               :limit => 128
+    t.string   "encrypted_password",     :limit => 128, :default => "",   :null => false
+    t.boolean  "has_login"
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
@@ -241,24 +250,24 @@ ActiveRecord::Schema.define(:version => 20110902152225) do
   add_index "provider_authorizations", ["provider", "uid"], :name => "index_provider_authorizations_on_provider_and_uid", :unique => true
 
   create_table "tafs", :force => true do |t|
-    t.text     "thank_you_headline",                    :default => "Obrigado por participar"
+    t.text     "thank_you_headline",                      :default => "Obrigado por participar"
     t.text     "thank_you_text"
-    t.boolean  "display_orkut",                         :default => false,                     :null => false
+    t.boolean  "display_orkut",                           :default => false,                     :null => false
     t.text     "orkut_title"
     t.text     "orkut_link"
     t.text     "orkut_message"
-    t.boolean  "display_facebook",                      :default => false,                     :null => false
+    t.boolean  "display_facebook",                        :default => false,                     :null => false
     t.text     "facebook_title"
     t.text     "facebook_link"
     t.text     "facebook_message"
-    t.boolean  "display_twitter",                       :default => false,                     :null => false
+    t.boolean  "display_twitter",                         :default => false,                     :null => false
     t.text     "tweet"
     t.text     "twitter_url"
-    t.boolean  "display_email",                         :default => false,                     :null => false
+    t.boolean  "display_email",                           :default => false,                     :null => false
     t.text     "email_subject"
     t.text     "email_message"
-    t.boolean  "display_copy_url",                      :default => false,                     :null => false
-    t.integer  "petition_id",                                                                  :null => false
+    t.boolean  "display_copy_url",                        :default => false,                     :null => false
+    t.integer  "petition_id",                                                                    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "facebook_image_file_name"
@@ -269,6 +278,18 @@ ActiveRecord::Schema.define(:version => 20110902152225) do
     t.string   "alternate_facebook_image_content_type"
     t.integer  "alternate_facebook_image_file_size"
     t.datetime "alternate_facebook_image_updated_at"
+    t.string   "alternate_facebook_image_2_file_name"
+    t.string   "alternate_facebook_image_2_content_type"
+    t.integer  "alternate_facebook_image_2_file_size"
+    t.datetime "alternate_facebook_image_2_updated_at"
+    t.string   "alternate_facebook_image_3_file_name"
+    t.string   "alternate_facebook_image_3_content_type"
+    t.integer  "alternate_facebook_image_3_file_size"
+    t.datetime "alternate_facebook_image_3_updated_at"
+    t.string   "alternate_facebook_image_4_file_name"
+    t.string   "alternate_facebook_image_4_content_type"
+    t.integer  "alternate_facebook_image_4_file_size"
+    t.datetime "alternate_facebook_image_4_updated_at"
   end
 
   add_index "tafs", ["petition_id"], :name => "index_tafs_on_petition_id", :unique => true
@@ -285,31 +306,5 @@ ActiveRecord::Schema.define(:version => 20110902152225) do
     t.datetime "updated_at"
     t.text     "html_content"
   end
-
-  add_foreign_key "autofire_emails", "petitions", :name => "autofire_emails_petition_id_fk"
-
-  add_foreign_key "comment_flags", "comments", :name => "comment_flags_comment_id_fk"
-  add_foreign_key "comment_flags", "members", :name => "comment_flags_member_id_fk"
-
-  add_foreign_key "comments", "members", :name => "comments_member_id_fk"
-
-  add_foreign_key "debates", "issues", :name => "debates_issue_id_fk"
-  add_foreign_key "debates", "members", :name => "debates_author_email_side_1_fk", :column => "author_email_side_1", :primary_key => "email"
-  add_foreign_key "debates", "members", :name => "debates_author_email_side_2_fk", :column => "author_email_side_2", :primary_key => "email"
-
-  add_foreign_key "issues", "debates", :name => "issues_featured_debate_id_fk", :column => "featured_debate_id"
-  add_foreign_key "issues", "personal_stories", :name => "issues_featured_personal_story_id_fk", :column => "featured_personal_story_id"
-  add_foreign_key "issues", "petitions", :name => "issues_featured_petition_id_fk", :column => "featured_petition_id"
-
-  add_foreign_key "personal_stories", "issues", :name => "personal_stories_issue_id_fk"
-
-  add_foreign_key "petition_signatures", "members", :name => "petition_signatures_member_id_fk"
-  add_foreign_key "petition_signatures", "petitions", :name => "petition_signatures_petition_id_fk"
-
-  add_foreign_key "petitions", "issues", :name => "petitions_issue_id_fk"
-
-  add_foreign_key "provider_authorizations", "members", :name => "provider_authorizations_member_id_fk"
-
-  add_foreign_key "tafs", "petitions", :name => "tafs_petition_id_fk"
 
 end
