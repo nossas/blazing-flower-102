@@ -22,11 +22,14 @@ pt-BR:
       updated: 'A sua senha foi alterada com sucesso. Agora está conectado.'
     confirmations:
       send_instructions: 'Dentro de minutos, receberá um email com as instruções de confirmação da sua conta.'
-      confirmed: 'A sua conta foi confirmada com sucesso. Agora está conectado.'
+      confirmed: "A sua conta foi criada com sucesso. Você já está conectado."
     registrations:
       signed_up: 'Conectado com sucesso. Se não autorizado, a confirmação foi enviada por email.'
       updated: 'A sua conta foi atualizada com sucesso.'
       destroyed: 'Adeus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.'
+    member_registration:
+      member:
+        inactive_signed_up: "Seja bem-vindo ao Meu Rio. Por favor, verifique sua caixa de email com nossa mensagem de confirmação."
     unlocks:
       send_instructions: 'Dentro de minutos, receberá um email com as instruções como desbloquear a sua conta.'
       unlocked: 'A sua conta foi desbloqueada com sucesso. Agora está conectado.'
@@ -39,4 +42,5 @@ pt-BR:
         subject: 'Instruções de desbloqueio'
     member_sessions:
       member:
-        signed_out: "Você saiu do Meu Rio, obrigado pela visita."
+        signed_out: "Você saiu do Meu Rio. Mas vê se volta, heim!"
+      signed_in: "Pronto! Você está no Meu Rio."

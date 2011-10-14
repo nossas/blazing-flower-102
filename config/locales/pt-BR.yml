@@ -404,12 +404,3 @@ Quer nos ajudar a construir um Rio de Janeiro mais justo e democrático? Faça d
   pages_thank_you: 
     title: "Obrigado pela sua participação!"
     text: "Muito obrigado pela sua doação e por acreditar no trabalho do Meu Rio. Agora que você é um patrocinador do movimento, faça seu <a href=\"#join\" rel=\"facebox\">cadastro</a> e nós lhe enviaremos anualmente uma cópia eletrônica do nosso relatório financeiro, assim você vai poder acompanhar melhor o destino do seu dindim."
-  devise:
-    member_registration:
-      member:
-        inactive_signed_up: "Seja bem-vindo ao Meu Rio. Por favor, verifique sua caixa de email com nossa mensagem de confirmação."
-      confirmations: 
-        confirmed: "A sua conta foi criada com sucesso. Você já está conectado."
-    member_sessions:
-      signed_out: "Você saiu do Meu Rio. Valeu pela visita."
-      signed_in: "Pronto! Você está no Meu Rio."

@@ -65,7 +65,7 @@ Feature: Meu Rio Custom Login
     When I am logged in using my MR account information
     And I click on my member profile
     And I click "Sair »"
-    Then I should see "Você saiu do Meu Rio, obrigado pela visita."
+    Then I should see "Você saiu do Meu Rio. Mas vê se volta, heim!"
 
   @javascript
   Scenario: Updating your password through the member profile page (MR login)
