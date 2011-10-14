@@ -72,5 +72,5 @@ Feature: Meu Rio Custom Login
     Given I am a member with a MR login
     When I am logged in using my MR account information
     And I click on my name
-    Then I should see "Password"
+    Then I should see "Mudar Senha"
 
