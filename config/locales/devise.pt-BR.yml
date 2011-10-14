@@ -44,3 +44,6 @@ pt-BR:
       member:
         signed_out: "Você saiu do Meu Rio. Mas vê se volta, heim!"
       signed_in: "Pronto! Você está no Meu Rio."
+    member_passwords:
+      member:
+        send_instructions: "Nós enviamos as instruções para o seu email. Se você não receber uma mensagem em alguns instantes, <a href='#' id='resend_password'>tente reenviar seus dados.</a>"

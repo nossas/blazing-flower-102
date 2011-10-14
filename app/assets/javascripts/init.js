@@ -60,6 +60,11 @@ MR = {
         $(".popup .content").html($(target).html());
       });
 
+      $('#resend_password').live('click', function(e){
+        e.preventDefault();
+        $.get("/members/passwords/resend");
+      });
+
     },
 
     loadMemberLogin : function(){
