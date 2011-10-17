@@ -17,7 +17,7 @@ class MemberRegistrationController < Devise::RegistrationsController
     @member = Member.find_or_initialize_by_email(params[:member][:email])
 
     if @member.has_login
-      resource.errors[:base] << "Este email j&#225; est&#225; cadastrado. <a href='#login' rel='facebox'>Clique aqui</a> para entrar."
+      resource.errors[:base] << "<span class='back'>Este email j&#225; est&#225; cadastrado. <a href='#login' rel='facebox'>Clique aqui</a> para entrar.</span>"
       if request.xhr?
         return render :json => { :success => true, :errors => resource.errors.full_messages }
       else
