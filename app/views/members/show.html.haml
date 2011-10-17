@@ -74,7 +74,7 @@
           -if @member == current_member
             .password
               .title
-                -if @member.encrypted_password
+                -if @member.encrypted_password && @member.encrypted_password != ""
                   =t("members_show.set_password")
                 -else
                   =t("members_show.create_password")
@@ -136,8 +136,9 @@
 
 -if @member = current_member
   #image_form{ :style => "display: none;" }
-    %header
-      %h2 Mudar Imagem
-    =form_for @member, :html => { :multipart => true }, :url => { :action => "update" } do |f|
-      =f.file_field :image
-      =f.submit "Enviar", :class => "btn"
+    .image_form
+      %header
+        %h2 Mudar Imagem
+      =form_for @member, :html => { :multipart => true }, :url => { :action => "update" } do |f|
+        =f.file_field :image
+        =f.submit "Enviar", :class => "btn"
