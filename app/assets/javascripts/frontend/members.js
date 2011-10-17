@@ -91,14 +91,10 @@ MR.members = {
         error: function(data, status, xhr){
           var errors = $.parseJSON(data.responseText), error_text = "<div class='errors'>";
           for(var key in errors){
-            console.log(key);
             if(errors.hasOwnProperty(key)){
-              console.log(errors[key]);
-              console.log(error_text);
               error_text = error_text + key + ' ' + errors[key] + '</br>';
             }
           }
-          console.log(errors);
           $form.prepend(error_text + '</div>');
         },  
         dataType: 'json'
