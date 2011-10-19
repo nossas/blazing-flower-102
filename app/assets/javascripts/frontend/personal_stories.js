@@ -68,13 +68,16 @@ MR.personal_stories = {
     if(data.connected_action == "DEBATE"){
       $('.petition.btn').hide();
       $('.debate.btn').show();
+      $('.sprite.arrow-down').show();
       $('.comments_arrow').removeClass('hidden');
     } else if(data.connected_action == "PETITION"){
       $('.debate.btn').hide();
       $('.petition.btn').show();
+      $('.sprite.arrow-down').show();
       $('.comments_arrow').removeClass('hidden');
     } else {
       $('.take_action').hide();
+      $('.sprite.arrow-down').hide();
       $('.comments_arrow').addClass('hidden');
     }
   },

@@ -31,7 +31,10 @@
       <!-- AddThis Button END -->
       %h2#current_title= @current.title
       #current_description= raw @current.description
-      .sprite.arrow-down
+      -if !@current.connected_action || @current.connected_action == "NONE" || (@current.connected_action == "DEBATE" && @debate.nil?) || (@current.connected_action == "PETITION" && @petition.nil?)
+        .sprite.arrow-down{:style => "display:none;"}
+      -else 
+        .sprite.arrow-down
       -if !@debate.nil?
         -if @current.connected_action != "DEBATE"
           =link_to t("video_show.join_the_debate_link"), issue_debate_path(@issue.id, @debate.id), :class => "btn take_action debate", :style => "display: none;"
