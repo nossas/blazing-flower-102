@@ -33,9 +33,9 @@
                   %span=""
                 %dd
                   %ul
-                    -Array.[]('Centro', 'Norte', 'Oeste', 'Sul', 'Eu não sou do Rio').each do |petition|
+                    -Array.[]('Centro', 'Norte', 'Oeste', 'Sul', 'Outra localidade').each do |petition|
                       %li=link_to petition, petition
-              =m.select :zona, ['', 'Centro', 'Norte', 'Oeste', 'Sul', 'Eu não sou do Rio'], :class => "required"
+              =m.select :zona, ['', 'Centro', 'Norte', 'Oeste', 'Sul', 'Outra localidade'], :class => "required"
       - else
         .member_info.clearfix
           %p

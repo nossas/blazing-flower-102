@@ -50,7 +50,7 @@
             .clearfix
             #zona-editor.edit
               =form_for @member do |f|
-                =f.select :zona, options_for_select(['', 'Centro', 'Norte', 'Oeste', 'Sul', 'Eu não sou do Rio'], @member.zona)
+                =f.select :zona, options_for_select(['', 'Centro', 'Norte', 'Oeste', 'Sul', 'Outra localidade'], @member.zona)
               =link_to "OK", "#", :id => "zona-confirm", :class => "btn small confirm"
               =link_to "Cancelar", "#", :id => "zona-cancel", :class => "btn small cancel"
             .display= @member.zona
