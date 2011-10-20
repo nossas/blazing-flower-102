@@ -3,12 +3,14 @@
   .grid_4
     = custom_devise_error_messages!
   = f.hidden_field :reset_password_token
-  %div.grid_12
-    = f.label :password, "Nova senha"
+  .grid_12
+    %div
+      = f.label :password, "Nova senha"
+      %br/
+      = f.password_field :password
+    %div
+      = f.label :password_confirmation, "Confirme a nova senha"
+      %br/
+      = f.password_field :password_confirmation
     %br/
-    = f.password_field :password
-  %div
-    = f.label :password_confirmation, "Confirme a nova senha"
-    %br/
-    = f.password_field :password_confirmation
-  %div= f.submit "Mudar de senha", :class => 'btn'
+    %div= f.submit "Mudar de senha", :class => 'btn'
