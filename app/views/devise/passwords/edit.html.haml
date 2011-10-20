@@ -1,15 +1,14 @@
-%h1 Change your password
-%p= "Maecenas sed diam eget risus varius blandit sit amet non magna. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis. Maecenas sed diam eget risus varius blandit sit amet non magna. Integer posuere erat a ante venenatis dapibus posuere velit aliquet."
+%h1 Mudança de Senha
 = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
   .grid_4
     = custom_devise_error_messages!
   = f.hidden_field :reset_password_token
   %div.grid_12
-    = f.label :password, "New password"
+    = f.label :password, "Nova senha"
     %br/
     = f.password_field :password
   %div
-    = f.label :password_confirmation, "Confirm new password"
+    = f.label :password_confirmation, "Confirme a nova senha"
     %br/
     = f.password_field :password_confirmation
-  %div= f.submit "Change my password", :class => 'btn'
+  %div= f.submit "Mudar de senha", :class => 'btn'
