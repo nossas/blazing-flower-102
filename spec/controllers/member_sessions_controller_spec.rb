@@ -21,7 +21,7 @@ describe MemberSessionsController do
       get :facebook_logout
     end
     subject{ response }
-    it{ should redirect_to( "http://www.facebook.com/logout.php?api_key=api_key&session_key=session_key&confirm=1&next=#{destroy_member_session_url}") }
+    it{ should redirect_to( root_path ) }
   end
 
   describe "#destroy" do
