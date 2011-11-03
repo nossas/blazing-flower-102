@@ -21,7 +21,7 @@ describe MemberSessionsController do
       get :facebook_logout
     end
     subject{ response }
-    it{ should redirect_to( root_path ) }
+    it{ should redirect_to( destroy_member_session_path ) }
   end
 
   describe "#destroy" do
