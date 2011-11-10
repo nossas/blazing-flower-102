@@ -1,7 +1,7 @@
 %a{:name => "comment_#{comment.id}"}
 .comment.clearfix
   = link_to comment.member do
-    = image_tag comment.member.image_url, :class => "member_image"
+    = image_tag comment.member.current_image_url, :class => "member_image"
   .right_column
     %p
       = link_to comment.member do
