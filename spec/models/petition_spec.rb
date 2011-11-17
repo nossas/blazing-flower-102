@@ -117,6 +117,14 @@ describe Petition do
       @p.ok_to_display_counter?.should eq(false)
     end
   end
+  
+  describe "signature count" do
+    it "should return count of signatures combined with additional signatures entered by admin" do
+      petition = Factory.create(:petition_signature).petition
+      petition.update_attribute('additional_signatures', 10)
+      petition.signature_count.should == 11
+    end
+  end
 
   describe "#percentage_complete" do
     before do

@@ -28,7 +28,7 @@
       .grid_1.omega.meta_container
         .goal= t("petition_show.goal", :goal => @petition.counter_goal)
     .grid_6.omega.alpha
-      %strong.counter= raw t("petition_show.signatures", :count => @petition.petition_signatures.count)
+      %strong.counter= raw t("petition_show.signatures", :count => @petition.signature_count)
   .grid_6.alpha.omega
     %p.description= raw @petition.description.gsub("\n", "<br /><br />")
 .grid_6.take_action

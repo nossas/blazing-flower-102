@@ -28,13 +28,12 @@ class Petition < ActiveRecord::Base
   validates_format_of :custom_path, :with => /^[a-zA-Z0-9_-]+$/
 
   validates_inclusion_of :display_counter, :in => [true,false]
-  validates_presence_of :counter_threshold
-  validates_presence_of :counter_goal, :if => Proc.new { |t| t.display_counter }
+  validates_numericality_of :counter_threshold, :counter_goal, :additional_signatures, :only_integer => true
 
   validates_inclusion_of :display_comment_field, :in => [true,false]
   validates_inclusion_of :surface_comments, :in => [true,false]
   validates_presence_of :comment_question, :if => Proc.new { |t| t.display_comment_field }
-
+  
   validate :has_valid_state_attributes
 
   before_create :add_wmode_to_youtube_iframe
@@ -49,16 +48,23 @@ class Petition < ActiveRecord::Base
 
   def percentage_complete
     percent = 0
-
-    if ((self.counter_goal != 0) && (self.petition_signatures.count < self.counter_goal))
-      percent = (self.petition_signatures.count * 100) / self.counter_goal
-    elsif (self.counter_goal != 0) && (self.petition_signatures.count >= self.counter_goal)
-      percent = 100
+    count = signature_count
+    
+    if counter_goal != 0
+      if count < counter_goal
+        percent = (count * 100) / counter_goal
+      elsif count >= counter_goal
+        percent = 100
+      end
     else
       percent = 0
     end
 
     return percent
+  end
+  
+  def signature_count
+    petition_signatures.count + additional_signatures
   end
 
   state_machine :state, :initial => :draft do

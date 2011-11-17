@@ -135,6 +135,10 @@ ActiveAdmin.register Petition do
               th { 'Counter Goal' }
               td { petition.counter_goal.to_s }
             end
+            tr do
+              th { 'Additional Signatures' }
+              td { petition.additional_signatures.to_s }
+            end
           end
         end
       end

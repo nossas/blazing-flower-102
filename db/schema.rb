@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111103013016) do
+ActiveRecord::Schema.define(:version => 20111117172945) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -233,6 +233,7 @@ ActiveRecord::Schema.define(:version => 20111103013016) do
     t.text     "donation_thanks_message"
     t.text     "donation_headline"
     t.text     "donation_text"
+    t.integer  "additional_signatures",   :default => 0,        :null => false
   end
 
   add_index "petitions", ["custom_path"], :name => "index_petitions_on_custom_path", :unique => true
