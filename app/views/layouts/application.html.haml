@@ -24,10 +24,10 @@
     = csrf_meta_tags
 
     %meta{ :property => "fb:app_id", :content => "#{SITE['fb_app_id']}" }
-    %meta{ :property => "og:title",  :content => "#{SITE['og_title']}" }
     %meta{ :property => "og:type",   :content => "#{SITE['og_type']}" }
 
     -if(content_for :meta_tags).empty?
+      %meta{ :property => "og:title",  :content => "#{SITE['og_title']}" }
       %meta{ :property => "og:image",       :content => "#{SITE['og_image']}" }
       %meta{ :property => "og:url",         :content => "#{SITE['og_url']}" }
       %meta{ :property => "og:description", :content => "#{SITE['og_description']}" }
