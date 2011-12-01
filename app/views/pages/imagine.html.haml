@@ -8,5 +8,10 @@
 - content_for :javascripts do
   - if Rails.env == 'production'
     = javascript_include_tag 'http://meurio-imagine.heroku.com/javascripts/ramify.js'
+    :javascript
+      RAMIFY.host = 'http://meurio-imagine.heroku.com';
+      RAMIFY.init();
   - else
     = javascript_include_tag 'http://localhost:3001/javascripts/ramify.js'
+    :javascript
+      RAMIFY.init();
