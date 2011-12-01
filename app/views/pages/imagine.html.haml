@@ -1,2 +1,5 @@
 - content_for :javascripts do
-  = javascript_include_tag 'http://localhost:3001/javascripts/ramify.js'
+  - if Rails.env == 'production'
+    = javascript_include_tag 'http://meurio-imagine.heroku.com/javascripts/ramify.js'
+  - else
+    = javascript_include_tag 'http://localhost:3001/javascripts/ramify.js'
