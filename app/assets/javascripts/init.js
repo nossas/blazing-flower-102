@@ -9,7 +9,6 @@ MR = {
       MR.common.setBodyBackgroundClass();
       MR.common.setupLogoAnimation();
       MR.common.loadMemberRegistration();
-      MR.common.loadMemberLogin();
 
       $('.member_panel .right.info').bind('click', function(){
         MR.common.openMemberFlyout();
@@ -67,14 +66,6 @@ MR = {
 
     },
 
-    loadMemberLogin : function(){
-      $('#mr_login a').live('click', function(e){
-        e.preventDefault();
-        var $content = $(".popup .content");
-        $content.load("/members/sign_in");
-      });
-    },
-
     loadMemberRegistration : function() {
       $('#create a').live('click', function(e){
         e.preventDefault();
@@ -125,6 +116,13 @@ MR = {
       $.facebox.settings.closeImage = "/assets/closelabel.png";
       $.facebox.settings.loadingImage = "/assets/loading.gif";
       $("[rel=facebox]").facebox();
+      $(document).bind('reveal.facebox', function() {
+        $('#mr_login a').click(function(e){
+          e.preventDefault();
+          var $content = $(".popup .content");
+          $content.load("/members/sign_in");
+        });
+      });
     },
 
     googleLogout: function(){
