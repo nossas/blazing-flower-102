@@ -20,7 +20,6 @@ class MemberSessionsController < Devise::SessionsController
       return render :json => { :logged_in => false }
     end
   end
-  
 
   def destroy
     session[:fb_token] = nil
