@@ -12,4 +12,14 @@ describe RamifyController do
     subject{ response }
     its(:body){ should = '{"sid":"27d6def614dcdd111430acc1287833db"}' }
   end
+
+  describe "#destroy_ramify_session" do
+    before do
+      require 'net/http'
+      FakeWeb.register_uri(:get, SITE['ramify_logout_address'], :body => '{"sid":"destroy sid"}')
+      get :destroy_session
+    end
+    subject{ response }
+    its(:body){ should = '{"sid":"destroy sid"}' }
+  end
 end

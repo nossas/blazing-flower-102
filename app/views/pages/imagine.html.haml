@@ -9,8 +9,20 @@
   - if Rails.env == 'production'
     = javascript_include_tag 'http://meurio-imagine.heroku.com/javascripts/ramify.js'
     :javascript
-      RAMIFY.init({host:  'http://meurio-imagine.heroku.com'});
+      var host = 'http://meurio-imagine.heroku.com';
   - else
     = javascript_include_tag 'http://localhost:3001/javascripts/ramify.js'
     :javascript
-      RAMIFY.init({host: 'http://localhost:3001'});
+      var host = 'http://localhost:3001';
+  :javascript
+    RAMIFY.init({host: host});
+    if($('#member_panel .flyout').length > 0) {
+      RAMIFY.login(function(){
+        RAMIFY.loadFrame();
+      });
+    }
+    else {
+      RAMIFY.logout(function(){
+        RAMIFY.loadFrame();
+      });
+    }
