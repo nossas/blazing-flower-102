@@ -77,6 +77,7 @@ group :development, :test do
   gem "database_cleaner"
 
   gem "awesome_print"
+  gem "fakeweb"
 end
 
 group :production do

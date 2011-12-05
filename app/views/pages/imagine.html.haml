@@ -1,0 +1,16 @@
+.container_12
+  .grid_8.alpha.imagine
+    =link_to('IMAGINE', page_path(:id => 'imagine'))
+    %h1 O QUE PODEMOS FAZER PELA EDUCAÇÃO
+  .grid_1.prefix_3.omega.imagine  
+    =link_to image_tag'imagine.png', :id => 'ballon'
+
+- content_for :javascripts do
+  - if Rails.env == 'production'
+    = javascript_include_tag 'http://meurio-imagine.heroku.com/javascripts/ramify.js'
+    :javascript
+      RAMIFY.init({host:  'http://meurio-imagine.heroku.com'});
+  - else
+    = javascript_include_tag 'http://localhost:3001/javascripts/ramify.js'
+    :javascript
+      RAMIFY.init({host: 'http://localhost:3001'});

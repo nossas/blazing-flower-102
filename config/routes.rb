@@ -48,5 +48,9 @@ MeuRio::Application.routes.draw do
     resources :comment_flags, :only => [:create, :destroy], :as => "flags"
   end
 
+  # Ramify integration for Imagine
+  get :create_ramify_session, :to => "ramify#create_session"
+
+
   root :to => "pages#show", :id => "index"
 end
