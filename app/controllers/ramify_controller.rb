@@ -7,10 +7,7 @@ class RamifyController < ApplicationController
 
   def destroy_session
     uri = URI(SITE['ramify_logout_address'])
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE # read into this
-    res = Net::HTTP::Get.new(uri.request_uri)
-    render :json => res
+    res = Net::HTTP.post_form(uri, {})
+    render :json => res.body
   end
 end

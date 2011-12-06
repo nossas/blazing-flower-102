@@ -16,7 +16,7 @@ describe RamifyController do
   describe "#destroy_ramify_session" do
     before do
       require 'net/http'
-      FakeWeb.register_uri(:get, SITE['ramify_logout_address'], :body => '{"sid":"destroy sid"}')
+      FakeWeb.register_uri(:post, SITE['ramify_logout_address'], :body => '{"sid":"destroy sid"}')
       get :destroy_session
     end
     subject{ response }
