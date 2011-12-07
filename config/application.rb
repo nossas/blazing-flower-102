@@ -41,7 +41,10 @@ module MeuRio
     # Enable the asset pipeline
     config.assets.enabled = true
 
+
     config.sass.load_paths << "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/compass/stylesheets"
     config.sass.load_paths << "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/blueprint/stylesheets"
+    config.sass.load_paths << "#{Gem.loaded_specs['compass-960-plugin'].full_gem_path}/stylesheets"
+
   end
 end
