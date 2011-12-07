@@ -1,0 +1,38 @@
+@mixin form
+  text-align: left
+  label
+    padding-bottom: 8px
+    abbr[title=required]
+      font-size: 14px
+      color: $pink
+      margin-left: 2px
+      float: right
+    &.radio
+      display: block
+      padding-bottom: 0
+    &.collection_radio
+      margin: 0 4px
+  input[type=text], textarea
+    font: inherit
+    line-height: inherit
+    color: inherit
+    border: none
+    background: transparent url(/images/edit.png) no-repeat 6px bottom
+    padding: 4px 12px
+    padding-left: 28px
+    width: 93%
+    &:hover, &:active
+      border: none
+      background-color: white
+  textarea
+    height: 85px
+  input[type=checkbox]
+    margin-right: 8px
+  input[type=radio]
+    margin-right: 4px
+  .submit
+    text-align: right
+    margin-top: 20px
+  input[type=submit], button
+    padding: 0 3px
+    +button

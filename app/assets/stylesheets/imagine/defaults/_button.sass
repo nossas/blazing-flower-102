@@ -1,0 +1,56 @@
+@mixin button
+  text-rendering: optimizeLegibility
+  text-transform: uppercase
+  text-decoration: none
+  font-family: Folk
+  display: block
+  color: white
+  padding: 8px 14px
+  border: 1px $orange
+  +border-radius(10px)
+  +box-shadow(grey 0 2px 2px)  
+  background-color: #ffb76b
+  +filter-gradient(#ffb76b, #ff7f04, vertical)
+  +background-image(linear-gradient(top, #ffb76b 0%,#ffb76b 48%,#ff973d 50%,#ff973d 100%))
+  +transition(all, 0.3s)
+  &:hover
+    +filter-gradient($light_pink, $pink, vertical)
+    +background-image(linear-gradient(top, $light_pink 0%, $light_pink 48%, $pink 50%, $pink 100%))
+    +transition(all, 1s)
+    background-color: lighten($pink, 4%)
+    color: white
+  &:active
+    +transition(none)
+  &:disabled
+    color: $grey
+    background-color: $light_grey
+
+
+@mixin button_no
+  text-rendering: optimizeLegibility
+  text-transform: uppercase
+  text-decoration: none
+  font-family: Folk
+  display: block
+  color: white
+  padding: 8px 14px
+  border: 1px $orange
+  +border-radius(10px)
+  +box-shadow(grey 0 2px 2px)  
+  background-color: #ffb76b
+  +filter-gradient(#ffb76b, #ff7f04, vertical)
+  +background-image(linear-gradient(top, $light_pink 0%, $light_pink 48%, $pink 50%, $pink 100%))
+  +transition(all, 0.3s)
+  &:hover
+    +filter-gradient($light_pink, $pink, vertical)
+    +background-image(linear-gradient(top, #ffb76b 0%,#ffb76b 48%,#ff973d 50%,#ff973d 100%)) 
+    +transition(all, 1s)
+    background-color: lighten($pink, 4%)
+    color: white
+  &:active
+    +transition(none)
+  &:disabled
+    color: $grey
+    background-color: $light_grey
+
+    

@@ -1,0 +1,27 @@
+@import content/index
+@import content/explore
+@import content/show_idea
+@import content/show_user
+@import content/review_conflicts
+@import content/confirm_fork
+
+@mixin content
+  +grid-container
+  padding: 0 10px
+  //background: white
+  +border-radius(8px)
+  +clearfix
+  margin-top: 10px
+  
+  #index
+    +index
+  #explore
+    +explore
+  #show_idea
+    +show_idea
+  #review_conflicts
+    +review_conflicts
+  #confirm_fork_idea
+    +confirm_fork
+  #show_user
+    +show_user

@@ -1,0 +1,20 @@
+@import header/logo
+@import header/login_menu
+@import header/user_menu
+@import header/social
+
+@mixin header
+  +grid-container
+  padding: 20px 10px
+  +clearfix
+  background: white
+  height: 140px
+  +border-radius(0 0 8px 8px)
+  #logo
+    +logo
+  #login_menu
+    +login_menu
+  #user_menu
+    +user_menu
+  #social
+    +social

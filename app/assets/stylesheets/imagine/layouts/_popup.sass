@@ -1,0 +1,66 @@
+$popup_padding_vertical: 40px
+$popup_padding_horizontal: 20px
+$popup_width: 619px
+$popup_height: 380px
+
+@mixin popup
+  z-index: 500
+  display: none
+  background-color: lighten($light_orange, 30%)
+  position: absolute
+  top: 50%
+  left: 50%
+  width: $popup_width - $popup_padding_horizontal * 2
+  height: $popup_height - $popup_padding_vertical * 2
+  margin-left: -($popup_width / 2)
+  margin-top: -($popup_height / 2)
+  padding: $popup_padding_vertical $popup_padding_horizontal
+  text-align: center
+  +border-radius(8px)
+  h1
+    font-size: 28px
+    text-transform:uppercase
+  h2
+    font-family: "AkagiLight" 
+    font-size: 18px
+    line-height: 32px
+  h3
+    margin-bottom: 8px
+    font-family: 'Folk'
+    font-size: 20px
+  label
+    font-size: 16px
+  a.close
+    color: white
+    background-color: $orange
+    text-decoration: none
+    position: absolute
+    width: 30px
+    height: 30px
+    +border-radius(30px)
+    top: 0
+    left: 100%
+    margin-top: -15px
+    margin-left: -15px
+    +transition(all, 0.3s)
+    img
+      width: 15px
+      vertical-align: middle
+      margin-top: 2px
+      margin-left: -2px
+    &:hover
+      +scale(1.05)
+  input[type=submit], button
+    padding: 0 3px
+    font-size: 18px
+    letter-spacing: 0.08em
+    +button  
+  form
+    padding-top: 16px
+    width: 92%
+    margin: 0 auto
+    .warning
+      margin-bottom: 16px
+      ul li
+        list-style: disc inside
+        font-size: 14px

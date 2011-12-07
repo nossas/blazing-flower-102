@@ -1,0 +1,83 @@
+@import content/idea
+
+@mixin show_user
+  +grid(12)
+  .header    
+    +grid(12)
+    +alpha
+    +omega
+    display: block
+    .image
+      +grid(2)
+      +alpha
+      position: relative
+      img
+        +box-shadow(0 1px 4px rgba(0, 0, 0, 0.27))
+        width: 130px
+        padding: 5px
+        background: white
+        &.clickable
+          cursor: pointer
+      form
+        position: absolute
+        top: -1000px
+      .upload
+        position: absolute
+        width: 132px
+        bottom: 5px
+        background-color: $grey
+        background-color: rgba(0, 0, 0, 0.5)
+        color: white
+        font-size: 14px
+        line-height: 14px
+        padding: 4px
+        text-align: center
+        cursor: pointer
+    .info
+      +grid(10)
+      +omega
+      h2
+        font-family: Folk
+        &.editable
+          height: 38px
+      .email
+        color: $grey
+        &.editable
+          height: 32px
+      .bio
+        font-size: 0.9em
+        line-height: 0.9em
+        &.editable
+          height: 60px
+
+  .content
+    +grid(12)
+    +alpha
+    +omega
+    .aside
+      +idea
+      +grid(6)
+      .ideas
+        +alpha
+      .versions
+        +omega
+      margin-top: 20px
+      .idea
+        height: 123px
+        .idea_wrapper
+          margin-top: 20px
+          height: 65px
+          h1
+            font-size: 18px
+      h3
+        font-family: Folk
+        font-size: 1.4em
+      li
+        margin-top: 50px
+        position: relative
+        img.category
+          top: -40px !important
+      .empty
+        font-style: italic
+        padding-top: 20px
+        display: block

@@ -1,0 +1,58 @@
+@import content/idea
+
+@mixin explore
+  +grid(12)
+  +alpha
+  +omega
+  .header
+    +grid(12)
+    h2
+      font-size: 24px
+  .content
+    +grid(12)
+    padding-top: 20px
+    .menu
+      +grid(3)
+      +alpha
+      h3
+        padding-bottom: 8px
+        font-weight: normal
+        text-transform: uppercase
+        font-size: 16px
+      ul
+        padding-bottom: 32px
+        li a
+          +border-radius(5px)
+          display: block
+          background: $dark_brey
+          color: white
+          text-decoration: none
+          text-transform: uppercase
+          text-align: center
+          padding: 4px
+          margin-bottom: 16px
+          &:hover
+            background: $light_blue
+          &.selected
+            background: $blue
+    .results
+      +grid(9)
+      +omega
+      overflow: hidden
+      padding-bottom: 48px
+      ul
+        +grid(9)
+        +alpha
+        +omega
+        width: 720px
+        li
+          +idea
+          +grid(3)
+          +alpha
+          margin-right: $ninesixty-gutter-width
+          margin-top: 18px
+      .loading
+        +grid(9)
+        +omega
+        text-align: center
+        padding-top: 18px

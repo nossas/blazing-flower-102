@@ -51,6 +51,7 @@ MeuRio::Application.routes.draw do
   # Ramify integration for Imagine
   get :create_ramify_session, :to => "ramify#create_session"
   get :destroy_ramify_session, :to => "ramify#destroy_session"
+  match "imagine" => "ideas#index", :as => "imagine"
 
 
   root :to => "pages#show", :id => "index"

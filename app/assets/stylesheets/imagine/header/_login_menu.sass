@@ -1,0 +1,15 @@
+@mixin login_menu
+  +grid(4)
+  color: $light_black
+  text-transform: uppercase
+  ul
+    color: white
+    padding: 5px 10px !important
+    background: $light_pink 
+    +horizontal-list(4px)
+    +border-radius(5px)
+    a
+      color: white
+      text-decoration: none
+      &:hover
+        color: $brey

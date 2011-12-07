@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111117172945) do
+ActiveRecord::Schema.define(:version => 20111207180520) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(:version => 20111117172945) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "autofire_emails", :force => true do |t|
-    t.text     "from",        :default => "Alessandra Orofino <alessandra@meurio.org.br>", :null => false
-    t.text     "subject",     :default => "Obrigado por participar",                       :null => false
+    t.text     "from",        :default => "Dev <dev@meurio.org.br>", :null => false
+    t.text     "subject",     :default => "Obrigado por participar", :null => false
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -123,6 +123,23 @@ ActiveRecord::Schema.define(:version => 20111117172945) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "ideas", :force => true do |t|
+    t.integer  "member_id",                      :null => false
+    t.integer  "issue_id",                       :null => false
+    t.integer  "category_id",                    :null => false
+    t.integer  "parent_id"
+    t.text     "title",                          :null => false
+    t.text     "headline"
+    t.boolean  "featured",    :default => false, :null => false
+    t.boolean  "recommended", :default => false, :null => false
+    t.integer  "likes",       :default => 0,     :null => false
+    t.integer  "order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ideas", ["issue_id"], :name => "index_ideas_on_issue_id"
 
   create_table "issues", :force => true do |t|
     t.text     "name"
@@ -307,5 +324,35 @@ ActiveRecord::Schema.define(:version => 20111117172945) do
     t.datetime "updated_at"
     t.text     "html_content"
   end
+
+  add_foreign_key "autofire_emails", "petitions", :name => "autofire_emails_petition_id_fk"
+
+  add_foreign_key "comment_flags", "comments", :name => "comment_flags_comment_id_fk"
+  add_foreign_key "comment_flags", "members", :name => "comment_flags_member_id_fk"
+
+  add_foreign_key "comments", "members", :name => "comments_member_id_fk"
+
+  add_foreign_key "debates", "issues", :name => "debates_issue_id_fk"
+  add_foreign_key "debates", "members", :name => "debates_author_email_side_1_fk", :column => "author_email_side_1", :primary_key => "email"
+  add_foreign_key "debates", "members", :name => "debates_author_email_side_2_fk", :column => "author_email_side_2", :primary_key => "email"
+
+  add_foreign_key "ideas", "ideas", :name => "ideas_parent_id_fk", :column => "parent_id"
+  add_foreign_key "ideas", "issues", :name => "ideas_issue_id_fk"
+  add_foreign_key "ideas", "members", :name => "ideas_member_id_fk"
+
+  add_foreign_key "issues", "debates", :name => "issues_featured_debate_id_fk", :column => "featured_debate_id"
+  add_foreign_key "issues", "personal_stories", :name => "issues_featured_personal_story_id_fk", :column => "featured_personal_story_id"
+  add_foreign_key "issues", "petitions", :name => "issues_featured_petition_id_fk", :column => "featured_petition_id"
+
+  add_foreign_key "personal_stories", "issues", :name => "personal_stories_issue_id_fk"
+
+  add_foreign_key "petition_signatures", "members", :name => "petition_signatures_member_id_fk"
+  add_foreign_key "petition_signatures", "petitions", :name => "petition_signatures_petition_id_fk"
+
+  add_foreign_key "petitions", "issues", :name => "petitions_issue_id_fk"
+
+  add_foreign_key "provider_authorizations", "members", :name => "provider_authorizations_member_id_fk"
+
+  add_foreign_key "tafs", "petitions", :name => "tafs_petition_id_fk"
 
 end

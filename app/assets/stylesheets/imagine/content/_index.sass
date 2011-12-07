@@ -1,0 +1,78 @@
+@import content/idea
+
+@mixin index
+  +grid(12)
+  .new_idea
+    +grid(12)
+    +alpha
+    +omega
+    h2
+      +grid(5)
+      +alpha
+      font-size: 1.69em
+    a
+      font-family: "Folk"
+      +grid(2)
+      +grid-suffix(5)
+      +omega
+      +border-radius(4px)
+      padding: 4px 0
+      background: $blue
+      color: white
+      margin-top: 4px
+      text-align: center
+      text-decoration: none
+      text-transform: uppercase
+      font-size: 20px
+      line-height: 24px
+      &:hover
+        background: lighten($blue, 8%)
+  .explore
+    +grid(10)
+    +grid-push(1)
+    +alpha
+    margin-top: 48px
+    margin-bottom: 32px
+    padding: 12px 0
+    color: $dark_grey
+    background: $light_brey
+    +border-radius(8px)
+    text-align: center
+    font-size: 24px
+    line-height: 28px
+    .number
+      font-size: 36px
+      line-height: 36px
+    a
+      text-decoration: none
+  .ideas
+    +grid(12)
+    +alpha
+    +omega
+    padding-top: 28px
+    h3
+      margin-bottom: 15px
+      text-align: left
+      font-size: 28px
+      font-weight: normal
+      color: $grey
+    ul
+      li
+        +idea
+    .more
+      +grid(4)
+      +grid-push(8)
+      +alpha
+      +omega
+      text-align: right
+      padding-top: 16px
+      a
+        display: block
+        text-decoration: none
+        .arrow
+          float: right
+          font-size: 18px
+          line-height: 32px
+          font-weight: bold
+          margin-left: 4px
+          margin-top: -4px
