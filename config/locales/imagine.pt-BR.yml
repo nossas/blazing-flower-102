@@ -1,0 +1,241 @@
+pt-BR:
+  likes: %{count} likes
+  versions: %{count} versões
+  require_login: Você precisa estar logado para realizar esta ação.
+  require_admin: Você precisa ser admin para realizar esta ação.
+  require_permission: Você não tem permissão para realizar esta ação.
+  activerecord:
+      models:
+        idea: Ideia
+        configuration: Configuração
+        category: Categorias
+        user: Usuário
+      attributes:
+        idea:
+          title: Título
+          headline: Resumo
+          category: Categoria
+        configuration:
+          name: Nome
+          value: Valor
+        category:
+          name: Nome
+          badge: Imagem
+        user:
+          name: Nome
+          email: E-Mail
+          image: Imagem
+  active_admin:
+    any: Qualquer um
+  helpers:
+    submit:
+      idea:
+        create: "Criar minha ideia"
+        update: "Criar minha versão desta ideia"
+  or: ou
+  ok: OK
+  cancel: Cancelar
+  click_to_edit: Clique para editar...
+  user:
+    no_name: Sem nome
+  layouts:
+    header:
+      title: Voltar para página inicial
+    new_idea:
+      title: Inicie sua ideia para o desenvolvimento social
+      warning: Ao criar minha ideia eu entendo que
+      accept:
+        license_html: Ela será licenciada em <a href="http://creativecommons.org/licenses/by/3.0/br/" target="_blank">Creative Commons Atribuição 3.0 (CC BY 3.0)</a>
+        share: Qualquer pessoa poderá compartilhar minha ideia
+        copy: Qualquer pessoa poderá copiar e modificar minha ideia
+        confirm: Li e concordo em licenciar minha ideia em Creative Commons BY 3.0
+    login:
+      title: Acesse com sua rede social favorita
+      remember_me: Lembre-se de mim e mantenha-me conectado.
+      description_html: Nós <strong>nunca</strong> saberemos sua senha ou qualquer outra informação sigilosa de sua conta na rede social escolhida. Teremos acesso somente a dados básicos, como nome, foto e email.
+      tips_html: <strong>Lembre-se com qual rede você se cadastrou</strong>. É com ela que você sempre irá acessar sua conta.
+    login_menu:
+      login: Fazer login
+      signup: Criar uma conta
+    user_menu:
+      my_profile: Ver meu perfil
+      admin: Painel administrativo
+      logout: Sair
+  shared:
+    comments:
+      title: Comentários
+  sessions:
+    post_auth:
+      error: Ocorreu um erro ao realizar o login. Por favor, tente novamente.
+      success: Login realizado com sucesso. Bem-vindo, %{name}!
+    destroy:
+      success: Logout realizado com sucesso. Até logo!
+    failure:
+      error: Ocorreu um erro ao realizar o login. Por favor, tente novamente.
+  ideas:
+    deadline_finished: "Encerrado o prazo para inscrição de novas ideias"
+    index:
+      title: Intercâmbio de ideias, criação colaborativa e soluções inovadoras!
+      bullets:
+        first: Encontre uma ideia que você gostaria de remixar
+        second: Crie sua própria versão e trabalhe até ficar satisfeito
+        third: Devolva a ideia para a comunidade remixar mais e mais
+      step_1_html: "<span>#1</span> <div><strong>Seleção!</strong> Em pouquíssimo tempo, o #festideias reuniu 346 ideias inovadoras sobre três grandes questões. Após uma difícil seleção, o time de curadores chegou às 20 ideias que irão, nos dias 20 e 21 de setembro, para o evento na Cinemateca Brasileira, em São Paulo. Confira a lista abaixo!</div>"
+      step_2_html: "<span>#2</span> <div><strong>Confirme sua presença</strong> Não deixe de ir à Cinemateca Brasileira, para aprimorar as 20 ideias selecionadas nas mesas abertas de co-criação. É a sua chance de interagir! Além dos debates, você poderá conhecer os organizadores e aumentar seu networking.</div>"
+      step_3_html: "<span>#3</span> <div><strong>No dia</strong> Lá na Cinemateca, as ideias serão refinadas, estruturadas, apresentadas, e as três finalistas ganharão R$ 10 mil cada uma. Além disso, o FdI contará com uma programação diversa: debates, conversas e muita interação!</div>"
+      video_html: <div style="width:460px" id="__ss_8755784"><iframe src="http://www.slideshare.net/slideshow/embed_code/8755784" width="460" height="380" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></div>
+      discover: Conheça algumas ideias e contribua!
+      didnt_find: Tem uma ideia que não está aqui?
+      new_idea: Inicie uma ideia
+      explore:
+        html: Temos um total de <span class="number">%{count}</span> ideias. Que tal explorar todas elas %{link}?
+        link: clicando aqui
+    list:
+      featured:
+        title: Ideias em destaque
+        more: Conheça mais ideias recomendadas
+      popular:
+        title: Ideias populares
+        more: Conheça mais ideias populares
+      recent:
+        title: Ideias recentes
+        more: Conheça mais ideias recentes
+    idea:
+      by: por %{user}
+      link: Conheça e contribua
+    idea_template:
+      by: por %{user}
+      link: Conheça e contribua
+    explore:
+      title: Conheça as ideias do Festival
+      subtitle: Encontre as ideias que você gostaria de remixar e contribua!
+      quick: Busca rápida
+      featured: Recomendadas
+      popular: Populares
+      recent: Recentes
+      categories: Categorias
+      empty: Nenhuma ideia encontrada
+    show:
+      user_html: Esta é uma ideia de %{link}.
+      parent_html: "Esta é uma versão de %{user}, criada a partir da ideia de %{parent}."
+      headline: Em poucas palavras...
+      fork_idea: Remixar esta ideia
+      remove_idea: Apagar
+      need_to_merge:
+        html: Ei, a ideia original de %{user} possui alterações. Que tal mesclar estas alterações com as suas %{link}?
+        link: clicando aqui
+      versions_changed:
+        html: Ei, pelo menos uma das versões da sua ideia possui alterações. Que tal mesclar estas alterações com as suas %{link}?
+        link: clicando aqui
+      menu:
+        description: O que é esta ideia
+        have: O que já temos
+        need: O que precisamos
+        versions: Versões desta ideia
+      placeholders:
+        description_html: "<p>Explique aqui a sua ideia. Mas seja breve: ninguém gosta de ler textos gigantes que não vão direto ao ponto.</p>"
+        have_html: <p>Explique aqui o que você ou o seu grupo já possuem das coisas que são necessárias para botar sua ideia em prática.</p><p>Você pode fazer uma lista e ir alterando à medida que recebe contribuições.</p>
+        need_html: <p>Explique aqui o que você ou o seu grupo precisam para fazer a sua ideia acontecer.</p><p>Deste modo, as pessoas que acreditam na sua ideia irão saber como podem contribuir.</p>
+        versions_html: "<p>Cada pessoa pode criar sua própria versão de qualquer ideia e aprimorá-la à vontade.</p><p>Depois, é possível juntar os resultados dos trabalhos de cada um em uma ideia só.</p><p>Assim, as ideias podem ser desenvolvidas ao mesmo tempo</p><p>Bateu a curiosidade? Clique no botão <em>remixar esta ideia</em> e experimente!</p>"
+      versions:
+        title: Outras versões desta ideia
+        empty:
+          html: Ninguém criou sua própria versão para esta ideia ainda. %{link}
+          link: Que tal ser o primeiro?
+        user_html: Uma versão de %{link}
+        created_at: Criada em %{created_at}
+        merge: Mesclar esta versão com a minha
+        changes: Esta versão possui alterações para mesclar com a ideia original.
+        no_changes: Esta versão não possui alterações para mesclar com a ideia original.
+    remove_idea:
+      title: Remover ideia
+      subtitle: Deseja apagar esta ideia? Este processo não é reversível
+      versions: Existem versões baseadas nesta ideia. No caso de remoção, as versões permanecerão ativas no sistema e continuarão a ser editadas pelos seus criadores.
+      parent_need_to_merge: Existem alterações na sua ideia que não estão na ideia original
+      accept: Sim, desejo remover esta ideia
+      form_button: Apagar
+    fork_idea:
+      title: Remixar esta ideia
+      subtitle: Para você remixar esta ideia, criaremos uma versão dela para você.
+      warning: Ao criar minha versão desta ideia eu entendo que
+      accept:
+        license_html: Ela será licenciada em <a href="http://creativecommons.org/licenses/by/3.0/br/" target="_blank">Creative Commons Atribuição 3.0 (CC BY 3.0)</a>
+        share: Qualquer pessoa poderá compartilhar minha ideia
+        copy: Qualquer pessoa poderá copiar e modificar minha ideia
+        credits: Eu devo sempre atribuir créditos à ideia original
+        confirm: Li e concordo em licenciar minha ideia em Creative Commons BY 3.0
+    confirm_fork:
+      title: Você tem certeza que quer criar sua versão desta ideia?
+      subtitle: Só recomendamos criar sua versão de uma ideia se você for de fato alterá-la. Caso contrário, recomendamos comentar a ideia original, e não criar uma nova versão.
+      cancel: Cancelar
+    merge_idea:
+      title: Mesclar alterações de duas ideias
+      subtitle: Você pode mesclar as alterações que você e outros fizeram na sua ideia.
+      submit: Quero mesclar as duas ideias
+      how_it_works:
+        title: "A mescla de ideias funciona assim:"
+        html: <p>Nós iremos tentar mesclar automaticamente as alterações realizadas nas duas ideias. Normalmente, isto funciona perfeitamente.</p><p>Apenas caso tenham sido feitas muitas alterações, em conteúdos muito próximos, o sistema não conseguirá mesclar tudo automaticamente.</p><p>Neste caso, você será solicitado a revisar as alterações e escolher com que partes de cada versão quer ficar.</p>
+    remove:
+      success: Sua ideia foi removida com sucesso.
+      failure: Não foi possível remover sua ideia.
+    create_fork:
+      success: Sua versão foi criada com sucesso! Agora você já pode remixar esta ideia à vontade.
+      failure: Ooops. Não foi possível criar sua versão desta ideia. Por favor, tente novamente.
+    merge:
+      success: As duas ideias foram mescladas automaticamente com sucesso!
+      failure: Não foi possível mesclar automaticamente as duas ideias. Por favor, revise as alterações manualmente.
+    resolve_conflicts:
+      success: As duas ideias foram mescladas com sucesso!
+      failure: Não foi possível mesclar as duas ideias. Por favor, revise as alterações novamente.
+    pending_merge:
+      title_parent: "Você possui uma mescla pendente com esta versão. Neste caso, você pode:"
+      title: "Você possui uma mescla pendente com a versão original de sua ideia. Para mesclar as duas ideias, você pode:"
+      review: Revisar as alterações manualmente
+      merge: Ou tentar uma nova mescla
+    review_conflicts:
+      user_html: Esta é uma ideia de %{link}
+      parent_html: ", baseada na ideia de %{link}"
+      title: Revisar alterações manualmente
+      subtitle_html: Revise as alterações para concluir a mescla de sua ideia <em>%{title}</em> com a versão de <em>%{from_user}</em>
+      info_html: <p>Para concluir a mescla de sua ideia <em>%{title}</em> com a versão de <em>%{from_user}</em>, você precisa revisar as alterações manualmente e escolher com que partes você quer ficar.</p><p>Isto é necessário quando não conseguimos identificar automaticamente quais partes devem ser aproveitadas ou não em uma mescla.</p><p>Geralmente isto acontece em função de vocês terem feito alterações nas mesmas linhas ou em partes muito próximas de um texto.</p>
+      select: Clique e selecione as partes que você quer de cada campo e não se preocupe se não ficar exatamente como você gostaria. É só editar a ideia depois!
+      click_to_select: Clique para selecionar
+      click_to_deselect: Clique para deselecionar
+      submit: Confirmar revisão e finalizar mescla
+    conflict_attribute:
+      attributes:
+        title: Título da ideia
+        headline: Resumo da ideia
+        description: O que é esta ideia
+        have: O que já temos
+        need: O que precisamos
+      ours: Na sua versão
+      theirs: Na versão de %{from_user}
+      both: Em ambas versões
+      error_html: Você precisa selecionar pelo menos uma sessão no campo <em>%{attribute}</em>.
+  users:
+    show:
+      upload: Clique para trocar
+      placeholders:
+        bio: Clique para escrever algo sobre você...
+        email: Clique para informar seu email...
+        name: Clique para informar seu nome...
+      ideas:
+        current: Ideias que você começou
+        other: Ideias que %{name} começou
+      versions:
+        current: Ideias em que você colaborou
+        other: Ideias em que %{name} colaborou
+      no_ideas:
+        current_html: Você ainda não iniciou nenhuma ideia. Que tal começar %{link}?
+        other: %{name} ainda não iniciou nenhuma ideia. Mas a gente sabe que é só questão de tempo!
+        link: clicando aqui
+      no_versions:
+        current_html: Você ainda não criou sua versão para nenhuma ideia. Que tal %{link} e começar agora mesmo?
+        other: %{name} ainda não criou sua versão para nenhuma ideia. Logo logo a inspiração bate :D
+        link: explorar algumas idéias
+  simple_form:
+        labels:
+          idea:
+            title: Qual o título da sua ideia?
+            headline: Sua ideia em 140 caracteres...

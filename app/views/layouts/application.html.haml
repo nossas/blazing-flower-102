@@ -20,6 +20,7 @@
   %head
     %title MeuRio
     = stylesheet_link_tag "application"
+    =yield(:stylesheets)
     %link{:href => "/assets/favicon.png", :rel => "shortcut icon"}
     = csrf_meta_tags
 
