@@ -115,7 +115,7 @@
           &:hover
             color: $pink
           &.selected
-            background: url(/images/nav_hover_underline.png) no-repeat 24px
+            background: url(image_path('/images/nav_hover_underline.png')) no-repeat 24px
             border-bottom: none
             padding-bottom: 24px
             position: relative
@@ -151,11 +151,11 @@
     .text
       +grid(7)
       +alpha
-      margin-top: 40px 
-   
+      margin-top: 40px
+
       #icon
         float:left
-      
+
       .placeholder_edit
         +alpha
         +grid(6)
@@ -163,10 +163,10 @@
         line-height: 16px
         color: $blue
         float: right
-      
+
       .attribute.editable
         margin-top: 24px
-    
+
     .placeholder
       background-color: $light_green
       color: #555
@@ -182,7 +182,7 @@
         font-size: 16px
         padding-right: 10px
         margin: 40px 0 20px 0
-        background: url(/images/commentbox-01-01.png) no-repeat
+        background: url(image_path('imagine/commentbox-01-01.pgn')) no-repeat
         height: 254px
         a
           color: $blue
@@ -195,12 +195,12 @@
           line-height: 48px
           padding-left: 25px
 
-        ul 
+        ul
           li
             margin: 0 32px 9px 16px
             font-size: 15px
             line-height: 19px
-            
+
 
     img
       max-width: 540px
