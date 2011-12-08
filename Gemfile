@@ -8,7 +8,7 @@ gem 'jquery-rails'
 gem "devise", "~> 1.4.2"
 gem 'cancan'
 
-gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
+gem 'activeadmin'
 # We need to run development using thin until active_admin is patched
 gem 'thin'
 
