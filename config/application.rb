@@ -41,6 +41,9 @@ module MeuRio
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    # Placing the fonts right where they should be
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
+
 
     config.sass.load_paths << "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/compass/stylesheets"
     config.sass.load_paths << "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/blueprint/stylesheets"
