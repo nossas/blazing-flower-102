@@ -10,6 +10,7 @@ gem 'cancan'
 
 gem 'activeadmin'
 # We need to run development using thin until active_admin is patched
+# This will be removed, active_admin is very stable now (v 0.3.4)
 gem 'thin'
 
 # External authentication
@@ -42,6 +43,7 @@ gem 'sprockets'
 
 gem 'state_machine'
 gem 'paperclip'
+gem 'carrierwave'
 gem 'delayed_job'
 
 # Database related gems
