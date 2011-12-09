@@ -87,6 +87,13 @@ ActiveRecord::Schema.define(:version => 20111209143118) do
 
   add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
 
+  create_table "configurations", :force => true do |t|
+    t.text     "name",       :null => false
+    t.text     "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "debates", :force => true do |t|
     t.text     "question",                                   :null => false
     t.text     "quote_side_1"

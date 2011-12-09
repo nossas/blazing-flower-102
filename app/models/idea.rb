@@ -8,8 +8,7 @@ class Idea < ActiveRecord::Base
   belongs_to :parent, :class_name => 'Idea', :foreign_key => :parent_id
   has_many :versions, :class_name => 'Idea', :foreign_key => :parent_id
   has_many :merges
-  #validates_presence_of :user, :category, :title, :headline
-  validates_presence_of :member_id, :title, :headline
+  validates_presence_of :member_id, :title, :headline, :category
   validates_length_of :headline, :maximum => 140
 
   scope :featured, where(:featured => true).order('created_at DESC')
@@ -90,7 +89,7 @@ class Idea < ActiveRecord::Base
   def create_fork(current_user)
     fork = Idea.new({
       :parent => self,
-      :user => current_user,
+      :member => current_user,
       :category => self.category,
       :title => self.title,
       :headline => self.headline
@@ -108,7 +107,7 @@ class Idea < ActiveRecord::Base
     self.merges.merges_from(from_id).pending.update_all :pending => false
     merge = self.merges.new :from_id => from_id
     begin
-      merged_document = JSON.parse(RestClient.put("#{self.url}/#{self.id}/merge/#{from_id}", { :user_id => self.user.id }.to_json))
+      merged_document = JSON.parse(RestClient.put("#{self.url}/#{self.id}/merge/#{from_id}", { :member_id => self.member.id }.to_json))
       self.title = merged_document["title"]
       self.headline = merged_document["headline"]
       self.save
@@ -138,7 +137,7 @@ class Idea < ActiveRecord::Base
     return unless merge
     self.merging = true
     begin
-      merged_document = JSON.parse(RestClient.put("#{self.url}/#{self.id}/resolve_conflicts/#{from_id}", conflict_attributes.merge({ :user_id => self.user.id }).to_json))
+      merged_document = JSON.parse(RestClient.put("#{self.url}/#{self.id}/resolve_conflicts/#{from_id}", conflict_attributes.merge({ :member_id=> self.user.id }).to_json))
       self.title = merged_document["title"]
       self.headline = merged_document["headline"]
       self.save
@@ -164,11 +163,11 @@ class Idea < ActiveRecord::Base
 
   def document
     @document ||= {}
-    @document.merge! "id" => self.id, "user_id" => self.user_id, "title" => self.title, "headline" => self.headline
+    @document.merge! "id" => self.id, "member_id" => self.member_id, "title" => self.title, "headline" => self.headline
   end
 
   def document=(new_document)
-    @document = new_document.merge "id" => self.id, "user_id" => self.user_id, "title" => self.title, "headline" => self.headline
+    @document = new_document.merge "id" => self.id, "member_id" => self.member_id, "title" => self.title, "headline" => self.headline
   end
 
   def description
