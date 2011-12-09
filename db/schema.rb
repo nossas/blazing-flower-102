@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111207180520) do
+ActiveRecord::Schema.define(:version => 20111209115339) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -65,6 +65,15 @@ ActiveRecord::Schema.define(:version => 20111207180520) do
   end
 
   add_index "autofire_emails", ["petition_id"], :name => "index_autofire_emails_on_petition_id"
+
+  create_table "categories", :force => true do |t|
+    t.text     "name",       :null => false
+    t.text     "badge",      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["name"], :name => "index_categories_on_name", :unique => true
 
   create_table "comment_flags", :force => true do |t|
     t.integer  "member_id",  :null => false
@@ -126,7 +135,7 @@ ActiveRecord::Schema.define(:version => 20111207180520) do
 
   create_table "ideas", :force => true do |t|
     t.integer  "member_id",                      :null => false
-    t.integer  "issue_id",                       :null => false
+    t.integer  "issue_id"
     t.integer  "category_id",                    :null => false
     t.integer  "parent_id"
     t.text     "title",                          :null => false
