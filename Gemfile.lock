@@ -83,8 +83,6 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
-    capybara-webkit (0.7.2)
-      capybara (>= 1.0.0, < 1.2)
     carrierwave (0.5.8)
       activesupport (~> 3.0)
     childprocess (0.2.3)
@@ -368,7 +366,6 @@ DEPENDENCIES
   aws-s3
   cancan
   capybara
-  capybara-webkit
   carrierwave
   coffee-script
   compass (~> 0.12.alpha.0)
