@@ -1,10 +1,10 @@
 class Idea < ActiveRecord::Base
-  
+
   include Rails.application.routes.url_helpers
   include AutoHtml
-  
+
   belongs_to :member
-  #belongs_to :category
+  belongs_to :category
   belongs_to :parent, :class_name => 'Idea', :foreign_key => :parent_id
   has_many :versions, :class_name => 'Idea', :foreign_key => :parent_id
   has_many :merges
@@ -17,7 +17,7 @@ class Idea < ActiveRecord::Base
   scope :recommended, where(:recommended => true).order("created_at DESC")
   scope :popular, order("likes DESC")
   scope :recent, order("created_at DESC")
-  
+
   scope :primary, where("parent_id IS NULL")
   scope :secondary, where("parent_id IS NOT NULL")
 
@@ -25,7 +25,7 @@ class Idea < ActiveRecord::Base
   attr_accessor :forking
   attr_accessor :merging
   attr_accessor :without_save_document
-  
+
   #before_save :set_was_new_record
   def set_was_new_record
     self.was_new_record = new_record?
@@ -86,7 +86,7 @@ class Idea < ActiveRecord::Base
       Rails.logger.error "Failed to delete the document from idea ##{self.id}: #{e.message}"
     end
   end
-  
+
   def create_fork(current_user)
     fork = Idea.new({
       :parent => self,
@@ -102,7 +102,7 @@ class Idea < ActiveRecord::Base
       nil
     end
   end
-  
+
   def merge!(from_id)
     self.merging = true
     self.merges.merges_from(from_id).pending.update_all :pending => false
@@ -121,7 +121,7 @@ class Idea < ActiveRecord::Base
     merge.save
     merge.finished
   end
-  
+
   def conflicts(from_id)
     begin
       @conflicts ||= JSON.parse(RestClient.get("#{self.url}/#{self.id}/pending_merges"))
@@ -161,32 +161,32 @@ class Idea < ActiveRecord::Base
   def url
     self.class.url
   end
-  
+
   def document
     @document ||= {}
     @document.merge! "id" => self.id, "user_id" => self.user_id, "title" => self.title, "headline" => self.headline
   end
-  
+
   def document=(new_document)
     @document = new_document.merge "id" => self.id, "user_id" => self.user_id, "title" => self.title, "headline" => self.headline
   end
-  
+
   def description
     document["description"]
   end
-  
+
   def description=(value)
     document["description"] = value
   end
-  
+
   def description_html
     convert_html description
   end
-  
+
   def convert_html(text)
     auto_html text do
-      html_escape :map => { 
-        '&' => '&amp;',  
+      html_escape :map => {
+        '&' => '&amp;',
         '>' => '&gt;',
         '<' => '&lt;',
         '"' => '"' }
@@ -197,7 +197,7 @@ class Idea < ActiveRecord::Base
       link :target => :_blank
     end
   end
-  
+
   def to_param
     "#{self.id}-#{self.title.parameterize}"
   end
@@ -217,23 +217,23 @@ class Idea < ActiveRecord::Base
       :url => idea_path(self)
     }
   end
-  
+
   def need_to_merge?
     return @need_to_merge if @need_to_merge
     merge_needed?(self, parent)
   end
-  
+
   def parent_need_to_merge?
     return @parent_need_to_merge if @parent_need_to_merge
     merge_needed?(parent, self)
   end
-  
+
   def pending_merge(from)
     self.merges.merges_from(from).pending.first
   end
-    
+
   private
-  
+
   def merge_needed?(idea = nil, from = nil)
     return false unless parent
     idea = self unless idea

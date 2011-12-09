@@ -14,7 +14,7 @@ MeuRio::Application.routes.draw do
   end
 
   devise_for :members, :controllers => { :omniauth_callbacks => "omniauth_callbacks", :sessions => "member_sessions", :registrations => "member_registration", :passwords => "member_passwords" } do
-    get "sign_in", :to => "devise/sessions#new", :as => :new_member_session    
+    get "sign_in", :to => "devise/sessions#new", :as => :new_member_session
     post "member_session", :to => "devise/sessions#create", :as => :member_session
     get 'logout' => 'member_sessions#destroy', :as => :destroy_member_session
     get 'members/sign_out' => 'member_sessions#destroy', :as => :destroy_member_session
@@ -52,9 +52,9 @@ MeuRio::Application.routes.draw do
   get :create_ramify_session, :to => "ramify#create_session"
   get :destroy_ramify_session, :to => "ramify#destroy_session"
 
-  match "imagine" => "ideas#index", :as => "imagine"
-  match "ideia/:id" => "ideas#show", :as => "idea"
-
-
+  namespace :imagine do
+    match "ideia/:id" => "ideas#show", :as => :idea
+    root :to => "ideas#index"
+  end
   root :to => "pages#show", :id => "index"
 end
