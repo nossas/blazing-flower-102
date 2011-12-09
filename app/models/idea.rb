@@ -154,7 +154,7 @@ class Idea < ActiveRecord::Base
   end
 
   def self.url
-    @@url ||= Configuration.find_by_name('git_document_db_url').value
+    @@url ||= SITE['doc_db_address']
   rescue
     nil
   end
