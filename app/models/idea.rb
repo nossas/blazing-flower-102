@@ -26,7 +26,7 @@ class Idea < ActiveRecord::Base
   attr_accessor :merging
   attr_accessor :without_save_document
 
-  #before_save :set_was_new_record
+  before_save :set_was_new_record
   def set_was_new_record
     self.was_new_record = new_record?
     return true
@@ -41,7 +41,7 @@ class Idea < ActiveRecord::Base
     Rails.cache.delete("merges_needed_#{self.id}")
   end
 
-  #after_save :save_document
+  after_save :save_document
   def save_document
     return if self.without_save_document == true
     begin
@@ -59,7 +59,7 @@ class Idea < ActiveRecord::Base
     end
   end
 
-  #after_find :load_document
+  after_find :load_document
   def load_document
     begin
       self.document = JSON.parse(Rails.cache.fetch(doc_cache_name) {
@@ -70,14 +70,14 @@ class Idea < ActiveRecord::Base
     end
   end
 
-  #before_destroy :remove_dependencies
+  before_destroy :remove_dependencies
   def remove_dependencies
     self.merges.each {|merge| merge.destroy } if self.merges.size > 0
     self.versions.each {|version| version.parent = nil; version.save } if self.versions.size > 0
     Merge.merges_from(self.id).each {|m| m.destroy}
   end
 
-  #after_destroy :delete_document
+  after_destroy :delete_document
   def delete_document
     # self.expire_doc_cache
     begin
