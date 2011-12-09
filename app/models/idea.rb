@@ -3,12 +3,13 @@ class Idea < ActiveRecord::Base
   include Rails.application.routes.url_helpers
   include AutoHtml
 
+  belongs_to :issue
   belongs_to :member
   belongs_to :category, :class_name => 'IdeaCategory', :foreign_key => :idea_category_id
   belongs_to :parent, :class_name => 'Idea', :foreign_key => :parent_id
   has_many :versions, :class_name => 'Idea', :foreign_key => :parent_id
   has_many :merges
-  validates_presence_of :member_id, :title, :headline, :category
+  validates_presence_of :issue_id, :member_id, :idea_category_id, :title, :headline, :category
   validates_length_of :headline, :maximum => 140
 
   scope :featured, where(:featured => true).order('created_at DESC')
@@ -153,7 +154,7 @@ class Idea < ActiveRecord::Base
   end
 
   def self.url
-    @@url ||= Configuration.find_by_name('git_document_db_url').value
+    @@url ||= SITE['doc_db_address']
   rescue
     nil
   end
