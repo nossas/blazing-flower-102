@@ -18,7 +18,6 @@ class Imagine::IdeasController < ApplicationController
         @popular = Idea.popular.limit(4).all
         @recent = Idea.not_featured.recent.limit(4).all
         @count = Idea.count
-        return render :index, :layout => "iframe" if session[:iframe] == 'true'
       end
       format.json do
         @ideas = Idea.search(params[:search]).page params[:page]
@@ -46,7 +45,6 @@ class Imagine::IdeasController < ApplicationController
           end
         end
       end
-      return render :show, :layout => "iframe" if session[:iframe]
     end
 
   end
@@ -69,7 +67,7 @@ class Imagine::IdeasController < ApplicationController
     idea = Idea.find(params[:id])
     if idea.destroy
       flash[:success] = t('ideas.remove.success')
-      redirect_to root_path
+      redirect_to imagine_root_path
     else
       flash[:failure] = t('ideas.remove.failure')
     end
@@ -80,10 +78,10 @@ class Imagine::IdeasController < ApplicationController
     fork = idea.create_fork(current_member)
     if fork
       flash[:success] = t('ideas.create_fork.success')
-      redirect_to idea_path(fork)
+      redirect_to imagine_idea_path(fork)
     else
       flash[:failure] = t('ideas.create_fork.failure')
-      redirect_to idea_path(idea)
+      redirect_to imagine_idea_path(idea)
     end
   end
 
@@ -110,10 +108,10 @@ class Imagine::IdeasController < ApplicationController
     conflict_attributes = {} unless conflict_attributes
     if idea.resolve_conflicts!(params[:from_id], conflict_attributes)
       flash[:success] = t('ideas.resolve_conflicts.success')
-      redirect_to idea_path(idea)
+      redirect_to imagine_idea_path(idea)
     else
       flash[:failure] = t('ideas.resolve_conflicts.failure')
-      redirect_to review_conflicts_idea_path(idea, params[:from_id])
+      redirect_to review_conflicts_imagine_idea_path(idea, params[:from_id])
     end
   end
   protected
