@@ -52,8 +52,19 @@ MeuRio::Application.routes.draw do
   get :create_ramify_session, :to => "ramify#create_session"
   get :destroy_ramify_session, :to => "ramify#destroy_session"
 
+
+  # Ramify Namespace
   namespace :imagine do
-    match "ideia/:id" => "ideas#show", :as => :idea
+    resources :ideas, :only => [:index, :create, :update, :show, :destroy] do
+      collection do
+       get "explore"
+      end
+      member do
+        put 'merge'
+        get 'review_conflicts/:from_id', :as => :review_conflicts, :action => :review_conflicts
+        put 'resolve_conflicts'
+      end
+    end
     root :to => "ideas#index"
   end
   root :to => "pages#show", :id => "index"

@@ -91,10 +91,10 @@ class Imagine::IdeasController < ApplicationController
     idea = Idea.find(params[:id])
     if idea.merge!(params[:from_id])
       flash[:success] = t('ideas.merge.success')
-      redirect_to idea_path(idea)
+      redirect_to imagine_idea_path(idea)
     else
       flash[:failure] = t('ideas.merge.failure')
-      redirect_to review_conflicts_idea_path(idea, params[:from_id])
+      redirect_to review_conflicts_imagine_idea_path(idea, params[:from_id])
     end
   end
 
