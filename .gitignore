@@ -11,3 +11,4 @@ app/assets/.DS_Store
 config/database.yml
 public/system/
 chromedriver.log
+public/uploads/idea_category
