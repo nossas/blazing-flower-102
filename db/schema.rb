@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111209115339) do
+ActiveRecord::Schema.define(:version => 20111209143118) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -65,15 +65,6 @@ ActiveRecord::Schema.define(:version => 20111209115339) do
   end
 
   add_index "autofire_emails", ["petition_id"], :name => "index_autofire_emails_on_petition_id"
-
-  create_table "categories", :force => true do |t|
-    t.text     "name",       :null => false
-    t.text     "badge",      :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "categories", ["name"], :name => "index_categories_on_name", :unique => true
 
   create_table "comment_flags", :force => true do |t|
     t.integer  "member_id",  :null => false
@@ -133,16 +124,25 @@ ActiveRecord::Schema.define(:version => 20111209115339) do
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
+  create_table "idea_categories", :force => true do |t|
+    t.text     "name",       :null => false
+    t.text     "badge",      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "idea_categories", ["name"], :name => "index_idea_categories_on_name", :unique => true
+
   create_table "ideas", :force => true do |t|
-    t.integer  "member_id",                      :null => false
-    t.integer  "issue_id"
-    t.integer  "category_id",                    :null => false
+    t.integer  "member_id",                           :null => false
+    t.integer  "issue_id",                            :null => false
+    t.integer  "idea_category_id",                    :null => false
     t.integer  "parent_id"
-    t.text     "title",                          :null => false
+    t.text     "title",                               :null => false
     t.text     "headline"
-    t.boolean  "featured",    :default => false, :null => false
-    t.boolean  "recommended", :default => false, :null => false
-    t.integer  "likes",       :default => 0,     :null => false
+    t.boolean  "featured",         :default => false, :null => false
+    t.boolean  "recommended",      :default => false, :null => false
+    t.integer  "likes",            :default => 0,     :null => false
     t.integer  "order"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -345,6 +345,7 @@ ActiveRecord::Schema.define(:version => 20111209115339) do
   add_foreign_key "debates", "members", :name => "debates_author_email_side_1_fk", :column => "author_email_side_1", :primary_key => "email"
   add_foreign_key "debates", "members", :name => "debates_author_email_side_2_fk", :column => "author_email_side_2", :primary_key => "email"
 
+  add_foreign_key "ideas", "idea_categories", :name => "ideas_idea_category_id_fk"
   add_foreign_key "ideas", "ideas", :name => "ideas_parent_id_fk", :column => "parent_id"
   add_foreign_key "ideas", "issues", :name => "ideas_issue_id_fk"
   add_foreign_key "ideas", "members", :name => "ideas_member_id_fk"

@@ -4,7 +4,7 @@ class Idea < ActiveRecord::Base
   include AutoHtml
 
   belongs_to :member
-  belongs_to :category
+  belongs_to :category, :class_name => 'IdeaCategory'
   belongs_to :parent, :class_name => 'Idea', :foreign_key => :parent_id
   has_many :versions, :class_name => 'Idea', :foreign_key => :parent_id
   has_many :merges
