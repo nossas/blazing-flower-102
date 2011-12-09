@@ -12,6 +12,9 @@ gem 'activeadmin'
 # We need to run development using thin until active_admin is patched
 gem 'thin'
 
+# File storage
+gem 'carrierwave', :git => 'https://github.com/jnicklas/carrierwave.git'
+
 # External authentication
 gem "oa-oauth", :require => "omniauth/oauth"
 gem 'oa-openid', :require => 'omniauth/openid'

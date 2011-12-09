@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/jnicklas/carrierwave.git
+  revision: e9260c93f3b92ccf686e0cd43203619b26b9ef8c
+  specs:
+    carrierwave (0.5.8)
+      activesupport (~> 3.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -343,6 +350,7 @@ DEPENDENCIES
   aws-s3
   cancan
   capybara
+  carrierwave!
   coffee-script
   compass (~> 0.12.alpha.0)
   compass-960-plugin
