@@ -34,6 +34,8 @@ module NavigationHelpers
       member_path(@member)
     when /my profile page/
       member_path(ProviderAuthorization.find_by_uid("547955110").member)
+    when /the first idea page/
+      issue_idea_path(Idea.order(:id).first.issue_id, Idea.order(:id).first.id)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
