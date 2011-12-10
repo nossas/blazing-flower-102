@@ -9,8 +9,6 @@ class Imagine::IdeasController < ApplicationController
 
   before_filter :set_iframe_session, :only => :index
 
-
-
   def index
     index! do |format|
       format.html do
@@ -114,8 +112,9 @@ class Imagine::IdeasController < ApplicationController
       redirect_to review_conflicts_imagine_idea_path(idea, params[:from_id])
     end
   end
-  protected
-  def set_iframe_session
-    session[:iframe] = params[:iframe] unless params[:iframe].nil?
+
+  private
+  def current_ability
+    @current_ability ||= IdeaAbility.new(current_member)
   end
 end
