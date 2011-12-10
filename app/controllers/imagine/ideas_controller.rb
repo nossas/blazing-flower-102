@@ -1,5 +1,10 @@
 class Imagine::IdeasController < ApplicationController
 
+  rescue_from CanCan::AccessDenied do |e|
+    render :json => { :status => :error }, :status => 401 if request.xhr?
+    render :file => "public/401.html", :status => :unauthorized if not request.xhr?
+  end
+
   load_and_authorize_resource
   inherit_resources
 
@@ -27,7 +32,7 @@ class Imagine::IdeasController < ApplicationController
 
  def show
     show! do
-      @editable = (current_member and current_member == @idea.user)
+      @editable = (current_member and current_member == @idea.member)
       @versions = @idea.versions.order("created_at DESC").all
       @title = @idea.title
       @versions_changed = false
@@ -113,7 +118,7 @@ class Imagine::IdeasController < ApplicationController
   def current_ability
     @current_ability ||= case
                          when current_member
-                           MemberAbility.new(current_user)
+                           MemberAbility.new(current_member)
                          else
                            GuestAbility.new
                          end
