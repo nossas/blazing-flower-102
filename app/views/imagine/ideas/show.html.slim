@@ -45,6 +45,9 @@
           - if can? :destroy, @idea
             .remove_idea= link_to t('.remove_idea'), '#remove'
           .fork_idea= link_to t('.fork_idea'), '#fork'
+      .info
+        .comments= render :partial => 'shared/comments', :locals => { :url => "#{issue_idea_url(@idea.issue, @idea)}#description" }
+        = render 'formatting_tips'
       .clearfix
       h2 = t('.menu.description')
 
@@ -56,9 +59,6 @@
               = image_tag 'icons/idea.png', :html => {:id => 'icon'}
             .attribute class=("editable" if can? :edit, @idea) data-attribute="description" data-raw=@idea.description data-raw-attribute="description_html"
               == @idea.description_html
-          .info
-            .comments= render :partial => 'shared/comments', :locals => { :url => "#{issue_idea_url(@idea.issue, @idea)}#description" }
-            = render 'formatting_tips'
 
           .text
             - if @versions.empty?
