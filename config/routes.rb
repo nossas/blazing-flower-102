@@ -48,12 +48,7 @@ MeuRio::Application.routes.draw do
     resources :comment_flags, :only => [:create, :destroy], :as => "flags"
   end
 
-  # Ramify integration for Imagine
-  get :create_ramify_session, :to => "ramify#create_session"
-  get :destroy_ramify_session, :to => "ramify#destroy_session"
-
-
-  # Ramify Namespace
+  # Ramify Namespace and routes
   namespace :imagine do
     resources :ideas, :only => [:index, :create, :update, :show, :destroy] do
       collection do
@@ -63,9 +58,12 @@ MeuRio::Application.routes.draw do
         put 'merge'
         get 'review_conflicts/:from_id', :as => :review_conflicts, :action => :review_conflicts
         put 'resolve_conflicts'
+        post 'create_fork'
       end
     end
     root :to => "ideas#index"
   end
+  match "na_atividade/:issue_id/imagine/:id" => "Imagine::Ideas#show", :as => "issue_idea"
+
   root :to => "pages#show", :id => "index"
 end
