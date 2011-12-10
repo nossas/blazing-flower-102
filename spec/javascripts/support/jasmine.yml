@@ -11,12 +11,15 @@
 #   - dist/**/*.js
 #
 src_files:
-  - public/javascripts/prototype.js
-  - public/javascripts/effects.js
-  - public/javascripts/controls.js
-  - public/javascripts/dragdrop.js
-  - public/javascripts/application.js
-  - public/javascripts/**/*.js
+  - app/assets/javascripts/libs/jquery-1.6.1.min.js
+  - app/assets/javascripts/libs/underscore-1.1.6.min.js
+  - app/assets/javascripts/libs/jquery.tmpl.min.js
+  - app/assets/javascripts/libs/backbone.js
+  - app/assets/javascripts/libs/store.js
+  - app/assets/javascripts/libs/facebox.js
+  - app/assets/javascripts/libs/jquery.clippy.js
+  - app/assets/javascripts/MR.js
+  - app/assets/javascripts/frontend/**/*.js
 
 # stylesheets
 #
