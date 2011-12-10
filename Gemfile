@@ -3,6 +3,7 @@ source :rubyforge
 # gem 'rails',  :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
 gem 'rails', '~> 3.1'
 gem 'jquery-rails'
+gem 'inherited_resources'
 
 # Authentication and Permissions
 gem "devise", "~> 1.4.2"
@@ -42,25 +43,24 @@ end
 gem 'sprockets'
 
 gem 'state_machine'
-gem 'paperclip'
-gem 'carrierwave'
 gem 'delayed_job'
 
 # Database related gems
 gem 'pg'
 gem 'foreigner'
-
 gem 'dalli'
+gem 'paperclip'
+gem 'carrierwave'
 
 # Including so we can run the complete petition rake task for demos
 gem 'factory_girl_rails'
 gem "faker"
 
-gem 'inherited_resources'
+# View helpers
 gem 'kaminari'
+gem 'simple_form'
 
 gem "simplecov", :require => false, :group => :test
-
 gem 'newrelic_rpm'
 
 group :development, :test do
