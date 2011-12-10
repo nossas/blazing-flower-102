@@ -7,9 +7,9 @@ Given /^(\d+) ideas exist$/ do |count|
 end
 
 Then /^I should see the idea title$/ do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content("#{@ideas.first.title}")
 end
 
 Then /^I should see a fork idea button$/ do
-  pending # express the regexp above with the code you wish you had
+  page.should have_css("a[href='#fork']")
 end
