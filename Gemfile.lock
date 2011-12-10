@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/noelrappin/summer_breeze.git
-  revision: 2b8247cb634130efdeaeb6f26692cb93e312d6a1
-  specs:
-    summer_breeze (0.0.1)
-      jasmine
-      nokogiri
-      rails
-
-GIT
   remote: https://github.com/pivotal/jasmine-gem.git
   revision: 5a7524ae9eaea4fe106a7aaa90ccfb1bc137abe7
   branch: 1.2.rc1
@@ -406,7 +397,6 @@ DEPENDENCIES
   sprockets
   sqlite3 (= 1.3.3)
   state_machine
-  summer_breeze!
   thin
   twitter
   uglifier
