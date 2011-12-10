@@ -1,22 +1,16 @@
 class Imagine::IdeasController < ApplicationController
 
-  #load_and_authorize_resource
+  load_and_authorize_resource
   inherit_resources
 
   actions :index, :show, :create, :update, :destroy
   respond_to :html, :except => [:update]
   respond_to :json, :only => [:index, :update]
-
-  before_filter :set_iframe_session, :only => :index
-
-
+  optional_belongs_to :issues
 
   def index
     index! do |format|
       format.html do
-       @featured = Idea.featured.primary.limit(4).all
-        @popular = Idea.popular.limit(4).all
-        @recent = Idea.not_featured.recent.limit(4).all
         @count = Idea.count
       end
       format.json do
@@ -114,8 +108,14 @@ class Imagine::IdeasController < ApplicationController
       redirect_to review_conflicts_imagine_idea_path(idea, params[:from_id])
     end
   end
+
   protected
-  def set_iframe_session
-    session[:iframe] = params[:iframe] unless params[:iframe].nil?
+  def current_ability
+    @current_ability ||= case
+                         when current_member
+                           MemberAbility.new(current_user)
+                         else
+                           GuestAbility.new
+                         end
   end
 end

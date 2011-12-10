@@ -16,7 +16,7 @@
       h2 class=("editable" if can? :edit, @idea) data-attribute="title" data-raw=@idea.title data-maxlength=60 data-singleline=true
         = @idea.title
       .user
-        = t('.user_html', :link => link_to(@idea.user.display_name, user_path(@idea.user))) unless @idea.parent
+        = t('.user_html', :link => link_to(@idea.member.name, member_path(@idea.member))) unless @idea.parent
         - if @idea.parent
           = image_tag 'icons/ramify_color.png'
           = t('.parent_html', :user => link_to(@idea.user.display_name, user_path(@idea.user)), :parent => link_to(@idea.parent.user.display_name, idea_path(@idea.parent)))
@@ -61,7 +61,7 @@
             .remove_idea= link_to t('.remove_idea'), '#remove'
           .fork_idea= link_to t('.fork_idea'), '#fork'
       .info
-        .comments= render :partial => 'shared/comments', :locals => { :url => "#{idea_url(@idea)}#description" }
+        .comments= render :partial => 'shared/comments', :locals => { :url => "#{issue_idea_url(@idea.issue, @idea)}#description" }
         = render 'formatting_tips'
 
     .versions
@@ -90,22 +90,3 @@
       .info
         .placeholder= t('.placeholders.versions_html')
 
-  .footer
-    .license= link_to image_tag('cc_by.png'), "http://creativecommons.org/licenses/by/3.0/br/", :target => :_blank
-
-= render 'shared/application_js'
-= javascript_include_tag 'views/ideas/confirm_fork'
-= javascript_include_tag 'views/ideas/fork'
-= javascript_include_tag 'views/ideas/remove'
-= javascript_include_tag 'views/ideas/merge'
-= javascript_include_tag 'views/editable'
-= javascript_include_tag 'views/ideas/show'
-= javascript_include_tag 'routers/ideas/show'
-javascript:
-  app.confirmForkView = new ConfirmForkView
-  app.forkIdeaView = new ForkIdeaView
-  app.removeIdeaView = new RemoveIdeaView
-  app.mergeIdeaView = new MergeIdeaView
-  app.showIdeaView = new ShowIdeaView
-  app.showIdeaRouter = new ShowIdeaRouter
-  Backbone.history.start()

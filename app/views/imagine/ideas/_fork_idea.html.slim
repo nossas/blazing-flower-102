@@ -5,8 +5,8 @@
         = image_tag 'cancel.png'
       h1= t('.title')
       h2= t('.subtitle')
-      = form_tag '#confirm_fork', :name => 'fork_idea'  do |f|
-        = simple_fields_for @idea do |form|
+      = simple_form_for '#confirm_fork', :name => 'fork_idea'  do |f|
+        = f.simple_fields_for @idea do |form|
           .warning
             h3= t('.warning')
             ul
@@ -18,4 +18,4 @@
             = check_box_tag 'fork_accept'
             = label_tag 'fork_accept', t('.accept.confirm')
           .submit
-            = form.button :submit, :disabled => true
+            = f.button :submit, :disabled => true

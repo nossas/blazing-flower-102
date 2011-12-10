@@ -11,16 +11,8 @@
       .new_idea
         h2= t('.discover')
         = link_to t('.new_idea'), '#new_idea'
-      = render :partial => 'list', :locals => {:quick => "featured", :collection => @featured} unless @featured.empty?
-      /*.explore= t('.explore.html', :count => @count, :link => link_to(t('.explore.link'), explore_path))*/
+      = render :partial => 'list', :locals => {:quick => "featured", :collection => @ideas} unless @ideas.empty?
       .new_idea
         h2= t('.didnt_find')
         = link_to t('.new_idea'), '#new_idea'
 
-/*= render 'shared/application_js'*/
-/*= javascript_include_tag 'views/ideas/index'*/
-/*= javascript_include_tag 'routers/ideas/index'*/
-/*javascript:*/
-  /*app.indexView = new IndexView*/
-  /*app.indexRouter = new IndexRouter*/
-  /*Backbone.history.start()*/
