@@ -1,13 +1,9 @@
-#confirm_fork_idea
-  .overlay
-    .popup
-      a.close href='javascript:app.back()' title="X"
-        = image_tag 'cancel.png'
-      h1= t('.title')
-      h2= t('.subtitle')
-      = simple_form_for create_fork_imagine_idea_path(@idea), :name => 'fork_idea'  do |f|
-        = f.simple_fields_for @idea do |form|
-          .submit
-            = form.button :submit
-            a.cancel href='#'
-              = t('.cancel')
+#confirm_fork_idea.hidden
+  h1= t('.title')
+  h2= t('.subtitle')
+  = simple_form_for create_fork_imagine_idea_path(@idea), :name => 'fork_idea'  do |f|
+    = f.simple_fields_for @idea do |form|
+      .submit
+        = form.button :submit
+        a.cancel href='#'
+          = t('.cancel')
