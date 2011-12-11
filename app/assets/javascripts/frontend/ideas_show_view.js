@@ -1,6 +1,8 @@
 MR.IdeasShowView = MR.BaseView.extend({
   initialize: function(){
+    _.bindAll(this, 'fork');
     this.bindRoutes();
+    this.loadLastFragment();
   },
 
   bindRoutes: function(){
@@ -8,6 +10,8 @@ MR.IdeasShowView = MR.BaseView.extend({
   },
 
   fork: function(){
-    $.facebox({div: '#confirm_fork_idea'});
+    if(this.requireLogin()){
+      $.facebox({div: '#confirm_fork_idea'});
+    }
   }
 });
