@@ -44,7 +44,7 @@
         .buttons
           - if can? :destroy, @idea
             .remove_idea= link_to t('.remove_idea'), '#remove'
-          .fork_idea= link_to t('.fork_idea'), '#fork'
+          .fork_idea= link_to t('.fork_idea'), '#fork', :id => 'fork_idea_button'
       .info
         .comments= render :partial => 'shared/comments', :locals => { :url => "#{issue_idea_url(@idea.issue, @idea)}#description" }
         = render 'formatting_tips'
