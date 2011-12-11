@@ -1,10 +1,9 @@
 li
-  /*.idea class=idea.category.css_class*/
-  .idea
+  .idea class=idea.category.css_class
     .idea_wrapper
       h1
         = link_to imagine_idea_path(idea) do
-          /*= image_tag idea.category.badge.url, :class => 'category', :title => idea.category.name*/
+          = image_tag idea.category.badge.url, :class => 'category', :title => idea.category.name
           = idea.title
       .user= t('.by', :user => idea.member.name)
       .headline
@@ -13,9 +12,9 @@ li
     .footer
       ul
         li title=t('likes', :count => idea.likes)
-          = image_tag 'icons/like.png'
+          = image_tag 'imagine/icons/like.png'
           = idea.likes
-        /*li title=t('versions', :count => idea.versions.count)*/
+        li title=t('versions', :count => idea.versions.count)
         li title=t('versions', :count => 0)
-          = image_tag 'icons/ramify.png'
+          = image_tag 'imagine/icons/ramify.png'
           = idea.versions.count
