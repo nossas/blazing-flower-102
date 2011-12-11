@@ -64,6 +64,7 @@ MeuRio::Application.routes.draw do
     root :to => "ideas#index"
   end
   match "na_atividade/:issue_id/imagine/:id" => "Imagine::Ideas#show", :as => "issue_idea"
+  match "na_atividade/:issue_id/imagine" => "Imagine::Ideas#index", :as => "issue_ideas"
 
   root :to => "pages#show", :id => "index"
 end

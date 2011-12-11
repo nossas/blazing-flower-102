@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111209143118) do
+ActiveRecord::Schema.define(:version => 20111211160812) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -139,6 +139,16 @@ ActiveRecord::Schema.define(:version => 20111209143118) do
   end
 
   add_index "idea_categories", ["name"], :name => "index_idea_categories_on_name", :unique => true
+
+  create_table "idea_merges", :force => true do |t|
+    t.integer  "idea_id",                       :null => false
+    t.integer  "from_id",                       :null => false
+    t.boolean  "requested",  :default => false, :null => false
+    t.boolean  "pending",    :default => false, :null => false
+    t.boolean  "finished",   :default => false, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "ideas", :force => true do |t|
     t.integer  "member_id",                           :null => false
@@ -351,6 +361,9 @@ ActiveRecord::Schema.define(:version => 20111209143118) do
   add_foreign_key "debates", "issues", :name => "debates_issue_id_fk"
   add_foreign_key "debates", "members", :name => "debates_author_email_side_1_fk", :column => "author_email_side_1", :primary_key => "email"
   add_foreign_key "debates", "members", :name => "debates_author_email_side_2_fk", :column => "author_email_side_2", :primary_key => "email"
+
+  add_foreign_key "idea_merges", "ideas", :name => "idea_merges_from_id_fk", :column => "from_id"
+  add_foreign_key "idea_merges", "ideas", :name => "idea_merges_idea_id_fk"
 
   add_foreign_key "ideas", "idea_categories", :name => "ideas_idea_category_id_fk"
   add_foreign_key "ideas", "ideas", :name => "ideas_parent_id_fk", :column => "parent_id"

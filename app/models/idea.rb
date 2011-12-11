@@ -8,7 +8,7 @@ class Idea < ActiveRecord::Base
   belongs_to :category, :class_name => 'IdeaCategory', :foreign_key => :idea_category_id
   belongs_to :parent, :class_name => 'Idea', :foreign_key => :parent_id
   has_many :versions, :class_name => 'Idea', :foreign_key => :parent_id
-  has_many :merges
+  has_many :merges, :class_name => 'IdeaMerge'
   validates_presence_of :issue_id, :member_id, :idea_category_id, :title, :headline, :category
   validates_length_of :headline, :maximum => 140
 

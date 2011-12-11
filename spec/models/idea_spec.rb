@@ -13,6 +13,8 @@ describe Idea do
     it{ should belong_to :member }
     it{ should belong_to :category }
     it{ should belong_to :issue }
+    it{ should have_many :versions }
+    it{ should have_many :merges }
   end
 
   describe "#create_fork" do

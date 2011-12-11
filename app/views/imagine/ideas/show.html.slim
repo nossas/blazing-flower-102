@@ -24,7 +24,7 @@
             = t('.user_html', :link => link_to(@idea.member.name, member_path(@idea.member))) unless @idea.parent
             - if @idea.parent
               = image_tag 'icons/ramify_color.png'
-              = t('.parent_html', :user => link_to(@idea.user.display_name, user_path(@idea.user)), :parent => link_to(@idea.parent.user.display_name, idea_path(@idea.parent)))
+              = t('.parent_html', :user => link_to(@idea.member.name, member_path(@idea.member)), :parent => link_to(@idea.parent.member.name, issue_idea_path(@idea.parent.issue, @idea.parent)))
           .headline
             p class=("editable" if can? :edit, @idea) data-attribute="headline" data-raw=@idea.headline data-maxlength=140 data-singleline=true
               = @idea.headline
@@ -37,7 +37,7 @@
           - if @idea.parent and @idea.pending_merge(@idea.parent)
             .changed= render :partial => 'pending_merge', :object => @idea.pending_merge(@idea.parent)
           - elsif @idea.need_to_merge?
-            .changed= t('.need_to_merge.html', :link => link_to(t('.need_to_merge.link'), "#merge/#{@idea.parent.id}"), :user => @idea.parent.user.display_name)
+            .changed= t('.need_to_merge.html', :link => link_to(t('.need_to_merge.link'), "#merge/#{@idea.parent.id}"), :user => @idea.parent.member.name)
           - elsif @versions_changed
             .changed= t('.versions_changed.html', :link => link_to(t('.versions_changed.link'), '#versions'))
       .menu
@@ -70,8 +70,8 @@
               ul
                 - @versions.each do |version|
                   li class=@idea.category.css_class
-                    h1= link_to(version.title, idea_path(version))
-                    .user= t('.versions.user_html', :link => link_to(version.user.display_name, user_path(version.user)))
+                    h1= link_to(version.title, issue_idea_path(version.issue, version))
+                    .user= t('.versions.user_html', :link => link_to(version.member.name, member_path(version.member)))
                     .headline
                       p= version.headline
                     .created_at= t('.versions.created_at', :created_at => l(version.created_at.to_date, :format => :short))
