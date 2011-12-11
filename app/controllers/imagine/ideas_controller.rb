@@ -11,7 +11,7 @@ class Imagine::IdeasController < ApplicationController
   actions :index, :show, :create, :update, :destroy
   respond_to :html, :except => [:update]
   respond_to :json, :only => [:index, :update]
-  optional_belongs_to :issues
+  optional_belongs_to :issue
 
   def index
     index! do |format|

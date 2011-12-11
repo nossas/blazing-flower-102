@@ -5,6 +5,11 @@
   meta property=="og:type" content="cause"
   /*meta property=="og:image" content=="#{base_url}/images/logo.png"*/
 
+.grid_12
+  .issue_name
+    .sprite.petition
+    = link_to @issue.name, issue_path(@issue)
+
 #site.ramify
   #content
     #index
