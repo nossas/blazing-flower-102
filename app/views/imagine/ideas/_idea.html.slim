@@ -12,9 +12,9 @@ li
     .footer
       ul
         li title=t('likes', :count => idea.likes)
-          = image_tag 'imagine/icons/like.png'
+          = image_tag image_path('imagine/icons/like.png')
           = idea.likes
         li title=t('versions', :count => idea.versions.count)
         li title=t('versions', :count => 0)
-          = image_tag 'imagine/icons/ramify.png'
+          = image_tag image_path('imagine/icons/ramify.png')
           = idea.versions.count

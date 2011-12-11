@@ -13,5 +13,6 @@ MR.IdeasShowView = MR.BaseView.extend({
     if(this.requireLogin()){
       $.facebox({div: '#confirm_fork_idea'});
     }
-  }
+  },
+
 });
