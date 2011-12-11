@@ -10,11 +10,17 @@ Feature: Forking an idea
     And I should see a fork idea button
 
   
-  #@javascript
-  #Scenario: Signing a Petition (new member, new petition signature)
-    #Given 2 published petitions exist
-    #And I am on the first petition page
-    #When I enter my information in the petition signature form
-    #And I press the submit button
-    #Then I should see a thank-you message
+  @javascript
+  Scenario: Trying to fork not logged in
+    Given 2 ideas exist
+    When I go to the first idea page
+    And I follow "fork_idea_button"
+    Then I should see the login dialog
 
+  @javascript @omniauth_test
+  Scenario: Trying to fork logged in
+    Given I am logged in via Facebook
+    And 2 ideas exist
+    When I go to the first idea page
+    And I follow "fork_idea_button"
+    Then I should see the fork dialog
