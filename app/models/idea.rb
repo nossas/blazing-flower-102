@@ -190,7 +190,7 @@ class Idea < ActiveRecord::Base
         '>' => '&gt;',
         '<' => '&lt;',
         '"' => '"' }
-      redcloth :target => :_blank
+      redcarpet :target => :_blank
       image
       youtube :width => 510, :height => 332
       vimeo :width => 510, :height => 332
