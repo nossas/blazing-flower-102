@@ -8,7 +8,7 @@ class Idea < ActiveRecord::Base
   belongs_to :category, :class_name => 'IdeaCategory', :foreign_key => :idea_category_id
   belongs_to :parent, :class_name => 'Idea', :foreign_key => :parent_id
   has_many :versions, :class_name => 'Idea', :foreign_key => :parent_id
-  has_many :merges
+  has_many :merges, :class_name => 'IdeaMerge'
   validates_presence_of :issue_id, :member_id, :idea_category_id, :title, :headline, :category
   validates_length_of :headline, :maximum => 140
 
@@ -88,16 +88,17 @@ class Idea < ActiveRecord::Base
   end
 
   def create_fork(current_user)
-    fork = Idea.new({
+    forked = Idea.new({
       :parent => self,
       :member => current_user,
       :category => self.category,
+      :issue => self.issue,
       :title => self.title,
       :headline => self.headline
     })
-    fork.forking = true
-    if fork.save
-      fork
+    forked.forking = true
+    if forked.save
+      forked
     else
       nil
     end
@@ -190,7 +191,7 @@ class Idea < ActiveRecord::Base
         '>' => '&gt;',
         '<' => '&lt;',
         '"' => '"' }
-      redcloth :target => :_blank
+      redcarpet :target => :_blank
       image
       youtube :width => 510, :height => 332
       vimeo :width => 510, :height => 332

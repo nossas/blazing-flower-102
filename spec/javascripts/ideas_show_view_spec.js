@@ -17,9 +17,17 @@ describe("IdeasShowView", function(){
   });
 
   describe("#fork", function(){
-    it("should call facebox with div #confirm_fork_idea", function(){
+    it("should call facebox with div #confirm_fork_idea if user is logged in", function(){
+      spyOn(view, "isLoggedIn").andReturn(true);
       view.fork();
       expect($.facebox).toHaveBeenCalledWith({div: '#confirm_fork_idea'});
+    });
+
+    it("should call facebox with login if user is anonymous", function(){
+      spyOn(view, "isLoggedIn").andReturn(false);
+      spyOn(view, "loginDialog");
+      view.fork();
+      expect(view.loginDialog).toHaveBeenCalled();
     });
   });
 
