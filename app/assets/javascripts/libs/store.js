@@ -1,126 +1,148 @@
-/* Copyright (c) 2010-2011 Marcus Westin
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
-var store = (function(){
-	var api = {},
-		win = window,
-		doc = win.document,
-		localStorageName = 'localStorage',
-		globalStorageName = 'globalStorage',
-		namespace = '__storejs__',
-		storage
-
-	api.disabled = false
-	api.set = function(key, value) {}
-	api.get = function(key) {}
-	api.remove = function(key) {}
-	api.clear = function() {}
-	api.transact = function(key, transactionFn) {
-		var val = api.get(key)
-		if (typeof val == 'undefined') { val = {} }
-		transactionFn(val)
-		api.set(key, val)
-	}
-
-	api.serialize = function(value) {
-		return JSON.stringify(value)
-	}
-	api.deserialize = function(value) {
-		if (typeof value != 'string') { return undefined }
-		return JSON.parse(value)
-	}
-
-	// Functions to encapsulate questionable FireFox 3.6.13 behavior 
-	// when about.config::dom.storage.enabled === false
-	// See https://github.com/marcuswestin/store.js/issues#issue/13
-	function isLocalStorageNameSupported() {
-		try { return (localStorageName in win && win[localStorageName]) }
-		catch(err) { return false }
-	}
-	
-	function isGlobalStorageNameSupported() {
-		try { return (globalStorageName in win && win[globalStorageName] && win[globalStorageName][win.location.hostname]) }
-		catch(err) { return false }
-	}	
-
-	if (isLocalStorageNameSupported()) {
-		storage = win[localStorageName]
-		api.set = function(key, val) { storage.setItem(key, api.serialize(val)) }
-		api.get = function(key) { return api.deserialize(storage.getItem(key)) }
-		api.remove = function(key) { storage.removeItem(key) }
-		api.clear = function() { storage.clear() }
-
-	} else if (isGlobalStorageNameSupported()) {
-		storage = win[globalStorageName][win.location.hostname]
-		api.set = function(key, val) { storage[key] = api.serialize(val) }
-		api.get = function(key) { return api.deserialize(storage[key] && storage[key].value) }
-		api.remove = function(key) { delete storage[key] }
-		api.clear = function() { for (var key in storage ) { delete storage[key] } }
-
-	} else if (doc.documentElement.addBehavior) {
-		var storage = doc.createElement('div')
-		function withIEStorage(storeFunction) {
-			return function() {
-				var args = Array.prototype.slice.call(arguments, 0)
-				args.unshift(storage)
-				// See http://msdn.microsoft.com/en-us/library/ms531081(v=VS.85).aspx
-				// and http://msdn.microsoft.com/en-us/library/ms531424(v=VS.85).aspx
-				doc.body.appendChild(storage)
-				storage.addBehavior('#default#userData')
-				storage.load(localStorageName)
-				var result = storeFunction.apply(api, args)
-				doc.body.removeChild(storage)
-				return result
-			}
-		}
-		api.set = withIEStorage(function(storage, key, val) {
-			storage.setAttribute(key, api.serialize(val))
-			storage.save(localStorageName)
-		})
-		api.get = withIEStorage(function(storage, key) {
-			return api.deserialize(storage.getAttribute(key))
-		})
-		api.remove = withIEStorage(function(storage, key) {
-			storage.removeAttribute(key)
-			storage.save(localStorageName)
-		})
-		api.clear = withIEStorage(function(storage) {
-			var attributes = storage.XMLDocument.documentElement.attributes
-			storage.load(localStorageName)
-			for (var i=0, attr; attr = attributes[i]; i++) {
-				storage.removeAttribute(attr.name)
-			}
-			storage.save(localStorageName)
-		})
-	}
-	
-	try {
-		api.set(namespace, namespace)
-		if (api.get(namespace) != namespace) { api.disabled = true }
-		api.remove(namespace)
-	} catch(e) {
-		api.disabled = true
-	}
-	
-	return api
-})();
-
-if (typeof module != 'undefined') { module.exports = store }
+//
+// Copyright (c) 2011 Frank Kohlhepp
+// https://github.com/frankkohlhepp/store-js
+// License: MIT-license
+//
+(function () {
+    var Store = this.Store = function (name, defaults, watcherSpeed) {
+        var that = this;
+        this.name = name;
+        this.listeners = {};
+        
+        // Set defaults
+        if (defaults) {
+            for (var key in defaults) {
+                if (defaults.hasOwnProperty(key) && this.get(key) === undefined) {
+                    this.set(key, defaults[key]);
+                }
+            }
+        }
+        
+        // Fake events
+        var fireEvent = function (name, value) {
+            ([name, "*"]).each(function (selector) {
+                if (that.listeners[selector]) {
+                    that.listeners[selector].each(function (callback) {
+                        callback(value, name, that.name);
+                    });
+                }
+            });
+        };
+        
+        var oldObj = this.toObject();
+        var standby = function () { watcher(true); };
+        var watcher = function (skipCheck) {
+            if (Object.keys(that.listeners).length !== 0) {
+                var newObj = that.toObject();
+                
+                if (!skipCheck) {
+                    for (var key in newObj) {
+                        if (newObj.hasOwnProperty(key) && newObj[key] !== oldObj[key]) {
+                            fireEvent(key, newObj[key]);
+                        }
+                    }
+                    
+                    for (var key in oldObj) {
+                        if (oldObj.hasOwnProperty(key) && !newObj.hasOwnProperty(key)) {
+                            fireEvent(key, newObj[key]);
+                        }
+                    }
+                }
+                
+                oldObj = newObj;
+                setTimeout(watcher, (watcherSpeed || 300));
+            } else {
+                setTimeout(standby, 1000);
+            }
+        };
+        
+        standby();
+    };
+    
+    Store.__proto__ = function Empty() {};
+    Store.__proto__.clear = function () {
+        localStorage.clear();
+    };
+    
+    Store.prototype.get = function (name) {
+        var value = localStorage.getItem("store." + this.name + "." + name);
+        if (value === null) { return; }
+        try { return JSON.parse(value); } catch (e) { return null; }
+    };
+    
+    Store.prototype.set = function (name, value) {
+        if (value === undefined) {
+            this.remove(name);
+        } else {
+            if (typeof value === "function") {
+                value = null;
+            } else {
+                try {
+                    value = JSON.stringify(value);
+                } catch (e) {
+                    value = null;
+                }
+            }
+            
+            localStorage.setItem("store." + this.name + "." + name, value);
+        }
+        
+        return this;
+    };
+    
+    Store.prototype.remove = function (name) {
+        localStorage.removeItem("store." + this.name + "." + name);
+        return this;
+    };
+    
+    Store.prototype.removeAll = function () {
+        var name = "store." + this.name + ".";
+        for (var i = (localStorage.length - 1); i >= 0; i--) {
+            if (localStorage.key(i).substring(0, name.length) === name) {
+                localStorage.removeItem(localStorage.key(i));
+            }
+        }
+        
+        return this;
+    };
+    
+    Store.prototype.toObject = function () {
+        var values = {};
+        var name = "store." + this.name + ".";
+        for (var i = (localStorage.length - 1); i >= 0; i--) {
+            if (localStorage.key(i).substring(0, name.length) === name) {
+                var key = localStorage.key(i).substring(name.length);
+                var value = this.get(key);
+                if (value !== undefined) { values[key] = value; }
+            }
+        }
+        
+        return values;
+    };
+    
+    Store.prototype.fromObject = function (values, merge) {
+        if (!merge) { this.removeAll(); }
+        for (var key in values) {
+            if (values.hasOwnProperty(key)) {
+                this.set(key, values[key]);
+            }
+        }
+        
+        return this;
+    };
+    
+    Store.prototype.addEvent = function (selector, callback) {
+        if (!this.listeners[selector]) { this.listeners[selector] = []; }
+        this.listeners[selector].push(callback);
+        return this;
+    };
+    
+    Store.prototype.removeEvent = function (selector, callback) {
+        for (var i = (this.listeners[selector].length - 1); i >= 0; i--) {
+            if (this.listeners[selector][i] === callback) { this.listeners[selector].splice(i, 1); }
+        }
+        
+        if (this.listeners[selector].length === 0) { delete this.listeners[selector]; }
+        return this;
+    };
+}());

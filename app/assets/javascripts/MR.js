@@ -6,6 +6,9 @@ MR = {
 
     init: function() {
       // application-wide code
+      if(!window.store){
+        window.store = new Store('global');
+      }
 
       if(!MR.router){
         MR.router = new MR.Router();
