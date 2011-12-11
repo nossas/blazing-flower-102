@@ -14,4 +14,16 @@ describe Idea do
     it{ should belong_to :category }
     it{ should belong_to :issue }
   end
+
+  describe "#create_fork" do
+    before do
+      @idea = Factory(:idea)
+      @member = Factory(:member)
+    end
+    subject{ @idea.create_fork(@member) }
+    its(:member){ should == @member }
+    its(:category){ should == @idea.category }
+    its(:issue){ should == @idea.issue }
+  
+  end
 end

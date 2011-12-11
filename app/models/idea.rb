@@ -88,16 +88,17 @@ class Idea < ActiveRecord::Base
   end
 
   def create_fork(current_user)
-    fork = Idea.new({
+    forked = Idea.new({
       :parent => self,
       :member => current_user,
       :category => self.category,
+      :issue => self.issue,
       :title => self.title,
       :headline => self.headline
     })
-    fork.forking = true
-    if fork.save
-      fork
+    forked.forking = true
+    if forked.save
+      forked
     else
       nil
     end
