@@ -21,3 +21,7 @@ end
 Then /^I should see the fork dialog$/ do
   page.evaluate_script("$('#facebox form[name=fork_idea]:visible').length").should == 1
 end
+
+Then /^I should see the new idea dialog$/ do
+  page.evaluate_script("$('#facebox form[name=new_idea]:visible').length").should == 1
+end
