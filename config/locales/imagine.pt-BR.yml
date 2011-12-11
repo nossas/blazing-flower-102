@@ -41,14 +41,6 @@ pt-BR:
   layouts:
     header:
       title: Voltar para página inicial
-    new_idea:
-      title: Inicie sua ideia para o desenvolvimento social
-      warning: Ao criar minha ideia eu entendo que
-      accept:
-        license_html: Ela será licenciada em <a href="http://creativecommons.org/licenses/by/3.0/br/" target="_blank">Creative Commons Atribuição 3.0 (CC BY 3.0)</a>
-        share: Qualquer pessoa poderá compartilhar minha ideia
-        copy: Qualquer pessoa poderá copiar e modificar minha ideia
-        confirm: Li e concordo em licenciar minha ideia em Creative Commons BY 3.0
     login:
       title: Acesse com sua rede social favorita
       remember_me: Lembre-se de mim e mantenha-me conectado.
@@ -74,23 +66,27 @@ pt-BR:
       error: Ocorreu um erro ao realizar o login. Por favor, tente novamente.
   imagine:
     ideas:
-      deadline_finished: "Encerrado o prazo para inscrição de novas ideias"
       index:
-        title: Intercâmbio de ideias, criação colaborativa e soluções inovadoras!
-        bullets:
-          first: Encontre uma ideia que você gostaria de remixar
-          second: Crie sua própria versão e trabalhe até ficar satisfeito
-          third: Devolva a ideia para a comunidade remixar mais e mais
-        step_1_html: "<span>#1</span> <div><strong>Seleção!</strong> Em pouquíssimo tempo, o #festideias reuniu 346 ideias inovadoras sobre três grandes questões. Após uma difícil seleção, o time de curadores chegou às 20 ideias que irão, nos dias 20 e 21 de setembro, para o evento na Cinemateca Brasileira, em São Paulo. Confira a lista abaixo!</div>"
-        step_2_html: "<span>#2</span> <div><strong>Confirme sua presença</strong> Não deixe de ir à Cinemateca Brasileira, para aprimorar as 20 ideias selecionadas nas mesas abertas de co-criação. É a sua chance de interagir! Além dos debates, você poderá conhecer os organizadores e aumentar seu networking.</div>"
-        step_3_html: "<span>#3</span> <div><strong>No dia</strong> Lá na Cinemateca, as ideias serão refinadas, estruturadas, apresentadas, e as três finalistas ganharão R$ 10 mil cada uma. Além disso, o FdI contará com uma programação diversa: debates, conversas e muita interação!</div>"
-        video_html: <div style="width:460px" id="__ss_8755784"><iframe src="http://www.slideshare.net/slideshow/embed_code/8755784" width="460" height="380" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></div>
         discover: Conheça algumas ideias e contribua!
         didnt_find: Tem uma ideia que não está aqui?
         new_idea: Inicie uma ideia
         explore:
           html: Temos um total de <span class="number">%{count}</span> ideias. Que tal explorar todas elas %{link}?
           link: clicando aqui
+          title: Intercâmbio de ideias, criação colaborativa e soluções inovadoras!
+          bullets:
+            first: Encontre uma ideia que você gostaria de remixar
+            second: Crie sua própria versão e trabalhe até ficar satisfeito
+            third: Devolva a ideia para a comunidade remixar mais e mais
+      new_idea:
+        title: Inicie sua ideia
+        warning: Ao criar minha ideia eu entendo que
+        accept:
+          license_html: Ela será licenciada em <a href="http://creativecommons.org/licenses/by/3.0/br/" target="_blank">Creative Commons Atribuição 3.0 (CC BY 3.0)</a>
+          share: Qualquer pessoa poderá compartilhar minha ideia
+          copy: Qualquer pessoa poderá copiar e modificar minha ideia
+          confirm: Li e concordo em licenciar minha ideia em Creative Commons BY 3.0
+        deadline_finished: "Encerrado o prazo para inscrição de novas ideias"
       list:
         featured:
           title: Ideias em destaque

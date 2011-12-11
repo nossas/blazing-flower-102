@@ -49,9 +49,9 @@ class Imagine::IdeasController < ApplicationController
   end
 
   def create
-    @idea = Idea.new(params[:idea])
-    @idea.user = current_member
-    create!
+    @idea = @issue.ideas.new(params[:idea])
+    @idea.member = current_member
+    create!{ return redirect_to issue_ideas_path(@issue) }
   end
 
   def update

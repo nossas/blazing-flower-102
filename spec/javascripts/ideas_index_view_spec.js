@@ -12,7 +12,7 @@ describe("IdeasIndexView", function(){
     it("should bind new_idea route", function(){
       spyOn(MR.router, "bind");
       view.bindRoutes();
-      expect(MR.router.bind).toHaveBeenCalledWith('route:new_idea', view.fork);
+      expect(MR.router.bind).toHaveBeenCalledWith('route:new_idea', view.newIdea);
     });
   });
 
