@@ -44,7 +44,7 @@
           - if @idea.parent and @idea.pending_merge(@idea.parent)
             .changed= render :partial => 'pending_merge', :object => @idea.pending_merge(@idea.parent)
           - elsif @idea.need_to_merge?
-            .changed= t('.need_to_merge.html', :link => link_to(t('.need_to_merge.link'), "#merge/#{@idea.parent.id}"), :member => @idea.parent.member.display_name)
+            .changed= t('.need_to_merge.html', :link => link_to(t('.need_to_merge.link'), "#merge/#{@idea.parent.id}"), :user => @idea.parent.member.name)
           - elsif @versions_changed
             .changed= t('.versions_changed.html', :link => link_to(t('.versions_changed.link'), '#versions'))
       .menu

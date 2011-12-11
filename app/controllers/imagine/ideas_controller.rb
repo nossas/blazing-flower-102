@@ -74,13 +74,13 @@ class Imagine::IdeasController < ApplicationController
 
   def create_fork
     idea = Idea.find(params[:id])
-    fork = idea.create_fork(current_member)
-    if fork
+    forked = idea.create_fork(current_member)
+    if forked
       flash[:success] = t('ideas.create_fork.success')
-      redirect_to imagine_idea_path(fork)
+      redirect_to issue_idea_path(forked.issue, forked)
     else
       flash[:failure] = t('ideas.create_fork.failure')
-      redirect_to imagine_idea_path(idea)
+      redirect_to issue_idea_path(idea.issue, idea)
     end
   end
 

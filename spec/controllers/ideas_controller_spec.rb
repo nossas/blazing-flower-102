@@ -7,8 +7,8 @@ describe Imagine::IdeasController do
     @current_member ||= stub_model(Member, :id => 2)
     controller.stub(:current_member).and_return(@current_member)
 
-    @idea = mock_model(Idea, :id => 1, :user_id => @idea_owner.id)
-    @fork = mock_model(Idea, :id => 2, :user_id => @current_member.id)
+    @idea = mock_model(Idea, :id => 1, :user_id => @idea_owner.id, :issue => stub_model(Issue))
+    @fork = mock_model(Idea, :id => 2, :user_id => @current_member.id, :issue => stub_model(Issue))
   end
 
 
@@ -45,7 +45,7 @@ describe Imagine::IdeasController do
       end
 
       its(:status) { should == 302 }
-      it { should redirect_to imagine_idea_path(@fork) }
+      it { should redirect_to issue_idea_path(@fork.issue, @fork) }
     end
 
     context "when user IS NOT logged" do
