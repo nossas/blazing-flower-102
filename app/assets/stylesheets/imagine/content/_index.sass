@@ -1,9 +1,18 @@
 @import idea
 
+#facebox
+  .submit
+    text-align: center
+  form.simple_form.idea
+    input[type=text], textarea
+      width: 400px
+      margin-bottom: 15px
+    textarea
+      height: 100px
+    .dropdown
+      margin: 0
 @mixin index
   +grid(12)
-  #new_idea
-    +new_idea
 
   .new_idea
     +grid(12)

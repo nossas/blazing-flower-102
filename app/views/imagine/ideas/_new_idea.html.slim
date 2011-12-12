@@ -1,9 +1,19 @@
 #new_idea.hidden
-  h1= t('.title')
-  = simple_form_for [@issue, Idea.new], :html => {:name => 'new_idea'} do |form|
+  header
+    h2= t('.title')
+  = simple_form_for [@issue, Idea.new], :html => {:name => 'new_idea_form'} do |form|
     = form.input :title, :as => :string, :input_html => { :maxlength => 60 }
     = form.input :headline, :input_html => { :maxlength => 140 }
-    = form.association :category, :as => :radio
+    dl.dropdown
+      dt.sprite.dropdown_archive
+        span=""
+      dd
+        ul
+          - IdeaCategory.order(:name).each do |category|
+            li
+              a[href=category.id]= category.name
+    .hidden
+      = form.association :category, :as => :select
     .warning
       h3= t('.warning')
       ul
@@ -11,4 +21,4 @@
         li= t('.accept.share')
         li= t('.accept.copy')
     .submit
-      = form.button :submit
+      = form.button :submit, :class => 'btn'
