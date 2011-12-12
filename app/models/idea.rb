@@ -87,10 +87,10 @@ class Idea < ActiveRecord::Base
     end
   end
 
-  def create_fork(current_user)
+  def create_fork(current_member)
     forked = Idea.new({
       :parent => self,
-      :member => current_user,
+      :member => current_member,
       :category => self.category,
       :issue => self.issue,
       :title => self.title,
@@ -139,7 +139,7 @@ class Idea < ActiveRecord::Base
     return unless merge
     self.merging = true
     begin
-      merged_document = JSON.parse(RestClient.put("#{self.url}/#{self.id}/resolve_conflicts/#{from_id}", conflict_attributes.merge({ :member_id=> self.user.id }).to_json))
+      merged_document = JSON.parse(RestClient.put("#{self.url}/#{self.id}/resolve_conflicts/#{from_id}", conflict_attributes.merge({ :member_id=> self.member.id }).to_json))
       self.title = merged_document["title"]
       self.headline = merged_document["headline"]
       self.save
@@ -209,7 +209,7 @@ class Idea < ActiveRecord::Base
       :title => title,
       :headline => headline,
       :category => category,
-      :user => user,
+      :member => member,
       :description => description,
       :description_html => description_html,
       :likes => likes,
