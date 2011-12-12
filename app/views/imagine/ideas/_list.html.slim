@@ -1,6 +1,7 @@
 .ideas
-  h3= t(".#{quick}.title")
-  ul= render :partial => 'idea', :collection => collection
+  /h3= t(".#{quick}.title")
+  - collection.in_groups_of(4).each do |ideas|
+    ul.grid_12.alpha.omega= render :partial => 'idea', :collection => ideas.compact
   /*.more*/
     /*= link_to "#{explore_path}##{quick}" do*/
       /*= t(".#{quick}.more")*/

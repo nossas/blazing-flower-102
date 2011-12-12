@@ -13,15 +13,18 @@
   .grid_1.prefix_3.omega.imagine  
     =link_to(image_tag('imagine.png', :id => 'ballon'))
 
-#site.ramify
+.grid_12_alpha#site.ramify
   #content
     #index
       .new_idea
-        h2= t('.discover')
-        = link_to t('.new_idea'), '#new_idea'
+        .grid_12.alpha.omega
+          p.bluebox 
+            | Conheça aqui as idéias para melhorar a cidade.
+            br
+            | Cada pessoa pode criar sua própria versão de qualquer ideia e aprimorá-la à vontade.
+        p.call_to_action
+          b.sprite.arrow-down
+          = link_to t('.new_idea'), '#new_idea', :class => 'btn'
       = render :partial => 'list', :locals => {:quick => "featured", :collection => @ideas} unless @ideas.empty?
-      .new_idea
-        h2= t('.didnt_find')
-        = link_to t('.new_idea'), '#new_idea'
 
     = render :partial => 'new_idea'
