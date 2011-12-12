@@ -5,6 +5,10 @@ class Imagine::IdeasController < ApplicationController
     render :file => "public/401.html", :status => :unauthorized if not request.xhr?
   end
 
+  rescue_from ActiveRecord::RecordNotFound do |e|
+    render_404
+  end
+
   load_and_authorize_resource
   inherit_resources
 
