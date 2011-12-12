@@ -83,7 +83,7 @@ pt-BR:
         warning: Ao criar minha ideia eu entendo que
         accept:
           license_html: Ela será licenciada em <a href="http://creativecommons.org/licenses/by/3.0/br/" target="_blank">Creative Commons Atribuição 3.0 (CC BY 3.0)</a>
-          share: Qualquer pessoa poderá compartilhar minha ideia
+          share: Qualquer pessoa poderá compartilhar, copiar e modificar minha ideia
           copy: Qualquer pessoa poderá copiar e modificar minha ideia
           confirm: Li e concordo em licenciar minha ideia em Creative Commons BY 3.0
         deadline_finished: "Encerrado o prazo para inscrição de novas ideias"
