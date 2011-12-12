@@ -80,7 +80,7 @@
                 ul
                   - @versions.each do |version|
                     li class=@idea.category.css_class
-                      h1= link_to(version.title, imagine_idea_path(version))
+                      h1= link_to(version.title, issue_idea_path(@issue, version))
                       .user= t('.versions.user_html', :link => link_to(version.member.name, member_path(version.member)))
                       .headline
                         p= version.headline

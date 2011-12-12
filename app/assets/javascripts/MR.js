@@ -25,7 +25,7 @@ MR = {
       $('.member_panel .right.info').bind('click', function(){
         MR.common.openMemberFlyout();
       });
-    
+
       $("#new_registration #member_new").live('submit', function(e){
         e.preventDefault();
         var $form = $(this), $errors = $("#errors");
@@ -35,7 +35,7 @@ MR = {
           $.post("/members", data, function(data, textStatus, jqXHR){
             if(data.errors != null){
               var error_data = '';
-              for(error in data.errors){ 
+              for(error in data.errors){
                 error_data = error_data + data.errors[error] + "</br>";
               }
               $errors.show();
@@ -45,7 +45,7 @@ MR = {
                 $("#flashTemplate").tmpl(data).prependTo("body");
               }
               $(document).trigger('close.facebox');
-            } 
+            }
           });
         }
       });
@@ -59,7 +59,7 @@ MR = {
           if(data.logged_in === true){
             location.reload();
           }else{
-            $errors.html("Email ou senha inválidos."); 
+            $errors.html("Email ou senha inválidos.");
             $errors.show();
           }
         });
@@ -123,7 +123,7 @@ MR = {
     addFragmentListener: function(){
         store.set('lastFragment', $(this).data('record-fragment'));
       },
-    
+
     faceboxInit: function(){
       $.facebox.settings.closeImage = "/assets/closelabel.png";
       $.facebox.settings.loadingImage = "/assets/loading.gif";
@@ -149,24 +149,23 @@ MR = {
         store.remove('lastFragment');
       }
     },
-    
+
     /**
      * Adds a random class to the body which CSS uses to set the background img
      */
     setBodyBackgroundClass: function(){
         var backgrounds = ['blue', 'green', 'orange', 'pink'],
             thisBackground = backgrounds[Math.round(Math.random()*100%3)];
-        
+
         $('body').addClass('background_' + thisBackground);
       },
-      
+
     mainNavDonationLink: function(){
       $('#main_nav_donate').click(function(){
         $('.moip form').submit();
         return false;
       });
     },
-
     setUpDropDowns: function(callback){
       var $dropdown_ul = $(".dropdown dd ul");
 
@@ -182,7 +181,7 @@ MR = {
           $dropdown_ul.hide();
           callback ? callback(this) : function(){};
       });
-      
+
       $(document).unbind('click').bind('click', function(e) {
         var $clicked = $(e.target);
         if (! $clicked.parents().hasClass("dropdown"))
@@ -201,7 +200,7 @@ MR = {
       }
     }
   },
-  
+
   users: {
     init: function(){
       // controller-wide code

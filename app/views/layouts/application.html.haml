@@ -100,9 +100,11 @@
     // Scripts
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"}
     :javascript
-      !window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))    
-    =javascript_include_tag "application"
+      !window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))
+
+    = javascript_include_tag "application"
     = yield :javascripts
+
     %script{:id => "flashTemplate", :type => "text/x-jquery-tmpl"}
       <div class="container_12 messages clearfix"><div class="grid_11 alpha">${flash}</div>
       <div class="grid_1 omega"><a href="#" id="close_messages"><img src="/assets/close_messages.png"></a></div></div>
