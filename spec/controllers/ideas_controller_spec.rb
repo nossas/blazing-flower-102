@@ -7,8 +7,8 @@ describe Imagine::IdeasController do
     @current_member ||= stub_model(Member, :id => 2)
     controller.stub(:current_member).and_return(@current_member)
 
-    @idea = mock_model(Idea, :id => 1, :user_id => @idea_owner.id, :issue => stub_model(Issue))
-    @fork = mock_model(Idea, :id => 2, :user_id => @current_member.id, :issue => stub_model(Issue))
+    @idea = stub_model(Idea, :id => 1, :title => 'test', :member_id => @idea_owner.id, :issue => stub_model(Issue))
+    @fork = stub_model(Idea, :id => 2, :title => 'fork test', :member_id => @current_member.id, :issue => stub_model(Issue))
   end
 
 
