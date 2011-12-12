@@ -1,7 +1,7 @@
 @mixin editable
   .editable
     &:after
-      content: " " url(image_path('imagine/edit.png'))
+      content: " " url(image_path('pencil.png'))
     &:hover
       cursor: pointer
     img
@@ -33,5 +33,6 @@
           &:hover
             color: lighten($pink, 10%)
   .editing
+    :border 1px solid #999
     &:after
       content: "" !important

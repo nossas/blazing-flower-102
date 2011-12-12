@@ -1,10 +1,10 @@
-var EditableView = .View.extend({
+MR.EditableView = MR.BaseView.extend({
 
   initialize: function() {
     this.prepareEditables()
   },
 
-    prepareEditables: function() {
+  prepareEditables: function() {
     _.bindAll(this, "prepareEditable", "updateUrl")
     this.$('.editable textarea').live('keydown', function() {
       if(!$(this).attr('data-prepared')) {
@@ -29,10 +29,10 @@ var EditableView = .View.extend({
     element.editable(this.updateUrl(), {
       data: this.dataRaw,
       type: (element.attr('data-type') || "textarea"),
-      placeholder: (element.attr('data-placeholder') || Editable.placeholder),
+      placeholder: element.attr('data-placeholder'),
       method: "PUT",
       name: this.modelName + '[' + element.attr('data-attribute') + ']',
-      indicator : '<img src="/images/loading.gif">',
+      indicator : '<img src="/assets/loading.gif">',
       onreset: function() {
         $(this).parent().removeClass("editing")
       },
@@ -67,7 +67,7 @@ var EditableView = .View.extend({
   },
 
   collectionName: function() {
-    return "/" + app.locale + "/" + this.collectionName() + "/" + this.el.attr('data-id') + '.json'
+    return this.modelName + 's'
   },
 
   updateUrl: function() {

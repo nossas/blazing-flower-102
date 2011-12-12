@@ -11,6 +11,7 @@
 //= require ./libs/jquery.tools.min.js
 //= require ./libs/jquery.tmpl.min.js
 //= require ./libs/jquery.validate.min.js
+//= require ./libs/jquery.editable.js
 //= require ./libs/backbone.js
 //= require ./MR.js
 //= require_tree ./frontend

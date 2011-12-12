@@ -1,8 +1,9 @@
-MR.IdeasShowView = MR.BaseView.extend({
+MR.IdeasShowView = MR.EditableView.extend({
   initialize: function(){
     _.bindAll(this, 'fork');
     this.bindRoutes();
     this.loadLastFragment();
+    this.prepareEditables();
   },
 
   bindRoutes: function(){
@@ -14,5 +15,4 @@ MR.IdeasShowView = MR.BaseView.extend({
       $.facebox({div: '#confirm_fork_idea'});
     }
   },
-
 });
