@@ -25,7 +25,7 @@
       .header class=@idea.category.css_class
         .category= image_tag @idea.category.badge.url, :title => @idea.category.name
         .info
-          h1 class=("editable" if can? :edit, @idea) data-attribute="title" data-raw=@idea.title data-maxlength=60 data-singleline=true
+          h1 class=("editable" if can? :edit, @idea) data-url=imagine_idea_path(@idea) data-attribute="title" data-raw=@idea.title data-maxlength=60 data-singleline=true
             = @idea.title
           .user
             = t('.user_html', :link => link_to(@idea.member.name, member_path(@idea.member))) unless @idea.parent
@@ -33,7 +33,7 @@
               = image_tag image_path('imagine/icons/ramify_color.png')
               = t('.parent_html', :user => link_to(@idea.member.name, member_path(@idea.member)), :parent => link_to(@idea.parent.member.name, imagine_idea_path(@idea.parent)))
           .headline
-            p class=("editable" if can? :edit, @idea) data-attribute="headline" data-raw=@idea.headline data-maxlength=140 data-singleline=true
+            p class=("editable" if can? :edit, @idea) data-attribute="headline" data-url=imagine_idea_path(@idea) data-raw=@idea.headline data-maxlength=140 data-singleline=true
               = @idea.headline
         .social
           .fb_fix
@@ -64,7 +64,7 @@
             - if can? :edit, @idea
               .placeholder_edit= t('.placeholders.description_html')
               = image_tag image_path('imagine/icons/idea.png'), :html => {:id => 'icon'}
-            .attribute class=("editable" if can? :edit, @idea) data-attribute="description" data-raw=@idea.description data-raw-attribute="description_html"
+            .attribute class=("editable" if can? :edit, @idea) data-url=imagine_idea_path(@idea) data-attribute="description" data-raw=@idea.description data-raw-attribute="description_html"
               == @idea.description_html
 
           .versions
