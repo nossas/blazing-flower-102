@@ -8,10 +8,10 @@
   meta property=="og:type" content="cause"
 
 .grid_12
-  .grid_8.alpha.imagine                                                                                                                                                              
+  .grid_8.alpha.imagine
     .issue_name
       = link_to(@issue.name, issue_path(@issue))
-  .grid_1.prefix_3.omega.imagine  
+  .grid_1.prefix_3.omega.imagine
     =link_to(image_tag('imagine.png', :id => 'ballon'))
 
 #site.ramify
@@ -78,7 +78,7 @@
                 ul
                   - @versions.each do |version|
                     li class=@idea.category.css_class
-                      h1= link_to(version.title, imagine_idea_path(version))
+                      h1= link_to(version.title, issue_idea_path(@issue, version))
                       .user= t('.versions.user_html', :link => link_to(version.member.name, member_path(version.member)))
                       .headline
                         p= version.headline
