@@ -15,24 +15,24 @@
       button
         z-index: 300
         cursor: pointer
-        position: absolute
         top: 0
         left: 0
-        font-size: 14px
+        font-size: 11px
         line-height: 16px
         padding: 2px 8px
+        margin-right: 4px
         +transition(background-color, color)
         &:hover
           background-color: lighten($pink, 4%)
         &:active
           padding: 3px 7px 1px 9px
-        &[type=cancel]
-          background: white !important
-          color: $pink
-          border: 1px solid $ice
-          &:hover
-            color: lighten($pink, 10%)
+
   .editing
-    :border 1px solid #999
+    textarea
+      :border 2px solid #C2C2C2
+      &:focus
+        :border 2px solid #EF803B
     &:after
       content: "" !important
+  .hidden
+    display: none
