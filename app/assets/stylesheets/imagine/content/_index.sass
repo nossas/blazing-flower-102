@@ -6,11 +6,35 @@
   form.simple_form.idea
     input[type=text], textarea
       width: 400px
+      +border-radius(5px)
       margin-bottom: 15px
+      &:invalid
+        +box-shadow(none)
+    input[type=text]
+      height: 28px
     textarea
       height: 100px
     .dropdown
-      margin: 0
+      margin: 0 32px 0 0 
+      float: left
+    p
+      float:left
+      margin-bottom: 5px
+      font-style: italic
+      font-size: 14px
+      color: $light_gray
+    h5
+      margin-bottom: 10px
+    .submit
+      float: left
+      margin-bottom: 20px
+      
+.warning
+  +border-radius(5px)
+  display: block
+  float: left
+  margin: 10px 0 
+
 @mixin index
   +grid(12)
 

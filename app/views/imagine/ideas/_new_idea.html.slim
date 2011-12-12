@@ -4,6 +4,7 @@
   = simple_form_for [@issue, Idea.new], :html => {:name => 'new_idea_form'} do |form|
     = form.input :title, :as => :string, :input_html => { :maxlength => 60 }
     = form.input :headline, :input_html => { :maxlength => 140 }
+    h5 CATEGORIAS
     dl.dropdown
       dt.sprite.dropdown_archive
         span=""
@@ -15,10 +16,9 @@
     .hidden
       = form.association :category, :as => :select
     .warning
-      h3= t('.warning')
-      ul
+      p Ao criar minha ideia eu entendo que ela será lincenciada em Creative Commons Atribuição 3.0, e qualquer pessoa poderá compartilhar, copiar e modificar minha ideia
+      //ul
         li= t('.accept.license_html')
         li= t('.accept.share')
-        li= t('.accept.copy')
     .submit
       = form.button :submit, :class => 'btn'
