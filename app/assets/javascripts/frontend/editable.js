@@ -6,6 +6,10 @@ MR.EditableView = MR.BaseView.extend({
 
   prepareEditables: function() {
     _.bindAll(this, "prepareEditable", "updateUrl")
+    $.fn.editable.defaults.tooltip = App.editable.defaults.tooltip;
+    $.fn.editable.defaults.submit = App.editable.defaults.submit;
+    $.fn.editable.defaults.cancel = App.editable.defaults.cancel;
+
     this.$('.editable textarea').live('keydown', function() {
       if(!$(this).attr('data-prepared')) {
         $(this).attr('maxlength', $(this).parents('.editable').attr('data-maxlength'))
@@ -26,13 +30,13 @@ MR.EditableView = MR.BaseView.extend({
       $(this).addClass("editing")
     })
     _.bind(this.dataRaw, element)
-    element.editable(this.updateUrl(), {
+    element.editable(this.updateUrl(element), {
       data: this.dataRaw,
       type: (element.attr('data-type') || "textarea"),
       placeholder: element.attr('data-placeholder'),
       method: "PUT",
       name: this.modelName + '[' + element.attr('data-attribute') + ']',
-      indicator : '<img src="/assets/loading.gif">',
+      indicator : '<img src="/assets/imagine/loading.gif">',
       onreset: function() {
         $(this).parent().removeClass("editing")
       },
@@ -68,10 +72,11 @@ MR.EditableView = MR.BaseView.extend({
 
   collectionName: function() {
     return this.modelName + 's'
+
   },
 
-  updateUrl: function() {
-    return "/" + this.collectionName() + "/" + this.el.attr('data-id') + '.json'
+  updateUrl: function(element) {
+    return $(element).attr('data-url') + '.json'
   },
 
   dataRaw: function(){ return $(this).attr('data-raw') }

@@ -1,6 +1,7 @@
 MR.IdeasShowView = MR.EditableView.extend({
   initialize: function(){
     _.bindAll(this, 'fork');
+    this.modelName = "idea";
     this.bindRoutes();
     this.loadLastFragment();
     this.prepareEditables();
