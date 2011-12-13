@@ -13,8 +13,10 @@
           - IdeaCategory.order(:name).each do |category|
             li
               a[href=category.id]= category.name
+    label.error.hidden
+      |Escolha uma categoria para a sua idéia
     .hidden
-      = form.association :category, :as => :select
+      = form.association :category, :as => :select, :required => false
     .warning
       p Ao criar minha ideia eu entendo que ela será lincenciada em Creative Commons Atribuição 3.0, e qualquer pessoa poderá compartilhar, copiar e modificar minha ideia
       //ul
