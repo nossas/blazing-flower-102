@@ -70,7 +70,7 @@ class Imagine::IdeasController < ApplicationController
     idea = Idea.find(params[:id])
     if idea.destroy
       flash[:success] = t('ideas.remove.success')
-      redirect_to imagine_root_path
+      redirect_to issue_ideas_path(idea.issue)
     else
       flash[:failure] = t('ideas.remove.failure')
     end
