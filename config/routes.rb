@@ -61,11 +61,14 @@ MeuRio::Application.routes.draw do
         post 'create_fork'
       end
     end
-    root :to => "ideas#index"
   end
-  post "na_atividade/:issue_id/imagine" => "Imagine::Ideas#create", :as => "issue_ideas"
-  match "na_atividade/:issue_id/imagine/:id" => "Imagine::Ideas#show", :as => "issue_idea"
-  match "na_atividade/:issue_id/imagine" => "Imagine::Ideas#index", :as => "issue_ideas"
+
+  # Workaround to fix later
+  match "imagine/:id" => "Imagine::Ideas#show", :as => :idea
+
+  post "na_atividade/:issue_id/imagine" => "Imagine::Ideas#create", :as => :issue_ideas
+  match "na_atividade/:issue_id/imagine/:id" => "Imagine::Ideas#show", :as => :issue_idea
+  match "na_atividade/:issue_id/imagine" => "Imagine::Ideas#index", :as => :issue_ideas
 
   root :to => "pages#show", :id => "index"
 end

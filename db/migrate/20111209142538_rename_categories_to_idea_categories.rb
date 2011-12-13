@@ -1,6 +1,6 @@
 class RenameCategoriesToIdeaCategories < ActiveRecord::Migration
   def up
-    drop_table :categories
+    execute "DROP TABLE IF EXISTS idea_categories"
     execute "ALTER TABLE ideas RENAME category_id TO idea_category_id"
     create_table :idea_categories do |t|
       t.text :name, :null => false

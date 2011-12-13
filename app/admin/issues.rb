@@ -19,6 +19,9 @@ ActiveAdmin.register Issue do
     column 'Videos' do |i|
       span i.personal_stories.count
     end
+    column 'Imagine' do |i|
+      span (i.feature_ideas ? 'Sim' : 'Não')
+    end
     column :created_at do |m|
       l m.created_at, :format => :short
     end

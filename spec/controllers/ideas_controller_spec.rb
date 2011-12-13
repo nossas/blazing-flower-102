@@ -7,15 +7,25 @@ describe Imagine::IdeasController do
     @current_member ||= stub_model(Member, :id => 2)
     controller.stub(:current_member).and_return(@current_member)
 
-    @idea = mock_model(Idea, :id => 1, :user_id => @idea_owner.id, :issue => stub_model(Issue))
-    @fork = mock_model(Idea, :id => 2, :user_id => @current_member.id, :issue => stub_model(Issue))
+    @idea = stub_model(Idea, :id => 1, :title => 'test', :member_id => @idea_owner.id, :issue => stub_model(Issue))
+    @fork = stub_model(Idea, :id => 2, :title => 'fork test', :member_id => @current_member.id, :issue => stub_model(Issue))
   end
 
+  describe 'POST create' do
+    before do
+      @issue = Factory(:issue)
+      @idea_category = Factory(:idea_category)
+      @member = Factory(:member)
+      controller.stub(:current_member).and_return(@member)
+      post :create, :issue_id => @issue.id, :idea => {:title => 'test idea', :headline => 'headline for test', :idea_category_id => @idea_category.id}
+    end
+    its(:status){ should == 302 }
+    it{ should redirect_to issue_idea_path(@issue, Idea.order(:id).last) }
+  end
 
   describe 'GET index' do
     before do
       Idea.stub(:count).and_return("ideas_count")
-
       get :index, :locale => :pt, :iframe => 'true'
     end
     its(:status){ should == 200 }
@@ -31,7 +41,6 @@ describe Imagine::IdeasController do
   end
 
   describe "POST create_fork_idea" do
-
     before do
       Idea.stub!(:find, @idea.id).and_return(@idea)
       @idea.stub!(:create_fork, @current_member).and_return(@fork)

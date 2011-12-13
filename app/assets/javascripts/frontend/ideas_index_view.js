@@ -6,6 +6,21 @@ MR.IdeasIndexView = MR.BaseView.extend({
     this.loadLastFragment();
     $(document).bind('reveal.facebox', function(){
       MR.common.setUpDropDowns(that.selectCategory);
+
+      $("#facebox form#new_idea").submit(function(){
+        if($('option[selected=selected]', '#facebox #idea_idea_category_id').length < 1){
+          $('#facebox label.error').removeClass('hidden');
+          return false;
+        }
+        else{
+          $('#facebox label.error').addClass('hidden');
+          return true;
+        }
+      });
+
+    });
+    $(document).bind('afterClose.facebox', function(){
+      Backbone.history.navigate('');
     });
   },
 

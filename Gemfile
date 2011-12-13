@@ -50,6 +50,7 @@ gem 'pg'
 gem 'foreigner'
 gem 'dalli'
 gem 'paperclip'
+gem 'fog'
 gem 'carrierwave'
 
 # Including so we can run the complete petition rake task for demos
