@@ -1,14 +1,17 @@
 @mixin show_idea
   +grid(12)
   .info
-    +grid(5)
-    +omega
+    display: inline
+    float: left
+    margin-left: 10px
+    margin-right: 0
+    width: 540px
+    
     .comments
       margin-top: 35px
     .formatting_tips
       font-size: 16px
-      padding-right: 10px
-      margin: 40px 0 20px 0
+      margin: 20px 0
       background: url(image_path('imagine/commentbox-01-01.png')) no-repeat
       height: 254px
       a
@@ -24,9 +27,10 @@
 
       ul
         li
-          margin: 0 32px 9px 16px
+          margin: 0 30px 15px 5px
           font-size: 15px
-          line-height: 19px
+          line-height: 20px
+          width: 305px
   .header
     +grid(12)
     +alpha
@@ -159,9 +163,6 @@
       float: right
       margin-left: $ninesixty-gutter-width
   .content
-    +grid(12)
-    +alpha
-    +omega
     min-height: 432px
     h1
       text-transform: uppercase
@@ -169,9 +170,6 @@
       font-weight: normal
       padding-bottom: 8px
     .text
-      +grid(7)
-      +alpha
-
       #icon
         float:left
 
@@ -193,8 +191,6 @@
       +border-radius(6px)
       padding: 14px 6px 14px 14px
     .info
-      +grid(5)
-      +omega
       .comments
         margin-top: 35px
       .formatting_tips
@@ -218,7 +214,6 @@
           li
             margin: 0 32px 9px 16px
             font-size: 15px
-            line-height: 19px
 
 
     img

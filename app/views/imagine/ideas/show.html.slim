@@ -54,14 +54,12 @@
           - if can? :destroy, @idea
             .remove_idea= link_to t('.remove_idea'), '#remove'
           .fork_idea= link_to t('.fork_idea'), '#fork', :id => 'fork_idea_button'
-      .grid_5.alpha.info
-        .comments= render :partial => 'shared/comments', :locals => { :url => "#{issue_idea_url(@idea.issue, @idea)}#description" }
-        = render 'formatting_tips'
-      h2 = t('.menu.description')
 
-      .content
+
+      .grid_6.alpha.content
         .description
-          .text
+          h2 = t('.menu.description')
+          .grid_6.alpha.omega.text
             - if can? :edit, @idea
               .placeholder_edit= t('.placeholders.description_html')
               = image_tag image_path('imagine/icons/idea.png'), :html => {:id => 'icon'}
@@ -94,4 +92,8 @@
                           = render :partial => 'pending_merge', :object => @idea.pending_merge(version), :locals => { :parent => true }
                         - elsif version.parent_need_to_merge?
                           .merge= link_to t('.versions.merge'), "#merge/#{version.id}"
+      .grid_5.omega.info
+        .comments= render :partial => 'shared/comments', :locals => { :url => "#{issue_idea_url(@idea.issue, @idea)}#description" }
+        = render 'formatting_tips'
 
+        
