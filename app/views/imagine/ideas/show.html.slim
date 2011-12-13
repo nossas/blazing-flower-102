@@ -8,12 +8,12 @@
   meta property=="og:type" content="cause"
 
 .grid_12
-  .grid_8.alpha.imagine                                                                                                                                                    
+  .grid_8.alpha.imagine
     .issue_name
       = link_to(@issue.name, issue_path(@issue))
     h1 Que idéias você tem para melhorar o seu Rio?
 
-  .grid_1.prefix_3.omega.imagine  
+  .grid_1.prefix_3.omega.imagine
     =link_to(image_tag('imagine.png', :id => 'ballon'), issue_ideas_path(@issue))
 
 #site.ramify
@@ -33,7 +33,7 @@
             = t('.user_html', :link => link_to(@idea.member.name, member_path(@idea.member))) unless @idea.parent
             - if @idea.parent
               = image_tag image_path('imagine/icons/ramify_color.png')
-              = t('.parent_html', :user => link_to(@idea.member.name, member_path(@idea.member)), :parent => link_to(@idea.parent.member.name, imagine_idea_path(@idea.parent)))
+              = t('.parent_html', :user => link_to(@idea.member.name, member_path(@idea.member)), :parent => link_to(@idea.parent.member.name, issue_idea_path(@issue.id, @idea.parent)))
           .headline
             p class=("editable" if can? :edit, @idea) data-attribute="headline" data-url=imagine_idea_path(@idea) data-raw=@idea.headline data-maxlength=140 data-singleline=true
               = @idea.headline
@@ -42,27 +42,24 @@
             .fb_like= render :partial => 'shared/fb_like', :locals => { :url => root_url, :show_faces => false, :width => '60', :layout => 'box_count' }
           .twitter_share= render :partial => 'shared/twitter_share', :locals => { :url => root_url, :count => 'vertical' }
 
-        - if can? :edit, @idea
+        /- if can? :edit, @idea
           - if @idea.parent and @idea.pending_merge(@idea.parent)
             .changed= render :partial => 'pending_merge', :object => @idea.pending_merge(@idea.parent)
           - elsif @idea.need_to_merge?
             .changed= t('.need_to_merge.html', :link => link_to(t('.need_to_merge.link'), "#merge/#{@idea.parent.id}"), :user => @idea.parent.member.name)
           - elsif @versions_changed
             .changed= t('.versions_changed.html', :link => link_to(t('.versions_changed.link'), '#versions'))
-      .menu
+      //.menu
         .buttons
           - if can? :destroy, @idea
             .remove_idea= link_to t('.remove_idea'), '#remove'
           .fork_idea= link_to t('.fork_idea'), '#fork', :id => 'fork_idea_button'
-      .info
-        .comments= render :partial => 'shared/comments', :locals => { :url => "#{issue_idea_url(@idea.issue, @idea)}#description" }
-        = render 'formatting_tips'
-      .clearfix
-      h2 = t('.menu.description')
 
-      .content
+
+      .grid_6.alpha.content
         .description
-          .text
+          h2 = t('.menu.description')
+          .grid_6.alpha.omega.text
             - if can? :edit, @idea
               .placeholder_edit= t('.placeholders.description_html')
               = image_tag image_path('imagine/icons/idea.png'), :html => {:id => 'icon'}
@@ -85,14 +82,19 @@
                       .headline
                         p= version.headline
                       .created_at= t('.versions.created_at', :created_at => l(version.created_at.to_date, :format => :short))
-                      .changes
+                      /.changes
                         - if version.parent_need_to_merge?
                           = t('.versions.changes')
                         - else
                           = t('.versions.no_changes')
-                      - if can? :edit, @idea
+
+                    /- if can? :edit, @idea
                         - if @idea.pending_merge(version)
                           = render :partial => 'pending_merge', :object => @idea.pending_merge(version), :locals => { :parent => true }
                         - elsif version.parent_need_to_merge?
                           .merge= link_to t('.versions.merge'), "#merge/#{version.id}"
+      .grid_5.omega.info
+        .comments= render :partial => 'shared/comments', :locals => { :url => "#{issue_idea_url(@idea.issue, @idea)}#description" }
+        = render 'formatting_tips'
 
+        

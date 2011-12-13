@@ -1,14 +1,17 @@
 @mixin show_idea
   +grid(12)
   .info
-    +grid(5)
-    +omega
+    display: inline
+    float: left
+    margin-left: 10px
+    margin-right: 0
+    width: 540px
+    
     .comments
       margin-top: 35px
     .formatting_tips
       font-size: 16px
-      padding-right: 10px
-      margin: 40px 0 20px 0
+      margin: 20px 0
       background: url(image_path('imagine/commentbox-01-01.png')) no-repeat
       height: 254px
       a
@@ -24,19 +27,18 @@
 
       ul
         li
-          margin: 0 32px 9px 16px
+          margin: 0 30px 15px 5px
           font-size: 15px
-          line-height: 19px
+          line-height: 20px
+          width: 305px
   .header
     +grid(12)
     +alpha
     +omega
-    margin-bottom: 40px
     .category
       +grid(3)
       +alpha
     .info
-      +grid(7)
       a
         color: $pink
         &:hover
@@ -47,8 +49,6 @@
       h2
         padding-bottom: 8px
       .user
-        +grid(7)
-        +alpha
         font-style: italic
         font-size: 14px
         line-height: 16px
@@ -60,8 +60,6 @@
       .headline
         margin-top: 6px
         p
-          +grid(7)
-          +alpha
           margin-top: 5px
           color: $light_black
           min-height: 40px
@@ -165,10 +163,6 @@
       float: right
       margin-left: $ninesixty-gutter-width
   .content
-    +grid(12)
-    +alpha
-    +omega
-    padding: 20px 0
     min-height: 432px
     h1
       text-transform: uppercase
@@ -176,10 +170,6 @@
       font-weight: normal
       padding-bottom: 8px
     .text
-      +grid(7)
-      +alpha
-      margin-top: 40px
-
       #icon
         float:left
 
@@ -201,8 +191,6 @@
       +border-radius(6px)
       padding: 14px 6px 14px 14px
     .info
-      +grid(5)
-      +omega
       .comments
         margin-top: 35px
       .formatting_tips
@@ -226,16 +214,15 @@
           li
             margin: 0 32px 9px 16px
             font-size: 15px
-            line-height: 19px
 
 
     img
       max-width: 540px
     .versions .text
       a
-        color: $light_black
+        color: white
         &:hover
-          color: black
+          color: #ddd
       ul
         li
           +clearfix
