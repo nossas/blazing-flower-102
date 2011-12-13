@@ -119,6 +119,10 @@ class Imagine::IdeasController < ApplicationController
   end
 
   protected
+  def collection
+    @ideas ||= end_of_association_chain.order('likes DESC')
+  end
+
   def current_ability
     @current_ability ||= case
                          when current_member

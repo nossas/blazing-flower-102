@@ -18,7 +18,9 @@
     #index
       .new_idea
         .grid_12.alpha.omega
-          p.bluebox= @issue.ideas_headline
+          p.bluebox
+            = @issue.ideas_headline
+            = @issue.ideas_media_html if @issue.ideas_media.present?
         p.call_to_action
           b.sprite.arrow-down
           = link_to t('.new_idea'), '#new_idea', :class => 'btn'
