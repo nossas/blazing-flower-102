@@ -37,6 +37,11 @@
       <p id="petition_call_to_action_length" style="padding-left: 10px; border: 1px solid #efefef; margin: 10px 0 0 343px;"><span></span>(Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long)</p>
       <div></div>
     <%- end %>
+    <p style="padding: 5px; border: 1px solid #666; margin: 20px 20px 0 340px;">Select what Petition you want to feature on the Issue page. The blank option will not display the module at all.</p>
+    <%= f.input :feature_ideas, :allow_blank => true %>
+    <%= f.input :ideas_call_to_action, :as => :string %>
+    <p id="ideas_call_to_action_length" style="padding-left: 10px; border: 1px solid #efefef; margin: 10px 0 0 343px;"><span></span>(Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long)</p>
+    <div></div>
   <% end %>
   <%= f.buttons %>
 <% end %>
@@ -50,6 +55,7 @@ var counter = function(field, p){
 counter('#issue_debate_call_to_action', '#debate_call_to_action_length');
 counter('#issue_personal_story_call_to_action', '#personal_story_call_to_action_length');
 counter('#issue_petition_call_to_action', '#petition_call_to_action_length');
+counter('#issue_ideas_call_to_action', '#ideas_call_to_action_length');
 
 </script>
 <style>
