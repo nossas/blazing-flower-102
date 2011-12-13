@@ -49,15 +49,14 @@
             .changed= t('.need_to_merge.html', :link => link_to(t('.need_to_merge.link'), "#merge/#{@idea.parent.id}"), :user => @idea.parent.member.name)
           - elsif @versions_changed
             .changed= t('.versions_changed.html', :link => link_to(t('.versions_changed.link'), '#versions'))
-      .menu
+      //.menu
         .buttons
           - if can? :destroy, @idea
             .remove_idea= link_to t('.remove_idea'), '#remove'
           .fork_idea= link_to t('.fork_idea'), '#fork', :id => 'fork_idea_button'
-      .info
+      .grid_5.alpha.info
         .comments= render :partial => 'shared/comments', :locals => { :url => "#{issue_idea_url(@idea.issue, @idea)}#description" }
         = render 'formatting_tips'
-      .clearfix
       h2 = t('.menu.description')
 
       .content
