@@ -18,6 +18,7 @@ src_files:
   - app/assets/javascripts/libs/store.js
   - app/assets/javascripts/libs/facebox.js
   - app/assets/javascripts/libs/jquery.clippy.js
+  - app/assets/javascripts/libs/jquery.editable.js
   - app/assets/javascripts/MR.js
   - app/assets/javascripts/frontend/**/*.js
 

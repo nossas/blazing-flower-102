@@ -7,6 +7,9 @@ MR.IdeasIndexView = MR.BaseView.extend({
     $(document).bind('reveal.facebox', function(){
       MR.common.setUpDropDowns(that.selectCategory);
     });
+    $(document).bind('afterClose.facebox', function(){
+      Backbone.history.navigate('');
+    });
   },
 
   bindRoutes: function(){

@@ -6,9 +6,11 @@ MR.EditableView = MR.BaseView.extend({
 
   prepareEditables: function() {
     _.bindAll(this, "prepareEditable", "updateUrl")
-    $.fn.editable.defaults.tooltip = App.editable.defaults.tooltip;
-    $.fn.editable.defaults.submit = App.editable.defaults.submit;
-    $.fn.editable.defaults.cancel = App.editable.defaults.cancel;
+    if(MR.editable){
+      $.fn.editable.defaults.tooltip = MR.editable.defaults.tooltip;
+      $.fn.editable.defaults.submit = MR.editable.defaults.submit;
+      $.fn.editable.defaults.cancel = MR.editable.defaults.cancel;
+    }
 
     this.$('.editable textarea').live('keydown', function() {
       if(!$(this).attr('data-prepared')) {
