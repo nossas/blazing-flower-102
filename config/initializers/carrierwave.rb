@@ -6,17 +6,10 @@ if Rails.env.test? or Rails.env.cucumber?
 elsif Rails.env.production?
   begin
     CarrierWave.configure do |config|
-      access_key = SITE['s3_access_key_id']
-      secret_key = SITE['s3_secret_access_key']
-  #    fog_directory = Configuration.find_by_name('fog_directory')
-      bucket = SITE['s3_bucket']
-
-      if access_key and secret_key and bucket
-        config.s3_access_key_id = access_key.value
-        config.s3_secret_access_key = secret_key.value
-        config.s3_bucket = bucket.value
-      end
+      config.storage = :s3
+      config.s3_access_key_id = SITE['s3_access_key_id']
+      config.s3_secret_access_key = SITE['s3_secret_access_key'] 
+      config.s3_bucket = SITE['s3_bucket']
     end
-  rescue
   end
 end
