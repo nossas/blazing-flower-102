@@ -1,19 +1,14 @@
 Feature: Creating an idea
   In order to contribute to the community
-  As a member
+  As an user
   I want to create an idea
 
-  @javascript
-  Scenario: Trying to create not logged in
-    Given 2 issues exist
-    When I go to the first issue's ideas page
-    And I follow "Inicie uma ideia"
-    Then I should see the login dialog
-
   @javascript @omniauth_test
-  Scenario: Trying to create logged in
+  Scenario: View ideas for an issue
     Given I am logged in via Facebook
     And 2 issues exist
-    When I go to the first issue's ideas page
-    And I follow "Inicie uma ideia"
-    Then I should see the new idea dialog
+    And I have 1 idea category
+    And I go to the first issue's ideas page
+    And I click "Inicie uma ideia"
+    When I fill in my idea information
+    Then My idea should be created for that issue
