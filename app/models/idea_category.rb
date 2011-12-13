@@ -1,5 +1,6 @@
 class IdeaCategory < ActiveRecord::Base
 
+  belongs_to :issue
   has_many :ideas
   validates_presence_of :name, :badge
   validates_uniqueness_of :name
