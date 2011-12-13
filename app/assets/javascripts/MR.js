@@ -1,5 +1,11 @@
 MR = {
-  editable: $.extend(this.editable, App.editable),
+  editable: {
+    defaults: {
+      tooltip: "Click to edit",
+      submit: "Ok",
+      cancel: "Cancel"
+    }
+  },
 
   common: {
     finish: function(){
@@ -14,6 +20,10 @@ MR = {
 
       if(!MR.router){
         MR.router = new MR.Router();
+      }
+
+      if(App && App.editable){
+        $.extend(true, MR.editable, App.editable);
       }
 
       MR.common.closeFlash();
