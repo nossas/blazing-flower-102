@@ -1,5 +1,6 @@
 class Idea < ActiveRecord::Base
 
+  require "rest_client"
   include Rails.application.routes.url_helpers
   include AutoHtml
 

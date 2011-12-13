@@ -1,4 +1,6 @@
 MR = {
+  editable: $.extend(this.editable, App.editable),
+
   common: {
     finish: function(){
       Backbone.history.start();

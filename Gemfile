@@ -9,10 +9,12 @@ gem 'inherited_resources'
 gem "devise", "~> 1.4.2"
 gem 'cancan'
 
+# Administration
 gem 'activeadmin'
-# We need to run development using thin until active_admin is patched
-# This will be removed, active_admin is very stable now (v 0.3.4)
 gem 'thin'
+
+# Ramify
+gem "rest-client"
 
 # External authentication
 gem "oa-oauth", :require => "omniauth/oauth"

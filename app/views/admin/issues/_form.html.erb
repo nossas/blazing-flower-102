@@ -41,6 +41,8 @@
     <%= f.input :feature_ideas, :allow_blank => true %>
     <%= f.input :ideas_call_to_action, :as => :string %>
     <p id="ideas_call_to_action_length" style="padding-left: 10px; border: 1px solid #efefef; margin: 10px 0 0 343px;"><span></span>(Call to action length should be between <strong><%= Issue::MIN_CALL_TO_ACTION_LENGTH %></strong> and <strong><%= Issue::MAX_CALL_TO_ACTION_LENGTH %></strong> characters long)</p>
+    <%= f.input :ideas_title, :as => :string %>
+    <%= f.input :ideas_headline, :as => :string %>
     <div></div>
   <% end %>
   <%= f.buttons %>

@@ -9,7 +9,7 @@
   .grid_8.alpha.imagine                                                                                                                                                              
     .issue_name
       = link_to(@issue.name, issue_path(@issue))
-    h1 Que idéias você tem para melhorar o seu Rio?
+    h1= @issue.ideas_title 
   .grid_1.prefix_3.omega.imagine  
     =link_to(image_tag('imagine.png', :id => 'ballon'))
 
@@ -18,10 +18,7 @@
     #index
       .new_idea
         .grid_12.alpha.omega
-          p.bluebox 
-            | Conheça aqui as idéias para melhorar a cidade.
-            br
-            | Cada pessoa pode criar sua própria versão de qualquer ideia e aprimorá-la à vontade.
+          p.bluebox= @issue.ideas_headline
         p.call_to_action
           b.sprite.arrow-down
           = link_to t('.new_idea'), '#new_idea', :class => 'btn'
