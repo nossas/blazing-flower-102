@@ -1,6 +1,6 @@
 MR.IdeasShowView = MR.EditableView.extend({
   initialize: function(){
-    _.bindAll(this, 'fork', 'remove');
+    _.bindAll(this, 'fork', 'remove', 'description', 'versions');
     this.modelName = "idea";
     this.bindRoutes();
     this.loadLastFragment();
@@ -13,6 +13,18 @@ MR.IdeasShowView = MR.EditableView.extend({
   bindRoutes: function(){
     MR.router.bind('route:fork', this.fork)
     MR.router.bind('route:remove', this.remove)
+    MR.router.bind('route:description', this.description)
+    MR.router.bind('route:versions', this.versions)
+  },
+  
+  versions: function(){
+    this.$('.content').hide();
+    this.$('.versions').show();
+  },
+
+  description: function(){
+    this.$('.content').show();
+    this.$('.versions').hide();
   },
 
   fork: function(){

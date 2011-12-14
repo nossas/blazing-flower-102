@@ -155,12 +155,28 @@
       float: left
       margin-left: $ninesixty-gutter-width
   .content
-    min-height: 432px
+    min-height: 200px
     h1
       text-transform: uppercase
       font-size: 28px
       font-weight: normal
       padding-bottom: 8px
+    .description
+      a
+        text-decoration: none
+      h2
+        font-size: 30px
+        width: 230px
+        float: left
+        &:hover
+          color: $pink
+        &.selected  
+          background: url(/images/nav_hover_underline.png) no-repeat 24px
+          border-bottom: none
+          padding-bottom: 24px
+          position: relative
+        
+
     .text
       #icon
         float:left

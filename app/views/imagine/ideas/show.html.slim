@@ -41,11 +41,18 @@
           .fb_fix
             .fb_like= render :partial => 'shared/fb_like', :locals => { :url => root_url, :show_faces => false, :width => '60', :layout => 'box_count' }
           .twitter_share= render :partial => 'shared/twitter_share', :locals => { :url => root_url, :count => 'vertical' }
+        .grid_5.suffix_7.alpha.omega
+          - if can? :destroy, @idea
+            .remove_idea= link_to t('.remove_idea'), '#remove'
 
-
+   
       .grid_7.alpha.content
         .grid_7.alpha.description
-          h2 = t('.menu.description')
+          a href="#description"
+            h2.menuversion = t('.menu.description')
+          a href="#versions"
+            h2.menuversion = t('.menu.versions')
+
           .grid_6.alpha.omega.text
             - if can? :edit, @idea              
               = image_tag image_path('imagine/icons/idea.png'), :id => 'icon', :class => 'grid_1 alpha'
@@ -56,40 +63,43 @@
 
       .grid_5.suffix_7.alpha.omega.menu
         .button
-          - if can? :destroy, @idea
-            .remove_idea= link_to t('.remove_idea'), '#remove', :class => 'btn'
           .fork_idea= link_to t('.fork_idea'), '#fork', :id => 'fork_idea_button', :class => 'btn'
 
 
-          .versions
-            .text
-              - if @versions.empty?
-                em= t('.versions.empty.html', :link => '')
-                /.grid_5.suffix_4.prefix_3.alpha.omega.menu
-                  .buttons
-                    .fork_idea= link_to t('.fork_idea'), '#fork'
-              - else
-                ul
-                  - @versions.each do |version|
-                    li class=@idea.category.css_class
-                      h1= link_to(version.title, issue_idea_path(@issue, version))
-                      .user= t('.versions.user_html', :link => link_to(version.member.name, member_path(version.member)))
-                      .headline
-                        p= version.headline
-                      .created_at= t('.versions.created_at', :created_at => l(version.created_at.to_date, :format => :short))
-                      /.changes
-                        - if version.parent_need_to_merge?
-                          = t('.versions.changes')
-                        - else
-                          = t('.versions.no_changes')
+      .versions
+        .grid_7.alpha.description
+          a href="#description"
+            h2.menuversion = t('.menu.description')
+          a href="#versions"
+            h2.menuversion = t('.menu.versions')
+        .text
+          - if @versions.empty?
+            em= t('.versions.empty.html', :link => '')
+            /.grid_5.suffix_4.prefix_3.alpha.omega.menu
+              .buttons
+                .fork_idea= link_to t('.fork_idea'), '#fork'
+          - else
+            ul
+              - @versions.each do |version|
+                li class=@idea.category.css_class
+                  h1= link_to(version.title, issue_idea_path(@issue, version))
+                  .user= t('.versions.user_html', :link => link_to(version.member.name, member_path(version.member)))
+                  .headline
+                    p= version.headline
+                  .created_at= t('.versions.created_at', :created_at => l(version.created_at.to_date, :format => :short))
+                  /.changes
+                    - if version.parent_need_to_merge?
+                      = t('.versions.changes')
+                    - else
+                      = t('.versions.no_changes')
 
-                    /- if can? :edit, @idea
-                        - if @idea.pending_merge(version)
-                          = render :partial => 'pending_merge', :object => @idea.pending_merge(version), :locals => { :parent => true }
-                        - elsif version.parent_need_to_merge?
-                          .merge= link_to t('.versions.merge'), "#merge/#{version.id}"
-      /.grid_5.omega.info
-        .comments= render :partial => 'shared/comments', :locals => { :url => "#{issue_idea_url(@idea.issue, @idea)}#description" }
-        = render 'formatting_tips'
+                /- if can? :edit, @idea
+                    - if @idea.pending_merge(version)
+                      = render :partial => 'pending_merge', :object => @idea.pending_merge(version), :locals => { :parent => true }
+                    - elsif version.parent_need_to_merge?
+                      .merge= link_to t('.versions.merge'), "#merge/#{version.id}"
+  /.grid_5.omega.info
+    .comments= render :partial => 'shared/comments', :locals => { :url => "#{issue_idea_url(@idea.issue, @idea)}#description" }
+    = render 'formatting_tips'
 
-        
+    
