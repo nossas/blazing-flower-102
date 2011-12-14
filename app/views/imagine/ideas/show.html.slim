@@ -42,14 +42,14 @@
             .fb_like= render :partial => 'shared/fb_like', :locals => { :url => root_url, :show_faces => false, :width => '60', :layout => 'box_count' }
           .twitter_share= render :partial => 'shared/twitter_share', :locals => { :url => root_url, :count => 'vertical' }
 
-        /- if can? :edit, @idea
+      /- if can? :edit, @idea
           - if @idea.parent and @idea.pending_merge(@idea.parent)
             .changed= render :partial => 'pending_merge', :object => @idea.pending_merge(@idea.parent)
           - elsif @idea.need_to_merge?
             .changed= t('.need_to_merge.html', :link => link_to(t('.need_to_merge.link'), "#merge/#{@idea.parent.id}"), :user => @idea.parent.member.name)
           - elsif @versions_changed
             .changed= t('.versions_changed.html', :link => link_to(t('.versions_changed.link'), '#versions'))
-      //.menu
+      .menu
         .buttons
           - if can? :destroy, @idea
             .remove_idea= link_to t('.remove_idea'), '#remove'
