@@ -17,13 +17,13 @@
   #content
     #index
       .new_idea
-        .grid_12.alpha.omega
-          p.bluebox
-            = @issue.ideas_headline
-            = @issue.ideas_media_html if @issue.ideas_media.present?
-        p.call_to_action
-          b.sprite.arrow-down
-          = link_to t('.new_idea'), '#new_idea', :class => 'btn'
+        .grid_12.alpha.greybox
+          .ideas_headline
+            == @issue.ideas_headline
+            .call_to_action
+              b.sprite.arrow-down
+              = link_to t('.new_idea'), '#new_idea', :class => 'btn'
+          = @issue.ideas_media_html if @issue.ideas_media.present?
       = render :partial => 'list', :locals => {:quick => "featured", :collection => @ideas} unless @ideas.empty?
 
     = render :partial => 'new_idea'
