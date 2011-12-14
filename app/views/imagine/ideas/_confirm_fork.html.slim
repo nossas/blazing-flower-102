@@ -1,9 +1,8 @@
 #confirm_fork_idea.hidden
-  h1= t('.title')
-  h2= t('.subtitle')
+  header
+    h2= t('.title')
+  h3= t('.subtitle')
   = form_tag(create_fork_imagine_idea_path(@idea), {:name => 'fork_idea'})  do |f|
     = simple_fields_for @idea do |form|
       .submit
-        = form.submit
-        a.cancel href='#'
-          = t('.cancel')
+        = form.submit :class => 'btn'

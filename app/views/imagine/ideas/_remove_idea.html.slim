@@ -1,8 +1,7 @@
 #remove_idea.hidden
-  a.close href='javascript:app.back()' title="X"
-    = image_tag image_path('imagine/cancel.png')
+  header
+    h2= t('.title')
   = form_tag imagine_idea_path(@idea), :method => "delete", :name => 'remove_idea' do |f|
-    h1= t('.title')
     h2= t('.subtitle')
     - if (@idea.versions.count > 0) or @idea.parent_need_to_merge?
       .warning
@@ -11,11 +10,5 @@
           ul
             - @idea.versions.each do |version|
               li= "#{version.title}, por #{version.member.name}"
-        /- if @idea.parent_need_to_merge?
-          h3= t('.parent_need_to_merge')
-    .input.boolean.required
-      label
-        = check_box_tag 'remove_accept'
-        = t('.accept')
     .submit
-      = submit_tag t('.form_button')
+      = submit_tag t('.form_button'), :class => 'btn'
