@@ -2,11 +2,11 @@
   header
     h2= t('.title')
   = form_tag imagine_idea_path(@idea), :method => "delete", :name => 'remove_idea' do |f|
-    h2= t('.subtitle')
+    h5= t('.subtitle')
     - if (@idea.versions.count > 0) or @idea.parent_need_to_merge?
       .warning
         - if @idea.versions.count > 0
-          h3= t('.versions')
+          h5= t('.versions')
           ul
             - @idea.versions.each do |version|
               li= "#{version.title}, por #{version.member.name}"

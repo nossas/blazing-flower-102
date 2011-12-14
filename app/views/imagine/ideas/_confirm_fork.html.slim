@@ -1,7 +1,7 @@
 #confirm_fork_idea.hidden
   header
     h2= t('.title')
-  h3= t('.subtitle')
+  h5= t('.subtitle')
   = form_tag(create_fork_imagine_idea_path(@idea), {:name => 'fork_idea'})  do |f|
     = simple_fields_for @idea do |form|
       .submit

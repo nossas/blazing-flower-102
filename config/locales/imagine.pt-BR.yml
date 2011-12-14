@@ -163,7 +163,7 @@ pt-BR:
           confirm: Li e concordo em licenciar minha ideia em Creative Commons BY 3.0
       confirm_fork:
         title: Remixar esta idéia
-        subtitle: Crie sua versão para alterar a idéia original. Lembre-se você pode apenas comentar a ideia original.
+        subtitle: Crie sua versão para alterar a idéia original. Lembre-se você pode apenas comentá-la para dar sugestões.
         cancel: Cancelar
       merge_idea:
         title: Mesclar alterações de duas ideias
