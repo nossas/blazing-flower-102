@@ -14,7 +14,7 @@ class Issue < ActiveRecord::Base
   has_many :personal_stories, :dependent => :destroy
   has_many :ideas, :dependent => :destroy
   has_many :idea_categories, :dependent => :destroy
-
+  has_many :idea_help_methods, :dependent => :destroy
   belongs_to :featured_petition, :class_name => 'Petition', :foreign_key => :featured_petition_id
   belongs_to :featured_debate, :class_name => 'Debate', :foreign_key => :featured_debate_id
   belongs_to :featured_personal_story, :class_name => 'PersonalStory', :foreign_key => :featured_personal_story_id

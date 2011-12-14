@@ -13,6 +13,7 @@ describe Idea do
     it{ should belong_to :member }
     it{ should belong_to :category }
     it{ should belong_to :issue }
+    it{ should belong_to :idea_help_method }
     it{ should have_many :versions }
     it{ should have_many :merges }
   end
@@ -26,6 +27,6 @@ describe Idea do
     its(:member){ should == @member }
     its(:category){ should == @idea.category }
     its(:issue){ should == @idea.issue }
-  
+
   end
 end

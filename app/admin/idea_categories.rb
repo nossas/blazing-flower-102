@@ -1,6 +1,6 @@
 # coding: utf-8
 ActiveAdmin.register IdeaCategory do
-  menu :priority => 3, :label => "Categorias"
+  menu :label => "Categorias", :parent => "Imagine", :priority => 1
 
   filter :name, :label => "Nome"
   filter :issue, :as => :select, :label => "Campanha", :collection => Issue.all
