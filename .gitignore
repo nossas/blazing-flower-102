@@ -4,7 +4,7 @@ log/*.log
 tmp/
 coverage/*
 .sass-cache/
-.*.swp
+.*.sw*
 .DS_Store
 app/.DS_Store
 app/assets/.DS_Store
