@@ -16,18 +16,9 @@ class Imagine::IdeasController < ApplicationController
   respond_to :html, :except => [:update]
   respond_to :json, :only => [:index, :update]
   optional_belongs_to :issue
+  before_filter :load_ideas_count, :only => [ :index ]
+  before_filter :load_issue_categories, :only => [ :index ]
 
-  def index
-    index! do |format|
-      format.html do
-        @count = Idea.count
-      end
-      format.json do
-        @ideas = Idea.search(params[:search]).page params[:page]
-        render :json => @ideas.to_json
-      end
-    end
-  end
 
   def explore
     @title = t('ideas.explore.title')
@@ -119,6 +110,14 @@ class Imagine::IdeasController < ApplicationController
   end
 
   protected
+  def load_issue_categories
+    @categories = parent.idea_categories
+  end
+
+  def load_ideas_count
+    @count = Idea.count
+  end
+
   def collection
     @ideas ||= end_of_association_chain.order('likes DESC')
   end
