@@ -404,6 +404,7 @@ DEPENDENCIES
   paperclip
   pg
   rails (~> 3.1)
+  rest-client
   rspec-rails (~> 2.6)
   ruby-debug19
   sass-rails (~> 3.1.0)
