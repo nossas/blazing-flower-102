@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe Issue do
-  it { should validate_presence_of :name } 
-  it { should validate_presence_of :description } 
+  it { should validate_presence_of :name }
+  it { should validate_presence_of :description }
   it { should validate_presence_of :image_file_name }
   it { should validate_presence_of :thumbnail_file_name }
   it { should_not allow_value('This is way toooooooooo looooooooooooooooong it has so many characters try counting them all I bet you can not do it. It is longer than a tweet. Or maybe it is not I have not actually counted.').for(:debate_call_to_action) }
@@ -14,6 +14,10 @@ describe Issue do
 
   describe "#idea_categories" do
     it { should have_many :idea_categories }
+  end
+
+  describe "#idea_help_method" do
+    it { should have_many :idea_help_methods }
   end
 
   describe "#ideas" do

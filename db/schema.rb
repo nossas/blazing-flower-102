@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111213204441) do
+ActiveRecord::Schema.define(:version => 20111214205025) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -141,6 +141,15 @@ ActiveRecord::Schema.define(:version => 20111213204441) do
 
   add_index "idea_categories", ["name"], :name => "index_idea_categories_on_name", :unique => true
 
+  create_table "idea_help_methods", :force => true do |t|
+    t.text     "name",       :null => false
+    t.integer  "issue_id",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "idea_help_methods", ["issue_id", "name"], :name => "index_idea_help_methods_on_issue_id_and_name", :unique => true
+
   create_table "idea_merges", :force => true do |t|
     t.integer  "idea_id",                       :null => false
     t.integer  "from_id",                       :null => false
@@ -152,18 +161,19 @@ ActiveRecord::Schema.define(:version => 20111213204441) do
   end
 
   create_table "ideas", :force => true do |t|
-    t.integer  "member_id",                           :null => false
-    t.integer  "issue_id",                            :null => false
-    t.integer  "idea_category_id",                    :null => false
+    t.integer  "member_id",                              :null => false
+    t.integer  "issue_id",                               :null => false
+    t.integer  "idea_category_id",                       :null => false
     t.integer  "parent_id"
-    t.text     "title",                               :null => false
+    t.text     "title",                                  :null => false
     t.text     "headline"
-    t.boolean  "featured",         :default => false, :null => false
-    t.boolean  "recommended",      :default => false, :null => false
-    t.integer  "likes",            :default => 0,     :null => false
+    t.boolean  "featured",            :default => false, :null => false
+    t.boolean  "recommended",         :default => false, :null => false
+    t.integer  "likes",               :default => 0,     :null => false
     t.integer  "order"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "idea_help_method_id"
   end
 
   add_index "ideas", ["issue_id"], :name => "index_ideas_on_issue_id"
@@ -370,10 +380,13 @@ ActiveRecord::Schema.define(:version => 20111213204441) do
 
   add_foreign_key "idea_categories", "issues", :name => "idea_categories_issue_id_fk"
 
+  add_foreign_key "idea_help_methods", "issues", :name => "idea_help_methods_issue_id_fk"
+
   add_foreign_key "idea_merges", "ideas", :name => "idea_merges_from_id_fk", :column => "from_id"
   add_foreign_key "idea_merges", "ideas", :name => "idea_merges_idea_id_fk"
 
   add_foreign_key "ideas", "idea_categories", :name => "ideas_idea_category_id_fk"
+  add_foreign_key "ideas", "idea_help_methods", :name => "ideas_idea_help_method_id_fk"
   add_foreign_key "ideas", "ideas", :name => "ideas_parent_id_fk", :column => "parent_id"
   add_foreign_key "ideas", "issues", :name => "ideas_issue_id_fk"
   add_foreign_key "ideas", "members", :name => "ideas_member_id_fk"

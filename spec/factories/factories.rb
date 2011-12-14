@@ -1,5 +1,9 @@
 #coding: utf-8
-#
+Factory.define :idea_help_method do |m|
+  m.name { Faker::Name.name }
+  m.association :issue, :factory => :issue
+end
+
 Factory.define :idea_category do |m|
   m.name  { Faker::Name.name }
   m.badge File.open("#{Rails.root.to_s}/spec/fixtures/images/catastrofes.png")

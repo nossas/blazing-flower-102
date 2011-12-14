@@ -6,6 +6,7 @@ class Idea < ActiveRecord::Base
 
   belongs_to :issue
   belongs_to :member
+  belongs_to :idea_help_method
   belongs_to :category, :class_name => 'IdeaCategory', :foreign_key => :idea_category_id
   belongs_to :parent, :class_name => 'Idea', :foreign_key => :parent_id
   has_many :versions, :class_name => 'Idea', :foreign_key => :parent_id
