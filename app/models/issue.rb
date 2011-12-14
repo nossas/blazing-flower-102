@@ -13,6 +13,7 @@ class Issue < ActiveRecord::Base
   has_many :debates, :dependent => :destroy
   has_many :personal_stories, :dependent => :destroy
   has_many :ideas, :dependent => :destroy
+  has_many :idea_categories, :dependent => :destroy
 
   belongs_to :featured_petition, :class_name => 'Petition', :foreign_key => :featured_petition_id
   belongs_to :featured_debate, :class_name => 'Debate', :foreign_key => :featured_debate_id
@@ -41,5 +42,10 @@ class Issue < ActiveRecord::Base
 
   scope :has_articles, lambda {
     self.where('EXISTS (SELECT true FROM debates d WHERE d.issue_id = issues.id) OR EXISTS (SELECT true FROM petitions p WHERE p.issue_id = issues.id) OR EXISTS (SELECT true FROM personal_stories ps WHERE ps.issue_id = issues.id)') }
+
+  auto_html_for :ideas_media do
+    youtube(:width => 660, :height => 315)
+    vimeo(:width => 660, :height => 315)
+  end
 
 end

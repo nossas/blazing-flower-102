@@ -1,6 +1,7 @@
 class IdeaCategory < ActiveRecord::Base
 
-  has_many :ideas, :dependent => :destroy # TODO: Diogo, check if it's correct, please.
+  belongs_to :issue
+  has_many :ideas, :dependent => :destroy 
   validates_presence_of :name, :badge
   validates_uniqueness_of :name
 

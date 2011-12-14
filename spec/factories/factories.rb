@@ -3,6 +3,7 @@
 Factory.define :idea_category do |m|
   m.name  { Faker::Name.name }
   m.badge File.open("#{Rails.root.to_s}/spec/fixtures/images/catastrofes.png")
+  m.association :issue, :factory => :issue
 end
 
 Factory.define :idea do |f|

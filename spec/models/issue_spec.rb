@@ -12,6 +12,10 @@ describe Issue do
   it { should allow_value('This is not too long. It is practically perfect in every way.').for(:petition_call_to_action) }
   it { should allow_value('This is not too long. It is practically perfect in every way.').for(:personal_story_call_to_action) }
 
+  describe "#idea_categories" do
+    it { should have_many :idea_categories }
+  end
+
   describe "#ideas" do
     it { should have_many :ideas }
   end

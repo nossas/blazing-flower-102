@@ -9,6 +9,7 @@ describe IdeaCategory do
     it{ should validate_uniqueness_of :name }
     it{ should validate_presence_of :badge }
     it{ should have_many :ideas }
+    it{ should belong_to :issue }
   end
 end
 
