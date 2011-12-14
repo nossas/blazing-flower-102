@@ -52,7 +52,7 @@ describe("BaseView", function(){
   });
 
   describe("#isLoggedIn", function(){
-    it("should return true when user is NOT logged in", function(){
+    it("should return false when user is NOT logged in", function(){
       expect(view.isLoggedIn()).toEqual(false);
     });
 

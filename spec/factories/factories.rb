@@ -1,7 +1,7 @@
 #coding: utf-8
 #
 Factory.define :idea_category do |m|
-  m.name  { Faker::Lorem.words(1) }
+  m.name  { Faker::Name.name }
   m.badge File.open("#{Rails.root.to_s}/spec/fixtures/images/catastrofes.png")
   m.association :issue, :factory => :issue
 end
