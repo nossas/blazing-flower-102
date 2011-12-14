@@ -3,9 +3,11 @@ ActiveAdmin.register IdeaCategory do
   menu :priority => 3, :label => "Categorias"
 
   filter :name, :label => "Nome"
+  filter :issue, :as => :select, :label => "Campanha", :collection => Issue.all
 
 
   index do
+    column :issue
     column :name
     column "Ideas" do |i|
       span i.ideas.count
@@ -18,6 +20,7 @@ ActiveAdmin.register IdeaCategory do
 
   form do |f|
     f.inputs "Editar Categoria" do
+      f.input :issue, :as => :select, :label => "Campanha"
       f.input :name, :as => :string, :label => "Nome"
       f.input :badge, :as => :file, :label => "Badge"
       f.buttons
@@ -30,6 +33,10 @@ ActiveAdmin.register IdeaCategory do
       div :class => :panel_contents do
         div :class => :attributes_table do
           table do
+            tr do
+              th { "Issue" }
+              td { idea_category.issue.name }
+            end
             tr do
               th { "Nome" }
               td { idea_category.name }
