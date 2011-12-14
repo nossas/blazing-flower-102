@@ -17,9 +17,9 @@ ActiveAdmin.register IdeaCategory do
   end
 
   form do |f|
-    f.inputs "Detalhes" do
-      f.input :name, :as => :string
-      f.input :badge, :as => :file
+    f.inputs "Detalhes da categoria" do
+      f.input :name, :as => :string, :label => "Nome"
+      f.input :badge, :as => :file, :label => "Badge"
       f.buttons
     end
   end
