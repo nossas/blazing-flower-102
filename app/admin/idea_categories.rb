@@ -7,7 +7,7 @@ ActiveAdmin.register IdeaCategory do
 
   index do
     column :name
-    column "Ideias" do |i|
+    column "Ideas" do |i|
       span i.ideas.count
     end
     column :created_at do |m|
@@ -17,7 +17,7 @@ ActiveAdmin.register IdeaCategory do
   end
 
   form do |f|
-    f.inputs "Detalhes da categoria" do
+    f.inputs "Editar Categoria" do
       f.input :name, :as => :string, :label => "Nome"
       f.input :badge, :as => :file, :label => "Badge"
       f.buttons
@@ -26,12 +26,12 @@ ActiveAdmin.register IdeaCategory do
 
   show do
     div :class => :panel do
-      h3 "Idea Category Detail"
+      h3 "Detalhe da categoria"
       div :class => :panel_contents do
         div :class => :attributes_table do
           table do
             tr do
-              th { "Name" }
+              th { "Nome" }
               td { idea_category.name }
             end
             tr do
