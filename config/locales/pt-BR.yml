@@ -247,6 +247,7 @@
       petition: "Petições"
       issue: "Campanha"
       personal_story: "Vídeo"
+      idea_category: "Categorias"
     attributes:
       member:
         first_name: "Nome"
