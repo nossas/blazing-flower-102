@@ -145,7 +145,7 @@ pt-BR:
           changes: Esta versão possui alterações para mesclar com a ideia original.
           no_changes: Esta versão não possui alterações para mesclar com a ideia original.
       remove_idea:
-        title: Remover ideia
+        title: Apagar ideia
         subtitle: Deseja apagar esta ideia? Este processo não é reversível
         versions: Existem versões baseadas nesta ideia. No caso de remoção, as versões permanecerão ativas no sistema e continuarão a ser editadas pelos seus criadores.
         parent_need_to_merge: Existem alterações na sua ideia que não estão na ideia original
@@ -162,8 +162,8 @@ pt-BR:
           credits: Eu devo sempre atribuir créditos à ideia original
           confirm: Li e concordo em licenciar minha ideia em Creative Commons BY 3.0
       confirm_fork:
-        title: Você tem certeza que quer criar sua versão desta ideia?
-        subtitle: Só recomendamos criar sua versão de uma ideia se você for de fato alterá-la. Caso contrário, recomendamos comentar a ideia original, e não criar uma nova versão.
+        title: Remixar esta idéia
+        subtitle: Crie sua versão para alterar a idéia original. Lembre-se você pode apenas comentar a ideia original.
         cancel: Cancelar
       merge_idea:
         title: Mesclar alterações de duas ideias
