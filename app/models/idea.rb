@@ -73,9 +73,9 @@ class Idea < ActiveRecord::Base
 
   before_destroy :remove_dependencies
   def remove_dependencies
-    self.merges.each {|merge| merge.destroy } if self.merges.size > 0
+    #self.merges.each {|merge| merge.destroy } if self.merges.size > 0
     self.versions.each {|version| version.parent = nil; version.save } if self.versions.size > 0
-    Merge.merges_from(self.id).each {|m| m.destroy}
+    #Merge.merges_from(self.id).each {|m| m.destroy}
   end
 
   after_destroy :delete_document
