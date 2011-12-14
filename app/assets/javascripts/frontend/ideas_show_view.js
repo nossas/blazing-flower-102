@@ -5,6 +5,9 @@ MR.IdeasShowView = MR.EditableView.extend({
     this.bindRoutes();
     this.loadLastFragment();
     this.prepareEditables();
+    $(document).bind('afterClose.facebox', function(){
+      Backbone.history.navigate('');
+    });
   },
 
   bindRoutes: function(){
