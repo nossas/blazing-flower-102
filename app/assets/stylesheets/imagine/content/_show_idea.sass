@@ -1,10 +1,11 @@
 @mixin show_idea
-  +grid(12)
+  display: inline
+  float: left
+  width: 960px
+  
   .info
     display: inline
     float: left
-    margin-left: 10px
-    margin-right: 0
     width: 540px
     
     .comments
@@ -69,7 +70,8 @@
       +grid(2)
       +omega
       .fb_fix
-        +grid(1)
+        float: left
+        margin-right: 25px
         overflow: hidden
         .fb_like
       .twitter_share
@@ -114,12 +116,7 @@
               &:hover
                 color: white
   .menu
-    +grid(7)
-    +alpha
-    position: relative
     ul
-      +grid(7)
-      +alpha
       position: absolute
       top: 1px
       li
@@ -145,7 +142,6 @@
             padding-bottom: 24px
             position: relative
   .buttons
-    +grid(5)
     margin-bottom: 8px
     padding-top: 20px
     a
@@ -155,12 +151,8 @@
       +grid(3)
       +alpha
       +omega
-      //float: right
     .remove_idea
-      +grid(2)
-      +alpha
-      +omega
-      float: right
+      float: left
       margin-left: $ninesixty-gutter-width
   .content
     min-height: 432px
@@ -174,12 +166,7 @@
         float:left
 
       .placeholder_edit
-        +alpha
-        +grid(6)
-        font-size: 16px
-        line-height: 16px
         color: $blue
-        float: right
 
       .attribute.editable
         margin-top: 24px

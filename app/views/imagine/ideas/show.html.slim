@@ -22,11 +22,11 @@
   = render 'remove_idea'
   = render 'merge_idea'
 
-  #content
+  .grid_12#content
     #show_idea data-id=@idea.id
       .header class=@idea.category.css_class
         .category= image_tag @idea.category.badge.url, :title => @idea.category.name
-        .info
+        .grid_7.info
           h1 class=("editable" if can? :edit, @idea) data-url=imagine_idea_path(@idea) data-attribute="title" data-raw=@idea.title data-maxlength=60 data-singleline=true
             = @idea.title
           .user
@@ -42,35 +42,30 @@
             .fb_like= render :partial => 'shared/fb_like', :locals => { :url => root_url, :show_faces => false, :width => '60', :layout => 'box_count' }
           .twitter_share= render :partial => 'shared/twitter_share', :locals => { :url => root_url, :count => 'vertical' }
 
-      /- if can? :edit, @idea
-          - if @idea.parent and @idea.pending_merge(@idea.parent)
-            .changed= render :partial => 'pending_merge', :object => @idea.pending_merge(@idea.parent)
-          - elsif @idea.need_to_merge?
-            .changed= t('.need_to_merge.html', :link => link_to(t('.need_to_merge.link'), "#merge/#{@idea.parent.id}"), :user => @idea.parent.member.name)
-          - elsif @versions_changed
-            .changed= t('.versions_changed.html', :link => link_to(t('.versions_changed.link'), '#versions'))
-      .menu
-        .buttons
-          - if can? :destroy, @idea
-            .remove_idea= link_to t('.remove_idea'), '#remove'
-          .fork_idea= link_to t('.fork_idea'), '#fork', :id => 'fork_idea_button'
 
-
-      .grid_6.alpha.content
-        .description
+      .grid_7.alpha.content
+        .grid_7.alpha.description
           h2 = t('.menu.description')
           .grid_6.alpha.omega.text
-            - if can? :edit, @idea
-              .placeholder_edit= t('.placeholders.description_html')
-              = image_tag image_path('imagine/icons/idea.png'), :html => {:id => 'icon'}
+            - if can? :edit, @idea              
+              = image_tag image_path('imagine/icons/idea.png'), :id => 'icon', :class => 'grid_1 alpha'
+              .grid_5.alpha.placeholder_edit= t('.placeholders.description_html')
+
             .attribute class=("editable" if can? :edit, @idea) data-url=imagine_idea_path(@idea) data-attribute="description" data-raw=@idea.description data-raw-attribute="description_html"
               == @idea.description_html
+
+      .grid_5.suffix_7.alpha.omega.menu
+        .button
+          - if can? :destroy, @idea
+            .remove_idea= link_to t('.remove_idea'), '#remove', :class => 'btn'
+          .fork_idea= link_to t('.fork_idea'), '#fork', :id => 'fork_idea_button', :class => 'btn'
+
 
           .versions
             .text
               - if @versions.empty?
                 em= t('.versions.empty.html', :link => '')
-                .menu
+                /.grid_5.suffix_4.prefix_3.alpha.omega.menu
                   .buttons
                     .fork_idea= link_to t('.fork_idea'), '#fork'
               - else
@@ -93,7 +88,7 @@
                           = render :partial => 'pending_merge', :object => @idea.pending_merge(version), :locals => { :parent => true }
                         - elsif version.parent_need_to_merge?
                           .merge= link_to t('.versions.merge'), "#merge/#{version.id}"
-      .grid_5.omega.info
+      /.grid_5.omega.info
         .comments= render :partial => 'shared/comments', :locals => { :url => "#{issue_idea_url(@idea.issue, @idea)}#description" }
         = render 'formatting_tips'
 
