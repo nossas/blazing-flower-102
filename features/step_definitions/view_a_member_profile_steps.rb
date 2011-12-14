@@ -43,6 +43,11 @@ Given /^my zone is "([^"]*)"$/ do |arg1|
   @member.update_attributes :zona => arg1
 end
 
+Given /^this member had an idea called "([^"]*)" on "([^"]*)" for the issue "([^"]*)"$/ do |title, created_at, issue|
+  Factory(:provider_authorization, :member => @member)
+  @idea = Factory(:idea, :member => @member, :title => title, :created_at => Date.parse(created_at), :issue => Factory(:issue, :name => issue))
+end
+
 Then /^I should see the debate comment icon$/ do
   page.should have_xpath("//img[@src=\"/assets/02_debate_icon.png\"]")
 end
@@ -101,4 +106,8 @@ end
 
 Then /^I should see the petition comment icon$/ do
   page.should have_xpath("//img[@src=\"/assets/01_petition_icon.png\"]")
+end
+
+Then /^I should see the idea icon$/ do
+  page.should have_xpath("//img[@src=\"/assets/imagine.png\"]")
 end

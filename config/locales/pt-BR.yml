@@ -396,6 +396,7 @@ Quer nos ajudar a construir um Rio de Janeiro mais justo e democrático? Faça d
     signed_petition: "Assinou o abaixo-assinado %{title}, %{issue} »"
     commented_debate: "Fez um comentário no debate %{name}, %{issue} »"
     debate_author: "Escreveu um artigo no debate %{name}, %{issue} »"
+    idea: "Criou a idéia %{title}, %{issue}"
     joined_on: "Membro desde %{date}"
     bio: "Sobre mim"
     email: "Email"

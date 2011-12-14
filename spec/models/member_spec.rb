@@ -9,6 +9,10 @@ describe Member do
     should validate_uniqueness_of :email
   }
 
+  describe "#ideas" do
+    it{ should have_many :ideas } 
+  end
+
   describe "#debates_side_1" do
     before do 
       @member = Factory(:member)
@@ -113,6 +117,11 @@ describe Member do
       @debate = Factory(:debate, :author_1 => @member)
       @debate_comment = Factory(:debate_comment, :commentable => @debate, :member => @member)
       @petition_sig = Factory(:petition_signature, :member => @member)
+      @idea = Factory(:idea, :member => @member)
+    end
+
+    it "should contain the idea" do
+      @member.action_history.should include(@idea)
     end
 
     it "should contain the petition signature" do
