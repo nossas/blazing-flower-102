@@ -11,7 +11,7 @@
           ul
             - @idea.versions.each do |version|
               li= "#{version.title}, por #{version.member.name}"
-        - if @idea.parent_need_to_merge?
+        /- if @idea.parent_need_to_merge?
           h3= t('.parent_need_to_merge')
     .input.boolean.required
       label

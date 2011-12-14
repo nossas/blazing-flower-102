@@ -1,6 +1,6 @@
 class IdeaCategory < ActiveRecord::Base
 
-  has_many :ideas
+  has_many :ideas, :dependent => :destroy # TODO: Diogo, check if it's correct, please.
   validates_presence_of :name, :badge
   validates_uniqueness_of :name
 
@@ -11,7 +11,7 @@ class IdeaCategory < ActiveRecord::Base
   def css_class
     name.parameterize
   end
-  
+
   def as_json(options={})
     {
       :id => id,
@@ -20,5 +20,5 @@ class IdeaCategory < ActiveRecord::Base
       :css_class => css_class
     }
   end
-  
+
 end
