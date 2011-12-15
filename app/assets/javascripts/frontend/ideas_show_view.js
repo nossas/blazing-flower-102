@@ -8,6 +8,7 @@ MR.IdeasShowView = MR.EditableView.extend({
     $(document).bind('afterClose.facebox', function(){
       Backbone.history.navigate('');
     });
+    this.description();
   },
 
   bindRoutes: function(){
@@ -18,13 +19,13 @@ MR.IdeasShowView = MR.EditableView.extend({
   },
   
   versions: function(){
-    this.$('.content').hide();
-    this.$('.versions').show();
+    this.$('#idea_description').hide();
+    this.$('#idea_versions').show();
   },
 
   description: function(){
-    this.$('.content').show();
-    this.$('.versions').hide();
+    this.$('#idea_description').show();
+    this.$('#idea_versions').hide();
   },
 
   fork: function(){
