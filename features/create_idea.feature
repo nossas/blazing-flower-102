@@ -8,6 +8,7 @@ Feature: Creating an idea
     Given I am logged in via Facebook
     And 2 issues exist
     And I have 1 idea category
+    And I have 1 idea help method
     And I go to the first issue's ideas page
     And I click "Inicie uma ideia"
     When I fill in my idea information

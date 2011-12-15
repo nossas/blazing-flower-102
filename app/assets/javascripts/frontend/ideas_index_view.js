@@ -1,23 +1,29 @@
 MR.IdeasIndexView = MR.BaseView.extend({
   initialize: function(){
     var that = this;
-    _.bindAll(this, 'newIdea', 'selectCategory');
+    _.bindAll(this, 'newIdea', 'selectOption');
     this.bindRoutes();
     this.loadLastFragment();
-    $(document).bind('reveal.facebox', function(){
-      MR.common.setUpDropDowns(that.selectCategory);
 
+    $(document).bind('reveal.facebox', function(){
+      MR.common.setUpDropDowns(that.selectOption);
       $("#facebox form#new_idea").submit(function(){
-        if($('option[selected=selected]', '#facebox #idea_idea_category_id').length < 1){
-          $('#facebox label.error').removeClass('hidden');
-          return false;
-        }
-        else{
-          $('#facebox label.error').addClass('hidden');
-          return true;
+        var fields = [
+          '#facebox #idea_idea_category_id',
+          '#facebox #idea_idea_help_method',
+        ];
+        for (field in fields){
+
+          if($('option[selected=selected]', $fields[field]).length === 0){
+            $(this).parent().siblings('label.error').removeClass('hidden');
+            return false;
+
+          } else {
+            $(this).parent().siblings('label.erro').addClass('hidden');
+            return true;
+          }
         }
       });
-
     });
     $(document).bind('afterClose.facebox', function(){
       Backbone.history.navigate('');
@@ -28,9 +34,9 @@ MR.IdeasIndexView = MR.BaseView.extend({
     MR.router.bind('route:new_idea', this.newIdea)
   },
 
-  selectCategory: function(params){
-    $('option', '#facebox #idea_idea_category_id').removeAttr('selected');
-    $('option[value=' + $(params).attr('href') + ']', '#facebox #idea_idea_category_id').attr('selected', 'selected');
+  selectOption: function(params){
+    $('option', '#facebox #' + $(params).attr('data-param')).removeAttr('selected');
+    $('option[value=' + $(params).attr('href') + ']', '#facebox #' + $(params).attr('data-param')).attr('selected', 'selected');
   },
 
   newIdea: function(){

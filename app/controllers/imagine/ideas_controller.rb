@@ -18,6 +18,8 @@ class Imagine::IdeasController < ApplicationController
   optional_belongs_to :issue
   before_filter :load_ideas_count, :only => [ :index ]
   before_filter :load_issue_categories, :only => [ :index ]
+  before_filter :load_help_methods, :only => [ :index ]
+
 
 
   def explore
@@ -114,6 +116,9 @@ class Imagine::IdeasController < ApplicationController
     @categories = parent.idea_categories
   end
 
+  def load_help_methods
+    @help_methods = parent.idea_help_methods
+  end
   def load_ideas_count
     @count = Idea.count
   end

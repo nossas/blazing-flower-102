@@ -179,26 +179,27 @@ MR = {
       });
     },
     setUpDropDowns: function(callback){
-      var $dropdown_ul = $(".dropdown dd ul");
 
       $(".dropdown dt").bind('click', function() {
-          $dropdown_ul.toggle();
+          $(this).siblings('dd').children('ul').toggle();
       });
 
       $(".dropdown dd ul li a").unbind('click').bind('click', function(e) {
         e.preventDefault();
         var $this = $(this);
         var text = $this.html();
-        $(".dropdown dt span").html(text);
-          $dropdown_ul.hide();
-          callback ? callback(this) : function(){};
+        var $dropdown = $this.parents('.dropdown');
+        $dropdown.children('dt').children('span').html(text);
+        $dropdown.children('dd').children('ul').hide();
+        callback ? callback(this) : function(){};
       });
 
       $(document).unbind('click').bind('click', function(e) {
         var $clicked = $(e.target);
-        if (! $clicked.parents().hasClass("dropdown"))
-          $dropdown_ul.hide();
-        });
+        if (!$clicked.parents().hasClass("dropdown")){
+          $('.dropdown dd ul').hide();
+        }
+      });
 
       //initializers
       MR.issues.removeLastBorder();
