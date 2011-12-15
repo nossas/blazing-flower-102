@@ -48,6 +48,12 @@ Given /^this member had an idea called "([^"]*)" on "([^"]*)" for the issue "([^
   @idea = Factory(:idea, :member => @member, :title => title, :created_at => Date.parse(created_at), :issue => Factory(:issue, :name => issue))
 end
 
+Given /^this member remixed an idea called "([^"]*)" on "([^"]*)" for the issue "([^"]*)" by "([^"]*)"$/ do |title, created_at, issue, member|
+  Factory(:provider_authorization, :member => @member)
+  @original_member = Factory(:member, :first_name => member.split[0], :last_name => member.split[1])
+  @idea = Factory(:idea, :parent => Factory(:idea, :member => @original_member),:member => @member, :title => title, :created_at => Date.parse(created_at), :issue => Factory(:issue, :name => issue))
+end
+
 Then /^I should see the debate comment icon$/ do
   page.should have_xpath("//img[@src=\"/assets/02_debate_icon.png\"]")
 end
