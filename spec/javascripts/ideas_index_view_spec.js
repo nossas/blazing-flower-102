@@ -9,10 +9,22 @@ describe("IdeasIndexView", function(){
   });
 
   describe("#bindRoutes", function(){
-    it("should bind new_idea route", function(){
+
+    it("should bind new_idea route and search_category route", function(){
       spyOn(MR.router, "bind");
       view.bindRoutes();
       expect(MR.router.bind).toHaveBeenCalledWith('route:new_idea', view.newIdea);
+      expect(MR.router.bind).toHaveBeenCalledWith('route:search_category', view.searchCategory);
+    });
+  });
+
+  describe("#searchCategory", function(){
+    it("should receive a search param and then filter ideas by category", function(){
+      var param = 1;
+      spyOn(view, "searchCategory");
+      view.searchCategory(param);
+      expect(view.searchCategory).toHaveBeenCalledWith(param);
+
     });
   });
 

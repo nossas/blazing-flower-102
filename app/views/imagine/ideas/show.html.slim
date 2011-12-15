@@ -34,8 +34,8 @@
           = @idea.headline
     #idea_social.grid_2.omega
       .fb_fix
-        .fb_like= render :partial => 'shared/fb_like', :locals => { :url => root_url, :show_faces => false, :width => '60', :layout => 'box_count' }
-      .twitter_share= render :partial => 'shared/twitter_share', :locals => { :url => root_url, :count => 'vertical' }
+        .fb_like= render :partial => 'shared/fb_like', :locals => { :url => request.url, :show_faces => false, :width => '60', :layout => 'box_count' }
+      .twitter_share= render :partial => 'shared/twitter_share', :locals => { :url => request.url, :count => 'vertical' }
 
   #idea_main.grid_12.alpha.omega
     #idea_tabs.grid_7.alpha
@@ -44,7 +44,7 @@
       a.grid_4.omega href="#versions"
         h2.menuversion = t('.menu.versions')
       #idea_description.grid_7.alpha.omega
-        - if can? :edit, @idea              
+        - if can? :edit, @idea
           = image_tag image_path('imagine/icons/idea.png'), :id => 'icon', :class => 'grid_1 alpha'
           .grid_6.omega.placeholder_edit= t('.placeholders.description_html')
 
@@ -71,4 +71,4 @@
         = render 'formatting_tips'
       .comments= render :partial => 'shared/comments', :locals => { :url => "#{issue_idea_url(@idea.issue, @idea)}#description" }
 
-    
+
