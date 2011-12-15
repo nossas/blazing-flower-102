@@ -51,11 +51,19 @@ MR.IdeasIndexView = MR.BaseView.extend({
   searchCategory: function(params){
     var id = parseInt(params);
     var target = $('.ideas_list .ideas ul');
+    var child = target.children('li[data-category=' + id + ']');
+    var count = $('span.count[data-id=' + id + ']');
+    var counters = $('span.count[data-id]');
+    var text = " ideia(s)";
     if ( id == 0 ){
       target.children('li[data-category]').fadeIn("slow");
+      counters.fadeOut();
+      count.text(target.children('li[data-category]').length + text).fadeIn();
     } else {
       target.children('li[data-category]').hide();
-      target.children('li[data-category=' + id + ']').fadeIn("slow");
+      child.fadeIn("slow");
+      counters.fadeOut();
+      count.text(child.length + text).fadeIn();
     }
   }
 });

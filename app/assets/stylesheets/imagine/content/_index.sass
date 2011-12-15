@@ -15,7 +15,7 @@
     textarea
       height: 100px
     .dropdown
-      margin: 0 32px 0 0 
+      margin: 0 32px 0 0
       float: left
     p
       float:left
@@ -28,12 +28,12 @@
     .submit
       float: left
       margin-bottom: 20px
-      
+
 .warning
   +border-radius(5px)
   display: block
   float: left
-  margin: 10px 0 
+  margin: 10px 0
 
 @mixin index
   +grid(12)
@@ -53,7 +53,7 @@
       color: $dark_gray
       margin-bottom: 10px
       margin-left: 8px
-      
+
       .ideas_headline_container
         float: left
         width: 410px
@@ -65,7 +65,7 @@
           font-size: 1.6em
       iframe
         float: left
-      
+
   .explore
     +grid(10)
     +grid-push(1)
@@ -84,6 +84,20 @@
       line-height: 36px
     a
       text-decoration: none
+  .category_list
+    overflow: hidden
+    +grid(10)
+    .category
+      font-family: "Folk"
+      background: $light_brey
+      +grid(2)
+      padding: 5px
+      text-align: center
+      font-size: 18px
+      .count
+        display: block
+        text-align: center
+        font: normal 12px/18px "Arial"
   .ideas
     +grid(12)
     +alpha
