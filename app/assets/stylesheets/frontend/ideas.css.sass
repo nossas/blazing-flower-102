@@ -1,9 +1,32 @@
 @import "vars.css.scss"
 @import "mixins.css.scss"
+@import compass/utilities
+@import compass/css3
+@import frontend/vars.css.scss
+@import "imagine/defaults/_button.sass"
+@import "imagine/defaults/_editable.sass"
 
 body.ideas.show
+  button
+    +button
+    font-family: 'Folk-solid'
+    font-size: 12px
+    height: 25px
+    padding: 5px 20px
+  .css3_btn
+    +button
+    font-family: 'Folk-solid'
+    width: 45px
+    padding: 5px 20px
   #main
     overflow: hidden
+  #idea_main
+    margin-top: 30px
+  #idea_description
+    .sprite.arrow-down
+      margin-right: 10px
+    #fork_idea_button
+      margin-top: 10px
   .fb_fix
     float: left
     overflow: hidden
@@ -16,6 +39,7 @@ body.ideas.show
     height: 220px
     background: url('/assets/homepage/public_hearings.png') no-repeat center center
     margin-bottom: 25px
+    margin-left: 45px
     p.tip
       font-size: 14px
       line-height: 94%
@@ -30,3 +54,10 @@ body.ideas.show
       margin-bottom: 22px
       text-align: center
       color: white
+    
+  h2  
+    color: $mid_gray
+    &:hover
+      background: url('/assets/nav_hover_underline.png') no-repeat
+    &:active
+      background: url('/assets/nav_hover_underline.png') no-repeat

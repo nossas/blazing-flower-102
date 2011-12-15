@@ -1,38 +1,37 @@
-@mixin editable
-  .editable
-    &:after
-      content: " " url(image_path('pencil.png'))
-    &:hover
+.editable
+  &:after
+    content: " " url(image_path('pencil.png'))
+  &:hover
+    cursor: pointer
+  img
+    vertical-align: middle
+  form
+    input[type=text], textarea
+      background: transparent
+      padding: 0
+      width: auto
+      margin-top: 10px
+    button
+      z-index: 300
       cursor: pointer
-    img
-      vertical-align: middle
-    form
-      input[type=text], textarea
-        background: transparent
-        padding: 0
-        width: auto
-        margin-top: 10px
-      button
-        z-index: 300
-        cursor: pointer
-        top: 0
-        left: 0
-        font-size: 11px
-        line-height: 16px
-        padding: 2px 8px
-        margin-right: 4px
-        +transition(background-color, color)
-        &:hover
-          background-color: lighten($pink, 4%)
-        &:active
-          padding: 3px 7px 1px 9px
+      top: 0
+      left: 0
+      font-size: 11px
+      line-height: 16px
+      padding: 2px 8px
+      margin-right: 4px
+      +transition(background-color, color)
+      &:hover
+        background-color: lighten($pink, 4%)
+      &:active
+        padding: 3px 7px 1px 9px
 
-  .editing
-    textarea
-      :border 2px solid #C2C2C2
-      &:focus
-        :border 2px solid #EF803B
-    &:after
-      content: "" !important
-  .hidden
-    display: none
+.editing
+  textarea
+    :border 2px solid #C2C2C2
+    &:focus
+      :border 2px solid #EF803B
+  &:after
+    content: "" !important
+.hidden
+  display: none
