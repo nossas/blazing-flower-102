@@ -1,10 +1,12 @@
 MR.IdeasIndexView = MR.BaseView.extend({
   initialize: function(){
     var that = this;
-    _.bindAll(this, 'newIdea', 'selectOption');
+    _.bindAll(this, 'newIdea', 'selectOption', 'searchCategory');
     this.bindRoutes();
     this.loadLastFragment();
-
+    $("form[name=search_category] input[type=radio]").click(function(){
+      MR.common.searchCategoryId($(this).val());
+    });
     $(document).bind('reveal.facebox', function(){
       MR.common.setUpDropDowns(that.selectOption);
       $("#facebox form#new_idea").submit(function(){
@@ -32,6 +34,7 @@ MR.IdeasIndexView = MR.BaseView.extend({
 
   bindRoutes: function(){
     MR.router.bind('route:new_idea', this.newIdea)
+    MR.router.bind('route:search_category', this.searchCategory)
   },
 
   selectOption: function(params){
@@ -45,5 +48,15 @@ MR.IdeasIndexView = MR.BaseView.extend({
     }
   },
 
+  searchCategory: function(params){
+    var id = parseInt(params);
+    var target = $('.ideas_list .ideas ul');
+    if ( id == 0 ){
+      target.children('li[data-category]').fadeIn("slow");
+    } else {
+      target.children('li[data-category]').hide();
+      target.children('li[data-category=' + id + ']').fadeIn("slow");
+    }
+  }
 });
 
