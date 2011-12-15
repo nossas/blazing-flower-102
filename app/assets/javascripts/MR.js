@@ -108,6 +108,10 @@ MR = {
       });
     },
 
+    searchCategoryId : function(id){
+      return MR.router.navigate('filter/category/' + id, true);
+    },
+
     setupLogoAnimation : function() {
       $('a span.logo').hover(
         function(e){$('a span.tagline').fadeIn();},
