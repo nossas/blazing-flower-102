@@ -8,20 +8,24 @@ MR.IdeasIndexView = MR.BaseView.extend({
     $(document).bind('reveal.facebox', function(){
       MR.common.setUpDropDowns(that.selectOption);
       $("#facebox form#new_idea").submit(function(){
-        var fields = [
-          '#facebox #idea_idea_category_id',
-          '#facebox #idea_idea_help_method',
-        ];
-        for (field in fields){
-
-          if($('option[selected=selected]', $fields[field]).length === 0){
-            $(this).parent().siblings('label.error').removeClass('hidden');
-            return false;
-
+        var error = {};
+        $('#facebox form#new_idea select').each(function(){
+          var label = $('label.error[data-for=' + $(this).attr('id') + ']');
+          var option = $(this).children('option:selected');
+          if (option.length == 0 || option.val() == ""){
+            label.removeClass('hidden');
+            error[$(this).attr('id')] = true;
           } else {
-            $(this).parent().siblings('label.erro').addClass('hidden');
-            return true;
+            label.addClass('hidden');
+            delete error[$(this).attr('id')];
           }
+        });
+        var c = 0;
+        for (i in error) { c++ };
+        if (c == 0) {
+          $(this).submit();
+        } else {
+          return false;
         }
       });
     });
