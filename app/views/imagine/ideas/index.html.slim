@@ -6,11 +6,11 @@
   /*meta property=="og:image" content=="#{base_url}/images/logo.png"*/
 
 .grid_12
-  .grid_8.alpha.imagine                                                                                                                                                              
+  .grid_8.alpha.imagine
     .issue_name
       = link_to(@issue.name, issue_path(@issue))
     h1 IMAGINE
-  .grid_1.prefix_3.omega.imagine  
+  .grid_1.prefix_3.omega.imagine
     =link_to(image_tag('imagine.png', :id => 'ballon'))
 
 .grid_12_alpha#site.ramify
@@ -26,6 +26,9 @@
               b.sprite.arrow-down
               = link_to t('.new_idea'), '#new_idea', :class => 'btn'
           = @issue.ideas_media_html if @issue.ideas_media.present?
-      = render :partial => 'list', :locals => {:quick => "featured", :collection => @ideas} unless @ideas.empty?
+      .category_list
+        = render :partial => 'idea_category', :locals => { :collection => @categories } unless @categories.empty?
+      .ideas_list
+        = render :partial => 'list', :locals => {:quick => "featured", :collection => @ideas} unless @ideas.empty?
 
     = render :partial => 'new_idea'
