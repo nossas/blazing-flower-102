@@ -13,7 +13,8 @@
             - @help_methods.order(:name).each do |method|
               li
                 a[href=method.id data-param="idea_idea_help_method_id"]= method.name
-    label.error.hidden for="idea_idea_help_method_id"
+    br.clear
+    label.error.hidden[data-for="idea_idea_help_method_id"]
       |Escolha uma forma de ajuda para a sua idéia
     .hidden
       = form.association :idea_help_method, :as => :select, :required => false, :collection => @help_methods
@@ -29,7 +30,8 @@
           - @categories.order(:name).each do |category|
             li
               a[href=category.id data-param="idea_idea_category_id"]= category.name
-    label.error.hidden for="idea_idea_category_id"
+    br.clear
+    label.error.hidden[data-for="idea_idea_category_id"]
       |Escolha uma categoria para a sua idéia
     .hidden
       = form.association :category, :as => :select, :required => false, :collection => @categories
