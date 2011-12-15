@@ -14,7 +14,7 @@ MR.IdeasIndexView = MR.BaseView.extend({
         ];
         var valid = true
         _.each(fields, function(field){
-          var label = $(field).parents('form').find('label.error[for=' + $(field).attr('id') + ']');
+          var label = $(field).parents('form').find('label.error[data-for=' + $(field).attr('id') + ']');
           if($('option[selected=selected]', field).length === 0){
             label.removeClass('hidden');
             valid = false;
