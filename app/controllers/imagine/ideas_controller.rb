@@ -16,11 +16,7 @@ class Imagine::IdeasController < ApplicationController
   respond_to :html, :except => [:update]
   respond_to :json, :only => [:index, :update]
   optional_belongs_to :issue
-  before_filter :load_ideas_count, :only => [ :index ]
-  before_filter :load_issue_categories, :only => [ :index ]
-  before_filter :load_help_methods, :only => [ :index ]
-
-
+  before_filter :load_resources, :only => [ :index ]
 
   def explore
     @title = t('ideas.explore.title')
@@ -112,14 +108,9 @@ class Imagine::IdeasController < ApplicationController
   end
 
   protected
-  def load_issue_categories
+  def load_resources
     @categories = parent.idea_categories
-  end
-
-  def load_help_methods
     @help_methods = parent.idea_help_methods
-  end
-  def load_ideas_count
     @count = Idea.count
   end
 
