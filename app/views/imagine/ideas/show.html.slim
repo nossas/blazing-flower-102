@@ -4,7 +4,7 @@
   #meta property=="og:image" content==@idea.category.badge.url
   meta property=="og:type" content="cause"
 
-.grid_12
+#idea_show_main.grid_12
   .grid_8.alpha.imagine
     .issue_name
       = link_to(@issue.name, issue_path(@issue))
@@ -66,7 +66,9 @@
                   p= version.headline
                 .created_at= t('.versions.created_at', :created_at => l(version.created_at.to_date, :format => :short))
     #idea_extra.grid_5.omega
-      = render 'formatting_tips'
+      #formatting_tips.widget
+        h1 Dicas de formatação
+        = render 'formatting_tips'
       .comments= render :partial => 'shared/comments', :locals => { :url => "#{issue_idea_url(@idea.issue, @idea)}#description" }
 
     
