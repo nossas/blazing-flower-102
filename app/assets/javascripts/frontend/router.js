@@ -5,7 +5,7 @@ MR.Router = Backbone.Router.extend({
     'remove': 'remove',
     'description': 'description',
     'versions': 'versions',
-    'filter/category/:params': 'search_category',
+    'category/:params': 'search_category',
   },
   fork: function(){},
   new_idea: function(){},
