@@ -5,6 +5,8 @@
   &:last-child
     +omega
   position: relative
+  // Tricky implementation, i messed up with the grid to align things
+  margin: 10px 10px 20px 5px
   .idea
     +grid(3)
     +alpha
@@ -69,7 +71,7 @@
       height: 26px
       overflow: hidden
       ul
-        margin: 3px 8px 0 20px 
+        margin: 3px 8px 0 20px
         li
           &:first-child
             float: left
