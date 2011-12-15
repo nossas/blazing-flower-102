@@ -16,7 +16,7 @@
     label.error.hidden
       |Escolha uma categoria para a sua idéia
     .hidden
-      = form.association :category, :as => :select, :required => false, :collection => @catgories
+      = form.association :category, :as => :select, :required => false, :collection => @categories
     .warning
       p Ao criar minha ideia eu entendo que ela será lincenciada em Creative Commons Atribuição 3.0, e qualquer pessoa poderá compartilhar, copiar e modificar minha ideia
       //ul
