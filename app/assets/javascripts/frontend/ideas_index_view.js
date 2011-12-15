@@ -10,19 +10,19 @@ MR.IdeasIndexView = MR.BaseView.extend({
       $("#facebox form#new_idea").submit(function(){
         var fields = [
           '#facebox #idea_idea_category_id',
-          '#facebox #idea_idea_help_method',
+          '#facebox #idea_idea_help_method_id',
         ];
-        for (field in fields){
-
-          if($('option[selected=selected]', $fields[field]).length === 0){
-            $(this).parent().siblings('label.error').removeClass('hidden');
-            return false;
-
+        var valid = true
+        _.each(fields, function(field){
+          var label = $(field).parents('form').find('label.error[for=' + $(field).attr('id') + ']');
+          if($('option[selected=selected]', field).length === 0){
+            label.removeClass('hidden');
+            valid = false;
           } else {
-            $(this).parent().siblings('label.erro').addClass('hidden');
-            return true;
+            label.addClass('hidden');
           }
-        }
+        });
+        return valid;
       });
     });
     $(document).bind('afterClose.facebox', function(){

@@ -9,7 +9,7 @@ end
 Given /^I have (\d+) idea category$/ do |count|
   @categories ||= []
   count.to_i.times do
-    f = Factory.create(:idea_category)
+    f = Factory.create(:idea_category, :issue => @issues.first)
     @categories << f
   end
 end
@@ -17,7 +17,7 @@ end
 Given /^I have (\d+) idea help method$/ do |count|
   @help_methods ||= []
   count.to_i.times do
-    f = Factory.create(:idea_help_method)
+    f = Factory.create(:idea_help_method, :issue => @issues.first)
     @help_methods << f
   end
 end
@@ -46,9 +46,7 @@ When /^I fill in my idea information$/ do
   page.execute_script("$('#facebox input#idea_title').val('test idea')");
   page.execute_script("$('#facebox textarea#idea_headline').val('headline for the test idea')");
   page.execute_script("$('option[value=#{@categories.first.id}]', '#facebox select#idea_idea_category_id').attr('selected', 'selected')");
-
-  page.execute_script("$('option[value=#{@help_method.first.id}]', '#facebox select#idea_idea_help_method_id').attr('selected', 'selected')");
-
+  page.execute_script("$('option[value=#{@help_methods.first.id}]', '#facebox select#idea_idea_help_method_id').attr('selected', 'selected')");
   page.execute_script("$('#facebox form').submit()");
   sleep 2
 end

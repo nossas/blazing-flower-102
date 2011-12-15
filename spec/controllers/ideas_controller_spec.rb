@@ -26,8 +26,9 @@ describe Imagine::IdeasController do
   describe 'GET index' do
     before do
       @ideas = [ stub_model(IdeaCategory) ]
+      @help_methods = [ stub_model(IdeaHelpMethod) ]
       Idea.stub(:count).and_return("ideas_count")
-      controller.stub(:parent).and_return(mock_model(Issue, :idea_categories => @ideas))
+      controller.stub(:parent).and_return(mock_model(Issue, :idea_help_methods => @help_methods, :idea_categories => @ideas))
       get :index, :locale => :pt, :iframe => 'true'
     end
     its(:status){ should == 200 }

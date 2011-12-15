@@ -1,7 +1,8 @@
 # encoding: utf-8
 Given /^(\d+) issues exist$/ do |count|
+  @issues = []
   count.to_i.times do
-    Factory.create(:issue)
+    @issues << Factory.create(:issue)
   end
 end
 
