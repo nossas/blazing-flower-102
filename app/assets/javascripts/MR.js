@@ -109,7 +109,7 @@ MR = {
     },
 
     searchCategoryId : function(id){
-      return MR.router.navigate('filter/category/' + id, true);
+      return MR.router.navigate('category/' + id, true);
     },
 
     setupLogoAnimation : function() {
