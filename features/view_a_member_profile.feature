@@ -23,6 +23,15 @@ Feature: View a member profile
     And I should see "Vamos salvar a nossa cidade!"
     And I should see the petition comment icon
 
+  Scenario: The one where the member have remixed an idea
+    Given there is a member called "Nícolas"
+    And this member remixed an idea called "Meio Ambiente é Coisa Séria" on "30/06/2011" for the issue "Cidade cinza" by "Diogo Biazus"
+    When I go to this member page
+    Then I should see "O que Nícolas já fez no Meu Rio:"
+    And I should see "30 de Junho de 2011"
+    And I should see "Remixou a idéia Meio Ambiente é Coisa Séria, Cidade cinza de Diogo Biazus"
+    And I should see the idea icon
+
   Scenario: The one where the member had an idea
     Given there is a member called "Nícolas"
     And this member had an idea called "Meio Ambiente é Coisa Séria" on "30/06/2011" for the issue "Cidade cinza"
