@@ -13,6 +13,7 @@ end
 Factory.define :idea do |f|
   f.association :member, :factory => :member
   f.association :category, :factory => :idea_category
+  f.association :idea_help_method, :factory => :idea_help_method
   f.association :issue, :factory => :issue
   f.title 'Foo'
   f.headline 'Bar'

@@ -12,6 +12,7 @@ Then /^I should see a list of ideas categories$/ do
 end
 
 Then /^I should see new idea category form$/ do
+  And %(I should see "Campanha")
   And %(I should see "Nome")
   And %(I should see "Badge")
 end
