@@ -1,5 +1,5 @@
 .category
   label
-    input[type="radio" name="search_idea_category" value="#{category.id}"]
+    input[type="radio" name="search_idea_category" data-name="#{category.name.parameterize}" value="#{category.id}"]
       = category.name
     span.count[data-id="#{category.id}"]

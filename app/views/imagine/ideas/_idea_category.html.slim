@@ -1,6 +1,6 @@
 form[id="query_category" name="search_category"]
   .category
     label
-      input[type="radio" name="search_idea_category" value="0"] Todas
+      input[type="radio" name="search_idea_category" data-name="todas" value="0"] Todas
     span.count[data-id="0"]
   = render :partial => "category", :collection => collection

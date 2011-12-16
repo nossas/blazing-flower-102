@@ -5,7 +5,7 @@ MR.IdeasIndexView = MR.BaseView.extend({
     this.bindRoutes();
     this.loadLastFragment();
     $("form[name=search_category] input[type=radio]").click(function(){
-      MR.common.searchCategoryId($(this).val());
+      MR.common.searchCategoryId($(this).attr('data-name'));
     });
     $(document).bind('reveal.facebox', function(){
       MR.common.setUpDropDowns(that.selectOption);
@@ -49,7 +49,7 @@ MR.IdeasIndexView = MR.BaseView.extend({
   },
 
   searchCategory: function(params){
-    var id = parseInt(params);
+    var id = $(".category_list input[data-name=" + params + "]").val();
     var target = $('.ideas_list .ideas ul');
     var child = target.children('li[data-category=' + id + ']');
     var count = $('span.count[data-id=' + id + ']');
