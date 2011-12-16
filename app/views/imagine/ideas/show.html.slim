@@ -1,7 +1,7 @@
 - content_for :meta_tags do
   meta property=="og:title" content=@idea.title
   meta property=="og:description" content=@idea.headline
-  #meta property=="og:image" content==@idea.category.badge.url
+  meta property=="og:image" content==@idea.category.badge.url
   meta property=="og:type" content="cause"
   meta property=="like_url" content=update_likes_imagine_idea_url(@idea)
 
