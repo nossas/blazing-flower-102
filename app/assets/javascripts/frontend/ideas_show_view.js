@@ -15,11 +15,12 @@ MR.IdeasShowView = MR.EditableView.extend({
       var fburl = "https://api.facebook.com/method/fql.query?format=json&query=";
       var fbsql = fburl + encodeURI("SELECT like_count FROM link_stat WHERE url = ' " + response +"'");
       $.getJSON(fbsql, function(data){
+        var likes = 0;
+        var updateUrl = $("meta[property='like_url']").attr('content');
         if (data.length) {
-          var likes = data[0].like_count;
-          var updateUrl = $("#idea_teaser h1").attr('data-url');
-          MR.common.updateIdeaLikes(updateUrl, likes);
+          likes = data[0].like_count;
         }
+        MR.common.updateIdeaLikes(updateUrl, likes);
       });
     });
   },

@@ -55,6 +55,7 @@ MeuRio::Application.routes.draw do
        get "explore"
       end
       member do
+        put 'update_likes'
         put 'merge'
         get 'review_conflicts/:from_id', :as => :review_conflicts, :action => :review_conflicts
         put 'resolve_conflicts'

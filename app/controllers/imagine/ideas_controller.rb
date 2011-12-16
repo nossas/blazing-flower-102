@@ -10,6 +10,7 @@ class Imagine::IdeasController < ApplicationController
   end
 
   load_and_authorize_resource
+  skip_authorize_resource :only => :update_likes
   inherit_resources
 
   actions :index, :show, :create, :update, :destroy
@@ -51,6 +52,15 @@ class Imagine::IdeasController < ApplicationController
     update! do |format|
       format.json do
         render :json => @idea.to_json
+      end
+    end
+  end
+
+  def update_likes
+    @idea.likes = params[:idea][:likes] unless params[:idea].nil?
+    if @idea.save
+      respond_to do |format|
+        format.json { render :json => {:status => :ok } }
       end
     end
   end
