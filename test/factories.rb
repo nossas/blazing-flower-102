@@ -29,6 +29,7 @@ Factory.define :issue do |i|
   i.image_file_name 'missing.png'
   i.thumbnail_file_name 'missing.png'
   i.excerpt { Faker::Lorem.sentences }
+  i.letters_enabled { false }
 end
 
 Factory.define :petition do |p|

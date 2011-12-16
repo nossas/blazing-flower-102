@@ -34,6 +34,8 @@ module NavigationHelpers
       member_path(@member)
     when /my profile page/
       member_path(ProviderAuthorization.find_by_uid("547955110").member)
+    when /this issue page/
+      issue_path(@issue)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

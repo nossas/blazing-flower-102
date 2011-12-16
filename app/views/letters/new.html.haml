@@ -1,0 +1,32 @@
+.grid_12
+  .issue_name
+    = link_to @issue.name, issue_path(@issue)
+
+%h1.grid_12 Boca no trombone
+
+.grid_6
+  = form_for @letter do |form|
+    = form.hidden_field :issue_id, :value => @issue.id
+    %h2 Escreva a sua carta para O Globo!
+    %p
+      = form.label :sender
+      = form.text_field :sender
+    %p
+      = form.label :email
+      = form.text_field :email
+    %p
+      = form.label :address
+      = form.text_field :address
+    %p
+      = form.label :city
+      = form.text_field :city
+    %p
+      = form.label :phone
+      = form.text_field :phone
+    %p
+      = form.label :subject
+      = form.text_field :subject
+    %p
+      = form.label :message
+      = form.text_area :message
+    = form.submit "Enviar", :class => "btn"

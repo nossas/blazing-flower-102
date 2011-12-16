@@ -41,6 +41,15 @@
         .text_align.center
           =link_to "Descubra esse Rio", issue_personal_story_path(@issue.id, @issue.featured_personal_story.id), :class => 'btn'
       %footer
+  -if @issue.letters_enabled?
+    %section.petition.wobble_container
+      %header
+        %p= t("issue_show.letter")
+      %div
+        %p Mande uma carta para o jornal O Globo e manifeste sua indignação!
+        .text_align.center= link_to "Envie sua carta", issue_letter_path(@issue.id), :class => 'btn'
+      %footer
+
   .see_more
     =link_to(issue_archive_path(@issue.id)) do
       %span= t("issue_show.see_more")

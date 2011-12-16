@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111117172945) do
+ActiveRecord::Schema.define(:version => 20111216191932) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -144,12 +144,26 @@ ActiveRecord::Schema.define(:version => 20111117172945) do
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
+    t.boolean  "letters_enabled"
   end
 
   create_table "jobs", :force => true do |t|
     t.text     "title",                         :null => false
     t.text     "description",                   :null => false
     t.boolean  "active",      :default => true, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "letters", :force => true do |t|
+    t.string   "sender"
+    t.string   "email"
+    t.string   "address"
+    t.string   "city"
+    t.string   "phone"
+    t.string   "subject"
+    t.text     "message"
+    t.integer  "issue_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
