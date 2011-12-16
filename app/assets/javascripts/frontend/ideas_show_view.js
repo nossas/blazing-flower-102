@@ -9,6 +9,19 @@ MR.IdeasShowView = MR.EditableView.extend({
       Backbone.history.navigate('');
     });
     this.description();
+
+    //Binding the like event :)
+    FB.Event.subscribe('edge.create', function(response) {
+      var fburl = "https://api.facebook.com/method/fql.query?format=json&query=";
+      var fbsql = fburl + encodeURI("SELECT like_count FROM link_stat WHERE url = ' " + response +"'");
+      $.getJSON(fbsql, function(data){
+        if (data.length) {
+          var likes = data[0].like_count;
+          var updateUrl = $("#idea_teaser h1").attr('data-url');
+          MR.common.updateIdeaLikes(updateUrl, likes);
+        }
+      });
+    });
   },
 
   bindRoutes: function(){
@@ -17,7 +30,7 @@ MR.IdeasShowView = MR.EditableView.extend({
     MR.router.bind('route:description', this.description)
     MR.router.bind('route:versions', this.versions)
   },
-  
+
   versions: function(){
     this.$('#idea_description').hide();
     this.$('#idea_versions').show();

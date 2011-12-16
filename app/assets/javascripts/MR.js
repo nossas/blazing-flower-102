@@ -108,6 +108,25 @@ MR = {
       });
     },
 
+    updateIdeaLikes: function(updateUrl, likes){
+      var idea = {
+        "idea": {
+          "likes": likes,
+        }
+      };
+      $.ajax({
+        type: "PUT",
+        data: idea,
+        url: updateUrl,
+        success: function(data){
+          console.log(data)
+        },
+        error: function(data){
+          console.log(data)
+        }
+      });
+    },
+
     searchCategoryId : function(id){
       return MR.router.navigate('category/' + id, true);
     },
