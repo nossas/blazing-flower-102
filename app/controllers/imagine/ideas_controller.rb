@@ -10,7 +10,6 @@ class Imagine::IdeasController < ApplicationController
   end
 
   load_and_authorize_resource
-  skip_authorize_resource :only => :update_likes
   inherit_resources
 
   actions :index, :show, :create, :update, :destroy

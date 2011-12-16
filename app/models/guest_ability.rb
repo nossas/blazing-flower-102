@@ -3,5 +3,6 @@ class GuestAbility
 
   def initialize
     can :read, :all
+    can :update_likes, Idea
   end
 end
