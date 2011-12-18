@@ -1,5 +1,10 @@
 = content_for :title do
   = "Boca no trombone! #{@issue.name}"
+= content_for :meta_tags do
+  %meta{ :property => "og:title", :content => "Boca no trombone! #{@issue.name}" }
+  %meta{ :property => "og:image", :content => @issue.image.url(:large) }
+  %meta{ :property => "og:url", :content => request.url }
+  %meta{ :property => "og:description", :content => @issue.excerpt }
 
 .grid_6
   .issue_name
