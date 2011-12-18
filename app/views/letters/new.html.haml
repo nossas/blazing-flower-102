@@ -1,38 +1,60 @@
-.grid_12
+= content_for :title do
+  = "Boca no trombone! #{@issue.name}"
+
+.grid_6
   .issue_name
     = link_to @issue.name, issue_path(@issue)
-
-%h1.grid_12 Boca no trombone
-
-.grid_6
-  = form_for @letter do |form|
-    = form.hidden_field :issue_id, :value => @issue.id
-    %h2 Escreva a sua carta para O Globo!
-    %p
-      = form.label :sender
-      = form.text_field :sender
-    %p
-      = form.label :email
-      = form.text_field :email
-    %p
-      = form.label :address
-      = form.text_field :address
-    %p
-      = form.label :city
-      = form.text_field :city
-    %p
-      = form.label :phone
-      = form.text_field :phone
-    %p
-      = form.label :subject
-      = form.text_field :subject
-    %p
-      = form.label :message
-      = form.text_area :message, :value => "É um absurdo que depois de um ano em que os bombeiros, professores e médicos lutaram por aumentos salariais justos (e não receberam, ou receberam de forma insuficiente),  seja aprovado um aumento para o governador e secretários!\n\nUm reajuste de 6,5% para o governador e de 27,8% para o vice e os secretários (quando todos já ganharam 28% em 12/2010) é um desrespeito com a população. Se tem dinheiro para aumentar os próprios salários, tem dinheiro para dar condição de trabalho digna para os nossos profissionais.\n\nGovernador Sérgio Cabral, não sancione esse aumento!"
-    = form.submit "Enviar", :class => "btn"
+  %h1 Boca no trombone
 
 .grid_6
-  %p Na última quinta-feira nossos Deputados aprovaram um ultrajante reajuste de 6,5% no salário do Governador e de 27,8 no salário do Vice-Governador e Secretários. Isso quer dizer que o Governador, que atualmente recebe R$ 17.200 passará a receber R$ 18.300. E os secretários e o Vice-Governador terão seus salários reajustados de R$ 12.900 para R$ 16.400. 
-  %p Esse aumento é uma verdadeira sacanagem com os profissionais da Educação, Saúde, bombeiros e policiais militares que passaram um ano inteiro lutando por um reajuste digno. Vale lembrar que em 2010, o mesmo Governador, o mesmo Vice e os mesmos Secretários já haviam recebido um aumento de 28%! Enquanto isso, os funcionários da Saúde estão há anos sem NENHUM reajuste!
-  %p É uma vergonha para o Rio ser representado por um Governador que ignora funcionários que apelam por dignidade e favorece os já favorecidos. Não podemos deixar que ele sancione esse reajuste, afinal, os R$ 54 milhões que isso vai custar fariam muito mais diferença nas mãos de quem realmente merece e precisa. Se pressionarmos o jornal mais influente da cidade, ele terá que publicar nossa indignação. Mostraremos ao Governador que, se ele quiser aumentar o salário dele próprio e dos secretários, terá que aumentar o das outras categorias também.
-  %p Os Deputados da base governista argumentam que o aumento vai na verdade servir para aumentar o teto de todos os funcionários do Executivo. Mas eles escondem que, dos funcionários em atividade, apenas 42 servidores da PM, 3 mil auditores, menos de 2 mil Policiais Civis e 2 (!) Bombeiros, serão beneficiados. Essa medida é mais uma entre tantas outras que beneficia quem já está bem! Não por acaso, essa correção "diferenciada" foi proposta pela Comissão de Orçamento da Alerj, cujo presidente é o Deputado Coronel Jairo que também será contemplado pelo aumento. Não vamos deixar barato!
+  .grid_6.alpha.omega
+    .share_btn
+      %a.twitter-share-button{"data-lang" => "pt", "data-url" => request.url, :href => "https://twitter.com/share"} Tweet
+      :javascript
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+  .grid_6.alpha.omega
+    .share_btn
+      .fb-like{"data-href"=>request.url, "data-send"=>"false", "data-layout"=>"button_count", "data-width"=>"120", "data-show-faces"=>"false"}
+      #fb-root
+      :javascript
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=198830483539172";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+.grid_12
+  .grid_6.alpha
+    = form_for @letter do |form|
+      = form.hidden_field :issue_id, :value => @issue.id
+      %h2 Escreva a sua carta para O Globo!
+      %p
+        = form.label :sender
+        = form.text_field :sender
+      %p
+        = form.label :email
+        = form.text_field :email
+      %p
+        = form.label :address
+        = form.text_field :address
+      %p
+        = form.label :city
+        = form.text_field :city
+      %p
+        = form.label :phone
+        = form.text_field :phone
+      %p
+        = form.label :subject
+        = form.text_field :subject
+      %p
+        = form.label :message
+        = form.text_area :message, :value => "É um absurdo que depois de um ano em que os bombeiros, professores e médicos lutaram por aumentos salariais justos (e não receberam, ou receberam de forma insuficiente),  seja aprovado um aumento para o governador e secretários!\n\nUm reajuste de 6,5% para o governador e de 27,8% para o vice e os secretários (quando todos já ganharam 28% em 12/2010) é um desrespeito com a população. Se tem dinheiro para aumentar os próprios salários, tem dinheiro para dar condição de trabalho digna para os nossos profissionais.\n\nGovernador Sérgio Cabral, não sancione esse aumento!"
+      = form.submit "Enviar", :class => "btn"
+  
+  .grid_6.omega
+    %p Na última quinta-feira nossos Deputados aprovaram um ultrajante reajuste de 6,5% no salário do Governador e de 27,8 no salário do Vice-Governador e Secretários. Isso quer dizer que o Governador, que atualmente recebe R$ 17.200 passará a receber R$ 18.300. E os secretários e o Vice-Governador terão seus salários reajustados de R$ 12.900 para R$ 16.400. 
+    %p Esse aumento é uma verdadeira sacanagem com os profissionais da Educação, Saúde, bombeiros e policiais militares que passaram um ano inteiro lutando por um reajuste digno. Vale lembrar que em 2010, o mesmo Governador, o mesmo Vice e os mesmos Secretários já haviam recebido um aumento de 28%! Enquanto isso, os funcionários da Saúde estão há anos sem NENHUM reajuste!
+    %p É uma vergonha para o Rio ser representado por um Governador que ignora funcionários que apelam por dignidade e favorece os já favorecidos. Não podemos deixar que ele sancione esse reajuste, afinal, os R$ 54 milhões que isso vai custar fariam muito mais diferença nas mãos de quem realmente merece e precisa. Se pressionarmos o jornal mais influente da cidade, ele terá que publicar nossa indignação. Mostraremos ao Governador que, se ele quiser aumentar o salário dele próprio e dos secretários, terá que aumentar o das outras categorias também.
+    %p Os Deputados da base governista argumentam que o aumento vai na verdade servir para aumentar o teto de todos os funcionários do Executivo. Mas eles escondem que, dos funcionários em atividade, apenas 42 servidores da PM, 3 mil auditores, menos de 2 mil Policiais Civis e 2 (!) Bombeiros, serão beneficiados. Essa medida é mais uma entre tantas outras que beneficia quem já está bem! Não por acaso, essa correção "diferenciada" foi proposta pela Comissão de Orçamento da Alerj, cujo presidente é o Deputado Coronel Jairo que também será contemplado pelo aumento. Não vamos deixar barato!
