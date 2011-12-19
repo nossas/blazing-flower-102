@@ -16,13 +16,13 @@
 
   = render 'confirm_fork'
   = render 'remove_idea'
-
+  #idea_top.grid_12.alpha.omega
   #idea_head.grid_12.alpha.omega data-id=@idea.id
     #category_container.grid_3.alpha
       .category= image_tag @idea.category.badge.url, :title => @idea.category.name
       - if can? :destroy, @idea
         = link_to t('.remove_idea'), '#remove', :class => 'css3_btn'
-    #idea_teaser.grid_7
+    #idea_teaser.grid_7.alpha.omega
       h1 class=("editable" if can? :edit, @idea) data-url=imagine_idea_path(@idea) data-attribute="title" data-raw=@idea.title data-maxlength=60 data-singleline=true
         = @idea.title
       .user
@@ -34,10 +34,11 @@
         p class=("editable" if can? :edit, @idea) data-attribute="headline" data-url=imagine_idea_path(@idea) data-raw=@idea.headline data-maxlength=140 data-singleline=true
           = @idea.headline
     #idea_social.grid_2.omega
-      .fb_fix
-        .fb_like= render :partial => 'shared/fb_like', :locals => { :url => request.url, :show_faces => false, :width => '60', :layout => 'box_count' }
-      .twitter_share= render :partial => 'shared/twitter_share', :locals => { :url => request.url, :count => 'vertical' }
-
+    .fb_fix
+      .fb_like= render :partial => 'shared/fb_like', :locals => { :url => request.url, :show_faces => false, :width => '60', :layout => 'box_count' }
+    .twitter_share= render :partial => 'shared/twitter_share', :locals => { :url => request.url, :count => 'vertical' }
+  
+  #idea_bottom.grid_12.alpha.omega
   #idea_main.grid_12.alpha.omega
     #idea_tabs.grid_7.alpha
       a.grid_3.alpha href="#description"
