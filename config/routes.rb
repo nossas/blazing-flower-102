@@ -35,7 +35,7 @@ MeuRio::Application.routes.draw do
   match "na_atividade/:id/arquivo" => "issues#archive", :as => "issue_archive"
   match "na_atividade/:id/arquivo/:page" => "issues#archive", :as => "issue_archive_page"
   match "na_atividade/:issue_id/bate-bola/:id" => "debates#show", :as => "issue_debate"
-  match "na_atividade/:issue_id/letter/new" => "letters#new", :as => "issue_letter"
+  match "na_atividade/:issue_id/carta/nova" => "letters#new", :as => "issue_letter"
   resources :letters, :only => [:create]
   resources :debates, :only => [:show] do
     resources :comments, :only => [:index]
