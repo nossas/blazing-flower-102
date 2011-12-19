@@ -4,7 +4,7 @@
   %meta{ :property => "og:title", :content => "Boca no trombone! #{@issue.name}" }
   %meta{ :property => "og:image", :content => @issue.thumbnail }
   %meta{ :property => "og:url", :content => request.url }
-  %meta{ :property => "og:description", :content => "Mande uma carta pro Globo pedindo que o reajuste do salário do governador e dos secretários não seja sancionado." }
+  %meta{ :property => "og:description", :content => @issue.excerpt }
 
 .grid_6
   .issue_name
