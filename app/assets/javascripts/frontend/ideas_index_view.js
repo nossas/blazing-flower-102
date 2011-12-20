@@ -4,7 +4,8 @@ MR.IdeasIndexView = MR.BaseView.extend({
     _.bindAll(this, 'newIdea', 'selectOption', 'searchCategory');
     this.bindRoutes();
     this.loadLastFragment();
-    $("form[name=search_category] input[type=radio]").click(function(){
+    $("div[class='search_idea_category']").click(function(e){
+      e.preventDefault();
       MR.common.searchCategoryId($(this).attr('data-name'));
     });
     $(document).bind('reveal.facebox', function(){
@@ -49,21 +50,17 @@ MR.IdeasIndexView = MR.BaseView.extend({
   },
 
   searchCategory: function(params){
-    var id = $(".category_list input[data-name=" + params + "]").val();
+    $('.category_list div').parent().removeClass('selected');
+    var parents =  $(".category_list div[data-name=" + params + "]");
+    parents.parent().addClass('selected');
+    var id = parents.attr('data-value');
     var target = $('.ideas_list .ideas ul');
     var child = target.children('li[data-category=' + id + ']');
-    var count = $('span.count[data-id=' + id + ']');
-    var counters = $('span.count[data-id]');
-    var text = " ideia(s)";
     if ( id == 0 ){
       target.children('li[data-category]').fadeIn("slow");
-      counters.fadeOut();
-      count.text(target.children('li[data-category]').length + text).fadeIn();
     } else {
       target.children('li[data-category]').hide();
       child.fadeIn("slow");
-      counters.fadeOut();
-      count.text(child.length + text).fadeIn();
     }
   }
 });
