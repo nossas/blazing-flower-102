@@ -26,7 +26,7 @@
               b.sprite.arrow-down
               = link_to t('.new_idea'), '#new_idea', :class => 'btn'
           = @issue.ideas_media_html if @issue.ideas_media.present?
-      .category_list
+      .category_list.grid_12.alpha.omega
         = render :partial => 'idea_category', :locals => { :collection => @categories } unless @categories.empty?
       .ideas_list
         = render :partial => 'list', :locals => {:quick => "featured", :collection => @ideas} unless @ideas.empty?
