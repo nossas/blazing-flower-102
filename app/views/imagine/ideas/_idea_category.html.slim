@@ -1,6 +1,4 @@
-form[id="query_category" name="search_category"]
-  .category.grid_2.omega.alpha
-    label
-      input[type="radio" name="search_idea_category" data-name="todas" value="0"] Todas
-    span.count[data-id="0"]
-  = render :partial => "category", :collection => collection
+.category
+  div[class="search_idea_category" data-name="todas" data-value="0"]
+    a[href="#"]Todas
+= render :partial => "category", :collection => collection

@@ -1,5 +1,3 @@
-.category.grid_2.omega.alpha
-  label
-    input[type="radio" name="search_idea_category" data-name="#{category.name.parameterize}" value="#{category.id}"]
-      = category.name
-    span.count[data-id="#{category.id}"]
+.category
+  div[class="search_idea_category" data-name="#{category.name.parameterize}" data-value="#{category.id}"]
+    a[href="#"]= category.name
