@@ -1,4 +1,5 @@
 @import idea
+@import frontend/vars.css.scss
 
 #facebox
   .submit
@@ -86,30 +87,34 @@
       text-decoration: none
   .category_list
     overflow: hidden
+    margin-top: 10px
     .category
       +border-radius(4px)
       font-family: "Folk"
-      background: #eee
+      color: $dark_grey
+      background-color: rgba(237,235,228,1)
+      border: 1px solid rgba(237,235,228,1)
       +grid(2)
       padding: 5px
       text-align: center
       font-size: 18px
-      border: 1px solid #f4f4f4
+      margin-bottom: 15px
       a
-        color: #333
         text-decoration: none
+        color: $dark_grey
       &:hover
         cursor: pointer
-        border: 1px solid #999
-        background: #ddd
+        background-color: rgba(237,235,228, 0.8)
+        border: 1px solid rgba($green, 0.5)
+
     .selected
-      border: 1px solid #999
-      background: #ddd
+      background-color: rgba(237,235,228, 0.4)
+      border: 1px solid rgba($green, 0.5)
+
   .ideas
     +grid(12)
     +alpha
     +omega
-    padding-top: 28px
     h3
       margin-bottom: 15px
       text-align: left
