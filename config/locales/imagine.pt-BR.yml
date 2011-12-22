@@ -31,7 +31,7 @@ pt-BR:
     submit:
       idea:
         create: "Mandar Ideia"
-        update: "Mandar minha versão desta ideia"
+        update: "Criar minha versão dessa ideia"
   or: ou
   ok: OK
   cancel: Cancelar
@@ -120,7 +120,7 @@ pt-BR:
         user_html: Esta é uma ideia de %{link}.
         parent_html: "Esta é uma versão de %{user}, criada a partir da ideia de %{parent}."
         headline: Em poucas palavras...
-        fork_idea: Remixar esta ideia
+        fork_idea: Remixar ideia
         remove_idea: Apagar
         need_to_merge:
           html: Ei, a ideia original de %{user} possui alterações. Que tal mesclar estas alterações com as suas %{link}?
@@ -129,10 +129,10 @@ pt-BR:
           html: Ei, pelo menos uma das versões da sua ideia possui alterações. Que tal mesclar estas alterações com as suas %{link}?
           link: clicando aqui
         menu:
-          description: O que é esta ideia
+          description: Sobre a ideia
           have: O que já temos
           need: O que precisamos
-          versions: Versões desta ideia
+          versions: Versões dessa ideia
         placeholders:
           description_html: "<p>Explique aqui a sua ideia. Mas seja breve: ninguém gosta de ler textos gigantes que não vão direto ao ponto.</p>"
           have_html: <p>Explique aqui o que você ou o seu grupo já possuem das coisas que são necessárias para botar sua ideia em prática.</p><p>Você pode fazer uma lista e ir alterando à medida que recebe contribuições.</p>
@@ -150,13 +150,13 @@ pt-BR:
           no_changes: Esta versão não possui alterações para mesclar com a ideia original.
       remove_idea:
         title: Apagar ideia
-        subtitle: Deseja apagar esta ideia? Este processo não é reversível
-        versions: Existem versões baseadas nesta ideia. No caso de remoção, as versões permanecerão ativas no sistema e continuarão a ser editadas pelos seus criadores.
+        subtitle: Tem certeza que você quer apagar esta ideia? Este processo não é reversível.
+        versions: Existem versões baseadas nela. Se você apagá-la, as versões continuarão ativas no sistema e ainda poderão ser editadas por seus criadores.
         parent_need_to_merge: Existem alterações na sua ideia que não estão na ideia original
         accept: Sim, desejo remover esta ideia
         form_button: Apagar
       fork_idea:
-        title: Remixar esta ideia
+        title: Remixar essa ideia
         subtitle: Para você remixar esta ideia, criaremos uma versão dela para você.
         warning: Ao criar minha versão desta ideia eu entendo que
         accept:
@@ -166,8 +166,8 @@ pt-BR:
           credits: Eu devo sempre atribuir créditos à ideia original
           confirm: Li e concordo em licenciar minha ideia em Creative Commons BY 3.0
       confirm_fork:
-        title: Remixar esta idéia
-        subtitle: Crie sua versão para alterar a idéia original. Lembre-se você pode apenas comentá-la para dar sugestões.
+        title: Remixar ideia
+        subtitle: "Crie sua versão para alterar a ideia original. Lembre-se: você pode apenas comentá-la para dar sugestões."
         cancel: Cancelar
       merge_idea:
         title: Mesclar alterações de duas ideias
