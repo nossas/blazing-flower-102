@@ -43,10 +43,10 @@ Then /^I should see the new idea dialog$/ do
 end
 
 When /^I fill in my idea information$/ do
-  page.execute_script("$('#facebox input#idea_title').val('test idea')");
-  page.execute_script("$('#facebox textarea#idea_headline').val('headline for the test idea')");
-  page.execute_script("$('option[value=#{@categories.first.id}]', '#facebox select#idea_idea_category_id').attr('selected', 'selected')");
-  page.execute_script("$('option[value=#{@help_methods.first.id}]', '#facebox select#idea_idea_help_method_id').attr('selected', 'selected')");
+  page.execute_script("$('#facebox #new_idea input#idea_title').val('test idea')");
+  page.execute_script("$('#facebox #new_idea textarea#idea_headline').val('headline for the test idea')");
+  page.execute_script("$('option[value=#{@categories.first.id}]', '#facebox #new_idea select#idea_idea_category_id').attr('selected', 'selected')");
+  page.execute_script("$('option[value=#{@help_methods.first.id}]', '#facebox #new_idea select#idea_idea_help_method_id').attr('selected', 'selected')");
   page.execute_script("$('#facebox form').submit()");
   sleep 2
 end

@@ -10,6 +10,11 @@ Feature: Creating an idea
     And I have 1 idea category
     And I have 1 idea help method
     And I go to the first issue's ideas page
-    And I click "Inicie uma ideia"
+    And I click "Dê uma ideia"
+    And I should see "Nova ideia"
+    And I should see "Batize sua ideia"
+    And I should see "Descreva-a em 140 caracteres..."
+    And I should see "O que o Meu Rio pode fazer pela sua ideia?"
+    And I should see "Categoria"
     When I fill in my idea information
     Then My idea should be created for that issue

@@ -4,7 +4,7 @@
   = simple_form_for [@issue, Idea.new], :html => {:name => 'new_idea_form'} do |form|
     = form.input :title, :as => :string, :input_html => { :maxlength => 60 }
     = form.input :headline, :input_html => { :maxlength => 140 }
-    h5 FORMAS DE AJUDA
+    h5= t('.helpmethod_title')
     dl.dropdown
         dt.sprite.dropdown_archive
           span=""
@@ -15,13 +15,13 @@
                 a[href=method.id data-param="idea_idea_help_method_id"]= method.name
     br.clear
     label.error.hidden[data-for="idea_idea_help_method_id"]
-      |Escolha uma forma de ajuda para a sua idéia
+      = t('.helpmethod_warning')
     .hidden
       = form.association :idea_help_method, :as => :select, :required => false, :collection => @help_methods
     br.clear
     br.clear
 
-    h5 CATEGORIAS
+    h5= t('.category_title')
     dl.dropdown
       dt.sprite.dropdown_archive
         span=""
@@ -32,11 +32,11 @@
               a[href=category.id data-param="idea_idea_category_id"]= category.name
     br.clear
     label.error.hidden[data-for="idea_idea_category_id"]
-      |Escolha uma categoria para a sua idéia
+      = t('.category_warning')
     .hidden
       = form.association :category, :as => :select, :required => false, :collection => @categories
     .warning
-      p Ao criar minha ideia eu entendo que ela será lincenciada em Creative Commons Atribuição 3.0, e qualquer pessoa poderá compartilhar, copiar e modificar minha ideia
+      p= t('.warning')
       //ul
         li= t('.accept.license_html')
         li= t('.accept.share')

@@ -5,6 +5,8 @@ Feature: View a selection of ideas
 
   @javascript
   Scenario: View ideas for an issue
-    Given 2 issues exist
+    Given 1 issue exist
+    And 2 ideas exists for that issue
     When I go to the first issue's ideas page
-    Then I should see "Inicie uma ideia"
+    Then I should see "Dê uma ideia"
+    And I should see "Descubra e remixe"

@@ -30,8 +30,8 @@ pt-BR:
   helpers:
     submit:
       idea:
-        create: "Criar minha ideia"
-        update: "Criar minha versão desta ideia"
+        create: "Mandar Ideia"
+        update: "Mandar minha versão desta ideia"
   or: ou
   ok: OK
   cancel: Cancelar
@@ -69,7 +69,7 @@ pt-BR:
       index:
         discover: Conheça algumas ideias e contribua!
         didnt_find: Tem uma ideia que não está aqui?
-        new_idea: Inicie uma ideia
+        new_idea: Dê uma ideia
         explore:
           html: Temos um total de <span class="number">%{count}</span> ideias. Que tal explorar todas elas %{link}?
           link: clicando aqui
@@ -79,8 +79,12 @@ pt-BR:
             second: Crie sua própria versão e trabalhe até ficar satisfeito
             third: Devolva a ideia para a comunidade remixar mais e mais
       new_idea:
-        title: Inicie sua ideia
-        warning: Ao criar minha ideia eu entendo que
+        title: Nova ideia
+        helpmethod_title: O que o Meu Rio pode fazer pela sua ideia?
+        category_title: Categoria
+        helpmethod_warning: Escolha uma forma de ajuda
+        category_warning: Escolha uma categoria para a sua ideia
+        warning: Ao criar minha ideia eu entendo que ela será licenciada em Creative Commons Atribuição 3.0, e qualquer pessoa poderá compartilhar, copiar e modificar minha ideia
         accept:
           license_html: Ela será licenciada em <a href="http://creativecommons.org/licenses/by/3.0/br/" target="_blank">Creative Commons Atribuição 3.0 (CC BY 3.0)</a>
           share: Qualquer pessoa poderá compartilhar, copiar e modificar minha ideia
@@ -99,10 +103,10 @@ pt-BR:
           more: Conheça mais ideias recentes
       idea:
         by: por %{user}
-        link: Conheça e contribua
+        link: Descubra e remixe
       idea_template:
         by: por %{user}
-        link: Conheça e contribua
+        link: Descubra e remixe
       explore:
         title: Conheça as ideias do Festival
         subtitle: Encontre as ideias que você gostaria de remixar e contribua!
@@ -234,5 +238,5 @@ pt-BR:
   simple_form:
         labels:
           idea:
-            title: Qual o título da sua ideia?
-            headline: Sua ideia em 140 caracteres...
+            title: Batize sua ideia
+            headline: Descreva-a em 140 caracteres...
