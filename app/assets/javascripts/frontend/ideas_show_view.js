@@ -33,11 +33,15 @@ MR.IdeasShowView = MR.EditableView.extend({
   },
 
   versions: function(){
+    this.$('a[href="#versions"]').addClass('selected')
+    this.$('a[href="#description"]').removeClass('selected')
     this.$('#idea_description').hide();
     this.$('#idea_versions').show();
   },
 
   description: function(){
+    this.$('a[href="#versions"]').removeClass('selected')
+    this.$('a[href="#description"]').addClass('selected')
     this.$('#idea_description').show();
     this.$('#idea_versions').hide();
   },
