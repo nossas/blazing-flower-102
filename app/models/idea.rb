@@ -193,11 +193,11 @@ class Idea < ActiveRecord::Base
         '>' => '&gt;',
         '<' => '&lt;',
         '"' => '"' }
-      redcarpet :target => :_blank
       image
       youtube :width => 510, :height => 332
       vimeo :width => 510, :height => 332
       link :target => :_blank
+      redcarpet :target => :_blank
     end
   end
 
