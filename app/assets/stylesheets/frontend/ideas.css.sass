@@ -63,12 +63,13 @@ body.ideas.show
       margin-bottom: 22px
       text-align: center
       color: white
-  h2  
+  h2 
     color: $mid_gray
-    &:hover
+    &:hover, &:active, &.selected 
       background: url('/assets/nav_hover_underline.png') no-repeat
-    &:active
-      background: url('/assets/nav_hover_underline.png') no-repeat
+  header h2
+    &:hover, &:active, &.selected 
+      background: no-repeat
 
 #idea_head
   background-color: #eeebe4
