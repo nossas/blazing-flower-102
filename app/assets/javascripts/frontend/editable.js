@@ -10,6 +10,7 @@ MR.EditableView = MR.BaseView.extend({
       $.fn.editable.defaults.tooltip = MR.editable.defaults.tooltip;
       $.fn.editable.defaults.submit = MR.editable.defaults.submit;
       $.fn.editable.defaults.cancel = MR.editable.defaults.cancel;
+      $.fn.editable.defaults.onblur = MR.editable.defaults.onblur;
     }
 
     this.$('.editable textarea').live('keydown', function() {
