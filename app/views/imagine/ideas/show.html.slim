@@ -29,7 +29,7 @@
         = t('.user_html', :link => link_to(@idea.member.name, member_path(@idea.member))) unless @idea.parent
         - if @idea.parent
           = image_tag image_path('imagine/icons/ramify_color.png')
-          = t('.parent_html', :user => link_to(@idea.member.name, member_path(@idea.member)), :parent => link_to(@idea.parent.member.name, issue_idea_path(@issue.id, @idea.parent)))
+          = t('.parent_html', :user => link_to(@idea.member.name, member_path(@idea.member)), :parent => link_to("ideia de #{@idea.parent.member.name}", issue_idea_path(@issue.id, @idea.parent)))
       .headline
         p class=("editable" if can? :edit, @idea) data-attribute="headline" data-url=imagine_idea_path(@idea) data-raw=@idea.headline data-maxlength=140 data-singleline=true
           = @idea.headline

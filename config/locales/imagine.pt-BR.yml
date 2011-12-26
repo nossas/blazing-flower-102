@@ -118,7 +118,7 @@ pt-BR:
         empty: Nenhuma ideia encontrada
       show:
         user_html: Esta é uma ideia de %{link}.
-        parent_html: "Esta é uma versão de %{user}, criada a partir da ideia de %{parent}."
+        parent_html: "Esta é uma versão de %{user}, criada a partir da %{parent}."
         headline: Em poucas palavras...
         fork_idea: Remixar ideia
         remove_idea: Apagar
