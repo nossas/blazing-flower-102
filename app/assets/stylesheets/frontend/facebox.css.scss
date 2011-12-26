@@ -2,10 +2,10 @@
 @import "mixins.css.scss";
 
 #facebox {
+  z-index: 9999;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 300;
   text-align: left;
 
   .popup{
@@ -136,7 +136,7 @@
   z-index: 99;
 }
 
-input#member_image { 
+input#member_image {
   padding: 10px;
   width: 94%;
   background-color: #cacaca;
