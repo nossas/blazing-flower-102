@@ -18,7 +18,7 @@
 %html
   <!--<![endif]-->
   %head
-    %title MeuRio
+    %title= content_for?(:title) ? (yield :title) : "MeuRio"
     = stylesheet_link_tag "application"
     =yield(:stylesheets)
     %link{:href => "/assets/favicon.png", :rel => "shortcut icon"}

@@ -849,3 +849,35 @@ textarea.error, input.error, select.error { border-color: $red !important; }
     padding-top: 10px;
   }
 }
+
+body[data-controller=letters][data-action=new] {
+  form{
+    overflow: hidden;
+    background: #edeae4;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    h2{
+      color: $orange;
+      text-align: center;
+      font-weight: bold;
+    }
+    label{
+      display: inline-block;
+      width: 60px;
+    }
+    input[type=text]{
+      width: 350px;
+    }
+    textarea{
+      width: 412px;
+    }
+    input[type=submit]{
+      float: right;
+    }
+  }
+  .share_btn{
+    float: right
+  }
+}

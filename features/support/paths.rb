@@ -38,6 +38,8 @@ module NavigationHelpers
       issue_idea_path(Idea.order(:id).first.issue_id, Idea.order(:id).first.id)
     when /the first issue's ideas page/
       issue_ideas_path(:issue_id => Issue.first.id)
+    when /this issue page/
+      issue_path(@issue)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

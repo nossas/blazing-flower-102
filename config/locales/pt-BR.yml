@@ -276,6 +276,13 @@
         description: "Descrição"
         created_at: "Criado em"
         updated_at: "Atualizado em"
+      letter:
+        sender: "Nome"
+        address: "Endereço"
+        city: "Cidade"
+        phone: "Telefone"
+        subject: "Assunto"
+        message: "Mensagem"
 
   petition_show:
     goal: "Meta: %{goal}"
@@ -306,6 +313,7 @@
     ideas: "Imagine"
     see_more: "Veja Mais »"
     read_more: "Leia Mais »"
+    letter: "Boca no trombone"
   issue_archive:
     archive: "Arquivo"
   video_show:
