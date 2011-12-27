@@ -18,6 +18,10 @@ class Imagine::IdeasController < ApplicationController
   optional_belongs_to :issue
   before_filter :load_resources, :only => [ :index ]
 
+  def index
+    @ideas ||= Idea.primary.popular.all
+  end
+
   def explore
     @title = t('ideas.explore.title')
     @categories = Category.with_ideas.order(:name).all
