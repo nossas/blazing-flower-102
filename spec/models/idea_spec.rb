@@ -18,6 +18,24 @@ describe Idea do
     it{ should have_many :merges }
   end
 
+  describe "replace_primary" do
+    before do
+      @idea = Factory(:idea)
+      @member = Factory(:member)
+      @fork = @idea.create_fork(@member) 
+      @second_fork = @idea.create_fork(@member) 
+      @idea.replace_primary
+    end
+    context "regarding first fork" do
+      subject{ @fork.reload }
+      its(:parent){ should be_nil }
+    end
+    context "regarding another fork" do
+      subject{ @second_fork.reload }
+      its(:parent){ should == @fork }
+    end
+  end
+
   describe "#create_fork" do
     before do
       @idea = Factory(:idea)
@@ -27,6 +45,6 @@ describe Idea do
     its(:member){ should == @member }
     its(:category){ should == @idea.category }
     its(:issue){ should == @idea.issue }
-
+    its(:parent){ should == @idea }
   end
 end
