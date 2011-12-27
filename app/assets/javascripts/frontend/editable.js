@@ -17,7 +17,8 @@ MR.EditableView = MR.BaseView.extend({
       if(!$(this).attr('data-prepared')) {
         $(this).attr('maxlength', $(this).parents('.editable').attr('data-maxlength'))
         $(this).maxlength()
-        $(this).autoResize({extraSpace: 0})
+        var space = ($(this).parents('.editable').attr('data-singleline')) ? 0 : 100
+        $(this).autoResize({ extraSpace: space })
         $(this).attr('data-prepared', true)
       }
     })
@@ -42,12 +43,16 @@ MR.EditableView = MR.BaseView.extend({
       indicator : '<img src="/assets/imagine/loading.gif">',
       onreset: function() {
         $(this).parent().removeClass("editing")
+        if (!$(this).parents('.editable').attr('data-singleline'))
+          $('#idea_description .menu').fadeIn();
       },
       callback: function(value, settings) {
         var model = JSON.parse(value)
         $(this).attr('data-raw', model[$(this).attr('data-attribute')])
         $(this).html(model[($(this).attr('data-raw-attribute') || $(this).attr('data-attribute'))])
         $(this).removeClass("editing")
+        if (!$(this).parents('.editable').attr('data-singleline'))
+          $('#idea_description .menu').fadeIn();
       }
     })
   },
@@ -61,8 +66,9 @@ MR.EditableView = MR.BaseView.extend({
     var top = element.offset().top + element.height() + 4
 		submit.css('position', 'relative')
 		submit.css('display', 'inline')
-		cancel.css('position','relative')
 		cancel.css('display', 'inline')
+    if (!$(this).parents('.editable').attr('data-singleline'))
+      $('#idea_description .menu').fadeOut();
   },
 
   keydown: function(event) {
