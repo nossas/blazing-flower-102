@@ -2,6 +2,7 @@
 @import frontend/vars.css.scss
 
 #facebox
+  z-index: 9999
   .submit
     text-align: center
   form.simple_form.idea
@@ -93,7 +94,7 @@
       font-family: "Folk"
       color: $dark_grey
       background-color: rgba(237,235,228,1)
-      border: 1px solid rgba(237,235,228,1)
+      //border: 1px solid rgba(237,235,228,1)
       +grid(2)
       padding: 5px
       text-align: center
@@ -104,12 +105,13 @@
         color: $dark_grey
       &:hover
         cursor: pointer
-        background-color: rgba(237,235,228, 0.8)
-        border: 1px solid rgba($green, 0.5)
+        background-color: rgba(202, 252, 226, 0.8)
+        //background-color: rgba(237,235,228, 0.8)
+        //border: 1px solid rgba($green, 0.5)
 
     .selected
-      background-color: rgba(237,235,228, 0.4)
-      border: 1px solid rgba($green, 0.5)
+      background-color: rgba(202, 252, 226, 1.0)
+      //border: 1px solid rgba($green, 0.5)
 
   .ideas
     +grid(12)

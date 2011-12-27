@@ -13,6 +13,12 @@ MR = {
     },
 
     init: function() {
+
+      // Fixing the behavior of z-index, not the best tho.
+      $('iframe').each(function(){
+        var url = $(this).attr('src');
+        $(this).attr('src', url + "?wmode=transparent");
+      });
       // application-wide code
       if(!window.store){
         window.store = new Store('global');
