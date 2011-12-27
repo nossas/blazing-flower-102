@@ -13,14 +13,14 @@ MR.IdeasShowView = MR.EditableView.extend({
     //Binding the like event :)
     FB.Event.subscribe('edge.create', function(response) {
       var fburl = "https://api.facebook.com/method/fql.query?format=json&query=";
-      var fbsql = fburl + encodeURI("SELECT like_count FROM link_stat WHERE url = ' " + response +"'");
+      var fbsql = fburl + encodeURI("SELECT like_count FROM link_stat WHERE url = '" + response + "'");
       $.getJSON(fbsql, function(data){
         var likes = 0;
         var updateUrl = $("meta[property='like_url']").attr('content');
         if (data.length) {
           likes = data[0].like_count;
+          MR.common.updateIdeaLikes(updateUrl, likes);
         }
-        MR.common.updateIdeaLikes(updateUrl, likes);
       });
     });
   },
