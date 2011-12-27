@@ -53,7 +53,7 @@
         .attribute.grid_7.alpha.omega class=("editable" if can? :edit, @idea) data-url=imagine_idea_path(@idea) data-attribute="description" data-raw=@idea.description data-raw-attribute="description_html"
           == @idea.description_html
         .menu.prefix_1.grid_6.omega
-          - if current_member && current_member != @idea.member
+          - if current_member.nil? || current_member != @idea.member
             .sprite.arrow-down
             .fork_idea= link_to t('.fork_idea'), '#fork', :id => 'fork_idea_button', :class => 'btn'
       #idea_versions.grid_7.alpha.omega
