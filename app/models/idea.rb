@@ -72,12 +72,18 @@ class Idea < ActiveRecord::Base
     end
   end
 
-  before_destroy :remove_dependencies
-  def remove_dependencies
-    #self.merges.each {|merge| merge.destroy } if self.merges.size > 0
-    self.versions.each {|version| version.parent = nil; version.save } if self.versions.size > 0
-    #Merge.merges_from(self.id).each {|m| m.destroy}
+  before_destroy :replace_primary
+  def replace_primary
+    if self.versions.size > 0
+      new_primary = self.versions.order(:id).first
+      new_primary.update_attribute :parent_id, nil
+
+      self.versions.where('id <> ?', new_primary.id).each do |v|
+        v.update_attribute :parent_id, new_primary.id
+      end
+    end
   end
+
 
   after_destroy :delete_document
   def delete_document
