@@ -203,9 +203,9 @@ Devise.setup do |config|
   require 'openid/store/filesystem'
 
   if Rails.env.production?
-    config.omniauth :facebook, "177910022269006", "d647cab8b3b6e9aef9a5a60461453e31", {:client_options => {:ssl => {:ca_path => '/etc/ssl/certs', :ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+    config.omniauth :facebook, "177910022269006", "d647cab8b3b6e9aef9a5a60461453e31", {:scope => "read_friendlists, publish_stream", :client_options => {:ssl => {:ca_path => '/etc/ssl/certs', :ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
   else
-    config.omniauth :facebook, "245105508840675", "7079867525c8cdf6a0e57d5dc20d5029", {:client_options => {:ssl => {:ca_path => '/etc/ssl/certs', :ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+    config.omniauth :facebook, "245105508840675", "7079867525c8cdf6a0e57d5dc20d5029", {:scope => "read_friendlists, publish_stream", :client_options => {:ssl => {:ca_path => '/etc/ssl/certs', :ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
   end
 
   # config.omniauth :google_apps, OpenID::Store::Filesystem.new('/tmp'), :domain => 'gmail.com'

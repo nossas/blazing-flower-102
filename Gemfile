@@ -87,3 +87,5 @@ group :production do
   # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
   gem 'thin'
 end
+
+gem "koala"
