@@ -883,3 +883,28 @@ body[data-controller=letters][data-action=new] {
     float: right
   }
 }
+
+body[data-controller=petitions][data-action=show] {
+  .share_with_friends{
+    max-height: 300px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+    .friend{
+      padding: 10px;
+      border-bottom: 1px dashed #9A7F4A;
+      overflow: hidden;
+      &:last-child {
+        margin-bottom: 0; 
+        border: none;
+      }
+      input[type=checkbox]{ display:none; }
+      label { cursor: pointer; }
+      img { 
+        float: left;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+    }
+    .friend.selected { background: yellow; }
+  }
+}

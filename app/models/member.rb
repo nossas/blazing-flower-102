@@ -89,4 +89,17 @@ class Member < ActiveRecord::Base
   def password_if_MR_login
 
   end
+
+  def facebook_authorization
+    self.provider_authorizations.find_by_provider("facebook")
+  end
+
+  def friends
+    if facebook_authorization
+      graph = Koala::Facebook::GraphAPI.new(facebook_authorization.token)
+      graph.get_connections("me", "friends").sort{|x, y| x["name"] <=> y["name"]}
+    else
+      []
+    end
+  end
 end

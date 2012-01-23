@@ -23,6 +23,12 @@ MR.petitions = {
     $("#petition_signature_comment").keyup(function(){
       $("#comment_tip").html((140 - $("#petition_signature_comment").val().length) + " caracteres");
     });
+
+    $(".share_with_friends input[type='text']").hide();
+    $(".share_with_friends input[type='checkbox']").change(function(){
+      $("#message_" + this.value).toggle();
+      $(this).parents(".friend")[0].toggleClass("selected");
+    });
   },
 
   handle_signature_submit: function(e){

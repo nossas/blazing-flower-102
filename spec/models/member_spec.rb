@@ -127,4 +127,24 @@ describe Member do
       @member.action_history.should include(@petition_sig)
     end
   end
+
+  describe "#friends" do
+    context "when the member have no Facebook account connected to Meu Rio" do
+      before { subject.stub(:facebook_authorization).and_return(nil) }
+      its(:friends){ should be_empty }
+    end
+
+    context "when the member have a Facebook account connected to Meu Rio" do
+      before { subject.stub(:facebook_authorization).and_return(mock_model(ProviderAuthorization, :token => "xyz")) }
+      context "when the member have no friend (so sad!)" do
+        before { Koala::Facebook::GraphAPI.any_instance.stub(:get_connections).with("me", "friends").and_return([]) }
+        its(:friends){ should be_empty }
+      end
+      context "when the member have some friends" do
+        before { Koala::Facebook::GraphAPI.any_instance.stub(:get_connections).with("me", "friends").and_return([{"name"=>"Lee-Sean Hepnova Macarrao Huang", "id"=>"2630"}]) }
+        its(:friends){ should be_== [{"name"=>"Lee-Sean Hepnova Macarrao Huang", "id"=>"2630"}] }
+      end
+    end
+  end
+
 end
