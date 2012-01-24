@@ -18,6 +18,10 @@
  * -DP
  */
 
+/***************************************************************************************************/
+/* WE ARE DEPRECATING THIS FILE! PLEASE USE THIS: app/assets/stylesheets/screen.css.sass THANKS!!! */
+/***************************************************************************************************/
+
 @import "vars.css.scss";
 @import "mixins.css.scss";
 
@@ -908,3 +912,7 @@ body[data-controller=petitions][data-action=show] {
     .friend.selected { background: yellow; }
   }
 }
+
+/***************************************************************************************************/
+/* WE ARE DEPRECATING THIS FILE! PLEASE USE THIS: app/assets/stylesheets/screen.css.sass THANKS!!! */
+/***************************************************************************************************/

@@ -1,4 +1,3 @@
-source :rubyforge
 
 # gem 'rails',  :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
 gem 'rails', '~> 3.1'
@@ -29,6 +28,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-script'
   gem 'uglifier'
+  gem 'compass', :git => 'git://github.com/chriseppstein/compass.git', :tag => 'v0.12.alpha.0'
 end
 
 # Temporary pulling current sprockets source, to avoid plethora of output while tests run

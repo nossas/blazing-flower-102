@@ -19,6 +19,10 @@
   <!--<![endif]-->
   %head
     %title= content_for?(:title) ? (yield :title) : "MeuRio"
+    = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'print.css', :media => 'print'
+    /[if IE]
+      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
     = stylesheet_link_tag "application"
     %link{:href => "/assets/favicon.png", :rel => "shortcut icon"}
     = csrf_meta_tags

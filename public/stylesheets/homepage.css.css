@@ -1,0 +1,377 @@
+/* line 8, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage {
+  padding: 10px 0 0 10px;
+}
+/* line 10, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget {
+  float: left;
+  width: auto;
+  overflow: hidden;
+}
+/* line 14, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget p {
+  font-size: 14px;
+  color: #595959;
+}
+/* line 17, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget p a {
+  font-weight: bold;
+}
+/* line 21, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget h1 {
+  font-size: 25px;
+  padding-top: 10px;
+  margin-bottom: 22px;
+  text-align: center;
+  color: white;
+}
+/* line 28, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#featured_content_1 {
+  width: 620px;
+  height: 300px;
+}
+/* line 32, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#featured_content_2 {
+  width: 460px;
+  height: 300px;
+}
+/* line 36, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#date_weather {
+  width: 280px;
+  height: 60px;
+  padding-left: 30px;
+  color: #fff;
+  background: url("/assets/homepage/weather.png") no-repeat center center;
+}
+/* line 43, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#date_weather .forecast, #homepage .widget#date_weather .date, #homepage .widget#date_weather .icon {
+  float: left;
+  text-align: center;
+}
+/* line 48, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#date_weather .date, #homepage .widget#date_weather .icon {
+  width: 90px;
+  margin-top: -2px;
+  font-family: Folk-solid, sans-serif;
+  font-size: 225%;
+  line-height: 115%;
+  letter-spacing: 0.05em;
+}
+/* line 56, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#date_weather .date .month, #homepage .widget#date_weather .icon .month {
+  display: block;
+  font-size: 50%;
+  line-height: 60%;
+  text-transform: uppercase;
+}
+/* line 64, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#date_weather .icon {
+  margin-top: 4px;
+}
+/* line 68, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#date_weather .forecast {
+  width: 45px;
+  margin-top: 10px;
+}
+/* line 71, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#date_weather .forecast .label {
+  text-transform: uppercase;
+  font-size: 75%;
+}
+/* line 75, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#date_weather .forecast .temp {
+  font-family: Folk-solid;
+  font-size: 130%;
+  line-height: 70%;
+}
+/* line 82, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#legislative {
+  width: 300px;
+  height: 220px;
+  background: url("/assets/homepage/legislator.png") no-repeat center center;
+}
+/* line 86, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#legislative .controls {
+  float: right;
+  margin-right: 20px;
+}
+/* line 90, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#legislative .scrollable {
+  position: relative;
+  overflow: hidden;
+  width: 300px;
+  height: 130px;
+}
+/* line 95, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#legislative .scrollable .items {
+  width: 20000em;
+  position: absolute;
+  clear: both;
+}
+/* line 99, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#legislative .scrollable .items .item {
+  float: left;
+  width: 260px;
+  padding: 0 20px;
+}
+/* line 103, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#legislative .scrollable .items .item .date {
+  float: right;
+  width: 60px;
+  background: url("/assets/homepage/legislator_calendar_bg.png") no-repeat top center;
+}
+/* line 107, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#legislative .scrollable .items .item .date .month, #homepage .widget#legislative .scrollable .items .item .date .day {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #595959;
+}
+/* line 114, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#legislative .scrollable .items .item .date .month {
+  padding-top: 6px;
+  font-size: 12px;
+}
+/* line 118, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#legislative .scrollable .items .item .date .day {
+  font-size: 28px;
+  line-height: 1;
+}
+/* line 127, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#public_hearings {
+  width: 300px;
+  height: 220px;
+  background: url("/assets/homepage/public_hearings.png") no-repeat center center;
+}
+/* line 131, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#public_hearings h1 {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+/* line 135, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#public_hearings .controls {
+  float: right;
+  margin-right: 20px;
+}
+/* line 139, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#public_hearings .scrollable {
+  position: relative;
+  overflow: hidden;
+  width: 300px;
+  height: 130px;
+}
+/* line 144, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#public_hearings .scrollable .items {
+  width: 20000em;
+  position: absolute;
+  clear: both;
+}
+/* line 148, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#public_hearings .scrollable .items .item {
+  float: left;
+  width: 260px;
+  padding: 0 20px;
+}
+/* line 149, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#public_hearings .scrollable .items .item .date {
+  font-size: 12px;
+  margin-bottom: 0px;
+}
+/* line 160, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#meu_rio_is {
+  width: 120px;
+  height: 360px;
+  padding: 10px;
+  background: url("/assets/homepage/member.png") no-repeat center center;
+}
+/* line 165, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#meu_rio_is .scrollable {
+  position: relative;
+  overflow: hidden;
+  width: 120px;
+  height: 335px;
+}
+/* line 170, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#meu_rio_is .scrollable .items {
+  width: 20000em;
+  position: absolute;
+  clear: both;
+}
+/* line 174, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#meu_rio_is .scrollable .items .item {
+  float: left;
+  width: 120px;
+}
+/* line 179, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#meu_rio_is .scrollable h3 {
+  color: #40a468;
+  text-transform: uppercase;
+  font-style: italic;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+/* line 186, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#meu_rio_is .scrollable h2 {
+  color: #40a468;
+  font-size: 18px;
+  margin: 5px 0;
+  line-height: 120%;
+}
+/* line 191, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#meu_rio_is .scrollable h2:hover {
+  text-decoration: underline;
+}
+/* line 195, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#meu_rio_is .scrollable .image {
+  height: 120px;
+  overflow: hidden;
+}
+/* line 198, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#meu_rio_is .scrollable .image img {
+  width: 100%;
+}
+/* line 203, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#meu_rio_is .controls {
+  text-align: right;
+}
+/* line 207, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#follow {
+  overflow: visible;
+  width: 130px;
+  height: 56px;
+  background: url("/assets/homepage/follow.png") no-repeat center center;
+  padding: 8px 0 0 10px;
+}
+/* line 213, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#follow .facebook_wrap {
+  overflow: visible;
+}
+/* line 216, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#follow .twitter_wrap {
+  margin-top: 4px;
+  width: 64px !important;
+  height: 22px;
+  overflow: hidden;
+}
+/* line 223, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#team_update {
+  width: 260px;
+  height: 200px;
+  background: url("/assets/homepage/team_update.png") no-repeat center center;
+  padding: 5px 20px 20px 40px;
+  overflow: hidden;
+}
+/* line 230, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#team_update h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #40a468;
+}
+/* line 235, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#team_update .date {
+  font-size: 12px;
+  margin-bottom: 0px;
+}
+/* line 240, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#join_widget {
+  width: 300px;
+  height: 140px;
+  background: url("/assets/homepage/join.png") no-repeat center center;
+  text-align: center;
+}
+/* line 246, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#join_widget h1, #homepage .widget#join_widget h2, #homepage .widget#join_widget h3 {
+  font-family: Folk-solid, sans-serif;
+  color: #fff;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  margin: 0px;
+  padding: 0px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.15em;
+  font-weight: 400;
+}
+/* line 260, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#join_widget h1 {
+  font-size: 175%;
+}
+/* line 264, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#join_widget h2 {
+  font-size: 150%;
+  margin-bottom: 5px;
+}
+/* line 267, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#join_widget h2 span {
+  font-size: 75%;
+}
+/* line 272, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#join_widget h3 {
+  margin-top: 5px;
+  font-size: 105%;
+}
+/* line 277, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#join_widget .btn {
+  font-family: Folk-solid, sans-serif;
+  padding: 5px 10px 10px !important;
+  font-weight: normal;
+  text-shadow: none;
+  letter-spacing: 0.1em;
+  font-size: 19px;
+  -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 2px #666666;
+  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 2px #666666;
+  box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 2px #666666;
+}
+/* line 287, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#twitter_widget {
+  width: 580px;
+  height: 140px;
+  padding: 0px 20px;
+  background: url("/assets/homepage/twitter.png") no-repeat center center;
+}
+/* line 293, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#twitter_widget h1 {
+  color: #40a468;
+  text-align: left;
+  font-size: 190%;
+}
+/* line 299, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#twitter_widget p {
+  margin-left: 30px;
+  margin-right: 10px;
+  font-size: 102%;
+}
+/* line 305, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget#twitter_widget a.name {
+  color: #40a468;
+  font-weight: bold;
+}
+/* line 312, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget_container {
+  width: auto;
+}
+/* line 314, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget.margin_right, #homepage .widget_container.margin_right {
+  margin-right: 20px;
+}
+/* line 315, ../../app/assets/stylesheets/homepage.css.scss */
+#homepage .widget.margin_bottom, #homepage .widget_container.margin_bottom {
+  margin-bottom: 20px;
+}
+
+/* line 319, ../../app/assets/stylesheets/homepage.css.scss */
+.ie #homepage .widget#public_hearings h1 {
+  font-size: 19px;
+}
+
+/* line 325, ../../app/assets/stylesheets/homepage.css.scss */
+.ie7 #homepage .widget#date_weather .date .month {
+  line-height: 1.5;
+}
+/* line 328, ../../app/assets/stylesheets/homepage.css.scss */
+.ie7 #homepage .widget#date_weather .temp {
+  line-height: 1.3;
+}

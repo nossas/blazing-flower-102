@@ -1,0 +1,183 @@
+/* line 4, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  text-align: left;
+}
+/* line 11, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .popup {
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+}
+/* line 21, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .popup .content {
+  display: table;
+  width: 465px;
+  padding: 10px 24px;
+  background-color: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  text-align: left;
+}
+/* line 31, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .popup .content header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #2cbae2;
+}
+/* line 34, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .popup .content header h2 {
+  margin-bottom: 5px;
+  font-family: "Akagi-book";
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #333;
+  text-transform: uppercase;
+}
+/* line 45, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .popup .content p {
+  margin: 10px 0px;
+}
+/* line 49, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .popup .content #services {
+  text-align: center;
+}
+/* line 51, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .popup .content #services img {
+  margin: 20px 10px;
+}
+/* line 56, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .popup .content .separator {
+  margin: 0px auto;
+}
+/* line 58, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .popup .content .separator div {
+  display: inline;
+}
+/* line 61, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .popup .content .separator .line {
+  border-top: 1px solid #000;
+  width: 45%;
+}
+/* line 66, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .popup .content .separator .or {
+  text-align: center;
+  width: 9%;
+  margin: -8px 0 0;
+}
+/* line 73, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .popup .content .meu_rio_login {
+  text-align: center;
+  padding: 25px 0;
+}
+/* line 78, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .popup .content .disclaimer {
+  font-size: 12px;
+}
+/* line 84, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox #login .separator .line {
+  width: 188px;
+}
+/* line 88, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .close {
+  position: absolute;
+  display: block;
+  top: -11px;
+  right: -12px;
+  width: 18px;
+  height: 18px;
+  background: url(/assets/orange_close_icon.png) no-repeat;
+  padding: 2px;
+}
+/* line 96, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .close img {
+  display: none;
+}
+/* line 102, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .loading {
+  text-align: center;
+}
+/* line 106, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .image {
+  text-align: center;
+}
+/* line 110, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox img {
+  border: 0;
+  margin: 0;
+}
+/* line 115, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox .back {
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+/* line 121, ../../app/assets/stylesheets/facebox.css.scss */
+#facebox_overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 201;
+}
+
+/* line 130, ../../app/assets/stylesheets/facebox.css.scss */
+.facebox_hide {
+  z-index: -100;
+}
+
+/* line 134, ../../app/assets/stylesheets/facebox.css.scss */
+.facebox_overlayBG {
+  background-color: #000;
+  z-index: 99;
+}
+
+/* line 139, ../../app/assets/stylesheets/facebox.css.scss */
+input#member_image {
+  padding: 10px;
+  width: 94%;
+  background-color: #cacaca;
+}
+
+/* line 146, ../../app/assets/stylesheets/facebox.css.scss */
+form#member_new #errors {
+  background: #fae2d1;
+  padding: 5px;
+  display: none;
+}
+/* line 152, ../../app/assets/stylesheets/facebox.css.scss */
+form#member_new div.field {
+  margin-top: 10px;
+}
+/* line 155, ../../app/assets/stylesheets/facebox.css.scss */
+form#member_new div.field label, form#member_new div.field input {
+  display: block;
+  margin-bottom: 5px;
+}
+/* line 159, ../../app/assets/stylesheets/facebox.css.scss */
+form#member_new div.field input {
+  height: 30px;
+  width: 190px;
+}
+/* line 165, ../../app/assets/stylesheets/facebox.css.scss */
+form#member_new div.register input#member_email {
+  width: 410px;
+}
+
+/* line 171, ../../app/assets/stylesheets/facebox.css.scss */
+body.member_passwords .field_with_errors {
+  display: inline;
+}
+/* line 174, ../../app/assets/stylesheets/facebox.css.scss */
+body.member_passwords #errors {
+  margin-bottom: 10px;
+}

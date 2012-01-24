@@ -1,0 +1,302 @@
+/* line 9, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions h1 {
+  color: #595959;
+  margin-bottom: 36px;
+}
+/* line 14, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .donation_thanks {
+  color: #ef803b;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+/* line 21, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .donation_box {
+  background: url("/assets/donate_background.png") no-repeat;
+  padding: 20px;
+  width: 420px;
+  height: 320px;
+}
+/* line 26, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .donation_box .headline {
+  font-weight: bold;
+  font-size: 16px;
+  color: #595959;
+  margin-bottom: 15px;
+}
+/* line 32, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .donation_box .text {
+  color: #595959;
+  font-size: 14px;
+}
+/* line 36, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .donation_box .button_wrapper {
+  float: right;
+}
+/* line 39, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .donation_box .donation_arrow {
+  margin-top: 20px;
+}
+/* line 44, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions h2 {
+  color: #ef803b;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+/* line 50, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions img#thank_you {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 200;
+}
+/* line 57, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .canvas {
+  background: #ebebeb;
+  -moz-box-shadow: 3px 3px 3px #cccccc;
+  -webkit-box-shadow: 3px 3px 3px #cccccc;
+  box-shadow: 3px 3px 3px #cccccc;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 16px 24px;
+}
+/* line 63, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .canvas img {
+  float: left;
+}
+/* line 64, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .canvas .share_text {
+  color: #595959;
+  font-size: 12.5px;
+  margin-top: 5px;
+  float: right;
+  width: 340px;
+}
+/* line 71, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .canvas h3 {
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+/* line 76, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .canvas form img {
+  margin-right: 10px;
+}
+/* line 78, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .canvas .member_info {
+  margin-bottom: 20px;
+}
+/* line 79, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .canvas h2 {
+  text-transform: uppercase;
+}
+/* line 81, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .speech_bubble {
+  padding-bottom: 5px;
+  width: 404px;
+}
+/* line 84, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .speech_bubble.taf {
+  padding-bottom: 25px;
+}
+/* line 87, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .speech_bubble .already_signed {
+  width: 97%;
+  padding: 5px;
+  background-color: #fae2d1;
+  display: none;
+}
+/* line 93, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .speech_bubble h2 {
+  text-transform: uppercase;
+}
+/* line 98, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .comments {
+  margin-top: 48px;
+}
+/* line 100, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .comments h3 {
+  font-family: 'Folk-solid';
+  border-bottom: 1px solid #6acbe6;
+  border-top: 3px solid #6acbe6;
+  font-size: 20px;
+  margin-bottom: 24px;
+  padding: 5px 0 10px 12px;
+}
+/* line 108, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .comments .sprite.little_blue_bubble {
+  margin-left: 12px;
+}
+/* line 111, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .comments p {
+  padding-left: 58px;
+  margin-bottom: 24px;
+  position: relative;
+  font-size: 14px !important;
+}
+/* line 116, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .comments p strong {
+  font-weight: normal;
+  color: #595959;
+}
+/* line 123, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .counter {
+  font-family: Akagi-Book;
+  font-size: 18px;
+}
+/* line 126, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .counter span {
+  color: #df499a;
+  font-size: 24px;
+}
+/* line 132, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .description {
+  margin-top: 26px;
+}
+/* line 134, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .goal {
+  margin-top: 22px;
+  text-align: left;
+  font-size: 13px;
+}
+/* line 140, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .graph {
+  margin: 24px 0 14px;
+  background-color: #c2c2c2;
+  border: 1px solid #c2c2c2;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+/* line 145, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .graph .progress {
+  height: 24px;
+  background-color: #df499a;
+  background-image: url(/assets/bg_progress-bar.gif);
+  -moz-border-radius: 4px 0 0 4px;
+  -webkit-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+}
+/* line 153, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .issue_name .sprite {
+  float: right;
+  position: absolute;
+  right: 15px;
+}
+/* line 159, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .meta_container {
+  width: 45px;
+}
+/* line 164, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .media iframe, body.petitions .media img {
+  width: 100% !important;
+}
+/* line 169, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .policy {
+  padding-top: 15px;
+  float: left;
+}
+/* line 171, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .progress_bar_container {
+  width: 395px;
+}
+/* line 175, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .row {
+  margin-top: 10px;
+}
+/* line 177, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .row .field {
+  width: 48%;
+  float: left;
+}
+/* line 181, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .row .right {
+  float: right;
+}
+/* line 184, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .row label {
+  font-size: 12.5px;
+}
+/* line 185, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .row .required_mark {
+  color: #2cbae2;
+}
+/* line 186, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .row input[type="text"], body.petitions .row select {
+  width: 184px;
+}
+/* line 187, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .row textarea {
+  width: 394px;
+  margin-bottom: 5px;
+}
+/* line 188, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .row input[type="text"], body.petitions .row textarea, body.petitions .row select {
+  display: block;
+  margin-bottom: 5px;
+  padding: 6px 3px 7px;
+}
+/* line 195, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .row.comment {
+  margin-bottom: 5px;
+}
+/* line 199, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .submit {
+  float: right;
+}
+/* line 201, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .submit .sprite.arrow-down {
+  margin-right: 10px;
+}
+/* line 206, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .take_action, body.petitions .comments {
+  margin-left: 20px;
+  width: 450px;
+}
+/* line 209, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .take_action h2, body.petitions .comments h2 {
+  font-weight: bold;
+}
+/* line 213, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .take_action .speech_bubble h3 {
+  color: #595959;
+  font-family: Akagi-book;
+  font-size: 1em;
+}
+/* line 214, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .take_action .share_text {
+  margin-top: 5px;
+  float: left;
+  font-size: 95%;
+}
+/* line 215, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .take_action .clippy .speech_bubble {
+  margin-top: 0;
+}
+/* line 219, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .comments h3 {
+  text-transform: uppercase;
+}
+/* line 223, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .zona > dl {
+  margin: 4px 0 0 0;
+  width: 158px;
+}
+/* line 227, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .zona > dl > dd ul {
+  min-width: 159px;
+}
+/* line 232, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions .zona select {
+  display: none;
+}
+/* line 237, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions #clippy {
+  float: left;
+  padding-top: 3px;
+}
+/* line 242, ../../app/assets/stylesheets/petitions.css.scss */
+body.petitions #clippy_input {
+  width: 280px;
+}

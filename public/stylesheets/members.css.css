@@ -1,0 +1,203 @@
+/* line 10, ../../app/assets/stylesheets/members.css.scss */
+body.members .meu_rio_is_top {
+  margin-top: 36px;
+  padding: 20px 30px 0 30px;
+  height: 27px;
+  background: url(/assets/member_quote_top.png);
+}
+/* line 15, ../../app/assets/stylesheets/members.css.scss */
+body.members .meu_rio_is_top h3 {
+  color: white;
+  font-family: Folk-solid;
+  font-size: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+/* line 25, ../../app/assets/stylesheets/members.css.scss */
+body.members .meu_rio_is_bot {
+  margin-bottom: 40px;
+  height: 19px;
+  background: url(/assets/member_quote_bot.png);
+}
+/* line 31, ../../app/assets/stylesheets/members.css.scss */
+body.members .meu_rio_is_mid {
+  color: white;
+  padding: 0 30px;
+  background: url(/assets/member_quote_mid.png) repeat-y;
+}
+/* line 35, ../../app/assets/stylesheets/members.css.scss */
+body.members .meu_rio_is_mid textarea {
+  width: 565px;
+}
+/* line 41, ../../app/assets/stylesheets/members.css.scss */
+body.members .posts h3 {
+  font-weight: normal;
+  font-style: italic;
+  border-bottom: 1px #2cbae2 solid;
+  padding: 5px;
+  position: relative;
+}
+/* line 47, ../../app/assets/stylesheets/members.css.scss */
+body.members .posts h3 img {
+  position: absolute;
+  top: 15px;
+  left: -12px;
+}
+/* line 53, ../../app/assets/stylesheets/members.css.scss */
+body.members .posts .post {
+  margin-bottom: 20px;
+}
+/* line 56, ../../app/assets/stylesheets/members.css.scss */
+body.members .posts .post .icon img {
+  width: 80%;
+  float: right;
+}
+/* line 62, ../../app/assets/stylesheets/members.css.scss */
+body.members .posts.grid_8.alpha.omega {
+  margin-left: 10px;
+  width: 610px;
+}
+/* line 68, ../../app/assets/stylesheets/members.css.scss */
+body.members .profile_top {
+  background: url("/assets/member_profile_top.png") no-repeat;
+  height: 36px;
+}
+/* line 73, ../../app/assets/stylesheets/members.css.scss */
+body.members .profile_mid {
+  padding: 0 20px;
+  word-wrap: break-word;
+  -ms-word-wrap: sWrap;
+  /* IE I LOVE U! CHECK [] YES IF YOU LOVE ME TOO*/
+  background: url("/assets/member_profile_mid.png") repeat-y;
+}
+/* line 78, ../../app/assets/stylesheets/members.css.scss */
+body.members .profile_mid img#member_picture {
+  margin-bottom: 5px;
+  width: 100%;
+}
+/* line 82, ../../app/assets/stylesheets/members.css.scss */
+body.members .profile_mid h3 {
+  font-size: 28px;
+  margin: 10px 0;
+}
+/* line 83, ../../app/assets/stylesheets/members.css.scss */
+body.members .profile_mid h3 .title {
+  color: #40a468;
+}
+/* line 89, ../../app/assets/stylesheets/members.css.scss */
+body.members .profile_mid .date {
+  font-size: 14px;
+  padding: 10px 0;
+}
+/* line 93, ../../app/assets/stylesheets/members.css.scss */
+body.members .profile_mid .title {
+  color: #2cbae2;
+  margin: 5px 0;
+}
+/* line 97, ../../app/assets/stylesheets/members.css.scss */
+body.members .profile_mid .is_subscriber {
+  margin: 20px 0 0 0;
+  font-size: 12px;
+}
+/* line 101, ../../app/assets/stylesheets/members.css.scss */
+body.members .profile_mid .info {
+  border-top: 1px solid #2cbae2;
+  border-bottom: 1px solid #2cbae2;
+  padding: 30px 0 10px;
+  overflow: hidden;
+}
+/* line 109, ../../app/assets/stylesheets/members.css.scss */
+body.members .profile_mid .password label {
+  margin-top: 10px;
+  display: block;
+  font-size: 90%;
+}
+/* line 116, ../../app/assets/stylesheets/members.css.scss */
+body.members .profile_mid textarea#member_bio {
+  width: 250px;
+}
+/* line 121, ../../app/assets/stylesheets/members.css.scss */
+body.members p.error .key {
+  text-transform: capitalize;
+}
+/* line 125, ../../app/assets/stylesheets/members.css.scss */
+body.members .edit {
+  display: none;
+  padding-bottom: 10px;
+}
+/* line 129, ../../app/assets/stylesheets/members.css.scss */
+body.members .edit form {
+  padding-bottom: 10px;
+}
+/* line 131, ../../app/assets/stylesheets/members.css.scss */
+body.members .edit form .errors {
+  background: #fae2d1;
+  padding: 5px;
+  margin-bottom: 10px;
+  float: left;
+}
+/* line 139, ../../app/assets/stylesheets/members.css.scss */
+body.members .edit input {
+  width: 100%;
+}
+/* line 144, ../../app/assets/stylesheets/members.css.scss */
+body.members .profile_bot {
+  background: url("/assets/member_profile_bot.png") no-repeat;
+  height: 44px;
+}
+/* line 149, ../../app/assets/stylesheets/members.css.scss */
+body.members .display {
+  padding-bottom: 10px;
+  overflow: hidden;
+}
+/* line 154, ../../app/assets/stylesheets/members.css.scss */
+body.members .title, body.members .profile_mid .title {
+  display: block;
+  float: left;
+  margin-right: 5px;
+}
+/* line 160, ../../app/assets/stylesheets/members.css.scss */
+body.members .change {
+  display: block;
+  float: left;
+}
+/* line 165, ../../app/assets/stylesheets/members.css.scss */
+body.members .meu_rio_is_mid .change {
+  margin-top: -22px;
+}
+/* line 170, ../../app/assets/stylesheets/members.css.scss */
+body.members .name h3 .title {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+/* line 174, ../../app/assets/stylesheets/members.css.scss */
+body.members .name label {
+  display: block;
+  clear: both;
+  font-weight: 400;
+  font-size: 14px;
+}
+/* line 180, ../../app/assets/stylesheets/members.css.scss */
+body.members .name input {
+  width: 47%;
+  display: block;
+  float: left;
+  margin-right: 1%;
+}
+/* line 188, ../../app/assets/stylesheets/members.css.scss */
+body.members #change_picture_btn {
+  font-family: Akagi-Book;
+  font-size: 14px;
+  font-style: italic;
+}
+/* line 196, ../../app/assets/stylesheets/members.css.scss */
+body.members #facebox .image_form .btn {
+  float: right;
+  margin: 15px 0;
+}
+
+/* line 206, ../../app/assets/stylesheets/members.css.scss */
+.member_passwords.new form input[type="email"] {
+  height: 25px;
+  margin-right: 15px;
+}

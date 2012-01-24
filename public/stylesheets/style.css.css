@@ -1,0 +1,429 @@
+@charset "UTF-8";
+/* HTML5 ✰ Boilerplate */
+/* line 14, ../../app/assets/stylesheets/style.css.scss */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../app/assets/stylesheets/style.css.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 26, ../../app/assets/stylesheets/style.css.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 28, ../../app/assets/stylesheets/style.css.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* line 29, ../../app/assets/stylesheets/style.css.scss */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* line 30, ../../app/assets/stylesheets/style.css.scss */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* line 31, ../../app/assets/stylesheets/style.css.scss */
+del {
+  text-decoration: line-through;
+}
+
+/* line 32, ../../app/assets/stylesheets/style.css.scss */
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+/* line 33, ../../app/assets/stylesheets/style.css.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 34, ../../app/assets/stylesheets/style.css.scss */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/* line 35, ../../app/assets/stylesheets/style.css.scss */
+input, select {
+  vertical-align: middle;
+}
+
+/* line 37, ../../app/assets/stylesheets/style.css.scss */
+select, input, textarea, button {
+  font: 90% Akagi-Book;
+}
+
+/* line 38, ../../app/assets/stylesheets/style.css.scss */
+pre, code, kbd, samp {
+  font-family: monospace, sans-serif;
+}
+
+/* line 40, ../../app/assets/stylesheets/style.css.scss */
+html {
+  overflow-y: scroll;
+}
+
+/* line 41, ../../app/assets/stylesheets/style.css.scss */
+a:hover, a:active {
+  outline: none;
+}
+
+/* line 42, ../../app/assets/stylesheets/style.css.scss */
+ul, ol {
+  margin-left: 2em;
+}
+
+/* line 43, ../../app/assets/stylesheets/style.css.scss */
+ol {
+  list-style-type: decimal;
+}
+
+/* line 44, ../../app/assets/stylesheets/style.css.scss */
+nav ul, nav li {
+  margin: 0;
+  list-style: none;
+  list-style-image: none;
+}
+
+/* line 45, ../../app/assets/stylesheets/style.css.scss */
+small {
+  font-size: 75%;
+}
+
+/* line 46, ../../app/assets/stylesheets/style.css.scss */
+strong, th {
+  font-weight: bold;
+}
+
+/* line 47, ../../app/assets/stylesheets/style.css.scss */
+td {
+  vertical-align: top;
+}
+
+/* line 48, ../../app/assets/stylesheets/style.css.scss */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+
+/* line 49, ../../app/assets/stylesheets/style.css.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 50, ../../app/assets/stylesheets/style.css.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 52, ../../app/assets/stylesheets/style.css.scss */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 15px;
+}
+
+/* line 53, ../../app/assets/stylesheets/style.css.scss */
+textarea {
+  overflow: auto;
+}
+
+/* line 54, ../../app/assets/stylesheets/style.css.scss */
+.ie6 legend, .ie7 legend {
+  margin-left: -7px;
+}
+
+/* line 55, ../../app/assets/stylesheets/style.css.scss */
+input[type="radio"] {
+  vertical-align: text-bottom;
+}
+
+/* line 56, ../../app/assets/stylesheets/style.css.scss */
+input[type="checkbox"] {
+  vertical-align: bottom;
+}
+
+/* line 57, ../../app/assets/stylesheets/style.css.scss */
+.ie7 input[type="checkbox"] {
+  vertical-align: baseline;
+}
+
+/* line 58, ../../app/assets/stylesheets/style.css.scss */
+.ie6 input {
+  vertical-align: text-bottom;
+}
+
+/* line 59, ../../app/assets/stylesheets/style.css.scss */
+label, input[type="button"], input[type="submit"], input[type="image"], button {
+  cursor: pointer;
+}
+
+/* line 60, ../../app/assets/stylesheets/style.css.scss */
+button, input, select, textarea {
+  margin: 0;
+}
+
+/* line 62, ../../app/assets/stylesheets/style.css.scss */
+input:invalid, textarea:invalid {
+  border-radius: 1px;
+  -moz-box-shadow: 0px 0px 5px red;
+  -webkit-box-shadow: 0px 0px 5px red;
+  box-shadow: 0px 0px 5px red;
+}
+
+/* line 63, ../../app/assets/stylesheets/style.css.scss */
+.no-boxshadow input:invalid, .no-boxshadow textarea:invalid {
+  background-color: #f0dddd;
+}
+
+/* line 65, ../../app/assets/stylesheets/style.css.scss */
+input:focus, textarea:focus, isindex:focus, keygen:focus, select:focus {
+  outline: none;
+}
+
+/* line 69, ../../app/assets/stylesheets/style.css.scss */
+a:link {
+  -webkit-tap-highlight-color: #FF5E99;
+}
+
+/* line 70, ../../app/assets/stylesheets/style.css.scss */
+button {
+  width: auto;
+  overflow: visible;
+}
+
+/* line 71, ../../app/assets/stylesheets/style.css.scss */
+.ie7 img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/* line 73, ../../app/assets/stylesheets/style.css.scss */
+body, select, input, textarea {
+  color: #595959;
+}
+
+/* line 74, ../../app/assets/stylesheets/style.css.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+/* line 75, ../../app/assets/stylesheets/style.css.scss */
+a, a:active, a:visited {
+  color: #2cbae2;
+}
+
+/**
+ * Primary styles
+ *
+ * Author: 
+ */
+@font-face {
+  font-family: 'Akagi-Book';
+  src: url("../webfonts/eot/style_174436.eot");
+  src: url("../webfonts/eot/style_174436.eot?#iefix") format("embedded-opentype"), url("../webfonts/woff/style_174436.woff") format("woff"), url("../webfonts/ttf/style_174436.ttf") format("truetype"), url("../webfonts/svg/style_174436.svg#Akagi-Book") format("svg");
+}
+
+@font-face {
+  font-family: 'Akagi-Book';
+  font-style: italic;
+  src: url(../webfonts/ttf/Akagi-BookItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Akagi-Book';
+  font-weight: bold;
+  src: url(../webfonts/ttf/Akagi-Ex.ttf);
+}
+
+@font-face {
+  font-family: 'Akagi-Light';
+  src: url("../webfonts/eot/style_174446.eot");
+  src: url("../webfonts/eot/style_174446.eot?#iefix") format("embedded-opentype"), url("../webfonts/woff/style_174446.woff") format("woff"), url("../webfonts/ttf/style_174446.ttf") format("truetype"), url("../webfonts/svg/style_174446.svg#Akagi-Light") format("svg");
+}
+
+@font-face {
+  font-family: 'Folk-outline';
+  src: url("../webfonts/eot/style_192109.eot");
+  src: url("../webfonts/eot/style_192109.eot?#iefix") format("embedded-opentype"), url("../webfonts/woff/style_192109.woff") format("woff"), url("../webfonts/ttf/style_192109.ttf") format("truetype"), url("../webfonts/svg/style_192109.svg#Folk-outline") format("svg");
+}
+
+@font-face {
+  font-family: 'Folk-solid';
+  src: url("../webfonts/eot/style_192110.eot");
+  src: url("../webfonts/eot/style_192110.eot?#iefix") format("embedded-opentype"), url("../webfonts/woff/style_192110.woff") format("woff"), url("../webfonts/ttf/style_192110.ttf") format("truetype"), url("../webfonts/svg/style_192110.svg#Folk-solid") format("svg");
+}
+
+@font-face {
+  font-family: 'Folk-sketches';
+  src: url("../webfonts/eot/style_192111.eot");
+  src: url("../webfonts/eot/style_192111.eot?#iefix") format("embedded-opentype"), url("../webfonts/woff/style_192111.woff") format("woff"), url("../webfonts/ttf/style_192111.ttf") format("truetype"), url("../webfonts/svg/style_192111.svg#Folk-sketches") format("svg");
+}
+
+@font-face {
+  font-family: 'Folk-shadow';
+  src: url("../webfonts/eot/style_192112.eot");
+  src: url("../webfonts/eot/style_192112.eot?#iefix") format("embedded-opentype"), url("../webfonts/woff/style_192112.woff") format("woff"), url("../webfonts/ttf/style_192112.ttf") format("truetype"), url("../webfonts/svg/style_192112.svg#Folk-shadow") format("svg");
+}
+
+/* line 93, ../../app/assets/stylesheets/style.css.scss */
+.ir {
+  display: block;
+  text-indent: -999em;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  text-align: left;
+  direction: ltr;
+}
+
+/* line 94, ../../app/assets/stylesheets/style.css.scss */
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+/* line 95, ../../app/assets/stylesheets/style.css.scss */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* line 97, ../../app/assets/stylesheets/style.css.scss */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/* line 98, ../../app/assets/stylesheets/style.css.scss */
+.invisible {
+  visibility: hidden;
+}
+
+/* line 99, ../../app/assets/stylesheets/style.css.scss */
+.clearfix:before, .clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+
+/* line 100, ../../app/assets/stylesheets/style.css.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* line 101, ../../app/assets/stylesheets/style.css.scss */
+.clearfix {
+  zoom: 1;
+}
+
+@media screen and (max-device-width: 480px) {
+  /* html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
+}
+@media print {
+  /* line 119, ../../app/assets/stylesheets/style.css.scss */
+  * {
+    background: transparent !important;
+    color: black !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -ms-filter: none !important;
+  }
+
+  /* line 121, ../../app/assets/stylesheets/style.css.scss */
+  a, a:visited {
+    color: #444 !important;
+    text-decoration: underline;
+  }
+
+  /* line 122, ../../app/assets/stylesheets/style.css.scss */
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  /* line 123, ../../app/assets/stylesheets/style.css.scss */
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /* line 124, ../../app/assets/stylesheets/style.css.scss */
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+    content: "";
+  }
+
+  /* line 125, ../../app/assets/stylesheets/style.css.scss */
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /* line 126, ../../app/assets/stylesheets/style.css.scss */
+  thead {
+    display: table-header-group;
+  }
+
+  /* line 127, ../../app/assets/stylesheets/style.css.scss */
+  tr, img {
+    page-break-inside: avoid;
+  }
+
+  @page {
+    margin: 0.5cm;
+}
+
+  /* line 129, ../../app/assets/stylesheets/style.css.scss */
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* line 130, ../../app/assets/stylesheets/style.css.scss */
+  h2, h3 {
+    page-break-after: avoid;
+  }
+}
