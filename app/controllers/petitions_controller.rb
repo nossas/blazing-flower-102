@@ -1,3 +1,4 @@
+# coding: utf-8
 class PetitionsController < ApplicationController
   before_filter do
     @petition = Petition.where(:custom_path => params[:custom_path]).first
@@ -20,6 +21,6 @@ class PetitionsController < ApplicationController
     params[:friends_ids].each do |friend_id|
       graph.put_wall_post(params["message_#{friend_id}"], {:link => params[:link]}, friend_id)
     end
-    redirect_to issue_custom_petition_path(@petition.issue, @petition.custom_path)
+    redirect_to issue_custom_petition_path(@petition.issue, @petition.custom_path), :notice => "Pronto! Agora é só esperar que o seu amigo também se engaje nessa..."
   end
 end

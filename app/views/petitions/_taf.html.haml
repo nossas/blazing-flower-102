@@ -53,20 +53,22 @@
     .speech_bubble
       =raw clippy(issue_custom_petition_url(@taf.petition.issue_id, @taf.petition.custom_path), "#e7e7e7")
       =text_field_tag "clippy_input", issue_custom_petition_url(@taf.petition.issue_id, @taf.petition.custom_path), :id => "clippy_input", :class => "right"
-
-.speech_bubble_container.gray_big.taf
-  .speech_bubble_top
-  .speech_bubble
-    %h3 Convide seus amigos para assinarem também!
-    = form_tag share_with_friends_path(@petition.issue, @petition.custom_path), :method => :post do
-      .share_with_friends
-        - current_member.friends.each do |friend|
-          .friend
-            = check_box_tag "friends_ids[]", friend["id"], false, :id => friend["id"]
-            = label_tag friend["id"] do 
-              = image_tag "http://graph.facebook.com/#{friend["id"]}/picture"
-              = friend["name"]
-              %br
-            = text_field_tag "message_" + friend["id"], nil, :placeholder => "Sua mensagem..."
-            = hidden_field_tag "link", :value => request.path
-      = submit_tag "Compartilhar", :class => "btn right"
+  
+- if current_member
+  .speech_bubble_container.gray_big.taf
+    .speech_bubble_top
+    .speech_bubble
+      %h3 Convide seus amigos para assinarem também!
+      = form_tag share_with_friends_path(@taf.petition.issue, @taf.petition.custom_path), :method => :post do
+        .share_with_friends
+          - current_member.friends.each do |friend|
+            .friend
+              = check_box_tag "friends_ids[]", friend["id"], false, :id => friend["id"]
+              = label_tag friend["id"] do 
+                = image_tag "http://graph.facebook.com/#{friend["id"]}/picture"
+                = friend["name"]
+                %br
+              = label_tag "message_" + friend["id"], "Sua mensagem...", :class => "message_label"
+              = text_field_tag "message_" + friend["id"], nil, :placeholder => "Sua mensagem..."
+              = hidden_field_tag "link", :value => request.path
+        = submit_tag "Compartilhar", :class => "btn right"

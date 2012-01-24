@@ -897,8 +897,8 @@ body[data-controller=petitions][data-action=show] {
         margin-bottom: 0; 
         border: none;
       }
-      input[type=checkbox]{ display:none; }
       label { cursor: pointer; }
+      .message_label { display: none; }
       img { 
         float: left;
         margin-right: 10px;
