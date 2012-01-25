@@ -21,7 +21,7 @@ class Imagine::IdeasController < ApplicationController
   def index
     @ideas ||= Idea.primary.popular.all
     if current_member 
-      @my_ideas ||= current_member.ideas.all
+      @my_ideas ||= current_member.ideas.popular.all
     end
   end
 
