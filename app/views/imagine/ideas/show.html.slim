@@ -13,7 +13,9 @@
       h1 Imagine
 
   .grid_1.prefix_3.omega.imagine
-    =link_to(image_tag('imagine.png', :title => 'Voltar para Imagine', :id => 'ballon'), issue_ideas_path(@issue))
+    =link_to(issue_ideas_path(@issue), :class => 'ballon_link') do
+      = image_tag('imagine.png', :title => 'Voltar para Imagine', :id => 'ballon')
+      |Voltar
 
   = render 'confirm_fork'
   = render 'remove_idea'
@@ -29,7 +31,7 @@
       .user
         = t('.user_html', :link => link_to(@idea.member.name, member_path(@idea.member))) unless @idea.parent
         - if @idea.parent
-          = image_tag image_path('imagine/icons/ramify_color.png')
+          = image_tag image_path('imagine/icons/ramify_color.png'), :class => 'fork'
           = t('.parent_html', :user => link_to(@idea.member.name, member_path(@idea.member)), :parent => link_to("ideia de #{@idea.parent.member.name}", issue_idea_path(@issue.id, @idea.parent)))
       .headline
         p class=("editable" if can? :edit, @idea) data-attribute="headline" data-url=imagine_idea_path(@idea) data-raw=@idea.headline data-maxlength=140 data-singleline=true
@@ -48,11 +50,14 @@
         h2.menuversion = t('.menu.versions')
       #idea_description.grid_7.alpha.omega
         .attribute.grid_7.alpha.omega class=("editable" if can? :edit, @idea) data-url=imagine_idea_path(@idea) data-attribute="description" data-raw=@idea.description data-raw-attribute="description_html"
-          == @idea.description_html.blank? ? t('.placeholders.description_html') : @idea.description_html
-        .menu.prefix_1.grid_6.omega
+          == @idea.description_html.blank? && can?(:edit, @idea) ? t('.placeholders.description_html') : @idea.description_html
+        .menu.grid_7.alpha.omega
           - if current_member.nil? || current_member != @idea.member
-            .sprite.arrow-down
-            .fork_idea= link_to t('.fork_idea'), '#fork', :id => 'fork_idea_button', :class => 'btn'
+            .fork_tip
+              |Você acha que pode melhorar essa idéia? Pode fazer a sua versão modificada clicando no botão abaixo.
+            .prefix_1.grid_6.omega
+              .sprite.arrow-down
+              .fork_idea= link_to t('.fork_idea'), '#fork', :id => 'fork_idea_button', :class => 'btn'
       #idea_versions.grid_7.alpha.omega
         - if @versions.empty?
           em= t('.versions.empty.html', :link => '')
