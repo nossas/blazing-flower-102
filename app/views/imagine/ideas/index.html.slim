@@ -9,7 +9,8 @@
   .grid_8.alpha.imagine
     .issue_name
       = link_to(@issue.name, issue_path(@issue))
-    h1 IMAGINE
+    = link_to issue_ideas_path(@issue) do
+      h1 Imagine
   .grid_1.prefix_3.omega.imagine
     =link_to(image_tag('imagine.png', :id => 'ballon'))
 
@@ -28,6 +29,9 @@
           = @issue.ideas_media_html if @issue.ideas_media.present?
       .category_list.grid_12.alpha.omega
         = render :partial => 'idea_category', :locals => { :collection => @categories } unless @categories.empty?
+      - if current_member
+        .ideas_list
+          = render :partial => 'list', :locals => {:quick => "featured", :collection => @my_ideas} unless @my_ideas.empty?
       .ideas_list
         = render :partial => 'list', :locals => {:quick => "featured", :collection => @ideas} unless @ideas.empty?
 
