@@ -6,7 +6,19 @@
 @import "imagine/defaults/_button.sass"
 @import "imagine/defaults/_editable.sass"
 
+
+.imagine
+  margin-top: 20px
+  h1
+    font-weight: normal
+    color: $dark_gray
+    margin-bottom: 36px
+    font-size: 25px
+
+
 body.ideas.show
+  .fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr
+    display: none !important
   +editable
   div[data-raw-attribute=description_html]
     form
@@ -14,6 +26,7 @@ body.ideas.show
         height: 100px !important
   h1
     margin-bottom: 10px
+    font-weight: normal
   .headline
     margin-top: 15px
     margin-bottom: 0
@@ -74,6 +87,14 @@ body.ideas.show
   header h2
     &:hover, &:active, &.selected
       background: no-repeat
+
+#idea_teaser,.comments
+  h1
+    color: #EF803B
+    font-family: 'Akagi-Book',Helvetica,Ariel,sans-serif
+    font-size: 23px
+    text-transform: uppercase
+    line-height: 24px
 
 #idea_head
   background-color: #eeebe4
