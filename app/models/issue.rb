@@ -44,8 +44,8 @@ class Issue < ActiveRecord::Base
     self.where('EXISTS (SELECT true FROM debates d WHERE d.issue_id = issues.id) OR EXISTS (SELECT true FROM petitions p WHERE p.issue_id = issues.id) OR EXISTS (SELECT true FROM personal_stories ps WHERE ps.issue_id = issues.id)') }
 
   auto_html_for :ideas_media do
-    youtube(:width => 420, :height => 240)
-    vimeo(:width => 420, :height => 240)
+    youtube(:width => 570, :height => 320)
+    vimeo(:width => 570, :height => 320)
   end
 
 end
