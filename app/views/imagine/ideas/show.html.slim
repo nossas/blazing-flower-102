@@ -9,10 +9,11 @@
   .grid_8.alpha.imagine
     .issue_name
       = link_to(@issue.name, issue_path(@issue))
-    h1 Que idéias você tem para melhorar o seu Rio?
+    = link_to issue_ideas_path(@issue) do
+      h1 Imagine
 
   .grid_1.prefix_3.omega.imagine
-    =link_to(image_tag('imagine.png', :id => 'ballon'), issue_ideas_path(@issue))
+    =link_to(image_tag('imagine.png', :title => 'Voltar para Imagine', :id => 'ballon'), issue_ideas_path(@issue))
 
   = render 'confirm_fork'
   = render 'remove_idea'
@@ -46,12 +47,8 @@
       a.grid_4.omega href="#versions"
         h2.menuversion = t('.menu.versions')
       #idea_description.grid_7.alpha.omega
-        - if can? :edit, @idea
-          = image_tag image_path('imagine/icons/idea.png'), :id => 'icon', :class => 'grid_1 alpha'
-          .grid_6.omega.placeholder_edit= t('.placeholders.description_html')
-
         .attribute.grid_7.alpha.omega class=("editable" if can? :edit, @idea) data-url=imagine_idea_path(@idea) data-attribute="description" data-raw=@idea.description data-raw-attribute="description_html"
-          == @idea.description_html
+          == @idea.description_html.blank? ? t('.placeholders.description_html') : @idea.description_html
         .menu.prefix_1.grid_6.omega
           - if current_member.nil? || current_member != @idea.member
             .sprite.arrow-down
@@ -69,9 +66,10 @@
                   p= version.headline
                 .created_at= t('.versions.created_at', :created_at => l(version.created_at.to_date, :format => :short))
     #idea_extra.grid_5.omega
-      #formatting_tips.widget
-        h1 Dicas de formatação
-        = render 'formatting_tips'
+      - if can? :edit, @idea
+        #formatting_tips.widget
+          h1 Dicas de formatação
+          = render 'formatting_tips'
       .comments= render :partial => 'shared/comments', :locals => { :url => "#{issue_idea_url(@idea.issue, @idea)}#description" }
 
 
