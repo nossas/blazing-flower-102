@@ -888,31 +888,6 @@ body[data-controller=letters][data-action=new] {
   }
 }
 
-body[data-controller=petitions][data-action=show] {
-  .share_with_friends{
-    max-height: 300px;
-    overflow-y: scroll;
-    margin-bottom: 20px;
-    .friend{
-      padding: 10px;
-      border-bottom: 1px dashed #9A7F4A;
-      overflow: hidden;
-      &:last-child {
-        margin-bottom: 0; 
-        border: none;
-      }
-      label { cursor: pointer; }
-      .message_label { display: none; }
-      img { 
-        float: left;
-        margin-right: 10px;
-        cursor: pointer;
-      }
-    }
-    .friend.selected { background: yellow; }
-  }
-}
-
 /***************************************************************************************************/
 /* WE ARE DEPRECATING THIS FILE! PLEASE USE THIS: app/assets/stylesheets/screen.css.sass THANKS!!! */
 /***************************************************************************************************/

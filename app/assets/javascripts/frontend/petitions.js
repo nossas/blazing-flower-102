@@ -27,7 +27,7 @@ MR.petitions = {
     $(".share_with_friends input[type='text']").hide();
     $(".share_with_friends input[type='checkbox']").change(function(){
       $("#message_" + this.value).toggle();
-      $(this).parents(".friend")[0].toggleClass("selected");
+      $("#friend_" + this.value).toggleClass("selected");
     });
   },
 

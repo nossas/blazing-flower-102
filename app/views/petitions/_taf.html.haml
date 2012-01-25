@@ -62,12 +62,13 @@
       = form_tag share_with_friends_path(@taf.petition.issue, @taf.petition.custom_path), :method => :post do
         .share_with_friends
           - current_member.friends.each do |friend|
-            .friend
-              = check_box_tag "friends_ids[]", friend["id"], false, :id => friend["id"]
+            .friend{:id => "friend_#{friend["id"]}", "data-id" => friend["id"]}
+              .invisible= check_box_tag "friends_ids[]", friend["id"], false, :id => friend["id"]
               = label_tag friend["id"] do 
                 = image_tag "http://graph.facebook.com/#{friend["id"]}/picture"
+              = label_tag friend["id"] do
                 = friend["name"]
-                %br
+              %br
               = label_tag "message_" + friend["id"], "Sua mensagem...", :class => "message_label"
               = text_field_tag "message_" + friend["id"], nil, :placeholder => "Sua mensagem..."
               = hidden_field_tag "link", :value => request.path

@@ -4,3 +4,36 @@
   Import this file using the following HTML or equivalent:
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
+@import "compass/utilities/general/clearfix"
+
+.invisible
+  visibility: visible
+  height: 0
+  width: 0
+  overflow: hidden
+  position: absolute
+
+body[data-controller=petitions][data-action=show]
+  .share_with_friends
+    max-height: 300px
+    overflow-y: scroll
+    margin: 20px 0
+    .friend
+      padding: 10px
+      overflow: hidden
+      border-bottom: 1px solid darken(#edeae4, 20%)
+      border-top: 1px solid lighten(#edeae4, 20%)
+      &:last-child 
+        border-bottom: none
+      &:first-child
+        border-top: none
+      label  
+        cursor: pointer 
+      .message_label  
+        display: none 
+      img  
+        float: left
+        margin-right: 10px
+        cursor: pointer
+    .friend.selected  
+      background: lighten(yellow, 40%)
