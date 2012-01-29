@@ -9,10 +9,11 @@ class ProviderAuthorization < ActiveRecord::Base
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     if authorization = ProviderAuthorization.where(:provider => 'facebook', :uid => access_token['uid']).first
+      authorization.update_attribute :token, access_token["credentials"]["token"]
       authorization
     else
       m = Member.find_for_facebook_oauth(access_token, signed_in_resource)
-      self.create(:member => m, :provider => 'facebook', :uid => access_token['uid'])
+      self.create(:member => m, :provider => 'facebook', :uid => access_token['uid'], :token => access_token["credentials"]["token"])
     end
   end
 

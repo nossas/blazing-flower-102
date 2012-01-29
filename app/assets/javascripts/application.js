@@ -16,5 +16,7 @@
 //= require ./libs/jquery.autoresize.js
 //= require ./libs/backbone.js
 //= require ./MR.js
+//= require ./libs/autoresize.jquery.min.js
+//= require init.js
 //= require_tree ./frontend
 //= require init.js

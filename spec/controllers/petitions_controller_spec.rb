@@ -41,4 +41,17 @@ describe PetitionsController do
       assigns(:comments).should == PetitionSignature.where(:petition_id => @p.id).order('created_at DESC').limit(3).all
     end
   end
+
+  describe "POST share_with_friends" do
+    before do
+      @p = Factory(:complete_petition)
+      @p.publish
+      controller.stub!(:current_member).and_return(mock_model(Member, :facebook_authorization => mock_model(ProviderAuthorization, :token => "1")))
+    end
+
+    it "should post on my friends walls" do
+      Koala::Facebook::GraphAPI.any_instance.should_receive(:put_wall_post).once
+      post :share_with_friends, :id => @p.issue.id, :custom_path => @p.custom_path, :friend_id => "1", :message => "Check this out!", :link => "http://localhost:3000"
+    end
+  end
 end

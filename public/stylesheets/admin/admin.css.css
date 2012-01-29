@@ -1,0 +1,52 @@
+/* line 1, ../../../app/assets/stylesheets/admin/admin.css.scss */
+body.admin {
+  font-family: Geneva, "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+  background-color: #eee;
+}
+/* line 5, ../../../app/assets/stylesheets/admin/admin.css.scss */
+body.admin a {
+  color: #30B7FB;
+}
+/* line 9, ../../../app/assets/stylesheets/admin/admin.css.scss */
+body.admin .container_12 {
+  background-color: #fff;
+  padding: 20px;
+}
+/* line 14, ../../../app/assets/stylesheets/admin/admin.css.scss */
+body.admin header nav {
+  float: right;
+}
+/* line 18, ../../../app/assets/stylesheets/admin/admin.css.scss */
+body.admin header nav.main, body.admin header nav.main div {
+  padding: 10px 20px;
+  margin: 10px 10px 0;
+}
+/* line 23, ../../../app/assets/stylesheets/admin/admin.css.scss */
+body.admin header nav.main div {
+  float: left;
+  border: 2px solid #000;
+  border-radius: 10px 10px;
+  -moz-border-radius: 10px 10px;
+}
+/* line 34, ../../../app/assets/stylesheets/admin/admin.css.scss */
+body.admin #users_list {
+  margin-top: 15px;
+}
+/* line 37, ../../../app/assets/stylesheets/admin/admin.css.scss */
+body.admin #users_list tr {
+  border: 1px solid #000;
+  padding: 10px 5px;
+  margin-top: 5px;
+}
+/* line 43, ../../../app/assets/stylesheets/admin/admin.css.scss */
+body.admin #users_list td {
+  padding-right: 15px;
+}
+/* line 48, ../../../app/assets/stylesheets/admin/admin.css.scss */
+body.admin p.label {
+  text-decoration: underline;
+}
+/* line 52, ../../../app/assets/stylesheets/admin/admin.css.scss */
+body.admin p.data {
+  margin-bottom: 10px;
+}

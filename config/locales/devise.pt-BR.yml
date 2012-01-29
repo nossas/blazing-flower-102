@@ -35,11 +35,11 @@ pt-BR:
       unlocked: 'A sua conta foi desbloqueada com sucesso. Agora está conectado.'
     mailer:
       confirmation_instructions:
-        subject: 'Instruções de confirmação'
+        subject: 'Confirme sua senha no Meu Rio'
       reset_password_instructions:
-        subject: 'Instruções de reinicialização de senha'
+        subject: 'Para os esquecidos: mude sua senha'
       unlock_instructions:
-        subject: 'Instruções de desbloqueio'
+        subject: 'Desbloqueie sua senha no Meu Rio'
     member_sessions:
       member:
         signed_out: "Você saiu do Meu Rio. Mas vê se volta, heim!"

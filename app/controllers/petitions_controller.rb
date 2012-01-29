@@ -1,3 +1,4 @@
+# coding: utf-8
 class PetitionsController < ApplicationController
   before_filter do
     @petition = Petition.where(:custom_path => params[:custom_path]).first
@@ -13,5 +14,14 @@ class PetitionsController < ApplicationController
 
   def donate
     render :partial => 'donation'
+  end
+
+  def share_with_friends
+    graph = Koala::Facebook::GraphAPI.new(current_member.facebook_authorization.token)
+    begin
+      graph.put_wall_post(params[:message], {:link => params[:link]}, params[:friend_id])
+    rescue
+    end
+    render :js => @petition.to_json, :status => :created
   end
 end

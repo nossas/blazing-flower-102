@@ -1,0 +1,104 @@
+/* line 5, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories h2 {
+  color: #ef803b;
+  margin: 10px 0;
+  text-transform: uppercase;
+}
+/* line 11, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories .story {
+  float: left;
+  margin-bottom: 24px;
+  margin-right: 24px;
+  outline: 0;
+  position: relative;
+  width: 210px;
+}
+/* line 18, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories .story .thumbnail {
+  float: left;
+  outline: 0 none !important;
+  position: relative;
+}
+/* line 22, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories .story .thumbnail img {
+  float: left;
+  position: relative;
+}
+/* line 26, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories .story .thumbnail .play_button {
+  left: 83px;
+  position: absolute;
+  top: 56px;
+  visibility: hidden;
+}
+/* line 31, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories .story .thumbnail .play_button.active {
+  visibility: visible;
+}
+/* line 34, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories .story .thumbnail .play_button img {
+  position: relative;
+}
+/* line 42, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories .story .thumbnail.current .play_button {
+  visibility: visible;
+}
+/* line 47, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories .story .thumbnail:focus .play_button {
+  visibility: visible;
+}
+/* line 52, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories .story .title {
+  float: left;
+  font-size: 1em;
+  margin-top: 10px;
+  position: relative;
+}
+/* line 58, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories .story.first {
+  clear: left;
+}
+/* line 65, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories .grid_12 .issue_name .sprite.personal_story {
+  float: right;
+  position: absolute;
+  right: 15px;
+}
+/* line 71, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories .grid_12.current {
+  border-bottom: 1px solid #2cbae2;
+  margin: 0 0 48px -10px;
+  padding: 25px 10px 40px 10px;
+  position: relative;
+  width: 100%;
+}
+/* line 78, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories .grid_12.video_thumbs {
+  margin-bottom: 56px;
+}
+/* line 83, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories .take_action {
+  margin-top: 20px;
+}
+/* line 87, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories .thumbnail:hover {
+  cursor: pointer;
+}
+/* line 91, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories .video_page_title {
+  color: #595959;
+  padding-left: 10px;
+}
+/* line 96, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories #video_description_content {
+  margin-left: 20px;
+}
+/* line 98, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories #video_description_content .current_description {
+  margin-bottom: 7px;
+}
+/* line 101, ../../app/assets/stylesheets/personal_stories.css.scss */
+body.personal_stories #video_description_content .sprite.arrow-down {
+  margin-right: 10px;
+  top: 15px;
+}

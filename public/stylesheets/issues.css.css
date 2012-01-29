@@ -1,0 +1,243 @@
+/* line 10, ../../app/assets/stylesheets/issues.css.scss */
+body.issues #main {
+  padding-bottom: 50px;
+}
+/* line 14, ../../app/assets/stylesheets/issues.css.scss */
+body.issues h1 {
+  font-size: 32px;
+  margin-left: 15px;
+}
+/* line 19, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .grid_8-5.issue_main {
+  width: 620px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+/* line 25, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .grid_3-5 {
+  margin-left: 0;
+}
+/* line 27, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .grid_3-5 .see_more {
+  clear: left;
+}
+/* line 30, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .grid_3-5 .wobble_container {
+  margin-bottom: 10px;
+}
+/* line 32, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .grid_3-5 .wobble_container div {
+  min-height: 0;
+}
+/* line 35, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .grid_3-5 .wobble_container .text_align.center {
+  clear: both;
+  text-align: center;
+}
+/* line 38, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .grid_3-5 .wobble_container .text_align.center a {
+  margin: 0;
+  margin-top: 20px;
+}
+/* line 46, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .intro {
+  position: relative;
+}
+/* line 48, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .intro img {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 620px;
+}
+/* line 60, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .description {
+  display: none;
+}
+/* line 63, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .excerpt {
+  border-top: 3px solid #5ec8e5;
+  border-bottom: 1px solid #5ec8e5;
+  padding: 25px 0 10px 0;
+  margin: 470px 0 25px;
+}
+/* line 68, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .excerpt p, body.issues .excerpt .see_more a {
+  line-height: 160%;
+  padding-left: 15px;
+}
+/* line 72, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .excerpt .see_more a#read_more {
+  display: inline-block;
+}
+/* line 77, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .block {
+  border-top: 2px solid #2cbae2;
+  background: #fff;
+  padding: 20px 10px;
+  margin-bottom: 15px;
+  -webkit-border-radius: 4px;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius: 4px;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-topleft: 0;
+  border-radius: 4px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  position: relative;
+  -moz-box-shadow: 1px 3px 3px #c2c2c2;
+  -webkit-box-shadow: 1px 3px 3px #c2c2c2;
+  box-shadow: 1px 3px 3px #c2c2c2;
+}
+/* line 95, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .block .title {
+  font-weight: bold;
+  float: left;
+  max-width: 165px;
+  width: 165px;
+}
+/* line 102, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .block .block_arrow {
+  float: left;
+}
+/* line 106, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .block .btn {
+  margin: 15px 0 0 10px;
+}
+/* line 111, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .count {
+  font-size: 90%;
+}
+/* line 115, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .head_info {
+  background: #fff;
+  border-top: 3px solid #2cbae2;
+  border-bottom: 1px solid #2cbae2;
+  margin: 0 0 0 -10px;
+  padding: 15px 30px 15px 10px;
+}
+/* line 121, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .head_info .grid_3.prefix_5.omega {
+  position: relative;
+  right: -44px;
+}
+/* line 127, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .count, body.issues .arrow {
+  float: left;
+  margin: 10px 5px 0 0;
+  display: block;
+}
+/* line 133, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .count {
+  margin-top: 12px;
+}
+/* line 137, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .arrow {
+  width: 20px;
+  height: 20px;
+}
+/* line 141, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .arrow a {
+  cursor: pointer;
+  text-indent: -4000em;
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+/* line 150, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .arrow.next a {
+  background: url(/assets/archive_arrow_right.png) no-repeat 0px 0px;
+}
+/* line 153, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .arrow.next.inactive {
+  background: url(/assets/archive_arrow_right.png) no-repeat 0px -20px;
+}
+/* line 156, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .arrow.next.inactive a {
+  display: none;
+}
+/* line 161, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .arrow.previous a {
+  background: url(/assets/archive_arrow_left.png) no-repeat 0px 0px;
+}
+/* line 164, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .arrow.previous.inactive {
+  background: url(/assets/archive_arrow_left.png) no-repeat 0px -20px;
+}
+/* line 167, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .arrow.previous.inactive a {
+  display: none;
+}
+/* line 172, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .articles {
+  margin-top: 50px;
+}
+/* line 176, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .article {
+  border-bottom: 1px solid #c2c2c2;
+  margin-bottom: 15px;
+  padding-bottom: 25px;
+  font-size: 95%;
+}
+/* line 182, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .article img {
+  float: right;
+}
+/* line 186, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .article .title {
+  text-transform: uppercase;
+}
+/* line 190, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .article .date {
+  margin: 5px 0 15px;
+}
+/* line 193, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .article .see_more {
+  text-transform: uppercase;
+  font-weight: 800;
+}
+/* line 199, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .article_count {
+  border-top: 1px solid #2cbae2;
+  margin: 0 0 35px 100px;
+}
+/* line 206, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .see_more span {
+  display: block;
+  float: left;
+}
+/* line 211, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .see_more .next_link {
+  background: url(/assets/next_bg.png) 0px 0px no-repeat;
+  height: 10px;
+  width: 10px;
+  float: left;
+  margin: 4px 0 0 4px;
+}
+/* line 219, ../../app/assets/stylesheets/issues.css.scss */
+body.issues .see_more a:hover .next_link {
+  background: url(/assets/next_bg.png) 0px -10px no-repeat;
+}
+/* line 225, ../../app/assets/stylesheets/issues.css.scss */
+body.issues.archive a.title {
+  font-weight: normal;
+}
+/* line 228, ../../app/assets/stylesheets/issues.css.scss */
+body.issues.archive .article .sprite {
+  float: right;
+}
+/* line 231, ../../app/assets/stylesheets/issues.css.scss */
+body.issues.archive .excerpt {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 241, ../../app/assets/stylesheets/issues.css.scss */
+.ie7 .issues.show .wobble_container .text_align.center {
+  width: 300px;
+}

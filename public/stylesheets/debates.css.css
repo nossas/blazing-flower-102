@@ -1,0 +1,314 @@
+/* line 9, ../../app/assets/stylesheets/debates.css.scss */
+body.debates h1 {
+  color: #595959;
+}
+/* line 12, ../../app/assets/stylesheets/debates.css.scss */
+body.debates h2 {
+  font-size: 26px;
+  font-weight: bold;
+}
+/* line 17, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .addthis_button img {
+  padding-left: 16px;
+}
+/* line 21, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors {
+  margin: 0 0 20px 0;
+  background: url("/assets/debate_divider.png") repeat-y center;
+}
+/* line 24, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors .author1, body.debates .authors .author2 {
+  width: 45%;
+}
+/* line 27, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors .author1 p.name, body.debates .authors .author2 p.name {
+  color: #2cbae2;
+  font-size: 18px;
+  margin-bottom: 0px;
+}
+/* line 31, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors .author1 p.name:hover, body.debates .authors .author2 p.name:hover {
+  color: #df499a;
+}
+/* line 35, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors .author1 p.bio, body.debates .authors .author2 p.bio {
+  margin-bottom: 20px;
+}
+/* line 40, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors .author1 .balloon .content, body.debates .authors .author2 .balloon .content {
+  color: white;
+}
+/* line 45, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors .author1 {
+  float: left;
+  text-align: right;
+}
+/* line 48, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors .author1 .balloon {
+  float: left;
+  padding-right: 12px;
+}
+/* line 51, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors .author1 .balloon .content {
+  padding: 12px 8px 10px 20px;
+}
+/* line 55, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors .author1 .profile {
+  display: block;
+  float: right;
+  margin-left: 10px;
+}
+/* line 61, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors .author2 {
+  float: right;
+}
+/* line 63, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors .author2 .balloon {
+  float: right;
+  padding-left: 12px;
+}
+/* line 66, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors .author2 .balloon .content {
+  padding: 12px 20px 10px 5px;
+}
+/* line 70, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors .author2 .profile {
+  display: block;
+  float: left;
+  margin-right: 10px;
+}
+/* line 76, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors .quotes {
+  margin-bottom: 10px;
+}
+/* line 77, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors .texts {
+  margin-top: 30px;
+}
+/* line 79, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .authors .texts .author1, body.debates .authors .texts .author2 {
+  text-align: left;
+}
+/* line 85, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments {
+  background: white;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  padding: 30px 24px;
+}
+/* line 89, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments form {
+  padding: 24px;
+}
+/* line 91, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments form img {
+  float: left;
+  margin-right: 24px;
+}
+/* line 95, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments form textarea {
+  width: 588px;
+  height: 100px;
+}
+/* line 99, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments form .btn {
+  float: right !important;
+  margin-right: 5px;
+}
+/* line 104, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments h3 {
+  color: #ef803b;
+  font-family: Akagi-Book;
+  font-size: 18px;
+  font-style: italic;
+  border-bottom: 3px solid #2cbae2;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+/* line 113, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .comment {
+  padding: 24px;
+  border-bottom: 1px solid #c2c2c2;
+}
+/* line 116, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .comment .right_column {
+  width: 610px;
+  float: left;
+}
+/* line 119, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .comment .right_column p {
+  margin: 0;
+}
+/* line 122, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .comment .right_column p.content {
+  margin-bottom: 10px;
+}
+/* line 126, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .comment img.member_image {
+  width: 50px;
+  margin-right: 24px;
+  float: left;
+}
+/* line 131, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .comment img.flag_loading {
+  width: 12px;
+}
+/* line 134, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .comment .date {
+  color: #595959;
+}
+/* line 138, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .comments_arrow {
+  position: absolute;
+  top: 80px;
+  left: 11px;
+}
+/* line 143, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .btn {
+  margin-left: 20px;
+}
+/* line 146, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .previous_comments {
+  margin-bottom: 15px;
+}
+/* line 152, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .subtitle {
+  padding: 0 20px 10px 0px;
+  border-bottom: 1px solid #2cbae2;
+  overflow: hidden;
+}
+/* line 156, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .subtitle #join_the_coversation {
+  font-size: 18px;
+  font-weight: normal !important;
+}
+/* line 160, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .subtitle > div {
+  float: right;
+  margin-top: 7px;
+}
+/* line 164, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .subtitle .comments_tooltip_large {
+  margin-top: 0px;
+}
+/* line 167, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .subtitle span {
+  color: #df499a;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding-left: 5px;
+}
+/* line 175, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .join_the_conversation, body.debates .comments .comment_login {
+  padding-left: 20px;
+  float: left;
+}
+/* line 179, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .subtitle .comment_login {
+  margin-top: 3px;
+}
+/* line 183, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments img.new_comment_loading {
+  padding-left: 5px;
+  width: 15px;
+}
+/* line 188, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .load_more {
+  text-transform: uppercase;
+  font-size: 95%;
+  float: right;
+}
+/* line 194, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .load_more_link {
+  background: url(/assets/orange_open_icon.png) top right no-repeat;
+  cursor: pointer;
+  line-height: 16px;
+  padding: 3px 25px 10px 0;
+}
+/* line 200, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments .load_more_link:hover {
+  color: #df499a;
+}
+/* line 205, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .comments #close {
+  margin-top: 15px;
+  float: right;
+  cursor: pointer;
+}
+/* line 212, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .debate_header {
+  background: white;
+  margin: 10px 0;
+  padding: 20px;
+}
+/* line 216, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .debate_header h2 {
+  color: #ef803b;
+  margin-bottom: 10px;
+  text-align: center;
+}
+/* line 221, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .debate_header .comments_counter {
+  color: #595959;
+  float: left;
+  line-height: 2em;
+  width: 47%;
+}
+/* line 226, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .debate_header .comments_counter a.comments_link:hover {
+  text-decoration: none !important;
+}
+/* line 231, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .debate_header .comments_link span {
+  color: #df499a;
+  font-weight: bold;
+}
+/* line 236, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .debate_header .comments_tooltip {
+  margin-right: 5px;
+  top: 6px;
+}
+/* line 240, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .debate_header .date {
+  width: 47%;
+  float: left;
+  text-align: right;
+  line-height: 2em;
+}
+/* line 246, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .debate_header .little_ball {
+  width: 6%;
+  line-height: 1em;
+  text-align: center;
+  float: left;
+  font-size: 200%;
+  font-weight: bold;
+}
+/* line 258, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .grid_12 .issue_name .sprite {
+  float: right;
+  position: absolute;
+  right: 15px;
+}
+/* line 266, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .quotes {
+  margin-bottom: 20px;
+}
+/* line 268, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .share {
+  float: left;
+}
+/* line 273, ../../app/assets/stylesheets/debates.css.scss */
+body.debates .texts .author1, body.debates .texts .author2 {
+  text-align: left;
+}
+/* line 278, ../../app/assets/stylesheets/debates.css.scss */
+body.debates #bottom_buttons {
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+/* line 283, ../../app/assets/stylesheets/debates.css.scss */
+body.debates #comment_area {
+  padding-top: 29px;
+}
