@@ -19,7 +19,7 @@ class PetitionsController < ApplicationController
   def share_with_friends
     graph = Koala::Facebook::GraphAPI.new(current_member.facebook_authorization.token)
     begin
-      graph.put_wall_post(params[:message], {:link => issue_custom_petition_path(@petition.issue, @petition.custom_path)}, params[:friend_id])
+      graph.put_wall_post(params[:message], {:link => issue_custom_petition_url(@petition.issue, @petition.custom_path)}, params[:friend_id])
     rescue
     end
     render :js => @petition.to_json, :status => :created
