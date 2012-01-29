@@ -5,6 +5,24 @@
 - else
   %h2= t("petition_show.already_signed", :name => @member.first_name)
 
+- if current_member && current_member.facebook_authorization
+  .speech_bubble_container.gray_big.taf
+    .speech_bubble_top
+    .speech_bubble
+      %h3 Compartilhe com amigos que podem fazer a diferença!
+      .share_with_friends
+        - current_member.friends.each do |friend|
+          = form_tag share_with_friends_path(@taf.petition.issue, @taf.petition.custom_path), :method => :post, :remote => true do
+            = hidden_field_tag "friend_id", friend["id"]
+            = hidden_field_tag "link", request.url
+            = image_tag "http://graph.facebook.com/#{friend["id"]}/picture"
+            %h4= friend["name"]
+            .share_fields
+              .invisible= label_tag "message", "Sua mensagem..."
+              = text_area_tag "message", nil, :placeholder => "Sua mensagem...", :rows => 1
+              = submit_tag "Compartilhar", :class => "btn_orange"
+              = image_tag "loading.gif"
+
 - if @taf && @taf.display_facebook
   .speech_bubble_container.gray_big.taf
     .speech_bubble_top
@@ -53,23 +71,3 @@
     .speech_bubble
       =raw clippy(issue_custom_petition_url(@taf.petition.issue_id, @taf.petition.custom_path), "#e7e7e7")
       =text_field_tag "clippy_input", issue_custom_petition_url(@taf.petition.issue_id, @taf.petition.custom_path), :id => "clippy_input", :class => "right"
-  
-- if current_member
-  .speech_bubble_container.gray_big.taf
-    .speech_bubble_top
-    .speech_bubble
-      %h3 Convide seus amigos para assinarem também!
-      = form_tag share_with_friends_path(@taf.petition.issue, @taf.petition.custom_path), :method => :post do
-        .share_with_friends
-          - current_member.friends.each do |friend|
-            .friend{:id => "friend_#{friend["id"]}", "data-id" => friend["id"]}
-              .invisible= check_box_tag "friends_ids[]", friend["id"], false, :id => friend["id"]
-              = label_tag friend["id"] do 
-                = image_tag "http://graph.facebook.com/#{friend["id"]}/picture"
-              = label_tag friend["id"] do
-                = friend["name"]
-              %br
-              = label_tag "message_" + friend["id"], "Sua mensagem...", :class => "message_label"
-              = text_field_tag "message_" + friend["id"], nil, :placeholder => "Sua mensagem..."
-              = hidden_field_tag "link", :value => request.path
-        = submit_tag "Compartilhar", :class => "btn right"

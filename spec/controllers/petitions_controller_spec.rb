@@ -50,8 +50,8 @@ describe PetitionsController do
     end
 
     it "should post on my friends walls" do
-      Koala::Facebook::GraphAPI.any_instance.should_receive(:put_wall_post).exactly(3).times
-      post :share_with_friends, :id => @p.issue.id, :custom_path => @p.custom_path, :friends_ids => ["1", "2", "3"], :message_1 => "test 1", :message_2 => "test 2", :message_3 => "", :link => "http://localhost:3000"
+      Koala::Facebook::GraphAPI.any_instance.should_receive(:put_wall_post).once
+      post :share_with_friends, :id => @p.issue.id, :custom_path => @p.custom_path, :friend_id => "1", :message => "Check this out!", :link => "http://localhost:3000"
     end
   end
 end
