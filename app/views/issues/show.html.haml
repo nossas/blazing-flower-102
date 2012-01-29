@@ -41,7 +41,7 @@
         .text_align.center
           =link_to "Descubra esse Rio", issue_personal_story_path(@issue.id, @issue.featured_personal_story.id), :class => 'btn'
       %footer
-  -if @issue.feature_ideas
+  -if @issue.feature_ideas?
     %section.debate.wobble_container
       %header
         %p= t("issue_show.ideas")
