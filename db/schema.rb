@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(:version => 20111216191932) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "autofire_emails", :force => true do |t|
-    t.text     "from",        :default => "Dev <dev@meurio.org.br>", :null => false
-    t.text     "subject",     :default => "Obrigado por participar", :null => false
+    t.text     "from",        :default => "Alessandra Orofino <alessandra@meurio.org.br>", :null => false
+    t.text     "subject",     :default => "Obrigado por participar",                       :null => false
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -65,6 +65,15 @@ ActiveRecord::Schema.define(:version => 20111216191932) do
   end
 
   add_index "autofire_emails", ["petition_id"], :name => "index_autofire_emails_on_petition_id"
+
+  create_table "categories", :force => true do |t|
+    t.text     "name",       :null => false
+    t.text     "badge",      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["name"], :name => "index_categories_on_name", :unique => true
 
   create_table "comment_flags", :force => true do |t|
     t.integer  "member_id",  :null => false
@@ -198,12 +207,12 @@ ActiveRecord::Schema.define(:version => 20111216191932) do
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
+    t.boolean  "letters_enabled"
     t.boolean  "feature_ideas",                 :default => false, :null => false
     t.text     "ideas_call_to_action"
     t.text     "ideas_title"
     t.text     "ideas_headline"
     t.text     "ideas_media"
-    t.boolean  "letters_enabled"
   end
 
   create_table "jobs", :force => true do |t|
@@ -381,17 +390,6 @@ ActiveRecord::Schema.define(:version => 20111216191932) do
     t.text     "html_content"
   end
 
-  add_foreign_key "autofire_emails", "petitions", :name => "autofire_emails_petition_id_fk"
-
-  add_foreign_key "comment_flags", "comments", :name => "comment_flags_comment_id_fk"
-  add_foreign_key "comment_flags", "members", :name => "comment_flags_member_id_fk"
-
-  add_foreign_key "comments", "members", :name => "comments_member_id_fk"
-
-  add_foreign_key "debates", "issues", :name => "debates_issue_id_fk"
-  add_foreign_key "debates", "members", :name => "debates_author_email_side_1_fk", :column => "author_email_side_1", :primary_key => "email"
-  add_foreign_key "debates", "members", :name => "debates_author_email_side_2_fk", :column => "author_email_side_2", :primary_key => "email"
-
   add_foreign_key "idea_categories", "issues", :name => "idea_categories_issue_id_fk"
 
   add_foreign_key "idea_help_methods", "issues", :name => "idea_help_methods_issue_id_fk"
@@ -404,20 +402,5 @@ ActiveRecord::Schema.define(:version => 20111216191932) do
   add_foreign_key "ideas", "ideas", :name => "ideas_parent_id_fk", :column => "parent_id"
   add_foreign_key "ideas", "issues", :name => "ideas_issue_id_fk"
   add_foreign_key "ideas", "members", :name => "ideas_member_id_fk"
-
-  add_foreign_key "issues", "debates", :name => "issues_featured_debate_id_fk", :column => "featured_debate_id"
-  add_foreign_key "issues", "personal_stories", :name => "issues_featured_personal_story_id_fk", :column => "featured_personal_story_id"
-  add_foreign_key "issues", "petitions", :name => "issues_featured_petition_id_fk", :column => "featured_petition_id"
-
-  add_foreign_key "personal_stories", "issues", :name => "personal_stories_issue_id_fk"
-
-  add_foreign_key "petition_signatures", "members", :name => "petition_signatures_member_id_fk"
-  add_foreign_key "petition_signatures", "petitions", :name => "petition_signatures_petition_id_fk"
-
-  add_foreign_key "petitions", "issues", :name => "petitions_issue_id_fk"
-
-  add_foreign_key "provider_authorizations", "members", :name => "provider_authorizations_member_id_fk"
-
-  add_foreign_key "tafs", "petitions", :name => "tafs_petition_id_fk"
 
 end
