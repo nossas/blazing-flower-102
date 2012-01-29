@@ -14,7 +14,6 @@
         - current_member.friends.each do |friend|
           = form_tag share_with_friends_path(@taf.petition.issue, @taf.petition.custom_path), :method => :post, :remote => true do
             = hidden_field_tag "friend_id", friend["id"]
-            = hidden_field_tag "link", request.url
             = image_tag "http://graph.facebook.com/#{friend["id"]}/picture"
             %h4= friend["name"]
             .share_fields
