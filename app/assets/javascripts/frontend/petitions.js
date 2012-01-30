@@ -35,6 +35,7 @@ MR.petitions = {
       $(this).parents('form').unbind("mouseout");
       $(this).siblings("img").show();
       $(this).hide();
+      _gaq.push(['_trackEvent', 'Compartilhar', "Postar no Mural do Amigo"]);
     });
   },
 
