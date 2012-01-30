@@ -14,9 +14,7 @@ gem 'cancan'
 gem 'activeadmin'
 gem 'thin'
 
-# Ramify
 gem "rest-client"
-
 # External authentication
 gem "oa-oauth", :require => "omniauth/oauth"
 gem 'oa-openid', :require => 'omniauth/openid'
@@ -35,7 +33,7 @@ gem 'auto_html'
 
 # Asset template engines
 group :assets do
-  gem "sass-rails", "~> 3.1.0"
+  gem 'sass-rails'
   gem "compass", "~> 0.12.alpha.0"
   gem 'compass-960-plugin'
   gem 'coffee-script'
@@ -51,6 +49,7 @@ gem 'delayed_job'
 # Database related gems
 gem 'pg'
 gem 'foreigner'
+
 gem 'dalli'
 gem 'paperclip'
 gem 'fog'
@@ -65,6 +64,7 @@ gem 'kaminari'
 gem 'simple_form'
 
 gem "simplecov", :require => false, :group => :test
+
 gem 'newrelic_rpm'
 
 group :development, :test do
@@ -102,4 +102,3 @@ group :production do
 end
 
 gem "koala"
-gem "aws-sdk"
