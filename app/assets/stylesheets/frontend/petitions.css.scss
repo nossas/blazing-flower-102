@@ -84,12 +84,6 @@ body.petitions {
     &.taf {
       padding-bottom: 25px;
     }
-    .already_signed {
-      width: 97%;
-      padding: 5px;
-      background-color: #fae2d1;
-      display: none;
-    }
     h2 {
       text-transform: uppercase;
     }
@@ -242,4 +236,10 @@ body.petitions {
   #clippy_input{
     width:280px;
   }
+}
+    
+.already_signed {
+  width: 97%;
+  padding: 5px;
+  background-color: #fae2d1;
 }

@@ -14,7 +14,7 @@ Feature: Signing a Petition
     Given 2 published petitions exist
     And I am on the first petition page
     When I enter my information in the petition signature form
-    And I press the submit button
+    And I press "Assine"
     Then I should see a thank-you message
 
   @javascript
@@ -22,7 +22,7 @@ Feature: Signing a Petition
     Given 1 published petitions exist without goal
     And I am on the first petition page
     When I enter my information in the petition signature form
-    And I press the submit button
+    And I press "Assine"
     Then I should see a thank-you message
 
   @javascript
@@ -31,7 +31,7 @@ Feature: Signing a Petition
     And I am an existing member
     And I am on the first petition page
     When I enter my member information in the petition signature form
-    And I press the submit button
+    And I press "Assine"
     Then I should see a thank-you message
 
   @javascript
@@ -48,13 +48,13 @@ Feature: Signing a Petition
   Scenario: Signing a Petition without required fields
     Given 2 published petitions exist
     And I am on the first petition page
-    When I press the submit button
+    When I press "Assine"
     Then I should see inline errors
 
   Scenario: Signing a Petition without required fields and without Javascript
     Given 2 published petitions exist
     And I am on the first petition page
-    When I press the submit button
+    When I press "Assine"
     Then I should see a petition signature form
     And I should see "Email não pode ficar em branco não é válido"
     And I should see "First_name não pode ficar em branco"
@@ -68,3 +68,10 @@ Feature: Signing a Petition
     When I fill in "petition_signature_comment" with "My comment"
     And I press "Assine"
     Then I should see a thank-you message
+
+  @omniauth_test
+  Scenario: The one where I sign with my Facebook account
+    Given there is a petition called "REAJUSTES SEM EXPLICAÇÕES, NÃO!"
+    And I am on this petition page
+    When I press "Assine via Facebook"
+    Then I should see "Compartilhe com amigos que podem fazer a diferença!"
