@@ -29,10 +29,13 @@
           = @issue.ideas_media_html if @issue.ideas_media.present?
       .category_list.grid_12.alpha.omega
         = render :partial => 'idea_category', :locals => { :collection => @categories } unless @categories.empty?
-      - if current_member
+      - if current_member && @my_ideas.size > 0
         .ideas_list
-          = render :partial => 'list', :locals => {:quick => "featured", :collection => @my_ideas} unless @my_ideas.empty?
-      .ideas_list
-        = render :partial => 'list', :locals => {:quick => "featured", :collection => @ideas} unless @ideas.empty?
+          h2.grid_12.alpha.omega Minhas ideias
+          = render :partial => 'list', :locals => {:quick => "featured", :collection => @my_ideas}
+      - if @ideas.size > 0
+        .ideas_list
+          h2.grid_12.alpha.omega Outras ideias
+          = render :partial => 'list', :locals => {:quick => "featured", :collection => @ideas}
 
     = render :partial => 'new_idea'
