@@ -27,7 +27,6 @@
 $orange: #EF803B
 $pink: #DF499A
 $brown: #edeae4
-$facebook_blue: #3B5998
 
 .invisible
   visibility: visible
@@ -35,9 +34,6 @@ $facebook_blue: #3B5998
   width: 0
   overflow: hidden
   position: absolute
-
-.btn_facebook
-  +btn($facebook_blue, lighten($facebook_blue, 5%))
 
 .btn_orange
   +btn($orange, $pink)
@@ -87,6 +83,3 @@ body[data-controller=petitions][data-action=show]
       margin-top: 5px
     p
       margin: 20px 0
-      strong
-        display: block
-        font-size: 22px
