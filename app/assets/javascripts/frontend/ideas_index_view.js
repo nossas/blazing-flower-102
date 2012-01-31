@@ -29,8 +29,11 @@ MR.IdeasIndexView = MR.BaseView.extend({
       });
     });
     $(document).bind('afterClose.facebox', function(){
-      Backbone.history.navigate('');
+      window.location.hash = 'category/todas';
     });
+    if(window.location.hash == ''){
+      window.location.hash = 'category/todas';
+    }
   },
 
   bindRoutes: function(){
