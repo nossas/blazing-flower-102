@@ -11,11 +11,12 @@
     +grid(3)
     +alpha
     height: 316px
-    background: url(image_path('imagine/box.png')) no-repeat
+    background: url('/assets/imagine/box.png') no-repeat
     .idea_wrapper
+      overflow: hidden
       width: 194px
       margin-top: 10px
-      height: 264px
+      height: 220px
       margin: 13px
       .category
       h1
@@ -36,50 +37,42 @@
       .user
         color: $grey
         font-style: italic
-        font-family: AkagiLight
+        font-family: "Akagi-Light"
         font-size: 14px
         line-height: 14px
         margin-top: 5px
       .headline
         margin-top: 12px
         p
-          font-family: AkagiRegular
+          font-family: "Akagi-Book"
           font-size: 13px
           line-height: 16px
           color: $light_black
           overflow: hidden
       .link
         position: absolute
-        bottom: 40px
+        bottom: 60px
         text-align: center
-        font-family: "Folk"
+        font-family: "Folk-solid"
         a
           +button
-          //color: white
-          //background: $orange
-          //+border-radius(4px)
-          padding: 6px 20px
-          //text-decoration: none
-          //text-transform: uppercase
+          padding: 4px 20px 10px 20px
           font-size: 20px
           line-height: 17px
-          //&:hover
-            background: lighten($orange, 4%)
 
     .footer
-      background: url(image_path('imagine/box_bottom.png')) bottom center no-repeat
       font-size: 0.8em
-      height: 26px
+      height: 60px
       overflow: hidden
       ul
-        margin: 3px 8px 0 20px
+        margin: 34px 8px 0 20px
         li
           &:first-child
             float: left
           &:last-child
             float: right
           margin: 0
-          font-family: Folk
+          font-family: "Folk solid"
           color: white
           width: 36px
           img
