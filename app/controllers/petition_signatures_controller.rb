@@ -7,8 +7,10 @@ class PetitionSignaturesController < ApplicationController
   end
 
   def create
-    #do we want to allow members to sign the same petition multiple times? 
-    #right now we're assuming that we don't
+    if params[:member].nil? && current_member.nil?
+      session[:petition_signature] = params[:petition_signature]
+      redirect_to "/members/auth/facebook" and return
+    end
 
     @member = current_member || Member.find_or_initialize_by_email(params[:member][:email])
     @petition = Petition.where(:custom_path => params[:petition][:custom_path]).first

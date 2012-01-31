@@ -73,5 +73,28 @@ describe PetitionSignaturesController do
         PetitionSignature.count.should == 1
       end
     end
+
+    context "when I am not logged in and I choose to sign with my Facebook account" do
+      before { post :create, :petition_signature => {:petition_id => "1" } }
+      it { should redirect_to("/members/auth/facebook") }
+      it { should set_session(:petition_signature).to({"petition_id" => "1"}) }
+    end
+    
+    context "when I am returning from Facebook" do
+      controller(ApplicationController)
+      controller { def index; render :text => "ApplicationController#index"; end }
+      let(:member) { mock_model(Member) }
+      let(:issue) { mock_model(Issue, :id => 1) }
+      let(:petition) { mock_model(Petition, :published? => true, :custom_path => "test", :issue => issue) }
+      let(:petition_signature) { mock_model(PetitionSignature, :id => 1, :petition => petition) }
+      before { controller.stub(:current_member).and_return(member) }
+      before { PetitionSignature.stub(:create).and_return(petition_signature) }
+      before { Petition.stub(:find).and_return(petition) }
+      before { session[:petition_signature] = {"petition_id" => "1"} }
+      before { get :index }
+      it { should redirect_to("/na_atividade/1/assine_embaixo/test") }
+      it { should set_session(:petition_signature).to(nil) }
+    end
+
   end
 end

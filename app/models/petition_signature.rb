@@ -4,6 +4,7 @@ class PetitionSignature < ActiveRecord::Base
 
   after_create :send_confirmation
   validate :belongs_to_published_petition
+  validates_uniqueness_of :member_id, :scope => :petition_id
 
   def self.unmoderated
     where('comment_accepted IS NULL')

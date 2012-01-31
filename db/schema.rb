@@ -391,17 +391,4 @@ ActiveRecord::Schema.define(:version => 20120125183950) do
     t.text     "html_content"
   end
 
-  add_foreign_key "idea_categories", "issues", :name => "idea_categories_issue_id_fk"
-
-  add_foreign_key "idea_help_methods", "issues", :name => "idea_help_methods_issue_id_fk"
-
-  add_foreign_key "idea_merges", "ideas", :name => "idea_merges_from_id_fk", :column => "from_id"
-  add_foreign_key "idea_merges", "ideas", :name => "idea_merges_idea_id_fk"
-
-  add_foreign_key "ideas", "idea_categories", :name => "ideas_idea_category_id_fk"
-  add_foreign_key "ideas", "idea_help_methods", :name => "ideas_idea_help_method_id_fk"
-  add_foreign_key "ideas", "ideas", :name => "ideas_parent_id_fk", :column => "parent_id"
-  add_foreign_key "ideas", "issues", :name => "ideas_issue_id_fk"
-  add_foreign_key "ideas", "members", :name => "ideas_member_id_fk"
-
 end

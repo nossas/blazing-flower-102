@@ -4,6 +4,7 @@ MR.petitions = {
     MR.petitions.loadTAF();
     MR.petitions.loadDonation();
     MR.common.setUpDropDowns(MR.petitions.runThese);
+    $('label.error.already_signed[for="member_email"]').hide();
 
     //set listeners
     $(window).bind('hashchange', MR.petitions.loadTAF);
@@ -24,12 +25,16 @@ MR.petitions = {
       $("#comment_tip").html((140 - $("#petition_signature_comment").val().length) + " caracteres");
     });
 
-    $('form textarea').autoResize({extraSpace: 0});
-    $('form .share_fields').hide();
-    $('form .share_fields:first').show();
-    $('form .share_fields img').hide();
-    $('form').mouseover(function(){ $('.share_fields', this).show() });
-    $('form').mouseout(function(){ if(!$('textarea', this).is(':focus')) { $('.share_fields', this).hide() }});
+    $("#new_petition_signature_with_facebook small").hide();
+    $("#new_petition_signature_with_facebook input[type=submit]").mouseover(function(){ $("#new_petition_signature_with_facebook small").slideDown(); });
+    $("#new_petition_signature_with_facebook input[type=submit]").mouseout(function(){ $("#new_petition_signature_with_facebook small").slideUp(); });
+
+    $('.share_with_friends form textarea').autoResize({extraSpace: 0});
+    $('.share_with_friends form .share_fields').hide();
+    $('.share_with_friends form .share_fields:first').show();
+    $('.share_with_friends form .share_fields img').hide();
+    $('.share_with_friends form').mouseover(function(){ $('.share_fields', this).show() });
+    $('.share_with_friends form').mouseout(function(){ if(!$('textarea', this).is(':focus')) { $('.share_fields', this).hide() }});
     $('.share_with_friends form').bind('ajax:complete', function() { $(this).remove(); });
     $('.share_with_friends form input[type=submit]').bind('click', function() { 
       $(this).parents('form').unbind("mouseout");
