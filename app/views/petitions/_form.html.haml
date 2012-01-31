@@ -4,11 +4,9 @@
 
   = form_for @petition_signature, :html => {:id => "new_petition_signature_with_facebook"} do |form|
     = form.hidden_field :petition_id, :value => @petition.id
-    = form.submit "Assine via Facebook", :class => "btn_facebook"
+    = form.submit "Assine via Facebook", :class => "btn_orange"
     %small Se você não for membro do Meu Rio, uma conta será criada.
-    %p 
-      %strong Ou 
-      preencha o formuário abaixo:
+    %p ou preencha o formuário abaixo:
 
   %hr
 
