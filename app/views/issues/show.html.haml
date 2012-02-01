@@ -1,3 +1,19 @@
+- content_for :title do
+  %title= "Meu Rio - #{@issue.name}"
+
+- content_for :meta_tags do
+  %meta{ :name => :description, :content => "#{@issue.description}"}
+  %meta{ :name => :keywords, :content => "#{SITE['seo_keywords']}"}
+  %meta{ :name => :author, :content => "#{SITE['seo_author']}"}
+
+- content_for :facebook_properties do
+  %meta{ :property => "og:description", :content => "#{@issue.description}" }
+  %meta{ :property => "og:url", :content => issue_url(@issue) }
+  %meta{ :property => "og:title",  :content => @issue.name }
+
+
+
+
 .grid_12.alpha
   %h1= @issue.name
 .grid_8-5.issue_main
