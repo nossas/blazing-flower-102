@@ -18,10 +18,10 @@
 %html
   <!--<![endif]-->
   %head
-    = render :partial => "shared/meta_tags_defaults" if not content_for? :title or !content_for? :meta_tags
+    = render :partial => "shared/meta_tags_defaults"
 
     // ------- Defaults from meta tags
-    = yield :title
+    %title= yield :title
     = yield :meta_tags
     = yield :facebook_properties
 

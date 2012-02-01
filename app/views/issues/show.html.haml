@@ -1,5 +1,4 @@
-- content_for :title do
-  %title= "Meu Rio - #{@issue.name}"
+- content_for :title, "Meu Rio - #{@issue.name}"
 
 - content_for :meta_tags do
   %meta{ :name => :description, :content => "#{@issue.description}"}

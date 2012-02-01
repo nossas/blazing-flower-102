@@ -1,5 +1,8 @@
 -if @petition.complete? && !@petition.display_donation?
 
+
+  - content_for :title, "Meu Rio - #{@petition.issue.name}"
+
   - content_for :meta_tags do
     %meta{ :name => :description, :content => "#{@petition.headline}"}
     %meta{ :name => :keywords, :content => "#{SITE['seo_keywords']}"}

@@ -1,12 +1,16 @@
-- content_for :title do
-  %title= "Meu Rio Imagine - #{@idea.title}"
+- content_for :title, "Meu Rio - Imagine - #{@idea.title}"
+
+- content_for :meta_tags do
+  meta name="description" content="#{@idea.headline}"
+  meta name="keywords" content="#{SITE['seo_keywords']}"
+  meta name="author" content="#{SITE['seo_author']}"
 
 - content_for :facebook_properties do
   meta property=="og:title" content=@idea.title
   meta property=="og:description" content=@idea.headline
   meta property=="og:image" content==@idea.category.badge.url
   meta property=="og:type" content="cause"
-  meta property=="og:url" content= imagine_idea_url(@idea)
+  meta property=="og:url" content=imagine_idea_url(@idea)
   meta property=="like_url" content=update_likes_imagine_idea_url(@idea)
 
 #idea_show_main.grid_12
