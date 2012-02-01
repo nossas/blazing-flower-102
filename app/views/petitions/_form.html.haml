@@ -2,13 +2,13 @@
   %h2= @petition.call_to_action_headline
   %p= raw @petition.call_to_action_text
 
-  = form_for @petition_signature, :html => {:id => "new_petition_signature_with_facebook"} do |form|
-    = form.hidden_field :petition_id, :value => @petition.id
-    = form.submit "Assine via Facebook", :class => "btn_orange"
-    %small Se você não for membro do Meu Rio, uma conta será criada.
-    %p ou preencha o formulário abaixo:
-
-  %hr
+  - if current_member.nil?
+    = form_for @petition_signature, :html => {:id => "new_petition_signature_with_facebook"} do |form|
+      = form.hidden_field :petition_id, :value => @petition.id
+      = form.submit "Assine via Facebook", :class => "btn_orange"
+      %small Se você não for membro do Meu Rio, uma conta será criada.
+      %p ou preencha o formulário abaixo:
+      %hr
 
   %label.error.already_signed{:for => 'member_email'}
     - if @petition.display_donation?
