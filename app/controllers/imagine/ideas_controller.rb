@@ -19,9 +19,11 @@ class Imagine::IdeasController < ApplicationController
   before_filter :load_resources, :only => [ :index ]
 
   def index
-    @ideas ||= Idea.primary.popular.all
     if current_member 
-      @my_ideas ||= current_member.ideas.popular.all
+      @my_ideas ||= current_member.ideas.where(:issue_id => params[:issue_id]).popular.all
+      @ideas ||= Idea.where(["issue_id = ? AND member_id <> ?", params[:issue_id], current_member.id]).primary.popular.all
+    else
+      @ideas ||= Idea.where(:issue_id => params[:issue_id]).primary.popular.all
     end
   end
 
