@@ -1,3 +1,5 @@
+- content_for :title, "Meu Rio - Sobre nós"
+
 %h1.grid_12= t("about_page.title")
 
 #about_image.grid_12
@@ -27,7 +29,7 @@
       %p= t("about_page.feature1_text")
       = link_to t("about_page.video_link"), issue_personal_story_path(:issue_id => PersonalStory.first.issue_id, :id => PersonalStory.first.id) if PersonalStory.first
     %footer
-  
+
   %section.grid_3-5.wobble_container
     %header
       %h2= raw t("about_page.feature2_title")
@@ -36,7 +38,7 @@
       %p= t("about_page.feature2_text")
       = link_to t("about_page.debate_link"), issue_debate_path(Debate.last.issue_id, Debate.last) if Debate.last
     %footer
-  
+
   %section.grid_3-5.omega.wobble_container
     %header
       %h2= raw t("about_page.feature3_title")
@@ -64,8 +66,8 @@
   %p= raw t("about_page.how_text").gsub("\n", "<br />")
   %h3= t("about_page.and_you_title")
   %p= raw t("about_page.and_you_text").gsub("\n", "<br />")
-  %h3 
-    Quer nos ajudar a construir um Rio de Janeiro mais justo e democrático? 
+  %h3
+    Quer nos ajudar a construir um Rio de Janeiro mais justo e democrático?
     %br
     -if current_member
       %a{:href=> "#already_logged_in", :rel => "facebox"} Faça parte do Meu Rio!
@@ -79,7 +81,7 @@
   .speech_bubble_container
     .speech_bubble_top
     .speech_bubble
-      %h3.noindent{:style => "letter-spacing:1px;"} O QUE ESTAMOS APRONTANDO... 
+      %h3.noindent{:style => "letter-spacing:1px;"} O QUE ESTAMOS APRONTANDO...
       .scrollable
         = raw(MeuRioTeamWidget.first.html_content) if MeuRioTeamWidget.first
 
