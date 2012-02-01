@@ -18,12 +18,18 @@
 %html
   <!--<![endif]-->
   %head
-    = render :partial => "shared/meta_tags_defaults"
+    = render :partial => "shared/meta_tags_defaults" if not content_for? :title or !content_for? :meta_tags
 
     // ------- Defaults from meta tags
     = yield :title
     = yield :meta_tags
     = yield :facebook_properties
+
+    // -- rendering default facebook setting
+    %meta{ :property => "fb:app_id", :content => "#{SITE['fb_app_id']}" }
+    %meta{ :property => "og:type", :content => "#{SITE['og_type']}" }
+
+    // -- CSRF Token
     = csrf_meta_tags
 
 

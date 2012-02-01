@@ -1,8 +1,12 @@
-- content_for :meta_tags do
+- content_for :title do
+  %title= "Meu Rio Imagine - #{@idea.title}"
+
+- content_for :facebook_properties do
   meta property=="og:title" content=@idea.title
   meta property=="og:description" content=@idea.headline
   meta property=="og:image" content==@idea.category.badge.url
   meta property=="og:type" content="cause"
+  meta property=="og:url" content= imagine_idea_url(@idea)
   meta property=="like_url" content=update_likes_imagine_idea_url(@idea)
 
 #idea_show_main.grid_12
@@ -38,7 +42,7 @@
     .fb_fix
       .fb_like= render :partial => 'shared/fb_like', :locals => { :url => request.url, :show_faces => false, :width => '60', :layout => 'box_count' }
     .twitter_share= render :partial => 'shared/twitter_share', :locals => { :url => request.url, :count => 'vertical' }
-  
+
   #idea_bottom.grid_12.alpha.omega
   #idea_main.grid_12.alpha.omega
     #idea_tabs.grid_7.alpha
