@@ -68,7 +68,6 @@ gem "simplecov", :require => false, :group => :test
 gem 'newrelic_rpm'
 
 group :development, :test do
-  gem "jasmine", :git => "https://github.com/pivotal/jasmine-gem.git", :branch => "1.2.rc1"
   gem 'heroku'
   gem 'sqlite3', '1.3.3'
   gem 'foreman'
