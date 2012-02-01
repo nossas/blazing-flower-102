@@ -26,8 +26,9 @@ MR.petitions = {
     });
 
     $("#new_petition_signature_with_facebook small").hide();
-    $("#new_petition_signature_with_facebook input[type=submit]").mouseover(function(){ $("#new_petition_signature_with_facebook small").slideDown(); });
-    $("#new_petition_signature_with_facebook input[type=submit]").mouseout(function(){ $("#new_petition_signature_with_facebook small").slideUp(); });
+    $("#new_petition_signature_with_facebook input[type=submit]").mouseover(function(){ $("#new_petition_signature_with_facebook small").stop(true, true).slideDown(); });
+    $("#new_petition_signature_with_facebook input[type=submit]").mouseout(function(){ $("#new_petition_signature_with_facebook small").stop(true, true).slideUp(); });
+    $("#new_petition_signature_with_facebook input[type=submit]").click(function(){ _gaq.push(['_trackEvent', 'Login', "Assine Via Facebook"]); });
 
     $('.share_with_friends form textarea').autoResize({extraSpace: 0});
     $('.share_with_friends form .share_fields').hide();

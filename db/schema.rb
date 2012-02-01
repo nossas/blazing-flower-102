@@ -208,12 +208,12 @@ ActiveRecord::Schema.define(:version => 20120125183950) do
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
-    t.boolean  "letters_enabled"
     t.boolean  "feature_ideas",                 :default => false, :null => false
     t.text     "ideas_call_to_action"
     t.text     "ideas_title"
     t.text     "ideas_headline"
     t.text     "ideas_media"
+    t.boolean  "letters_enabled"
   end
 
   create_table "jobs", :force => true do |t|
