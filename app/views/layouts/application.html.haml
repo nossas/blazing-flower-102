@@ -18,35 +18,33 @@
 %html
   <!--<![endif]-->
   %head
-    %title= content_for?(:title) ? (yield :title) : "MeuRio"
-    = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
-    = stylesheet_link_tag 'print.css', :media => 'print'
-    /[if IE]
-      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
-    = stylesheet_link_tag "application"
-    =yield(:stylesheets)
-    %link{:href => "/assets/favicon.png", :rel => "shortcut icon"}
+    = render :partial => "shared/meta_tags_defaults"
+
+    // ------- Defaults from meta tags
+    = yield :title
+    = yield :meta_tags
+    = yield :facebook_properties
     = csrf_meta_tags
 
-    %meta{ :property => "fb:app_id", :content => "#{SITE['fb_app_id']}" }
-    %meta{ :property => "og:type",   :content => "#{SITE['og_type']}" }
 
-    -if(content_for :meta_tags).empty?
-      %meta{ :property => "og:title",  :content => "#{SITE['og_title']}" }
-      %meta{ :property => "og:image",       :content => "#{SITE['og_image']}" }
-      %meta{ :property => "og:url",         :content => "#{SITE['og_url']}" }
-      %meta{ :property => "og:description", :content => "#{SITE['og_description']}" }
-    -else
-      =yield(:meta_tags)
+    // -------------- Stylesheets ---------------
+    = stylesheet_link_tag :screen
+    = stylesheet_link_tag :print, :media => :print
+    /[if IE]
+      = stylesheet_link_tag :ie
+    = stylesheet_link_tag :application
+    = yield :stylesheets
 
-    =javascript_include_tag "libs/modernizr-2.0.6.js"
+    // ------------- Shortchut Icon -------------
+    = favicon_link_tag asset_path('favicon.png'), :type => "image/png"
+
   %body{:class=> "#{controller.controller_name} #{controller.action_name}", 'data-controller' => controller_name, 'data-action' => action_name }
     - unless flash[:welcome].blank? && flash[:alert].blank? && flash[:notice].blank?
       .container_12.messages.clearfix
         .grid_11.alpha
-          =raw(flash[:welcome])
-          =raw(flash[:alert])
-          =raw(flash[:notice])
+          = raw( flash[:welcome] )
+          = raw( flash[:alert] )
+          = raw( flash[:notice] )
         .grid_1.omega
           %a{:href => '#', :id => "close_messages"}= image_tag asset_path('close_messages.png')
     %header.container_12
@@ -58,19 +56,23 @@
           - if current_member
             .right.info
               .left
-                =image_tag current_member.current_image_url(:thumb), :id => "member_thumbnail", :width => '50', :height => '50', :class => ""
-                %p=link_to current_member.first_name, member_path(current_member)
+                = image_tag current_member.current_image_url(:thumb), :id => "member_thumbnail", :size => "50x50"
+                %p
+                  = link_to current_member.first_name, member_path(current_member)
               .arrow
             .flyout.left
-              %p=link_to t("edit_your_profile"), member_path(current_member)
+              %p
+                = link_to t("edit_your_profile"), member_path(current_member)
               - if session[:fb_token]
-                %p=link_to t("logout_menu"), facebook_logout_path
+                %p
+                  = link_to t("logout_menu"), facebook_logout_path
               - elsif session[:google_login]
                 %p
-                  %a#google_logout_link{:href => google_logout_path, :target => 'google_logout_iframe'}= t('logout_menu')
+                  = link_to t('logout_menu'), google_logout_path, :target => "google_logout_iframe'"
                   %iframe#google_logout_iframe{:name => "google_logout_iframe", :style=> "display: none;"}
               - else
-                %p=link_to t("logout_menu"), destroy_member_session_path
+                %p
+                  = link_to t("logout_menu"), destroy_member_session_path
           - else
             .join_login_wrap
               =link_to t("join_us"), "#join", :rel => "facebox", :id => "join_us_btn"
@@ -78,35 +80,37 @@
           .clearfix
       =render :partial => "shared/main_navigation"
     #main.container_12
-      - if flash[:preview]
-        %p.preview= flash[:preview]
+      %p.preview
+        = flash[:preview] if flash[:preview]
       = yield
     %footer.container_12
       %nav.grid_7.alpha
-        =link_to "CONTATO", "mailto:contato@meurio.org.br"
+        = link_to "CONTATO", "mailto:contato@meurio.org.br"
         |
-        =link_to "POLÍTICA DE Privacidade", page_path("privacidade")
+        = link_to "POLÍTICA DE Privacidade", page_path("privacidade")
         |
-        =link_to "TRABALHE COM A GENTE", page_path("trabalhe")
+        = link_to "TRABALHE COM A GENTE", page_path("trabalhe")
       %p.social.right.grid_4
         TAMBÉM ESTAMOS AQUI, Ó:
-        =link_to 'Orkut', "http://www.orkut.com.br/Community?cmm=117834170&refresh=1", :target => "_blank", :class => "sprite orkut_small ir"
-        =link_to 'Twitter', "http://twitter.com/#!/meu_rio", :target => "_blank", :class => "sprite twitter_small ir"
-        =link_to 'Facebook', "https://www.facebook.com/meurio", :target => "_blank", :class => "sprite facebook_small ir"
+        = link_to 'Orkut', "http://www.orkut.com.br/Community?cmm=117834170&refresh=1", :target => "_blank", :class => "sprite orkut_small ir"
+        = link_to 'Twitter', "http://twitter.com/#!/meu_rio", :target => "_blank", :class => "sprite twitter_small ir"
+        = link_to 'Facebook', "https://www.facebook.com/meurio", :target => "_blank", :class => "sprite facebook_small ir"
       .grid_12
-        <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.pt_BR"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a>
+        = link_to image_tag("http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png", :alt => "Creative Commons License", :style => "border-width: 0"), "http://creativecommons.org/licenses/by-nc-nd/3.0/deed.pt_BR", :rel => "license", :target => "_blank"
 
-    // Hidden elements
+    // ------------------------ Hidden elements
     = render :partial => "shared/login"
     = render :partial => "shared/join"
     = render :partial => "shared/already_logged"
 
-    // Scripts
+    // ------------------------ Scripts
+
+    = javascript_include_tag "libs/modernizr-2.0.6.js"
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"}
     :javascript
       !window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))
     = render :partial => "imagine/ideas/shared/editable_defaults_js"
-    = javascript_include_tag "application"
+    = javascript_include_tag :application
     = yield :javascripts
 
     %script{:id => "flashTemplate", :type => "text/x-jquery-tmpl"}
