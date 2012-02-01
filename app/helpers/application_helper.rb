@@ -1,6 +1,20 @@
 module ApplicationHelper
   require 'httparty'
 
+
+  def google_analytics(id = nil)
+    content_tag(:script, :type => 'text/javascript') do
+      "var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '#{id}']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })()"
+    end
+  end
+
   def nav_issues
     @nav_issues ||= Issue.order('id DESC')
   end
@@ -34,7 +48,7 @@ module ApplicationHelper
 
   def about_petition_link
     petition = Petition.where(:state => 'published').last
-    link_to t("about_page.petition_link"), issue_custom_petition_path(petition.issue_id, petition.custom_path) if petition 
+    link_to t("about_page.petition_link"), issue_custom_petition_path(petition.issue_id, petition.custom_path) if petition
   end
 
   def weather_category
@@ -47,13 +61,13 @@ module ApplicationHelper
     return conditions_hash.select{ |key, conditions| conditions.include? WeatherWidget.weather['item']['condition']['code'].to_i }.keys.first.to_s
   end
 
-  def day_or_night 
+  def day_or_night
     time = Time.zone.now
     if ( time > WeatherWidget.parse_time(WeatherWidget.weather["astronomy"]["sunset"]) ) || ( time < WeatherWidget.parse_time(WeatherWidget.weather["astronomy"]["sunrise"]) )
       return "night"
     else
       return "day"
-    end 
+    end
   end
 
   def custom_devise_error_messages!
@@ -66,13 +80,13 @@ module ApplicationHelper
 
     html = <<-HTML
     <div id="errors" style="display:block">
-      #{messages}
+    #{messages}
     </div>
     <br />
     HTML
 
     html.html_safe
   end
-  
+
 
 end
