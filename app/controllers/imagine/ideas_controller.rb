@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Imagine::IdeasController < ApplicationController
 
   rescue_from CanCan::AccessDenied do |e|
@@ -34,6 +35,7 @@ class Imagine::IdeasController < ApplicationController
 
  def show
     show! do
+      @share_message = "Confira e curta a minha idéia publicada no Meu Rio em #{issue_idea_url(@issue, @idea)}"
       @editable = (current_member and current_member == @idea.member)
       @versions = @idea.versions.where('published').order("created_at DESC").all
       @title = @idea.title

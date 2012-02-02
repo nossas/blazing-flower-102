@@ -5,8 +5,8 @@
   p.message 
     |Sua idéia agora pode ser compartilhada, quanto mais pessoas curtirem mais chances ela tem de ser escolhida.
     .share_idea
-      = link_to image_tag("/assets/auth/facebook_128.png"), "http://www.facebook.com/sharer.php?u=#{issue_idea_path(@issue, @idea)}", :target => "_blank", :title => 'Compartilhe no Facebook', :class => "facebook_btn"
-      = link_to image_tag("/assets/auth/orkut_128.png"), "http://promote.orkut.com/preview?nt=orkut.com&du=#{issue_idea_path(@issue, @idea)}&tt=&cn=#{@share_message}", :target => "_blank", :title => 'Compartilhe no Orkut', :class => "orkut_btn"
-      = link_to image_tag("/assets/auth/twitter_128.png"), "http://twitter.com/share?url=#{issue_idea_path(@issue, @idea)}&text=#{@share_message}", :target => "_blank", :title => "Compartilhe no twitter", :class => "twitter_btn"
+      = link_to image_tag("/assets/auth/facebook_128.png"), "http://www.facebook.com/sharer.php?u=#{u issue_idea_url(@issue, @idea)}&t=#{u @share_message}", :target => "_blank", :title => 'Compartilhe no Facebook', :class => "facebook_btn"
+      = link_to image_tag("/assets/auth/orkut_128.png"), "http://promote.orkut.com/preview?nt=orkut.com&du=#{u issue_idea_url(@issue, @idea)}&tt=&cn=#{u @share_message}", :target => "_blank", :title => 'Compartilhe no Orkut', :class => "orkut_btn"
+      = link_to image_tag("/assets/auth/twitter_128.png"), "http://twitter.com/share?url=#{u issue_idea_url(@issue, @idea)}&text=#{u @share_message}", :target => "_blank", :title => "Compartilhe no twitter", :class => "twitter_btn"
     .submit
       = link_to 'Voltar para o Meu Rio Imagine', issue_ideas_path(@issue), :class => 'btn'
