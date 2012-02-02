@@ -51,6 +51,7 @@ MR.petitions = {
       $("#loader").show();
       $('#submit_btn').hide();
       var data = $(this).serialize();
+      _gaq.push(['_trackEvent', 'Assinar', "Assine Via Formulário"]);
       $.post($(this).attr('action'), data, MR.petitions.handle_signature_response);
     }
   },
