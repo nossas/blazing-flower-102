@@ -9,4 +9,4 @@
       = link_to image_tag("/assets/auth/orkut_128.png"), "http://promote.orkut.com/preview?nt=orkut.com&du=#{issue_idea_path(@issue, @idea)}&tt=&cn=#{@share_message}", :target => "_blank", :title => 'Compartilhe no Orkut', :class => "orkut_btn"
       = link_to image_tag("/assets/auth/twitter_128.png"), "http://twitter.com/share?url=#{issue_idea_path(@issue, @idea)}&text=#{@share_message}", :target => "_blank", :title => "Compartilhe no twitter", :class => "twitter_btn"
     .submit
-      = link_to 'Fechar', '', :class => 'btn'
+      = link_to 'Voltar para o Meu Rio Imagine', issue_ideas_path(@issue), :class => 'btn'
