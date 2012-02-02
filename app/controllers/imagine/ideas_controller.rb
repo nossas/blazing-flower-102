@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Imagine::IdeasController < ApplicationController
 
   rescue_from CanCan::AccessDenied do |e|
@@ -20,10 +21,10 @@ class Imagine::IdeasController < ApplicationController
 
   def index
     if current_member 
-      @my_ideas ||= current_member.ideas.where(:issue_id => params[:issue_id]).popular.all
-      @ideas ||= Idea.where(["issue_id = ? AND member_id <> ?", params[:issue_id], current_member.id]).primary.popular.all
+      @my_ideas = current_member.ideas.where(["issue_id = ?", params[:issue_id]]).popular.all
+      @ideas = Idea.where(["issue_id = ? AND member_id <> ?", params[:issue_id], current_member.id]).primary.popular.all
     else
-      @ideas ||= Idea.where(:issue_id => params[:issue_id]).primary.popular.all
+      @ideas = Idea.where(["issue_id = ?", params[:issue_id]]).primary.popular.all
     end
   end
 
@@ -34,8 +35,9 @@ class Imagine::IdeasController < ApplicationController
 
  def show
     show! do
+      @share_message = "Confira e curta a minha idéia publicada no Meu Rio em #{issue_idea_url(@issue, @idea)}"
       @editable = (current_member and current_member == @idea.member)
-      @versions = @idea.versions.order("created_at DESC").all
+      @versions = @idea.versions.where('published').order("created_at DESC").all
       @title = @idea.title
       @versions_changed = false
       if @editable
@@ -60,6 +62,15 @@ class Imagine::IdeasController < ApplicationController
     update! do |format|
       format.json do
         render :json => @idea.to_json
+      end
+    end
+  end
+
+  def publish
+    @idea.published = true
+    if @idea.save
+      respond_to do |format|
+        format.json { render :json => {:status => :found } }
       end
     end
   end

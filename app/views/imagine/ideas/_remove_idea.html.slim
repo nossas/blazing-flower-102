@@ -3,12 +3,12 @@
     h2= t('.title')
   = form_tag imagine_idea_path(@idea), :method => "delete", :name => 'remove_idea' do |f|
     p.message= t('.subtitle')
-    - if (@idea.versions.count > 0) or @idea.parent_need_to_merge?
+    - if (@versions.size > 0) or @idea.parent_need_to_merge?
       .warning
-        - if @idea.versions.count > 0
+        - if @versions.size > 0
           p.message= t('.versions')
           ul
-            - @idea.versions.each do |version|
+            - @versions.each do |version|
               li= "#{version.title}, por #{version.member.name}"
     .submit
       = submit_tag t('.form_button'), :class => 'btn'

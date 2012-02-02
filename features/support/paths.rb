@@ -14,6 +14,8 @@ module NavigationHelpers
       '/admin'
     when /the admin users page/
       '/admin/admin_users'
+    when /the issue ideas index/
+      issue_ideas_path(@issue.first)
     when /an issue archive page/
       issue_archive_path(Issue.last)
     when /an issue page/
