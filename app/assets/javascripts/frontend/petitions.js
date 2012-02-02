@@ -28,7 +28,7 @@ MR.petitions = {
     $("#new_petition_signature_with_facebook small").hide();
     $("#new_petition_signature_with_facebook input[type=submit]").mouseover(function(){ $("#new_petition_signature_with_facebook small").stop(true, true).slideDown(); });
     $("#new_petition_signature_with_facebook input[type=submit]").mouseout(function(){ $("#new_petition_signature_with_facebook small").stop(true, true).slideUp(); });
-    $("#new_petition_signature_with_facebook input[type=submit]").click(function(){ _gaq.push(['_trackEvent', 'Login', "Assine Via Facebook"]); });
+    $("#new_petition_signature_with_facebook input[type=submit]").click(function(){ _gaq.push(['_trackEvent', 'Assinatura', "Assinar Via Facebook"]); });
 
     $('.share_with_friends form textarea').autoResize({extraSpace: 0});
     $('.share_with_friends form .share_fields').hide();
@@ -41,7 +41,7 @@ MR.petitions = {
       $(this).parents('form').unbind("mouseout");
       $(this).siblings("img").show();
       $(this).hide();
-      _gaq.push(['_trackEvent', 'Compartilhar', "Postar no Mural do Amigo"]);
+      _gaq.push(['_trackEvent', 'Share', "Postar no Mural do Amigo"]);
     });
   },
 
@@ -51,7 +51,7 @@ MR.petitions = {
       $("#loader").show();
       $('#submit_btn').hide();
       var data = $(this).serialize();
-      _gaq.push(['_trackEvent', 'Assinar', "Assine Via Formulário"]);
+      _gaq.push(['_trackEvent', 'Assinatura', "Assinar Via Formulário"]);
       $.post($(this).attr('action'), data, MR.petitions.handle_signature_response);
     }
   },
