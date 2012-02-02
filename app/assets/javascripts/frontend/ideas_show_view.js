@@ -1,6 +1,6 @@
 MR.IdeasShowView = MR.EditableView.extend({
   initialize: function(){
-    _.bindAll(this, 'fork', 'remove', 'description', 'versions');
+    _.bindAll(this, 'fork', 'remove', 'description', 'versions', 'publish');
     this.modelName = "idea";
     this.bindRoutes();
     this.loadLastFragment();
@@ -9,7 +9,7 @@ MR.IdeasShowView = MR.EditableView.extend({
       Backbone.history.navigate('');
     });
     this.description();
-
+    
     //Binding the like event :)
     FB.Event.subscribe('edge.create', function(response) {
       var fburl = "https://api.facebook.com/method/fql.query?format=json&query=";
@@ -26,10 +26,27 @@ MR.IdeasShowView = MR.EditableView.extend({
   },
 
   bindRoutes: function(){
-    MR.router.bind('route:fork', this.fork)
-    MR.router.bind('route:remove', this.remove)
-    MR.router.bind('route:description', this.description)
-    MR.router.bind('route:versions', this.versions)
+    MR.router.bind('route:fork', this.fork);
+    MR.router.bind('route:remove', this.remove);
+    MR.router.bind('route:description', this.description);
+    MR.router.bind('route:versions', this.versions);
+    MR.router.bind('route:publish', this.publish);
+  },
+
+  publish: function(){
+    var that = this;
+    var path = '/imagine/ideas/' + this.$('#idea_head').data('id') + '/publish';
+    $.ajax({
+      type: "PUT",
+      url: path,
+      success: function(data){
+        that.$('.publish_idea.btn').remove();
+        $.facebox({div: '#thanks_for_publishing'});
+      },
+      error: function(data){
+        console.log(data)
+      }
+    });
   },
 
   versions: function(){

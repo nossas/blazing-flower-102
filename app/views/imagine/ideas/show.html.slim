@@ -27,6 +27,7 @@
 
   = render 'confirm_fork'
   = render 'remove_idea'
+  = render 'thanks_for_publishing'
   #idea_top.grid_12.alpha.omega
   #idea_head.grid_12.alpha.omega data-id=@idea.id
     #category_container.grid_3.alpha
@@ -53,9 +54,10 @@
       .tab.grid_3.alpha
         a href="#description"
           = t('.menu.description')
-      .tab.grid_3.omega
-        a href="#versions"
-          = t('.menu.versions')
+      - if @versions.size > 0
+        .tab.grid_3.omega
+          a href="#versions"
+            = t('.menu.versions')
       #idea_description.grid_7.alpha.omega
         .attribute.grid_7.alpha.omega class=("editable" if can? :edit, @idea) data-url=imagine_idea_path(@idea) data-attribute="description" data-raw=@idea.description data-raw-attribute="description_html"
           == @idea.description_html.blank? && can?(:edit, @idea) ? t('.placeholders.description_html') : @idea.description_html
@@ -67,8 +69,11 @@
               .sprite.arrow-down
               .fork_idea= link_to t('.fork_idea'), '#fork', :id => 'fork_idea_button', :class => 'btn'
         - if can? :destroy, @idea
-          .actions.grid_7.alpha.omega
+          .actions.grid_3.alpha.omega
             = link_to t('.remove_idea'), '#remove', :class => 'remove_idea'
+          - unless @idea.published?
+            .actions.grid_4.omega
+              = link_to "Publicar Minha Ideia", '#publish', :class => 'publish_idea btn'
       #idea_versions.grid_7.alpha.omega
         - if @versions.empty?
           em= t('.versions.empty.html', :link => '')
