@@ -92,34 +92,9 @@
     overflow: hidden
     margin-top: 10px
     .category
-      +border-radius(4px)
-      +box-shadow(1px 1px 0.5px $light_gray)
-      font-family: 'Akagi-Book',Helvetica,Ariel,sans-serif
-      font-weight: bold
-      background-color: $light_green
-      text-transform: uppercase
       +grid(3)
       +alpha
-      padding: 7px
-      text-align: center
-      font-size: 18px
-      margin-bottom: 15px
-      a
-        text-decoration: none
-        color: $dark_gray
-        &:hover
-          color: white
-
-      &:hover
-        cursor: pointer
-        background-color: $dark_green
-        a
-          color: white
-
-    .selected
-      background-color: $dark_green
-      a
-        color: white
+      +tab_button
 
   .ideas
     +grid(12)
