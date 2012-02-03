@@ -4,20 +4,21 @@
   = simple_form_for [@issue, Idea.new], :html => {:name => 'new_idea_form'} do |form|
     = form.input :title, :as => :string, :input_html => { :maxlength => 60 }
     = form.input :headline, :input_html => { :maxlength => 140 }
-    h5= t('.helpmethod_title')
-    dl.dropdown
-        dt.sprite.dropdown_archive
-          span=""
-        dd
-          ul
-            - @help_methods.order(:name).each do |method|
-              li
-                a[href=method.id data-param="idea_idea_help_method_id"]= method.name
-    br.clear
-    label.error.hidden[data-for="idea_idea_help_method_id"]
-      = t('.helpmethod_warning')
-    .hidden
-      = form.association :idea_help_method, :as => :select, :required => false, :collection => @help_methods
+    //
+      h5= t('.helpmethod_title')
+      dl.dropdown
+          dt.sprite.dropdown_archive
+            span=""
+          dd
+            ul
+              - @help_methods.order(:name).each do |method|
+                li
+                  a[href=method.id data-param="idea_idea_help_method_id"]= method.name
+      br.clear
+      label.error.hidden[data-for="idea_idea_help_method_id"]
+        = t('.helpmethod_warning')
+      .hidden
+        = form.association :idea_help_method, :as => :select, :required => false, :collection => @help_methods
     br.clear
     br.clear
 
