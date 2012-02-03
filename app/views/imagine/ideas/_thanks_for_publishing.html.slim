@@ -3,7 +3,7 @@
     h2
       |Obrigado por publicar sua idéia
   p.message 
-    |Sua idéia agora pode ser compartilhada, quanto mais pessoas curtirem mais chances ela tem de ser escolhida.
+    |Clique nos ícones abaixo para compartilhar sua ideia. Quanto mais gente curtir a sua ideia, mais chances elá terá de ser escolhida. Então, pode mandar ver na divulgação!
     .share_idea
       = link_to image_tag("/assets/auth/facebook_128.png"), "http://www.facebook.com/sharer.php?u=#{u issue_idea_url(@issue, @idea)}&t=#{u @share_message}", :target => "_blank", :title => 'Compartilhe no Facebook', :class => "facebook_btn"
       = link_to image_tag("/assets/auth/orkut_128.png"), "http://promote.orkut.com/preview?nt=orkut.com&du=#{u issue_idea_url(@issue, @idea)}&tt=&cn=#{u @share_message}", :target => "_blank", :title => 'Compartilhe no Orkut', :class => "orkut_btn"
