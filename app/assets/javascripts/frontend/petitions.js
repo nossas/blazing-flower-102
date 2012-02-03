@@ -57,7 +57,12 @@ MR.petitions = {
       $("#loader").show();
       $('#submit_btn').hide();
       var data = $(this).serialize();
-      _gaq.push(['_trackEvent', 'Assinatura', "Assinar Via Formulário"]);
+      if($("form#new_petition_signature #member_first_name").size() > 0){
+        _gaq.push(['_trackEvent', 'Assinatura', "Assinar Sem Conta"]);
+      }
+      else {
+        _gaq.push(['_trackEvent', 'Assinatura', "Assinar Com Conta"]);
+      }
       $.post($(this).attr('action'), data, MR.petitions.handle_signature_response);
     }
   },
