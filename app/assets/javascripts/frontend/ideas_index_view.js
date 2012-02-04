@@ -12,8 +12,7 @@ MR.IdeasIndexView = MR.BaseView.extend({
       MR.common.setUpDropDowns(that.selectOption);
       $("#facebox form#new_idea").submit(function(){
         var fields = [
-          '#facebox #idea_idea_category_id',
-          '#facebox #idea_idea_help_method_id',
+          '#facebox #idea_idea_category_id'
         ];
         var valid = true
         _.each(fields, function(field){
