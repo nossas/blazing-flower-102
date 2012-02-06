@@ -40,6 +40,7 @@
 
     = google_analytics("#{SITE['ga_tracking_code']}")
 
+    = javascript_include_tag "libs/modernizr-2.0.6.js"
 
   %body{:class=> "#{controller.controller_name} #{controller.action_name}", 'data-controller' => controller_name, 'data-action' => action_name }
     - unless flash[:welcome].blank? && flash[:alert].blank? && flash[:notice].blank?
@@ -107,7 +108,6 @@
     = render :partial => "shared/already_logged"
 
 
-    = javascript_include_tag "libs/modernizr-2.0.6.js"
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"}
     :javascript
       !window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))
