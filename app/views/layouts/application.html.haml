@@ -20,19 +20,15 @@
   %head
     = render :partial => "shared/meta_tags_defaults"
 
-    -# -- Defaults from meta tags
     %title= yield :title
     = yield :meta_tags
     = yield :facebook_properties
 
-    -# -- Rendering default facebook setting
     %meta{ :property => "fb:app_id", :content => "#{SITE['fb_app_id']}" }
     %meta{ :property => "og:type", :content => "#{SITE['og_type']}" }
 
-    -# -- CSRF Token
     = csrf_meta_tags
 
-    -# -- Stylesheets
     = stylesheet_link_tag :screen
     = stylesheet_link_tag :print, :media => :print
     /[if IE]
@@ -40,10 +36,8 @@
     = stylesheet_link_tag :application
     = yield :stylesheets
 
-    -# -- Shortchut Icon
     = favicon_link_tag asset_path('favicon.png'), :type => "image/png"
 
-    -# -- Google Analytics Helper
     = google_analytics("#{SITE['ga_tracking_code']}")
 
 
@@ -108,12 +102,10 @@
       .grid_12
         = link_to image_tag("http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png", :alt => "Creative Commons License", :style => "border-width: 0"), "http://creativecommons.org/licenses/by-nc-nd/3.0/deed.pt_BR", :rel => "license", :target => "_blank"
 
-    // ------------------------ Hidden elements
     = render :partial => "shared/login"
     = render :partial => "shared/join"
     = render :partial => "shared/already_logged"
 
-    // ------------------------ Scripts
 
     = javascript_include_tag "libs/modernizr-2.0.6.js"
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"}
