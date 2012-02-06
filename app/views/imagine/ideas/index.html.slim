@@ -30,10 +30,14 @@
       - if @ideas.size > 0 || (current_member && @my_ideas.size > 0)
         .category_list.grid_12.alpha.omega
           = render :partial => 'idea_category', :locals => { :collection => @categories } unless @categories.empty?
-      - if current_member && @my_ideas.size > 0
-        .ideas_list
-          h2.grid_12.alpha.omega Minhas ideias
+      .ideas_list
+        h2.grid_12.alpha.omega Minhas ideias
+        - if current_member && @my_ideas.size > 0
           = render :partial => 'list', :locals => {:quick => "featured", :collection => @my_ideas}
+        - else
+          h4 
+            |Você ainda não deu nenhuma idéia, para começar 
+            = link_to 'clique aqui', '#new_idea'
       - if @ideas.size > 0
         .ideas_list
           h2.grid_12.alpha.omega Outras ideias

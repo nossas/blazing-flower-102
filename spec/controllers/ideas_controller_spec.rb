@@ -39,7 +39,7 @@ describe Imagine::IdeasController do
   describe 'GET show' do
     before do
       @idea = Factory.create(:idea)
-      get :show, :id => @idea.id, :locale => :pt
+      get :show, :issue_id => @idea.issue.id, :id => @idea.id, :locale => :pt
     end
     its(:status){ should == 200 }
   end

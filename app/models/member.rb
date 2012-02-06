@@ -33,11 +33,12 @@ class Member < ActiveRecord::Base
       member.update_attributes(:image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(data['email'])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png") if member.image_url.nil?
       member
     else
+      gravatar = (data['email'] ? "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(data['email'])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png" : nil)
       self.create(
         :email => data["email"], 
         :first_name => data["first_name"], 
         :last_name => data["last_name"],
-        :image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(data['email'])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png",
+        :image_url => gravatar,
         :confirmed_at => Time.now,
         :has_non_oauth_login => false,
         :has_login => true )
