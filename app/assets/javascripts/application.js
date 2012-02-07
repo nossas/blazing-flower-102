@@ -4,6 +4,7 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
+//= require jquery
 //= require jquery_ujs
 //= require ./libs/underscore-1.1.6.min.js
 //= require ./libs/facebox.js
@@ -15,8 +16,7 @@
 //= require ./libs/jquery.maxlength.js
 //= require ./libs/jquery.autoresize.js
 //= require ./libs/backbone.js
-//= require ./MR.js
 //= require ./libs/autoresize.jquery.min.js
-//= require init.js
+//= require ./MR.js
 //= require_tree ./frontend
 //= require init.js

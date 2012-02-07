@@ -29,10 +29,6 @@
 
     = csrf_meta_tags
 
-    = stylesheet_link_tag :screen
-    = stylesheet_link_tag :print, :media => :print
-    /[if IE]
-      = stylesheet_link_tag :ie
     = stylesheet_link_tag :application
     = yield :stylesheets
 
@@ -82,7 +78,7 @@
               =link_to t("join_us"), "#join", :rel => "facebox", :id => "join_us_btn"
               =link_to t("login"), "#login", :rel => "facebox"
           .clearfix
-      =render :partial => "shared/main_navigation"
+      = render :partial => "shared/main_navigation"
     #main.container_12
       %p.preview
         = flash[:preview] if flash[:preview]
@@ -107,10 +103,6 @@
     = render :partial => "shared/join"
     = render :partial => "shared/already_logged"
 
-
-    %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"}
-    :javascript
-      !window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))
     = render :partial => "imagine/ideas/shared/editable_defaults_js"
     = javascript_include_tag :application
     = yield :javascripts

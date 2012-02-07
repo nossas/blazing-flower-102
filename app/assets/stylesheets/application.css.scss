@@ -11,13 +11,14 @@
  * then alphabetically (e.g., elements, classes, ids)
  * Alphabetical ordering makes order predictable.
  * Specificity based ordering keeps code concise, organized,
- * and lowers risk of having to use !important. 
+ * and lowers risk of having to use !important.
  * Together, they eliminate arbitrary and confusing grouping schemes.
  * -DP
  */
 
 @import "frontend/vars.css.scss";
 @import "frontend/mixins.css.scss";
+@import "screen";
 
 header, footer, nav, section, article { display: block; }
 
@@ -90,7 +91,7 @@ body > header {
     text-align: center;
     position: relative;
     min-height: 82px;
-    p { 
+    p {
       font-size: 13px;
       margin: 0 0 0 10px;
       text-align: center;
@@ -273,7 +274,7 @@ nav#primary {
       z-index: 100;
       &.wide {
         width: 410px;
-        z-index: 210; // This is 201 because .issue_name was overlapping at 200 
+        z-index: 210; // This is 201 because .issue_name was overlapping at 200
       }
       &.small {
         width: 240px;
@@ -470,9 +471,9 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   padding: 5px 7px 8px !important;
 }
 
-/* General dropdown styles */       
+/* General dropdown styles */
 .dropdown {
-  margin: 0 0 0 20px; 
+  margin: 0 0 0 20px;
   padding: 0px;
   width: 276px;
   dd, dt, ul { margin: 0px; padding: 0px; }
@@ -492,7 +493,7 @@ textarea.error, input.error, select.error { border-color: $red !important; }
       padding: 7px 5px 5px;
     }
   }
-  dd ul { 
+  dd ul {
     border: 1px solid $light_gray;
     border-top: 0;
     -moz-border-radius: 0 0 10px 10px;
@@ -504,7 +505,7 @@ textarea.error, input.error, select.error { border-color: $red !important; }
     list-style: none;
     min-width: 269px;
     padding: 8px 0 5px 0;
-    position: absolute; 
+    position: absolute;
     top: 28px;
     width: auto;
     z-index: 1;
@@ -559,8 +560,8 @@ textarea.error, input.error, select.error { border-color: $red !important; }
     width: auto;
     a {
       font-weight: bold;
-      img { 
-        width: 32px; 
+      img {
+        width: 32px;
         &:hover {
           opacity: 0.8;
         }
@@ -569,7 +570,7 @@ textarea.error, input.error, select.error { border-color: $red !important; }
     h3 {
       color: #40a468;
       text-transform: uppercase;
-      font-family: Folk-solid; 
+      font-family: Folk-solid;
       font-size: 1.2em;
       margin-bottom: 5px;
     }
@@ -815,12 +816,12 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   header {
     background: url(/assets/widget-container-green-top.gif) repeat-y scroll 0 0 transparent;
     float: left;
-    width: 302px; // Redundancy to override overridden width inheritance from parent <section> 
+    width: 302px; // Redundancy to override overridden width inheritance from parent <section>
     p {
       color: #FFFFFF;
-      /* important used here to override high specificity global rule set somewhere else: 
+      /* important used here to override high specificity global rule set somewhere else:
        * body > #main p { font-size: 15px; }
-       * TODO: change font sizes to use em instead of px 
+       * TODO: change font sizes to use em instead of px
        */
       font-family: Folk-solid;
       font-size: 28px !important;
