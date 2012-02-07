@@ -1,72 +1,96 @@
 //
-// Copyright (c) 2011 Frank Kohlhepp
+// store.js by Frank Kohlhepp
+// Copyright (c) 2011 - 2012 Frank Kohlhepp
 // https://github.com/frankkohlhepp/store-js
 // License: MIT-license
 //
 (function () {
+    var objectGetLength = function (object) {
+        var count = 0;
+        for (var key in object) {
+            if (object.hasOwnProperty(key)) { count++; }
+        }
+        
+        return count;
+    };
+    
+    var arrayIndexOf = function (array, item, from) {
+        var length = array.length >>> 0;
+        for (var i = (from < 0) ? Math.max(0, length + from) : from || 0; i < length; i++) {
+            if (array[i] === item) { return i; }
+        }
+        
+        return -1;
+    };
+    
+    var arrayContains = function (array, item, from) {
+        return arrayIndexOf(array, item, from) !== -1;
+    };
+    
+    var arrayInclude = function (array, item) {
+        if (!arrayContains(array, item)) { array.push(item); }
+        return array;
+    };
+    
     var Store = this.Store = function (name, defaults, watcherSpeed) {
-        var that = this;
         this.name = name;
+        this.defaults = defaults || {};
+        this.watcherSpeed = watcherSpeed || 500;
         this.listeners = {};
         
-        // Set defaults
-        if (defaults) {
-            for (var key in defaults) {
-                if (defaults.hasOwnProperty(key) && this.get(key) === undefined) {
-                    this.set(key, defaults[key]);
-                }
+        // Apply defaults
+        this.applyDefaults();
+    };
+    
+    Store.clear = function () {
+        localStorage.clear();
+    };
+    
+    Store.prototype.applyDefaults = function () {
+        for (var key in this.defaults) {
+            if (this.defaults.hasOwnProperty(key) && this.get(key) === undefined) {
+                this.set(key, this.defaults[key]);
             }
         }
         
-        // Fake events
-        var fireEvent = function (name, value) {
-            ([name, "*"]).each(function (selector) {
-                if (that.listeners[selector]) {
-                    that.listeners[selector].each(function (callback) {
-                        callback(value, name, that.name);
-                    });
-                }
-            });
-        };
-        
-        var oldObj = this.toObject();
-        var standby = function () { watcher(true); };
-        var watcher = function (skipCheck) {
-            if (Object.keys(that.listeners).length !== 0) {
-                var newObj = that.toObject();
-                
-                if (!skipCheck) {
-                    for (var key in newObj) {
-                        if (newObj.hasOwnProperty(key) && newObj[key] !== oldObj[key]) {
-                            fireEvent(key, newObj[key]);
-                        }
-                    }
-                    
-                    for (var key in oldObj) {
-                        if (oldObj.hasOwnProperty(key) && !newObj.hasOwnProperty(key)) {
-                            fireEvent(key, newObj[key]);
-                        }
-                    }
-                }
-                
-                oldObj = newObj;
-                setTimeout(watcher, (watcherSpeed || 300));
-            } else {
-                setTimeout(standby, 1000);
-            }
-        };
-        
-        standby();
+        return this;
     };
     
-    Store.__proto__ = function Empty() {};
-    Store.__proto__.clear = function () {
-        localStorage.clear();
+    Store.prototype.watcher = function (force) {
+        if (this.watcherTimer) {
+            clearTimeout(this.watcherTimer);
+        }
+        
+        if (objectGetLength(this.listeners) || force) {
+            this.newObject = this.toObject();
+            
+            if (this.oldObject) {
+                for (var key in this.newObject) {
+                    if (this.newObject.hasOwnProperty(key) && this.newObject[key] !== this.oldObject[key]) {
+                        this.fireEvent(key, this.newObject[key]);
+                    }
+                }
+                
+                for (var key in this.oldObject) {
+                    if (this.oldObject.hasOwnProperty(key) && !this.newObject.hasOwnProperty(key)) {
+                        this.fireEvent(key, this.newObject[key]);
+                    }
+                }
+            }
+            
+            this.oldObject = this.newObject;
+            var that = this;
+            this.watcherTimer = setTimeout(function () {
+                that.watcher();
+            }, this.watcherSpeed);
+        }
+        
+        return this;
     };
     
     Store.prototype.get = function (name) {
         var value = localStorage.getItem("store." + this.name + "." + name);
-        if (value === null) { return; }
+        if (value === null) { return undefined; }
         try { return JSON.parse(value); } catch (e) { return null; }
     };
     
@@ -74,16 +98,8 @@
         if (value === undefined) {
             this.remove(name);
         } else {
-            if (typeof value === "function") {
-                value = null;
-            } else {
-                try {
-                    value = JSON.stringify(value);
-                } catch (e) {
-                    value = null;
-                }
-            }
-            
+            if (typeof value === "function") { value = null; }
+            try { value = JSON.stringify(value); } catch (e) { value = null; }
             localStorage.setItem("store." + this.name + "." + name, value);
         }
         
@@ -92,10 +108,10 @@
     
     Store.prototype.remove = function (name) {
         localStorage.removeItem("store." + this.name + "." + name);
-        return this;
+        return this.applyDefaults();
     };
     
-    Store.prototype.removeAll = function () {
+    Store.prototype.reset = function () {
         var name = "store." + this.name + ".";
         for (var i = (localStorage.length - 1); i >= 0; i--) {
             if (localStorage.key(i).substring(0, name.length) === name) {
@@ -103,7 +119,7 @@
             }
         }
         
-        return this;
+        return this.applyDefaults();
     };
     
     Store.prototype.toObject = function () {
@@ -121,7 +137,7 @@
     };
     
     Store.prototype.fromObject = function (values, merge) {
-        if (!merge) { this.removeAll(); }
+        if (!merge) { this.reset(); }
         for (var key in values) {
             if (values.hasOwnProperty(key)) {
                 this.set(key, values[key]);
@@ -132,8 +148,9 @@
     };
     
     Store.prototype.addEvent = function (selector, callback) {
+        this.watcher(true);
         if (!this.listeners[selector]) { this.listeners[selector] = []; }
-        this.listeners[selector].push(callback);
+        arrayInclude(this.listeners[selector], callback);
         return this;
     };
     
@@ -142,7 +159,21 @@
             if (this.listeners[selector][i] === callback) { this.listeners[selector].splice(i, 1); }
         }
         
-        if (this.listeners[selector].length === 0) { delete this.listeners[selector]; }
+        if (!this.listeners[selector].length) { delete this.listeners[selector]; }
+        return this;
+    };
+    
+    Store.prototype.fireEvent = function (name, value) {
+        var selectors = [name, "*"];
+        for (var i = 0; i < selectors.length; i++) {
+            var selector = selectors[i];
+            if (this.listeners[selector]) {
+                for (var j = 0; j < this.listeners[selector].length; j++) {
+                    this.listeners[selector][j](value, name, this.name);
+                }
+            }
+        }
+        
         return this;
     };
 }());
