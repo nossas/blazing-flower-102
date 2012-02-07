@@ -125,10 +125,8 @@ MR = {
         data: idea,
         url: updateUrl,
         success: function(data){
-          console.log(data)
         },
         error: function(data){
-          console.log(data)
         }
       });
     },

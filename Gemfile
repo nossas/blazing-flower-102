@@ -77,7 +77,8 @@ group :development, :test do
   gem "rspec-rails", "~> 2.6"
   gem "shoulda-matchers"
 
-  gem "mailcatcher"
+  #gem "mailcatcher"
+  gem "taps"
 
   gem "autotest-rails"
   gem "autotest-growl"

@@ -10,9 +10,6 @@
   %meta{ :property => "og:url", :content => issue_url(@issue) }
   %meta{ :property => "og:title",  :content => @issue.name }
 
-
-
-
 .grid_12.alpha
   %h1= @issue.name
 .grid_8-5.issue_main
@@ -21,7 +18,7 @@
   .excerpt
     %p=@issue.excerpt
     .description
-      %p=raw @issue.description
+      %p=raw @issue.description.gsub("\n", "<br />")
     .see_more
       %a#read_more{:href => '#'}
         %span= t("issue_show.read_more")

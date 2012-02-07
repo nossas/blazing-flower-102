@@ -44,7 +44,6 @@ MR.IdeasShowView = MR.EditableView.extend({
         $.facebox({div: '#thanks_for_publishing'});
       },
       error: function(data){
-        console.log(data)
       }
     });
   },
