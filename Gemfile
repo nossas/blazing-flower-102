@@ -78,6 +78,7 @@ group :development, :test do
   gem "shoulda-matchers"
 
   #gem "mailcatcher"
+  gem "taps"
 
   gem "autotest-rails"
   gem "autotest-growl"
@@ -101,4 +102,3 @@ group :production do
 end
 
 gem "koala"
-gem "taps"
