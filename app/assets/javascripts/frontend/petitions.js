@@ -33,7 +33,6 @@ MR.petitions = {
       $(this).hide();
       $("#new_petition_signature_with_facebook small").stop(true, true).slideUp();
       $("#new_petition_signature_with_facebook img.loading").show();
-      _gaq.push(['_trackEvent', 'Assinatura', "Assinar Via Facebook"]);
     });
 
     $('.share_with_friends form textarea').autoResize({extraSpace: 0});
@@ -47,7 +46,6 @@ MR.petitions = {
       $(this).parents('form').unbind("mouseout");
       $(this).siblings("img").show();
       $(this).hide();
-      _gaq.push(['_trackEvent', 'Share', "Postar no Mural do Amigo"]);
     });
   },
 
