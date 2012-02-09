@@ -71,8 +71,10 @@ ActiveAdmin.setup do |config|
   # and feel.
   #
   # To load a stylesheet:
-    config.register_stylesheet 'admin/active_admin.css.scss'
+  config.register_stylesheet 'admin/active_admin.css.scss'
   
   # To load a javascript file:
-    config.register_javascript 'admin/active_admin.js'
+  config.register_javascript 'admin/active_admin.js'
+
+  config.default_per_page = 100
 end unless Rails.env == 'frontend'

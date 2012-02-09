@@ -8,10 +8,12 @@ ActiveAdmin.register Member do
   filter :zona
 
   index do
+    column "", :image_url do |m|
+      image_tag m.image_url, :width => "20px" if m.image_url
+    end
     column :first_name do |m|
       span link_to m.first_name, member_path(m)
     end
-    column :last_name
     column :email
     column :meu_rio_is
     column :created_at do |m|
