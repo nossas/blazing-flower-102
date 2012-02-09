@@ -5,4 +5,11 @@ $(document).ready(function(){
   $("#services a.orkut_btn").                     click(function(){ _gaq.push(['_trackEvent', 'Login', "Orkut"]); });
   $("#services a.google_btn").                    click(function(){ _gaq.push(['_trackEvent', 'Login', "Google"]); });
   $("a#MR_login_link").                           click(function(){ _gaq.push(['_trackEvent', 'Login', "Meu Rio"]); });
+  $("#meu_rio_is a.prev").                        click(function(){ _gaq.push(['_trackEvent', 'Home', "Ver o Membro Anterior"]); });
+  $("#meu_rio_is a.next").                        click(function(){ _gaq.push(['_trackEvent', 'Home', "Ver o Próximo Membro"]); });
+  $("#team_update a").                            click(function(){ _gaq.push(['_trackEvent', 'Home', "Ir para o Blog"]); });
+  $("#twitter_widget a.name").                    click(function(){ _gaq.push(['_trackEvent', 'Home', "Ir para o Twitter"]); });
+  $("#join_widget a.btn").                        click(function(){ _gaq.push(['_trackEvent', 'Home', "Junte-se a Nós!"]); });
+  $("#featured_content_1 a").                     click(function(){ _gaq.push(['_trackEvent', 'Home', "Banner 1"]); });
+  $("#featured_content_2 a").                     click(function(){ _gaq.push(['_trackEvent', 'Home', "Banner 2"]); });
 });
