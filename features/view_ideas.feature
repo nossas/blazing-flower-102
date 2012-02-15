@@ -9,6 +9,7 @@ Feature: View a selection of ideas
     When I go to the first issue's ideas page
     Then I should see "Dê uma ideia"
     And I should see "Descubra e remixe"
+    And I should not see "Minhas ideias"
 
   Scenario: View only published ideas for an issue
     Given 1 issue exist
