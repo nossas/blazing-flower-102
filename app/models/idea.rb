@@ -19,6 +19,7 @@ class Idea < ActiveRecord::Base
   scope :recommended, where(:recommended => true).order("created_at DESC")
   scope :popular, order("likes DESC")
   scope :recent, order("created_at DESC")
+  scope :published, where(:published => true)
 
   scope :primary, where("parent_id IS NULL")
   scope :secondary, where("parent_id IS NOT NULL")

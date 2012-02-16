@@ -22,9 +22,9 @@ class Imagine::IdeasController < ApplicationController
   def index
     if current_member 
       @my_ideas = current_member.ideas.where(["issue_id = ?", params[:issue_id]]).popular.all
-      @ideas = Idea.where(["issue_id = ? AND member_id <> ?", params[:issue_id], current_member.id]).primary.popular.all
+      @ideas = Idea.where(["issue_id = ? AND member_id <> ?", params[:issue_id], current_member.id]).primary.popular.published.all
     else
-      @ideas = Idea.where(["issue_id = ?", params[:issue_id]]).primary.popular.all
+      @ideas = Idea.where(["issue_id = ?", params[:issue_id]]).primary.popular.published.all
     end
   end
 
