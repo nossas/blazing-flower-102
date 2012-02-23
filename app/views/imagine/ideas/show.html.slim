@@ -44,9 +44,8 @@
         p class=("editable" if can? :edit, @idea) data-attribute="headline" data-url=imagine_idea_path(@idea) data-raw=@idea.headline data-maxlength=140 data-singleline=true
           = @idea.headline
     #idea_social.grid_2.omega
-    .fb_fix
-      .fb_like= render :partial => 'shared/fb_like', :locals => { :url => request.url, :show_faces => false, :width => '60', :layout => 'box_count' }
-    .twitter_share= render :partial => 'shared/twitter_share', :locals => { :url => request.url, :count => 'vertical' }
+      .fb_like= render :partial => 'shared/fb_like', :locals => { :url => request.url, :show_faces => false, :width => '60', :layout => 'button_count' }
+      .twitter_share= render :partial => 'shared/twitter_share', :locals => { :url => request.url, :count => 'horizontal' }
 
   #idea_bottom.grid_12.alpha.omega
   #idea_main.grid_12.alpha.omega
