@@ -28,9 +28,9 @@
             h2= @issue.ideas_title
             .ideas_headline
               == @issue.ideas_headline
-            /*.call_to_action
+            .call_to_action
               b.sprite.arrow-down
-              = link_to t('.new_idea'), '#new_idea', :class => 'btn'*/
+              = link_to t('.new_idea'), '#new_idea', :class => 'btn'
           = @issue.ideas_media_html if @issue.ideas_media.present?
       - if @ideas.size > 0 || (current_member && @my_ideas.size > 0)
         .category_list.grid_12.alpha.omega
