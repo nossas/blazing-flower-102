@@ -16,7 +16,7 @@
   .intro
     %img{ :src => @issue.image.url(:large), :width => "635", :height => "435" }
   .excerpt
-    %p=@issue.excerpt
+    %p=@issue.excerpt.gsub("\n", "<br />")
     .description
       %p=raw @issue.description.gsub("\n", "<br />")
     .see_more
