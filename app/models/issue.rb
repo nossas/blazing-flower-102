@@ -25,8 +25,8 @@ class Issue < ActiveRecord::Base
                     :styles => { :large => "630x435" },
                     :bucket => SITE['s3_bucket'],
                     :s3_credentials => {
-                      :access_key_id => SITE['s3_access_key_id'],
-                      :secret_access_key => SITE['s3_secret_access_key']
+                      :access_key_id => ENV["S3_ID"],
+                      :secret_access_key => ENV["S3_SECRET"]
                     },
                     :default_url => 'http://placehold.it/635x435'
 
@@ -35,8 +35,8 @@ class Issue < ActiveRecord::Base
                     :storage => :s3,
                     :bucket => SITE['s3_bucket'],
                     :s3_credentials => {
-                      :access_key_id => SITE['s3_access_key_id'],
-                      :secret_access_key => SITE['s3_secret_access_key']
+                      :access_key_id => ENV["S3_ID"],
+                      :secret_access_key => ENV["S3_SECRET"]
                     },
                     :default_url => 'http://placehold.it/100x75'
 

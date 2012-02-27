@@ -14,7 +14,7 @@
     Todas as transações com cartão de crédito favorecendo o Meu Rio são feitas através do MoIP, um prestador de serviços com segurança certificada pela Verisign e pela Site Blindado. Não daremos nenhum tipo de informação pessoal sua pra ninguém.
   %form{ :target => '_blank', :method => 'post', :action => 'https://www.moip.com.br/Process.do' }
     %input{ :type => 'hidden', :name => 'method', :value => 'donation' }
-    %input{ :type => 'hidden', :name => 'encrypted', :value => "#{SITE['moip_key']}" }
+      %input{ :type => 'hidden', :name => 'encrypted', :value => "#{ENV["MOIP_KEY"]}" }
     %input{ :type => 'hidden', :name => 'type', :value => '2' }
 
     %input{:type => :submit, :class => :btn, :value => "Faça Uma Doação" }

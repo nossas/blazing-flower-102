@@ -164,7 +164,7 @@ class Idea < ActiveRecord::Base
   end
 
   def self.url
-    @@url ||= SITE['doc_db_address']
+    @@url ||= ENV['DOC_DB_ADDRESS']
   rescue
     nil
   end

@@ -15,8 +15,8 @@ class AdminUser < ActiveRecord::Base
                     :storage => :s3,
                     :bucket => SITE['s3_bucket'],
                     :s3_credentials => {
-                      :access_key_id => SITE['s3_access_key_id'],
-                      :secret_access_key => SITE['s3_secret_access_key']
+                      :access_key_id => ENV["S3_ID"],
+                      :secret_access_key => ENV['S3_SECRET']
                     }
 
   validates_presence_of :email, :first_name, :last_name

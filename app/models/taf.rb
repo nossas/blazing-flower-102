@@ -31,8 +31,8 @@ class Taf < ActiveRecord::Base
                     :storage => :s3,
                     :bucket => SITE['s3_bucket'],
                     :s3_credentials => {
-                      :access_key_id => SITE['s3_access_key_id'],
-                      :secret_access_key => SITE['s3_secret_access_key']
+                      :access_key_id => ENV["S3_ID"],
+                      :secret_access_key => ENV["S3_SECRET"]
                     }
 
   has_attached_file :alternate_facebook_image,
@@ -41,8 +41,8 @@ class Taf < ActiveRecord::Base
                     :storage => :s3,
                     :bucket => SITE['s3_bucket'],
                     :s3_credentials => {
-                      :access_key_id => SITE['s3_access_key_id'],
-                      :secret_access_key => SITE['s3_secret_access_key']
+                      :access_key_id => ENV["S3_ID"],
+                      :secret_access_key => ENV["S3_SECRET"]
                     }
 
   has_attached_file :alternate_facebook_image_2,
@@ -51,8 +51,8 @@ class Taf < ActiveRecord::Base
                     :storage => :s3,
                     :bucket => SITE['s3_bucket'],
                     :s3_credentials => {
-                      :access_key_id => SITE['s3_access_key_id'],
-                      :secret_access_key => SITE['s3_secret_access_key']
+                      :access_key_id => ENV["S3_ID"],
+                      :secret_access_key => ENV["S3_SECRET"]
                     }
 
   has_attached_file :alternate_facebook_image_3,
@@ -61,8 +61,8 @@ class Taf < ActiveRecord::Base
                     :storage => :s3,
                     :bucket => SITE['s3_bucket'],
                     :s3_credentials => {
-                      :access_key_id => SITE['s3_access_key_id'],
-                      :secret_access_key => SITE['s3_secret_access_key']
+                      :access_key_id => ENV["S3_ID"],
+                      :secret_access_key => ENV["S3_SECRET"]
                     }
 
   has_attached_file :alternate_facebook_image_4,
@@ -71,8 +71,8 @@ class Taf < ActiveRecord::Base
                     :storage => :s3,
                     :bucket => SITE['s3_bucket'],
                     :s3_credentials => {
-                      :access_key_id => SITE['s3_access_key_id'],
-                      :secret_access_key => SITE['s3_secret_access_key']
+                      :access_key_id => ENV["S3_ID"],
+                      :secret_access_key => ENV["S3_SECRET"]
                     }
 
   def ok_to_display_copy_url?
