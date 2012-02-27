@@ -13,8 +13,7 @@ Feature: Creating an idea
     And I click "Dê uma ideia"
     And I should see "Nova ideia"
     And I should see "Batize sua ideia"
-    And I should see "Descreva-a em 140 caracteres..."
-    And I should see "O que o Meu Rio pode fazer pela sua ideia?"
+    And I should see "Descreva-a em 140 caracteres (relaxa, você vai poder escrever mais depois)"
     And I should see "Categoria"
     When I fill in my idea information
     Then My idea should be created for that issue
