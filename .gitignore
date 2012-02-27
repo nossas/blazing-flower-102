@@ -12,3 +12,4 @@ config/database.yml
 public/system/
 chromedriver.log
 public/uploads/idea_category
+config/initializers/01_envvars.rb
