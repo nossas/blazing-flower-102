@@ -43,7 +43,7 @@ class Petition < ActiveRecord::Base
   end
 
   def ok_to_display_counter?
-    self.display_counter && (self.petition_signatures.count >= self.counter_threshold)
+    self.display_counter && (self.petition_signatures.count + self.additional_signatures >= self.counter_threshold)
   end
 
   def percentage_complete
