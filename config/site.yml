@@ -1,0 +1,33 @@
+development: &defaults
+  site_url: 'localhost:3000'
+  default_from_email_address: "Dev <dev@meurio.org.br>"
+  ga_tracking_code: 'no-dev-tracking-code'
+  s3_bucket: 'meu-rio-production'
+  s3_export_bucket: 'meu-rio-development-exports'
+  fb_app_id: '177910022269006'
+  og_title: 'Meu Rio'
+  og_url: 'http://www.meurio.org.br'
+  og_image: 'http://www.meurio.org.br/assets/meu-rio.png'
+  og_description: "O Meu Rio é um movimento criado para incluir o cidadão comum nos processos de decisão que estão transformando o Rio de Janeiro. Se você também quer uma cidade mais justa, democrática e gostosa de se viver, faça parte do movimento!"
+  og_type: 'non_profit'
+  seo_author: "Meu Rio - contato@meurio.org.br"
+  seo_description: "O Meu Rio é um movimento criado para incluir o cidadão comum nos processos de decisão que estão transformando o Rio de Janeiro."
+  seo_keywords: "Rio de Janeiro, democracia, cidade mais justa, movimento, transformação, cidadão, inclusão"
+
+frontend:
+  <<: *defaults
+
+test:
+  <<: *defaults
+  ga_tracking_code: ''
+  default_from_email_address: "Test <test@meurio.org.br>"
+  s3_bucket: 'meu-rio-test'
+  s3_export_bucket: 'meu-rio-test-exports'
+
+production:
+  <<: *defaults
+  site_url: 'meurio.org.br'
+  default_from_email_address: "Meu Rio <contato@meurio.org.br>"
+  ga_tracking_code: 'UA-26278513-1'
+  s3_bucket: 'meu-rio-production'
+  s3_export_bucket: 'meu-rio-production-exports'
