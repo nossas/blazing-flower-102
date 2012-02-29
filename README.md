@@ -10,3 +10,8 @@ http://meurio.org.br :)
 ## Quer colaborar?
 
 Consulte a Wiki do projeto (lá em cima, ao lado de **"Issues"**) para instruções de como rodar o projeto na sua máquina e/ou colaborar com algum código bem maneiro teu. Your turn!
+
+
+## Shortcuts
+
+- **Instruções de uso** => https://github.com/meurio/meurio/wiki/Instru%C3%A7%C3%B5es-para-uso
