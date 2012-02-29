@@ -14,4 +14,4 @@ Consulte a Wiki do projeto (lá em cima, ao lado de **"Issues"**) para instruç�
 
 ## Shortcuts
 
-- **Instruções de uso** => https://github.com/meurio/meurio/wiki/Instru%C3%A7%C3%B5es-para-uso
+1. [Instruções de uso](https://github.com/meurio/meurio/wiki/Instru%C3%A7%C3%B5es-para-uso)
