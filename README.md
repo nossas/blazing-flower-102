@@ -16,6 +16,6 @@ Consulte a Wiki do projeto (lá em cima, ao lado de **"Issues"**) para instruç�
 
 1. [Instruções de uso](https://github.com/meurio/meurio/wiki/Instru%C3%A7%C3%B5es-para-uso)
 
-## Travis :heart:
+## Travis
 
 [![Build Status](https://secure.travis-ci.org/meurio/meurio.png?branch=master)](http://travis-ci.org/meurio/meurio)
