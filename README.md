@@ -15,3 +15,7 @@ Consulte a Wiki do projeto (lá em cima, ao lado de **"Issues"**) para instruç�
 ## Shortcuts
 
 1. [Instruções de uso](https://github.com/meurio/meurio/wiki/Instru%C3%A7%C3%B5es-para-uso)
+
+## Travis <3<3<3<3
+
+[![Build Status](https://secure.travis-ci.org/meurio/meurio.png?branch=master)](http://travis-ci.org/meurio/meurio)
