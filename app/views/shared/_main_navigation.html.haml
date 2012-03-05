@@ -13,7 +13,7 @@
                 =link_to issue.name, issue
           .list
             %ul
-              - for issue in @nav_issues - nav_issues.first(2) do
+              - for issue in @nav_issues - @nav_issues.first(2) do
                 %li.issue_pane
                   =link_to raw("#{issue.name}"), issue
       -else
