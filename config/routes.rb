@@ -1,4 +1,6 @@
 MeuRio::Application.routes.draw do
+  mount Doorkeeper::Engine => '/oauth'
+
   unless Rails.env == 'frontend'
     ActiveAdmin.routes(self)
     devise_for :admin_users, ActiveAdmin::Devise.config

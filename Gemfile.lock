@@ -102,6 +102,8 @@ GEM
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
     diff-lcs (1.1.3)
+    doorkeeper (0.3.1)
+      railties (~> 3.1)
     edgecase-git-pair (0.2.2)
     erubis (2.7.0)
     eventmachine (0.12.10)
@@ -375,6 +377,7 @@ DEPENDENCIES
   database_cleaner
   delayed_job
   devise (~> 1.4.2)
+  doorkeeper (~> 0.3.0)
   edgecase-git-pair
   factory_girl_rails
   faker

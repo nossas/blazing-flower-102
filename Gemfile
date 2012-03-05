@@ -102,3 +102,4 @@ group :production do
 end
 
 gem "koala"
+gem 'doorkeeper', '~> 0.3.0'
