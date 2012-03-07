@@ -1,6 +1,13 @@
 MeuRio::Application.routes.draw do
   mount Doorkeeper::Engine => '/oauth'
 
+  namespace :api do
+    namespace :v1 do
+      resources :profiles
+      get '/me' => "credentials#me"
+    end
+  end
+
   unless Rails.env == 'frontend'
     ActiveAdmin.routes(self)
     devise_for :admin_users, ActiveAdmin::Devise.config
