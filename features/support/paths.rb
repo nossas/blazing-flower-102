@@ -44,6 +44,8 @@ module NavigationHelpers
       issue_path(@issue)
     when /this petition page/
       custom_petition_path(@petition.custom_path)
+    when /the authentication page for this application/
+      Doorkeeper::Engine.routes.url_helpers.authorization_path(:response_type => "code", :client_id => @oauth_app.uid, :redirect_uri => @oauth_app.redirect_uri)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

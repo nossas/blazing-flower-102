@@ -7,7 +7,7 @@ Doorkeeper.configure do
     # to call them on routes object eg.
     # routes.new_user_session_path
     # e.g. User.find_by_id(session[:user_id]) || redirect_to(routes.new_user_session_path)
-    current_member || warden.authenticate!(:scope => :member)
+    current_member || redirect_to(routes.root_path(:anchor => "login"))
   end
 
   # If you want to restrict the access to the web interface for

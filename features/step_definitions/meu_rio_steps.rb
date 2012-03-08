@@ -33,3 +33,8 @@ end
 Given /^I have a friend called "([^"]*)"$/ do |arg1|
   Koala::Facebook::GraphAPI.any_instance.stub(:get_connections).with("me", "friends").and_return([{"name"=>arg1, "id"=>"2630"}])
 end
+
+
+Given /^there is an OAuth application called "([^"]*)"$/ do |arg1|
+  @oauth_app = Doorkeeper::Application.create :name => arg1, :redirect_uri => "http://locahost:3001"
+end

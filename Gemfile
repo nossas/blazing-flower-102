@@ -63,7 +63,6 @@ gem "faker"
 gem 'kaminari'
 gem 'simple_form'
 
-gem "simplecov", :require => false, :group => :test
 
 gem 'newrelic_rpm'
 

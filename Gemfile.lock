@@ -305,10 +305,6 @@ GEM
       actionpack (~> 3.0)
       activemodel (~> 3.0)
     simple_oauth (0.1.5)
-    simplecov (0.5.3)
-      multi_json (~> 1.0.3)
-      simplecov-html (~> 0.5.3)
-    simplecov-html (0.5.3)
     sinatra (1.0)
       rack (>= 1.0)
     slim (1.1.0)
@@ -404,7 +400,6 @@ DEPENDENCIES
   sass-rails
   shoulda-matchers
   simple_form
-  simplecov
   slim
   sprockets
   sqlite3 (= 1.3.3)

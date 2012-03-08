@@ -1,10 +1,3 @@
-require 'simplecov'
-SimpleCov.start 'rails'
-
-SimpleCov.start do
-  add_filter "/app/admin/"
-end
-
 #This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
