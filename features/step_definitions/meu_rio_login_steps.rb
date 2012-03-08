@@ -49,11 +49,6 @@ Then /^I should see a new member form$/ do
   page.should have_css("#member_first_name")
 end
 
-Then /^I should see a member login form$/ do
-  page.should have_css("form#member_new")
-  page.should_not have_css("#member_first_name")
-end
-
 Then /^I should see the homepage$/ do
   page.should have_content('De Olho No Legislativo')
   page.should have_content('Quer nos')
@@ -61,3 +56,7 @@ Then /^I should see the homepage$/ do
   page.should have_content('Rio Mais Justo?')
 end
 
+Then /^I should see a member login form$/ do
+  page.should have_css("form#member_new")
+  page.should_not have_css("#member_first_name")
+end

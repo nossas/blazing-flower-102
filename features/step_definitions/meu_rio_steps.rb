@@ -38,3 +38,7 @@ end
 Given /^there is an OAuth application called "([^"]*)"$/ do |arg1|
   @oauth_app = Doorkeeper::Application.create :name => arg1, :redirect_uri => "http://locahost:3001"
 end
+
+Then /^I should see a link to (.+)$/ do |path|
+  page.should have_css("a[href=\"#{path_to(path)}\"]")
+end

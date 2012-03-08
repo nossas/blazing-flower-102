@@ -46,6 +46,14 @@ module NavigationHelpers
       custom_petition_path(@petition.custom_path)
     when /the authentication page for this application/
       Doorkeeper::Engine.routes.url_helpers.authorization_path(:response_type => "code", :client_id => @oauth_app.uid, :redirect_uri => @oauth_app.redirect_uri)
+    when /the Facebook login/
+      "/members/auth/facebook"
+    when /the Orkut login/
+      "/members/auth/google"
+    when /the Google login/
+      "/members/auth/google"
+    when /the Meu Rio login/
+      "#mr_login"
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

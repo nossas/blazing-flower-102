@@ -94,6 +94,14 @@ MR = {
         $.get("/members/passwords/resend");
       });
 
+      $(window).bind('hashchange', MR.common.openLogin);
+      if(window.location.hash == '#login'){
+        MR.common.openLogin();
+      }
+    },
+
+    openLogin: function(){
+      $.facebox({ div: '#login' });
     },
 
     loadMemberRegistration : function() {
@@ -167,6 +175,7 @@ MR = {
       $.facebox.settings.closeImage = "/assets/closelabel.png";
       $.facebox.settings.loadingImage = "/assets/loading.gif";
       $("[rel=facebox]").facebox();
+      $(document).bind('close.facebox', function() { window.location.hash = ""; });
       $(document).bind('reveal.facebox', function() {
         $('#mr_login a').click(function(e){
           e.preventDefault();
