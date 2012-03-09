@@ -7,6 +7,7 @@ Doorkeeper.configure do
     # to call them on routes object eg.
     # routes.new_user_session_path
     # e.g. User.find_by_id(session[:user_id]) || redirect_to(routes.new_user_session_path)
+    session[:doorkeeper_redirect] = request.url
     current_member || redirect_to(routes.root_path(:anchor => "login"))
   end
 
