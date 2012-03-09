@@ -70,7 +70,7 @@ group :development, :test do
   gem 'heroku'
   gem 'sqlite3', '1.3.3'
   gem 'foreman'
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  #gem 'ruby-debug19', :require => 'ruby-debug'
   gem "edgecase-git-pair"
 
   gem "rspec-rails", "~> 2.6"
