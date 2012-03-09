@@ -1,9 +1,9 @@
 .authorize_wrapper
   .authorize
     .box_title
-      %p Autorização
+      %p Olá #{current_member.first_name}
     .span16
-      %h2 Autoriza #{@authorization.client.name} a utilizar a sua conta do Meu Rio?
+      %h2 #{@authorization.client.name} quer utilizar a sua conta do Meu Rio
     .span16
       - if @authorization.scopes
         %p This application will be able to:
