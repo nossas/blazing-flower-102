@@ -54,6 +54,10 @@ module NavigationHelpers
       "/members/auth/google"
     when /the Meu Rio login/
       "#mr_login"
+    when /the donation/
+      "#doe"
+    when /the TAF/
+      "#compartilhe"
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

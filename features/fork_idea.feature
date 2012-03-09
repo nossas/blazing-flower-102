@@ -9,14 +9,6 @@ Feature: Forking an idea
     Then I should see the idea title
     And I should see a fork idea button
 
-  
-  @javascript
-  Scenario: Trying to fork not logged in
-    Given 2 ideas exist
-    When I go to the first idea page
-    And I follow "fork_idea_button"
-    Then I should see the login dialog
-
   @javascript @omniauth_test
   Scenario: Trying to fork logged in
     Given I am logged in via Facebook
@@ -24,3 +16,10 @@ Feature: Forking an idea
     When I go to the first idea page
     And I follow "fork_idea_button"
     Then I should see the fork dialog
+
+  @javascript
+  Scenario: Trying to fork not logged in
+    Given 2 ideas exist
+    When I go to the first idea page
+    And I follow "fork_idea_button"
+    Then I should see the login dialog
