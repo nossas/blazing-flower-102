@@ -34,7 +34,8 @@
   .grid_6.alpha
     = form_for @letter do |form|
       = form.hidden_field :issue_id, :value => @issue.id
-      %h2 Escreva a sua carta para O Globo!
+      /
+        %h2 Escreva a sua carta para O Globo!
       %p
         = form.label :sender
         = form.text_field :sender
@@ -55,11 +56,13 @@
         = form.text_field :subject
       %p
         = form.label :message
-        = form.text_area :message, :value => "É um absurdo que depois de um ano em que os bombeiros, professores e médicos lutaram por aumentos salariais justos (e não receberam, ou receberam de forma insuficiente),  seja aprovado um aumento para o governador e secretários!\n\nUm reajuste de 6,5% para o governador e de 27,8% para o vice e os secretários (quando todos já ganharam 28% em 12/2010) é um desrespeito com a população. Se tem dinheiro para aumentar os próprios salários, tem dinheiro para dar condição de trabalho digna para os nossos profissionais.\n\nGovernador Sérgio Cabral, não sancione esse aumento!"
+        = form.text_area :message
       = form.submit "Enviar", :class => "btn"
-  
+
   .grid_6.omega
-    %p Na última quinta-feira nossos Deputados aprovaram um ultrajante reajuste de 6,5% no salário do Governador e de 27,8 no salário do Vice-Governador e Secretários. Isso quer dizer que o Governador, que atualmente recebe R$ 17.200 passará a receber R$ 18.300. E os secretários e o Vice-Governador terão seus salários reajustados de R$ 12.900 para R$ 16.400. 
-    %p Esse aumento é uma verdadeira sacanagem com os profissionais da Educação, Saúde, bombeiros e policiais militares que passaram um ano inteiro lutando por um reajuste digno. Vale lembrar que em 2010, o mesmo Governador, o mesmo Vice e os mesmos Secretários já haviam recebido um aumento de 28%! Enquanto isso, os funcionários da Saúde estão há anos sem NENHUM reajuste!
-    %p É uma vergonha para o Rio ser representado por um Governador que ignora funcionários que apelam por dignidade e favorece os já favorecidos. Não podemos deixar que ele sancione esse reajuste, afinal, os R$ 54 milhões que isso vai custar fariam muito mais diferença nas mãos de quem realmente merece e precisa. Se pressionarmos o jornal mais influente da cidade, ele terá que publicar nossa indignação. Mostraremos ao Governador que, se ele quiser aumentar o salário dele próprio e dos secretários, terá que aumentar o das outras categorias também. Depois disso, todas as cartas serão entregues ao próprio Governador.
-    %p Os Deputados da base governista argumentam que o aumento vai na verdade servir para aumentar o teto de todos os funcionários do Executivo. Mas eles escondem que, dos funcionários em atividade, apenas 42 servidores da PM, 3 mil auditores, menos de 2 mil Policiais Civis e 2 (!) Bombeiros, serão beneficiados. Essa medida é mais uma entre tantas outras que beneficia quem já está bem! Não por acaso, essa correção "diferenciada" foi proposta pela Comissão de Orçamento da Alerj, cujo presidente é o Deputado Coronel Jairo que também será contemplado pelo aumento. Não vamos deixar barato!
+    %p Na última quinta-feira 8 de março, prazo para que os questionamentos sobre as obras do Metrô no Rio fossem enviados à Comissão Estadual de Controle Ambiental (CECA), o Movimento Meu Rio, junto com diversas associações de moradores, entregaram um abaixo assinado ao presidente da comissão, Antônio Carlos Gusmão. As mais de 3.500 assinaturas do documento pediam a não concessão da licença ambiental para as obras de expansão da linha 1 do metrô. O presidente da Comissão protocolou a entrega e tirou uma foto no ato, que você pode conferir no nosso blog (meu-rio.tumblr.com/)
+
+    %p Aproveitamos a ocasião para saber mais sobre o processo de Licenciamento, e descobrimos que a CECA é constituída por um colegiado de 15 pessoas que representam instituições como o INEA, a FIRJAN, IBAMA o CREA e algumas universidades. São essas pessoas que decidem se a licença para a obra deve ou não ser concedida, baseada no Estudo de Impacto Ambiental do Governo. A licença ambiental é o último documento que impede as obras de continuarem e se ela for concedida é bem difícil que a sociedade tenha a chance de discutir qual é o melhor traçado de metrô para o Rio.
+
+
+    %p A CECA se reúne semanalmente para essas deliberações e a expectativa é que nas próximas semanas aconteça a reunião onde será dada a palavra final. Por isso, a partir do dia 12 de Março cada membro do Meu Rio vai enviar uma mensagem para cada um dos membros do colegiado pedindo que eles desconsiderem o EIA/RIMA apresentado pelo Governo, já que o mesmo possui erros grosseiros, como a afirmação de que o Rio é o estado mais populoso do País e de que a previsão de 6 passageiros por metro quadrado é um padrão razoável de conforto. O futuro do metrô do Rio está nas mãos dessas 15 pessoas e o Meu Rio vai fazer de tudo para que essa decisão não seja uma sentença para a cidade
