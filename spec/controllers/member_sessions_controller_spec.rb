@@ -34,4 +34,9 @@ describe MemberSessionsController do
     it{ session[:fb_token].should be_nil }
     it{ session[:google_login].should be_nil }
   end
+
+  describe "GET new" do
+    before { get :new }
+    it { should respond_with(:success) }
+  end
 end
