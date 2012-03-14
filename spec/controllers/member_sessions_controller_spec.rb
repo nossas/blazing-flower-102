@@ -2,17 +2,9 @@ require 'spec_helper'
 
 describe MemberSessionsController do
   include Devise::TestHelpers
-  subject{ response }
 
   before do
     request.env["devise.mapping"] = Devise.mappings[:member]
-  end
-
-  describe "#new" do
-    before do
-      get :new
-    end
-    its(:status){ should == 200 }
   end
 
   describe "#logout_google" do
