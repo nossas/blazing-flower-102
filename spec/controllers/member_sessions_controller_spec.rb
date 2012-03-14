@@ -2,8 +2,17 @@ require 'spec_helper'
 
 describe MemberSessionsController do
   include Devise::TestHelpers
+  subject{ response }
+
   before do
     request.env["devise.mapping"] = Devise.mappings[:member]
+  end
+
+  describe "#new" do
+    before do
+      get :new
+    end
+    its(:status){ should == 200 }
   end
 
   describe "#logout_google" do
@@ -11,7 +20,6 @@ describe MemberSessionsController do
       session[:google_login] = true
       get :google_logout
     end
-    subject{ response }
     it{ should redirect_to("https://www.google.com/accounts/Logout") }
   end
 
@@ -20,7 +28,6 @@ describe MemberSessionsController do
       session[:fb_token] = "api_key|session_key"
       get :facebook_logout
     end
-    subject{ response }
     it{ should redirect_to( destroy_member_session_path ) }
   end
 

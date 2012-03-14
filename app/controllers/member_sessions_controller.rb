@@ -6,7 +6,7 @@ class MemberSessionsController < Devise::SessionsController
       clean_up_passwords(resource)
       render :template => "/devise/sessions/new", :layout => false
     else
-      redirect_to root_path
+      render :template => "/devise/sessions/new", :layout => false
     end
   end
 
