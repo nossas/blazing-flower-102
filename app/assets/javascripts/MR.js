@@ -1,9 +1,10 @@
 MR = {
   editable: {
     defaults: {
-      tooltip: "Click to edit",
+      tooltip: "Clique para editar...",
       submit: "Ok",
-      cancel: "Cancel"
+      cancel: "Cancelar",
+      onblur: "ignore"
     }
   },
 
@@ -26,10 +27,6 @@ MR = {
 
       if(!MR.router){
         MR.router = new MR.Router();
-      }
-
-      if(App && App.editable){
-        $.extend(true, MR.editable, App.editable);
       }
 
       MR.common.closeFlash();
