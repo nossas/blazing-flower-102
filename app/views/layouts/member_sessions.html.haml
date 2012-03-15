@@ -1,10 +1,10 @@
 !!!
 %html
   %head
-    %title Faça login em outros sites com a sua conta do Meu Rio
-    = csrf_meta_tags
+    %title= yield :title
     = stylesheet_link_tag :application
+    = javascript_include_tag :application
+    = csrf_meta_tags
     = favicon_link_tag asset_path('favicon.png'), :type => "image/png"
-
   %body
     = yield
