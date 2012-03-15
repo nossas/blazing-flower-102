@@ -72,7 +72,10 @@ MR = {
         data = $form.serialize();
         $.post("/members/sign_in", data, function(data, textStatus, jqXHR){
           if(data.logged_in === true){
-            location.reload();
+            if (data.doorkeeper_redirect != null)
+              location = data.doorkeeper_redirect;
+            else
+              location.reload();
           }else{
             $errors.html("Email ou senha inválidos.");
             $errors.show();
