@@ -95,13 +95,13 @@ MR = {
       });
 
       $(window).bind('hashchange', MR.common.openLogin);
-      if(window.location.hash == '#login'){
-        MR.common.openLogin();
-      }
+      MR.common.openLogin();
     },
 
     openLogin: function(){
-      $.facebox({ div: '#login' });
+      if(window.location.hash == '#login'){
+        $.facebox({ div: '#login' });
+      }
     },
 
     loadMemberRegistration : function() {
