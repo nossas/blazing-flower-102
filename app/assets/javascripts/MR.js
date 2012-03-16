@@ -43,7 +43,7 @@ MR = {
 
       $("#new_registration #member_new").live('submit', function(e){
         e.preventDefault();
-        var $form = $(this), $errors = $("#errors");
+        var $form = $(this), $errors = $(".signup_errors");
         $errors.hide();
         if($form.valid()){
           var data = $form.serialize();
@@ -67,7 +67,7 @@ MR = {
 
       $("#sign_in_form #member_new").live('submit', function(e){
         e.preventDefault();
-        var $form = $(this), $errors = $("#errors");
+        var $form = $(this), $errors = $(".signin_errors");
         $errors.hide();
         data = $form.serialize();
         $.post("/members/sign_in", data, function(data, textStatus, jqXHR){
