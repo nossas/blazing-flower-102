@@ -1,5 +1,5 @@
 = form_for(resource, :as => resource_name, :url => "/members/sign_in") do |f|
-  #errors
+  .signin_errors
   %div.left.field
     = f.label :email
     = f.email_field :email
