@@ -11,4 +11,6 @@
         = link_to "Esqueceu sua senha?", new_password_path(resource_name), :class => "small"
         = f.submit t("sign_in"), :class => "btn"
   .grid_6
-    %h2 Criar conta
+    #new_registration
+      %h2 Criar conta
+      = render :partial => 'devise/registrations/signup_form'
