@@ -3,13 +3,7 @@
     %h2 Entrar
     #errors
     #sign_in_form
-      = form_for resource, :url => "/members/sign_in", :html => { :id => "member_new" } do |f|
-        = f.label :email
-        = f.email_field :email
-        = f.label :password
-        = f.password_field :password
-        = link_to "Esqueceu sua senha?", new_password_path(resource_name), :class => "small"
-        = f.submit t("sign_in"), :class => "btn"
+      = render :partial => 'devise/sessions/signin_form'
   .grid_6
     #new_registration
       %h2 Criar conta

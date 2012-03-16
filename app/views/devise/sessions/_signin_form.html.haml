@@ -1,0 +1,14 @@
+= form_for(resource, :as => resource_name, :url => "/members/sign_in") do |f|
+  #errors
+  %div.left.field
+    = f.label :email
+    = f.email_field :email
+  %div.right.field
+    = f.label :password
+    = f.password_field :password
+  - if devise_mapping.recoverable? && controller_name != 'passwords'
+    %div.left
+      = link_to "Esqueceu sua senha?", new_password_path(resource_name), :class => "small"
+  .clearfix
+  %div.right= f.submit t("sign_in"), :class => "btn"
+

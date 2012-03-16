@@ -1,19 +1,7 @@
 #sign_in_form
   %header
     %h2 ENTRAR
-  = form_for(resource, :as => resource_name, :url => "/members/sign_in") do |f|
-    #errors
-    %div.left.field
-      = f.label :email
-      = f.email_field :email
-    %div.right.field
-      = f.label :password
-      = f.password_field :password
-    - if devise_mapping.recoverable? && controller_name != 'passwords'
-      %div.left
-        = link_to "Esqueceu sua senha?", new_password_path(resource_name), :class => "small"
-    .clearfix
-    %div.right= f.submit t("sign_in"), :class => "btn"
+  = render :partial => 'devise/sessions/signin_form'
   .clearfix
   .back #{t('not_a_member')} #{link_to t('join_us') + '!', '#join'}
   .back=link_to t("go_back"), "#login"
