@@ -21,5 +21,6 @@
     = f.password_field :password_confirmation, :class => "required"
   .clearfix
   %br
-  %div.right= f.submit t("sign_up"), :class => "btn", :id => "sign_up_btn"
-
+  %div.right
+    = f.submit t("sign_up"), :class => "btn", :id => "sign_up_btn"
+    = image_tag "loading.gif", :class => "loader", :style => "display:none"

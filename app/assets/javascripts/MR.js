@@ -47,7 +47,11 @@ MR = {
         $errors.hide();
         if($form.valid()){
           var data = $form.serialize();
+          $form.find("input[type='submit']").hide();
+          $form.find("img[class='loader']").show();
           $.post("/members", data, function(data, textStatus, jqXHR){
+            $form.find("input[type='submit']").show();
+            $form.find("img[class='loader']").hide();
             if(data.errors != null){
               var error_data = '';
               for(error in data.errors){
@@ -70,7 +74,11 @@ MR = {
         var $form = $(this), $errors = $("#errors");
         $errors.hide();
         data = $form.serialize();
+        $form.find("input[type='submit']").hide();
+        $form.find("img[class='loader']").show();
         $.post("/members/sign_in", data, function(data, textStatus, jqXHR){
+          $form.find("input[type='submit']").show();
+          $form.find("img[class='loader']").hide();
           if(data.logged_in === true){
             if (data.doorkeeper_redirect != null)
               location = data.doorkeeper_redirect;
