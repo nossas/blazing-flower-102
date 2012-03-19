@@ -14,5 +14,4 @@ Feature: Authenticate in Meu Rio using OAuth
     Given I am logged in via Facebook
     And there is an OAuth application called "Verdade ou Consequencia"
     When I go to the authentication page for this application
-    Then show me the page
     Then I should see "Verdade ou Consequencia"
