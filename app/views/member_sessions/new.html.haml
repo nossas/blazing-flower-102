@@ -1,9 +1,9 @@
 .container_12
   .grid_6
-    %h2 Entrar
     #sign_in_form
+      %h2 Entrar
+      %p Se você já possui uma conta no Meu Rio entre com o seu usuário e senha
       = render :partial => 'devise/sessions/signin_form'
   .grid_6
     #new_registration
-      %h2 Criar conta
       = render :partial => 'devise/registrations/signup_form'

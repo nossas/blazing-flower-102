@@ -119,3 +119,16 @@ body[data-controller=ideas][data-action=index]
 .inline_block
   width: 36%
   float: left
+
+body[data-action=new][data-controller=member_sessions]
+  header
+    background: none
+    margin-top: 10px
+    margin-bottom: 10px
+  #sign_in_form, #new_registration
+    background: white
+    padding: 10px
+    +border-radius(10px)
+    +clearfix
+    header
+      margin-top: 0
