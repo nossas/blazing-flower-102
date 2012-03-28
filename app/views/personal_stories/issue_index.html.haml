@@ -11,8 +11,10 @@
   %meta{ :property => "og:url",         :content => request.url }
   %meta{ :property => "og:type",        :content => :video }
   %meta{ :property => "og:video",       :content => video_share_url(@current.video_url) }
+  %meta{ :property => "og:video:type",  :content => "application/x-shockwave-flash"}
+  %meta{ :property => "og:video:width", :content => "396" }
+  %meta{ :property => "og:video:height", :content => "297" }
   %meta{ :property => "og:site_name",   :content => "Meu Rio" }
-
 
 .grid_12
   .issue_name
