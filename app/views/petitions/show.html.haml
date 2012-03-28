@@ -11,18 +11,8 @@
   - content_for :facebook_properties do
     %meta{ :property => "og:description", :content => "#{@taf.facebook_message}" }
     %meta{ :property => "og:url", :content => "#{@taf.facebook_link}" }
-    %meta{ :property => "og:title",  :content => @petition.headline }
-
-
+    %meta{ :property => "og:title",  :content => @petition.taf.facebook_title }
     %meta{ :property => "og:image", :content => "#{@taf.facebook_image.url(:medium)}" }
-    -if @taf.alternate_facebook_image
-      %meta{ :property => "og:image", :content => "#{@taf.alternate_facebook_image.url(:medium)}" }
-    -if @taf.alternate_facebook_image_2
-      %meta{ :property => "og:image", :content => "#{@taf.alternate_facebook_image_2.url(:medium)}" }
-    -if @taf.alternate_facebook_image_3
-      %meta{ :property => "og:image", :content => "#{@taf.alternate_facebook_image_3.url(:medium)}" }
-    -if @taf.alternate_facebook_image_4
-      %meta{ :property => "og:image", :content => "#{@taf.alternate_facebook_image_4.url(:medium)}" }
 
   .grid_12
   .issue_name
