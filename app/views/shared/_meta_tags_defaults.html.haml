@@ -1,16 +1,16 @@
-- if not content_for? :meta_tags
+- unless content_for? :meta_tags
   - content_for :meta_tags do
     %meta{ :name => :description, :content => "#{SITE['seo_description']}"}
     %meta{ :name => :keywords, :content => "#{SITE['seo_keywords']}"}
     %meta{ :name => :author, :content => "#{SITE['seo_author']}"}
 
-- if not content_for? :facebook_properties
+- unless content_for? :facebook_properties
   - content_for :facebook_properties do
     %meta{ :property => "og:title",  :content => "#{SITE['og_title']}" }
     %meta{ :property => "og:image",       :content => "#{SITE['og_image']}" }
     %meta{ :property => "og:url",         :content => "#{SITE['og_url']}" }
     %meta{ :property => "og:description", :content => "#{SITE['og_description']}" }
 
-- if not content_for? :title
+- unless content_for? :title
   - content_for :title, "Meu Rio"
 

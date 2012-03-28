@@ -1,5 +1,5 @@
 - content_for :title, "Meu Rio - Direto da Gema - #{@current.title}"
-= content_for :meta_tags do
+- content_for :meta_tags do
   %meta{ :property => "og:image",       :content => @current.thumbnail }
   %meta{ :property => "og:title",       :content => @current.title }
   %meta{ :property => "og:description", :content => @current.description }
