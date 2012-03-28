@@ -1,8 +1,14 @@
-- content_for :title, "Meu Rio - Direto da Gema"
-=content_for :meta_tags do
-  %meta{ :property => "og:image",       :content => "#{SITE['og_image']}" }
-  %meta{ :property => "og:description", :content => "Direto da Gema, o Meu Rio exibe vídeos de cariocas contando suas histórias e dizendo o que o Rio de Janeiro está precisando ouvir. Assista e reflita." }
-  %meta{ :property => "og:url",         :content => "#{request.url}" }
+- content_for :title, "Meu Rio - Direto da Gema - #{@current.title}"
+= content_for :meta_tags do
+  %meta{ :property => "og:image",       :content => @current.thumbnail }
+  %meta{ :property => "og:title",       :content => @current.title }
+  %meta{ :property => "og:description", :content => @current.description }
+  %meta{ :property => "og:url",         :content => request.url }
+  %meta{ :property => "og:type",        :content => :video }
+  %meta{ :property => "og:video",       :content => @current.video_url }
+  %meta{ :property => "og:site_name",   :content => "Meu Rio" }
+
+
 .grid_12
   .issue_name
     .sprite.personal_story
@@ -26,14 +32,15 @@
         }
         var addthis_share = {
           templates: {
-            twitter: 'Direto da Gema, o Meu Rio exibe vídeos de cariocas contando suas histórias. Assista e reflita. {{url}}'
+            twitter: "Meu Rio, Direto da Gema: #{@current.title}. {{url}}"
           }
         }
       <!-- AddThis Button END -->
       %h2#current_title= @current.title
       #current_description= raw @current.description
       -if !@current.connected_action || @current.connected_action == "NONE" || (@current.connected_action == "DEBATE" && @debate.nil?) || (@current.connected_action == "PETITION" && @petition.nil?)
-        .sprite.arrow-down{:style => "display:none;"}
+        .sprite.arrow-down
+        = link_to "Compartilhe", "https://www.facebook.com/sharer/sharer.php?u=#{u(request.url)}", :target => :blank, :class => "btn take_action"
       -else
         .sprite.arrow-down
       -if !@debate.nil?
@@ -81,3 +88,4 @@
         }, 1);
       }
     });
+
