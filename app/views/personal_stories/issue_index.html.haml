@@ -1,5 +1,10 @@
 - content_for :title, "Meu Rio - Direto da Gema - #{@current.title}"
+
 - content_for :meta_tags do
+  %meta{ :name => "description", :content => @current.description }
+  %meta{ :name => "keywords", :content => SITE["seo_keywords"] }
+
+- content_for :facebook_properties do
   %meta{ :property => "og:image",       :content => @current.thumbnail }
   %meta{ :property => "og:title",       :content => @current.title }
   %meta{ :property => "og:description", :content => @current.description }
@@ -40,7 +45,7 @@
       #current_description= raw @current.description
       -if !@current.connected_action || @current.connected_action == "NONE" || (@current.connected_action == "DEBATE" && @debate.nil?) || (@current.connected_action == "PETITION" && @petition.nil?)
         .sprite.arrow-down
-        = link_to "Compartilhe", "https://www.facebook.com/sharer/sharer.php?u=#{u(request.url)}", :target => :blank, :class => "btn take_action"
+        = link_to "Compartilhe no facebook!", "https://www.facebook.com/sharer/sharer.php?u=#{u(request.url)}", :target => :blank, :class => "btn take_action"
       -else
         .sprite.arrow-down
       -if !@debate.nil?
