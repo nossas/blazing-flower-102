@@ -50,7 +50,7 @@ module MeuRio
     config.sass.load_paths << "#{Gem.loaded_specs['compass-960-plugin'].full_gem_path}/stylesheets"
 
     config.to_prepare do
-      Doorkeeper::ApplicationController.layout "authorization"
+      Doorkeeper::ApplicationController.layout "member_sessions"
     end
 
   end

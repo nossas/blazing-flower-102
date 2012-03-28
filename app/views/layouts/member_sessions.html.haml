@@ -6,5 +6,7 @@
     = javascript_include_tag :application
     = csrf_meta_tags
     = favicon_link_tag asset_path('favicon.png'), :type => "image/png"
-  %body
+  %body{'data-controller' => controller_name, 'data-action' => action_name }
+    .container_12
+      %header.grid_12= link_to image_tag("autofire_email_logo.png"), "/"
     = yield

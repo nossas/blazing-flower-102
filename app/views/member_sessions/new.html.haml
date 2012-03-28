@@ -1,12 +1,9 @@
 .container_12
   .grid_6
-    %h2 Entrar
-    = form_for resource, :url => "/members/sign_in" do |f|
-      = f.label :email
-      = f.email_field :email
-      = f.label :password
-      = f.password_field :password
-      = link_to "Esqueceu sua senha?", new_password_path(resource_name), :class => "small"
-      = f.submit t("sign_in"), :class => "btn"
+    #sign_in_form.box
+      %h2 Entrar
+      %p Se você já possui uma conta no Meu Rio entre com o seu usuário e senha
+      = render :partial => 'devise/sessions/signin_form'
   .grid_6
-    %h2 Criar conta
+    #new_registration.box
+      = render :partial => 'devise/registrations/signup_form'

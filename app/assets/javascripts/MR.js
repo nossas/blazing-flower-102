@@ -1,9 +1,10 @@
 MR = {
   editable: {
     defaults: {
-      tooltip: "Click to edit",
+      tooltip: "Clique para editar...",
       submit: "Ok",
-      cancel: "Cancel"
+      cancel: "Cancelar",
+      onblur: "ignore"
     }
   },
 
@@ -28,10 +29,6 @@ MR = {
         MR.router = new MR.Router();
       }
 
-      if(App && App.editable){
-        $.extend(true, MR.editable, App.editable);
-      }
-
       MR.common.closeFlash();
 
       MR.common.googleLogout();
@@ -46,11 +43,15 @@ MR = {
 
       $("#new_registration #member_new").live('submit', function(e){
         e.preventDefault();
-        var $form = $(this), $errors = $("#errors");
+        var $form = $(this), $errors = $(".signup_errors");
         $errors.hide();
         if($form.valid()){
           var data = $form.serialize();
+          $form.find("input[type='submit']").hide();
+          $form.find("img[class='loader']").show();
           $.post("/members", data, function(data, textStatus, jqXHR){
+            $form.find("input[type='submit']").show();
+            $form.find("img[class='loader']").hide();
             if(data.errors != null){
               var error_data = '';
               for(error in data.errors){
@@ -70,12 +71,19 @@ MR = {
 
       $("#sign_in_form #member_new").live('submit', function(e){
         e.preventDefault();
-        var $form = $(this), $errors = $("#errors");
+        var $form = $(this), $errors = $(".signin_errors");
         $errors.hide();
         data = $form.serialize();
+        $form.find("input[type='submit']").hide();
+        $form.find("img[class='loader']").show();
         $.post("/members/sign_in", data, function(data, textStatus, jqXHR){
+          $form.find("input[type='submit']").show();
+          $form.find("img[class='loader']").hide();
           if(data.logged_in === true){
-            location.reload();
+            if (data.doorkeeper_redirect != null)
+              location = data.doorkeeper_redirect;
+            else
+              location.reload();
           }else{
             $errors.html("Email ou senha inválidos.");
             $errors.show();

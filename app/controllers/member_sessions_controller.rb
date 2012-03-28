@@ -12,7 +12,7 @@ class MemberSessionsController < Devise::SessionsController
     if resource
       set_flash_message(:notice, :signed_in) if is_navigational_format?
       sign_in(resource_name, resource)
-      return render :json => { :logged_in => true, :flash => flash[:notice] }
+      return render :json => { :logged_in => true, :flash => flash[:notice], :doorkeeper_redirect => session.delete(:doorkeeper_redirect) }
     else
       return render :json => { :logged_in => false }
     end

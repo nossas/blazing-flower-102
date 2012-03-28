@@ -1,31 +1,9 @@
 #new_registration
-  %header
-    %h2=t("create_MR_account")
-  %p=t("create_MR_account_intro")
-  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-    #errors
-    %div.left.field
-      = f.label :first_name
-      = f.text_field :first_name, :class => "required"
-    %div.right.field
-      = f.label :last_name
-      = f.text_field :last_name, :class => "required"
-    .clearfix
-    %div.left.field.register
-      = f.label :email
-      = f.email_field :email, :class => "required email"
-    %div.left.field
-      = f.label :password
-      = f.password_field :password, :class => "required"
-    %div.right.field
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation, :class => "required"
-    .clearfix
-    %br
-    %div.right= f.submit t("sign_up"), :class => "btn", :id => "sign_up_btn"
+  = render :partial => 'devise/registrations/signup_form'
   .left
     .back=link_to t('already_have_an_account'), "#login" 
     .back=link_to t("go_back"), "#join"
   .clearfix
   .policy.small
     O Meu Rio protege a #{link_to("sua privacidade", page_path("privacidade"), :target => "_blank")} e o manterá informado sobre esta e outras campanhas.
+

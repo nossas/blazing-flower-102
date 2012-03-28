@@ -42,3 +42,9 @@ end
 Then /^I should see a link to (.+)$/ do |path|
   page.should have_css("a[href=\"#{path_to(path)}\"]")
 end
+
+Then /^I should see the sign in form$/ do
+  page.should have_css("form[action=\"/members/sign_in\"]")
+  page.should have_css("input[name=\"member[email]\"]")
+  page.should have_css("input[name=\"member[password]\"]")
+end
