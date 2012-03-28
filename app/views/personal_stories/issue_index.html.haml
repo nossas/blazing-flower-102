@@ -10,7 +10,7 @@
   %meta{ :property => "og:description", :content => @current.description }
   %meta{ :property => "og:url",         :content => request.url }
   %meta{ :property => "og:type",        :content => :video }
-  %meta{ :property => "og:video",       :content => @current.video_url }
+  %meta{ :property => "og:video",       :content => video_share_url(@current.video_url) }
   %meta{ :property => "og:site_name",   :content => "Meu Rio" }
 
 

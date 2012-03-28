@@ -1,6 +1,12 @@
 module ApplicationHelper
   require 'httparty'
 
+  def video_share_url(youtube_link)
+    url = URI(youtube_link)
+    id = Hash[url.query.split("&").map { |p| p.split("=")  }]["v"]
+    "http://youtube.com/v/#{id}"
+  end
+
   def clippy(text, bgcolor='#FFFFFF')
     html = <<-EOF
     <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
