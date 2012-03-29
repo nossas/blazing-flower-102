@@ -2,9 +2,10 @@ module ApplicationHelper
   require 'httparty'
 
   def video_share_url(video_link)
-    url = URI(video_link)
-    id = Hash[url.query.split("&").map { |p| p.split("=")  }]["v"]
-    id ? "http://youtube.com/v/#{id}?version=3&amp;autohide=1" : video_link
+    return nil if Rails.env.test?
+    uri = URI.parse(video_link)
+    q = CGI.parse(uri.query)
+    q['v'].first ? "http://youtube.com/v/#{q['v'].first}?version=3&amp;autohide=1" : video_link
   end
 
   def clippy(text, bgcolor='#FFFFFF')
