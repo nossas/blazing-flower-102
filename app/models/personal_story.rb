@@ -30,7 +30,7 @@ class PersonalStory < ActiveRecord::Base
       self.thumbnail = "http://img.youtube.com/vi/#{id}/0.jpg"
 
     when /videolog\.tv/
-      id = Hash[url.query.split("&").map(&:split)]['id']
+      id = Hash[url.query.split("&").map { |p| p.split("=") }]['id']
       self.video_embed_code = "<iframe class='youtube-player' type='text/html' width='570' height='320' src='http://embed.videolog.tv/v/index.php?id_video=#{id}&width=570&height=320&swf=1' frameborder='0'></iframe>"
       self.thumbnail = "http://videolog.tv/video_thumb.php?video=#{id}"
     end
