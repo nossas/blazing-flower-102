@@ -4,7 +4,7 @@ module ApplicationHelper
   def video_share_url(youtube_link)
     url = URI(youtube_link)
     id = Hash[url.query.split("&").map { |p| p.split("=")  }]["v"]
-    "http://youtube.com/v/#{id}?version=3&amp;autohide=1"
+    "http://youtube.com/v/#{id}?version=3&amp;autohide=1" if id
   end
 
   def clippy(text, bgcolor='#FFFFFF')
