@@ -48,10 +48,7 @@
       .action{ :style => "text-align: center" }
         - unless @petition.nil?
           = link_to "Assine a petição", issue_custom_petition_path(@issue.id, @petition.custom_path), :class => "btn take action petition"
-          %p e compartilhe com os seus amigos
-
-
-
+          %span{:style => "margin: 10px 0"} e compartilhe com os seus amigos
         = link_to "Compartilhe no facebook!", "https://www.facebook.com/sharer/sharer.php?u=#{u(request.url)}", :target => :blank, :class => "btn take_action"
 
       -if !@current.connected_action || @current.connected_action == "NONE" || (@current.connected_action == "DEBATE" && @debate.nil?) || (@current.connected_action == "PETITION" && @petition.nil?)
