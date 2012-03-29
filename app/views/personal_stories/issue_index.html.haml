@@ -45,10 +45,10 @@
       <!-- AddThis Button END -->
       %h2#current_title= @current.title
       #current_description= raw @current.description
-      .action{ :style => "text-align: center" }
+      .action{ :style => "text-align: center; margin-top: 10px" }
         - unless @petition.nil?
           = link_to "Assine a petição", issue_custom_petition_path(@issue.id, @petition.custom_path), :class => "btn take action petition"
-          %span{:style => "margin: 10px 0"} e compartilhe com os seus amigos
+          %span{:style => "display: block; margin: 10px 0"} e compartilhe com os seus amigos
         = link_to "Compartilhe no facebook!", "https://www.facebook.com/sharer/sharer.php?u=#{u(request.url)}", :target => :blank, :class => "btn take_action"
 
       -if !@current.connected_action || @current.connected_action == "NONE" || (@current.connected_action == "DEBATE" && @debate.nil?) || (@current.connected_action == "PETITION" && @petition.nil?)
