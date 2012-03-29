@@ -7,7 +7,7 @@
 - content_for :facebook_properties do
   %meta{ :property => "og:image",       :content => @current.thumbnail }
   %meta{ :property => "og:title",       :content => @current.title }
-  %meta{ :property => "og:description", :content => @current.description }
+  %meta{ :property => "og:description", :content => "#{@current.description} - #{link_to "Assine a petição", issue_custom_petition_path(@issue.id, @issue.featured_petition.custom_path)}" }
   %meta{ :property => "og:url",         :content => request.url }
   %meta{ :property => "og:type",        :content => :video }
   %meta{ :property => "og:video",       :content => video_share_url(@current.video_url) }
