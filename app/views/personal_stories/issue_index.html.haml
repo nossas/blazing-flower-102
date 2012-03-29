@@ -46,11 +46,9 @@
       %h2#current_title= @current.title
       #current_description= raw @current.description
       .action{ :style => "text-align: center; margin-top: 10px" }
-        - unless @petition.nil?
-          = link_to "Assine a petição", issue_custom_petition_path(@issue.id, @petition.custom_path), :class => "btn take action petition"
+        - unless @petition.nil? and @current.connected_action != "PETITION"
+          = link_to "Assine a petição", issue_custom_petition_path(@issue.id, @issue.featured_petition.custom_path), :class => "btn take action petition"
           %span{:style => "display: block; font-size: 12px; margin: 10px 0"}
-        = link_to "Compartilhe no facebook!", "https://www.facebook.com/sharer/sharer.php?u=#{u(request.url)}", :target => :blank, :class => "btn"
-
       -if !@current.connected_action || @current.connected_action == "NONE" || (@current.connected_action == "DEBATE" && @debate.nil?) || (@current.connected_action == "PETITION" && @petition.nil?)
         /.sprite.arrow-down
 
@@ -66,6 +64,11 @@
           =link_to t("video_show.take_action_link"), issue_custom_petition_path(@issue.id, @petition.custom_path), :class => "btn take_action petition", :style => "display: none;"
         -else
           =link_to t("video_show.take_action_link"), issue_custom_petition_path(@issue.id, @petition.custom_path), :class => "btn take_action petition"
+
+        // Share feature for every petition
+        = link_to "Compartilhe no facebook!", "https://www.facebook.com/sharer/sharer.php?u=#{u(request.url)}", :target => :blank, :class => "btn"
+
+
   .clearfix
 .grid_12.video_thumbs
   .story_list
