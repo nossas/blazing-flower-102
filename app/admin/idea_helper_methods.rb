@@ -3,7 +3,7 @@ ActiveAdmin.register IdeaHelpMethod do
   menu :label => "Métodos de ajuda", :parent => "Imagine", :priority => 0
 
   filter :name, :label => "Nome"
-  filter :issue, :as => :select, :label => "Campanha", :collection => Issue.all
+  filter :issue, :as => :select, :label => "Campanha", :collection => lambda { Issue.all }
 
 
   index do

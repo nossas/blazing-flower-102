@@ -3,7 +3,7 @@ ActiveAdmin.register IdeaCategory do
   menu :label => "Categorias", :parent => "Imagine", :priority => 1
 
   filter :name, :label => "Nome"
-  filter :issue, :as => :select, :label => "Campanha", :collection => Issue.all
+  filter :issue, :as => :select, :label => "Campanha", :collection => lambda { Issue.all }
 
 
   index do
