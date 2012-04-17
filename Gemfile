@@ -27,13 +27,13 @@ gem 'httparty'
 # Asset template engines
 gem 'haml'
 gem 'slim'
+gem 'sass-rails'
 
 # Model extensions
 gem 'auto_html'
 
 # Asset template engines
 group :assets do
-  gem 'sass-rails'
   gem "compass", "~> 0.12.alpha.0"
   gem 'compass-960-plugin'
   gem 'coffee-script'
