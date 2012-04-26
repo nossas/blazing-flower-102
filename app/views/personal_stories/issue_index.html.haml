@@ -54,7 +54,7 @@
         /.sprite.arrow-down
 
       -else
-        .sprite.arrow-down
+        /.sprite.arrow-down
       -if !@debate.nil?
         -if @current.connected_action != "DEBATE"
           =link_to t("video_show.join_the_debate_link"), issue_debate_path(@issue.id, @debate.id), :class => "btn take_action debate", :style => "display: none;"
