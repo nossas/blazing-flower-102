@@ -7,7 +7,8 @@
 - content_for :facebook_properties do
   %meta{ :property => "og:image",       :content => @current.thumbnail }
   %meta{ :property => "og:title",       :content => @current.title }
-  %meta{ :property => "og:description", :content => "#{@current.description} - Assine a petição: #{issue_custom_petition_url(@issue.id, @issue.featured_petition.custom_path)}" }
+  - unless @petition.nil? and @current.connected_action != "PETITION" and @issue.featured_petition.custom_path
+    %meta{ :property => "og:description", :content => "#{@current.description} - Assine a petição: #{issue_custom_petition_url(@issue.id, @issue.featured_petition.custom_path)}" }
   %meta{ :property => "og:url",         :content => request.url }
   %meta{ :property => "og:type",        :content => :video }
   %meta{ :property => "og:video",       :content => video_share_url(@current.video_url) }
@@ -46,7 +47,7 @@
       %h2#current_title= @current.title
       #current_description= raw @current.description
       .action{ :style => "text-align: center; margin-top: 10px" }
-        - unless @petition.nil? and @current.connected_action != "PETITION"
+        - unless @petition.nil? and @current.connected_action != "PETITION" and !@issue.featured_petition.custom_path.nil?
           = link_to "Assine a petição", issue_custom_petition_path(@issue.id, @issue.featured_petition.custom_path), :class => "btn take action petition"
           %span{:style => "display: block; font-size: 12px; margin: 10px 0"}
       -if !@current.connected_action || @current.connected_action == "NONE" || (@current.connected_action == "DEBATE" && @debate.nil?) || (@current.connected_action == "PETITION" && @petition.nil?)
@@ -59,12 +60,6 @@
           =link_to t("video_show.join_the_debate_link"), issue_debate_path(@issue.id, @debate.id), :class => "btn take_action debate", :style => "display: none;"
         -else
           =link_to t("video_show.join_the_debate_link"), issue_debate_path(@issue.id, @debate.id), :class => "btn take_action debate"
-      -if !@petition.nil?
-        -if @current.connected_action != "PETITION"
-          =link_to t("video_show.take_action_link"), issue_custom_petition_path(@issue.id, @petition.custom_path), :class => "btn take_action petition", :style => "display: none;"
-        -else
-          =link_to t("video_show.take_action_link"), issue_custom_petition_path(@issue.id, @petition.custom_path), :class => "btn take_action petition"
-
       .action{ :style => "text-align: center" }
         // Share feature for every petition
         = link_to "Compartilhe no facebook!", "https://www.facebook.com/sharer/sharer.php?u=#{u(request.url)}", :target => :blank, :class => "btn"
