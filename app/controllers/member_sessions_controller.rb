@@ -25,7 +25,7 @@ class MemberSessionsController < Devise::SessionsController
   end
 
   def google_logout
-    redirect_to("https://www.google.com/accounts/Logout")
+    #redirect_to("https://www.google.com/accounts/Logout")
   end
 
   def facebook_logout
