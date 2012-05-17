@@ -35,14 +35,18 @@ class Member < ActiveRecord::Base
       member
     else
       gravatar = (email ? "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png" : nil)
-      self.create!(
-        :email => email, 
-        :first_name => data["first_name"], 
-        :last_name => data["last_name"],
-        :image_url => gravatar,
-        :confirmed_at => Time.now,
-        :has_non_oauth_login => false,
-        :has_login => true )
+      begin
+        self.create!(
+          :email => email, 
+          :first_name => data["first_name"], 
+          :last_name => data["last_name"],
+          :image_url => gravatar,
+          :confirmed_at => Time.now,
+          :has_non_oauth_login => false,
+          :has_login => true )
+      rescue e
+        raise "#{e.inspect}\nUser hash: #{access_token.inspect}"
+      end
     end
   end
 
