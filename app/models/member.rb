@@ -34,7 +34,7 @@ class Member < ActiveRecord::Base
       member
     else
       gravatar = (data['email'] ? "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(data['email'])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png" : nil)
-      self.create(
+      self.create!(
         :email => data["email"], 
         :first_name => data["first_name"], 
         :last_name => data["last_name"],
