@@ -44,7 +44,7 @@ class Member < ActiveRecord::Base
           :confirmed_at => Time.now,
           :has_non_oauth_login => false,
           :has_login => true )
-      rescue e
+      rescue => e
         raise "#{e.inspect}\nUser hash: #{access_token.inspect}"
       end
     end
