@@ -29,13 +29,14 @@ class Member < ActiveRecord::Base
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token['extra']['user_hash']
-    if member = find_by_email(data["email"])
-      member.update_attributes(:image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(data['email'])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png") if member.image_url.nil?
+    email = access_token['user_info']['email']
+    if member = find_by_email(email)
+      member.update_attributes(:image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png") if member.image_url.nil?
       member
     else
-      gravatar = (data['email'] ? "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(data['email'])}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png" : nil)
+      gravatar = (email ? "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png" : nil)
       self.create!(
-        :email => data["email"], 
+        :email => email, 
         :first_name => data["first_name"], 
         :last_name => data["last_name"],
         :image_url => gravatar,
