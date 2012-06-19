@@ -81,7 +81,7 @@ group :test do
   gem "database_cleaner"
   gem "awesome_print"
   gem "fakeweb"
-  gem 'factory_girl_rails'
+  gem "factory_girl_rails", "~> 1.0.1"
   gem "faker"
 end
 
