@@ -31,7 +31,6 @@ MR = {
 
       MR.common.closeFlash();
 
-      MR.common.googleLogout();
       MR.common.faceboxInit();
       MR.common.setBodyBackgroundClass();
       MR.common.setupLogoAnimation();
@@ -190,12 +189,6 @@ MR = {
           var $content = $(".popup .content");
           $content.load("/members/sign_in");
         });
-      });
-    },
-
-    googleLogout: function(){
-      $('iframe#google_logout_iframe').load(function(){
-        window.location.href = "/logout";
       });
     },
 
