@@ -1,7 +1,6 @@
 source "http://rubygems.org"
 source "http://gems.github.com"
 
-# gem 'rails',  :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
 gem 'rails', '~> 3.1'
 gem 'jquery-rails'
 gem 'inherited_resources'
@@ -12,6 +11,7 @@ gem 'cancan'
 
 # Administration
 gem 'activeadmin'
+gem 'heroku'
 gem 'thin'
 
 gem "rest-client"
@@ -33,7 +33,6 @@ gem 'auto_html'
 
 # Asset template engines
 group :assets do
-
   gem "compass-rails"
   gem 'compass-960-plugin', :git => "git@github.com:runeroniek/compass-960-plugin.git"
   gem 'sass-rails', '~> 3.1.3'
@@ -43,7 +42,6 @@ end
 
 # Temporary pulling current sprockets source, to avoid plethora of output while tests run
 gem 'sprockets'
-
 gem 'state_machine'
 gem 'delayed_job'
 
@@ -51,55 +49,42 @@ gem 'delayed_job'
 gem 'pg'
 gem 'foreigner'
 
+# Cache + Upload
 gem 'dalli'
 gem 'paperclip'
 gem 'fog'
 gem 'carrierwave'
 
-# Including so we can run the complete petition rake task for demos
-gem 'factory_girl_rails'
-gem "faker"
-
-# View helpers
 gem 'kaminari'
 gem 'simple_form'
 
-
-gem 'newrelic_rpm'
-
-group :development, :test do
-  gem 'heroku'
-  gem 'sqlite3', '1.3.3'
-  gem 'foreman'
-  #gem 'ruby-debug19', :require => 'ruby-debug'
-  gem "edgecase-git-pair"
-
-  gem "rspec-rails", "~> 2.6"
-  gem "shoulda-matchers"
-
-  #gem "mailcatcher"
+group :development do 
   gem "taps"
-
-  gem "autotest-rails"
-  gem "autotest-growl"
-  # gem "autotest-fsevent"
-
-  gem "cucumber-rails"
-  gem "capybara"
-
-  gem "database_cleaner"
-
-  gem "awesome_print"
-  gem "fakeweb"
+  gem 'foreman'
 end
 
 group :production do
-  # Performance Monitoring
-  # gem 'newrelic_rpm'
-
-  # Heroku Cedar needs to have the webserver specified (otherwise it will run webrick)
-  gem 'thin'
+  gem 'newrelic_rpm'
 end
+
+group :development, :test do
+  gem "rspec-rails", "~> 2.6"
+end
+
+group :test do
+  gem "shoulda-matchers"
+  gem "edgecase-git-pair"
+  gem "autotest-rails"
+  gem "autotest-growl"
+  gem "cucumber-rails"
+  gem "capybara"
+  gem "database_cleaner"
+  gem "awesome_print"
+  gem "fakeweb"
+  gem 'factory_girl_rails'
+  gem "faker"
+end
+
 
 gem "koala"
 gem 'doorkeeper', '~> 0.3.0'
