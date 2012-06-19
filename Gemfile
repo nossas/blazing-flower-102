@@ -54,7 +54,7 @@ gem 'dalli'
 gem 'paperclip'
 gem 'fog'
 gem 'carrierwave'
-
+gem 'has_scope'
 gem 'kaminari'
 gem 'simple_form'
 
