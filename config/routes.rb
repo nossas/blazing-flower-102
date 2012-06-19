@@ -52,7 +52,7 @@ MeuRio::Application.routes.draw do
   end
   match 'debates/:id/load_comments/:page' => "debates#load_comments"
   resources :personal_stories, :only => [:show]
-  resources :members, :only => [ :update ]
+  resources :members, :only => [ :update, :index ]
   match "membros/:id" => "members#show", :as => "member"
   match "na_atividade/:issue_id/direto_da_gema" => "personal_stories#issue_index", :as => "issue_personal_stories"
   match "na_atividade/:issue_id/direto_da_gema/:id" => "personal_stories#issue_index", :as => "issue_personal_story"
