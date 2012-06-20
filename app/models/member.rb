@@ -27,6 +27,8 @@ class Member < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :omniauthable, :recoverable, :confirmable
 
+  scope :by_updated_at, proc {|updated_at| where("updated_at >= ?", updated_at)}
+
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token['extra']['user_hash']
     email = access_token['user_info']['email']
