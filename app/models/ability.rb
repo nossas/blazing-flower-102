@@ -6,8 +6,6 @@ class Ability
     user ||= AdminUser.new
     if user.admin?
       can :manage, :all
-    # elsif user.campaigner?
-    #   can :manage, :petitions
     else
       can :read, :petitions
     end

@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
 
   before_filter { @nav_issues = Issue.order('id DESC') }
 
+
+  def check_mrdash_token
+    if ENV['DASH_TOKEN'] != params[:token] 
+      render :nothing => true, :status => :unauthorized 
+    end
+  end
+
  # Overwriting the sign_out and sign_in redirect path method
   def after_sign_in_path_for(resource_or_scope)
     return_path = session.delete(:return_path)

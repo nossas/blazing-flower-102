@@ -7,5 +7,5 @@ class MembersController < ApplicationController
   respond_to :json, only: [:index]
   respond_to :html, :only => [ :show, :update ]
 
-  before_filter only: [:index] { if ENV['DASH_TOKEN'] != params[:token] then render :nothing => true, :status => :unauthorized end }
+  before_filter only: [:index] { check_mrdash_token }
 end

@@ -1,8 +1,25 @@
 class IssuesController < ApplicationController
+
+  
+  inherit_resources
+  has_scope :page, default: 1
+
+  respond_to to: :html, except: [:index]
+  respond_to to: :json
+
+  before_filter only: [:index, :show, :signers] do 
+    if request.format.json?
+      check_mrdash_token
+    end
+  end
   before_filter { @current_page = "issue" }
 
-  def show
-    @issue = Issue.find(params[:id])
+  def index
+    render json: collection
+  end
+
+  def signers
+    render json: resource.signers
   end
 
   def archive
@@ -10,8 +27,8 @@ class IssuesController < ApplicationController
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
 
-    @issues = Issue.has_articles
-    @issue = Issue.where(:id => params[:id]).first
+    @issues = collection.has_articles
+    @issue  = resource 
 
     @articles = (@issue.petitions.where(:state => 'published') + @issue.petitions.where(:state => 'archived') + @issue.debates + @issue.personal_stories).sort{ |a, b| b.created_at <=> a.created_at }
 
@@ -37,5 +54,4 @@ class IssuesController < ApplicationController
       render :json => {:articles => @articles, :issue => @issue, :start => @articles_start, :end => @articles_end, :count => @article_count, :page => @page }
     end
   end
-
 end

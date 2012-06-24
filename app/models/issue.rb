@@ -10,6 +10,7 @@ class Issue < ActiveRecord::Base
   validates_length_of :personal_story_call_to_action, :in => MIN_CALL_TO_ACTION_LENGTH..MAX_CALL_TO_ACTION_LENGTH, :allow_blank => true
 
   has_many :petitions, :dependent => :destroy
+  has_many :petition_signatures, :through => :petitions
   has_many :debates, :dependent => :destroy
   has_many :personal_stories, :dependent => :destroy
   has_many :ideas, :dependent => :destroy
@@ -48,4 +49,7 @@ class Issue < ActiveRecord::Base
     vimeo(:width => 570, :height => 320)
   end
 
+  def signers
+    self.petition_signatures.map(&:member)
+  end
 end

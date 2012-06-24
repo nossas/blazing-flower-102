@@ -13,6 +13,14 @@ MeuRio::Application.routes.draw do
     devise_for :admin_users, ActiveAdmin::Devise.config
   end
 
+  # Api routes
+  resources :issues, only: [:index, :show] do
+    member do 
+      get 'signers'
+    end
+  end
+
+
   namespace :admin do
     get 'preview/assine_embaixo/:id' => "petitions#preview", :as => "preview_petition"
     get 'petitions/:id/publish' => "petitions#publish", :as => "publish_petition"
