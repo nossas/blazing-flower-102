@@ -76,7 +76,7 @@ group :test do
   gem "edgecase-git-pair"
   gem "autotest-rails"
   gem "autotest-growl"
-  gem "cucumber-rails"
+  gem "cucumber-rails", require: false
   gem "capybara"
   gem "database_cleaner"
   gem "awesome_print"
