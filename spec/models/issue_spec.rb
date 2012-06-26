@@ -21,17 +21,4 @@ describe Issue do
   it { should belong_to :featured_personal_story }
   it { should have_many :debates }
   it { should belong_to :featured_debate }
-
-  describe "#signers" do
-    before do
-      @issue    = Factory.create(:issue)
-      @petition = Factory.create(:complete_petition, issue: @issue).tap { |p| p.publish }
-      @signature_1 = Factory.create(:petition_signature, petition: @petition)
-      @signature_2 = Factory.create(:petition_signature, petition: @petition)
-    end
-    subject { @issue.signers }
-    it "Should return all petitioners for the given issue" do
-      subject.should include(@signature_1.member, @signature_2.member)
-    end
-  end
 end

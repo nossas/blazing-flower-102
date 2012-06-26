@@ -1,13 +1,10 @@
 class IssuesController < ApplicationController
-
-  
   inherit_resources
-  has_scope :page, default: 1
 
   respond_to to: :html, except: [:index]
   respond_to to: :json
 
-  before_filter only: [:index, :show, :signers] do 
+  before_filter only: [:index, :show, :signatures] do 
     if request.format.json?
       check_mrdash_token
     end
@@ -16,10 +13,6 @@ class IssuesController < ApplicationController
 
   def index
     render json: collection
-  end
-
-  def signers
-    render json: resource.signers
   end
 
   def archive

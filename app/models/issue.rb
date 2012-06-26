@@ -49,7 +49,4 @@ class Issue < ActiveRecord::Base
     vimeo(:width => 570, :height => 320)
   end
 
-  def signers
-    self.petition_signatures.map(&:member)
-  end
 end

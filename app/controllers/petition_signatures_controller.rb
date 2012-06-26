@@ -1,9 +1,21 @@
 class PetitionSignaturesController < ApplicationController
-  def index
-    @petition_signature = PetitionSignature.joins(:member).where(['members.email = ? AND petition_signatures.petition_id = ?', params[:email], params[:petition_id]]).first
-    respond_to do |format|
-      format.json { render :json => @petition_signature.to_json }
+  has_scope :page, default: 1
+  has_scope :by_updated_at
+
+  inherit_resources
+
+  before_filter only: [:index] do
+    if not params[:email] and !params[:petition_id]
+      check_mrdash_token
     end
+  end
+
+  def index
+    if params[:email] and params[:petition_id]
+      @petition_signature = PetitionSignature.joins(:member).
+        where(['members.email = ? AND petition_signatures.petition_id = ?', params[:email], params[:petition_id]]).first
+    end
+    render json: @petition_signature.to_json || @petition_signatures.to_json(:include => :member)
   end
 
   def create
