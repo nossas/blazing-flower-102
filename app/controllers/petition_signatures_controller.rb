@@ -15,7 +15,9 @@ class PetitionSignaturesController < ApplicationController
       @petition_signature = PetitionSignature.joins(:member).
         where(['members.email = ? AND petition_signatures.petition_id = ?', params[:email], params[:petition_id]]).first
     end
-    render json: @petition_signature.to_json || @petition_signatures.to_json(:include => :member)
+    index! do |format|
+      format.json { render json: @petition_signature || @petition_signatures.to_json(:include => :member) }
+    end
   end
 
   def create
