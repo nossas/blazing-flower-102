@@ -1,6 +1,6 @@
 GIT
-  remote: git@github.com:runeroniek/compass-960-plugin.git
-  revision: 98786df9db042025135dcde7b3aa536f1885fffc
+  remote: https://github.com/runeroniek/compass-960-plugin.git
+  revision: 9d7068e7854c6e450208eea3dae5dc10ad61ea34
   specs:
     compass-960-plugin (0.11.0)
       compass (~> 0.12.0)
