@@ -1,12 +1,15 @@
+language: ruby
 rvm:
-  - 1.9.3
   - 1.9.2
-before_install:
-  - 'mv config/database.sample.yml config/database.yml'
-notifications:
-  email:
-    - luiz@engage.is
-gemfile: gemfiles/Gemfile.ci
+
 before_script:
-  - "psql -c 'create database meurio_test;' -U postgres"
-  - "rake db:test:prepare"
+  - "cp config/database.sample.yml config/database.yml"
+  - "psql -c 'create role meurio SUPERUSER LOGIN;' postgres"
+  - "psql -c 'create database meurio_test;' -U meurio postgres"
+  - "sh -e /etc/init.d/xvfb start"
+
+env:
+  - DISPLAY=:99.0
+
+# uncomment this line if your project needs to run something other than `rake`:
+script: "bundle exec rake db:migrate && bundle exec rspec spec && bundle exec cucumber && bundle exec rake jasmine:ci"
