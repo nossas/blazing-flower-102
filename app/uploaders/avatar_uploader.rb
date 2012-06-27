@@ -28,12 +28,14 @@ class AvatarUploader < CarrierWave::Uploader::Base
     name = model.class.to_s.downcase
     if name == "member" or name == "adminuser"
       "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(model.email)}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png"
+    else
+     "http://placehold.it/250x180" 
     end
   end
 
   # Create different versions of your uploaded files:
   version :medium do
-    process :resize_to_fill => [250, 250]
+    process :resize_to_fill => [250, 200]
   end
 
   version :thumb, :from_version => :medium do
