@@ -25,56 +25,12 @@ class Taf < ActiveRecord::Base
 
   validates_inclusion_of :display_copy_url, :in => [true,false]
 
-  has_attached_file :facebook_image,
-                    :styles => { :medium => "200x200>", :thumb => "60x60" },
-                    :path => ':attachment/:id/:style/:filename',
-                    :storage => :s3,
-                    :bucket => SITE['s3_bucket'],
-                    :s3_credentials => {
-                      :access_key_id => ENV["S3_ID"],
-                      :secret_access_key => ENV["S3_SECRET"]
-                    }
-
-  has_attached_file :alternate_facebook_image,
-                    :styles => { :medium => "200x200>", :thumb => "60x60" },
-                    :path => ':attachment/:id/:style/:filename',
-                    :storage => :s3,
-                    :bucket => SITE['s3_bucket'],
-                    :s3_credentials => {
-                      :access_key_id => ENV["S3_ID"],
-                      :secret_access_key => ENV["S3_SECRET"]
-                    }
-
-  has_attached_file :alternate_facebook_image_2,
-                    :styles => { :medium => "200x200>", :thumb => "60x60" },
-                    :path => ':attachment/:id/:style/:filename',
-                    :storage => :s3,
-                    :bucket => SITE['s3_bucket'],
-                    :s3_credentials => {
-                      :access_key_id => ENV["S3_ID"],
-                      :secret_access_key => ENV["S3_SECRET"]
-                    }
-
-  has_attached_file :alternate_facebook_image_3,
-                    :styles => { :medium => "200x200>", :thumb => "60x60" },
-                    :path => ':attachment/:id/:style/:filename',
-                    :storage => :s3,
-                    :bucket => SITE['s3_bucket'],
-                    :s3_credentials => {
-                      :access_key_id => ENV["S3_ID"],
-                      :secret_access_key => ENV["S3_SECRET"]
-                    }
-
-  has_attached_file :alternate_facebook_image_4,
-                    :styles => { :medium => "200x200>", :thumb => "60x60" },
-                    :path => ':attachment/:id/:style/:filename',
-                    :storage => :s3,
-                    :bucket => SITE['s3_bucket'],
-                    :s3_credentials => {
-                      :access_key_id => ENV["S3_ID"],
-                      :secret_access_key => ENV["S3_SECRET"]
-                    }
-
+  mount_uploader :facebook_image,             AvatarUploader, :mount_on => :facebook_image_file_name
+  mount_uploader :alternate_facebook_image,   AvatarUploader, :mount_on => :alternate_facebook_image_file_name
+  mount_uploader :alternate_facebook_image_2, AvatarUploader, :mount_on => :alternate_facebook_image_2_file_name
+  mount_uploader :alternate_facebook_image_3, AvatarUploader, :mount_on => :alternate_facebook_image_3_file_name
+  mount_uploader :alternate_facebook_image_4, AvatarUploader, :mount_on => :alternate_facebook_image_4_file_name
+ 
   def ok_to_display_copy_url?
     self.display_copy_url
   end

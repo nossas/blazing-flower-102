@@ -57,6 +57,7 @@ gem 'carrierwave'
 gem 'has_scope'
 gem 'kaminari'
 gem 'simple_form'
+gem 'mini_magick'
 
 group :development do 
   gem "taps"

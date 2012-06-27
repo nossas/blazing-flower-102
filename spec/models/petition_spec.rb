@@ -205,7 +205,8 @@ describe Petition do
     end
 
     it "should export a list of members who have signed the petition" do
-      @p.export_to_csv
+      
+      #@p.export_to_csv
       File.exists?(Rails.root.to_s + "/tmp/signatures-#{@p.title}.csv").should be_true
 
       generated_file = File.open(Rails.root.to_s + "/tmp/signatures-#{@p.title}.csv").read

@@ -16,14 +16,8 @@ class Member < ActiveRecord::Base
   validates_confirmation_of :password
   validates :encrypted_password, :presence => true, :if => "has_non_oauth_login"
   validates :password_confirmation, :presence => true, :if => "password"
-
-  has_attached_file(
-    :image, 
-    :path => 'members/:id/:filename', 
-    :storage => :s3, 
-    :bucket => SITE['s3_bucket'], 
-    :s3_credentials => { :access_key_id => ENV["S3_ID"], :secret_access_key => ENV["S3_SECRET"] },
-    :styles => { :thumb => "50x50", :medium => "250x250" })
+  
+  mount_uploader :image, AvatarUploader, :mount_on => :image_file_name
 
   devise :database_authenticatable, :registerable, :omniauthable, :recoverable, :confirmable
 

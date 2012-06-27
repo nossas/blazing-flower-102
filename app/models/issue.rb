@@ -19,27 +19,9 @@ class Issue < ActiveRecord::Base
   belongs_to :featured_petition, :class_name => 'Petition', :foreign_key => :featured_petition_id
   belongs_to :featured_debate, :class_name => 'Debate', :foreign_key => :featured_debate_id
   belongs_to :featured_personal_story, :class_name => 'PersonalStory', :foreign_key => :featured_personal_story_id
-
-  has_attached_file :image,
-                    :path => ':attachment/:id/:style/:filename',
-                    :storage => :s3,
-                    :styles => { :large => "630x435" },
-                    :bucket => SITE['s3_bucket'],
-                    :s3_credentials => {
-                      :access_key_id => ENV["S3_ID"],
-                      :secret_access_key => ENV["S3_SECRET"]
-                    },
-                    :default_url => 'http://placehold.it/635x435'
-
-  has_attached_file :thumbnail,
-                    :path => '/issues/:attachment/:id/:filename',
-                    :storage => :s3,
-                    :bucket => SITE['s3_bucket'],
-                    :s3_credentials => {
-                      :access_key_id => ENV["S3_ID"],
-                      :secret_access_key => ENV["S3_SECRET"]
-                    },
-                    :default_url => 'http://placehold.it/100x75'
+  
+  mount_uploader :image, ImageUploader, :mount_on => :image_file_name
+  mount_uploader :thumbnail, IssueUploader, :mount_on => :thumbnail_file_name
 
   scope :has_articles, lambda {
     self.where('EXISTS (SELECT true FROM debates d WHERE d.issue_id = issues.id) OR EXISTS (SELECT true FROM petitions p WHERE p.issue_id = issues.id) OR EXISTS (SELECT true FROM personal_stories ps WHERE ps.issue_id = issues.id)') }

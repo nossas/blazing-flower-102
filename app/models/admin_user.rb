@@ -8,19 +8,10 @@ class AdminUser < ActiveRecord::Base
                   :password, :password_confirmation, :remember_me, 
                   :is_admin, :is_campaigner, :active
 
-  has_attached_file :avatar,
-                    :default_url => '/assets/avatar_blank.png',
-                    :styles => { :medium => "200x200>", :thumb => "60x60" },
-                    :path => ':attachment/:id/:style/:filename',
-                    :storage => :s3,
-                    :bucket => SITE['s3_bucket'],
-                    :s3_credentials => {
-                      :access_key_id => ENV["S3_ID"],
-                      :secret_access_key => ENV['S3_SECRET']
-                    }
-
   validates_presence_of :email, :first_name, :last_name
   validates_format_of :email, :with => EMAIL_REGEX
+
+  mount_uploader :avatar, AvatarUploader, :mount_on => :avatar_file_name
 
   before_create {|u| false if u.password.blank?}
 
