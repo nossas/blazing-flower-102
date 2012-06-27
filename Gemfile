@@ -83,6 +83,7 @@ group :test do
   gem "fakeweb"
   gem "factory_girl_rails", "~> 1.0.1"
   gem "faker"
+  gem "mock-aws-s3"
 end
 
 

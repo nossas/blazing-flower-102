@@ -131,11 +131,6 @@ class Petition < ActiveRecord::Base
 
     Rails.logger.info "Sending #{self.title} to S3."
 
-    AWS::S3::Base.establish_connection!(
-      :access_key_id     => ENV["S3_ID"],
-      :secret_access_key => ENV["S3_SECRET"]
-    )
-
     s3_file_name = "#{Time.now.strftime("%m-%d-%H-%M")}-signatures-#{self.title}.csv"
     AWS::S3::S3Object.store(s3_file_name, open(file), SITE['s3_export_bucket'], :content_type => 'text/csv')
 

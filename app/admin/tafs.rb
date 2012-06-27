@@ -145,7 +145,7 @@ ActiveAdmin.register Taf do
             end
             tr do
               th { 'Facebook Image' }
-              td { image_tag(t.facebook_image) }
+              td { image_tag(t.facebook_image.url) }
             end
           end
         end

@@ -194,6 +194,7 @@ GEM
     mime-types (1.17.2)
     mini_magick (3.4)
       subexec (~> 0.2.1)
+    mock-aws-s3 (0.6.0)
     multi_json (1.0.4)
     multi_xml (0.2.2)
     multipart-post (1.1.4)
@@ -384,6 +385,7 @@ DEPENDENCIES
   kaminari
   koala
   mini_magick
+  mock-aws-s3
   newrelic_rpm
   oa-oauth
   oa-openid
