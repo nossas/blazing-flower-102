@@ -11,41 +11,14 @@ describe Issue do
   it { should allow_value('This is not too long. It is practically perfect in every way.').for(:debate_call_to_action) }
   it { should allow_value('This is not too long. It is practically perfect in every way.').for(:petition_call_to_action) }
   it { should allow_value('This is not too long. It is practically perfect in every way.').for(:personal_story_call_to_action) }
-
-  describe "#idea_categories" do
-    it { should have_many :idea_categories }
-  end
-
-  describe "#idea_help_method" do
-    it { should have_many :idea_help_methods }
-  end
-
-  describe "#ideas" do
-    it { should have_many :ideas }
-  end
-
-  describe "#petitions" do
-    it { should have_many :petitions }
-  end
-
-  describe "#featured_petition" do
-    it { should belong_to :featured_petition }
-  end
-
-  describe "#personal_stories" do
-    it { should have_many :personal_stories }
-  end
-
-  describe "#featured_personal_story" do
-    it { should belong_to :featured_personal_story }
-  end
-
-  describe "#debates" do
-    it { should have_many :debates }
-  end
-
-  describe "#featured_debate" do
-    it { should belong_to :featured_debate }
-  end
-
+  it { should have_many :idea_categories }
+  it { should have_many :idea_help_methods }
+  it { should have_many :ideas }
+  it { should have_many :petitions }
+  it { should have_many :petition_signatures }
+  it { should belong_to :featured_petition }
+  it { should have_many :personal_stories }
+  it { should belong_to :featured_personal_story }
+  it { should have_many :debates }
+  it { should belong_to :featured_debate }
 end

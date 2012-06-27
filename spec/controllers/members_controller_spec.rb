@@ -13,7 +13,6 @@ describe MembersController do
     end
     context "When it's an invalid token" do
       before do
-        ENV['DASH_TOKEN'] = "HelloThisIsDog"
         get :index, token: "HelloThisIsNotDog", format: :json
       end
       its(:status) { should == 401 }

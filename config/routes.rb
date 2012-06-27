@@ -13,6 +13,9 @@ MeuRio::Application.routes.draw do
     devise_for :admin_users, ActiveAdmin::Devise.config
   end
 
+
+
+
   namespace :admin do
     get 'preview/assine_embaixo/:id' => "petitions#preview", :as => "preview_petition"
     get 'petitions/:id/publish' => "petitions#publish", :as => "publish_petition"
@@ -84,5 +87,9 @@ MeuRio::Application.routes.draw do
   match "na_atividade/:issue_id/imagine/:id" => "Imagine::Ideas#show", :as => :issue_idea
   match "na_atividade/:issue_id/imagine" => "Imagine::Ideas#index", :as => :issue_ideas
 
+  # Api routes
+  resources :issues, only: [:index, :show] do
+    resources :petition_signatures, path: '/signatures'
+  end
   root :to => "pages#show", :id => "index"
 end
