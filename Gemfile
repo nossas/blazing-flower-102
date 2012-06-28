@@ -79,7 +79,7 @@ group :test do
   gem "cucumber-rails", require: false
   gem "capybara"
   gem "database_cleaner"
-  gem "selenium-webdriver"
+  gem 'selenium-webdriver', '~> 2.22.1'
   gem "awesome_print"
   gem "fakeweb"
   gem "factory_girl_rails", "~> 1.0.1"
