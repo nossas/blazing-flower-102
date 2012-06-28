@@ -18,7 +18,24 @@ describe PetitionSignaturesController do
       it{ should be_successful }
       its(:body){ should == @signature.to_json }
     end
+#    # pending
+    #context "When an issue_id is provided" do
+      #let(:issue) { mock_model(Issue, id: 1) }
+      #let(:signature1) { mock_model(PetitionSignature) }
+      #let(:signature2) { mock_model(PetitionSignature) }
+
+      #before do
+        #Issue.stub(:find).with("1").and_return(issue)
+        #issue.stub_chain(:petition_signatures, :page, :all).and_return([signature1, signature2])
+        #get :index, issue_id: issue.id, format: 'json'
+      #end
+
+      #it "should return only signatures from the given issue" do
+        #issue.should assign_to(:petition_signatures).with([signature1, signature2]) 
+      #end
+    #end
   end
+
   describe "POST create" do
     subject{ response }
     before do

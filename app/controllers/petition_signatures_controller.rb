@@ -3,7 +3,7 @@ class PetitionSignaturesController < ApplicationController
   has_scope :by_updated_at
 
   inherit_resources
-  belongs_to :issue
+  optional_belongs_to :issue
 
   before_filter only: [:index] do
     if not params[:email] and !params[:petition_id]
