@@ -5,6 +5,8 @@ class PetitionSignature < ActiveRecord::Base
   after_create :send_confirmation
   validate :belongs_to_published_petition
   validates_uniqueness_of :member_id, :scope => :petition_id
+  
+  scope :by_updated_at, proc {|updated_at| where("updated_at >= ?", updated_at)}
 
   scope :by_updated_at, proc {|updated_at| where("updated_at >= ?", updated_at)}
 

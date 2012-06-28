@@ -89,7 +89,7 @@ MeuRio::Application.routes.draw do
 
   # Api routes
   resources :issues, only: [:index, :show] do
-    resources :petition_signatures, path: '/signatures'
+    resources :petition_signatures, path: '/signatures', only: [:index]
   end
   root :to => "pages#show", :id => "index"
 end
