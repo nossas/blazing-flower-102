@@ -2,7 +2,6 @@ language: ruby
 rvm:
   - 1.9.2
 before_install:
-  - sudo ls /usr/share/zoneinfo/Brazil
   - export TZ=America/Sao_Paulo
 
 before_script:
@@ -15,4 +14,4 @@ env:
   - DISPLAY=:99.0
 
 # uncomment this line if your project needs to run something other than `rake`:
-script: "bundle exec rake time:zones:local && bundle exec rake db:create db:migrate && bundle exec cucumber && bundle exec rspec spec/"
+script: "bundle exec rake db:migrate && bundle exec cucumber && bundle exec rspec spec/"
