@@ -8,7 +8,7 @@ describe PetitionSignaturesController do
         get :index, :petition_id => 0, :email => 'foo@bar.com', :format => 'json'
       end
       it{ should be_successful }
-      its(:body){ should == "[]" }
+      its(:body){ should == "null" }
     end
     context "when the signature already exists" do
       before do

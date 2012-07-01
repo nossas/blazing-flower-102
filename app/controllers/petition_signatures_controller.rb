@@ -10,16 +10,16 @@ class PetitionSignaturesController < ApplicationController
     if params[:email] and params[:petition_id]
       @petition_signature = PetitionSignature.joins(:member).
         where(['members.email = ? AND petition_signatures.petition_id = ?', params[:email], params[:petition_id]]).first
-    end
-    index! do |format|
-      @result = nil
-      if @petition_signature
-        @result = @petition_signature.to_json
-      elsif @petition_signatures
-        check_mrdash_token
-        @result = @petition_signatures.to_json(:include => :members)
+      index! do |format|
+        format.json { render json: @petition_signature and return }
       end
-      format.json { render json: @result }
+    else
+      index! do |format|
+        if @petition_signatures
+          check_mrdash_token
+          format.json { render json: @petition_signatures.to_json(:include => :members) }
+        end
+      end
     end
   end
 

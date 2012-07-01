@@ -8,7 +8,6 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    ZenTest (4.5.0)
     actionmailer (3.1.3)
       actionpack (= 3.1.3)
       mail (~> 2.3.0)
@@ -51,9 +50,6 @@ GEM
     auto_html (1.5.0)
       redcarpet (~> 2.0.0)
       rinku (~> 1.5.0)
-    autotest-growl (0.2.11)
-    autotest-rails (4.1.1)
-      ZenTest (= 4.5)
     awesome_print (0.4.0)
     aws-s3 (0.6.2)
       builder
@@ -356,8 +352,6 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   auto_html
-  autotest-growl
-  autotest-rails
   awesome_print
   aws-s3
   cancan
