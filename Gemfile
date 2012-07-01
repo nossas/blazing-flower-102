@@ -85,6 +85,5 @@ group :test do
   gem "mock-aws-s3"
 end
 
-
 gem "koala"
 gem 'doorkeeper', '~> 0.3.0'
