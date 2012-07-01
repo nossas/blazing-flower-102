@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
 
 
   def check_mrdash_token
-    if ENV['DASH_TOKEN'] != params[:token] 
-      render :nothing => true, :status => :unauthorized 
+    if params[:token] and ENV['DASH_TOKEN'] != params[:token] 
+      render :nothing => true, :status => :unauthorized and return
     end
   end
 

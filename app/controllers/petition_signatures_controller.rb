@@ -5,11 +5,6 @@ class PetitionSignaturesController < ApplicationController
   inherit_resources
   optional_belongs_to :issue
 
-  before_filter only: [:index] do
-    if not params[:email] and !params[:petition_id]
-      check_mrdash_token
-    end
-  end
 
   def index
     if params[:email] and params[:petition_id]
@@ -17,7 +12,14 @@ class PetitionSignaturesController < ApplicationController
         where(['members.email = ? AND petition_signatures.petition_id = ?', params[:email], params[:petition_id]]).first
     end
     index! do |format|
-      format.json { render json: @petition_signature || @petition_signatures.to_json(:include => :member) }
+      @result = nil
+      if @petition_signature
+        @result = @petition_signature.to_json
+      elsif @petition_signatures
+        check_mrdash_token
+        @result = @petition_signatures.to_json(:include => :members)
+      end
+      format.json { render json: @result }
     end
   end
 
