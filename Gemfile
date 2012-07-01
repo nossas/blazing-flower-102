@@ -74,8 +74,6 @@ end
 group :test do
   gem "shoulda-matchers"
   gem "edgecase-git-pair"
-  gem "autotest-rails"
-  gem "autotest-growl"
   gem "cucumber-rails", require: false
   gem "capybara"
   gem "database_cleaner"
