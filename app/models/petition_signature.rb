@@ -8,8 +8,6 @@ class PetitionSignature < ActiveRecord::Base
   
   scope :by_updated_at, proc { |updated_at| where("petition_signatures.updated_at >= ?", updated_at) }
 
-  scope :by_updated_at, proc {|updated_at| where("updated_at >= ?", updated_at)}
-
   def self.unmoderated
     where('comment_accepted IS NULL')
   end
