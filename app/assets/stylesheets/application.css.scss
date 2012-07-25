@@ -795,7 +795,12 @@ textarea.error, input.error, select.error { border-color: $red !important; }
 
 .sprite.pdp_link {
   background: url("/assets/icone-pdp.png") no-repeat;
-  background-position: 0 0;
+  height: 48px;
+  width: 53px;
+}
+
+.sprite.voc_link {
+  background: url("/assets/icone-voc.png") no-repeat;
   height: 48px;
   width: 53px;
 }

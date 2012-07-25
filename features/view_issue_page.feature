@@ -11,3 +11,8 @@ Feature: In order to get an overview about an issue
     Given there is an issue with a PdP link
     When I go to this issue page
     Then I should see the PdP call to action
+  
+  Scenario: when the issue have an VoC link
+    Given there is an issue with a VoC link
+    When I go to this issue page
+    Then I should see the VoC call to action

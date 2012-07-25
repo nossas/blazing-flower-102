@@ -19,3 +19,11 @@ end
 Then /^I should see the PdP call to action$/ do
   page.should have_css("section.pdp_link")
 end
+
+Given /^there is an issue with a VoC link$/ do
+  @issue = Factory.create(:issue, :voc_link => "http://verdadeouconsequencia.org.br/questions/252-verdade-por-manuel-thedim")
+end
+
+Then /^I should see the VoC call to action$/ do
+  page.should have_css("section.voc_link")
+end

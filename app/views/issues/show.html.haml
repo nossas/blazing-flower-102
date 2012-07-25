@@ -23,6 +23,16 @@
       %a#read_more{:href => '#'}
         %span= t("issue_show.read_more")
 .grid_3-5.omega
+  -if @issue.voc_link
+    %section.voc_link.wobble_container
+      %header
+        %p Não enrola
+      %div
+        .sprite.icon.voc_link
+        %p Sua chance de levar um papo reto com os candidatos a vereador do Rio de Janeiro
+        .text_align.center
+          =link_to "Verdade ou Consequência", @issue.voc_link, :class => 'btn'
+      %footer
   -if @issue.pdp_link
     %section.pdp_link.wobble_container
       %header
