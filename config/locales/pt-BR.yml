@@ -264,6 +264,7 @@
         created_at: "Criado em"
         description: "Descrição"
         excerpt: "Excerto"
+        pdp_link: "Link para o PdP"
       petition_signature:
         comment: "Comentário"
         comment_accepted: "Aceito?"

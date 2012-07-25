@@ -23,6 +23,16 @@
       %a#read_more{:href => '#'}
         %span= t("issue_show.read_more")
 .grid_3-5.omega
+  -if @issue.pdp_link
+    %section.pdp_link.wobble_container
+      %header
+        %p Panela de Pressão
+      %div
+        .sprite.icon.pdp_link
+        %p Colocamos esta campanha na panela, mas é você quem tem que fazer pressão!
+        .text_align.center
+          =link_to "Ir para a Panela", @issue.pdp_link, :class => 'btn'
+      %footer
   -if @issue.featured_petition
     %section.petition.wobble_container
       %header

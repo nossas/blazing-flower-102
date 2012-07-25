@@ -793,6 +793,13 @@ textarea.error, input.error, select.error { border-color: $red !important; }
   width: 68px;
 }
 
+.sprite.pdp_link {
+  background: url("/assets/icone-pdp.png") no-repeat;
+  background-position: 0 0;
+  height: 48px;
+  width: 53px;
+}
+
 .wobble_container {
   overflow: hidden;
   width: 302px;
