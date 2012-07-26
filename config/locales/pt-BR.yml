@@ -265,7 +265,9 @@
         description: "Descrição"
         excerpt: "Excerto"
         pdp_link: "Link para o PdP"
+        pdp_text: "Texto do PdP"
         voc_link: "Link para o VoC"
+        voc_text: "Texto do VoC"
       petition_signature:
         comment: "Comentário"
         comment_accepted: "Aceito?"

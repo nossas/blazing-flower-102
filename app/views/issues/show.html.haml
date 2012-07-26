@@ -16,7 +16,7 @@
   .intro
     %img{ :src => @issue.image.url(:large), :width => "635", :height => "435" }
   .excerpt
-    %p=raw @issue.excerpt.gsub("\n", "<br />")
+    %p=raw simple_format(@issue.excerpt)
     .description
       %p=raw @issue.description.gsub("\n", "<br />")
     .see_more
@@ -29,7 +29,7 @@
         %p Não enrola
       %div
         .sprite.icon.voc_link
-        %p Sua chance de levar um papo reto com os candidatos a vereador do Rio de Janeiro
+        %p= raw simple_format(@issue.voc_text)
         .text_align.center
           =link_to "Verdade ou Consequência", @issue.voc_link, :class => 'btn'
       %footer
@@ -39,7 +39,7 @@
         %p Panela de Pressão
       %div
         .sprite.icon.pdp_link
-        %p Colocamos esta campanha na panela, mas é você quem tem que fazer pressão!
+        %p= raw simple_format(@issue.pdp_text)
         .text_align.center
           =link_to "Ir para a Panela", @issue.pdp_link, :class => 'btn'
       %footer
