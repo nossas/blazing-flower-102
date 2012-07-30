@@ -18,10 +18,12 @@ class MemberRegistrationController < Devise::RegistrationsController
 
     if @member.has_login
       errors = resource.errors[:base] 
-      errors << t("alerts.has_login_already_html")
-      unless session[:doorkeeper_redirect]
+      if session[:doorkeeper_redirect].nil?
         errors << t("alerts.click_here_to_login_html")
+      else
+        errors << t("alerts.has_login_already_html")
       end
+
       if request.xhr?
         return render :json => { :success => true, :errors => resource.errors.full_messages }
       else
