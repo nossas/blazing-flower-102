@@ -423,3 +423,6 @@ A realização da Copa e das Olimpíadas nos próximos anos está criando uma en
   pages_thank_you: 
     title: "Obrigado pela sua participação!"
     text: "Muito obrigado pela sua doação e por acreditar no trabalho do Meu Rio. Agora que você é um patrocinador do movimento, faça seu <a href=\"#join\" rel=\"facebox\">cadastro</a> e nós lhe enviaremos anualmente uma cópia eletrônica do nosso relatório financeiro, assim você vai poder acompanhar melhor o destino do seu dindim."
+  alerts:
+    has_login_already_html: "<span class='back'>Este email já está cadastrado.</span>"
+    click_here_to_login_html: "<span class='back'>Este email já está cadastrado. <a href='#login' rel='facebox'>Clique aqui</a> para entrar.</span>"
