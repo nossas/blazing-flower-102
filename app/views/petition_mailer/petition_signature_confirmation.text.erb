@@ -1,7 +1,3 @@
-
 Olá, <%= @member.first_name %>
-
-<%= @email.message %>
-
-
+<%= @email.message.html_safe %>
 Para cancelar sua conta, mande um email para info@meurio.org.br
