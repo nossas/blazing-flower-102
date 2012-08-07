@@ -12,6 +12,5 @@ class PetitionMailer < ActionMailer::Base
       :to => @member.email,
       :subject => @email.subject
     )
-    end
   end
 end
