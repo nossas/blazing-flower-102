@@ -55,7 +55,7 @@ ActiveAdmin.register AutofireEmail do
             end
             tr do
               th { 'Message' }
-              td { e.message }
+              td { e.message.html_safe }
             end
             tr do
               th { 'Created at' }

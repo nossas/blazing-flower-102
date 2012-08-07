@@ -7,14 +7,11 @@ class PetitionMailer < ActionMailer::Base
     @member = petition_signature.member
     @email = petition_signature.petition.autofire_email
 
-    mail({
+    mail(
       :from => @email.from,
       :to => @member.email,
       :subject => @email.subject
-    }) do |format|
-      format.text
-      # format.html # Text only for now
+    )
     end
-
   end
 end
