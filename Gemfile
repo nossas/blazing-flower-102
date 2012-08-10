@@ -13,8 +13,8 @@ gem 'cancan'
 gem 'activeadmin'
 gem 'heroku'
 gem 'thin'
-
 gem "rest-client"
+
 # External authentication
 gem "oa-oauth", :require => "omniauth/oauth"
 gem 'oa-openid', :require => 'omniauth/openid'
