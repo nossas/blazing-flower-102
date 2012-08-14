@@ -17,7 +17,11 @@ class PetitionSignaturesController < ApplicationController
         where(['members.email = ? AND petition_signatures.petition_id = ?', params[:email], params[:petition_id]]).first
     end
     index! do |format|
-      format.json { render json: @petition_signature || @petition_signatures.to_json(:include => :member) }
+      unless @petition_signature.nil?
+        format.json { render json: @petition_signature }
+      else
+        format.json { render json: @petition_signatures.to_json(:include => :member) }
+      end
     end
   end
 
