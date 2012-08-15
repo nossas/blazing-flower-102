@@ -110,10 +110,11 @@
     = render :partial => "shared/login"
     = render :partial => "shared/join"
     = render :partial => "shared/already_logged"
-
+    #fb-root
     = javascript_include_tag :application
     = yield :javascripts
 
+    
     %script{:id => "flashTemplate", :type => "text/x-jquery-tmpl"}
       <div class="container_12 messages clearfix"><div class="grid_11 alpha">${flash}</div>
       <div class="grid_1 omega"><a href="#" id="close_messages"><img src="/assets/close_messages.png"></a></div></div>
@@ -139,3 +140,20 @@
       uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/4vNy1LZExqKNUibIEBGA.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
       })();
+
+    %script
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=177910022269006";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    %script
+      !function(d,s,id){
+      var js,fjs=d.getElementsByTagName(s)[0];
+      if(!d.getElementById(id)){js=d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);}
+      }(document,"script","twitter-wjs");
