@@ -12,7 +12,7 @@ describe MemberSessionsController do
       session[:google_login] = true
       get :google_logout
     end
-    it{ should redirect_to("https://www.google.com/accounts/Logout") }
+    it{ should redirect_to( destroy_member_session_path ) }
   end
 
   describe "#logout_facebook" do
