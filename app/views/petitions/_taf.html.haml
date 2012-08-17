@@ -5,7 +5,7 @@
 - else
   %h2= t("petition_show.already_signed", :name => @member.first_name)
 
-- if current_member && current_member.facebook_authorization
+-# if current_member && current_member.facebook_authorization
   .speech_bubble_container.gray_big.taf
     .speech_bubble_top
     .speech_bubble
@@ -27,11 +27,17 @@
     .speech_bubble_top
     .speech_bubble
       %h3= t("petition_show.share_on_facebook")
-      = link_to image_tag("/assets/auth/facebook_128.png"), "http://www.facebook.com/sharer.php?u=#{@taf.facebook_link}", :target => "_blank", :title => t("petition_show.share_on_facebook"), :class => "facebook_btn"
+      %br
+      .fb-like{ data: { href: @taf.facebook_link, send: "true",  width: "400", :"show-faces" => "true" }}
+      %br
+      %br
+      -#= link_to image_tag("/assets/auth/facebook_128.png"), "http://www.facebook.com/sharer.php?u=#{@taf.facebook_link}", :target => "_blank", :title => t("petition_show.share_on_facebook"), :class => "facebook_btn"
       .share_text
-        %strong= @taf.facebook_title
+        %strong
+          %em= @taf.facebook_title
         %br
-        = @taf.facebook_message
+        %br
+        %em= @taf.facebook_message
   
 - if @taf && @taf.display_orkut
   .speech_bubble_container.gray_big.taf
@@ -49,10 +55,14 @@
     .speech_bubble_top
     .speech_bubble
       %h3= t("petition_show.share_on_twitter")
-      = link_to image_tag("/assets/auth/twitter_128.png"), "http://twitter.com/share?url=#{@taf.twitter_url}&text=#{u(@taf.tweet)}", :target => "_blank", :title => t("petition_show.share_on_twitter"), :class => "twitter_btn"
+      %br
+      = link_to "Tweetar", "https://twitter.com/share", class: "twitter-share-button", data: { text: @taf.tweet, lang: "pt", size: "large" }
+      %br
+      %br
+      -#= link_to image_tag("/assets/auth/twitter_128.png"), "http://twitter.com/share?url=#{@taf.twitter_url}&text=#{u(@taf.tweet)}", :target => "_blank", :title => t("petition_show.share_on_twitter"), :class => "twitter_btn"
       .share_text
-        = @taf.tweet
- 
+        %em= @taf.tweet
+        %br
 - if @taf && @taf.display_email
   .speech_bubble_container.gray_big.taf
     .speech_bubble_top
