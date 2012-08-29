@@ -54,8 +54,7 @@
     -if @petition.display_comment_field
       .row.comment
         =f.label :comment, @petition.comment_question
-        =f.text_area :comment, :rows => 4, :maxlength => "140"
-        %small#comment_tip= t("petition_show.comment_tip")
+        =f.text_area :comment, :rows => 10
     %input{:id => "petition_custom_path", :name => "petition[custom_path]", :type => "hidden", :value => @petition.custom_path }
     .policy.small
       O Meu Rio protege a #{link_to("sua privacidade", page_path("privacidade"), :target => "_blank")} e o manterá <br>informado sobre esta e outras campanhas.

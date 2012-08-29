@@ -48,3 +48,11 @@ Then /^I should see the sign in form$/ do
   page.should have_css("input[name=\"member[email]\"]")
   page.should have_css("input[name=\"member[password]\"]")
 end
+
+Given /^there is an issue with phone text$/ do
+  @issue = Factory.create(:issue, :phone_text => "Beijo e me liga!", :featured_petition_id => Factory.create(:petition).id)
+end
+
+Then /^I should see the phone call to action$/ do
+  page.should have_css("section.phone_text")
+end
