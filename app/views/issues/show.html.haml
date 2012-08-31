@@ -61,7 +61,7 @@
         .sprite.icon.phone_text
         %p= @issue.phone_text
         .text_align.center
-          =link_to "Ligue agora", issue_custom_petition_path(@issue.id, @issue.featured_petition.custom_path), :class => 'btn'
+          =link_to "Ligue agora", @issue.phone_link, :class => 'btn'
       %footer
   -if @issue.featured_debate
     %section.debate.wobble_container
