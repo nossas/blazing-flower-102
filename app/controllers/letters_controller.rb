@@ -3,7 +3,10 @@ class LettersController < InheritedResources::Base
 
   def create
     create! do |success, failure|
-      success.html { redirect_to issue_letter_path(@letter.issue), :notice => "Valeu! Sua mensagem foi enviada!" }
+      success.html do
+        LetterMailer.new_letter(@letter).deliver
+        redirect_to issue_letter_path(@letter.issue), :notice => "Valeu! Sua mensagem foi enviada!"
+      end
     end
   end
 end
