@@ -3,6 +3,6 @@ class LetterMailer < ActionMailer::Base
 
   def new_letter letter
     @letter = letter
-    mail(:to => ["nicolas@engage.is"], :subject => @letter.subject, :from => @letter.sender)
+    mail(:to => ["nicolas@engage.is"], :subject => @letter.subject, :from => @letter.email)
   end
 end
