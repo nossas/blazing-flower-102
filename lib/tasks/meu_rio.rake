@@ -14,4 +14,10 @@ namespace :meurio do
 
     end
   end
+
+  desc "Export statistics table"
+  task :export => :environment do
+    puts "\"Email\", \"Ação\", \"Objeto\", \"ID do Objeto\", \"ID do Tema\", \"Data da Ação\", \"Plataforma\""
+    PeitionSignature.all.each {|ps| puts "\"#{ps.member.email}\", \"Assinou\", \"Petição\", \"#{ps.petition.id}\", , \"#{ps.created_at}\", \"MR\""}
+  end
 end
