@@ -1,3 +1,5 @@
+# coding: utf-8
+
 namespace :meurio do
   desc "Create a complete issue"
   task :create_issue => :environment do
