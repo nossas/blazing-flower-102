@@ -34,7 +34,7 @@ gem 'auto_html'
 # Asset template engines
 group :assets do
   gem "compass-rails"
-  gem 'compass-960-plugin', :git => "git@github.com:runeroniek/compass-960-plugin.git"
+  gem 'compass-960-plugin', :git => "git://git@github.com:runeroniek/compass-960-plugin.git"
   gem 'sass-rails', '~> 3.1.3'
   gem 'coffee-script'
   gem 'uglifier'
