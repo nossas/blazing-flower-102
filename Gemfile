@@ -11,7 +11,6 @@ gem 'cancan'
 
 # Administration
 gem 'activeadmin'
-gem 'heroku'
 gem 'thin'
 gem "rest-client"
 

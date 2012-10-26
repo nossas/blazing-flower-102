@@ -103,8 +103,16 @@ MR.petitions = {
 
   loadTAF: function(){
     if(window.location.hash == '#compartilhe'){
-      $('.take_action').load(window.location.pathname + '/share')
-    }
+			$('.take_action').load(window.location.pathname + '/share', function(){
+				(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=177910022269006";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+			});
+		}
   },
 
   runThese: function(params){
