@@ -54,14 +54,15 @@ MR.petitions = {
     if($("form#new_petition_signature").valid()){
       $("#loader").show();
       $('#submit_btn').hide();
-      var data = $(this).serialize();
-      if($("form#new_petition_signature #member_first_name").size() > 0){
-        _gaq.push(['_trackEvent', 'Assinatura', "Assinar Sem Conta"]);
-      }
-      else {
-        _gaq.push(['_trackEvent', 'Assinatura', "Assinar Com Conta"]);
-      }
-      $.post($(this).attr('action'), data, MR.petitions.handle_signature_response);
+			$("form#new_petition_signature").submit();
+//      var data = $(this).serialize();
+//      if($("form#new_petition_signature #member_first_name").size() > 0){
+//        _gaq.push(['_trackEvent', 'Assinatura', "Assinar Sem Conta"]);
+//      }
+//      else {
+//        _gaq.push(['_trackEvent', 'Assinatura', "Assinar Com Conta"]);
+//      }
+//      $.post($(this).attr('action'), data, MR.petitions.handle_signature_response);
     }
   },
 
@@ -101,20 +102,11 @@ MR.petitions = {
     }
   },
 
-	loadTAF: function(){
-		if(window.location.hash == '#compartilhe'){
-			$('.take_action').load(window.location.pathname + '/share', function(){
-				d = document;
-				s = 'script';
-				id = 'facebook-jssdk';
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s); js.id = id;
-				js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=177910022269006";
-				fjs.parentNode.insertBefore(js, fjs);
-			});
-		}
-	},
+  loadTAF: function(){
+    if(window.location.hash == '#compartilhe'){
+      $('.take_action').load(window.location.pathname + '/share')
+    }
+  },
 
   runThese: function(params){
     $('option', '#member_zona').removeAttr('selected');

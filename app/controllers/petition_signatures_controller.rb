@@ -52,7 +52,7 @@ class PetitionSignaturesController < ApplicationController
     if @petition.display_donation? 
       render :json => {:hash => 'doe'}
     else
-      render :json => {:hash => 'compartilhe'}
+      redirect_to custom_petition_path(@petition.custom_path) + "#compartilhe"
     end
   end
 end
