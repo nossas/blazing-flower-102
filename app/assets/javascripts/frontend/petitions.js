@@ -54,15 +54,14 @@ MR.petitions = {
     if($("form#new_petition_signature").valid()){
       $("#loader").show();
       $('#submit_btn').hide();
-			$("form#new_petition_signature").submit();
-//      var data = $(this).serialize();
-//      if($("form#new_petition_signature #member_first_name").size() > 0){
-//        _gaq.push(['_trackEvent', 'Assinatura', "Assinar Sem Conta"]);
-//      }
-//      else {
-//        _gaq.push(['_trackEvent', 'Assinatura', "Assinar Com Conta"]);
-//      }
-//      $.post($(this).attr('action'), data, MR.petitions.handle_signature_response);
+      var data = $(this).serialize();
+      if($("form#new_petition_signature #member_first_name").size() > 0){
+        _gaq.push(['_trackEvent', 'Assinatura', "Assinar Sem Conta"]);
+      }
+      else {
+        _gaq.push(['_trackEvent', 'Assinatura', "Assinar Com Conta"]);
+      }
+      $.post($(this).attr('action'), data, MR.petitions.handle_signature_response);
     }
   },
 
