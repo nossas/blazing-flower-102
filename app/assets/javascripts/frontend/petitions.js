@@ -103,7 +103,10 @@ MR.petitions = {
 
   loadTAF: function(){
     if(window.location.hash == '#compartilhe'){
-      $('.take_action').load(window.location.pathname + '/share')
+      $('.take_action').load(window.location.pathname + '/share', function(){
+				FB.XFBML.parse();
+				$.getScript('http://platform.twitter.com/widgets.js');
+			});
     }
   },
 
