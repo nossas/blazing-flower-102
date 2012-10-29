@@ -68,10 +68,3 @@ Feature: Signing a Petition
     When I fill in "petition_signature_comment" with "My comment"
     And I press "Assine"
     Then I should see a thank-you message
-
-  @omniauth_test
-  Scenario: The one where I sign with my Facebook account
-    Given there is a petition called "REAJUSTES SEM EXPLICAÇÕES, NÃO!"
-    And I am on this petition page
-    When I press "Assine via Facebook"
-    Then I should see "Compartilhe com amigos que podem fazer a diferença!"

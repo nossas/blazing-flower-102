@@ -5,23 +5,6 @@
 - else
   %h2= t("petition_show.already_signed", :name => @member.first_name)
 
--# if current_member && current_member.facebook_authorization
-  .speech_bubble_container.gray_big.taf
-    .speech_bubble_top
-    .speech_bubble
-      %h3 Compartilhe com amigos que podem fazer a diferença!
-      .share_with_friends
-        - current_member.friends.each do |friend|
-          = form_tag share_with_friends_path(@taf.petition.issue, @taf.petition.custom_path), :method => :post, :remote => true do
-            = hidden_field_tag "friend_id", friend["id"]
-            = image_tag "http://graph.facebook.com/#{friend["id"]}/picture"
-            %h4= friend["name"]
-            .share_fields
-              .invisible= label_tag "message", "Sua mensagem..."
-              = text_area_tag "message", nil, :placeholder => "Sua mensagem...", :rows => 1
-              = submit_tag "Compartilhar", :class => "btn_orange"
-              = image_tag "loading.gif"
-
 - if @taf && @taf.display_facebook
   .speech_bubble_container.gray_big.taf
     .speech_bubble_top

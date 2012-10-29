@@ -52,6 +52,8 @@ module NavigationHelpers
       "#compartilhe"
     when /the sign in page/
       "/members/sign_in"
+    when /the forgot my password page/
+      new_member_password_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
