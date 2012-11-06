@@ -56,3 +56,11 @@ end
 Then /^I should see the phone call to action$/ do
   page.should have_css("section.phone_text")
 end
+
+Given /^there is a member with email "([^"]*)"$/ do |arg1|
+	Factory.create(:member, :email => arg1)
+end
+
+Then /^an email should be sent$/ do
+  ActionMailer::Base.deliveries.should_not be_empty
+end

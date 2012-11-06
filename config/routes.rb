@@ -91,5 +91,8 @@ MeuRio::Application.routes.draw do
   resources :issues, only: [:index, :show] do
     resources :petition_signatures, path: '/signatures', only: [:index]
   end
+
+  match "/deolho" => redirect("http://deolho.meurio.org.br")
+
   root :to => "pages#show", :id => "index"
 end

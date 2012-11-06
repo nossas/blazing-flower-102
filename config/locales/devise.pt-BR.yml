@@ -47,3 +47,4 @@ pt-BR:
     member_passwords:
       member:
         send_instructions: "Nós enviamos as instruções para o seu email. Se você não receber uma mensagem em alguns instantes, <a href='#' id='resend_password'>tente reenviar seus dados.</a>"
+        updated: 'Sua senha foi alterada com sucesso, e agora você está logado.'
