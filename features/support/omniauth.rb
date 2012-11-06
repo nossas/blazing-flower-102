@@ -6,6 +6,7 @@ Before('@omniauth_test') do
   OmniAuth.config.mock_auth[:google] = GOOGLE_APP_VALID_AUTH_DATA
   Koala::Facebook::GraphAPI.any_instance.stub(:get_connections).with("me", "friends").and_return([{"name"=>"Alessandra Orofino", "id"=>"2630"}])
   Koala::Facebook::GraphAPI.any_instance.stub(:put_wall_post).and_return(true)
+  Koala::Facebook::GraphAPI.any_instance.stub(:put_connections).and_return([{"id" => "123123123"}])
 end
 
 After('@omniauth_test') do

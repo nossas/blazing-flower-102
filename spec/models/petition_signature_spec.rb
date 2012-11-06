@@ -55,4 +55,23 @@ describe PetitionSignature do
     end
   end
 
+  describe '#share_on_facebook' do
+    let(:graph) { double() }
+    before { Koala::Facebook::GraphAPI.stub(:new).and_return(graph) }
+    before { subject.stub(:petition).and_return(stub_model(Petition, :custom_path => "test")) }
+    context "when the member have a Facebook authentication" do
+      before { subject.stub(:member).and_return(stub_model(Member, :facebook_authorization => double(:token => "123"))) }
+      it "should share the petition on Facebook" do
+        graph.should_receive(:put_connections)
+        subject.share_on_facebook
+      end
+    end
+    context "when the member doesn't have a Facebook authentication" do
+      before { subject.stub(:member).and_return(stub_model(Member, :facebook_authorization => nil)) }
+      it "should not share the petition on Facebook" do
+        graph.should_not_receive(:put_connections)
+        subject.share_on_facebook
+      end
+    end
+  end
 end
