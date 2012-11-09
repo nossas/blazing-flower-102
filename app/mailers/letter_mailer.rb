@@ -3,6 +3,6 @@ class LetterMailer < ActionMailer::Base
 
   def new_letter letter
     @letter = letter
-    mail(:to => ["governador@governador.rj.gov.br", "telmaoliveira@gabgovernador.rj.gov.br", "lurodrigues@gabgovernador.rj.gov.br"], :subject => @letter.subject, :from => @letter.email)
+    mail(:to => ["leonardo@meurio.org.br"], :subject => @letter.subject, :from => @letter.email)
   end
 end
