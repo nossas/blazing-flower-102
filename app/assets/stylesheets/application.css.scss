@@ -902,6 +902,14 @@ body[data-controller=letters][data-action=new] {
     font-weight: bold;
     margin-bottom: 1em;
   }
+  .counter{
+    font-weight: bold;
+    float: left;
+    span{
+      font-size: 1.5em;
+      color: $orange;
+    }
+  }
   .share{
     background: #edeae4;
     @include border-radius(1em);
