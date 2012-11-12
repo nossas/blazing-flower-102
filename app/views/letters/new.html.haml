@@ -3,6 +3,8 @@
 = content_for :facebook_properties do
   %meta{ :property => "og:url", :content => request.url }
   %meta{ :property => "og:image", :content => "http://i.imgur.com/bi3MV.jpg" }
+  %meta{ :property => "og:title", :content => "Boca no trombone! #{@issue.name}" }
+  %meta{ :property => "og:description", :content => "A audiência foi mais um retrato de como o Governo tenta manter a sociedade longe de grandes decisões. Antes mesmo de chegar à audiência, o Secretário da Casa Civil alegou que o projeto de concessão do Complexo Maracanã e a demolição da escola e dos outros equipamentos do complexo já estavam decididos." }
 
 .grid_6
   .issue_name
