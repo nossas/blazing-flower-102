@@ -896,8 +896,17 @@ body[data-controller=letters][data-action=new] {
       float: right;
     }
   }
-  .share_btn{
-    float: right
+  .share{
+    background: #edeae4;
+    @include border-radius(1em);
+    padding: 1em;
+    margin-bottom: 1em;
+    p{
+      margin: .5em 0 0 0;
+    }
+  }
+  img{
+    margin-bottom: 1em;
   }
 }
 

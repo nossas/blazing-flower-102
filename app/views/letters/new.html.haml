@@ -1,79 +1,67 @@
 = content_for :title do
-  = "Boca no trombone! #{@issue.name}"
+  = "Envie um e-mail para a secretária de educação"
 = content_for :facebook_properties do
   %meta{ :property => "og:url", :content => request.url }
   %meta{ :property => "og:image", :content => "http://i.imgur.com/bi3MV.jpg" }
   %meta{ :property => "og:title", :content => "Boca no trombone! #{@issue.name}" }
-  %meta{ :property => "og:description", :content => "A audiência foi mais um retrato de como o Governo tenta manter a sociedade longe de grandes decisões. Antes mesmo de chegar à audiência, o Secretário da Casa Civil alegou que o projeto de concessão do Complexo Maracanã e a demolição da escola e dos outros equipamentos do complexo já estavam decididos." }
+  %meta{ :property => "og:description", :content => "Peça para a Secretária se manifestar contra a demolição da escola Friedenreich. A Secretária de Educação Claudia Costin pode definir o futuro da E.M. Friedenreich. Peça para ela se manifestar oficialmente contra a demolição da 10ª melhor escola do Brasil." }
 
-.grid_6
+.grid_12
   .issue_name
     = link_to @issue.name, issue_path(@issue)
-  %h1 Boca no trombone
-
-.grid_6
-  .grid_6.alpha.omega
-    .share_btn
-      %a.twitter-share-button{"data-lang" => "pt", "data-url" => request.url, :href => "https://twitter.com/share", "data-count" => "none"} Tweet
-      :javascript
-        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-  .grid_6.alpha.omega
-    .share_btn
-      .fb-like{"data-href"=>request.url, "data-send"=>"false", "data-layout "=>"button_count", "data-width"=>"120", "data-show-faces"=>"false"}
-      #fb-root
-      :javascript
-        (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=198830483539172";
-        fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+  %h1 Envie um e-mail para a secretária de educação
 
 .grid_12
   .grid_6.alpha
-    = form_for @letter do |form|
-      = form.hidden_field :issue_id, :value => @issue.id
-      /
-        %h2 Escreva a sua carta para O Globo!
-      %p
-        = form.label :sender
-        = form.text_field :sender
-      %p
-        = form.label :email
-        = form.text_field :email
-      %p
-        = form.label :subject
-        = form.text_field :subject, :value => "Precisamos da sua posição"
-      %p
-        = form.label :message
-        = form.text_area :message, :value => "Prezada Secretária Municipal de Educação, Claudia Costin,\n\nNa audiência pública do dia 8/11/2012 o Secretário da Casa Civil Régis Fichtner declarou que o futuro da Escola Municipal Friedenreich está nas mãos da administração municipal. Disse também que a retirada da Escola do Maracanã não irá interferir no seu projeto pedagógico.\n\nPorém nós sabemos que a Friedenreich só é a décima melhor escola do Brasil por causa da sua equipe pedagógica, dos pais e dos alunos que constroem esse espaço diariamente. Sabemos também, que muitos profissionais e alunos não poderão acompanhar uma saída da escola do Maracanã, por questões de acessibilidade, oferta de transporte público e mudança de CRE. Outra preocupação é a falta de coerência nas informações divulgadas pelo poder público, que a todo momento se contradiz em comunicados à imprensa e nunca diretamente aos pais e professores. Tampouco há garantias legais sobre a possível construção de uma nova escola antes da demolição da Friedenreich.\n\nComo você bem disse no seu Twitter: \"nada está definido\". E nós sabemos que você pode ajudar a definir essa história. Por isso te apoiamos na luta para manter a escola Friedenreich de pé e pedimos que a Sra., sendo a pessoa com mais embasamento técnico na área da Educação em toda essa discussão, se pronuncie publicamente contra a retirada da Friedenreich do Maracanã. Precisamos definir rápido o futuro da Friedenreich, já que até agora a única coisa que o Governo se preocupou em confirmar foi a demolição.\n\nSabemos que a sua posição não é fácil. Por isso lhe damos todo o nosso apoio e é fundamental que a Sra. se posicione publicamente, pois só assim as outras centenas de milhares de cariocas que ainda não conhecem a história da E.M. Friedenreich saberão do absurdo que está para acontecer.\n\nCom esperança, um carioca."
-      = form.submit "Enviar", :class => "btn"
+    - if flash[:notice]
+      .share
+        %h3 Compartilhar no Facebook
+        .fb-like{"data-href"=>request.url, "data-send"=>"true", "data-layout "=>"button_count", "data-width"=>"120", "data-show-faces"=>"true"}
+        %p 
+          %strong Peça para a Secretária se manifestar contra a demolição da escola Friedenreich.
+        %p
+          %em A Secretária de Educação Claudia Costin pode definir o futuro da E.M. Friedenreich. Peça para ela se manifestar oficialmente contra a demolição da 10ª melhor escola do Brasil.
+        #fb-root
+        :javascript
+          (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=198830483539172";
+          fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
+      .share
+        %h3 Compartilhar no Twitter
+        %a.twitter-share-button{"data-lang" => "pt", "data-url" => request.url, :href => "https://twitter.com/share", "data-count" => "true"} Tweet
+        %p
+          %em Envie um e-mail para a secretária de educação
+        :javascript
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+    - else
+      = form_for @letter do |form|
+        = form.hidden_field :issue_id, :value => @issue.id
+        /
+          %h2 Escreva a sua carta para O Globo!
+        %p
+          = form.label :sender
+          = form.text_field :sender
+        %p
+          = form.label :email
+          = form.text_field :email
+        %p
+          = form.label :subject
+          = form.text_field :subject, :value => "Precisamos da sua posição"
+        %p
+          = form.label :message
+          = form.text_area :message, :value => "Prezada Secretária Municipal de Educação, Claudia Costin,\n\nNa audiência pública do dia 8/11/2012 o Secretário da Casa Civil Régis Fichtner declarou que o futuro da Escola Municipal Friedenreich está nas mãos da administração municipal. Disse também que a retirada da Escola do Maracanã não irá interferir no seu projeto pedagógico.\n\nPorém nós sabemos que a Friedenreich só é a décima melhor escola do Brasil por causa da sua equipe pedagógica, dos pais e dos alunos que constroem esse espaço diariamente. Sabemos também, que muitos profissionais e alunos não poderão acompanhar uma saída da escola do Maracanã, por questões de acessibilidade, oferta de transporte público e mudança de CRE. Outra preocupação é a falta de coerência nas informações divulgadas pelo poder público, que a todo momento se contradiz em comunicados à imprensa e nunca diretamente aos pais e professores. Tampouco há garantias legais sobre a possível construção de uma nova escola antes da demolição da Friedenreich.\n\nComo você bem disse no seu Twitter: \"nada está definido\". E nós sabemos que você pode ajudar a definir essa história. Por isso te apoiamos na luta para manter a escola Friedenreich de pé e pedimos que a Sra., sendo a pessoa com mais embasamento técnico na área da Educação em toda essa discussão, se pronuncie publicamente contra a retirada da Friedenreich do Maracanã. Precisamos definir rápido o futuro da Friedenreich, já que até agora a única coisa que o Governo se preocupou em confirmar foi a demolição.\n\nSabemos que a sua posição não é fácil. Por isso lhe damos todo o nosso apoio e é fundamental que a Sra. se posicione publicamente, pois só assim as outras centenas de milhares de cariocas que ainda não conhecem a história da E.M. Friedenreich saberão do absurdo que está para acontecer.\n\nCom esperança, um carioca."
+        = form.submit "Enviar", :class => "btn"
 
   .grid_6.omega
     %img{:src => "http://i.imgur.com/bi3MV.jpg", :width => "460"}
-    %p Use o formulário ao lado e mande um email para a Secretária manifestando o seu apoio e pedindo que ela defenda publicamente a permanência da Friedenreich no Maracanã!
     %p 
-      %strong A audiência foi mais um retrato de como o Governo tenta manter a sociedade longe de grandes decisões.
-      Antes mesmo de chegar à audiência, o Secretário da Casa Civil alegou que o projeto de concessão do Complexo Maracanã e a demolição da escola e dos outros equipamentos do complexo já estavam decididos.
+      Graças à nossa mobilização, os pais e alunos da Escola Municipal Friedenreich não entraram na audiência pública da última quinta-feira sozinhos. Com eles, havia a força de mais de 16 mil cariocas. 
+      %strong Nós fizemos tanta pressão no Governo Estadual que o Secretário da Casa Civil passou a bola para a Prefeitura, que ainda precisa ceder o terreno da escola para o Estado. 
     %p 
-      Porém, no final da audiência, o Secretário disse que 
-      %strong o futuro da Friedenreich está nas mãos da Prefeitura
-      , já que a escola é municipal e o terreno é da Prefeitura do Rio. Por isso, 
-      %strong a Secretária Municipal de Educação, Cláudia Costin, ainda pode defender a 10ª melhor escola do Brasil! 
-      A boa notícia é que 
-      %strong ela já declarou que é contra a demolição da escola e que “nada está decidido”. Vamos mostrar à Claudia que os cariocas apoiam a sua decisão.
-    %p 
-      %strong A nossa mobilização está chamando muita atenção e já está fazendo a diferença! 
-      Na última semana, o Secretário Regis Fichtner foi procurado pelos principais jornais para dar satisfações sobre a escola e, 
-      %strong em uma tentativa de nos desmotivar, disse que o novo local já estaria fechado 
-      com a prefeitura e seria na antiga escola de veterinária do exército, em São Cristóvão. 
-      %strong Mas o Exército tratou de desmentir a declaração alegando que a venda do terreno não está confirmada. Isso só prova que devemos sempre apurar as declarações dos nossos governantes, principalmente as que são sobre processos sem nenhuma transparência.
-      %strong Queremos garantias legais de que a Friedenreich continuará no Maracanã, 
-      possibilitando a continuidade do seu projeto pedagógico, do trabalho de toda a equipe e da acessibilidade dos seus alunos.
-    %p 
-      %strong O período de transferência de alunos para outras escola vai só até o dia 25 de novembro. 
-      É um absurdo que as autoridades não estejam priorizando esse diálogo e os pais precisem procurar nos jornais notícias sobre o futuro dos seus filhos.
-    %p 
-      Ps.: O Meu Rio fez um relato mais detalhado sobre a audiência.
-      = link_to "Leia aqui.", "http://on.fb.me/UwTmAU"
+      %strong Para a nossa sorte existe uma pessoa dentro da Prefeitura que tem muita influência com o Prefeito e que já se manifestou contra a demolição da escola: a Secretária Municipal de Educação, Claudia Costin. 
+      Precisamos que ela se manifeste oficialmente contra a demolição e para isso 
+      %strong vamos mandar milhares de mensagens de apoio à Secretária para mostrar que, se ela comprar essa briga, ela também não estará sozinha.
