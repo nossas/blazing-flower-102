@@ -2,6 +2,7 @@
   = "Boca no trombone! #{@issue.name}"
 = content_for :facebook_properties do
   %meta{ :property => "og:url", :content => request.url }
+  %meta{ :property => "og:image", :content => "http://i.imgur.com/bi3MV.jpg" }
 
 .grid_6
   .issue_name
@@ -11,12 +12,12 @@
 .grid_6
   .grid_6.alpha.omega
     .share_btn
-      %a.twitter-share-button{"data-lang" => "pt", "data-url" => request.url, :href => "https://twitter.com/share"} Tweet
+      %a.twitter-share-button{"data-lang" => "pt", "data-url" => request.url, :href => "https://twitter.com/share", "data-count" => "none"} Tweet
       :javascript
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
   .grid_6.alpha.omega
     .share_btn
-      .fb-like{"data-href"=>request.url, "data-send"=>"false", "data-layout"=>"button_count", "data-width"=>"120", "data-show-faces"=>"false"}
+      .fb-like{"data-href"=>request.url, "data-send"=>"false", "data-layout "=>"button_count", "data-width"=>"120", "data-show-faces"=>"false"}
       #fb-root
       :javascript
         (function(d, s, id) {
@@ -41,18 +42,36 @@
         = form.text_field :email
       %p
         = form.label :subject
-        = form.text_field :subject, :value => "Recado para o Governador"
+        = form.text_field :subject, :value => "Precisamos da sua posição"
       %p
         = form.label :message
-        = form.text_area :message, :value => "Prezado Governador,\n\nPeço que o Senhor revogue o decreto  25.997 do ano 2.000, que dá poderes ao Presidente da CEDAE de aumentar a tarifa do serviço como bem entender.\n\nHoje o tratamento de esgoto é precário, muita gente recebe a conta sem ter o serviço, e a maioria das famílias cariocas ainda é obrigada a recorrer a água imunda e fossas à céu aberto. É tamanho o descaso da CEDAE que ela ainda nem publicou um plano detalhado de expansão da rede. Enquanto isso, o presidente Wagner Victer se sente à vontade para aumentar o preço da água em quase 10% para todos os cariocas, e quase 14% para os que não têm rede de esgoto. Ou seja: o Rio todo perde, e os mais pobres são os mais prejudicados.\n\nPara a gente transformar essa realidade, o Senhor precisa revogar o decreto 25.997/2000, que dá super-poderes ao presidente da CEDAE. Esse é o nosso primeiro objetivo na missão de garantir 100% de saneamento básico na cidade do Rio.\n\nContamos com seu compromisso com a sociedade.\n\nSinceramente"
+        = form.text_area :message, :value => "Prezada Secretária Municipal de Educação, Claudia Costin,\n\nNa audiência pública do dia 8/11/2012 o Secretário da Casa Civil Régis Fichtner declarou que o futuro da Escola Municipal Friedenreich está nas mãos da administração municipal. Disse também que a retirada da Escola do Maracanã não irá interferir no seu projeto pedagógico.\n\nPorém nós sabemos que a Friedenreich só é a décima melhor escola do Brasil por causa da sua equipe pedagógica, dos pais e dos alunos que constroem esse espaço diariamente. Sabemos também, que muitos profissionais e alunos não poderão acompanhar uma saída da escola do Maracanã, por questões de acessibilidade, oferta de transporte público e mudança de CRE. Outra preocupação é a falta de coerência nas informações divulgadas pelo poder público, que a todo momento se contradiz em comunicados à imprensa e nunca diretamente aos pais e professores. Tampouco há garantias legais sobre a possível construção de uma nova escola antes da demolição da Friedenreich.\n\nComo você bem disse no seu Twitter: \"nada está definido\". E nós sabemos que você pode ajudar a definir essa história. Por isso te apoiamos na luta para manter a escola Friedenreich de pé e pedimos que a Sra., sendo a pessoa com mais embasamento técnico na área da Educação em toda essa discussão, se pronuncie publicamente contra a retirada da Friedenreich do Maracanã. Precisamos definir rápido o futuro da Friedenreich, já que até agora a única coisa que o Governo se preocupou em confirmar foi a demolição.\n\nSabemos que a sua posição não é fácil. Por isso lhe damos todo o nosso apoio e é fundamental que a Sra. se posicione publicamente, pois só assim as outras centenas de milhares de cariocas que ainda não conhecem a história da E.M. Friedenreich saberão do absurdo que está para acontecer.\n\nCom esperança, um carioca."
       = form.submit "Enviar", :class => "btn"
 
   .grid_6.omega
-    %iframe{:width => "460", :height => "315", :src => "http://www.youtube.com/embed/M6b3A0RfYn4", :frameborder => "0"}
-    %p A nossa missão é garantir 100% de saneamento para o Rio. Você já faz parte deste movimento, e já assinou a petição exigindo que o governador revogue o decreto que dá ao presidente da CEDAE o poder de impor aumentos de tarifa como ele bem entender. Mas por enquanto, o governador ainda não deu uma resposta a você e aos outros milhares de cariocas que se uniram nessa demanda.
-
-    %p Então, resolvemos dar um jeito de garantir que todo mundo que trabalha com o governador conhecerá a nossa mobilização: vamos todos ligar HOJE diretamente para o seu gabinete, e pedir pra ele revogar o decreto!  Se todos nós ligarmos, o telefone vai tocar o dia inteiro, todos que trabalham no gabinete vão saber que estamos nos mobilizando e não vai ter jeito: isso vai chegar nos ouvidos do Governador! Você pode tirar um minuto do seu dia para fazer essa ligação? Assista o vídeo e saiba como!
-
-    %p Depois de ligar para o gabinete, envie a mensagem ao lado para os assessores do Governador. É rapidinho e se os assessores receberem milhares de emails pedindo a revogação do decreto, nossa mensagem será repassada!
-
-    %p Revogar esse decreto é só o primeiro passo para garantirmos saneamento básico para todos os cariocas. Já estamos fazendo barulho! Semana passada, aumentamos o volume enviando a petição pros nossos amigos e familiares. Agora, vamos garantir que a nossa mobilização chegue nos ouvidos do Governador Sérgio Cabral, ligue e envie uma mensagem já! 
+    %img{:src => "http://i.imgur.com/bi3MV.jpg", :width => "460"}
+    %p Use o formulário ao lado e mande um email para a Secretária manifestando o seu apoio e pedindo que ela defenda publicamente a permanência da Friedenreich no Maracanã!
+    %p 
+      %strong A audiência foi mais um retrato de como o Governo tenta manter a sociedade longe de grandes decisões.
+      Antes mesmo de chegar à audiência, o Secretário da Casa Civil alegou que o projeto de concessão do Complexo Maracanã e a demolição da escola e dos outros equipamentos do complexo já estavam decididos.
+    %p 
+      Porém, no final da audiência, o Secretário disse que 
+      %strong o futuro da Friedenreich está nas mãos da Prefeitura
+      , já que a escola é municipal e o terreno é da Prefeitura do Rio. Por isso, 
+      %strong a Secretária Municipal de Educação, Cláudia Costin, ainda pode defender a 10ª melhor escola do Brasil! 
+      A boa notícia é que 
+      %strong ela já declarou que é contra a demolição da escola e que “nada está decidido”. Vamos mostrar à Claudia que os cariocas apoiam a sua decisão.
+    %p 
+      %strong A nossa mobilização está chamando muita atenção e já está fazendo a diferença! 
+      Na última semana, o Secretário Regis Fichtner foi procurado pelos principais jornais para dar satisfações sobre a escola e, 
+      %strong em uma tentativa de nos desmotivar, disse que o novo local já estaria fechado 
+      com a prefeitura e seria na antiga escola de veterinária do exército, em São Cristóvão. 
+      %strong Mas o Exército tratou de desmentir a declaração alegando que a venda do terreno não está confirmada. Isso só prova que devemos sempre apurar as declarações dos nossos governantes, principalmente as que são sobre processos sem nenhuma transparência.
+      %strong Queremos garantias legais de que a Friedenreich continuará no Maracanã, 
+      possibilitando a continuidade do seu projeto pedagógico, do trabalho de toda a equipe e da acessibilidade dos seus alunos.
+    %p 
+      %strong O período de transferência de alunos para outras escola vai só até o dia 25 de novembro. 
+      É um absurdo que as autoridades não estejam priorizando esse diálogo e os pais precisem procurar nos jornais notícias sobre o futuro dos seus filhos.
+    %p 
+      Ps.: O Meu Rio fez um relato mais detalhado sobre a audiência.
+      = link_to "Leia aqui.", "http://on.fb.me/UwTmAU"
