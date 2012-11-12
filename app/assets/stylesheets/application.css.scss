@@ -896,6 +896,12 @@ body[data-controller=letters][data-action=new] {
       float: right;
     }
   }
+  .thanks{
+    color: $orange;
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
   .share{
     background: #edeae4;
     @include border-radius(1em);

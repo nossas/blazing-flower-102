@@ -3,7 +3,7 @@
 = content_for :facebook_properties do
   %meta{ :property => "og:url", :content => request.url }
   %meta{ :property => "og:image", :content => "http://i.imgur.com/bi3MV.jpg" }
-  %meta{ :property => "og:title", :content => "Boca no trombone! #{@issue.name}" }
+  %meta{ :property => "og:title", :content => "Clique para pedir para a secretária se manifestar contra a demolição da escola Friedenreich" }
   %meta{ :property => "og:description", :content => "Peça para a Secretária se manifestar contra a demolição da escola Friedenreich. A Secretária de Educação Claudia Costin pode definir o futuro da E.M. Friedenreich. Peça para ela se manifestar oficialmente contra a demolição da 10ª melhor escola do Brasil." }
 
 .grid_12
@@ -14,8 +14,9 @@
 .grid_12
   .grid_6.alpha
     - if flash[:notice]
+      .thanks Obrigado por enviar o seu e-mail diretamente para a Claudia Costin. Agora compartilhe essa ação com seus amigos e família:
       .share
-        %h3 Compartilhar no Facebook
+        %h3 Compartilhe no Facebook
         .fb-like{"data-href"=>request.url, "data-send"=>"true", "data-layout "=>"button_count", "data-width"=>"120", "data-show-faces"=>"true"}
         %p 
           %strong Peça para a Secretária se manifestar contra a demolição da escola Friedenreich.
@@ -31,10 +32,10 @@
           fjs.parentNode.insertBefore(js, fjs);
           }(document, 'script', 'facebook-jssdk'));
       .share
-        %h3 Compartilhar no Twitter
-        %a.twitter-share-button{"data-lang" => "pt", "data-url" => request.url, :href => "https://twitter.com/share", "data-count" => "true"} Tweet
+        %h3 Compartilhe no Twitter
+        <a href="https://twitter.com/intent/tweet?button_hashtag=voc%C3%AA%C3%A9Asecret%C3%A1ria&text=.%40ClaudiaCostin%20manifeste%20publicamente%20seu%20apoio%20contra%20a%20demoli%C3%A7%C3%A3o%20da%20escola%20Friedenreich" class="twitter-hashtag-button" data-lang="pt" data-size="large" data-url="http://bit.ly/TECGTK">Tweet #voc%C3%AA%C3%A9Asecret%C3%A1ria</a>
         %p
-          %em Envie um e-mail para a secretária de educação
+          %em .@ClaudiaCostin manifeste publicamente seu apoio contra a demolição da escola Friedenreich #vocêéAsecretária
         :javascript
           !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
     - else
