@@ -1,5 +1,8 @@
 class LettersController < InheritedResources::Base
-  before_filter :only => [:new] { @issue = Issue.find(params[:issue_id]) }
+  before_filter :only => [:new] do 
+    @issue = Issue.find(params[:issue_id])
+    return redirect_to issue_path(@issue) unless @issue.letters_enabled?
+  end
 
   def create
     create! do |success, failure|
