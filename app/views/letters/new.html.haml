@@ -9,19 +9,17 @@
 .grid_12
   .issue_name
     = link_to @issue.name, issue_path(@issue)
-  %h1 Envie um e-mail para a secretária de educação
+  %h1 Envie uma mensagem para a Presidente do IPHAN!
 
 .grid_12
   .grid_6.alpha
     - if flash[:notice]
-      .thanks Obrigado por enviar o seu e-mail diretamente para a Claudia Costin. Agora compartilhe essa ação com seus amigos e família:
+      .thanks Obrigado por enviar o seu e-mail diretamente para o IPHAN. Agora compartilhe essa ação com seus amigos e família:
       .share
         %h3 Compartilhe no Facebook
         .fb-like{"data-href"=>request.url, "data-send"=>"true", "data-layout "=>"button_count", "data-width"=>"120", "data-show-faces"=>"true"}
         %p 
-          %strong Peça para a Secretária se manifestar contra a demolição da escola Friedenreich.
-        %p
-          %em A Secretária de Educação Claudia Costin pode definir o futuro da E.M. Friedenreich. Peça para ela se manifestar oficialmente contra a demolição da 10ª melhor escola do Brasil.
+          %strong Envie uma mensagem para a Presidente do IPHAN!
         #fb-root
         :javascript
           (function(d, s, id) {
@@ -33,9 +31,9 @@
           }(document, 'script', 'facebook-jssdk'));
       .share
         %h3 Compartilhe no Twitter
-        <a href="https://twitter.com/intent/tweet?button_hashtag=Voc%C3%AA%C3%89ASecret%C3%A1ria&text=Acabei%20de%20pedir%20o%20apoio%20da%20Sec.%20Mun.%20de%20Educa%C3%A7%C3%A3o%20contra%20a%20demoli%C3%A7%C3%A3o%20da%20Escola%20Friedenreich" class="twitter-hashtag-button" data-lang="pt" data-size="large" data-url="http://bit.ly/TECGTK">Tweet #Voc%C3%AA%C3%89ASecret%C3%A1ria</a>
+        %a{:href => "https://twitter.com/share", :class => "twitter-share-button", "data-url" => "http://bit.ly/WxMgbs", "data-lang" => "pt", "data-size" => "large"} Tweetar
         %p
-          %em Acabei de pedir o apoio da Sec. Mun. de Educação contra a demolição da Escola Friedenreich #VocêÉASecretária
+          %em Envie uma mensagem para a Presidente do IPHAN!
         :javascript
           !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
     - else
