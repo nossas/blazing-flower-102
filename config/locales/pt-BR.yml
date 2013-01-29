@@ -253,7 +253,7 @@
         first_name: "Nome"
         last_name: "Sobrenome"
         email: "E-mail"
-        zona: "Zona"
+        zona: "Localidade"
         meu_rio_is: "Meu Rio é..."
         image_url: "URL da imagem"
         celular: "Celular"

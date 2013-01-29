@@ -30,8 +30,9 @@ class Member < ActiveRecord::Base
   scope :by_updated_at, proc {|updated_at| where("updated_at >= ?", updated_at)}
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
-    data = access_token['extra']['user_hash']
+    data  = access_token['extra']['user_hash']
     email = access_token['user_info']['email']
+    zone  = access_token['user_info']['location']['name']
     if member = find_by_email(email)
       member.update_attributes(:image_url => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}.jpg?s=260&d=http://#{SITE['site_url']}/assets/avatar_blank.png") if member.image_url.nil?
       member
@@ -44,6 +45,7 @@ class Member < ActiveRecord::Base
           :last_name => data["last_name"],
           :image_url => gravatar,
           :confirmed_at => Time.now,
+          :zona => zone,
           :has_non_oauth_login => false,
           :has_login => true )
       rescue => e
