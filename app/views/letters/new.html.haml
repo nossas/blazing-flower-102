@@ -43,10 +43,10 @@
           %h2 Escreva a sua carta para O Globo!
         %p
           = form.label :sender
-          = form.text_field :sender
+          = form.text_field :sender, :class => "required"
         %p
           = form.label :email
-          = form.text_field :email
+          = form.text_field :email, :class => "required email"
         %p
           = form.label :subject
           = form.text_field :subject, :value => "Vamos preservar o antigo Museu do Índio!"

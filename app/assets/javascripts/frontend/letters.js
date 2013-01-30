@@ -2,13 +2,15 @@
 // All this logic will automatically be available in application.js.
 
 $(function(){
-  function validateForm(){
-    if($("#letter_sender").val() != "" && $("#letter_email").val() != ""){
-      $(".new_letter input[type='submit']").removeAttr("disabled")
+  $("form.new_letter").validate({
+    messages: {
+      "letter[sender]":{
+        required: "Este campo é obrigatório"
+      },
+      "letter[email]":{
+        required: "Este campo é obrigatório",
+        email: "Formato de email inválido"
+      }
     }
-  }
-
-  $(".new_letter input[type='submit']").attr("disabled", true);
-  $("#letter_sender").change(validateForm);
-  $("#letter_email").change(validateForm);
+  });
 });

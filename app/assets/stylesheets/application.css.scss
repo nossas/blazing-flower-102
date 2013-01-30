@@ -884,6 +884,12 @@ body[data-controller=letters][data-action=new] {
       display: inline-block;
       width: 60px;
     }
+    label.error{
+      display: block;
+      width: auto;
+      color: $red;
+      padding-left: 65px;
+    }
     input[type=text]{
       width: 350px;
     }
