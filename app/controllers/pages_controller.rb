@@ -9,8 +9,8 @@ class PagesController < ApplicationController
   end
 
   def show
+    @meu_rio_is = MeuRioIsWidget.order("RANDOM()").first
     logger.debug("Rendering page: #{current_page}")
-
     @current_page = params[:id].to_s.downcase
     render :template => current_page
   end
