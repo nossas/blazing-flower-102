@@ -19,7 +19,6 @@ gem "oa-oauth", :require => "omniauth/oauth"
 gem 'oa-openid', :require => 'omniauth/openid'
 
 # External apis
-gem 'twitter'
 gem 'aws-s3'
 gem 'httparty'
 

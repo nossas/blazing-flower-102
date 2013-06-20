@@ -1,8 +1,1 @@
-#legislative.widget.margin_bottom
-  %h1 De Olho No Legislativo
-  .scrollable
-    .items
-      = raw(LegislativeAgendaWidget.first.html_content) if LegislativeAgendaWidget.first
-  .controls
-    =link_to image_tag('/assets/scroll_arrow_left.png'), '#', :class => 'prev'
-    =link_to image_tag('/assets/scroll_arrow_right.png'), '#', :class => 'next'
+%iframe{:src => "http://deolho.meurio.org.br/posts/highlight", :height => "175", :width => "300"}

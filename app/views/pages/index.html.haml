@@ -1,5 +1,5 @@
 #homepage
-  .widget_container.margin_bottom
+  .widget_container
     =render '/widgets/featured_content_1'
     =render '/widgets/date_weather'
     =render '/widgets/legislative'
@@ -19,9 +19,6 @@
 
   .widget_container.right{:style => 'margin-right:10px;'}
     =render '/widgets/team_update'
-
-  .widget_container.left
-    =render '/widgets/twitter'
 
 .clearfix
 

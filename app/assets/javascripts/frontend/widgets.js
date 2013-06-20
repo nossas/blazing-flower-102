@@ -22,6 +22,7 @@ MR.widgets = {
 
   meu_rio_is: function(){
     MR.widgets.meu_rio_is.api = MR.widgets.createScrollable.apply(this);
+    MR.widgets.meu_rio_is.api.seekTo(Math.floor(Math.random()*13));
   },
 
   createScrollable: function(){

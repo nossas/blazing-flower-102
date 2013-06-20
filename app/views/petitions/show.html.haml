@@ -15,10 +15,10 @@
     %meta{ :property => "og:image", :content => "#{@taf.facebook_image.url(:medium)}" }
 
   .grid_12
-  .issue_name
+  .issue_name.grid_12
     .sprite.petition
     = link_to @petition.issue.name, issue_path(@petition.issue)
-%h1.grid_12
+%h1.grid_11.sufix_1
   = @petition.headline.upcase
 .grid_6
   .media{:style => "z-index:0"}= raw @petition.media
