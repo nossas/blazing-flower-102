@@ -118,7 +118,7 @@
       = t("members_show.is_collaborating_in", :name => @member.first_name)
       = image_tag "/assets/comments_arrow.png"
     -unless @member.action_history.empty?
-      - @member.action_history.each do |item|
+      - @member.action_history.limit(3).each do |item|
         .post.clearfix
           .icon.grid_1.alpha
             = image_tag "/assets/01_petition_icon.png" if item.instance_of? PetitionSignature
