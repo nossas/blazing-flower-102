@@ -3,6 +3,7 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     session[:fb_token] = auth_data["credentials"]["token"]
+    logger.info(auth_data)
     provider_authorization = ProviderAuthorization.find_for_facebook_oauth(auth_data, current_member)
     proceed_with_authorization provider_authorization
   end

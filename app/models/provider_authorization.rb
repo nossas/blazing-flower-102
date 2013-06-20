@@ -8,6 +8,7 @@ class ProviderAuthorization < ActiveRecord::Base
   belongs_to :member
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
+    logger.info(access_token)
     if authorization = ProviderAuthorization.where(:provider => 'facebook', :uid => access_token['uid']).first
       authorization.update_attribute :token, access_token["credentials"]["token"]
       authorization
