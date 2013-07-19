@@ -40,4 +40,7 @@ MeuRio::Application.configure do
   config.active_support.deprecation = :stderr
   ActiveSupport::Deprecation.silenced = true
   Delayed::Worker.delay_jobs = false
+
+  ENV["S3_ID"] ||= "S3-ID"
+  ENV["S3_SECRET"] ||= "S3-SECRET"
 end

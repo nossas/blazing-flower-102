@@ -70,6 +70,9 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
+    capybara-webkit (0.13.0)
+      capybara (>= 1.0.0, < 1.2)
+      json
     carrierwave (0.5.8)
       activesupport (~> 3.0)
     childprocess (0.3.4)
@@ -172,6 +175,7 @@ GEM
     koala (1.1.0)
       multi_json (~> 1.0)
       multipart-post (~> 1.0)
+    libv8 (3.11.8.17)
     libwebsocket (0.1.4)
       addressable
     mail (2.3.0)
@@ -250,6 +254,7 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     redcarpet (2.0.1)
+    ref (1.0.5)
     responders (0.6.5)
     rest-client (1.6.7)
       mime-types (>= 1.16)
@@ -309,6 +314,9 @@ GEM
       sqlite3-ruby (~> 1.2)
     temple (0.3.5)
     term-ansicolor (1.0.7)
+    therubyracer (0.11.4)
+      libv8 (~> 3.11.8.12)
+      ref
     thin (1.2.11)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -340,6 +348,7 @@ DEPENDENCIES
   aws-s3
   cancan
   capybara
+  capybara-webkit
   carrierwave
   coffee-script
   compass-960-plugin!
@@ -379,5 +388,6 @@ DEPENDENCIES
   sprockets
   state_machine
   taps
+  therubyracer
   thin
   uglifier
