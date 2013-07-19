@@ -28,4 +28,7 @@ MeuRio::Application.configure do
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :host => "localhost", :port => 1025 }
+
+  ENV['S3_ID'] ||= "S3-ID"
+  ENV['S3_SECRET'] ||= "S3-SECRET"
 end
