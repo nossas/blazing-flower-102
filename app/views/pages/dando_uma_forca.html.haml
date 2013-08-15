@@ -4,14 +4,11 @@
   DANDO UMA FORÇA
 
 .grid_8
-  %p
-    O Meu Rio é uma organização não-governamental, sem fins lucrativos e que não recebe incentivo do Estado. Nós começamos o projeto com doações de pessoas físicas e jurídicas que apostaram na ideia por um Rio melhor.
-  %p
-    Agora, para mantermos a sustentabilidade financeira do movimento, contamos com microdoações de nossos membros. E como a boa intenção e a participação não têm preço, até as menores contribuições serão mais que bem vindas. Lembre-se: uma doação pequena porém periódica nos ajuda a planejar melhor as campanhas a médio-prazo.
-  %p
-    Temos uma política financeira transparente e nos comprometemos a publicar o relatório financeiro no mês de Abril de cada ano, com a lista completa e atualizada de nossos doadores. Além disso, como patrocinador do Meu Rio você receberá uma cópia eletrônica de nosso relatório de progresso anual para saber exatamente o que está sendo feito com o seu dinheiro.
-  %p
-    Todas as transações com cartão de crédito favorecendo o Meu Rio são feitas através do MoIP, um prestador de serviços com segurança certificada pela Verisign e pela Site Blindado. Não daremos nenhum tipo de informação pessoal sua pra ninguém.
+  %p O Meu Rio é uma organização não-governamental, sem fins lucrativos e que não recebe incentivo do Estado. Nós começamos o projeto com doações de pessoas físicas e jurídicas que apostaram na ideia por um Rio melhor.
+  %p 
+    %img{:source => "http://i.imgur.com/CRW3KCA.png"}
+  %p Para mais detalhes veja o #{link_to "Orçamento Mensal do Meu Rio", "http://i.imgur.com/7toaHSH.jpg", :target => "blank"}.
+  %p Todas as transações com cartão de crédito favorecendo o Meu Rio são feitas através do MoIP, um prestador de serviços com segurança certificada pela Verisign e pela Site Blindado. Não daremos nenhum tipo de informação pessoal sua pra ninguém.
   %form{ :target => '_blank', :method => 'post', :action => 'https://www.moip.com.br/Process.do' }
     %input{ :type => 'hidden', :name => 'method', :value => 'donation' }
       %input{ :type => 'hidden', :name => 'encrypted', :value => "#{ENV["MOIP_KEY"]}" }
