@@ -2,9 +2,8 @@
 %h1.grid_9
   = t("pages_show_jobs.title")
 
-.grid_8.alpha.trabalhe
+.grid_12.alpha.trabalhe
   -unless Job.active.blank?
-
     - Job.active.each do |j|
       .job.closed
         %a.toggle_icon{:href => '#'}
@@ -14,13 +13,6 @@
           =raw j.description
   -else
     =raw t("pages_show_jobs.no_jobs")
-
-.grid_4.omega.trabalhe
-  .speech_bubble_container.gray
-    .speech_bubble_top
-    .speech_bubble
-      %h2= raw t("pages_show_jobs.sidebar_title")
-      =raw t("pages_show_jobs.sidebar_content")
 
 - content_for :javascripts do
   :javascript
