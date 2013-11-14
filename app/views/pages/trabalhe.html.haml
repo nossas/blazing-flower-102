@@ -1,4 +1,10 @@
 - content_for :title, "Meu Rio - Quer trabalhar conosco?"
+- content_for :facebook_properties do
+  %meta{ :property => "og:title",       :content => "Venha trabalhar com a gente" }
+  %meta{ :property => "og:image",       :content => "http://static.tumblr.com/yozbzdm/UGdm3ezqy/meuriologo__1_.png" }
+  %meta{ :property => "og:url",         :content => "http://www.meurio.org.br/paginas/trabalhe" }
+  %meta{ :property => "og:description", :content => "#{SITE['og_description']}" }
+
 %h1.grid_9
   = t("pages_show_jobs.title")
 
