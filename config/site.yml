@@ -2,7 +2,7 @@ development: &defaults
   site_url: 'localhost:3000'
   default_from_email_address: "Dev <dev@meurio.org.br>"
   ga_tracking_code: 'no-dev-tracking-code'
-  s3_bucket: 'meu-rio-production'
+  s3_bucket: 'blazing-flower-102'
   s3_export_bucket: 'meu-rio-development-exports'
   fb_app_id: '177910022269006'
   og_title: 'Meu Rio'
@@ -29,5 +29,5 @@ production:
   site_url: 'meurio.org.br'
   default_from_email_address: "Meu Rio <contato@meurio.org.br>"
   ga_tracking_code: 'UA-26278513-1'
-  s3_bucket: 'meu-rio-production'
+  s3_bucket: 'blazing-flower-102'
   s3_export_bucket: 'meu-rio-production-exports'
